@@ -1,2 +1,5 @@
-# jamesqquick-site
-Personal site for James Q Quick (me!)
+# James Q Quick Personal Site
+
+## Running in development
+
+`gatsby develop`
