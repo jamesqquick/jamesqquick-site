@@ -1,0 +1,37 @@
+@import "variables";
+
+.container {
+  max-width: 900px;
+  padding: 5rem;
+  margin: 0 auto;
+}
+
+span.highlight {
+  color: $secondary;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.none {
+  display: none;
+}
+
+.hidden-sm {
+  display: default;
+}
+
+.text-danger {
+  color: red;
+}
+
+@media only screen and (max-width: 768px) {
+  .hidden-sm {
+    display: none;
+  }
+}

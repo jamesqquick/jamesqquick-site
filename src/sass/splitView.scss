@@ -1,0 +1,45 @@
+@import "variables";
+
+.splitview {
+  display: flex;
+}
+
+.splitview > * {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 15rem 5rem;
+}
+
+.left-content {
+  text-align: center;
+  background-color: $primary;
+  color: white;
+}
+
+.right-content {
+  align-items: start;
+}
+
+@media only screen and (max-width: 768px) {
+  .splitview {
+    flex-direction: column;
+  }
+
+  .splitview > * {
+    width: 100%;
+    padding: 3rem 5rem;
+    padding-top: 5rem;
+  }
+
+  .left-content {
+    display: none;
+  }
+
+  .right-content {
+    padding: 0;
+    padding: 8rem 3rem;
+  }
+}
