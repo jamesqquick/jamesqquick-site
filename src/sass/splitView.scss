@@ -18,9 +18,13 @@
   align-items: start;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 900px) {
   .splitview {
     flex-direction: column;
+
+    & > img {
+      display: none;
+    }
   }
 
   .splitview > * {
