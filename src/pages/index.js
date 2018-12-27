@@ -38,6 +38,7 @@ const IndexPage = () => (
         icon={faAngleDown}
         size="6x"
         fixedWidth
+        id="downArrow"
       />
     </section>
     {/* <img src={interviewImage} alt="" className="img-cover full-height" />
