@@ -26,37 +26,39 @@ export class ContactForm extends Component {
           data-netlify-honeypot="bot-field"
           action="/success"
         >
-          <input type="hidden" name="bot-field" />
+          <div className="inline-form-input">
+            <input type="hidden" name="bot-field" />
 
-          <input
-            type="text"
-            name="name"
-            value={name}
-            placeholder="Name"
-            onChange={this.onInputChange}
-          />
-          <input
-            type="email"
-            name="email"
-            value={email}
-            placeholder="Email"
-            onChange={this.onInputChange}
-          />
-          <textarea
-            placeholder="What's Up?!?!"
-            name="content"
-            value={content}
-            rows="8"
-            onChange={this.onInputChange}
-          />
-          <div className="text-right">
-            <button type="submit" className="btn" disabled={disabled}>
-              {loading ? (
-                <FontAwesomeIcon icon={faSpinner} size="1x" spin />
-              ) : (
-                "Submit"
-              )}
-            </button>
+            <input
+              type="text"
+              name="name"
+              value={name}
+              placeholder="Name"
+              onChange={this.onInputChange}
+            />
+            <input
+              type="email"
+              name="email"
+              value={email}
+              placeholder="Email"
+              onChange={this.onInputChange}
+            />
+            <textarea
+              placeholder="What's Up?!?!"
+              name="content"
+              value={content}
+              rows="8"
+              onChange={this.onInputChange}
+            />
+            <div className="text-right">
+              <button type="submit" className="btn" disabled={disabled}>
+                {loading ? (
+                  <FontAwesomeIcon icon={faSpinner} size="1x" spin />
+                ) : (
+                  "Submit"
+                )}
+              </button>
+            </div>
           </div>
           {!!errorMsg ? <p className="text-danger">{errorMsg}</p> : ""}
         </form>
