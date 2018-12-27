@@ -4,16 +4,6 @@ footer {
   background-color: $off-white;
 }
 
-footer svg {
-  margin: 0 1rem;
-}
-
-footer svg:hover {
-  -webkit-transform: translateY(-1px);
-  -ms-transform: translateY(-1px);
-  transform: translateY(-1px);
-}
-
 .footer-content {
   max-width: 900px;
   padding: 2rem;

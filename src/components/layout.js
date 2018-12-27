@@ -2,8 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { StaticQuery, graphql } from "gatsby";
 import "../sass/index.scss";
-import Navbar from "./navbar";
-
+import Footer from "./footer";
 const Layout = ({ children }) => (
   <StaticQuery
     query={graphql`
@@ -17,8 +16,9 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <>
-        <Navbar siteTitle={data.site.siteMetadata.title} />
+        {/* <Navbar siteTitle={data.site.siteMetadata.title} /> */}
         {children}
+        <Footer />
       </>
     )}
   />

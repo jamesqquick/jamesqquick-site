@@ -2,15 +2,19 @@
 
 .btn {
   padding: 1rem 3rem;
-  border-radius: 5px;
   background-color: $primary;
   color: $off-white;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
+  width: 200px;
+  border: 2px solid $primary;
+  transition: background-color 250ms;
 }
 
 .btn:hover {
   cursor: pointer;
-  background-color: $primary-light;
+  background-color: white;
+  border-color: $primary;
+  color: $primary;
 }
 
 .btn:disabled {

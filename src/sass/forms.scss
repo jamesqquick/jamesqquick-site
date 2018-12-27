@@ -1,6 +1,13 @@
-input {
-  padding: 1rem 3rem;
-  font-size: 1.4rem;
-  border: 1px solid darken($color: $off-white, $amount: 20);
+input,
+textarea {
+  padding: 1.6rem 2rem;
+  font-size: 1.6rem;
   width: 100%;
+  margin-bottom: 1.5rem;
+  background-color: rgb(238, 238, 238);
+  border: none;
+}
+
+textarea {
+  resize: none;
 }

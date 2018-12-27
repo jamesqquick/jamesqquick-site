@@ -24,6 +24,12 @@ module.exports = {
         start_url: `/`,
         icon: `src/images/logo-256.png` // This path is relative to the root of the site.
       }
+    },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [`poppins`]
+      }
     }
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline

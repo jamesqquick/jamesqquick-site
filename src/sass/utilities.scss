@@ -18,6 +18,13 @@ span.highlight {
   width: 100%;
 }
 
+.full-height {
+  height: 100%;
+}
+
+.full-vh {
+  height: 100vh;
+}
 .none {
   display: none;
 }
@@ -28,6 +35,19 @@ span.highlight {
 
 .text-danger {
   color: red;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.img-cover {
+  object-fit: cover;
+}
+
+.absolute-bottom {
+  position: absolute;
+  bottom: 5rem;
 }
 
 @media only screen and (max-width: 768px) {

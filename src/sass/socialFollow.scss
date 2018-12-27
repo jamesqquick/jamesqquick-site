@@ -1,0 +1,27 @@
+.social-follow {
+  a.social {
+    margin: 0 1rem;
+    transition: transform 250ms;
+
+    &:hover {
+      -webkit-transform: translateY(-2px);
+      -ms-transform: translateY(-2px);
+      transform: translateY(-2px);
+    }
+  }
+  a.youtube {
+    color: #eb3223;
+  }
+
+  a.facebook {
+    color: #4968ad;
+  }
+
+  a.twitter {
+    color: #49a1eb;
+  }
+
+  a.linkedin {
+    color: #3077b0;
+  }
+}

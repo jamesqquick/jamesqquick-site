@@ -833,11 +833,59 @@
         "owner": "internal-data-bridge"
       }
     },
+    "219df4f4-225b-5868-96ab-2cc3e184c565": {
+      "resolve": "/Users/jamesquick/Projects/jamesqquick-site/node_modules/gatsby-plugin-google-fonts",
+      "id": "219df4f4-225b-5868-96ab-2cc3e184c565",
+      "name": "gatsby-plugin-google-fonts",
+      "version": "0.0.4",
+      "pluginOptions": {
+        "plugins": [],
+        "fonts": [
+          "poppins"
+        ]
+      },
+      "nodeAPIs": [],
+      "browserAPIs": [],
+      "ssrAPIs": [
+        "onRenderBody"
+      ],
+      "pluginFilepath": "/Users/jamesquick/Projects/jamesqquick-site/node_modules/gatsby-plugin-google-fonts",
+      "packageJson": {
+        "name": "gatsby-plugin-google-fonts",
+        "description": "Bring Google Fonts to Gatsby",
+        "version": "0.0.4",
+        "main": "index.js",
+        "keywords": [
+          "gatsby",
+          "gastby-plugin",
+          "react",
+          "google",
+          "fonts"
+        ],
+        "author": {
+          "name": "Didier Franc",
+          "email": "dev@didierfranc.com"
+        },
+        "license": "MIT",
+        "dependencies": [],
+        "devDependencies": [],
+        "peerDependencies": [],
+        "optionalDependecies": [],
+        "bundledDependecies": []
+      },
+      "parent": "SOURCE",
+      "children": [],
+      "internal": {
+        "contentDigest": "88d90f47e76dc334cb150f25dac97572",
+        "type": "SitePlugin",
+        "owner": "internal-data-bridge"
+      }
+    },
     "7374ebf2-d961-52ee-92a2-c25e7cb387a9": {
       "resolve": "/Users/jamesquick/Projects/jamesqquick-site",
       "id": "7374ebf2-d961-52ee-92a2-c25e7cb387a9",
       "name": "default-site-plugin",
-      "version": "483bdbd352083966581742619f584d21",
+      "version": "fd7a7785c481d9a3d480086bd7b18c5c",
       "pluginOptions": {
         "plugins": []
       },
@@ -878,6 +926,10 @@
           {
             "name": "gatsby-image",
             "version": "^2.0.20"
+          },
+          {
+            "name": "gatsby-plugin-google-fonts",
+            "version": "0.0.4"
           },
           {
             "name": "gatsby-plugin-manifest",
@@ -945,7 +997,7 @@
       "parent": "SOURCE",
       "children": [],
       "internal": {
-        "contentDigest": "57ad57b67f31c7187ac136356402559f",
+        "contentDigest": "cc67cbb66dd90893b1b8a7d568086d9a",
         "type": "SitePlugin",
         "owner": "internal-data-bridge"
       }
@@ -1063,12 +1115,12 @@
       "host": "localhost",
       "pathPrefix": "",
       "polyfill": true,
-      "buildTime": "2018-12-26T01:33:48.973Z",
+      "buildTime": "2018-12-27T03:54:50.376Z",
       "id": "Site",
       "parent": "SOURCE",
       "children": [],
       "internal": {
-        "contentDigest": "3c1dce8c09e7068c4276776610bc26b7",
+        "contentDigest": "8799a779f4ebf2e2a29788a80316d002",
         "type": "Site",
         "owner": "internal-data-bridge"
       }
@@ -1078,7 +1130,7 @@
       "children": [],
       "parent": "___SOURCE___",
       "internal": {
-        "contentDigest": "61c6a760840d4ed6348796ec6b4fd8e0",
+        "contentDigest": "734d86b099c7bd52ee3fdd11a05cb5d2",
         "type": "Directory",
         "description": "Directory \"src/images\"",
         "owner": "gatsby-source-filesystem"
@@ -1087,11 +1139,11 @@
       "absolutePath": "/Users/jamesquick/Projects/jamesqquick-site/src/images",
       "relativePath": "",
       "extension": "",
-      "size": 96,
-      "prettySize": "96 B",
-      "modifiedTime": "2018-12-26T01:16:15.928Z",
-      "accessTime": "2018-12-26T01:33:50.855Z",
-      "changeTime": "2018-12-26T01:16:15.928Z",
+      "size": 192,
+      "prettySize": "192 B",
+      "modifiedTime": "2018-12-26T02:24:48.228Z",
+      "accessTime": "2018-12-27T03:54:55.091Z",
+      "changeTime": "2018-12-26T02:24:48.228Z",
       "birthTime": "2018-12-26T00:19:06.351Z",
       "root": "/",
       "dir": "/Users/jamesquick/Projects/jamesqquick-site/src",
@@ -1101,20 +1153,20 @@
       "relativeDirectory": "..",
       "dev": 16777220,
       "mode": 16877,
-      "nlink": 3,
+      "nlink": 6,
       "uid": 501,
       "gid": 20,
       "rdev": 0,
       "blksize": 4096,
       "ino": 5781609,
       "blocks": 0,
-      "atimeMs": 1545788030854.913,
-      "mtimeMs": 1545786975927.5925,
-      "ctimeMs": 1545786975927.5925,
+      "atimeMs": 1545882895090.5613,
+      "mtimeMs": 1545791088228.157,
+      "ctimeMs": 1545791088228.157,
       "birthtimeMs": 1545783546351.2163,
-      "atime": "2018-12-26T01:33:50.855Z",
-      "mtime": "2018-12-26T01:16:15.928Z",
-      "ctime": "2018-12-26T01:16:15.928Z",
+      "atime": "2018-12-27T03:54:55.091Z",
+      "mtime": "2018-12-26T02:24:48.228Z",
+      "ctime": "2018-12-26T02:24:48.228Z",
       "birthtime": "2018-12-26T00:19:06.351Z"
     },
     "c8566fa2-6657-58c9-8870-9e6c00f23123": {
@@ -1137,7 +1189,7 @@
       "size": 16401,
       "prettySize": "16.4 kB",
       "modifiedTime": "2018-12-26T01:16:15.927Z",
-      "accessTime": "2018-12-26T01:29:54.454Z",
+      "accessTime": "2018-12-26T14:43:00.322Z",
       "changeTime": "2018-12-26T01:16:15.928Z",
       "birthTime": "2018-12-26T01:16:07.858Z",
       "root": "/",
@@ -1155,11 +1207,11 @@
       "blksize": 4096,
       "ino": 5887511,
       "blocks": 40,
-      "atimeMs": 1545787794454.3872,
+      "atimeMs": 1545835380322.3555,
       "mtimeMs": 1545786975927,
       "ctimeMs": 1545786975928.036,
       "birthtimeMs": 1545786967857.9631,
-      "atime": "2018-12-26T01:29:54.454Z",
+      "atime": "2018-12-26T14:43:00.322Z",
       "mtime": "2018-12-26T01:16:15.927Z",
       "ctime": "2018-12-26T01:16:15.928Z",
       "birthtime": "2018-12-26T01:16:07.858Z"
@@ -1170,6 +1222,177 @@
       "parent": "c8566fa2-6657-58c9-8870-9e6c00f23123",
       "internal": {
         "contentDigest": "433336802fde01e0eacd0cdcf4ac4f40",
+        "type": "ImageSharp",
+        "owner": "gatsby-transformer-sharp"
+      }
+    },
+    "4de897c3-b578-53ed-a960-2fed8fe3396a": {
+      "id": "4de897c3-b578-53ed-a960-2fed8fe3396a",
+      "children": [
+        "31ed8ef2-6b4a-50ef-a180-680b957ac325"
+      ],
+      "parent": "___SOURCE___",
+      "internal": {
+        "contentDigest": "a9043ce06c54272f2f193b69b843c329",
+        "type": "File",
+        "mediaType": "image/jpeg",
+        "description": "File \"src/images/speaking.jpg\"",
+        "owner": "gatsby-source-filesystem"
+      },
+      "sourceInstanceName": "images",
+      "absolutePath": "/Users/jamesquick/Projects/jamesqquick-site/src/images/speaking.jpg",
+      "relativePath": "speaking.jpg",
+      "extension": "jpg",
+      "size": 69036,
+      "prettySize": "69 kB",
+      "modifiedTime": "2018-01-25T23:11:02.000Z",
+      "accessTime": "2018-12-26T14:42:56.222Z",
+      "changeTime": "2018-12-26T02:20:10.631Z",
+      "birthTime": "2018-01-25T23:11:02.000Z",
+      "root": "/",
+      "dir": "/Users/jamesquick/Projects/jamesqquick-site/src/images",
+      "base": "speaking.jpg",
+      "ext": ".jpg",
+      "name": "speaking",
+      "relativeDirectory": "",
+      "dev": 16777220,
+      "mode": 33188,
+      "nlink": 1,
+      "uid": 501,
+      "gid": 20,
+      "rdev": 0,
+      "blksize": 4096,
+      "ino": 5893917,
+      "blocks": 136,
+      "atimeMs": 1545835376222.2983,
+      "mtimeMs": 1516921862000,
+      "ctimeMs": 1545790810630.7124,
+      "birthtimeMs": 1516921862000,
+      "atime": "2018-12-26T14:42:56.222Z",
+      "mtime": "2018-01-25T23:11:02.000Z",
+      "ctime": "2018-12-26T02:20:10.631Z",
+      "birthtime": "2018-01-25T23:11:02.000Z"
+    },
+    "31ed8ef2-6b4a-50ef-a180-680b957ac325": {
+      "id": "31ed8ef2-6b4a-50ef-a180-680b957ac325",
+      "children": [],
+      "parent": "4de897c3-b578-53ed-a960-2fed8fe3396a",
+      "internal": {
+        "contentDigest": "a9043ce06c54272f2f193b69b843c329",
+        "type": "ImageSharp",
+        "owner": "gatsby-transformer-sharp"
+      }
+    },
+    "766bc7cf-ef75-5d0d-8bd8-abfb51da355c": {
+      "id": "766bc7cf-ef75-5d0d-8bd8-abfb51da355c",
+      "children": [
+        "f28390b9-3e9d-56ed-b4d3-d6b7d5d6e232"
+      ],
+      "parent": "___SOURCE___",
+      "internal": {
+        "contentDigest": "6c3343850b731b979c5bcef603335664",
+        "type": "File",
+        "mediaType": "image/jpeg",
+        "description": "File \"src/images/teaching.jpg\"",
+        "owner": "gatsby-source-filesystem"
+      },
+      "sourceInstanceName": "images",
+      "absolutePath": "/Users/jamesquick/Projects/jamesqquick-site/src/images/teaching.jpg",
+      "relativePath": "teaching.jpg",
+      "extension": "jpg",
+      "size": 146211,
+      "prettySize": "146 kB",
+      "modifiedTime": "2018-01-26T00:40:57.000Z",
+      "accessTime": "2018-12-26T14:42:56.222Z",
+      "changeTime": "2018-12-26T02:20:06.934Z",
+      "birthTime": "2017-02-09T08:26:42.000Z",
+      "root": "/",
+      "dir": "/Users/jamesquick/Projects/jamesqquick-site/src/images",
+      "base": "teaching.jpg",
+      "ext": ".jpg",
+      "name": "teaching",
+      "relativeDirectory": "",
+      "dev": 16777220,
+      "mode": 33152,
+      "nlink": 1,
+      "uid": 501,
+      "gid": 20,
+      "rdev": 0,
+      "blksize": 4096,
+      "ino": 5893918,
+      "blocks": 288,
+      "atimeMs": 1545835376222.328,
+      "mtimeMs": 1516927257000,
+      "ctimeMs": 1545790806934.3953,
+      "birthtimeMs": 1486628802000,
+      "atime": "2018-12-26T14:42:56.222Z",
+      "mtime": "2018-01-26T00:40:57.000Z",
+      "ctime": "2018-12-26T02:20:06.934Z",
+      "birthtime": "2017-02-09T08:26:42.000Z"
+    },
+    "f28390b9-3e9d-56ed-b4d3-d6b7d5d6e232": {
+      "id": "f28390b9-3e9d-56ed-b4d3-d6b7d5d6e232",
+      "children": [],
+      "parent": "766bc7cf-ef75-5d0d-8bd8-abfb51da355c",
+      "internal": {
+        "contentDigest": "6c3343850b731b979c5bcef603335664",
+        "type": "ImageSharp",
+        "owner": "gatsby-transformer-sharp"
+      }
+    },
+    "003ab0d7-1360-5091-a49b-1475ff26da74": {
+      "id": "003ab0d7-1360-5091-a49b-1475ff26da74",
+      "children": [
+        "61007b24-db85-5bbc-ac49-af74b542e2f1"
+      ],
+      "parent": "___SOURCE___",
+      "internal": {
+        "contentDigest": "71001a306bbcb794b01a8c2b3047f10f",
+        "type": "File",
+        "mediaType": "image/jpeg",
+        "description": "File \"src/images/interview.jpg\"",
+        "owner": "gatsby-source-filesystem"
+      },
+      "sourceInstanceName": "images",
+      "absolutePath": "/Users/jamesquick/Projects/jamesqquick-site/src/images/interview.jpg",
+      "relativePath": "interview.jpg",
+      "extension": "jpg",
+      "size": 289224,
+      "prettySize": "289 kB",
+      "modifiedTime": "2018-12-26T02:24:48.228Z",
+      "accessTime": "2018-12-26T14:43:00.322Z",
+      "changeTime": "2018-12-26T02:24:48.229Z",
+      "birthTime": "2017-08-14T22:55:09.000Z",
+      "root": "/",
+      "dir": "/Users/jamesquick/Projects/jamesqquick-site/src/images",
+      "base": "interview.jpg",
+      "ext": ".jpg",
+      "name": "interview",
+      "relativeDirectory": "",
+      "dev": 16777220,
+      "mode": 33188,
+      "nlink": 1,
+      "uid": 501,
+      "gid": 20,
+      "rdev": 0,
+      "blksize": 4096,
+      "ino": 5893916,
+      "blocks": 568,
+      "atimeMs": 1545835380322.324,
+      "mtimeMs": 1545791088228,
+      "ctimeMs": 1545791088228.599,
+      "birthtimeMs": 1502751309000,
+      "atime": "2018-12-26T14:43:00.322Z",
+      "mtime": "2018-12-26T02:24:48.228Z",
+      "ctime": "2018-12-26T02:24:48.229Z",
+      "birthtime": "2017-08-14T22:55:09.000Z"
+    },
+    "61007b24-db85-5bbc-ac49-af74b542e2f1": {
+      "id": "61007b24-db85-5bbc-ac49-af74b542e2f1",
+      "children": [],
+      "parent": "003ab0d7-1360-5091-a49b-1475ff26da74",
+      "internal": {
+        "contentDigest": "71001a306bbcb794b01a8c2b3047f10f",
         "type": "ImageSharp",
         "owner": "gatsby-transformer-sharp"
       }
@@ -1257,7 +1480,7 @@
   },
   "status": {
     "plugins": {},
-    "PLUGINS_HASH": "4d012d8bd990d9d05c115caf9e9dea20"
+    "PLUGINS_HASH": "0752cdf619072c0843725eab1916d362"
   },
   "componentDataDependencies": {
     "nodes": {
@@ -1296,14 +1519,6 @@
     }
   },
   "staticQueryComponents": {
-    "sq--src-components-seo-js": {
-      "name": "DefaultSEOQuery",
-      "componentPath": "/Users/jamesquick/Projects/jamesqquick-site/src/components/seo.js",
-      "id": "sq--src-components-seo-js",
-      "jsonName": "sq--src-components-seo-js",
-      "query": "query DefaultSEOQuery {\n  site {\n    siteMetadata {\n      title\n      description\n      author\n    }\n  }\n}\n",
-      "hash": 1025518380
-    },
     "sq--src-components-layout-js": {
       "name": "SiteTitleQuery",
       "componentPath": "/Users/jamesquick/Projects/jamesqquick-site/src/components/layout.js",
@@ -1311,6 +1526,14 @@
       "jsonName": "sq--src-components-layout-js",
       "query": "query SiteTitleQuery {\n  site {\n    siteMetadata {\n      title\n    }\n  }\n}\n",
       "hash": 755544856
+    },
+    "sq--src-components-seo-js": {
+      "name": "DefaultSEOQuery",
+      "componentPath": "/Users/jamesquick/Projects/jamesqquick-site/src/components/seo.js",
+      "id": "sq--src-components-seo-js",
+      "jsonName": "sq--src-components-seo-js",
+      "query": "query DefaultSEOQuery {\n  site {\n    siteMetadata {\n      title\n      description\n      author\n    }\n  }\n}\n",
+      "hash": 1025518380
     }
   }
 }

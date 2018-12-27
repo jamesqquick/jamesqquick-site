@@ -1,29 +1,68 @@
 @import "variables";
 
 @mixin section() {
-  padding: 12rem 5rem;
+  padding: 9rem 10rem;
   background-color: $off-white;
 }
 
 .section {
   @include section();
+
+  .section-content {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    margin-bottom: 8px;
+  }
+  .title-underline {
+    border-top-color: #f95959;
+    border-top-width: 4px;
+    width: 100px;
+    margin-bottom: 4rem;
+  }
+
+  .section-subtitle {
+    font-style: italic;
+    font-weight: 200;
+    font-size: 3.2rem;
+    margin-bottom: 1rem;
+  }
 }
 
-.section-dark {
-  background-color: $light-grey;
+.section-full-height {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  img {
+    height: 100vh;
+    object-fit: cover;
+  }
+}
+
+.section-light {
+  background-color: white;
 }
 
 .section-full {
   padding: 0;
 }
 
-.section-title {
-  margin-bottom: 5rem;
-}
-
 @media only screen and (max-width: 768px) {
   .section {
     padding: 8rem 3rem;
+
+    .title-underline {
+      margin-bottom: 2rem;
+    }
+
+    .section-subtitle {
+      margin-top: 0.5rem;
+    }
   }
   .section-full {
     padding: 0;
