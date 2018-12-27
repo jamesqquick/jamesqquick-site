@@ -36,6 +36,7 @@ const IndexPage = () => (
         className="absolute-bottom"
         icon={faAngleDown}
         size="6x"
+        fixedWidth
       />
     </section>
     {/* <img src={interviewImage} alt="" className="img-cover full-height" />
