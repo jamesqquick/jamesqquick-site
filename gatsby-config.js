@@ -4,6 +4,10 @@ module.exports = {
     description: `Personal site for James Q. Quick, Developer, Speaker, and Teacher.`,
     author: `@jamesqquick`
   },
+  proxy: {
+    prefix: "/.netlify/functions",
+    url: "http://localhost:9000"
+  },
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
