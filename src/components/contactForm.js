@@ -23,6 +23,7 @@ export class ContactForm extends Component {
           method="POST"
           className="newsletter"
           data-netlify="true"
+          data-netlify-honeypot="bot-field"
         >
           <div className="inline-form-input">
             <input
