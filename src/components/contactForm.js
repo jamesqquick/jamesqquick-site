@@ -18,7 +18,12 @@ export class ContactForm extends Component {
     const disabled = !name || !email || !content;
     return (
       <div>
-        <form name="contact" method="POST" className="newsletter" netlify>
+        <form
+          name="contact"
+          method="POST"
+          className="newsletter"
+          data-netlify="true"
+        >
           <div className="inline-form-input">
             <input
               type="text"
