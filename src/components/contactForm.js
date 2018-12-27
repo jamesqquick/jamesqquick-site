@@ -27,6 +27,8 @@ export class ContactForm extends Component {
           action="/success"
         >
           <div className="inline-form-input">
+            <input type="hidden" name="form-name" value="contact" />
+
             <input type="hidden" name="bot-field" />
 
             <input
