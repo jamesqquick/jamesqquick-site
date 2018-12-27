@@ -26,6 +26,8 @@ export class ContactForm extends Component {
           data-netlify-honeypot="bot-field"
         >
           <div className="inline-form-input">
+            <input type="hidden" name="bot-field" />
+
             <input
               type="text"
               name="name"
