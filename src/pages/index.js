@@ -23,7 +23,7 @@ const IndexPage = () => (
       <p className="section-content">
         I’m a Full-Stack Web Developer who is addicted to learning and loves
         working with people. I speak at community events, participate in
-        Hackathons, and love to build.
+        Hackathons, and build continuously.
       </p>
       <p>
         I also create <b>Web Development</b> content at{" "}
