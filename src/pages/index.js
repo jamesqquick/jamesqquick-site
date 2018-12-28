@@ -78,7 +78,11 @@ const IndexPage = () => (
           because I love working with people and helping them learn new things.
         </p>
       </section>
-      <img src={teachingImage} alt="" className="img-cover full-vh" />
+      <img
+        src={teachingImage}
+        alt=""
+        className="img-cover full-vh object-position-left"
+      />
     </SplitView>
     <section className="section">
       <div className="section-content">
