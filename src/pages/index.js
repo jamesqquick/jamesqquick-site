@@ -21,10 +21,13 @@ const IndexPage = () => (
       <hr className="title-underline" />
       <h3 className="section-subtitle">Developer. Speaker. Teacher.</h3>
       <p className="section-content">
-        I’m a Full-Stack Web Developer who is addicted to learning, stays up
-        late building, and loves working with people. I speak at community
-        events, participate in Hackathons, and create Web Development content at{" "}
-        <a href="https://www.learnbuildteach.com">
+        I’m a Full-Stack Web Developer who is addicted to learning and loves
+        working with people. I speak at community events, participate in
+        Hackathons, and love to build.
+      </p>
+      <p>
+        I also create <b>Web Development</b> content at{" "}
+        <a href="https://www.learnbuildteach.com" className="underline">
           <b>Learn Build Teach</b>
         </a>
         .
