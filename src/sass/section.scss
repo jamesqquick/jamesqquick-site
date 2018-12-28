@@ -33,14 +33,14 @@
 }
 
 .section-full-height {
-  height: 95vh;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 
   img {
-    height: 95vh;
+    height: 100vh;
     object-fit: cover;
   }
 }
