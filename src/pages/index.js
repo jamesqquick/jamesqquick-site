@@ -105,10 +105,13 @@ const IndexPage = () => (
         <p className="text-center">
           I would love to connect with you. Reach out to ask a question, share a
           project, a new tool you love, or just to chat. You can message me on
-          twitter at <b>@jamesqquick</b> or with the form below.
+          twitter at{" "}
+          <a href="https://twitter.com/jamesqquick">
+            <b>@jamesqquick</b>
+          </a>
         </p>
         <br />
-        <ContactForm />
+        {/* <ContactForm /> */}
       </div>
     </section>
   </Layout>
