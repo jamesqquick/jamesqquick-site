@@ -2,21 +2,18 @@ module.exports = {
   siteMetadata: {
     title: `James Q Quick`,
     description: `Personal site for James Q. Quick, Developer, Speaker, and Teacher.`,
-    author: `@jamesqquick`
-  },
-  proxy: {
-    prefix: "/.netlify/functions",
-    url: "http://localhost:9000"
+    author: `@jamesqquick`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-sass`,
+    `gatsby-transformer-json`,
+
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`
-      }
+        path: `${__dirname}/src/images`,
+      },
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
@@ -26,17 +23,21 @@ module.exports = {
         name: `gatsby-starter-default`,
         short_name: `starter`,
         start_url: `/`,
-        icon: `src/images/logo-256.png` // This path is relative to the root of the site.
-      }
+        background_color: `#663399`,
+        theme_color: `#663399`,
+        display: `minimal-ui`,
+        icon: `src/images/logo-256.png`, // This path is relative to the root of the site.
+      },
     },
+    // this (optional) plugin enables Progressive Web App + Offline functionality
+    // To learn more, visit: https://gatsby.dev/offline
+    // `gatsby-plugin-offline`,
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [`poppins`]
-      }
-    }
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.app/offline
-    // 'gatsby-plugin-offline',
-  ]
-};
+        fonts: [`poppins`],
+      },
+    },
+    `gatsby-plugin-sass`,
+  ],
+}

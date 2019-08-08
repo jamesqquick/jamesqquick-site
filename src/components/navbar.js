@@ -1,17 +1,17 @@
-import React from "react";
-import "../sass/navbar.scss";
-import logo from "../images/logo-256.png";
-import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React from "react"
+import "../sass/navbar.scss"
+import logo from "../images/logo-256.png"
+import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
-import { Link, animateScroll as scroll } from "react-scroll";
+import { Link, animateScroll as scroll } from "react-scroll"
 
 class Navbar extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
-      navOpen: false
-    };
+      navOpen: false,
+    }
   }
 
   render = () => (
@@ -95,25 +95,25 @@ class Navbar extends React.Component {
         </ul>
       </div>
     </nav>
-  );
+  )
 
   scrollToTop = () => {
-    scroll.scrollToTop();
-  };
+    scroll.scrollToTop()
+  }
 
   scrollToBottom = () => {
-    console.log("scroll to bottom");
-    scroll.scrollToBottom();
-  };
+    console.log("scroll to bottom")
+    scroll.scrollToBottom()
+  }
   closeNavbar = () => {
-    this.setState({ navOpen: false });
-  };
+    this.setState({ navOpen: false })
+  }
 
   toggleNavbar = () => {
     this.setState({
-      navOpen: !this.state.navOpen
-    });
-  };
+      navOpen: !this.state.navOpen,
+    })
+  }
 }
 
-export default Navbar;
+export default Navbar

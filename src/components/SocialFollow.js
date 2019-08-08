@@ -1,13 +1,13 @@
-import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React from "react"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
   faYoutube,
   faFacebook,
   faTwitter,
   faInstagram,
-  faLinkedin
-} from "@fortawesome/free-brands-svg-icons";
-import "../sass/socialFollow.scss";
+  faLinkedin,
+} from "@fortawesome/free-brands-svg-icons"
+import "../sass/socialFollow.scss"
 export default function SocialFollow() {
   return (
     <div className="social-follow">
@@ -45,5 +45,5 @@ export default function SocialFollow() {
         </a>
       </div>
     </div>
-  );
+  )
 }

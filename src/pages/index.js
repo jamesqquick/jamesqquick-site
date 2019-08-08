@@ -1,16 +1,15 @@
-import React from "react";
-import "@fortawesome/fontawesome-svg-core/styles.css";
+import React from "react"
+import "@fortawesome/fontawesome-svg-core/styles.css"
 
-import Layout from "../components/layout";
-import SEO from "../components/seo";
-import SplitView from "../components/splitView";
-import interviewImage from "../images/interview.jpg";
-import speakingImage from "../images/speaking.jpg";
-import teachingImage from "../images/teaching.jpg";
-import { ContactForm } from "../components/contactForm";
-import SocialFollow from "../components/SocialFollow";
-import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Layout from "../components/layout"
+import SEO from "../components/seo"
+import SplitView from "../components/splitView"
+import interviewImage from "../images/interview.jpg"
+import speakingImage from "../images/speaking.jpg"
+import teachingImage from "../images/teaching.jpg"
+import SocialFollow from "../components/SocialFollow"
+import { faAngleDown } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 const IndexPage = () => (
   <Layout>
@@ -115,46 +114,6 @@ const IndexPage = () => (
       </div>
     </section>
   </Layout>
-);
+)
 
-export default IndexPage;
-
-/* <section className="section section-light ">
-      <div className="section-content">
-        <h1 className="text-center section-title">Tech Skills</h1>
-        <hr className="title-underline text-center" />
-        <p>
-          I started teaching myself <b> Web Development</b> in 2016 and am now a{" "}
-          <b>Lead Web Developer and Application Architect</b> at FedEx. At work,
-          I use <b>Angular 4+</b> on the front-end and <b>Java</b> and{" "}
-          <b>SpringBoot</b> on the backend.
-        </p>
-        <p>
-          Outside of work, I'm constantly learning but primarily work with{" "}
-          <b>Angular, React, and Node</b>. Along the way, I’ve developed a true
-          appreciation for <b>design</b> and am getting better each day.
-        </p>
-        <br />
-        <p className="text-center">
-          Want to learn a little bit more about what I can do for you?!
-        </p>
-        <br />
-        <div className="text-center">
-          <button className="btn">Contact Me!</button>
-        </div>
-      </div>
-      <div className="flex flex-around">
-        <div className="flex-column text-center align-items-center">
-          <FontAwesomeIcon icon={faLaptop} size="6x" />
-          <p>Angular, React, etc.</p>
-        </div>
-        <div className="flex-column text-center align-items-center">
-          <FontAwesomeIcon icon={faDesktop} size="6x" />
-          <p>Angular, React, etc.</p>
-        </div>
-        <div className="flex-column text-center align-items-center">
-          <FontAwesomeIcon icon={faPaintBrush} size="6x" />
-          <p>Angular, React, etc.</p>
-        </div>
-      </div>
-    </section> */
+export default IndexPage

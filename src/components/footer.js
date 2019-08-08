@@ -1,6 +1,6 @@
-import React from "react";
-import "../sass/footer.scss";
-import SocialFollow from "./SocialFollow";
+import React from "react"
+import "../sass/footer.scss"
+import SocialFollow from "./SocialFollow"
 
 export default function footer() {
   return (
@@ -9,5 +9,5 @@ export default function footer() {
         <SocialFollow />
       </div>
     </footer>
-  );
+  )
 }
