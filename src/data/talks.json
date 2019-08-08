@@ -1,0 +1,20 @@
+[
+  {
+    "name": "First Talks",
+    "slug": "/talks/that-conference-2019",
+    "description": "This is a great description",
+    "date": "8/6/2019",
+    "imageUrl": "someURL",
+    "id": "1",
+    "slidesLink": "sfsd"
+  },
+  {
+    "name": "Second Talk",
+    "slug": "/talks/that-conference-2020",
+    "description": "This is a great description",
+    "date": "8/6/2019",
+    "imageUrl": "someURL",
+    "id": "2",
+    "slidesLink": "sfsd"
+  }
+]
