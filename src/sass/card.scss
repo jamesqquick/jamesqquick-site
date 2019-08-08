@@ -1,19 +1,31 @@
 @import "variables";
 
 .card-list {
-  
 }
 
 .card {
   background: white;
   border: 1px solid darken($color: $off-white, $amount: 20);
   border-radius: 5px;
-  display: flex;
+  // display: flex;
+  padding: 50px;
   position: relative;
   transition: 100ms;
   max-width: 900px;
   margin: 0 auto;
   margin-bottom: 2rem;
+
+  .card-title {
+    margin-bottom: 30px;
+  }
+
+  .card-link {
+    margin-top: 20px;
+  }
+}
+
+.card-title {
+  margin-bottom: 5px;
 }
 
 .card:hover {
