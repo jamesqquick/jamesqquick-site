@@ -22,11 +22,21 @@
   {
     "conference": "THAT Conference",
     "title": "Microservices - The Good, the Bad, and the Ugly",
-    "slug": "/talks/that-conference-2019",
+    "slug": "/talks/that-conference-microservices-2019",
     "description": "Microservices is the hot new architecture, but like any other technology, it's not perfect. Too often, we embrace technologies without exploring or considering the potential downsides. In this talk, you will hear an unbiased and language agnostic discussion around Microservices, the good, the bad, and the ugly. Along the way, I will share what I’ve learned over the past year from going from zero to production. After this talk, you will have a better understanding of what to consider when looking at adopting a Microservices architecture.",
     "date": "8/6/2019",
     "imageUrl": "someURL",
     "id": "3",
     "slidesLink": "https://1drv.ms/p/s!Al5KhgUe-N3amLh8M67xkX3KdhnDqQ?e=aS2ZWF"
+  },
+  {
+    "conference": "Stir Trek",
+    "title": "CI/CD - It's a Culture Shift",
+    "slug": "/talks/stir-trek-cicd-2019",
+    "description": "With all the advancements in the tooling around CI and CD, implementing the technology has never been easier. Helping your team embrace the cultural change necessary to follow this cycle… that’s another story. In this talk, you’ll learn the true meaning of CI/CD — that’s Continuous Integration and Continuous Deployment, if you don’t speak alphabet soup — and the various principles that drive it. To embrace these principles, you’ll need to change your team’s mindset, which can be a tough transition. I lead this transition in my organization, and I will walk you through the lessons I learned. After this talk, you will have a clear understanding of CI/CD as well as how to implement a true cultural shift in your team to take full advantage of this new, powerful methodology.",
+    "date": "4/29/2019",
+    "imageUrl": "someURL",
+    "id": "4",
+    "slidesLink": "https://1drv.ms/p/s!Al5KhgUe-N3amLhuh0BNjECEYSh1FQ?e=k62rhK"
   }
 ]

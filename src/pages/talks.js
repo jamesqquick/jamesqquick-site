@@ -24,7 +24,7 @@ export default function talks({ data }) {
 
 export const query = graphql`
   {
-    allTalksJson {
+    allTalksJson(sort: { fields: date, order: DESC }) {
       edges {
         node {
           title
