@@ -3,7 +3,7 @@ const { CreateFilePath } = require("gatsby-source-filesystem");
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
-  const talkTemplate = path.resolve("./src/templates/talk.js");
+  const talkPage = path.resolve("./src/pages/talk.js");
 
   const result = await graphql(
     `
@@ -11,7 +11,8 @@ exports.createPages = async ({ graphql, actions }) => {
         allTalksJson {
           edges {
             node {
-              name
+              title
+              conference
               slug
               description
               imageUrl
@@ -37,17 +38,19 @@ exports.createPages = async ({ graphql, actions }) => {
       date,
       description,
       imageUrl,
-      name,
+      title,
+      conference,
       id,
       slidesLink,
     } = talk.node;
     createPage({
       path: slug,
-      component: talkTemplate,
+      component: talkPage,
       context: {
         slug,
         date,
-        name,
+        title,
+        conference,
         imageUrl,
         description,
         id,
