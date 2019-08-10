@@ -1,28 +1,37 @@
 import React from "react";
-import { graphql } from "gatsby";
-import Card from "../components/card";
+import { graphql, Link } from "gatsby";
 import Layout from "../components/layout";
+import SEO from "../components/seo";
+
 export default function talks({ data }) {
   const talks = data.allTalksJson.edges.map(item => item.node);
-  talks.forEach(talk => {
-    talk.description = talk.description.join(" ");
-  });
 
   return (
     <Layout>
-      <div className="container">
-        {talks.map(talk => (
-          <Card
-            title={talk.name}
-            slug={talk.slug}
-            key={talk.id}
-            meta={talk.date}
-            description={talk.description}
-            link={talk.slidesLink}
-            linkText="Get the slides!"
-          ></Card>
-        ))}
-      </div>
+      <SEO title="Talks" keywords={[`conference talks`]} />
+      <section className="section section-light">
+        <div className="container talk">
+          <h1 className="text-center section-title">TALKS</h1>
+          <hr className="title-underline" />
+          {talks.map(talk => (
+            <div key={talk.id}>
+              <Link to={talk.slug}>
+                <h2 className="card-title">
+                  {talk.name} - {talk.date}
+                </h2>
+              </Link>
+              <a href={talk.slidesLink}>Get the slides!</a>
+
+              <p>
+                {talk.description.substring(0, 200)}...{" "}
+                <span>
+                  <Link to={talk.slug}>more</Link>
+                </span>
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
     </Layout>
   );
 }

@@ -49,7 +49,7 @@ exports.createPages = async ({ graphql, actions }) => {
         date,
         name,
         imageUrl,
-        description: description.join(" "),
+        description,
         id,
         slidesLink,
       },

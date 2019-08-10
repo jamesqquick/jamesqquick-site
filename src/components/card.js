@@ -7,10 +7,10 @@ export default function card(props) {
     <div className="card">
       {props.slug ? (
         <Link to={props.slug}>
-          <h1 className="card-title">{props.title}</h1>
+          <h2 className="card-title">{props.title}</h2>
         </Link>
       ) : (
-        <h1>{props.title}</h1>
+        <h2>{props.title}</h2>
       )}
       {props.link && props.linkText && (
         <a className="card-link" href={props.link}>

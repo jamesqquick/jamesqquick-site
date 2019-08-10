@@ -1,19 +1,8 @@
 [
   {
-    "name": "THAT Conference 2019",
+    "name": "THAT Conference",
     "slug": "/talks/that-conference-2019",
-    "description": [
-      "Microservices is the hot new architecture, but like any ",
-      "other technology, it's not perfect. Too often, we embrace ",
-      "technologies without exploring or considering the potential downsides.",
-      "\n",
-      "In this talk, you will hear an unbiased and language agnostic ",
-      "discussion around Microservices, the good, the bad, and the ugly. Along ",
-      "the way, I will share what I’ve learned over the past year from going ",
-      "from zero to production. After this talk, you will have a better ",
-      "understanding of what to consider when looking at adopting a ",
-      "Microservices architecture."
-    ],
+    "description": "Microservices is the hot new architecture, but like any other technology, it's not perfect. Too often, we embrace technologies without exploring or considering the potential downsides. In this talk, you will hear an unbiased and language agnostic discussion around Microservices, the good, the bad, and the ugly. Along the way, I will share what I’ve learned over the past year from going from zero to production. After this talk, you will have a better understanding of what to consider when looking at adopting a Microservices architecture.",
     "date": "8/6/2019",
     "imageUrl": "someURL",
     "id": "1",

@@ -1,19 +1,22 @@
-import React from "react"
-import "@fortawesome/fontawesome-svg-core/styles.css"
+import React from "react";
+import "@fortawesome/fontawesome-svg-core/styles.css";
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import SplitView from "../components/splitView"
-import interviewImage from "../images/interview.jpg"
-import speakingImage from "../images/speaking.jpg"
-import teachingImage from "../images/teaching.jpg"
-import SocialFollow from "../components/SocialFollow"
-import { faAngleDown } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import Layout from "../components/layout";
+import SEO from "../components/seo";
+import SplitView from "../components/splitView";
+import interviewImage from "../images/interview.jpg";
+import speakingImage from "../images/speaking.jpg";
+import teachingImage from "../images/teaching.jpg";
+import SocialFollow from "../components/SocialFollow";
+import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+    <SEO
+      title="Home"
+      keywords={[`web development`, `web design`, `developer tools`]}
+    />
     {/* <SplitView> */}
     <section className="section text-center section-full-height">
       <h1 className="text-center section-title">James Q Quick</h1>
@@ -114,6 +117,6 @@ const IndexPage = () => (
       </div>
     </section>
   </Layout>
-)
+);
 
-export default IndexPage
+export default IndexPage;
