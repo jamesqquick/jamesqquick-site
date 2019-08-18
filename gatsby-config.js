@@ -3,6 +3,7 @@ module.exports = {
     title: `James Q Quick`,
     description: `Personal site for James Q. Quick, Developer, Speaker, and Teacher.`,
     author: `@jamesqquick`,
+    siteUrl: `https://www.jamesqquick.com`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -53,5 +54,6 @@ module.exports = {
         head: false,
       },
     },
+    `gatsby-plugin-sitemap`,
   ],
 };
