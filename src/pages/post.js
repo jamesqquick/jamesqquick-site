@@ -1,14 +1,13 @@
 import React from "react";
 import Layout from "../components/layout";
-import Talk from "../templates/talk";
 import SEO from "../components/seo";
-
-export default function talk(props) {
+import Post from "../templates/post";
+export default function post({ pageContext: post }) {
   return (
     <Layout>
-      <SEO title={props.pageContext.title} keywords={[``]} />
+      <SEO title={post.title} keywords={[``]} />
       <div className="container">
-        <Talk talk={props.pageContext} />
+        <Post post={post} />
       </div>
     </Layout>
   );
