@@ -1,5 +1,17 @@
 const path = require("path");
-const { CreateFilePath } = require("gatsby-source-filesystem");
+const { createFilePath } = require("gatsby-source-filesystem");
+
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  const { createNodeField } = actions;
+  if (node.internal.type === `MarkdownRemark`) {
+    const value = createFilePath({ node, getNode });
+    createNodeField({
+      name: `slug`,
+      node,
+      value,
+    });
+  }
+};
 
 exports.createPages = async ({ graphql, actions }) => {
   console.log("Creating Talks");
@@ -65,7 +77,10 @@ exports.createPages = async ({ graphql, actions }) => {
   const postsResult = await graphql(
     `
       query PostsQuery {
-        allMarkdownRemark {
+        allMarkdownRemark(
+          sort: { order: DESC, fields: frontmatter___publishDate }
+          filter: { frontmatter: { published: { eq: true } } }
+        ) {
           edges {
             node {
               id

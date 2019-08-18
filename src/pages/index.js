@@ -29,8 +29,8 @@ const IndexPage = () => (
       </p>
       <p>
         I also create <b>Web Development</b> content at{" "}
-        <a href="https://www.learnbuildteach.com" className="underline">
-          <b>Learn Build Teach</b>
+        <a href="https://www.learnbuildteach.com">
+          <strong>Learn Build Teach</strong>
         </a>
         .
       </p>

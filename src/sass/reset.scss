@@ -24,11 +24,15 @@ li {
   line-height: 2.7rem;
   letter-spacing: 0.12rem;
   color: $black;
-  text-decoration: none;
 }
 
+a {
+  color: $secondary;
+  text-decoration-color: $secondary;
+  text-decoration: none;
+}
 a:visited {
-  color: $black;
+  color: $secondary;
 }
 
 a:hover {

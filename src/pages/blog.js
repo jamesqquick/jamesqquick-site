@@ -2,7 +2,7 @@ import React from "react";
 import PostPreview from "../components/postPreview";
 import SEO from "../components/seo";
 import Layout from "../components/layout";
-
+import { graphql } from "gatsby";
 export default function blog({ data }) {
   const rawPosts = data.allMarkdownRemark.edges;
   const posts = rawPosts.map(post => ({
@@ -30,7 +30,10 @@ export default function blog({ data }) {
 
 export const query = graphql`
   query PostsQuery {
-    allMarkdownRemark {
+    allMarkdownRemark(
+      sort: { order: DESC, fields: frontmatter___publishDate }
+      filter: { frontmatter: { published: { eq: true } } }
+    ) {
       edges {
         node {
           id
