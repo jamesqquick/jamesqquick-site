@@ -14,7 +14,6 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 };
 
 exports.createPages = async ({ graphql, actions }) => {
-  console.log("Creating Talks");
   const { createPage } = actions;
   const talkPage = path.resolve("./src/pages/talk.js");
 
