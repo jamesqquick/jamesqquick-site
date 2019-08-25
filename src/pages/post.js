@@ -5,7 +5,7 @@ import Post from "../templates/post";
 export default function post({ pageContext: post }) {
   return (
     <Layout>
-      <SEO title={post.title} keywords={[``]} />
+      <SEO title={post.title} keywords={[``]} type="blog" />
       <div className="container">
         <Post post={post} />
       </div>

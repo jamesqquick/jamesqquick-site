@@ -14,7 +14,7 @@ export default function blog({ data }) {
 
   return (
     <Layout>
-      <SEO title="Blog" keywords={[`blog`]} />
+      <SEO title="Blog" keywords={[`blog`]} type="blog" />
       <section className="section section-light">
         <div className="container talk">
           <h1 className="text-center section-title">Blog</h1>
