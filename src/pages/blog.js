@@ -16,7 +16,7 @@ export default function blog({ data }) {
     <Layout>
       <SEO title="Blog" keywords={[`blog`]} type="blog" />
       <section className="section section-light">
-        <div className="container talk">
+        <div className="container">
           <h1 className="text-center section-title">Blog</h1>
           <hr className="title-underline" />
           {posts.map(post => (
