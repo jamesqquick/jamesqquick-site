@@ -10,7 +10,7 @@ export default function talks({ data }) {
     <Layout>
       <SEO title="Talks" keywords={[`conference talks`]} />
       <section className="section section-light">
-        <div className="container talk">
+        <div className="container">
           <h1 className="text-center section-title">TALKS</h1>
           <hr className="title-underline" />
           {talks.map(talk => (
