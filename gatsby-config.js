@@ -102,7 +102,7 @@ module.exports = {
                 }
               }
             `,
-            output: "/rss.xml",
+            output: "/blog/feed",
             title: "James Q Quick Blog RSS Feed",
           },
         ],
