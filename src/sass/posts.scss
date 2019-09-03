@@ -1,16 +1,30 @@
 .post {
   blockquote {
-    background: #eee;
+    background: #f4f4f4;
     border-radius: 5px;
     padding: 2rem;
-    font-size: 1.8rem;
-    box-shadow: 1px 1px 5px #ccc;
-    margin: 3rem 0;
+    margin: 4rem 0;
+    font-family: poppins;
+
+    * {
+      font-size: 2rem;
+    }
   }
 
   h2,
   h3,
   h4 {
     margin: 4rem 0 2rem 0;
+  }
+
+  pre {
+    font-size: 1.6rem;
+    padding: 4rem 2rem;
+    background-color: #f4f4f4;
+    margin: 4rem 0;
+
+    code {
+      font-family: poppins;
+    }
   }
 }
