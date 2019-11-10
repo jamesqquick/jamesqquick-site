@@ -4,7 +4,7 @@ slug: /blog/node-and-express-for-beginners
 publishDate: 10/12/2019
 tags: javascript, node, express, routing
 coverImage: ./cover.png
-published: false
+published: true
 ---
 
 You can use JavaScript to do many things like build a website, mobile app, and even a backend server with [Nodejs](https://nodejs.org/en/). In fact, I would argue that using Node is one of the easiest ways to get up and going with a web server. In this article, we will look at creating a web server with Node and a popular package called [Express.](https://www.npmjs.com/package/express)
