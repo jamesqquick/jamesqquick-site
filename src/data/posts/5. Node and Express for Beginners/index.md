@@ -212,7 +212,7 @@ So far, we've only created endpoints using GET, and we can test them in the brow
 
 Inside of Postman, you'll see an area to choose the HTTP method, type in the url, and enter data to be posted to the server. Here's a screenshot for reference.
 
-**\*\*\*\***\*\***\*\*\*\***image
+![Postman configuration](https://raw.githubusercontent.com/jamesqquick/jamesqquick-site/master/src/data/posts/5.%20Node%20and%20Express%20for%20Beginners/images/postman.jpg)
 
 ### POST /books
 
