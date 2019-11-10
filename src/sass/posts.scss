@@ -1,7 +1,12 @@
+@import "variables";
+
 .post {
   blockquote {
-    background: #f4f4f4;
+    background: transparent;
     border-radius: 5px;
+    border: 1px solid $primary;
+    box-shadow: 3px 3px 1px $primary;
+    font-style: italic;
     padding: 2rem;
     margin: 4rem 0;
     font-family: poppins;
