@@ -3,3 +3,9 @@
 .layout {
   margin-left: $navbar-width;
 }
+
+@media only screen and (max-width: 768px) {
+  .layout {
+    margin-left: 0;
+  }
+}

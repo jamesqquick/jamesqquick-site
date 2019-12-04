@@ -31,6 +31,7 @@ class Navbar extends React.Component {
           size="2x"
           onClick={this.toggleNavbar}
         />
+        hweheheh
       </a>
       <ul className={"nav-items" + (this.state.navOpen ? "" : " hidden-sm")}>
         <Link to="about">About</Link>
