@@ -15,39 +15,36 @@ class Navbar extends React.Component {
   }
 
   render = () => (
-    <nav className={"nav" + (this.state.navOpen ? " open" : "")} id="navbar">
-      <div className="nav-brand">
-        <img
-          src={headshot}
-          alt="James Q Quick headshot."
-          onClick={this.scrollToTop}
-        />
-        <Link to="/">James Q Quick</Link>
-      </div>
-
+    <>
       <a id="hamburgerBtn">
         <FontAwesomeIcon
           icon={this.state.navOpen ? faTimes : faBars}
           size="2x"
           onClick={this.toggleNavbar}
         />
-        hweheheh
       </a>
-      <ul className={"nav-items" + (this.state.navOpen ? "" : " hidden-sm")}>
-        <Link to="about">About</Link>
-        <Link to="videos">Videos</Link>
-        <Link to="blog">Blog</Link>
-        <Link to="speaking">Speaking</Link>
-      </ul>
-      <div className="footer">
-        <SocialFollow color="light" />
-      </div>
-    </nav>
-  );
+      <nav className={"nav" + (this.state.navOpen ? " open" : "")} id="navbar">
+        <div className="nav-brand">
+          <img
+            src={headshot}
+            alt="James Q Quick headshot."
+            onClick={this.scrollToTop}
+          />
+          <Link to="/">James Q Quick</Link>
+        </div>
 
-  closeNavbar = () => {
-    this.setState({ navOpen: false });
-  };
+        <ul className={"nav-items" + (this.state.navOpen ? "" : " hidden-sm")}>
+          <Link to="about">About</Link>
+          <Link to="videos">Videos</Link>
+          <Link to="blog">Blog</Link>
+          <Link to="speaking">Speaking</Link>
+        </ul>
+        <div className="footer">
+          <SocialFollow color="light" size={this.state.navOpen ? "md" : "sm"} />
+        </div>
+      </nav>
+    </>
+  );
 
   toggleNavbar = () => {
     this.setState({
