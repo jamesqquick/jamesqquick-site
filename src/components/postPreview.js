@@ -8,9 +8,11 @@ export default function postPreview({ post }) {
       <Link to={post.slug}>
         <h2 className="card-title">{post.title}</h2>
       </Link>
-      <p>{post.publishDate}</p>
 
       <p>{post.excerpt}</p>
+      <p className="date">
+        <small>{post.publishDate}</small>
+      </p>
       <hr />
     </div>
   );
