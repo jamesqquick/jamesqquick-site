@@ -1,6 +1,5 @@
 import React from "react";
 import "@fortawesome/fontawesome-svg-core/styles.css";
-
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
@@ -10,7 +9,12 @@ const IndexPage = () => (
   <Layout>
     <SEO
       title="Home"
-      keywords={[`web development`, `web design`, `developer tools`]}
+      keywords={[
+        `web development`,
+        `web design`,
+        `developer tools`,
+        `James Q Quick`,
+      ]}
     />
     <section className="section text-center section-full-height">
       <h1 className="text-center section-title">James Q Quick</h1>
