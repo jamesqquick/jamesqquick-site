@@ -40,6 +40,19 @@
       margin-bottom: 2rem;
     }
   }
+
+  hr {
+    border-color: $off-white;
+    margin: 20px 0 5px 0;
+    width: 100%;
+  }
+
+  form {
+    input {
+      font-size: 1.4rem;
+      padding: 1rem 1.5rem;
+    }
+  }
 }
 
 #hamburgerBtn {

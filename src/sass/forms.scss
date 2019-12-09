@@ -1,3 +1,8 @@
+form.full-width {
+  display: flex;
+  flex-direction: column;
+}
+
 input,
 textarea {
   padding: 1.6rem 2rem;
