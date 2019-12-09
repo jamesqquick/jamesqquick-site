@@ -21,6 +21,10 @@
   opacity: 0.25;
   cursor: not-allowed;
   background-color: $primary;
+
+  &:hover {
+    color: $off-white;
+  }
 }
 
 .btn-lg {

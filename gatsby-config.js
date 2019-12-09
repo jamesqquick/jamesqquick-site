@@ -121,5 +121,12 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: "gatsby-plugin-mailchimp",
+      options: {
+        endpoint:
+          "https://jamesqquick.us15.list-manage.com/subscribe/post?u=f01b195e97641478be3ec306a&amp;id=f236f68fc1",
+      },
+    },
   ],
 };

@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "../sass/index.scss";
-import Footer from "./footer";
 import Navbar from "./navbar";
 
 import "../sass/layout.scss";

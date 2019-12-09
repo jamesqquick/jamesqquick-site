@@ -1,5 +1,4 @@
 import React from "react";
-import Layout from "../components/layout";
 import "../sass/posts.scss";
 export default function talk({ post }) {
   const { id, title, slug, html, publishDate, coverImage, tags } = post;

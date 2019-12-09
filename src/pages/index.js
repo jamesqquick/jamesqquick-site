@@ -5,8 +5,6 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 
 import SocialFollow from "../components/SocialFollow";
-import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const IndexPage = () => (
   <Layout>
