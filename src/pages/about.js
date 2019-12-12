@@ -19,17 +19,20 @@ export default function about() {
           `James Q Quick`,
         ]}
       />
-      <section className="section text-center">
-        <h1 className="text-center section-title">James Q Quick</h1>
-        <hr className="title-underline" />
-        <h3 className="section-subtitle">Developer. Speaker. Teacher.</h3>
-        <p className="section-content">
-          I’m a Full-Stack Web Developer who is addicted to learning and loves
-          working with people. I speak at community events, participate in
-          Hackathons, and build continuously.
-        </p>
 
-        <SocialFollow size="md" color="dark" />
+      <section className="section text-center section-light">
+        <div className="container">
+          <h1 className="text-center section-title">James Q Quick</h1>
+          <hr className="title-underline" />
+          <h3 className="section-subtitle">Developer. Speaker. Teacher.</h3>
+          <p className="section-content">
+            I’m a Full-Stack Web Developer who is addicted to learning and loves
+            working with people. I speak at community events, participate in
+            Hackathons, and build continuously.
+          </p>
+
+          <SocialFollow size="md" color="dark" />
+        </div>
       </section>
       <SplitView>
         <section className="section section-light text-center section ">

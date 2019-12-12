@@ -4,7 +4,7 @@ import "../sass/index.scss";
 import Navbar from "./Navbar";
 
 import "../sass/layout.scss";
-import { useStaticQuery } from "gatsby";
+import { useStaticQuery, graphql } from "gatsby";
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`

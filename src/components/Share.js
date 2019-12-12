@@ -9,7 +9,6 @@ import {
   faFacebook,
   faTwitter,
   faLinkedin,
-  faLinkedinIn,
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../sass/share.scss";
@@ -41,7 +40,7 @@ export default function Share({ url, title }) {
         title={title}
       >
         <span className="icon">
-          <FontAwesomeIcon icon={faLinkedinIn} size="3x" />
+          <FontAwesomeIcon icon={faLinkedin} size="3x" />
         </span>
       </LinkedinShareButton>
     </div>
