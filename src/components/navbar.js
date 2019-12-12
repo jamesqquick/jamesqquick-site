@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "gatsby";
 import headshot from "../images/headshot-512.png";
 import SocialFollow from "./SocialFollow";
-import NavNewsletter from "./navNewsletter";
 
 class Navbar extends React.Component {
   constructor(props) {
@@ -41,7 +40,10 @@ class Navbar extends React.Component {
           <Link to="/speaking">Speaking</Link>
         </ul>
         <div className="footer">
-          <NavNewsletter />
+          {/* <NavNewsletter /> */}
+          <Link to="newsletter">
+            <button className="btn btn-secondary">Newsletter</button>
+          </Link>
           <hr />
           <SocialFollow color="light" size={this.state.navOpen ? "md" : "sm"} />
         </div>

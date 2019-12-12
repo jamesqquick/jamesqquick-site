@@ -8,22 +8,41 @@
   width: 200px;
   border: 2px solid $primary;
   transition: background-color 250ms;
-}
-
-.btn:hover {
-  cursor: pointer;
-  background-color: white;
-  border-color: $primary;
-  color: $primary;
-}
-
-.btn:disabled {
-  opacity: 0.25;
-  cursor: not-allowed;
-  background-color: $primary;
 
   &:hover {
-    color: $off-white;
+    cursor: pointer;
+    background-color: $off-white;
+    border-color: $primary;
+    color: $primary;
+  }
+
+  &:disabled {
+    opacity: 0.25;
+    cursor: not-allowed;
+    background-color: $primary;
+
+    &:hover {
+      color: $off-white;
+    }
+  }
+}
+
+.btn-secondary {
+  background-color: $secondary;
+  color: $off-white;
+  border: 2px solid $secondary;
+
+  &:hover {
+    cursor: pointer;
+    background-color: $off-white;
+    border-color: $secondary;
+    color: $secondary;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: $secondary;
   }
 }
 
