@@ -1,7 +1,7 @@
 import React from "react";
-import PostPreview from "../components/postPreview";
-import SEO from "../components/seo";
-import Layout from "../components/layout";
+import PostPreview from "../components/PostPreview";
+import SEO from "../components/SEO";
+import Layout from "../components/Layout";
 import { graphql } from "gatsby";
 export default function blog({ data }) {
   const rawPosts = data.allMarkdownRemark.edges;

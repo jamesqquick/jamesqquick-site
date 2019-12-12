@@ -1,7 +1,7 @@
 import React from "react";
-import Layout from "../components/layout";
-import SEO from "../components/seo";
-import NewsletterForm from "../components/newsletterForm";
+import Layout from "../components/Layout";
+import SEO from "../components/SEO";
+import NewsletterForm from "../components/NewsletterForm";
 
 export default function newsletter() {
   return (

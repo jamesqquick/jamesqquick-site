@@ -4,6 +4,8 @@ module.exports = {
     description: `Personal site for James Q. Quick, Developer, Speaker, and Teacher.`,
     author: `@jamesqquick`,
     siteUrl: `https://www.jamesqquick.com`,
+    twitterHandle: "@jamesqquick",
+    url: `https://www.jamesqquick.com`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

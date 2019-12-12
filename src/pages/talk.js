@@ -1,6 +1,5 @@
 import React from "react";
 import Layout from "../components/layout";
-import Talk from "../templates/talk";
 import SEO from "../components/seo";
 
 export default function talk(props) {
@@ -8,7 +7,12 @@ export default function talk(props) {
     <Layout>
       <SEO title={props.pageContext.title} keywords={[``]} />
       <div className="container">
-        <Talk talk={props.pageContext} />
+        <h1>{props.pageContext.title}</h1>
+        <p>
+          {props.pageContext.conference} - {props.pageContext.date}
+        </p>
+        <a href={props.pageContext.slidesLink}>Slides</a>
+        <p>{props.pageContext.description}</p>
       </div>
     </Layout>
   );

@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "../sass/index.scss";
-import Navbar from "./navbar";
+import Navbar from "./Navbar";
 
 import "../sass/layout.scss";
 import { useStaticQuery } from "gatsby";

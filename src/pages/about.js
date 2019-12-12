@@ -1,10 +1,10 @@
 import React from "react";
-import Layout from "../components/layout";
-import SplitView from "../components/splitView";
+import Layout from "../components/Layout";
+import SplitView from "../components/SplitView";
 import interviewImage from "../images/interview.jpg";
 import speakingImage from "../images/speaking.jpg";
 import teachingImage from "../images/teaching.jpg";
-import SEO from "../components/seo";
+import SEO from "../components/SEO";
 import SocialFollow from "../components/SocialFollow";
 
 export default function about() {
