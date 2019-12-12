@@ -1,18 +1,28 @@
 @import "variables";
 
-#navNewsletter {
+#newsletter {
   display: flex;
-  flex-direction: column;
+  align-items: stretch;
+  margin-top: 5rem;
 
-  p {
-    color: $off-white;
-    text-align: center;
-  }
-
-  .btn {
-    width: 100%;
+  input {
+    margin-bottom: 0;
   }
 }
 
 @media only screen and (max-width: 768px) {
+  #newsletter {
+    display: flex;
+    flex-direction: column;
+    margin-top: 4rem;
+
+    p {
+      color: $off-white;
+      text-align: center;
+    }
+
+    .btn {
+      width: 100%;
+    }
+  }
 }

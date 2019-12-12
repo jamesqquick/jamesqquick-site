@@ -17,7 +17,7 @@
   }
 
   &:disabled {
-    opacity: 0.25;
+    opacity: 0.9;
     cursor: not-allowed;
     background-color: $primary;
 
@@ -35,7 +35,7 @@
   &:hover {
     cursor: pointer;
     background-color: $off-white;
-    border-color: $secondary;
+    border-color: $off-white;
     color: $secondary;
   }
 
