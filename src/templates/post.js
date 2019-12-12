@@ -6,6 +6,7 @@ export default function talk({ post }) {
   return (
     <div className="post">
       <h1>{title}</h1>
+      <p>{publishDate}</p>
       <hr className="title-underline" />
       <h3 className="section-subtitle">
         Sign up for articles, videos, courses, and more!
@@ -13,7 +14,6 @@ export default function talk({ post }) {
       <NewsletterForm />
       <hr></hr>
 
-      <p>{publishDate}</p>
       <div dangerouslySetInnerHTML={{ __html: html }} />
     </div>
   );
