@@ -3,7 +3,7 @@
 #newsletter {
   display: flex;
   align-items: stretch;
-  margin-top: 5rem;
+  margin: 2rem 0 4rem 0;
 
   input {
     margin-bottom: 0;
@@ -14,11 +14,15 @@
   #newsletter {
     display: flex;
     flex-direction: column;
-    margin-top: 4rem;
+    margin: 2rem 0;
 
     p {
       color: $off-white;
       text-align: center;
+    }
+
+    input {
+      margin-bottom: 1rem;
     }
 
     .btn {

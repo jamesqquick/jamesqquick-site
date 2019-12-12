@@ -24,9 +24,8 @@ export default function newsletter() {
             Sign up for articles, videos, courses, and more!
           </h3>
           <p className="section-content">
-            I’m a Full-Stack Web Developer who is addicted to learning and loves
-            working with people. I speak at community events, participate in
-            Hackathons, and build continuously.
+            From soft skills to hard skills and design to development, sign up
+            to receive my latest content.
           </p>
           <NewsletterForm />
         </section>
