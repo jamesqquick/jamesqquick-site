@@ -15,7 +15,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
-  const talkPage = path.resolve("./src/pages/Talk.js");
+  const talkPage = path.resolve("./src/pages/talk.js");
 
   const talksResult = await graphql(
     `
@@ -71,7 +71,7 @@ exports.createPages = async ({ graphql, actions }) => {
     });
   });
 
-  const postPage = path.resolve("./src/pages/BlogPost.js");
+  const postPage = path.resolve("./src/pages/blogPost.js");
 
   const postsResult = await graphql(
     `
