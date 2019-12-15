@@ -4,3 +4,4 @@ node_modules
 public
 # Local Netlify folder
 .netlify
+lambda

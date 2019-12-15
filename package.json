@@ -28,7 +28,9 @@
     "gatsby-transformer-json": "^2.2.2",
     "gatsby-transformer-remark": "^2.6.14",
     "gatsby-transformer-sharp": "^2.2.5",
+    "netlify-lambda": "^1.6.3",
     "node-sass": "^4.12.0",
+    "nodemailer": "^6.4.2",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -47,10 +49,12 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "prod": "npm run build",
+    "prod": "npm run build; npm run build:lambda",
     "start": "npm run develop",
     "format": "prettier --write \"src/**/*.js\"",
-    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
+    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
+    "start:lambda": "netlify-lambda serve functions",
+    "build:lambda": "netlify-lambda build functions"
   },
   "repository": {
     "type": "git",
