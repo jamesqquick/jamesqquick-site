@@ -1,8 +1,9 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Layout from "../components/layout";
-import SEO from "../components/seo";
+import Layout from "../components/Layout";
+import SEO from "../components/SEO";
 import TalkPreview from "../components/talkPreview";
+import SpeakForm from "../components/SpeakForm";
 export default function talks({ data }) {
   const talks = data.allTalksJson.edges.map(item => item.node);
 
@@ -13,6 +14,12 @@ export default function talks({ data }) {
         <div className="container">
           <h1 className="text-center section-title">TALKS</h1>
           <hr className="title-underline" />
+          <h3 className="section-subtitle">
+            Interesting in me speaking at your event? Let me know!
+          </h3>
+          <SpeakForm />
+          <hr></hr>
+
           {talks.map(talk => (
             <TalkPreview key={talk.id} talk={talk}></TalkPreview>
           ))}

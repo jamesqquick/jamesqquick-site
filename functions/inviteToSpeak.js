@@ -15,7 +15,7 @@ exports.handler = function(event, context, callback) {
   const mailOptions = {
     from: email,
     to: process.env.ADMIN_EMAIL,
-    subject: "Someone wants you to speak!",
+    subject: "Speaking!",
     text: `${body} \n from ${name}`,
   };
 

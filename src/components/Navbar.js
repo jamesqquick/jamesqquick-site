@@ -16,13 +16,13 @@ class Navbar extends React.Component {
 
   render = () => (
     <>
-      <a id="hamburgerBtn">
+      <button id="hamburgerBtn">
         <FontAwesomeIcon
           icon={this.state.navOpen ? faTimes : faBars}
           size="2x"
           onClick={this.toggleNavbar}
         />
-      </a>
+      </button>
       <nav className={"nav" + (this.state.navOpen ? " open" : "")} id="navbar">
         <div className="nav-brand">
           <img
