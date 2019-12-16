@@ -35,9 +35,9 @@ class Navbar extends React.Component {
 
         <ul className={"nav-items" + (this.state.navOpen ? "" : " hidden-sm")}>
           <Link to="/about">About</Link>
-          <Link to="/videos">Videos</Link>
-          <Link to="/blog">Blog</Link>
+          <Link to="/teaching">Teaching</Link>
           <Link to="/speaking">Speaking</Link>
+          <Link to="/blog">Blog</Link>
         </ul>
         <div className="footer">
           {/* <NavNewsletter /> */}
