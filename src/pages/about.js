@@ -6,6 +6,7 @@ import speakingImage from "../images/speaking.jpg";
 import teachingImage from "../images/teaching.jpg";
 import SEO from "../components/SEO";
 import SocialFollow from "../components/SocialFollow";
+import { Link } from "gatsby";
 
 export default function about() {
   return (
@@ -22,7 +23,7 @@ export default function about() {
 
       <section className="section text-center section-light">
         <div className="container">
-          <h1 className="text-center section-title">James Q Quick</h1>
+          <h1 className="text-center section-title">About</h1>
           <hr className="title-underline" />
           <h3 className="section-subtitle">Developer. Speaker. Teacher.</h3>
           <p className="section-content">

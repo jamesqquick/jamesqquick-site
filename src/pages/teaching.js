@@ -18,7 +18,7 @@ export default function teaching() {
       />
       <section className="section section-light">
         <div className="container">
-          <h1 className="text-center section-title">TEACHING</h1>
+          <h1 className="text-center section-title">Teaching</h1>
           <hr className="title-underline" />
           <ContactBlurb header={blurbHeader} />
 
