@@ -30,7 +30,9 @@ class Navbar extends React.Component {
             alt="James Q Quick headshot."
             onClick={this.scrollToTop}
           />
-          <Link to="/">James Q Quick</Link>
+          <Link to="/">
+            James <strong>Q</strong> Quick
+          </Link>
         </div>
 
         <ul className={"nav-items" + (this.state.navOpen ? "" : " hidden-sm")}>

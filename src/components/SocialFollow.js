@@ -14,7 +14,9 @@ export default function SocialFollow({ size, color }) {
 
   return (
     <div className="social-follow">
-      <p className={"social-follow-text text-" + color}>@jamesqquick</p>
+      <p className={"social-follow-text text-" + color}>
+        @james<strong>q</strong>quick
+      </p>
       <div className="flex justify-content-center">
         <a
           href="https://www.youtube.com/c/jamesqquick"
