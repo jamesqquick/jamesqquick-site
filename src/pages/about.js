@@ -35,7 +35,7 @@ export default function about() {
         </div>
       </section>
       <SplitView>
-        <section className="section section-light text-center section ">
+        <section className="text-center section ">
           <h1 className="text-center section-title">Developer</h1>
           <hr className="title-underline" />
           <p className="section-content">
@@ -48,7 +48,7 @@ export default function about() {
       </SplitView>
       <SplitView>
         <img src={speakingImage} alt="" className="img-cover " />
-        <section className="section text-center ">
+        <section className="section text-center section-light">
           <h1 className="text-center section-title">Speaker</h1>
           <hr className="title-underline" />
           <p className="section-content">
@@ -59,7 +59,7 @@ export default function about() {
         </section>
       </SplitView>
       <SplitView>
-        <section className="section text-center section-light">
+        <section className="section text-center ">
           <h1 className="text-center section-title">Teacher</h1>
           <hr className="title-underline" />
           <p className="section-content">
@@ -75,32 +75,6 @@ export default function about() {
           className="img-cover object-position-left"
         />
       </SplitView>
-      <section className="section">
-        <div className="section-content">
-          <h3 className="section-subtitle text-center">
-            Did I mention I run a YouTube Channel?!
-          </h3>
-          <br />
-          <div className="text-center">
-            <button className="btn">Check It Out!</button>
-          </div>
-        </div>
-      </section>
-      <div className="section section-light">
-        <div className="section-content">
-          <h1 className="text-center section-title">Contact Me</h1>
-          <hr className="title-underline text-center" />
-          <p className="text-center">
-            Have a question? Suggestion for a topic? Want to share a cool
-            project you're working on? Send me a message on twitter at{" "}
-            <a href="https://twitter.com/jamesqquick">
-              <b>@jamesqquick</b>
-            </a>
-            !
-          </p>
-          <br />
-        </div>
-      </div>
     </Layout>
   );
 }

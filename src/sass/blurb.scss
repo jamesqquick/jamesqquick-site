@@ -5,4 +5,11 @@
   border-top: 3px solid $light-grey;
   margin: 4rem 0;
   padding: 4rem 0;
+  text-align: center;
+
+  .blurb-header {
+    margin-top: 0;
+    font-size: 2.4rem;
+    margin-bottom: 4rem;
+  }
 }

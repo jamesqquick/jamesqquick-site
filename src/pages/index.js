@@ -16,7 +16,7 @@ const IndexPage = () => (
         `James Q Quick`,
       ]}
     />
-    <section className="section text-center section-full-height">
+    <section className="section section-light text-center section-full-height">
       <h1 className="text-center section-title">James Q Quick</h1>
       <hr className="title-underline" />
       <h3 className="section-subtitle">Developer. Speaker. Teacher.</h3>

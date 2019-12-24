@@ -29,8 +29,10 @@ export default class NewsletterForm extends Component {
     }
   };
   render() {
+    const blurbHeader = "Sign up for articles, videos, courses, and more!";
     return (
-      <>
+      <div className="blurb">
+        <h2 className="blurbHeader">{blurbHeader}</h2>
         <form id="newsletter" onSubmit={this.handleSubmit}>
           <input
             type="text"
@@ -44,7 +46,7 @@ export default class NewsletterForm extends Component {
             Subscribe
           </button>
         </form>
-      </>
+      </div>
     );
   }
 }

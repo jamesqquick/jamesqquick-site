@@ -38,6 +38,7 @@ class Navbar extends React.Component {
           <Link to="/teaching">Teaching</Link>
           <Link to="/speaking">Speaking</Link>
           <Link to="/blog">Blog</Link>
+          <Link to="/contact">Contact</Link>
         </ul>
         <div className="footer">
           {/* <NavNewsletter /> */}
