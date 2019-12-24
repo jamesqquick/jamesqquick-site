@@ -32,11 +32,16 @@
   color: $off-white;
   border: 2px solid $secondary;
 
+  &:visited {
+    color: $off-white;
+  }
+
   &:hover {
     cursor: pointer;
-    background-color: $off-white;
-    border-color: $off-white;
+    background-color: white;
+    border-color: $secondary;
     color: $secondary;
+    text-decoration: none;
   }
 
   &:disabled {

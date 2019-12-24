@@ -7,6 +7,7 @@ export default class NewsletterForm extends Component {
       email: "",
       name: "",
       body: "",
+      type: "speaking",
     };
   }
 
@@ -14,17 +15,18 @@ export default class NewsletterForm extends Component {
     e.preventDefault();
 
     try {
-      const res = await fetch(".netlify/functions/inviteToSpeak", {
+      const res = await fetch(".netlify/functions/contact", {
         method: "post",
         body: JSON.stringify({
           email: this.state.email,
           name: this.state.name,
           body: this.state.body,
+          type: this.state.type,
         }),
       });
       console.log(res);
       if (res.status === 200) {
-        this.setState({ email: "", name: "", body: "" });
+        this.setState({ email: "", name: "", body: "", type: "speaking" });
       } else if (res.result === "error") {
         //TODO: display error
         console.error(res.msg);
@@ -37,6 +39,15 @@ export default class NewsletterForm extends Component {
     return (
       <>
         <form onSubmit={this.handleSubmit}>
+          <select
+            onChange={e => this.setState({ type: e.target.value })}
+            value={this.state.type}
+          >
+            <option value="speaking">Speaking</option>
+            <option value="teaching">Teaching</option>
+            <option value="request">Content Request</option>
+            <option value="question">General Question</option>
+          </select>
           <input
             type="text"
             name="name"
@@ -56,9 +67,10 @@ export default class NewsletterForm extends Component {
           <textarea
             name="body"
             id="body"
-            placeholder="Where would you like me to speak? Please include dates, times, location, etc."
+            placeholder="Please include any relevant details with your request. Dates, times, location, etc."
             onChange={e => this.setState({ body: e.target.value })}
             value={this.state.body}
+            rows="10"
           />
           <button type="submit" className="btn">
             Send

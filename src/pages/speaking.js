@@ -3,23 +3,20 @@ import { graphql } from "gatsby";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 import TalkPreview from "../components/talkPreview";
-import SpeakForm from "../components/SpeakForm";
+import ContactBlurb from "../components/ContactBlurb";
+
 export default function talks({ data }) {
   const talks = data.allTalksJson.edges.map(item => item.node);
+  const blurbHeader = "Intersted in me speaking at your event?";
 
   return (
     <Layout>
-      <SEO title="Talks" keywords={[`conference talks`]} />
+      <SEO title="Speaking" keywords={[`conference talks`]} />
       <section className="section section-light">
         <div className="container">
-          <h1 className="text-center section-title">TALKS</h1>
+          <h1 className="text-center section-title">SPEAKING</h1>
           <hr className="title-underline" />
-          <h3 className="section-subtitle">
-            Interesting in me speaking at your event? Let me know!
-          </h3>
-          <SpeakForm />
-          <hr></hr>
-
+          <ContactBlurb header={blurbHeader} />
           {talks.map(talk => (
             <TalkPreview key={talk.id} talk={talk}></TalkPreview>
           ))}

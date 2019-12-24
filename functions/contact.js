@@ -10,12 +10,12 @@ const transporter = nodemailer.createTransport({
 });
 
 exports.handler = function(event, context, callback) {
-  const { email, name, body } = JSON.parse(event.body);
+  const { email, name, body, type } = JSON.parse(event.body);
 
   const mailOptions = {
     from: email,
     to: process.env.ADMIN_EMAIL,
-    subject: "Speaking!",
+    subject: `${type} request`,
     text: `${body} \n from ${name}`,
   };
 
