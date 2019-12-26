@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from "../components/Layout";
-import SEO from "../components/Seo";
+import SEO from "../components/SEO";
 import Share from "../components/Share";
 import NewsletterForm from "../components/NewsletterForm";
 import "../sass/posts.scss";
