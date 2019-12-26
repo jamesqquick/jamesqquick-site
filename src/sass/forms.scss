@@ -1,3 +1,5 @@
+@import "variables";
+
 form {
   margin: 20px 0;
 }
@@ -16,6 +18,24 @@ select {
   margin-bottom: 1.5rem;
   background-color: rgb(238, 238, 238);
   border: none;
+}
+
+select {
+  appearance: none;
+  display: inline-block;
+  position: relative;
+  &:after {
+    content: "<>";
+    font: 11px "Consolas", monospace;
+    color: $light-grey;
+    transform: rotate(90deg);
+    right: 8px;
+    top: 2px;
+    padding: 0 0 2px;
+    border-bottom: 1px solid #ddd;
+    position: absolute;
+    pointer-events: none;
+  }
 }
 
 textarea {

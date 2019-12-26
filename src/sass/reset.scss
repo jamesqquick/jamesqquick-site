@@ -80,3 +80,8 @@ hr {
   border-top: 1px solid #eee;
   margin-bottom: 20px;
 }
+
+strong {
+  color: $secondary;
+  text-transform: uppercase;
+}

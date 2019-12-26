@@ -12,8 +12,9 @@ export default function contact() {
           <hr className="title-underline" />
           <p>
             Interested in having me <strong>speak</strong> at your event?
-            Creating and/or <strong>teach</strong> content? Have a suggestion
-            for content? Maybe just a general question? Let me know!
+            Creating and/or <strong>teaching</strong> content? Have a suggestion
+            for content? Maybe just a general question? I would love to hear
+            from you!
           </p>
           <ContactForm />
         </div>

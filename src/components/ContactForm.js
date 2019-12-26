@@ -7,7 +7,7 @@ export default class NewsletterForm extends Component {
       email: "",
       name: "",
       body: "",
-      type: "speaking",
+      type: "question",
     };
   }
 
