@@ -20,12 +20,18 @@ export default function newsletter() {
         <section className="section text-center section-light">
           <h1 className="text-center section-title">Newsletter</h1>
           <hr className="title-underline" />
-          <h3 className="section-subtitle">
-            Sign up for articles, videos, courses, and more!
-          </h3>
-          <p className="section-content">
-            From soft skills to hard skills and design to development, sign up
-            to receive my latest content.
+          <p>
+            Hi, I’m a Full-Stack Web Developer who is addicted to learning and
+            loves working with people. In general, I focus on{" "}
+            <strong>Web Development</strong>, <strong>Design</strong>, and{" "}
+            <strong>Developer Tools</strong>. Here's what you can expect from
+            this newsletter.
+            <ul>
+              <li>Latest Video and Blog Content</li>
+              <li>Premium Courses</li>
+              <li>Soft Skills and Career Development</li>
+              <li>A bit of personal stuff :)</li>
+            </ul>
           </p>
           <NewsletterForm />
         </section>

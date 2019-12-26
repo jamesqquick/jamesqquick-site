@@ -33,6 +33,7 @@ export default class NewsletterForm extends Component {
     return (
       <div className="blurb">
         <h2 className="blurbHeader">{blurbHeader}</h2>
+
         <form id="newsletter" onSubmit={this.handleSubmit}>
           <input
             type="text"
