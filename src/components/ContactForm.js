@@ -7,7 +7,7 @@ export default class NewsletterForm extends Component {
       email: "",
       name: "",
       body: "",
-      type: "question",
+      type: "",
     };
   }
 
@@ -43,6 +43,10 @@ export default class NewsletterForm extends Component {
             onChange={e => this.setState({ type: e.target.value })}
             value={this.state.type}
           >
+            <option value="" disabled selected>
+              Choose a contact category...
+            </option>
+
             <option value="speaking">Speaking</option>
             <option value="teaching">Teaching</option>
             <option value="request">Content Request</option>
