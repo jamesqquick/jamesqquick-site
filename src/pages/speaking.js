@@ -1,8 +1,8 @@
 import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/Layout";
-import SEO from "../components/SEO";
-import TalkPreview from "../components/talkPreview";
+import SEO from "../components/Seo";
+import TalkPreview from "../components/TalkPreview";
 import ContactBlurb from "../components/ContactBlurb";
 
 export default function talks({ data }) {
