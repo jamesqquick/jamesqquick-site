@@ -1,6 +1,6 @@
 @import "variables";
 
-#newsletter {
+#newsletterForm {
   display: flex;
   align-items: stretch;
   // margin: 2rem 0 4rem 0;
@@ -11,7 +11,7 @@
 }
 
 @media only screen and (max-width: 768px) {
-  #newsletter {
+  #newsletterForm {
     display: flex;
     flex-direction: column;
     margin: 2rem 0;

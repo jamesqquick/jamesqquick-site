@@ -18,6 +18,10 @@ select {
   margin-bottom: 1.5rem;
   background-color: rgb(238, 238, 238);
   border: none;
+
+  &.error {
+    border: 2px solid $error;
+  }
 }
 
 select {
@@ -40,4 +44,10 @@ select {
 
 textarea {
   resize: none;
+}
+
+p.error {
+  color: $error;
+  text-align: left;
+  margin-top: -1.5rem;
 }

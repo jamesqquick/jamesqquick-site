@@ -1,50 +1,100 @@
 import React, { Component } from "react";
 import "../sass/newsletter.scss";
+import ValidatedForm from "./ValidatedForm";
+import * as EmailValidator from "email-validator";
+
 export default class NewsletterForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: "",
-      name: "",
-      body: "",
-      type: "",
+      email: "jwmac@gmail.com",
+      name: "sdfsd",
+      body: "sdfsd",
+      category: "speaking",
+      errorMsg: "",
+      isValidEmail: null,
+      successMsg: "",
+      loading: false,
     };
   }
 
   handleSubmit = async e => {
     e.preventDefault();
 
+    //Valid inputs
+    if (!this.state.category) {
+      return this.setState({
+        errMsg: "Please choose a reason for reaching out",
+      });
+    }
+
+    if (!this.state.name) {
+      return this.setState({
+        errMsg: "Please include your name",
+      });
+    }
+
+    if (!EmailValidator.validate(this.state.email)) {
+      return this.setState({
+        errMsg: "Please enter a valid email",
+      });
+    }
+
+    if (!this.state.body) {
+      return this.setState({
+        errMsg: "Don't forget to share the deets!",
+      });
+    }
+
     try {
+      this.setState({ loading: true });
       const res = await fetch(".netlify/functions/contact", {
         method: "post",
         body: JSON.stringify({
           email: this.state.email,
           name: this.state.name,
           body: this.state.body,
-          type: this.state.type,
+          category: this.state.category,
         }),
       });
-      console.log(res);
+      const loading = false;
       if (res.status === 200) {
-        this.setState({ email: "", name: "", body: "", type: "speaking" });
+        this.setState({
+          successMsg: "Thanks for reaching out!",
+          loading,
+        });
       } else if (res.result === "error") {
-        //TODO: display error
-        console.error(res.msg);
+        const errMsg = "Ooops... something went wrong.";
+        this.setState({ errMsg, loading });
       }
     } catch (ex) {
-      console.error(ex);
+      const errMsg = "Ooops... something went wrong.";
+      this.setState({ errMsg, loading: false });
     }
   };
   render() {
     return (
       <>
-        <form onSubmit={this.handleSubmit}>
+        <ValidatedForm
+          errMsg={this.state.errMsg}
+          id="contactForm"
+          onSubmit={this.handleSubmit}
+          successMsg={this.state.successMsg}
+          btnText="Submit"
+          loading={this.state.loading}
+        >
+          {" "}
           <select
-            onChange={e => this.setState({ type: e.target.value })}
-            value={this.state.type}
+            onChange={e => this.setState({ category: e.target.value })}
+            value={this.state.category}
+            className={
+              this.state.errMsg && this.state.errMsg.includes("reason")
+                ? "error"
+                : ""
+            }
           >
-            <option value="" disabled selected>
-              Choose a contact category...
+            <option value="" disabled>
+              Reason for reaching out...
             </option>
 
             <option value="speaking">Speaking</option>
@@ -53,20 +103,30 @@ export default class NewsletterForm extends Component {
             <option value="question">General Question</option>
           </select>
           <input
-            type="text"
+            category="text"
             name="name"
             id="name"
             placeholder="Name"
             onChange={e => this.setState({ name: e.target.value })}
             value={this.state.name}
+            className={
+              this.state.errMsg && this.state.errMsg.includes("name")
+                ? "error"
+                : ""
+            }
           />
           <input
-            type="text"
+            category="text"
             name="email"
             id="email"
             placeholder="email"
             onChange={e => this.setState({ email: e.target.value })}
             value={this.state.email}
+            className={
+              this.state.errMsg && this.state.errMsg.includes("email")
+                ? "error"
+                : ""
+            }
           />
           <textarea
             name="body"
@@ -75,11 +135,13 @@ export default class NewsletterForm extends Component {
             onChange={e => this.setState({ body: e.target.value })}
             value={this.state.body}
             rows="10"
+            className={
+              this.state.errMsg && this.state.errMsg.includes("deets")
+                ? "error"
+                : ""
+            }
           />
-          <button type="submit" className="btn">
-            Send
-          </button>
-        </form>
+        </ValidatedForm>
       </>
     );
   }
