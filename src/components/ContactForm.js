@@ -49,7 +49,7 @@ export default class ContactForm extends Component {
     try {
       console.log("something");
       this.setState({ loading: true });
-      const res = await fetch(".netlify/functions/contact", {
+      const res = await fetch("/.netlify/functions/contact", {
         method: "post",
         body: JSON.stringify({
           email: this.state.email,
