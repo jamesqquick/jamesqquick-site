@@ -5,6 +5,7 @@ export default function Blurb({
   header,
   buttonText,
   buttonLink,
+  btnType,
   isRelativeLink = true,
 }) {
   console.log(buttonLink, isRelativeLink);
@@ -12,11 +13,11 @@ export default function Blurb({
     <div id="contactBlurb" className="blurb">
       <h2 className="blurb-header">{header}</h2>
       {isRelativeLink ? (
-        <Link to={`/${buttonLink}`} className="btn btn-secondary">
+        <Link to={`/${buttonLink}`} className={`btn ${btnType}`}>
           {buttonText}
         </Link>
       ) : (
-        <a href={buttonLink} className="btn btn-secondary">
+        <a href={buttonLink} className={`btn ${btnType}`}>
           {buttonText}
         </a>
       )}

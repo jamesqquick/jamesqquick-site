@@ -14,12 +14,16 @@ export default class ValidatedForm extends Component {
             <>
               {this.props.children}
               <button type="submit" className="btn">
-                {this.props.loading ? "..." : this.props.btnText}
+                {this.props.loading ? (
+                  <div className="loader" />
+                ) : (
+                  this.props.btnText
+                )}
               </button>
             </>
           )}
         </form>
-        {this.props.errMsg && (
+        {!this.loading && !this.props.successMsg && this.props.errMsg && (
           <p className="error">
             <small>{this.props.errMsg}</small>
           </p>

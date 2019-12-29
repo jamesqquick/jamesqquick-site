@@ -17,43 +17,41 @@ export default function teaching() {
           `developer tools`,
         ]}
       />
-      <section className="section section-light">
-        <div className="container">
-          <h1 className="text-center section-title">Teaching</h1>
-          <hr className="title-underline" />
-          <Blurb
-            header={coursesBlurbHeader}
-            buttonLink="https://www.learnbuildteach.com"
-            buttonText="Learn Build Teach"
-            isRelativeLink={false}
-          />
+      <div className="container">
+        <h1 className="title">Teaching</h1>
+        <hr className="title-underline" />
+        <Blurb
+          header={coursesBlurbHeader}
+          buttonLink="https://www.learnbuildteach.com"
+          buttonText="Full Courses"
+          isRelativeLink={false}
+          btnType="btn-secondary"
+        />
 
-          <p>
-            I've taught <strong>tens of thousands</strong> of students in person
-            and online. I've got a passion for Web Development that I want to
-            share with you!
-          </p>
-          <p>I can help you learn...</p>
-          <ul>
-            <li>
-              <strong>HTML</strong>, <strong>CSS</strong>, and{" "}
-              <strong>JavaScript</strong>
-            </li>
-            <li>
-              Backend Development with <strong>Nodejs</strong>
-            </li>
-            <li>
-              Frontend Frameworks like <strong>React</strong> and{" "}
-              <strong>Angular</strong>
-            </li>
-            <li>
-              <strong>Soft Skills</strong> and{" "}
-              <strong>Career Development</strong>
-            </li>
-          </ul>
-          <ContactBlurb header={contactBlurbHeader} />
-        </div>
-      </section>
+        <p>
+          I've taught <strong>tens of thousands</strong> of students in person
+          and online. I've got a passion for Web Development that I want to
+          share with you!
+        </p>
+        <p>I can help you learn...</p>
+        <ul>
+          <li>
+            <strong>HTML</strong>, <strong>CSS</strong>, and{" "}
+            <strong>JavaScript</strong>
+          </li>
+          <li>
+            Backend Development with <strong>Nodejs</strong>
+          </li>
+          <li>
+            Frontend Frameworks like <strong>React</strong> and{" "}
+            <strong>Angular</strong>
+          </li>
+          <li>
+            <strong>Soft Skills</strong> and <strong>Career Development</strong>
+          </li>
+        </ul>
+        <ContactBlurb header={contactBlurbHeader} />
+      </div>
     </Layout>
   );
 }

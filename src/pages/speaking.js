@@ -12,16 +12,14 @@ export default function talks({ data }) {
   return (
     <Layout>
       <SEO title="Speaking" keywords={[`conference talks`]} />
-      <section className="section section-light">
-        <div className="container">
-          <h1 className="text-center section-title">Speaking</h1>
-          <hr className="title-underline" />
-          <ContactBlurb header={blurbHeader} />
-          {talks.map(talk => (
-            <TalkPreview key={talk.id} talk={talk}></TalkPreview>
-          ))}
-        </div>
-      </section>
+      <div className="container">
+        <h1 className="text-center section-title">Speaking</h1>
+        <hr className="title-underline" />
+        <ContactBlurb header={blurbHeader} />
+        {talks.map(talk => (
+          <TalkPreview key={talk.id} talk={talk}></TalkPreview>
+        ))}
+      </div>
     </Layout>
   );
 }

@@ -18,26 +18,27 @@ export default class NewsletterForm extends Component {
   handleSubmit = async e => {
     e.preventDefault();
     const isValidEmail = EmailValidator.validate(this.state.email);
-    if (isValidEmail) {
+
+    if (!isValidEmail) {
+      const errMsg = "Please enter a valid email";
+      this.setState({ isValidEmail, errMsg });
+    } else {
       try {
         this.setState({ loading: true });
         const res = await addToMailchimp(this.state.email);
         const loading = false;
         if (res.result === "success") {
-          this.setState({ successMsg: "Thanks for subscribing" }, loading);
+          this.setState({ successMsg: "Thanks for subscribing", loading });
         } else if (res.result === "error") {
           const errMsg = "Ooops... newsletter subscribe failed.";
           this.setState({ errMsg, loading });
-          console.error(res.msg);
+          //console.error(res.msg);
         }
       } catch (ex) {
-        console.error(ex);
+        //console.error(ex);
         const errMsg = "Ooops... newsletter subscribe failed.";
         this.setState({ errMsg, loading: false });
       }
-    } else {
-      const errMsg = "Please enter a valid email";
-      this.setState({ isValidEmail, errMsg });
     }
   };
   render() {

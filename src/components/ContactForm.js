@@ -1,16 +1,15 @@
 import React, { Component } from "react";
-import "../sass/newsletter.scss";
 import ValidatedForm from "./ValidatedForm";
 import * as EmailValidator from "email-validator";
 
-export default class NewsletterForm extends Component {
+export default class ContactForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: "jwmac@gmail.com",
-      name: "sdfsd",
-      body: "sdfsd",
-      category: "speaking",
+      email: "",
+      name: "",
+      body: "",
+      category: "",
       errorMsg: "",
       isValidEmail: null,
       successMsg: "",
@@ -20,6 +19,7 @@ export default class NewsletterForm extends Component {
 
   handleSubmit = async e => {
     e.preventDefault();
+    console.log("hello");
 
     //Valid inputs
     if (!this.state.category) {
@@ -47,6 +47,7 @@ export default class NewsletterForm extends Component {
     }
 
     try {
+      console.log("something");
       this.setState({ loading: true });
       const res = await fetch(".netlify/functions/contact", {
         method: "post",

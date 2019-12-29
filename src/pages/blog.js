@@ -15,15 +15,13 @@ export default function blog({ data }) {
   return (
     <Layout>
       <SEO title="Blog" keywords={[`blog`]} type="blog" />
-      <section className="section section-light">
-        <div className="container">
-          <h1 className="text-center section-title">Blog</h1>
-          <hr className="title-underline" />
-          {posts.map(post => (
-            <PostPreview post={post} key={post.id} />
-          ))}
-        </div>
-      </section>
+      <div className="container">
+        <h1 className="title">Blog</h1>
+        <hr className="title-underline" />
+        {posts.map(post => (
+          <PostPreview post={post} key={post.id} />
+        ))}
+      </div>
     </Layout>
   );
 }

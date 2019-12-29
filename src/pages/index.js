@@ -6,7 +6,7 @@ import SEO from "../components/SEO";
 import SocialFollow from "../components/SocialFollow";
 
 const IndexPage = () => (
-  <Layout>
+  <Layout className="full-height flex-center">
     <SEO
       title="Home"
       keywords={[
@@ -16,25 +16,18 @@ const IndexPage = () => (
         `James Q Quick`,
       ]}
     />
-    <section className="section section-light text-center section-full-height">
-      <h1 className="text-center section-title">James Q Quick</h1>
+    <div className="container full-height flex-center">
+      <h1 className="title">James Q Quick</h1>
       <hr className="title-underline" />
-      <h3 className="section-subtitle">Developer. Speaker. Teacher.</h3>
-      <p className="section-content">
+      <h3 className="subtitle">Developer. Speaker. Teacher.</h3>
+      <p>
         I’m a Full-Stack Web Developer who is addicted to learning and loves
         working with people. I speak at community events, participate in
         Hackathons, and build continuously.
       </p>
 
       <SocialFollow size="md" color="dark" />
-      {/* <FontAwesomeIcon
-        className="absolute-bottom"
-        icon={faAngleDown}
-        size="6x"
-        fixedWidth
-        id="downArrow"
-      /> */}
-    </section>
+    </div>
   </Layout>
 );
 

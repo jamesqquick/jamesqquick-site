@@ -9,11 +9,17 @@
   border: 2px solid $primary;
   transition: background-color 250ms;
 
+  &:visited {
+    color: $off-white;
+    text-decoration: none;
+  }
+
   &:hover {
     cursor: pointer;
     background-color: $off-white;
     border-color: $primary;
     color: $primary;
+    text-decoration: none;
   }
 
   &:disabled {
