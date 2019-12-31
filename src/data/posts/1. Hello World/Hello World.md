@@ -15,7 +15,7 @@ You might be wondering about the second "Q". My middle name is Quentin. Q's are 
 
 ## Why I'm Here
 
-So, what am I doing here? Although I have written tons of technical posts, I need an outlet for more **soft skills/personal stuff**. I can't expect someone else to publish material that only pertains to me and my experiences, can I? That said, I am going to be writing here two reasons.
+So, what am I doing here? Although I have written tons of technical posts, I need an outlet for more **soft skills/personal stuff**. I can't expect someone else to publish material that only pertains to me and my experiences, can I? That said, I am going to be writing here for two reasons.
 
 1. Let you get to know me better
 2. Share my experiences in the hopes that you get something out of it

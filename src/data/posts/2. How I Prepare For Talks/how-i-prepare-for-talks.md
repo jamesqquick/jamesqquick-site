@@ -27,16 +27,16 @@ After settling on a topic, I walk through a few different steps.
 
 - Save a bunch of random notes, links, and thoughts in whatever format works best
 - Create section headlines to outline the talk
-- Fill in sections with raw content (no styling or veryy little)
+- Fill in sections with raw content (no styling or very little)
 - Beautify the content!
 - Add jokes and gifs :)
-- write speaker notes!
+- Write speaker notes!
 
 This last part is actually pretty important. You don't want to talk AT people for an hour. You want to engage them, make them laugh, make them cry, etc. With practice, you'll learn how to gauge your audience better and better.
 
 ## Live Coding? Think Twice!
 
-Live coding is REALLY hard. Not saying I don't do it, but it is definitely a challenge. Let's just say it's hard to type accurately when you're nervous and a room full of people are waiting on your to impress them :)
+Live coding is REALLY hard. Not saying I don't do it, but it is definitely a challenge. Let's just say it's hard to type accurately when you're nervous and a room full of people are waiting on you to impress them :)
 
 Here's a couple of things you can do to help.
 
@@ -50,15 +50,15 @@ Here's a couple of things you can do to help.
 
 After you've got your content prepared, you have to practice. This means talking through the ENTIRE deck presenting it out load either to yourself or a real person. If you have someone with speaking experience, ask them for help!
 
-By practicing a few times, you'll gain a couple of benefits.
+By practicing a few times, you'll gain a few benefits.
 
 - Become less dependent on slides
 - Transitions become more comfortable
 - Nail your timing (you might have to add or cut content)
 
-After you've practiced, make any chances in content to make sure things fit well and **then practice again** :)
+After you've practiced, make any changes in content to make sure things fit well and **then practice again** :)
 
-## Interact with the Audience
+## Interacting with the Audience
 
 There's nothing more awkward than the few minutes before a talk starts. You've got a room full of people who don't know each other that well, and don't know what to do. I take advantage of this and engage with the audience to try and fill that silence. Basically, I embrace that awkwardness :)
 
@@ -71,6 +71,6 @@ This helps me in two ways.
 
 Talking to the crowd helps me relax a bit. I've done lots of talks but I still struggle with nerves. However, at this point, I know the small things I can do to make sure I make it through smoothly.
 
-## Wrap Up
+## Wrapping Up
 
 If you're interested in knowing more about how I choose topics, create content, etc. I'd love to hear from you on Twitter [@jamesqquick](https://twitter.com/jamesqquick)! Maybe I'll follow up with more detailed posts.
