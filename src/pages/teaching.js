@@ -3,9 +3,26 @@ import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 import ContactBlurb from "../components/ContactBlurb";
 import Blurb from "../components/Blurb";
+import Img from "gatsby-image";
+import { useStaticQuery } from "gatsby";
+
 export default function teaching() {
   const contactBlurbHeader = "Interested in custom content or training?";
   const coursesBlurbHeader = "Looking for a full list of my courses?";
+
+  const data = useStaticQuery(graphql`
+    query {
+      file(relativePath: { eq: "teaching.jpg" }) {
+        childImageSharp {
+          # Specify the image processing specifications right in the query.
+          # Makes it trivial to update as your page's design changes.
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `);
   return (
     <Layout>
       <SEO
@@ -23,9 +40,13 @@ export default function teaching() {
         <Blurb
           header={coursesBlurbHeader}
           buttonLink="https://www.learnbuildteach.com"
-          buttonText="Full Courses"
+          buttonText="Full Course List"
           isRelativeLink={false}
           btnType="btn-secondary"
+        />
+        <Img
+          fluid={data.file.childImageSharp.fluid}
+          alt="James Q Quick teaching"
         />
 
         <p>

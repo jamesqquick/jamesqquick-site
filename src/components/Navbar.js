@@ -1,41 +1,49 @@
-import React from "react";
+import React, { useState } from "react";
 import "../sass/navbar.scss";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "gatsby";
-import headshot from "../images/headshot-512.png";
+import { Link, useStaticQuery } from "gatsby";
 import SocialFollow from "./SocialFollow";
+import Img from "gatsby-image";
 
-class Navbar extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      navOpen: false,
-    };
-  }
+export default function Navbar() {
+  const [navOpen, setNavOpen] = useState(false);
 
-  render = () => (
+  const data = useStaticQuery(graphql`
+    query {
+      file(relativePath: { eq: "headshot-512.png" }) {
+        childImageSharp {
+          # Specify the image processing specifications right in the query.
+          # Makes it trivial to update as your page's design changes.
+          fixed(width: 120, height: 120) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+    }
+  `);
+  console.log(data);
+  return (
     <>
       <button id="hamburgerBtn">
         <FontAwesomeIcon
-          icon={this.state.navOpen ? faTimes : faBars}
+          icon={navOpen ? faTimes : faBars}
           size="2x"
-          onClick={this.toggleNavbar}
+          onClick={() => setNavOpen(!navOpen)}
         />
       </button>
-      <nav className={"nav" + (this.state.navOpen ? " open" : "")} id="navbar">
+      <nav className={"nav" + (navOpen ? " open" : "")} id="navbar">
         <div className="nav-brand">
-          <img
-            src={headshot}
-            alt="James Q Quick headshot."
-            onClick={this.scrollToTop}
+          <Img
+            fixed={data.file.childImageSharp.fixed}
+            alt="James Q Quick headshot"
           />
           <Link to="/">
             James <strong>Q</strong> Quick
           </Link>
         </div>
 
-        <ul className={"nav-items" + (this.state.navOpen ? "" : " hidden-sm")}>
+        <ul className={"nav-items" + (navOpen ? "" : " hidden-sm")}>
           <Link to="/about">About</Link>
           <Link to="/teaching">Teaching</Link>
           <Link to="/speaking">Speaking</Link>
@@ -48,17 +56,9 @@ class Navbar extends React.Component {
             <button className="btn btn-secondary">Newsletter</button>
           </Link>
           <hr />
-          <SocialFollow color="light" size={this.state.navOpen ? "md" : "sm"} />
+          <SocialFollow color="light" size={navOpen ? "md" : "sm"} />
         </div>
       </nav>
     </>
   );
-
-  toggleNavbar = () => {
-    this.setState({
-      navOpen: !this.state.navOpen,
-    });
-  };
 }
-
-export default Navbar;
