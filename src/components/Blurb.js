@@ -8,12 +8,11 @@ export default function Blurb({
   btnType,
   isRelativeLink = true,
 }) {
-  console.log(buttonLink, isRelativeLink);
   return (
     <div id="contactBlurb" className="blurb">
       <h2 className="blurb-header">{header}</h2>
       {isRelativeLink ? (
-        <Link to={`/${buttonLink}`} className={`btn ${btnType}`}>
+        <Link to={`${buttonLink}`} className={`btn ${btnType}`}>
           {buttonText}
         </Link>
       ) : (

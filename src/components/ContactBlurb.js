@@ -6,6 +6,7 @@ export default function ContactBlurb({ header }) {
       buttonText={"Contact Me"}
       buttonLink={"/contact"}
       header={header}
+      btnType="btn-secondary"
     ></Blurb>
   );
 }

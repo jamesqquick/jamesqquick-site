@@ -22,7 +22,6 @@ export default function Navbar() {
       }
     }
   `);
-  console.log(data);
   return (
     <>
       <button id="hamburgerBtn">
@@ -52,7 +51,7 @@ export default function Navbar() {
         </ul>
         <div className="footer">
           {/* <NavNewsletter /> */}
-          <Link to="newsletter">
+          <Link to="/newsletter">
             <button className="btn btn-secondary">Newsletter</button>
           </Link>
           <hr />
