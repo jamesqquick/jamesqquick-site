@@ -38,6 +38,7 @@ module.exports = {
               height: 400,
             },
           },
+          `gatsby-remark-emoji`, // <-- this line adds emoji
         ],
       },
     },
