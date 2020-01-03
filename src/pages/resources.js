@@ -32,12 +32,14 @@ export default function resources() {
         <h3>JavaScript</h3>
         <ul>
           <li>
-            <a href="https://beginnerjavascript.com/">
+            <a href="https://BeginnerJavaScript.com/friend/QUICK">
               Beginner JavaScript by Wes Bos
             </a>
           </li>
           <li>
-            <a href="https://es6.io/">ES6 For Everyone by Wes Bos</a>
+            <a href="https://ES6.io/friend/QUICK">
+              ES6 For Everyone by Wes Bos
+            </a>
           </li>
           <li>
             <a href="https://www.udemy.com/course/understand-javascript/">
@@ -58,10 +60,12 @@ export default function resources() {
         <h3>React</h3>
         <ul>
           <li>
-            <a href="https://advancedreact.com/">Advanced React by Wes Bos</a>
+            <a href="https://AdvancedReact.com/friend/QUICK">
+              Advanced React by Wes Bos
+            </a>
           </li>
           <li>
-            <a href="https://reactforbeginners.com/">
+            <a href="https://ReactForBeginners.com/friend/QUICK">
               React for Beginners by Wes Bos
             </a>
           </li>
@@ -94,7 +98,9 @@ export default function resources() {
         <h3>Backend</h3>
         <ul>
           <li>
-            <a href="https://learnnode.com/">Learn Node by Wes Bos</a>
+            <a href="https://LearnNode.com/friend/QUICK">
+              Learn Node by Wes Bos
+            </a>
           </li>
           <li>
             <a href="https://www.udemy.com/course/the-complete-nodejs-developer-course-2/">
@@ -134,7 +140,9 @@ export default function resources() {
         <h3>JavaScript</h3>
         <ul>
           <li>
-            <a href="https://javascript30.com/">JavaScript 30 by Wes Bos</a>
+            <a href="https://JavaScript30.com/friend/QUICK">
+              JavaScript 30 by Wes Bos
+            </a>
           </li>
           <li>
             <a href="https://www.youtube.com/watch?v=W6NZfCO5SIk">
@@ -168,16 +176,18 @@ export default function resources() {
         <h3>CSS</h3>
         <ul>
           <li>
-            <a href="https://cssgrid.io/">CSS Grid by Wes Bos</a>
+            <a href="https://CSSGrid.io/friend/QUICK">CSS Grid by Wes Bos</a>
           </li>
           <li>
-            <a href="https://flexbox.io/">What the Flexbox by Wes Bos</a>
+            <a href="https://Flexbox.io/friend/QUICK">
+              What the Flexbox by Wes Bos
+            </a>
           </li>
         </ul>
         <h3>Misc</h3>
         <ul>
           <li>
-            <a href="https://commandlinepoweruser.com/">
+            <a href="https://CommandLinePowerUser.com/friend/QUICK">
               Command Line Power User by Wes Bos
             </a>
           </li>
