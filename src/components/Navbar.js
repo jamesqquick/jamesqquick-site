@@ -43,7 +43,7 @@ export default function Navbar() {
         </div>
 
         <ul className={"nav-items" + (navOpen ? "" : " hidden-sm")}>
-          <Link to="/about">About</Link>
+          {/* <Link to="/about">About</Link> */}
           <Link to="/teaching">Teaching</Link>
           <Link to="/speaking">Speaking</Link>
           <Link to="/blog">Blog</Link>
