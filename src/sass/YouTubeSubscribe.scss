@@ -1,0 +1,32 @@
+@import "variables";
+
+#YouTubeSubscribe {
+  img {
+    margin: 2rem;
+    &:hover {
+      animation: wiggle 500ms linear;
+    }
+  }
+}
+
+@keyframes wiggle {
+  0% {
+    transform: skewX(7deg);
+  }
+  20% {
+    transform: skewX(-6deg);
+  }
+  40% {
+    transform: skewX(3deg);
+  }
+  60% {
+    transform: skewX(-2deg);
+  }
+  80% {
+    transform: skewX(1deg);
+  }
+
+  100% {
+    transform: skewX(0deg);
+  }
+}

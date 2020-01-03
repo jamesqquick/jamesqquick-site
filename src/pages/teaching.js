@@ -5,6 +5,7 @@ import ContactBlurb from "../components/ContactBlurb";
 import Blurb from "../components/Blurb";
 import Img from "gatsby-image";
 import { useStaticQuery } from "gatsby";
+import YouTubeSubscribe from "../components/YouTubeSubscribe";
 
 export default function teaching() {
   const contactBlurbHeader = "Interested in custom content or training?";
@@ -54,6 +55,9 @@ export default function teaching() {
           and online. I've got a passion for Web Development that I want to
           share with you!
         </p>
+        <div className="text-center">
+          <YouTubeSubscribe />
+        </div>
         <p>I can help you learn...</p>
         <ul>
           <li>
@@ -71,6 +75,7 @@ export default function teaching() {
             <strong>Soft Skills</strong> and <strong>Career Development</strong>
           </li>
         </ul>
+
         <ContactBlurb header={contactBlurbHeader} />
       </div>
     </Layout>

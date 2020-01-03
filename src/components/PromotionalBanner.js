@@ -4,8 +4,8 @@ export default function PromotionalBanner() {
   return (
     <div id="promotionalBanner">
       <p>
-        <a href="https://www.leveluptutorials.com/tutorials/fullstack-react-and-firebase">
-          Learn how to build a quiz app with React and Firebase!
+        <a href="https://www.udemy.com/course/learn-visual-studio-code/">
+          Learn everything you need to know about Visual Studio Code!
         </a>
       </p>
     </div>
