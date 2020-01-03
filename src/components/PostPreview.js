@@ -2,17 +2,16 @@ import React from "react";
 import { Link } from "gatsby";
 
 export default function postPreview({ post }) {
-  console.log(post);
   return (
-    <div className="talk">
+    <div className="post-preview">
       <Link to={post.slug}>
-        <h2 className="card-title">{post.title}</h2>
+        <h2 className="post-title">{post.title}</h2>
       </Link>
-
-      <p>{post.excerpt}</p>
-      <p className="date">
+      <p className="post-date">
         <small>{post.publishDate}</small>
       </p>
+
+      <p>{post.excerpt}</p>
       <hr />
     </div>
   );

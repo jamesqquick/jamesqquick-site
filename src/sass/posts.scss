@@ -1,6 +1,25 @@
 @import "variables";
 
+.post-preview {
+  .post-title {
+    margin-bottom: 5px;
+  }
+
+  .post-date {
+    margin-top: 0px;
+    color: $text-light;
+  }
+}
+
 .post {
+  .post-title {
+    margin-bottom: 0px;
+  }
+
+  .post-date {
+    margin-top: -5px;
+    color: $text-light;
+  }
   blockquote {
     background: transparent;
     border-radius: 5px;
@@ -14,21 +33,12 @@
     * {
       font-size: 2rem;
     }
-
-    .date {
-      text-align: right;
-    }
-  }
-
-  h2,
-  h3,
-  h4 {
-    // margin: 4rem 0 2rem 0;
   }
 
   img {
     width: 100%;
     height: 100%;
+    margin-bottom: 2rem;
   }
 
   pre {

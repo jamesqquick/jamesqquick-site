@@ -25,6 +25,12 @@ module.exports = {
               colorTheme: "Dark+ (default dark)",
             },
           },
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 1000,
+            },
+          },
         ],
       },
     },

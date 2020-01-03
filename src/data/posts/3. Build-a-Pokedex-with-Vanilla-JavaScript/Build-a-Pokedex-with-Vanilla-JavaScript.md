@@ -3,9 +3,11 @@ title: Build a Pokedex with Vanilla JavaScript
 slug: /blog/build-a-pokedex-with-vanilla-javascript
 publishDate: 09/3/2019
 tags: javascript, vanilla javascript
-coverImage: ./cover.png
+coverImage: ./images/cover.png
 published: true
 ---
+
+![Cover image](./images/cover.png)
 
 Front-end frameworks like React get lots of attention, but you don't always need one. In this article, I'm going to combine my love for two things, JavaScript and Pokemon. We are going to build a Pokedex for the original 150 pokemon using vanilla HTML, CSS, and JavaScript.
 

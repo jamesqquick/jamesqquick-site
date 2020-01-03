@@ -3,21 +3,15 @@ import { Link } from "gatsby";
 import "../sass/Talk.scss";
 export default function talkPreview({ talk }) {
   return (
-    <div className="talk">
+    <div className="post-preview">
       <Link to={talk.slug}>
-        <h2 className="card-title">{talk.title}</h2>
+        <h2 className="post-title">{talk.title}</h2>
       </Link>
-      <p>
-        {talk.conference} - {talk.date}
+      <p className="post-date">
+        {talk.conference} - {talk.date} | <a href={talk.slidesLink}>SLIDES</a>
       </p>
-      <a href={talk.slidesLink}>Get the slides!</a>
 
-      <p>
-        {talk.description.substring(0, 200)}...{" "}
-        <span>
-          <Link to={talk.slug}>more</Link>
-        </span>
-      </p>
+      <p>{talk.description.substring(0, 200)}...</p>
       <hr />
     </div>
   );

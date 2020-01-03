@@ -40,7 +40,6 @@ export const query = graphql`
             title
             publishDate
             tags
-            coverImage
             slug
           }
         }

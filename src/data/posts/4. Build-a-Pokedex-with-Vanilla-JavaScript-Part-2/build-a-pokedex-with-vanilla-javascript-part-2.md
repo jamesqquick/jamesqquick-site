@@ -3,9 +3,11 @@ title: Build a Pokedex with Vanilla JavaScript Part 2
 slug: /blog/build-a-pokedex-with-vanilla-javascript-part-2
 publishDate: 10/01/2019
 tags: javascript, vanilla javascript
-coverImage: ./cover.png
+coverImage: ./images/cover.png
 published: true
 ---
+
+![Cover image](./images/cover.png)
 
 In [Part 1](https://dev.to/jamesqquick/build-a-pokedex-with-vanilla-javascript-358m) of this series, we used the Poke API to display name, image, and type for the original 150 Pokemon. I had a ton of fun with that but realized there are a few improvments we could make. Here's what we are going to change.
 

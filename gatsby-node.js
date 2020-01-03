@@ -89,7 +89,6 @@ exports.createPages = async ({ graphql, actions }) => {
                 title
                 publishDate
                 tags
-                coverImage
                 slug
               }
             }

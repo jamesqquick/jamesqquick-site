@@ -3,9 +3,11 @@ title: Node and Express for Beginners
 slug: /blog/node-and-express-for-beginners
 publishDate: 10/12/2019
 tags: javascript, node, express, routing
-coverImage: ./cover.png
+coverImage: ./images/cover.png
 published: true
 ---
+
+![Cover image](./images/cover.png)
 
 You can use JavaScript to do many things like build a website, mobile app, and even a backend server with [Nodejs](https://nodejs.org/en/). In fact, I would argue that using Node is one of the easiest ways to get up and going with a web server. In this article, we will look at creating a web server with Node and a popular package called [Express.](https://www.npmjs.com/package/express)
 
@@ -212,7 +214,7 @@ So far, we've only created endpoints using GET, and we can test them in the brow
 
 Inside of Postman, you'll see an area to choose the HTTP method, type in the url, and enter data to be posted to the server. Here's a screenshot for reference.
 
-![Postman configuration](https://raw.githubusercontent.com/jamesqquick/jamesqquick-site/master/src/data/posts/5.%20Node%20and%20Express%20for%20Beginners/images/postman.jpg)
+![Postman configuration](./images/postman.jpg)
 
 ### POST /books
 
