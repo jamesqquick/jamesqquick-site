@@ -7,7 +7,9 @@ coverImage: ./images/cover.png
 published: true
 ---
 
-![Cover image](./images/cover.png)
+<!-- ![Cover image](./images/cover.png) -->
+
+`youtube:https://www.youtube.com/embed/T-VQUKeSU1w`
 
 Front-end frameworks like React get lots of attention, but you don't always need one. In this article, I'm going to combine my love for two things, JavaScript and Pokemon. We are going to build a Pokedex for the original 150 pokemon using vanilla HTML, CSS, and JavaScript.
 

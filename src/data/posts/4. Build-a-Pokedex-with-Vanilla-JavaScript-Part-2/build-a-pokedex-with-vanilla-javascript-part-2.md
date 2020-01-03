@@ -7,7 +7,9 @@ coverImage: ./images/cover.png
 published: true
 ---
 
-![Cover image](./images/cover.png)
+<!-- ![Cover image](./images/cover.png) -->
+
+`youtube:https://www.youtube.com/embed/L0pPRauLP2E`
 
 In [Part 1](https://dev.to/jamesqquick/build-a-pokedex-with-vanilla-javascript-358m) of this series, we used the Poke API to display name, image, and type for the original 150 Pokemon. I had a ton of fun with that but realized there are a few improvments we could make. Here's what we are going to change.
 
