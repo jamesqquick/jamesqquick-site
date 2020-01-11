@@ -5,6 +5,19 @@
     margin-bottom: 5px;
   }
 
+  .tag {
+    background-color: $secondary;
+    margin-right: 5px;
+    border-radius: 3px;
+    padding: 5px 10px;
+    color: $off-white;
+    font-size: 12px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
   .post-date {
     margin-top: 0px;
     color: $text-light;
@@ -33,6 +46,10 @@
     * {
       font-size: 2rem;
     }
+  }
+
+  .tag {
+    background-color: $secondary;
   }
 
   img {

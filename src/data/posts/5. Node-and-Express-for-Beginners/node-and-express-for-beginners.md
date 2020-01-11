@@ -2,7 +2,7 @@
 title: Node and Express for Beginners
 slug: /blog/node-and-express-for-beginners
 publishDate: 10/12/2019
-tags: javascript, node, express, routing
+tags: javascript, node, web-development
 coverImage: ./images/cover.png
 published: true
 ---

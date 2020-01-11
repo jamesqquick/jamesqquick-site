@@ -2,7 +2,7 @@
 title: How I Prepare for Conference Talks
 slug: /blog/how-i-prepare-for-conference-talks
 publishDate: 08/26/2019
-tags: call for proposals, conference speaking
+tags: speaking, soft-skills
 coverImage: ./
 published: true
 ---

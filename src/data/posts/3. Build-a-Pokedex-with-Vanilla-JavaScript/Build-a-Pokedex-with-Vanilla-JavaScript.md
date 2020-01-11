@@ -2,7 +2,7 @@
 title: Build a Pokedex with Vanilla JavaScript
 slug: /blog/build-a-pokedex-with-vanilla-javascript
 publishDate: 09/3/2019
-tags: javascript, vanilla javascript
+tags: javascript, html, css, web-development
 coverImage: ./images/cover.png
 published: true
 ---

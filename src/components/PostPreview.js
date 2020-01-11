@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "gatsby";
 
-export default function postPreview({ post }) {
+export default function postPreview({ post, tagSelected }) {
+  const tags = post.tags.replace(" ", "").split(",");
   return (
     <div className="post-preview">
       <Link to={post.slug}>
@@ -12,6 +13,13 @@ export default function postPreview({ post }) {
       </p>
 
       <p>{post.excerpt}</p>
+      <p>
+        {tags.map((tag, i) => (
+          <small key={i} className="tag" onClick={() => tagSelected(tag)}>
+            {tag}
+          </small>
+        ))}
+      </p>
       <hr />
     </div>
   );
