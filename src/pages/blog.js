@@ -4,7 +4,19 @@ import SEO from "../components/SEO";
 import Layout from "../components/Layout";
 import { graphql } from "gatsby";
 export default function blog({ data, location }) {
-  const [category, setCategory] = useState(null);
+  const tags = [
+    "All Posts",
+    "javascript",
+    "frontend",
+    "backend",
+    "web-development",
+    "speaking",
+    "soft-skills",
+    "developer-tools",
+    "design",
+    "node",
+  ];
+  const [category, setCategory] = useState("All Posts");
 
   useEffect(() => {
     if (location.search) {
@@ -16,7 +28,9 @@ export default function blog({ data, location }) {
   }, []);
 
   let rawPosts = data.allMarkdownRemark.edges.filter(post =>
-    !category ? true : post.node.frontmatter.tags.includes(category)
+    category === "All Posts"
+      ? true
+      : post.node.frontmatter.tags.includes(category)
   );
   const posts = rawPosts.map(post => ({
     id: post.node.id,
@@ -36,6 +50,18 @@ export default function blog({ data, location }) {
       <div className="container">
         <h1 className="title">Blog</h1>
         <hr className="title-underline" />
+        <select
+          name="categories"
+          id="categories"
+          value={category}
+          onChange={e => setCategory(e.target.value)}
+        >
+          {tags.map((tag, i) => (
+            <option key={i} value={tag} onClick={tagSelected}>
+              {tag}
+            </option>
+          ))}
+        </select>
         {posts.map(post => (
           <PostPreview post={post} key={post.id} tagSelected={tagSelected} />
         ))}

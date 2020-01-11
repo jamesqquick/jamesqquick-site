@@ -2,7 +2,7 @@
 title: Node and Express for Beginners
 slug: /blog/node-and-express-for-beginners
 publishDate: 10/12/2019
-tags: javascript, node, web-development
+tags: javascript, node, web-development, backend
 coverImage: ./images/cover.png
 published: true
 ---
