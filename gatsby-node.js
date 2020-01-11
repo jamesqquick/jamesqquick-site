@@ -78,7 +78,10 @@ exports.createPages = async ({ graphql, actions }) => {
       query PostsQuery {
         allMarkdownRemark(
           sort: { order: DESC, fields: frontmatter___publishDate }
-          filter: { frontmatter: { published: { eq: true } } }
+          filter: {
+            frontmatter: { published: { eq: true } }
+            fileAbsolutePath: { regex: "//posts//" }
+          }
         ) {
           edges {
             node {

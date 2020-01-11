@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import "../sass/newsletter.scss";
 export default class ValidatedForm extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     return (
       <>

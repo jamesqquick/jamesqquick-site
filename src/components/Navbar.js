@@ -11,7 +11,7 @@ export default function Navbar() {
 
   const data = useStaticQuery(graphql`
     query {
-      file(relativePath: { eq: "headshot-512.png" }) {
+      file(relativePath: { eq: "images/headshot-512.png" }) {
         childImageSharp {
           # Specify the image processing specifications right in the query.
           # Makes it trivial to update as your page's design changes.
