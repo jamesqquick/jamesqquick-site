@@ -2,7 +2,7 @@
 title: Hello World
 slug: /blog/hello-world
 publishDate: 08/18/2019
-tags: hello world, soft skills
+tags: soft-skills
 coverImage: ./
 published: true
 ---
