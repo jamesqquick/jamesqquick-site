@@ -22,7 +22,7 @@ module.exports = {
             resolve: `gatsby-remark-vscode`,
             // All options are optional. Defaults shown here.
             options: {
-              colorTheme: "Dark+ (default dark)",
+              colorTheme: "Solarized Light",
             },
           },
           {
