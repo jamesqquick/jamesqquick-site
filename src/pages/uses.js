@@ -16,9 +16,35 @@ export default function uses() {
           I get lots of questions about what kind of hardware, software, desk
           setup, etc. that I use. Well, here ya go!
         </p>
+        <h2>Software</h2>
+        <ul>
+          <li>
+            <a href="https://code.visualstudio.com/">Visual Studio Code</a>
+          </li>
+          <li>
+            <a href="https://hyper.is/">Hyper Terminal</a>
+          </li>
+          <li>
+            <a href="https://www.techsmith.com/screen-capture.html">Snagit</a>{" "}
+            for some screenshots and gifs
+          </li>
+          <li>
+            <a href="https://www.telestream.net/screenflow/">Screenflow</a> for
+            video recording/editing
+          </li>
+          <li>
+            <a href="https://trello.com/">Trello</a> for tracking my work (like
+            a kanban board)
+          </li>
+          <li>
+            <a href="https://www.figma.com/">Figma</a> and{" "}
+            <a href="https://www.sketch.com/">Sketch</a> for design
+          </li>
+        </ul>
         <h2>Hardware</h2>
         <ul>
           <li>2018 15 Inch Macbook Pro - 16gb ram, 500gb ssd</li>
+          <li>adjustable (crank) desk from Ikea</li>
         </ul>
         <h2>Recording Setup</h2>
         <ul>
