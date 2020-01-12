@@ -81,7 +81,7 @@ export const query = graphql`
           excerpt
           frontmatter {
             title
-            publishDate
+            publishDate(formatString: "MM/DD/YYYY")
             tags
             slug
           }

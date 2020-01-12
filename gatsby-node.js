@@ -90,7 +90,7 @@ exports.createPages = async ({ graphql, actions }) => {
               excerpt
               frontmatter {
                 title
-                publishDate
+                publishDate(formatString: "MM/DD/YYYY")
                 tags
                 slug
               }

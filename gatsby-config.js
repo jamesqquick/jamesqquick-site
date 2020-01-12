@@ -123,7 +123,8 @@ module.exports = {
                       frontmatter {
                         slug
                         title
-                        publishDate
+                        publishDate(formatString:"MM/DD/YYYY")
+
                       }
                     }
                   }
