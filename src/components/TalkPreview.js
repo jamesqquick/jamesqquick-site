@@ -11,7 +11,7 @@ export default function talkPreview({ talk }) {
         {talk.conference} - {talk.date} | <a href={talk.slidesLink}>SLIDES</a>
       </p>
 
-      <p>{talk.description.substring(0, 200)}...</p>
+      <p>{talk.excerpt}</p>
       <hr />
     </div>
   );

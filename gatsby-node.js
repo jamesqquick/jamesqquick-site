@@ -19,18 +19,25 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const talksResult = await graphql(
     `
-      {
-        allTalksJson {
+      query TalksQuery {
+        allMarkdownRemark(
+          sort: { order: DESC, fields: frontmatter___publishDate }
+          filter: {
+            frontmatter: { published: { eq: true } }
+            fileAbsolutePath: { regex: "//talks//" }
+          }
+        ) {
           edges {
             node {
-              title
-              conference
-              slug
-              description
-              imageUrl
-              date
+              html
               id
-              slidesLink
+              frontmatter {
+                title
+                date(formatString: "MM/DD/YYYY")
+                slug
+                slidesLink
+                conference
+              }
             }
           }
         }
@@ -42,32 +49,18 @@ exports.createPages = async ({ graphql, actions }) => {
     throw talksResult.errors;
   }
 
-  const talks = talksResult.data.allTalksJson.edges;
+  const rawTalks = talksResult.data.allMarkdownRemark.edges;
+  const talks = rawTalks.map(talk => ({
+    id: talk.node.id,
+    html: talk.node.html,
+    ...talk.node.frontmatter,
+  }));
 
-  talks.forEach((talk, index) => {
-    const {
-      slug,
-      date,
-      description,
-      imageUrl,
-      title,
-      conference,
-      id,
-      slidesLink,
-    } = talk.node;
+  talks.forEach(talk => {
     createPage({
-      path: slug,
+      path: talk.slug,
       component: talkPage,
-      context: {
-        slug,
-        date,
-        title,
-        conference,
-        imageUrl,
-        description,
-        id,
-        slidesLink,
-      },
+      context: talk,
     });
   });
 
@@ -86,11 +79,10 @@ exports.createPages = async ({ graphql, actions }) => {
           edges {
             node {
               id
-              html
               excerpt
               frontmatter {
                 title
-                publishDate
+                publishDate(formatString: "MM/DD/YYYY")
                 tags
                 slug
               }
@@ -108,7 +100,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const rawPosts = postsResult.data.allMarkdownRemark.edges;
   const posts = rawPosts.map(post => ({
     id: post.node.id,
-    html: post.node.html,
+    excerpt: post.node.excerpt,
     ...post.node.frontmatter,
   }));
 

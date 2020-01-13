@@ -34,13 +34,12 @@ export default function blog({ data, location }) {
   );
   const posts = rawPosts.map(post => ({
     id: post.node.id,
-    html: post.node.html,
     excerpt: post.node.excerpt,
     ...post.node.frontmatter,
   }));
+  console.log(posts);
 
   const tagSelected = tag => {
-    console.log("clicked it", tag);
     setCategory(tag);
   };
 
@@ -73,7 +72,10 @@ export const query = graphql`
   query PostsQuery {
     allMarkdownRemark(
       sort: { order: DESC, fields: frontmatter___publishDate }
-      filter: { frontmatter: { published: { eq: true } } }
+      filter: {
+        frontmatter: { published: { eq: true } }
+        fileAbsolutePath: { regex: "//posts//" }
+      }
     ) {
       edges {
         node {
@@ -81,7 +83,7 @@ export const query = graphql`
           excerpt
           frontmatter {
             title
-            publishDate
+            publishDate(formatString: "MM/DD/YYYY")
             tags
             slug
           }

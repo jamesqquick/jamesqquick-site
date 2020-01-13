@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../sass/navbar.scss";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link, useStaticQuery } from "gatsby";
+import { Link, useStaticQuery, graphql } from "gatsby";
 import SocialFollow from "./SocialFollow";
 import Img from "gatsby-image";
 

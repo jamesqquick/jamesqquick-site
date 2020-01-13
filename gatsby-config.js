@@ -22,7 +22,7 @@ module.exports = {
             resolve: `gatsby-remark-vscode`,
             // All options are optional. Defaults shown here.
             options: {
-              colorTheme: "Dark+ (default dark)",
+              colorTheme: "Solarized Light",
             },
           },
           {
@@ -40,13 +40,6 @@ module.exports = {
           },
           `gatsby-remark-emoji`, // <-- this line adds emoji
         ],
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: "posts",
-        path: `./src/data/posts`,
       },
     },
     {
@@ -110,7 +103,7 @@ module.exports = {
               return allMarkdownRemark.edges.map(edge => {
                 return Object.assign({}, edge.node.frontmatter, {
                   description: edge.node.excerpt,
-                  date: edge.node.frontmatter.publishDate,
+                  publishDate: edge.node.frontmatter.publishDate,
                   url: site.siteMetadata.siteUrl + edge.node.frontmatter.slug,
                   guid: site.siteMetadata.siteUrl + edge.node.frontmatter.slug,
                   custom_elements: [{ "content:encoded": edge.node.html }],
@@ -120,7 +113,7 @@ module.exports = {
             query: `
               {
                 allMarkdownRemark(
-                  filter: { fileAbsolutePath: {regex : "/\/talks\//"} },
+                  filter: { fileAbsolutePath: {regex : "/\/posts\//"} },
                   sort: { order: DESC, fields: [frontmatter___publishDate] },
                 ) {
                   edges {
@@ -130,7 +123,8 @@ module.exports = {
                       frontmatter {
                         slug
                         title
-                        publishDate
+                        publishDate(formatString:"MM/DD/YYYY")
+
                       }
                     }
                   }
