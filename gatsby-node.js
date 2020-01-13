@@ -79,7 +79,7 @@ exports.createPages = async ({ graphql, actions }) => {
           edges {
             node {
               id
-              excerpt
+              html
               frontmatter {
                 title
                 publishDate(formatString: "MM/DD/YYYY")
@@ -100,7 +100,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const rawPosts = postsResult.data.allMarkdownRemark.edges;
   const posts = rawPosts.map(post => ({
     id: post.node.id,
-    excerpt: post.node.excerpt,
+    html: post.node.html,
     ...post.node.frontmatter,
   }));
 

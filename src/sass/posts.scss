@@ -1,36 +1,12 @@
 @import "variables";
 
-.post-preview {
+.post {
   .post-title {
     margin-bottom: 5px;
   }
 
-  .tag {
-    background-color: $secondary;
-    margin-right: 5px;
-    border-radius: 3px;
-    padding: 5px 10px;
-    color: $off-white;
-    font-size: 12px;
-
-    &:hover {
-      cursor: pointer;
-    }
-  }
-
   .post-date {
     margin-top: 0px;
-    color: $text-light;
-  }
-}
-
-.post {
-  .post-title {
-    margin-bottom: 0px;
-  }
-
-  .post-date {
-    margin-top: -5px;
     color: $text-light;
   }
   blockquote {
@@ -50,6 +26,16 @@
 
   .tag {
     background-color: $secondary;
+    margin-right: 5px;
+    border-radius: 3px;
+    padding: 5px 10px;
+    color: $off-white;
+    font-size: 12px;
+    line-height: 3rem;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   img {
