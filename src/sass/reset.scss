@@ -42,6 +42,7 @@ a:hover {
 
 h1 {
   font-size: 5.2rem;
+  line-height: 8rem;
   font-weight: 300;
   margin: 0;
   margin-bottom: 20px;
@@ -50,6 +51,7 @@ h1 {
 
 h2 {
   font-size: 3.2rem;
+  line-height: 4.2rem;
   font-weight: 500;
   margin: 0;
   margin-bottom: 20px;
@@ -59,19 +61,21 @@ h2 {
 
 h3 {
   font-size: 2.8rem;
+  line-height: 3.6rem;
   margin-bottom: 2rem;
   font-weight: 300;
   color: rgb(75, 75, 75);
 }
 
 h4 {
-  font-size: 2.4rem;
+  font-size: 2.8rem;
   margin-bottom: 2rem;
   color: rgb(75, 75, 75);
 }
 
 small {
   font-size: 1.4rem;
+  line-height: 2rem;
 }
 .underline {
   text-decoration: underline;
