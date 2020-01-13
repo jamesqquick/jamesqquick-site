@@ -78,7 +78,7 @@
 
   #hamburgerBtn {
     position: fixed;
-    top: 2rem;
+    top: 10rem;
     right: 2rem;
     display: inline-block;
     z-index: 100;
@@ -94,5 +94,6 @@
     width: 100%;
     z-index: 10;
     transform: translateX(0);
+    padding-top: 10rem;
   }
 }

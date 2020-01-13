@@ -1,7 +1,7 @@
 @import "variables";
 
 #promotionalBanner {
-  height: 50px;
+  height: 5rem;
   position: fixed;
   background: $secondary-light;
   display: flex;
@@ -21,6 +21,6 @@
 @media only screen and (max-width: 768px) {
   #promotionalBanner {
     left: 0;
-    height: 80px;
+    height: 8rem;
   }
 }
