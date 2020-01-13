@@ -24,18 +24,25 @@ export default function talks({ data }) {
 }
 
 export const query = graphql`
-  {
-    allTalksJson(sort: { fields: date, order: DESC }) {
+  query PostsQuery {
+    allMarkdownRemark(
+      sort: { order: DESC, fields: frontmatter___date }
+      filter: {
+        frontmatter: { published: { eq: true } }
+        fileAbsolutePath: { regex: "//talks//" }
+      }
+    ) {
       edges {
         node {
-          title
-          conference
-          slug
-          description
-          imageUrl
-          date
-          id
-          slidesLink
+          html
+          frontmatter {
+            title
+            date(formatString: "MM/DD/YYYY")
+            conference
+            slug
+            id
+            slidesLink
+          }
         }
       }
     }

@@ -113,7 +113,7 @@ module.exports = {
             query: `
               {
                 allMarkdownRemark(
-                  filter: { fileAbsolutePath: {regex : "/\/talks\//"} },
+                  filter: { fileAbsolutePath: {regex : "/\/posts\//"} },
                   sort: { order: DESC, fields: [frontmatter___publishDate] },
                 ) {
                   edges {
