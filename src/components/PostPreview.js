@@ -4,7 +4,7 @@ import { Link } from "gatsby";
 export default function postPreview({ post, tagSelected }) {
   const tags = post.tags.replace(" ", "").split(",");
   return (
-    <div className="post-preview">
+    <div className="post">
       <Link to={post.slug}>
         <h2 className="post-title">{post.title}</h2>
       </Link>

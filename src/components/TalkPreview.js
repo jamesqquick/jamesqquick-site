@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 import "../sass/Talk.scss";
 export default function talkPreview({ talk }) {
   return (
-    <div className="post-preview">
+    <div className="post">
       <Link to={talk.slug}>
         <h2 className="post-title">{talk.title}</h2>
       </Link>
