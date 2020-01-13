@@ -5,9 +5,14 @@ import SEO from "../components/SEO";
 import TalkPreview from "../components/TalkPreview";
 import ContactBlurb from "../components/ContactBlurb";
 export default function talks({ data }) {
-  const talks = data.allTalksJson.edges.map(item => item.node);
   const blurbHeader = "Intersted in me speaking at your event?";
 
+  const talks = data.allMarkdownRemark.edges.map(talk => ({
+    id: talk.node.id,
+    excerpt: talk.node.excerpt,
+    ...talk.node.frontmatter,
+  }));
+  console.log(talks);
   return (
     <Layout>
       <SEO title="Speaking" keywords={[`conference talks`]} />
@@ -24,9 +29,9 @@ export default function talks({ data }) {
 }
 
 export const query = graphql`
-  query PostsQuery {
+  query TalksQuery {
     allMarkdownRemark(
-      sort: { order: DESC, fields: frontmatter___date }
+      sort: { order: DESC, fields: frontmatter___publishDate }
       filter: {
         frontmatter: { published: { eq: true } }
         fileAbsolutePath: { regex: "//talks//" }
@@ -34,14 +39,14 @@ export const query = graphql`
     ) {
       edges {
         node {
-          html
+          excerpt
+          id
           frontmatter {
             title
             date(formatString: "MM/DD/YYYY")
-            conference
             slug
-            id
             slidesLink
+            conference
           }
         }
       }

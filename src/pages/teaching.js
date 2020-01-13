@@ -4,7 +4,7 @@ import SEO from "../components/SEO";
 import ContactBlurb from "../components/ContactBlurb";
 import Blurb from "../components/Blurb";
 import Img from "gatsby-image";
-import { useStaticQuery } from "gatsby";
+import { useStaticQuery, graphql } from "gatsby";
 import YouTubeSubscribe from "../components/YouTubeSubscribe";
 
 export default function teaching() {
