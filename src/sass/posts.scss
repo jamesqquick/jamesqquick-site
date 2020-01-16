@@ -23,6 +23,10 @@
       font-size: 2rem;
     }
   }
+  code {
+    background-color: $light-grey;
+    padding: 1px 3px;
+  }
 
   .tag {
     background-color: $secondary;

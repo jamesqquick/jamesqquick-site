@@ -9,7 +9,7 @@ published: true
 
 As many of you know, my first day at Auth0 was Monday, January 6th, and like the 29 other new employees, I traveled to Seattle for a week of training. That morning, in all of my excitement, I recorded and shared a video ([here's the tweet](https://twitter.com/jamesqquick/status/1214351079535570946?s=20)) explaining how thrilled I was to be starting. The next day, I got this.
 
-![Slack Message](./images/8-slack.jpg)
+![Slack Message](./images/slack.jpg)
 
 Don't know who Mattias is? Well, he's the CTO of the company. So here was my initial reaction.
 
