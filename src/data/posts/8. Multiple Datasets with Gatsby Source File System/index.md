@@ -20,9 +20,9 @@ In my project, I've got a `data` folder. Inside of the `data` folder is a `talks
   - posts
     - post1.md
     - post2.md
-  - talks
-    - talk1.md
-    - talk2.md
+- talks
+  - talk1.md
+  - talk2.md
 
 In my `gatsby-config.js` I have this configuration for the `gatsby-source-filesystem` plugin.
 
