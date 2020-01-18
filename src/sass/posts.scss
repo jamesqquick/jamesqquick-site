@@ -24,6 +24,11 @@
     }
   }
 
+  code:not([class]) {
+    background-color: $light-grey;
+    padding: 1px 3px;
+  }
+
   .tag {
     background-color: $secondary;
     margin-right: 5px;

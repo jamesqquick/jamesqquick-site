@@ -40,6 +40,10 @@ export default function uses() {
             <a href="https://www.figma.com/">Figma</a> and{" "}
             <a href="https://www.sketch.com/">Sketch</a> for design
           </li>
+          <li>
+            <a href="https://github.com/tonsky/FiraCode">Fira Code Font</a>-
+            it's free!
+          </li>
         </ul>
         <h2>Hardware</h2>
         <ul>

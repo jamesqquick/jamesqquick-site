@@ -1,9 +1,9 @@
 ---
 title: Querying Multiple Datasets with Gatsby Source Filesystem
 slug: /blog/multiple-datasets-with-gatsby-source-filesystem
-publishDate: "2020-01-16"
+publishDate: "2020-01-20"
 tags: javascript, frontend, gatsby
-published: false
+published: true
 ---
 
 Gatsby is one of the more popular frameworks for building blogs these days. By using the [`gatsby-source-filesystem`](https://www.gatsbyjs.org/packages/gatsby-source-filesystem/) plugin you can read in markdown files and generate corresponding blog post pages.
@@ -20,9 +20,9 @@ In my project, I've got a `data` folder. Inside of the `data` folder is a `talks
   - posts
     - post1.md
     - post2.md
-  - talks
-    - talk1.md
-    - talk2.md
+- talks
+  - talk1.md
+  - talk2.md
 
 In my `gatsby-config.js` I have this configuration for the `gatsby-source-filesystem` plugin.
 
