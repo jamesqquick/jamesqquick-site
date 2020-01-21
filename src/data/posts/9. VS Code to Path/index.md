@@ -1,10 +1,10 @@
 ---
 title: Add VS Code To Your Path
 slug: /blog/add-vs-code-to-your-path
-publishDate: "2020-01-19"
+publishDate: "2020-01-28"
 tags: tools, vscode
 coverImage: ./images/cover.png
-published: true
+published: false
 ---
 
 If you installed VS Code and got the following message, I'll show you how to fix it in seconds.
