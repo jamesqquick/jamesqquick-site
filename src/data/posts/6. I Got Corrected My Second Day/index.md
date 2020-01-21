@@ -17,7 +17,7 @@ Don't know who Matias is? Well, he's the CTO of the company. So here was my init
 
 But the more I read it, I realized it wasn’t negative; it was constructive, even complimentary. His comments were very telling. Here’s what I mean.
 
-> P.S. I'll share the specifics from his post in my next article!
+> P.S. I'll share the specifics from his post in a new article soon!
 
 ## He Gives a Shit
 
