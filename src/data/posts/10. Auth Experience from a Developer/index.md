@@ -1,6 +1,6 @@
 ---
-title: Authentication Experience From a Developer
-slug: /blog/authentication-experience-from-a-developer
+title: Authentication Experience From a Developer - Frank Calise
+slug: /blog/authentication-experience-from-a-developer-frank-calise
 publishDate: "2020-01-24"
 tags: community, authentication
 coverImage: ./images/cover.png
@@ -13,7 +13,7 @@ After starting at [Auth0](https://auth0.com/), I figured it would be good to kno
 
 ## How It Started
 
-I wrote a blog post explaining how excited I was after my first week at Auth0. Turns out, Frank read the article and was glad to hear about my positive experience because of having used Auth0 himself.
+I wrote a [blog post](https://www.jamesqquick.com/blog/my-first-week-at-auth0) explaining how excited I was after my first week at Auth0. Turns out, Frank read the article and was glad to hear about my positive experience because of having used Auth0 himself.
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Had an amazing first week at <a href="https://twitter.com/auth0?ref_src=twsrc%5Etfw">@auth0</a> and took a few minutes to recap my key takeaways! <a href="https://t.co/ekU52Hdwyh">https://t.co/ekU52Hdwyh</a> <a href="https://t.co/5xveJZB2QX">pic.twitter.com/5xveJZB2QX</a></p>&mdash; James Q Quick (@jamesqquick) <a href="https://twitter.com/jamesqquick/status/1217552055705001985?ref_src=twsrc%5Etfw">January 15, 2020</a></blockquote>
 
