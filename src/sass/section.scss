@@ -17,12 +17,6 @@
   .section-title {
     margin-bottom: 8px;
   }
-  .title-underline {
-    border-top-color: #f95959;
-    border-top-width: 4px;
-    width: 100px;
-    margin-bottom: 4rem;
-  }
 
   .section-subtitle {
     font-style: italic;
@@ -56,10 +50,6 @@
 @media only screen and (max-width: 768px) {
   .section {
     padding: 8rem 3rem;
-
-    .title-underline {
-      margin-bottom: 2rem;
-    }
 
     .section-subtitle {
       margin-top: 0.5rem;

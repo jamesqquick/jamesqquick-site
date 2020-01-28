@@ -1,21 +1,23 @@
 ---
 title: I Got Corrected On My Second Day, And I Loved It
 slug: /blog/i-got-corrected-on-my-second-day
-publishDate: "2020-01-17"
+publishDate: "2020-01-21"
 tags: career, soft-skills
 coverImage: ./images/cover.png
 published: true
 ---
 
-As many of you know, my first day at Auth0 was Monday, January 6th, and like the 29 other new employees, I traveled to Seattle for a week of training. That morning, in all of my excitement, I recorded and shared a video ([here's the tweet](https://twitter.com/jamesqquick/status/1214351079535570946?s=20)) explaining how thrilled I was to be starting. The next day, I got this.
+As many of you know, my first day at [Auth0](https://auth0.com/) was Monday, January 6th, and like the 29 other new employees, I traveled to Seattle for a week of training. That morning, in all of my excitement, I recorded and shared a video ([here's the tweet](https://twitter.com/jamesqquick/status/1214351079535570946?s=20)) explaining how thrilled I was to be starting. The next day, I got this.
 
 ![Slack Message](./images/slack.jpg)
 
-Don't know who Mattias is? Well, he's the CTO of the company. So here was my initial reaction.
+Don't know who Matias is? Well, he's the CTO of the company. So here was my initial reaction.
 
 **...SHIT I messed up already! lol**
 
 But the more I read it, I realized it wasn’t negative; it was constructive, even complimentary. His comments were very telling. Here’s what I mean.
+
+> P.S. I'll share the specifics from his post in a new article soon!
 
 ## He Gives a Shit
 
@@ -41,7 +43,7 @@ Transparency is something that people talk about, but rarely live up to. Persona
 - feeling comfortable giving constructive feedback
 - always setting appropriate expectations up front (no sugar coating)
 
-It may not seem obvious, but to me, the comment that Mattias made shows me that transparency is real at Auth0. He was clear... It was cool that I created the video, but I can (and should) do a better job at articulating what the company does in the future.
+It may not seem obvious, but to me, the comment that Matias made shows me that transparency is real at Auth0. He was clear... It was cool that I created the video, but I can (and should) do a better job at articulating what the company does in the future.
 
 > I'm always looking for feedback so that I can grow as a person and as an employee
 
@@ -49,4 +51,4 @@ He gave me a learning opportunity that could also be leveraged across the compan
 
 ## Wrap up
 
-Every interaction so far has lived up my high hopes, and I’m incredibly excited to be a part of Auth0. Maybe one day I can give a new employee the same positive experience that Mattias gave me.
+Every interaction so far has lived up my high hopes, and I’m incredibly excited to be a part of Auth0. Maybe one day I can give a new employee the same positive experience that Matias gave me.

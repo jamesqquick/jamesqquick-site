@@ -14,6 +14,7 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-json`,
+    `gatsby-plugin-twitter`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {

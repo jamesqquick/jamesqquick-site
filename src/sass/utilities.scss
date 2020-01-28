@@ -44,7 +44,7 @@ span.highlight {
 }
 
 .text-danger {
-  color: red;
+  color: $error;
 }
 
 .text-right {
@@ -69,10 +69,11 @@ span.highlight {
   text-align: center;
 }
 .title-underline {
-  border-top-color: #f95959;
+  border-top-color: $secondary;
   border-top-width: 4px;
   width: 100px;
   margin-bottom: 4rem;
+  margin-top: -5px;
 }
 
 .subtitle {

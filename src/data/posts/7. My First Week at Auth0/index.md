@@ -7,7 +7,7 @@ coverImage: ./images/cover.png
 published: true
 ---
 
-I'm writing this on the plane back from my first week at Auth0! I'm still riding the high of onboarding and figured I should take the time to document my thoughts. After my first week, here are my big takeaways.
+I'm writing this on the plane back from my first week at [Auth0](https://auth0.com/)! I'm still riding the high of onboarding and figured I should take the time to document my thoughts. After my first week, here are my big takeaways.
 
 ## I've Got So Much To Learn
 

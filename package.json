@@ -23,6 +23,7 @@
     "gatsby-plugin-sass": "^2.1.4",
     "gatsby-plugin-sharp": "^2.2.9",
     "gatsby-plugin-sitemap": "^2.2.6",
+    "gatsby-plugin-twitter": "^2.1.18",
     "gatsby-remark-embed-youtube": "0.0.7",
     "gatsby-remark-emoji": "0.0.3",
     "gatsby-remark-images": "^3.1.39",

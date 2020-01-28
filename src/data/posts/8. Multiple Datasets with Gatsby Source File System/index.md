@@ -1,9 +1,9 @@
 ---
 title: Querying Multiple Datasets with Gatsby Source Filesystem
 slug: /blog/multiple-datasets-with-gatsby-source-filesystem
-publishDate: "2020-01-20"
+publishDate: "2020-01-24"
 tags: javascript, frontend, gatsby
-published: true
+published: false
 ---
 
 Gatsby is one of the more popular frameworks for building blogs these days. By using the [`gatsby-source-filesystem`](https://www.gatsbyjs.org/packages/gatsby-source-filesystem/) plugin you can read in markdown files and generate corresponding blog post pages.
