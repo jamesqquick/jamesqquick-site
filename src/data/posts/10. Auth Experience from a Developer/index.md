@@ -3,7 +3,7 @@ title: Authentication Experience From a Developer - Frank Calise
 slug: /blog/authentication-experience-from-a-developer-frank-calise
 publishDate: "2020-01-24"
 tags: community, authentication
-coverImage: ./images/cover.png
+coverImage: ../../images/covers/placeholder-cover.jpg
 published: true
 ---
 

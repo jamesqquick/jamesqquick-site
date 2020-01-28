@@ -15,6 +15,7 @@ export default function blog({ data, location }) {
     "developer-tools",
     "design",
     "node",
+    "vscode",
   ];
   const [category, setCategory] = useState("All Posts");
 
@@ -86,6 +87,14 @@ export const query = graphql`
             publishDate(formatString: "MM/DD/YYYY")
             tags
             slug
+            coverImage {
+              publicURL
+              childImageSharp {
+                sizes(maxWidth: 2000) {
+                  ...GatsbyImageSharpSizes
+                }
+              }
+            }
           }
         }
       }

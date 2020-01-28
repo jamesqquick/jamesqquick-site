@@ -3,7 +3,7 @@ title: My First Week at Auth0
 slug: /blog/my-first-week-at-auth0
 publishDate: "2020-01-15"
 tags: career, soft-skills
-coverImage: ./images/cover.png
+coverImage: ../../images/covers/placeholder-cover.jpg
 published: true
 ---
 

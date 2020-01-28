@@ -3,6 +3,7 @@ title: Querying Multiple Datasets with Gatsby Source Filesystem
 slug: /blog/multiple-datasets-with-gatsby-source-filesystem
 publishDate: "2020-01-24"
 tags: javascript, frontend, gatsby
+coverImage: ../../images/covers/placeholder-cover.jpg
 published: false
 ---
 

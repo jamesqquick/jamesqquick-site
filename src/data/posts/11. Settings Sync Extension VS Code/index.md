@@ -4,11 +4,12 @@ slug: /blog/settings-sync-extension-for-visual-studio-code
 publishDate: "2020-01-28"
 tags: tools, vscode
 published: true
+coverImage: ./images/cover.png
 ---
 
-![Cover image](./images/cover.png)
+<!-- ![Cover image](./images/cover.png) -->
 
-<!-- `youtube:https://youtu.be/f-uzUsHTQ8s` -->
+`youtube:https://www.youtube.com/embed/f-uzUsHTQ8s`
 
 The beautiful thing about Visual Studio Code is how easy it is to customize, but what happens if you get a new computer? You have to take the time to install all the same extensions, manually copy over settings and keybindings, etc.
 

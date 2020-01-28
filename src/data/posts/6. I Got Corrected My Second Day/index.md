@@ -3,7 +3,7 @@ title: I Got Corrected On My Second Day, And I Loved It
 slug: /blog/i-got-corrected-on-my-second-day
 publishDate: "2020-01-21"
 tags: career, soft-skills
-coverImage: ./images/cover.png
+coverImage: ../../images/covers/placeholder-cover.jpg
 published: true
 ---
 
