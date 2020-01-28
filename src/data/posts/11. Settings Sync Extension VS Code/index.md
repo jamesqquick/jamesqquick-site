@@ -6,6 +6,10 @@ tags: tools, vscode
 published: true
 ---
 
+![Cover image](./images/cover.png)
+
+<!-- `youtube:https://youtu.be/f-uzUsHTQ8s` -->
+
 The beautiful thing about Visual Studio Code is how easy it is to customize, but what happens if you get a new computer? You have to take the time to install all the same extensions, manually copy over settings and keybindings, etc.
 
 > One extension can sync all of your settings in seconds!
