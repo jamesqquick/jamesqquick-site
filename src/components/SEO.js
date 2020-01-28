@@ -28,6 +28,7 @@ function SEO({ description, lang, meta, title, type = `website`, image }) {
 
   const metaDescription = description || site.siteMetadata.description;
   const twitterImage = image || "/icons/icon-48x48.png";
+  console.log(twitterImage);
   return (
     <Helmet
       htmlAttributes={{

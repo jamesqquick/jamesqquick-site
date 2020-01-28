@@ -9,6 +9,7 @@ function BlogPost(props) {
   console.log(props);
   const post = props.data.markdownRemark;
   const blurbHeader = "Subscribe to the newsletter for updated content.";
+  const coverImageUrl = post.frontmatter.coverImage.childImageSharp.fluid.src;
   return (
     <Layout>
       test
@@ -17,6 +18,7 @@ function BlogPost(props) {
         keywords={[``]}
         type="blog"
         description={post.excerpt}
+        image={coverImageUrl}
       />
       <Share
         url={"www.jamesqquick.com/" + post.frontmatter.slug}
@@ -60,6 +62,13 @@ export const pageQuery = graphql`
         publishDate(formatString: "MM/DD/YYYY")
         tags
         slug
+        coverImage {
+          childImageSharp {
+            fluid(maxWidth: 800) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
   }
