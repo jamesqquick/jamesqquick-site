@@ -9,7 +9,10 @@ function BlogPost(props) {
   console.log(props);
   const post = props.data.markdownRemark;
   const blurbHeader = "Subscribe to the newsletter for updated content.";
-  const coverImageUrl = post.frontmatter.coverImage.childImageSharp.fluid.src;
+  const coverImageUrl =
+    props.data.site.siteMetadata.siteUrl +
+    post.frontmatter.coverImage.childImageSharp.fluid.src;
+  console.log(coverImageUrl);
   return (
     <Layout>
       test
@@ -51,6 +54,7 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        siteUrl
       }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
