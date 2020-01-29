@@ -4,6 +4,7 @@ slug: /blog/hello-world
 publishDate: "2019-08-18"
 tags: soft-skills
 published: true
+coverImage: ../../images/covers/placeholder-cover.jpg
 ---
 
 As a developer, there's no other way to start something new than with "Hello World". Although I've blogged a ton in the past, this is the first post on my personal site. So, without further adieu...

@@ -11,7 +11,9 @@ export default function postPreview({ post, tagSelected }) {
       <p className="post-date">
         <small>{post.publishDate}</small>
       </p>
-
+      {/* {!!post.coverImage ? (
+        <Img sizes={post.coverImage.childImageSharp.sizes} />
+      ) : null} */}
       <p>{post.excerpt}</p>
       <p>
         {tags.map((tag, i) => (

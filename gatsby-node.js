@@ -15,7 +15,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
-  const talkPage = path.resolve("./src/pages/talk.js");
+  const talkPage = path.resolve("./src/templates/talk.js");
 
   const talksResult = await graphql(
     `
@@ -64,7 +64,7 @@ exports.createPages = async ({ graphql, actions }) => {
     });
   });
 
-  const postPage = path.resolve("./src/pages/blogPost.js");
+  const blogPost = path.resolve("./src/templates/blogPost.js");
 
   const postsResult = await graphql(
     `
@@ -78,12 +78,11 @@ exports.createPages = async ({ graphql, actions }) => {
         ) {
           edges {
             node {
-              id
-              html
+              fields {
+                slug
+              }
               frontmatter {
                 title
-                publishDate(formatString: "MM/DD/YYYY")
-                tags
                 slug
               }
             }
@@ -97,18 +96,20 @@ exports.createPages = async ({ graphql, actions }) => {
     throw postsResult.errors;
   }
 
-  const rawPosts = postsResult.data.allMarkdownRemark.edges;
-  const posts = rawPosts.map(post => ({
-    id: post.node.id,
-    html: post.node.html,
-    ...post.node.frontmatter,
-  }));
+  const posts = postsResult.data.allMarkdownRemark.edges;
 
   posts.forEach((post, index) => {
+    const previous = index === posts.length - 1 ? null : posts[index + 1].node;
+    const next = index === 0 ? null : posts[index - 1].node;
+
     createPage({
-      path: post.slug,
-      component: postPage,
-      context: post,
+      path: post.node.frontmatter.slug,
+      component: blogPost,
+      context: {
+        slug: post.node.fields.slug,
+        previous,
+        next,
+      },
     });
   });
 };
