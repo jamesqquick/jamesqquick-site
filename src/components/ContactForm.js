@@ -19,10 +19,9 @@ export default class ContactForm extends Component {
 
   handleSubmit = async e => {
     e.preventDefault();
-    console.log("hello");
 
     //Valid inputs
-    if (!this.state.category) {
+    if (!this.props.hideDropdown && !this.state.category) {
       return this.setState({
         errMsg: "Please choose a reason for reaching out",
       });
@@ -57,17 +56,19 @@ export default class ContactForm extends Component {
           category: this.state.category,
         }),
       });
+      console.log(res);
       const loading = false;
       if (res.status === 200) {
         this.setState({
           successMsg: "Thanks for reaching out!",
           loading,
         });
-      } else if (res.result === "error") {
+      } else {
         const errMsg = "Ooops... something went wrong.";
         this.setState({ errMsg, loading });
       }
     } catch (ex) {
+      console.log("*************");
       const errMsg = "Ooops... something went wrong.";
       this.setState({ errMsg, loading: false });
     }
