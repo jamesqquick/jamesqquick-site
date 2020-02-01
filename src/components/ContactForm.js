@@ -47,7 +47,6 @@ export default class ContactForm extends Component {
     }
 
     try {
-      console.log("something");
       this.setState({ loading: true });
       const res = await fetch("/.netlify/functions/contact", {
         method: "post",
@@ -84,25 +83,26 @@ export default class ContactForm extends Component {
           btnText="Submit"
           loading={this.state.loading}
         >
-          {" "}
-          <select
-            onChange={e => this.setState({ category: e.target.value })}
-            value={this.state.category}
-            className={
-              this.state.errMsg && this.state.errMsg.includes("reason")
-                ? "error"
-                : ""
-            }
-          >
-            <option value="" disabled>
-              Reason for reaching out...
-            </option>
+          {!this.props.hideDropdown && (
+            <select
+              onChange={e => this.setState({ category: e.target.value })}
+              value={this.state.category}
+              className={
+                this.state.errMsg && this.state.errMsg.includes("reason")
+                  ? "error"
+                  : ""
+              }
+            >
+              <option value="" disabled>
+                Reason for reaching out...
+              </option>
 
-            <option value="speaking">Speaking</option>
-            <option value="teaching">Teaching</option>
-            <option value="request">Content Request</option>
-            <option value="question">General Question</option>
-          </select>
+              <option value="speaking">Speaking</option>
+              <option value="teaching">Teaching</option>
+              <option value="request">Content Request</option>
+              <option value="question">General Question</option>
+            </select>
+          )}
           <input
             category="text"
             name="name"
@@ -120,7 +120,7 @@ export default class ContactForm extends Component {
             category="text"
             name="email"
             id="email"
-            placeholder="email"
+            placeholder="Email"
             onChange={e => this.setState({ email: e.target.value })}
             value={this.state.email}
             className={
@@ -132,7 +132,10 @@ export default class ContactForm extends Component {
           <textarea
             name="body"
             id="body"
-            placeholder="Please include any relevant details with your request. Dates, times, location, etc."
+            placeholder={
+              this.props.textareaPlaceholder ||
+              "Please include any relevant details with your request. Dates, times, location, etc."
+            }
             onChange={e => this.setState({ body: e.target.value })}
             value={this.state.body}
             rows="10"

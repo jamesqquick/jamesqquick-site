@@ -2,11 +2,11 @@ import React from "react";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
-
+import "../sass/hero.scss";
 import SocialFollow from "../components/SocialFollow";
 
 const IndexPage = () => (
-  <Layout className="full-height flex-center">
+  <Layout>
     <SEO
       title="Home"
       keywords={[
@@ -16,7 +16,7 @@ const IndexPage = () => (
         `James Q Quick`,
       ]}
     />
-    <div className="container full-height flex-center">
+    <div id="hero" className="container ">
       <h1 className="title">James Q Quick</h1>
       <hr className="title-underline" />
       <h3 className="subtitle">Developer. Speaker. Teacher.</h3>

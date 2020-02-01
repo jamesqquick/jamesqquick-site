@@ -1,0 +1,15 @@
+#hero {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: calc(100vh - 50px);
+}
+
+@media only screen and (max-width: 768px) {
+  #hero {
+    height: auto;
+    display: block;
+  }
+}
