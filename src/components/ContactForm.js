@@ -60,7 +60,7 @@ export default class ContactForm extends Component {
       const loading = false;
       if (res.status === 200) {
         this.setState({
-          successMsg: "Thanks for reaching out!",
+          successMsg: this.props.successMsg || "Thanks for reaching out!",
           loading,
         });
       } else {

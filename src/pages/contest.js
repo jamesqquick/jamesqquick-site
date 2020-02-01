@@ -21,6 +21,7 @@ export default function contest() {
         <ContactForm
           hideDropdown={true}
           textareaPlaceholder="What are you most excited to learn about Visual Studio Code?"
+          successMsg="Thank you for participating. I'll announce the winners on February 5th!"
         />
       </div>
     </Layout>
