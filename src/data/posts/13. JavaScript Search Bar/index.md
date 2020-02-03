@@ -1,7 +1,7 @@
 ---
 title: Build a JavaScript Search Bar
 slug: /blog/build-a-javascript-search-bar
-publishDate: "2020-02-03"
+publishDate: "2020-02-05"
 tags: web-development, javascript
 published: true
 coverImage: ./images/cover.png
@@ -88,11 +88,11 @@ Now, try a couple of searches.
 
 For example, `Gry` should return all characters in the Gryffindor house.
 
-![Search results for "Gry"]()
+![Search results for "Gry"](./images/1.jpg)
 
 and `Ce` should return Cedric Diggory, Horace Slughorn, and Vincent Crabbe.
 
-![Search results for "ce"]()
+![Search results for "ce"](./images/2.jpg)
 
 ## Case Insensitive Search
 
@@ -100,7 +100,7 @@ Although search appears to work, you might have wondered what would happen if yo
 
 To prove this, search for `harry` and you'll see there aren't any results.
 
-![Search results for "harry"]()
+![Search results for "harry"](./images/3.jpg)
 
 What we most likely want is a case insensitive search, meaning uppercase vs lowercase doesn't matter. When this is the case (pun intended... lol ), the typical strategy is to convert both the search string and the thing you're searching to lowercase. We can update our filter method with case insensitive search like so.
 
