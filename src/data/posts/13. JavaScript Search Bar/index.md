@@ -1,7 +1,7 @@
 ---
 title: Build a JavaScript Search Bar
 slug: /blog/build-a-javascript-search-bar
-publishDate: "2020-02-05"
+publishDate: "2020-02-04"
 tags: web-development, javascript
 published: true
 coverImage: ./images/cover.png
