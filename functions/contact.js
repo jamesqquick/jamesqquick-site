@@ -13,16 +13,19 @@ exports.handler = function(event, context, callback) {
     html: `${body} \n from ${name}`,
   };
 
+  console.log(msg);
+
   sgMail
     .send(msg)
     .then(res => {
-      console.log(info);
+      console.log(res);
       return callback(null, {
         statusCode: 200,
         body: JSON.stringify({ msg: "Email sent" }),
       });
     })
     .catch(err => {
+      console.log(err);
       return callback(null, {
         statusCode: 500,
         body: JSON.stringify({ msg: "Failed to send email." }),
