@@ -12,7 +12,6 @@ export default function talks({ data }) {
     excerpt: talk.node.excerpt,
     ...talk.node.frontmatter,
   }));
-  console.log(talks);
   return (
     <Layout>
       <SEO title="Speaking" keywords={[`conference talks`]} />

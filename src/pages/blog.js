@@ -38,7 +38,6 @@ export default function blog({ data, location }) {
     excerpt: post.node.excerpt,
     ...post.node.frontmatter,
   }));
-  console.log(posts);
 
   const tagSelected = tag => {
     setCategory(tag);

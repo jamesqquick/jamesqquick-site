@@ -56,7 +56,6 @@ export default class ContactForm extends Component {
           category: this.state.category,
         }),
       });
-      console.log(res);
       const loading = false;
       if (res.status === 200) {
         this.setState({
@@ -68,7 +67,6 @@ export default class ContactForm extends Component {
         this.setState({ errMsg, loading });
       }
     } catch (ex) {
-      console.log("*************");
       const errMsg = "Ooops... something went wrong.";
       this.setState({ errMsg, loading: false });
     }

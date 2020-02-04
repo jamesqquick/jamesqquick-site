@@ -11,7 +11,6 @@ import Helmet from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 
 function SEO({ description, lang, meta, title, type = `website`, image }) {
-  console.log(description);
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -28,7 +27,6 @@ function SEO({ description, lang, meta, title, type = `website`, image }) {
 
   const metaDescription = description || site.siteMetadata.description;
   const twitterImage = image || "/icons/icon-48x48.png";
-  console.log(twitterImage);
   return (
     <Helmet
       htmlAttributes={{

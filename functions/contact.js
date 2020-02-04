@@ -11,7 +11,6 @@ const transporter = nodemailer.createTransport({
 
 exports.handler = function(event, context, callback) {
   const { email, name, body, type } = JSON.parse(event.body);
-  console.log("hello");
   const mailOptions = {
     from: email,
     to: process.env.ADMIN_EMAIL,
