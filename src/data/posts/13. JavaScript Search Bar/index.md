@@ -7,6 +7,8 @@ published: true
 coverImage: ./images/cover.png
 ---
 
+`youtube:https://www.youtube.com/embed/wxz5vJ1BWrc`
+
 Searching is one of the most common things you do on the internet. At some point, you'll probably want to incorporate search into your own app. In this article, let's learn how to create a search bar to filter content with vanilla JavaScript.
 
 > Check out the finished code [here](https://codepen.io/jamesqquick/pen/XWJxBQv)
