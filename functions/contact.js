@@ -9,8 +9,8 @@ exports.handler = function(event, context, callback) {
     to: process.env.ADMIN_EMAIL,
     from: email,
     subject: type ? `${type} request` : "Mail from JamesQQuick.com",
-    text: `${body} \n from ${name}`,
-    html: `${body} \n from ${name}`,
+    text: `${body} \n from ${name}, ${email}`,
+    html: `${body} \n from ${name}, ${email}`,
   };
 
   console.log(msg);
