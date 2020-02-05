@@ -3,7 +3,7 @@ title: N+1>N It's Part of the Auth0 Culture
 slug: /blog/n+1-part-of-the-auth0-culture
 publishDate: "2020-02-06"
 tags: culture, soft-skills
-coverImage: ../../images/covers/placeholder-cover.jpg
+coverImage: ../../images/covers/auth0-logo-forwhitebg.jpg
 published: true
 ---
 
