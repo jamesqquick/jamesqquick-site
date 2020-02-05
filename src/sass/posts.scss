@@ -14,7 +14,7 @@
     border-radius: 5px;
     border: 1px solid $primary;
     box-shadow: 3px 3px 1px $primary;
-    font-style: italic;
+    // font-style: italic;
     padding: 2rem;
     margin: 4rem 0;
     font-family: poppins;
@@ -25,8 +25,9 @@
   }
 
   code:not([class]) {
-    background-color: $light-grey;
-    padding: 1px 3px;
+    background-color: $off-white;
+    padding: 1px 8px;
+    border-radius: 3px;
   }
 
   .tag {
