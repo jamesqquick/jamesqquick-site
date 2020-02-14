@@ -3,6 +3,7 @@ import PostPreview from "../components/PostPreview";
 import SEO from "../components/SEO";
 import Layout from "../components/Layout";
 import { graphql } from "gatsby";
+import moment from "moment";
 export default function blog({ data, location }) {
   const tags = [
     "All Posts",
@@ -33,6 +34,13 @@ export default function blog({ data, location }) {
       ? true
       : post.node.frontmatter.tags.includes(category)
   );
+
+  const filteredPosts = rawPosts.filter(post => {
+    const publishDate = post.node.frontmatter.publishDate;
+    return moment().isAfter(publishDate);
+  });
+
+  console.log(filteredPosts);
   const posts = rawPosts.map(post => ({
     id: post.node.id,
     excerpt: post.node.excerpt,

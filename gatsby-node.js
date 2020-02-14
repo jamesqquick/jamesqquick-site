@@ -1,5 +1,6 @@
 const path = require("path");
 const { createFilePath } = require("gatsby-source-filesystem");
+const moment = require("moment");
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
@@ -84,6 +85,7 @@ exports.createPages = async ({ graphql, actions }) => {
               frontmatter {
                 title
                 slug
+                publishDate
               }
             }
           }
@@ -98,7 +100,11 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const posts = postsResult.data.allMarkdownRemark.edges;
 
-  posts.forEach((post, index) => {
+  const filteredPosts = posts.filter(post => {
+    const publishDate = post.node.frontmatter.publishDate;
+    return moment().isAfter(publishDate);
+  });
+  filteredPosts.forEach((post, index) => {
     const previous = index === posts.length - 1 ? null : posts[index + 1].node;
     const next = index === 0 ? null : posts[index - 1].node;
 
