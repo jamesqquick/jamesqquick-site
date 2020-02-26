@@ -1,5 +1,5 @@
 ---
-title: Configure Proxy in React
+title: Configure a Proxy in React
 slug: /blog/configure-proxy-in-react
 publishDate: "2020-02-14"
 tags: web-development, javascript, react
