@@ -12,7 +12,9 @@ export default function talk(props) {
         <p className="post-date">
           {talk.conference} - {talk.date}
         </p>
-        <a href={talk.slidesLink}>Slides</a>
+        <a target="_blank" href={talk.slidesLink}>
+          Slides
+        </a>
         <div dangerouslySetInnerHTML={{ __html: talk.html }} />
       </div>
     </Layout>

@@ -30,7 +30,8 @@ export default function talks({ data }) {
 export const query = graphql`
   query TalksQuery {
     allMarkdownRemark(
-      sort: { order: DESC, fields: frontmatter___publishDate }
+      sort: { order: DESC, fields: frontmatter___date }
+
       filter: {
         frontmatter: { published: { eq: true } }
         fileAbsolutePath: { regex: "//talks//" }

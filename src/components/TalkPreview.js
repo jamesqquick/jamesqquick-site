@@ -8,7 +8,10 @@ export default function talkPreview({ talk }) {
         <h2 className="post-title">{talk.title}</h2>
       </Link>
       <p className="post-date">
-        {talk.conference} - {talk.date} | <a href={talk.slidesLink}>SLIDES</a>
+        {talk.conference} - {talk.date} |{" "}
+        <a target="_blank" href={talk.slidesLink}>
+          SLIDES
+        </a>
       </p>
 
       <p>{talk.excerpt}</p>

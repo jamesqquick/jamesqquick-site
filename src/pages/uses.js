@@ -19,30 +19,51 @@ export default function uses() {
         <h2>Software</h2>
         <ul>
           <li>
-            <a href="https://code.visualstudio.com/">Visual Studio Code</a>
+            <a href="https://code.visualstudio.com/" target="_blank">
+              Visual Studio Code
+            </a>
           </li>
           <li>
-            <a href="https://hyper.is/">Hyper Terminal</a>
+            <a href="https://hyper.is/" target="_blank">
+              Hyper Terminal
+            </a>
           </li>
           <li>
-            <a href="https://www.techsmith.com/screen-capture.html">Snagit</a>{" "}
+            <a
+              href="https://www.techsmith.com/screen-capture.html"
+              target="_blank"
+            >
+              Snagit
+            </a>{" "}
             for some screenshots and gifs
           </li>
           <li>
-            <a href="https://www.telestream.net/screenflow/">Screenflow</a> for
-            video recording/editing
+            <a href="https://www.telestream.net/screenflow/" target="_blank">
+              Screenflow
+            </a>{" "}
+            for video recording/editing
           </li>
           <li>
-            <a href="https://trello.com/">Trello</a> for tracking my work (like
-            a kanban board)
+            <a href="https://trello.com/" target="_blank">
+              Trello
+            </a>{" "}
+            for tracking my work (like a kanban board)
           </li>
           <li>
-            <a href="https://www.figma.com/">Figma</a> and{" "}
-            <a href="https://www.sketch.com/">Sketch</a> for design
+            <a href="https://www.figma.com/" target="_blank">
+              Figma
+            </a>{" "}
+            and{" "}
+            <a href="https://www.sketch.com/" target="_blank">
+              Sketch
+            </a>{" "}
+            for design
           </li>
           <li>
-            <a href="https://github.com/tonsky/FiraCode">Fira Code Font</a>-
-            it's free!
+            <a href="https://github.com/tonsky/FiraCode" target="_blank">
+              Fira Code Font
+            </a>
+            - it's free!
           </li>
         </ul>
         <h2>Hardware</h2>
@@ -53,22 +74,34 @@ export default function uses() {
         <h2>Recording Setup</h2>
         <ul>
           <li>
-            <a href="https://www.amazon.com/Shure-SM7B-Cardioid-Dynamic-Microphone/dp/B0002E4Z8M">
+            <a
+              href="https://www.amazon.com/Shure-SM7B-Cardioid-Dynamic-Microphone/dp/B0002E4Z8M"
+              target="_blank"
+            >
               Shure SM7B Microphone
             </a>
           </li>
           <li>
-            <a href="https://www.amazon.com/PSA-Swivel-Mount-Studio-Microphone/dp/B001D7UYBO">
+            <a
+              href="https://www.amazon.com/PSA-Swivel-Mount-Studio-Microphone/dp/B001D7UYBO"
+              target="_blank"
+            >
               Rode Swivel Boom Arm
             </a>
           </li>
           <li>
-            <a href="https://www.amazon.com/Logitech-Widescreen-Calling-Recording-Desktop/dp/B006JH8T3S">
+            <a
+              href="https://www.amazon.com/Logitech-Widescreen-Calling-Recording-Desktop/dp/B006JH8T3S"
+              target="_blank"
+            >
               Webcam
             </a>
           </li>
           <li>
-            <a href="https://www.amazon.com/Canon-Mirrorless-Camera-EF-M15-45mm-Video/dp/B079Y45KTJ">
+            <a
+              href="https://www.amazon.com/Canon-Mirrorless-Camera-EF-M15-45mm-Video/dp/B079Y45KTJ"
+              target="_blank"
+            >
               Video Camera
             </a>
           </li>

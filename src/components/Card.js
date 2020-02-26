@@ -13,7 +13,7 @@ export default function card(props) {
         <h2>{props.title}</h2>
       )}
       {props.link && props.linkText && (
-        <a className="card-link" href={props.link}>
+        <a className="card-link" href={props.link} target="_blank">
           {props.linkText}
         </a>
       )}

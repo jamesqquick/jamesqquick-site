@@ -21,6 +21,7 @@ export default function SocialFollow({ size, color }) {
         <a
           href="https://www.youtube.com/c/jamesqquick"
           className="youtube social"
+          target="_blank"
         >
           <FontAwesomeIcon icon={faYoutube} size={sizesMap[size]} />
         </a>
@@ -33,12 +34,14 @@ export default function SocialFollow({ size, color }) {
         <a
           href="https://www.twitter.com/jamesqquick"
           className="twitter social"
+          target="_blank"
         >
           <FontAwesomeIcon icon={faTwitter} size={sizesMap[size]} />
         </a>
         <a
           href="https://www.instagram.com/jamesqquick"
           className="instagram social"
+          target="_blank"
         >
           <FontAwesomeIcon icon={faInstagram} size={sizesMap[size]} />
         </a>
