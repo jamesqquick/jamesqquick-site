@@ -4,7 +4,7 @@ slug: /blog/configure-proxy-in-react
 publishDate: "2020-02-14"
 tags: web-development, javascript, react
 published: true
-coverImage: ../covers/placeholder-cover.jpg
+coverImage: ../../images/covers/placeholder-cover.jpg
 ---
 
 So you're working on a full-stack app, React on the frontend and...well anything else on the backend. Your Single Page Applications (SPAs) will have to interact with your backend through API/HTTP requests.
