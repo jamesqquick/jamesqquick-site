@@ -64,6 +64,7 @@ export const pageQuery = graphql`
         publishDate(formatString: "MM/DD/YYYY")
         tags
         slug
+        type
         coverImage {
           childImageSharp {
             fluid(maxWidth: 800) {

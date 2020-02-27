@@ -2,28 +2,18 @@ import React from "react";
 import { Link } from "gatsby";
 import "../sass/card.scss";
 
-export default function card(props) {
+export default function Card({ title, link, description, details, children }) {
   return (
     <div className="card">
-      {props.slug ? (
-        <Link to={props.slug}>
-          <h2 className="card-title">{props.title}</h2>
-        </Link>
-      ) : (
-        <h2>{props.title}</h2>
-      )}
-      {props.link && props.linkText && (
-        <a className="card-link" href={props.link} target="_blank">
-          {props.linkText}
-        </a>
-      )}
-      <p>
-        {props.description.substring(0, 200)}...{" "}
-        <span>
-          <Link to={props.slug}>more</Link>
-        </span>
+      <Link to={link}>
+        <h2 className="card--title">{title}</h2>
+      </Link>
+      <p className="card--details">
+        <small>{details}</small>
       </p>
-      <p>{props.meta}</p>
+      <p className="card--description">{description}</p>
+      {children}
+      <hr />
     </div>
   );
 }

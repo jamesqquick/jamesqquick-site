@@ -2,8 +2,8 @@ import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
-import TalkPreview from "../components/TalkPreview";
 import ContactBlurb from "../components/ContactBlurb";
+import Card from "../components/Card";
 export default function talks({ data }) {
   const blurbHeader = "Intersted in me speaking at your event?";
 
@@ -20,7 +20,13 @@ export default function talks({ data }) {
         <hr className="title-underline" />
         <ContactBlurb header={blurbHeader} />
         {talks.map(talk => (
-          <TalkPreview key={talk.id} talk={talk}></TalkPreview>
+          <Card
+            key={talk.id}
+            title={talk.title}
+            link={talk.slug}
+            description={talk.excerpt}
+            details={`${talk.date} - ${talk.conference}`}
+          ></Card>
         ))}
       </div>
     </Layout>
@@ -45,7 +51,7 @@ export const query = graphql`
             title
             date(formatString: "MM/DD/YYYY")
             slug
-            slidesLink
+            link
             conference
           }
         }

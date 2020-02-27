@@ -10,11 +10,11 @@ export default function talk(props) {
       <div className="container post">
         <h1 className="post-title">{talk.title}</h1>
         <p className="post-date">
-          {talk.conference} - {talk.date}
+          <a target="_blank" href={talk.link}>
+            {talk.conference} - {talk.date} ({talk.linkText})
+          </a>
         </p>
-        <a target="_blank" href={talk.slidesLink}>
-          Slides
-        </a>
+
         <div dangerouslySetInnerHTML={{ __html: talk.html }} />
       </div>
     </Layout>

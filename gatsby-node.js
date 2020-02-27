@@ -36,8 +36,9 @@ exports.createPages = async ({ graphql, actions }) => {
                 title
                 date(formatString: "MM/DD/YYYY")
                 slug
-                slidesLink
+                link
                 conference
+                linkText
               }
             }
           }

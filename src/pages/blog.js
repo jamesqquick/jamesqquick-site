@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import PostPreview from "../components/PostPreview";
 import SEO from "../components/SEO";
 import Layout from "../components/Layout";
 import { graphql } from "gatsby";
 import moment from "moment";
+import Card from "../components/Card";
 export default function blog({ data, location }) {
   const tags = [
     "All Posts",
@@ -17,6 +17,7 @@ export default function blog({ data, location }) {
     "design",
     "node",
     "vscode",
+    "react",
   ];
   const [category, setCategory] = useState("All Posts");
 
@@ -40,15 +41,27 @@ export default function blog({ data, location }) {
     return moment().isAfter(publishDate);
   });
 
-  console.log(filteredPosts);
   const posts = rawPosts.map(post => ({
     id: post.node.id,
     excerpt: post.node.excerpt,
     ...post.node.frontmatter,
+    tags: post.node.frontmatter.tags.replace(" ", "").split(","),
   }));
 
-  const tagSelected = tag => {
-    setCategory(tag);
+  // const tagSelected = tag => {
+  //   setCategory(tag);
+  // };
+
+  const displayTags = post => {
+    return (
+      <p>
+        {post.tags.map((tag, i) => (
+          <small key={i} className="post--tag">
+            {tag}
+          </small>
+        ))}
+      </p>
+    );
   };
 
   return (
@@ -57,7 +70,7 @@ export default function blog({ data, location }) {
       <div className="container">
         <h1 className="title">Blog</h1>
         <hr className="title-underline" />
-        <select
+        {/* <select
           name="categories"
           id="categories"
           value={category}
@@ -68,9 +81,16 @@ export default function blog({ data, location }) {
               {tag}
             </option>
           ))}
-        </select>
+        </select> */}
         {posts.map(post => (
-          <PostPreview post={post} key={post.id} tagSelected={tagSelected} />
+          <Card
+            title={post.title}
+            details={post.publishDate}
+            description={post.excerpt}
+            link={post.slug}
+          >
+            {displayTags(post)}
+          </Card>
         ))}
       </div>
     </Layout>
