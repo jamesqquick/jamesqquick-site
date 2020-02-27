@@ -16,9 +16,7 @@
 
   &:hover {
     cursor: pointer;
-    background-color: $off-white;
-    border-color: $primary;
-    color: $primary;
+    background-color: $primary-dark;
     text-decoration: none;
   }
 
@@ -44,9 +42,7 @@
 
   &:hover {
     cursor: pointer;
-    background-color: white;
-    border-color: $secondary;
-    color: $secondary;
+    background-color: $secondary-dark;
     text-decoration: none;
   }
 
