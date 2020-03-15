@@ -76,3 +76,21 @@ function App() {
   );
 }
 ```
+
+If you have a header/navbar that you want to include on every page, you can render it just inside of the `Router` component.
+
+```javascript
+function App() {
+  return (
+    <Router>
+      <Header />
+      <Switch>
+        <Route path="/">
+          <Home />
+        </Route>
+      </Switch>
+    </Router>
+  );
+}
+export default App;
+```
