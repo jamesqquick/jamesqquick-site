@@ -41,26 +41,23 @@ export default function blog({ data, location }) {
     return moment().isAfter(publishDate);
   });
 
-  const posts = rawPosts.map(post => ({
+  const posts = filteredPosts.map(post => ({
     id: post.node.id,
     excerpt: post.node.excerpt,
     ...post.node.frontmatter,
     tags: post.node.frontmatter.tags.replace(" ", "").split(","),
   }));
 
-  // const tagSelected = tag => {
-  //   setCategory(tag);
-  // };
-
   const displayTags = post => {
     return (
-      <p>
+      <small>
+        Tags:{" "}
         {post.tags.map((tag, i) => (
           <small key={i} className="post--tag">
             {tag}
           </small>
         ))}
-      </p>
+      </small>
     );
   };
 
@@ -70,18 +67,6 @@ export default function blog({ data, location }) {
       <div className="container">
         <h1 className="title">Blog</h1>
         <hr className="title-underline" />
-        {/* <select
-          name="categories"
-          id="categories"
-          value={category}
-          onChange={e => setCategory(e.target.value)}
-        >
-          {tags.map((tag, i) => (
-            <option key={i} value={tag} onClick={tagSelected}>
-              {tag}
-            </option>
-          ))}
-        </select> */}
         {posts.map(post => (
           <Card
             title={post.title}

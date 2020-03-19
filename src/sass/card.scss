@@ -1,6 +1,10 @@
 @import "variables";
 
 .card {
+  margin-top: 4rem;
+  border-bottom: 2px solid $light-grey;
+  padding-bottom: 2rem;
+
   .card--title {
     margin-bottom: 0px;
   }

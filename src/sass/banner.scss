@@ -4,14 +4,14 @@
   height: 5rem;
   position: fixed;
   background: $secondary;
-  display: flex;
   align-items: center;
   top: 0;
-  left: $navbar-width;
+  left: 0;
   right: 0;
   padding: 0 2rem;
   border-bottom: 4px solid $secondary-dark;
   z-index: 1000;
+  text-align: center;
 
   * {
     color: white;
