@@ -13,7 +13,6 @@ export default function Card({ title, link, description, details, children }) {
       </p>
       <p className="card--description">{description}</p>
       {children}
-      <hr />
     </div>
   );
 }

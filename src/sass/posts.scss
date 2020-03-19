@@ -47,13 +47,10 @@
 }
 
 .post--tag {
-  background-color: $secondary;
-  margin-right: 5px;
+  color: $secondary;
+  margin-right: 0px;
   border-radius: 3px;
-  padding: 5px 10px;
-  color: $off-white;
-  font-size: 12px;
-  line-height: 3rem;
+  margin-left: 1rem;
 }
 @media only screen and (max-width: 768px) {
   .post {

@@ -1,12 +1,13 @@
 @import "../sass/variables.scss";
 
 .nav {
+  margin-top: 40px;
   background-color: $primary-dark;
   position: fixed;
   top: 0px;
   left: 0px;
   width: $navbar-width;
-  height: 100vh;
+  height: calc(100vh - 40px);
   display: flex;
   flex-direction: column;
   padding: 40px 20px;
@@ -26,7 +27,7 @@
     a {
       color: $off-white;
       font-size: 1.8rem;
-      font-weight: bold;
+      font-weight: 500;
     }
   }
 
