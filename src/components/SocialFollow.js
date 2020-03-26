@@ -4,6 +4,7 @@ import {
   faYoutube,
   faTwitter,
   faInstagram,
+  faTwitch,
 } from "@fortawesome/free-brands-svg-icons";
 import "../sass/socialFollow.scss";
 export default function SocialFollow({ size, color }) {
@@ -22,6 +23,7 @@ export default function SocialFollow({ size, color }) {
           href="https://www.youtube.com/c/jamesqquick"
           className="youtube social"
           target="_blank"
+          rel="noopener noreferrer"
         >
           <FontAwesomeIcon icon={faYoutube} size={sizesMap[size]} />
         </a>
@@ -35,6 +37,7 @@ export default function SocialFollow({ size, color }) {
           href="https://www.twitter.com/jamesqquick"
           className="twitter social"
           target="_blank"
+          rel="noopener noreferrer"
         >
           <FontAwesomeIcon icon={faTwitter} size={sizesMap[size]} />
         </a>
@@ -42,8 +45,17 @@ export default function SocialFollow({ size, color }) {
           href="https://www.instagram.com/jamesqquick"
           className="instagram social"
           target="_blank"
+          rel="noopener noreferrer"
         >
           <FontAwesomeIcon icon={faInstagram} size={sizesMap[size]} />
+        </a>
+        <a
+          href="https://www.twitch.tv/jamesqquick"
+          className="twitch social"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FontAwesomeIcon icon={faTwitch} size={sizesMap[size]} />
         </a>
         {/* <a
           href="https://www.linkedin.com/in/jamesqquick/"

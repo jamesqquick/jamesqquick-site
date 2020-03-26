@@ -5,6 +5,10 @@
 @import "flexbox";
 @import "section";
 
+a.twitch {
+  color: #644398;
+}
+
 @media only screen and (max-width: 768px) {
   #downArrow {
     display: none;

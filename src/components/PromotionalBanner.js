@@ -7,6 +7,7 @@ export default function PromotionalBanner() {
         <a
           href="https://www.udemy.com/course/learn-visual-studio-code/"
           target="_blank"
+          rel="noopener noreferrer"
         >
           Learn everything you need to know about Visual Studio Code!
         </a>

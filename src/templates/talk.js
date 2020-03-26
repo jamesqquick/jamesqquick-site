@@ -10,7 +10,7 @@ export default function talk(props) {
       <div className="container post">
         <h1 className="post-title">{talk.title}</h1>
         <p className="post-date">
-          <a target="_blank" href={talk.link}>
+          <a target="_blank" rel="noopener noreferrer" href={talk.link}>
             {talk.conference} - {talk.date} ({talk.linkText})
           </a>
         </p>
