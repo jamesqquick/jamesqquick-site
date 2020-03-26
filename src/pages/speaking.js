@@ -19,15 +19,19 @@ export default function talks({ data }) {
         <h1 className="text-center title">Speaking</h1>
         <hr className="title-underline" />
         <ContactBlurb header={blurbHeader} />
-        {talks.map(talk => (
-          <Card
-            key={talk.id}
-            title={talk.title}
-            link={talk.slug}
-            description={talk.excerpt}
-            details={`${talk.date} - ${talk.conference}`}
-          ></Card>
-        ))}
+        <ul>
+          {talks.map(talk => (
+            <Card
+              key={talk.id}
+              title={talk.title}
+              link={talk.slug}
+              description={talk.excerpt}
+              details={talk.date}
+            >
+              <p>{talk.conference}</p>
+            </Card>
+          ))}
+        </ul>
       </div>
     </Layout>
   );

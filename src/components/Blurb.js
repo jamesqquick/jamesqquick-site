@@ -9,17 +9,18 @@ export default function Blurb({
   isRelativeLink = true,
 }) {
   return (
-    <div id="contactBlurb" className="blurb">
-      <h2 className="blurb-header">{header}</h2>
-      {isRelativeLink ? (
-        <Link to={`${buttonLink}`} className={`btn ${btnType}`}>
-          {buttonText}
-        </Link>
-      ) : (
-        <a href={buttonLink} className={`btn ${btnType}`}>
-          {buttonText}
-        </a>
-      )}
-    </div>
+    // <div id="contactBlurb" className="blurb">
+    //   <h2 className="blurb-header">{header}</h2>
+    //   {isRelativeLink ? (
+    //     <Link to={`${buttonLink}`} className={`btn ${btnType}`}>
+    //       {buttonText}
+    //     </Link>
+    //   ) : (
+    //     <a href={buttonLink} className={`btn ${btnType}`}>
+    //       {buttonText}
+    //     </a>
+    //   )}
+    // </div>
+    <></>
   );
 }

@@ -19,12 +19,20 @@ export default function uses() {
         <h2>Software</h2>
         <ul>
           <li>
-            <a href="https://code.visualstudio.com/" target="_blank">
+            <a
+              href="https://code.visualstudio.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Visual Studio Code
             </a>
           </li>
           <li>
-            <a href="https://hyper.is/" target="_blank">
+            <a
+              href="https://hyper.is/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Hyper Terminal
             </a>
           </li>
@@ -32,35 +40,56 @@ export default function uses() {
             <a
               href="https://www.techsmith.com/screen-capture.html"
               target="_blank"
+              rel="noopener noreferrer"
             >
               Snagit
             </a>{" "}
             for some screenshots and gifs
           </li>
           <li>
-            <a href="https://www.telestream.net/screenflow/" target="_blank">
+            <a
+              href="https://www.telestream.net/screenflow/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Screenflow
             </a>{" "}
             for video recording/editing
           </li>
           <li>
-            <a href="https://trello.com/" target="_blank">
+            <a
+              href="https://trello.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Trello
             </a>{" "}
             for tracking my work (like a kanban board)
           </li>
           <li>
-            <a href="https://www.figma.com/" target="_blank">
+            <a
+              href="https://www.figma.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Figma
             </a>{" "}
             and{" "}
-            <a href="https://www.sketch.com/" target="_blank">
+            <a
+              href="https://www.sketch.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Sketch
             </a>{" "}
             for design
           </li>
           <li>
-            <a href="https://github.com/tonsky/FiraCode" target="_blank">
+            <a
+              href="https://github.com/tonsky/FiraCode"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Fira Code Font
             </a>
             - it's free!
@@ -77,6 +106,7 @@ export default function uses() {
             <a
               href="https://www.amazon.com/Shure-SM7B-Cardioid-Dynamic-Microphone/dp/B0002E4Z8M"
               target="_blank"
+              rel="noopener noreferrer"
             >
               Shure SM7B Microphone
             </a>
@@ -85,6 +115,7 @@ export default function uses() {
             <a
               href="https://www.amazon.com/PSA-Swivel-Mount-Studio-Microphone/dp/B001D7UYBO"
               target="_blank"
+              rel="noopener noreferrer"
             >
               Rode Swivel Boom Arm
             </a>
@@ -93,6 +124,7 @@ export default function uses() {
             <a
               href="https://www.amazon.com/Logitech-Widescreen-Calling-Recording-Desktop/dp/B006JH8T3S"
               target="_blank"
+              rel="noopener noreferrer"
             >
               Webcam
             </a>
@@ -101,6 +133,7 @@ export default function uses() {
             <a
               href="https://www.amazon.com/Canon-Mirrorless-Camera-EF-M15-45mm-Video/dp/B079Y45KTJ"
               target="_blank"
+              rel="noopener noreferrer"
             >
               Video Camera
             </a>

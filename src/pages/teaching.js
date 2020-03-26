@@ -1,30 +1,9 @@
 import React from "react";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
-import ContactBlurb from "../components/ContactBlurb";
-import Blurb from "../components/Blurb";
-import Img from "gatsby-image";
 import { useStaticQuery, graphql, Link } from "gatsby";
-import YouTubeSubscribe from "../components/YouTubeSubscribe";
-import GatsbyImage from "gatsby-image";
 
 export default function teaching() {
-  const contactBlurbHeader = "Interested in custom content or training?";
-  const coursesBlurbHeader = "Looking for a full list of my courses?";
-
-  const data = useStaticQuery(graphql`
-    query {
-      file(relativePath: { eq: "images/teaching.jpg" }) {
-        childImageSharp {
-          # Specify the image processing specifications right in the query.
-          # Makes it trivial to update as your page's design changes.
-          fluid {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `);
   return (
     <Layout>
       <SEO
@@ -60,7 +39,7 @@ export default function teaching() {
           Development because it empowers me to build amazing applications that
           people across the world have access to.
         </p>
-        <h3>Learn Fullstack Web Development</h3>
+        <h2>Learn Fullstack Web Development</h2>
         <p>Here's a few topics I can help you get better at.</p>
         <ul>
           <li>Frontend Development</li>
@@ -71,7 +50,7 @@ export default function teaching() {
           <li>People Skills</li>
           <li>Career Development</li>
         </ul>
-        <h3>Where to find my content...</h3>
+        <h2>Where to find my content...</h2>
         <p>
           I create content in different formats across different mediums. I am
           constantly creating new content so be sure to sign up for my{" "}
@@ -80,25 +59,41 @@ export default function teaching() {
         <ul>
           <li>
             Free content on{" "}
-            <a href="https://www.youtube.com/jamesqquick" target="_blank">
+            <a
+              href="https://www.youtube.com/jamesqquick"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               YouTube
             </a>
           </li>
           <li>
             Weekly live streams on{" "}
-            <a href="https://www.twitch.tv/jamesqquick" target="_blank">
+            <a
+              href="https://www.twitch.tv/jamesqquick"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Twitch
             </a>
           </li>
           <li>
             Full list of courses at{" "}
-            <a href="https://www.learnbuildteach.com" target="_blank">
+            <a
+              href="https://www.learnbuildteach.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Learn Build Teach
             </a>
           </li>
           <li>
             Articles on{" "}
-            <a href="https://scotch.io/@jamesqquick" target="_blank">
+            <a
+              href="https://scotch.io/@jamesqquick"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Scotch.io
             </a>
           </li>
@@ -106,7 +101,7 @@ export default function teaching() {
         {/* <div className="text-center">
           <YouTubeSubscribe />
         </div> */}
-        <h3>Looking for Custom Content?</h3>
+        <h2>Looking for Custom Content?</h2>
         <p>
           I often get requests to create custom content like individual courses,
           one-off videos, articles, etc. If you're interested in something,{" "}

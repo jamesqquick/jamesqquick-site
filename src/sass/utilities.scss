@@ -10,8 +10,6 @@ span.highlight {
   color: $secondary;
 }
 
-.text-dark {
-}
 .text-light {
   color: $off-white;
 }
@@ -67,6 +65,7 @@ span.highlight {
 .title {
   margin-bottom: 8px;
   text-align: center;
+  text-transform: uppercase;
 }
 .title-underline {
   border-top-color: $secondary;

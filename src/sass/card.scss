@@ -1,15 +1,38 @@
 @import "variables";
 
 .card {
-  margin-top: 4rem;
-  border-bottom: 2px solid $light-grey;
+  margin-top: 2rem;
   padding-bottom: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 150px;
+  align-items: center;
+  grid-column-gap: 20px;
 
-  .card--title {
-    margin-bottom: 0px;
+  &:first-of-type {
+    margin-top: 4rem;
   }
 
-  .card--details {
-    margin-top: 0px;
+  .card--title {
+    margin: 0px;
+    font-weight: 700;
+  }
+
+  .card--date > * {
+    margin: 0;
+  }
+
+  .card--description {
+    margin-top: 5px;
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 786px) {
+  .card {
+    grid-template-columns: 1fr;
+
+    .card--description {
+      margin-top: 10px;
+    }
   }
 }

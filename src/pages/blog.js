@@ -67,16 +67,18 @@ export default function blog({ data, location }) {
       <div className="container">
         <h1 className="title">Blog</h1>
         <hr className="title-underline" />
-        {posts.map(post => (
-          <Card
-            title={post.title}
-            details={post.publishDate}
-            description={post.excerpt}
-            link={post.slug}
-          >
-            {displayTags(post)}
-          </Card>
-        ))}
+        <ul>
+          {posts.map(post => (
+            <Card
+              title={post.title}
+              details={post.publishDate}
+              description={post.excerpt}
+              link={post.slug}
+            >
+              {/* {displayTags(post)} */}
+            </Card>
+          ))}
+        </ul>
       </div>
     </Layout>
   );

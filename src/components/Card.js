@@ -11,24 +11,24 @@ export default function Card({
   isLinkLocal = true,
 }) {
   return (
-    <div className="card">
+    <li className="card">
       {isLinkLocal ? (
         <Link to={link}>
-          <h2 className="card--title">{title}</h2>
+          <h3 className="card--title">{title}</h3>
         </Link>
       ) : (
         <a href={link} target="_blank" rel="noopener noreferrer">
-          <h2 className="card--title">{title}</h2>
+          <h3 className="card--title">{title}</h3>
         </a>
       )}
-      <p className="card--details">
-        <small>{details}</small>
-      </p>
-      <p
-        className="card--description"
-        dangerouslySetInnerHTML={{ __html: description }}
-      ></p>
-      {children}
-    </div>
+      <small className="card--date">{details}</small>
+      <div>
+        <p
+          className="card--description"
+          dangerouslySetInnerHTML={{ __html: description }}
+        ></p>
+        {children}
+      </div>
+    </li>
   );
 }

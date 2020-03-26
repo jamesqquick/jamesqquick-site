@@ -1,13 +1,13 @@
 @import "./variables.scss";
 
-* {
-  box-sizing: border-box;
-}
-
 html {
   font-size: 10px;
   font-family: "Poppins", Helvetica, Arial, Lucida, sans-serif;
   color: $black;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body {
@@ -43,28 +43,26 @@ a:hover {
 h1 {
   font-size: 5.2rem;
   line-height: 8rem;
-  font-weight: 300;
+  font-weight: 700;
   margin: 0;
-  margin-bottom: 20px;
   color: rgb(75, 75, 75);
 }
 
 h2 {
   font-size: 3.2rem;
   line-height: 4.2rem;
-  font-weight: 500;
+  font-weight: 700;
   margin: 0;
-  margin-bottom: 20px;
   color: rgb(75, 75, 75);
-  margin-top: 2rem;
+  margin-top: 4rem;
 }
 
 h3 {
-  font-size: 2.8rem;
+  font-size: 2.4rem;
   line-height: 3.6rem;
   margin-bottom: 2rem;
-  font-weight: 300;
   color: rgb(75, 75, 75);
+  font-weight: 500;
 }
 
 h4 {

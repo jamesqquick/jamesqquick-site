@@ -42,6 +42,7 @@
     "react-dom": "^16.8.6",
     "react-fontawesome": "^1.6.1",
     "react-helmet": "^5.2.1",
+    "react-livestream": "^1.0.2",
     "react-scroll": "^1.7.12",
     "react-share": "^3.0.1"
   },
