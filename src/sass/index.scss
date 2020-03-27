@@ -5,9 +5,3 @@
 @import "flexbox";
 @import "section";
 @import "text";
-
-@media only screen and (max-width: 768px) {
-  #downArrow {
-    display: none;
-  }
-}

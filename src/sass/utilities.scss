@@ -1,7 +1,7 @@
 @import "variables";
 
 .container {
-  max-width: 1000px;
+  max-width: 800px;
   padding: 5rem;
   margin: 50px auto 0 auto;
 }
@@ -66,6 +66,10 @@ span.highlight {
   margin-bottom: 8px;
   text-align: center;
   text-transform: uppercase;
+}
+
+.mt-5 {
+  margin-top: 5rem;
 }
 .title-underline {
   border-top-color: $secondary;

@@ -16,8 +16,8 @@ const IndexPage = () => (
         `James Q Quick`,
       ]}
     />
-    <div id="hero" className="container ">
-      <h1 className="title">James Q Quick</h1>
+    <div className="container text-center">
+      <h1 className="title home-title  mt-5">James Q Quick</h1>
       <hr className="title-underline" />
       <h3 className="subtitle">Developer. Speaker. Teacher.</h3>
       <p>

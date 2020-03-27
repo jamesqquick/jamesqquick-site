@@ -1,18 +1,14 @@
 @import "../sass/variables.scss";
 
 .nav {
-  margin-top: 40px;
-  background-color: $primary-dark;
   position: fixed;
   top: 0px;
   left: 0px;
-  width: $navbar-width;
   height: calc(100vh - 40px);
   display: flex;
   flex-direction: column;
-  padding: 40px 20px;
-  justify-content: space-between;
-  color: $off-white;
+  justify-content: center;
+  padding: 40px 10px;
 
   .nav-brand {
     text-align: center;
@@ -39,8 +35,33 @@
     margin-left: 1rem;
 
     a {
-      color: $off-white;
       margin-bottom: 2rem;
+      padding: 0.5rem 0;
+      max-width: 40px;
+      overflow: hidden;
+      color: $secondary;
+      transition: all 500ms;
+      white-space: nowrap;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    a.active > svg,
+    a:hover > svg {
+      color: $secondary;
+    }
+
+    a > svg {
+      width: 40px;
+      color: $text-dark;
+    }
+
+    a:hover {
+      max-width: 200px;
+      padding: 0.5rem 20px 0.5rem 0;
+      border-radius: 3px;
+      color: $secondary;
+      transform: translateX(-20px);
     }
   }
 
