@@ -6,7 +6,7 @@ export default function uses() {
   return (
     <Layout>
       <SEO
-        title="Resources"
+        title="Uses"
         keywords={[`Uses`, `web development`, `web design`, `developer tools`]}
       />
       <div className="container">
