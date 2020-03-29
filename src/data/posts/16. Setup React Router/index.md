@@ -1,7 +1,7 @@
 ---
 title: Setup React Router
 slug: /blog/setup-react-router
-publishDate: "2020-03-19"
+publishDate: "2020-03-30"
 tags: web-development, javascript, react
 published: false
 coverImage: ../../images/covers/placeholder-cover.jpg
