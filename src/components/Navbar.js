@@ -45,7 +45,7 @@ export default function Navbar() {
         <ul className={"nav-items" + (navOpen ? "" : " hidden-sm")}>
           {/* <Link to="/about">About</Link> */}
           <Link to="/blog">Blog</Link>
-          <Link to="/live">Live</Link>
+          <Link to="/live">Streaming</Link>
           <Link to="/teaching">Teaching</Link>
           <Link to="/speaking">Speaking</Link>
           <Link to="/contact">Contact</Link>

@@ -25,7 +25,8 @@ export default function uses() {
               rel="noopener noreferrer"
             >
               Visual Studio Code
-            </a>
+            </a>{" "}
+            with the Cobalt 2 theme by Wes Bos
           </li>
           <li>
             <a
@@ -126,7 +127,7 @@ export default function uses() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Webcam
+              Logitech C920 Webcam
             </a>
           </li>
           <li>
@@ -135,7 +136,7 @@ export default function uses() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Video Camera
+              Canon M50 Camera
             </a>
           </li>
         </ul>
