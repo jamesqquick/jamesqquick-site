@@ -75,7 +75,7 @@ export default function blog({ data, location }) {
               description={post.excerpt}
               link={post.slug}
             >
-              {/* {displayTags(post)} */}
+              {displayTags(post)}
             </Card>
           ))}
         </ul>
