@@ -22,9 +22,12 @@ export default function live({ data }) {
 
   return (
     <Layout>
-      <SEO title="Live" keywords={[`live, live stream, twitch`]} type="blog" />
+      <SEO
+        title="Streaming"
+        keywords={[`live, live stream, streaming, twitch`]}
+      />
       <div className="container">
-        <h1 className="title">Live</h1>
+        <h1 className="title">Streaming</h1>
         <hr className="title-underline" />
         <p>
           <a
