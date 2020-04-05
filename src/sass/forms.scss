@@ -1,12 +1,7 @@
 @import "variables";
 
-form {
-  margin: 20px 0;
-}
-
-form.full-width {
-  display: flex;
-  flex-direction: column;
+.form {
+  margin: 4rem 0;
 }
 
 input,
@@ -15,13 +10,19 @@ select {
   padding: 1.6rem 2rem;
   font-size: 1.6rem;
   width: 100%;
+  margin-top: 1rem;
   margin-bottom: 1.5rem;
   background-color: rgb(238, 238, 238);
   border: none;
+  border-radius: 100px;
 
   &.error {
     border: 2px solid $error;
   }
+}
+
+.label {
+  font-size: 1.6rem;
 }
 
 select {
@@ -49,5 +50,4 @@ textarea {
 p.error {
   color: $error;
   text-align: left;
-  margin-top: -1.5rem;
 }

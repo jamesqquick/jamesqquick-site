@@ -20,17 +20,16 @@ export default function newsletter() {
         <h1 className="title">Newsletter</h1>
         <hr className="title-underline" />
         <p>
-          Hi, I’m a Full-Stack Web Developer who is addicted to learning and
-          loves working with people. In general, I focus on{" "}
-          <strong>Web Development</strong>, <strong>Design</strong>, and{" "}
-          <strong>Developer Tools</strong>. Here's what you can expect from this
-          newsletter.
+          Hi! I’m a fullstack Web Developer who is addicted to learning. I focus
+          on <strong>Web Development</strong>, <strong>Design</strong>, and{" "}
+          <strong>Developer Tools</strong>, and I love to share what I learn
+          with other people. Here's what you can expect from this newsletter.
         </p>
         <ul>
           <li>Latest Video and Blog Content</li>
-          <li>Premium Courses</li>
-          <li>Soft Skills and Career Development</li>
-          <li>A bit of personal stuff :)</li>
+          <li>Upcoming Live streams</li>
+          <li>Premium Web Development Courses</li>
+          <li>Tips on People Skills/Career Development</li>
         </ul>
         <NewsletterForm />
       </div>

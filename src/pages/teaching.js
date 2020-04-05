@@ -50,7 +50,7 @@ export default function teaching() {
           <li>People Skills</li>
           <li>Career Development</li>
         </ul>
-        <h2>Where to find my content...</h2>
+        <h2>Where to Find My Content</h2>
         <p>
           I create content in different formats across different mediums. I am
           constantly creating new content so be sure to sign up for my{" "}

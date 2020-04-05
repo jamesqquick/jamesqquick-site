@@ -1,13 +1,14 @@
 @import "variables";
 
 .btn {
-  padding: 1rem 3rem;
+  padding: 1.25rem 3rem;
   background-color: $primary;
   color: $off-white;
   font-size: 1.6rem;
   width: 200px;
   border: 2px solid $primary;
   transition: background-color 250ms;
+  border-radius: 100px;
 
   &:visited {
     color: $off-white;

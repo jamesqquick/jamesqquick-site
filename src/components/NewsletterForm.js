@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../sass/newsletter.scss";
+import "../sass/forms.scss";
 import addToMailchimp from "gatsby-plugin-mailchimp";
 import * as EmailValidator from "email-validator";
 import ValidatedForm from "./ValidatedForm";
@@ -42,29 +42,28 @@ export default class NewsletterForm extends Component {
     }
   };
   render() {
-    const blurbHeader = "Sign up for articles, videos, courses, and more!";
     return (
-      <div className="blurb">
-        <h2 className="blurbHeader">{blurbHeader}</h2>
-        <ValidatedForm
-          errMsg={this.state.errMsg}
-          id="newsletterForm"
-          onSubmit={this.handleSubmit}
-          successMsg={this.state.successMsg}
-          btnText="Subscribe"
-          loading={this.state.loading}
-        >
-          <input
-            type="text"
-            name="email"
-            id="email"
-            placeholder="coolkid@coolkids.com"
-            onChange={e => this.setState({ email: e.target.value })}
-            value={this.state.email}
-            className={this.state.isValidEmail === false ? "error" : ""}
-          />
-        </ValidatedForm>
-      </div>
+      <ValidatedForm
+        errMsg={this.state.errMsg}
+        className="horizontalForm"
+        onSubmit={this.handleSubmit}
+        successMsg={this.state.successMsg}
+        btnText="Subscribe"
+        loading={this.state.loading}
+      >
+        <label class="label" htmlFor="email">
+          Email
+        </label>
+        <input
+          type="text"
+          name="email"
+          id="email"
+          placeholder="coolkid@coolkids.com"
+          onChange={e => this.setState({ email: e.target.value })}
+          value={this.state.email}
+          className={this.state.isValidEmail === false ? "error" : ""}
+        />
+      </ValidatedForm>
     );
   }
 }

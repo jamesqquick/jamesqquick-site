@@ -1,10 +1,13 @@
 import React, { Component } from "react";
-import "../sass/newsletter.scss";
 export default class ValidatedForm extends Component {
   render() {
     return (
       <>
-        <form id={this.props.id} onSubmit={this.props.onSubmit}>
+        <form
+          id={this.props.id}
+          className="form"
+          onSubmit={this.props.onSubmit}
+        >
           {this.props.successMsg ? (
             <p>{this.props.successMsg}</p>
           ) : (
@@ -19,12 +22,12 @@ export default class ValidatedForm extends Component {
               </button>
             </>
           )}
+          {!this.loading && !this.props.successMsg && this.props.errMsg && (
+            <p className="error">
+              <small>{this.props.errMsg}</small>
+            </p>
+          )}
         </form>
-        {!this.loading && !this.props.successMsg && this.props.errMsg && (
-          <p className="error">
-            <small>{this.props.errMsg}</small>
-          </p>
-        )}
       </>
     );
   }
