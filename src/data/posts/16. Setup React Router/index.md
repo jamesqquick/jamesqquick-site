@@ -1,7 +1,7 @@
 ---
 title: React Router in 5 Minutes
 slug: /blog/react-router-in-five-minutes
-publishDate: "2020-06-02"
+publishDate: "2020-04-06"
 tags: web-development, javascript, react
 published: true
 coverImage: ../../images/covers/placeholder-cover.jpg
