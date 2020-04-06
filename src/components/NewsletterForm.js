@@ -3,17 +3,15 @@ import "../sass/forms.scss";
 import addToMailchimp from "gatsby-plugin-mailchimp";
 import * as EmailValidator from "email-validator";
 import ValidatedForm from "./ValidatedForm";
-export default class NewsletterForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      email: "",
-      errorMsg: "",
-      isValidEmail: null,
-      successMsg: "",
-      loading: false,
-    };
+export default NewsletterForm  = () => {
+  //states - normal = 1, loading, error, success
+  const states = {
+    LOADING: "LOADING",
+    NORMAL: "NORMAL",
+    ERROR: "ERROR",
+    SUCCESS:"SUCCESS"
   }
+ 
 
   handleSubmit = async e => {
     e.preventDefault();
@@ -32,10 +30,8 @@ export default class NewsletterForm extends Component {
         } else if (res.result === "error") {
           const errMsg = "Ooops... newsletter subscribe failed.";
           this.setState({ errMsg, loading });
-          //console.error(res.msg);
         }
       } catch (ex) {
-        //console.error(ex);
         const errMsg = "Ooops... newsletter subscribe failed.";
         this.setState({ errMsg, loading: false });
       }
