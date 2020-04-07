@@ -1,151 +1,122 @@
-import React, { Component } from "react";
-import ValidatedForm from "./ValidatedForm";
+import React, { useReducer } from "react";
 import * as EmailValidator from "email-validator";
+import submitReducer, { SUBMIT_ACTIONS } from "../reducers/SubmitReducer";
 
-export default class ContactForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      email: "",
-      name: "",
-      body: "",
-      category: "",
-      errorMsg: "",
-      isValidEmail: null,
-      successMsg: "",
-      loading: false,
-    };
-  }
+const initialState = {
+  errMsg: "",
+  email: "",
+  name: "",
+  body: "",
+  successMsg: "",
+  loading: false,
+};
 
-  handleSubmit = async e => {
+export default function ContactForm(props) {
+  const [state, dispatch] = useReducer(submitReducer, initialState);
+  const { errMsg, email, name, body, successMsg, loading } = state;
+
+  const bodyPlaceholder =
+    props.textareaPlaceholder ||
+    "Please include any relevant details with your request. Dates, times, location, etc.";
+
+  const handleSubmit = async e => {
     e.preventDefault();
 
-    //Valid inputs
-    if (!this.props.hideDropdown && !this.state.category) {
-      return this.setState({
-        errMsg: "Please choose a reason for reaching out",
-      });
+    let error;
+    if (!name) {
+      error = "Please include your name";
+    } else if (!EmailValidator.validate(email)) {
+      error = "Please enter a valid email";
+    } else if (!body) {
+      error = "Don't forget to share the deets!";
     }
-
-    if (!this.state.name) {
-      return this.setState({
-        errMsg: "Please include your name",
-      });
-    }
-
-    if (!EmailValidator.validate(this.state.email)) {
-      return this.setState({
-        errMsg: "Please enter a valid email",
-      });
-    }
-
-    if (!this.state.body) {
-      return this.setState({
-        errMsg: "Don't forget to share the deets!",
-      });
+    if (error) {
+      return dispatch({ type: SUBMIT_ACTIONS.ERROR, msg: error });
     }
 
     try {
-      this.setState({ loading: true });
+      dispatch({ type: SUBMIT_ACTIONS.SUBMITTING });
       const res = await fetch("/.netlify/functions/contact", {
         method: "post",
         body: JSON.stringify({
-          email: this.state.email,
-          name: this.state.name,
-          body: this.state.body,
-          category: this.state.category,
+          email: email,
+          name: name,
+          body: body,
         }),
       });
-      const loading = false;
       if (res.status === 200) {
-        this.setState({
-          successMsg: this.props.successMsg || "Thanks for reaching out!",
-          loading,
-        });
+        const msg = props.successMsg || "Thanks for reaching out!";
+        dispatch({ type: SUBMIT_ACTIONS.SUCCESS, msg });
       } else {
-        const errMsg = "Ooops... something went wrong.";
-        this.setState({ errMsg, loading });
+        const msg = "Ooops... something went wrong.";
+        dispatch({ type: SUBMIT_ACTIONS.ERROR, msg });
       }
     } catch (ex) {
-      const errMsg = "Ooops... something went wrong.";
-      this.setState({ errMsg, loading: false });
+      const msg = "Ooops... something went wrong.";
+      dispatch({ type: SUBMIT_ACTIONS.ERROR, msg });
     }
   };
-  render() {
-    return (
-      <>
-        <ValidatedForm
-          errMsg={this.state.errMsg}
-          id="contactForm"
-          onSubmit={this.handleSubmit}
-          successMsg={this.state.successMsg}
-          btnText="Submit"
-          loading={this.state.loading}
-        >
-          {!this.props.hideDropdown && (
-            <select
-              onChange={e => this.setState({ category: e.target.value })}
-              value={this.state.category}
-              className={
-                this.state.errMsg && this.state.errMsg.includes("reason")
-                  ? "error"
-                  : ""
-              }
-            >
-              <option value="" disabled>
-                Reason for reaching out...
-              </option>
 
-              <option value="speaking">Speaking</option>
-              <option value="teaching">Teaching</option>
-              <option value="request">Content Request</option>
-              <option value="question">General Question</option>
-            </select>
-          )}
+  return (
+    <>
+      {successMsg && <h2 className="text-center">{successMsg}</h2>}
+      {!successMsg && (
+        <form onSubmit={handleSubmit}>
           <input
             category="text"
             name="name"
             id="name"
             placeholder="Name"
-            onChange={e => this.setState({ name: e.target.value })}
-            value={this.state.name}
-            className={
-              this.state.errMsg && this.state.errMsg.includes("name")
-                ? "error"
-                : ""
+            onChange={e =>
+              dispatch({
+                type: SUBMIT_ACTIONS.FIELD,
+                target: "name",
+                value: e.target.value,
+              })
             }
+            value={name}
+            className={errMsg && errMsg.includes("name") ? "error" : ""}
           />
           <input
             category="text"
             name="email"
             id="email"
             placeholder="Email"
-            onChange={e => this.setState({ email: e.target.value })}
-            value={this.state.email}
-            className={
-              this.state.errMsg && this.state.errMsg.includes("email")
-                ? "error"
-                : ""
+            onChange={e =>
+              dispatch({
+                type: SUBMIT_ACTIONS.FIELD,
+                target: "email",
+                value: e.target.value,
+              })
             }
+            value={email}
+            className={errMsg && errMsg.includes("email") ? "error" : ""}
           />
           <textarea
             name="body"
             id="body"
-            placeholder={
-              this.props.textareaPlaceholder ||
-              "Please include any relevant details with your request. Dates, times, location, etc."
+            placeholder={bodyPlaceholder}
+            onChange={e =>
+              dispatch({
+                type: SUBMIT_ACTIONS.FIELD,
+                target: "body",
+                value: e.target.value,
+              })
             }
-            onChange={e => this.setState({ body: e.target.value })}
-            value={this.state.body}
+            value={body}
             rows="10"
-            className={
-              this.state.errMsg && this.state.errMsg.includes("deets")
-                ? "error"
-                : ""
-            }
+            className={errMsg && errMsg.includes("deets") ? "error" : ""}
           />
-        </ValidatedForm>
-      </>
-    );
-  }
+          <button type="submit" className="btn">
+            {loading ? <div className="loader" /> : "Submit"}
+          </button>
+          {errMsg && (
+            <p className="error">
+              <small>{errMsg}</small>
+            </p>
+          )}
+        </form>
+      )}
+    </>
+  );
 }

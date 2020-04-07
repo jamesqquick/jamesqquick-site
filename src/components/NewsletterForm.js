@@ -1,68 +1,90 @@
-import React, { useState } from "react";
+import React, { useState, useReducer } from "react";
 import "../sass/forms.scss";
 import addToMailchimp from "gatsby-plugin-mailchimp";
 import * as EmailValidator from "email-validator";
-import ValidatedForm from "./ValidatedForm";
+import submitReducer, { SUBMIT_ACTIONS } from "../reducers/SubmitReducer";
+
+const successMessages = {
+  DEFAULT: "Thanks for SUBMITTING!",
+  // VSCODECHEATSHEET: <a href="https://www.google.com">Here is is</a>,
+};
+
+const initialState = {
+  errMsg: "",
+  email: "",
+  successMsg: "",
+  loading: false,
+};
+
+const FAILED_SUBSCRIBE_MESSAGE = "Ooops... newsletter subscribe failed.";
 
 export default function NewsletterForm({ giveaway = "DEFAULT" }) {
-  console.log(giveaway);
-  const successMessages = {
-    DEFAULT: "Thanks for subscribing!",
-    // VSCODECHEATSHEET: <a href="https://www.google.com">Here is is</a>,
-  };
-  const [errMsg, setErrMsg] = useState("");
-  const [email, setEmail] = useState("");
-  const [successMsg, setSuccessMsg] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [state, dispatch] = useReducer(submitReducer, initialState);
+  const { errMsg, email, successMsg, loading } = state;
 
   const handleSubmit = async e => {
     e.preventDefault();
     const isValidEmail = EmailValidator.validate(email);
 
     if (!isValidEmail) {
-      setErrMsg("Please enter a valid email");
+      dispatch({
+        type: SUBMIT_ACTIONS.ERROR,
+        msg: "Please enter a valid email",
+      });
     } else {
       try {
-        setLoading(true);
+        dispatch({ type: SUBMIT_ACTIONS.SUBMITTING });
         const res = await addToMailchimp(email);
-        setLoading(false);
         if (res.result === "success") {
-          setSuccessMsg(
-            successMessages[giveaway] || successMessages["DEFAULT"]
-          );
+          const successMsg =
+            successMessages[giveaway] || successMessages["DEFAULT"];
+          dispatch({ type: SUBMIT_ACTIONS.SUCCESS, msg: successMsg });
         } else if (res.result === "error") {
-          //Todo: is there a more specific error message to show
-          //"msg":"james.q.quick@gmail.com is already subscribed to list James Q Quick Newsletter.
-          const errMsg = "Ooops... newsletter subscribe failed.";
-          setErrMsg(errMsg);
+          let errMsg = FAILED_SUBSCRIBE_MESSAGE;
+          if (res.msg.includes("already subscribed")) {
+            errMsg = "Looks like you're already subscribed.";
+          }
+          dispatch({ type: SUBMIT_ACTIONS.ERROR, msg: errMsg });
         }
       } catch (ex) {
-        const errMsg = "Ooops... newsletter subscribe failed.";
-        setLoading(false);
-        setErrMsg(errMsg);
+        const errMsg = FAILED_SUBSCRIBE_MESSAGE;
+        dispatch({ type: SUBMIT_ACTIONS.ERROR, msg: errMsg });
       }
     }
   };
   return (
-    <ValidatedForm
-      errMsg={errMsg}
-      onSubmit={handleSubmit}
-      successMsg={successMsg}
-      btnText="Subscribe"
-      loading={loading}
-    >
-      <label className="label" htmlFor="email">
-        Email
-      </label>
-      <input
-        type="text"
-        name="email"
-        id="email"
-        placeholder="Enter your email"
-        onChange={e => setEmail(e.target.value)}
-        value={email}
-        className={errMsg ? "error" : ""}
-      />
-    </ValidatedForm>
+    <>
+      {successMsg && <h2 className="text-center">{successMsg}</h2>}
+      {!successMsg && (
+        <form className="form" onSubmit={handleSubmit}>
+          <label className="label" htmlFor="email">
+            Email
+          </label>
+          <input
+            type="text"
+            name="email"
+            id="email"
+            placeholder="Enter your email"
+            onChange={e =>
+              dispatch({
+                type: SUBMIT_ACTIONS.FIELD,
+                target: "email",
+                value: e.target.value,
+              })
+            }
+            value={email}
+            className={errMsg ? "error" : ""}
+          />
+          <button type="submit" className="btn">
+            {loading ? <div className="loader" /> : "Subscribe"}
+          </button>
+          {errMsg && (
+            <p className="error">
+              <small>{errMsg}</small>
+            </p>
+          )}
+        </form>
+      )}
+    </>
   );
 }
