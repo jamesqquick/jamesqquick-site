@@ -2,8 +2,11 @@ import React from "react";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 import NewsletterForm from "../components/NewsletterForm";
+const queryString = require("query-string");
 
-export default function newsletter() {
+export default function newsletter({ location }) {
+  const queryParams = queryString.parse(location.search);
+  const giveaway = queryParams.giveaway || "DEFAULT";
   return (
     <Layout>
       <SEO
@@ -31,7 +34,7 @@ export default function newsletter() {
           <li>Premium Web Development Courses</li>
           <li>Tips on People Skills/Career Development</li>
         </ul>
-        <NewsletterForm />
+        <NewsletterForm giveaway={giveaway} />
       </div>
     </Layout>
   );

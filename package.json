@@ -38,6 +38,7 @@
     "node-sass": "^4.12.0",
     "nodemailer": "^6.4.2",
     "prop-types": "^15.7.2",
+    "query-string": "^6.12.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-fontawesome": "^1.6.1",

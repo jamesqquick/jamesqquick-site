@@ -9,7 +9,7 @@ export default class ValidatedForm extends Component {
           onSubmit={this.props.onSubmit}
         >
           {this.props.successMsg ? (
-            <p>{this.props.successMsg}</p>
+            <h2 className="text-center">{this.props.successMsg}</h2>
           ) : (
             <>
               {this.props.children}

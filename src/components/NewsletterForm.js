@@ -1,65 +1,68 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import "../sass/forms.scss";
 import addToMailchimp from "gatsby-plugin-mailchimp";
 import * as EmailValidator from "email-validator";
 import ValidatedForm from "./ValidatedForm";
-export default NewsletterForm  = () => {
-  //states - normal = 1, loading, error, success
-  const states = {
-    LOADING: "LOADING",
-    NORMAL: "NORMAL",
-    ERROR: "ERROR",
-    SUCCESS:"SUCCESS"
-  }
- 
 
-  handleSubmit = async e => {
+export default function NewsletterForm({ giveaway = "DEFAULT" }) {
+  console.log(giveaway);
+  const successMessages = {
+    DEFAULT: "Thanks for subscribing!",
+    // VSCODECHEATSHEET: <a href="https://www.google.com">Here is is</a>,
+  };
+  const [errMsg, setErrMsg] = useState("");
+  const [email, setEmail] = useState("");
+  const [successMsg, setSuccessMsg] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async e => {
     e.preventDefault();
-    const isValidEmail = EmailValidator.validate(this.state.email);
+    const isValidEmail = EmailValidator.validate(email);
 
     if (!isValidEmail) {
-      const errMsg = "Please enter a valid email";
-      this.setState({ isValidEmail, errMsg });
+      setErrMsg("Please enter a valid email");
     } else {
       try {
-        this.setState({ loading: true });
-        const res = await addToMailchimp(this.state.email);
-        const loading = false;
+        setLoading(true);
+        const res = await addToMailchimp(email);
+        setLoading(false);
         if (res.result === "success") {
-          this.setState({ successMsg: "Thanks for subscribing", loading });
+          setSuccessMsg(
+            successMessages[giveaway] || successMessages["DEFAULT"]
+          );
         } else if (res.result === "error") {
+          //Todo: is there a more specific error message to show
+          //"msg":"james.q.quick@gmail.com is already subscribed to list James Q Quick Newsletter.
           const errMsg = "Ooops... newsletter subscribe failed.";
-          this.setState({ errMsg, loading });
+          setErrMsg(errMsg);
         }
       } catch (ex) {
         const errMsg = "Ooops... newsletter subscribe failed.";
-        this.setState({ errMsg, loading: false });
+        setLoading(false);
+        setErrMsg(errMsg);
       }
     }
   };
-  render() {
-    return (
-      <ValidatedForm
-        errMsg={this.state.errMsg}
-        className="horizontalForm"
-        onSubmit={this.handleSubmit}
-        successMsg={this.state.successMsg}
-        btnText="Subscribe"
-        loading={this.state.loading}
-      >
-        <label class="label" htmlFor="email">
-          Email
-        </label>
-        <input
-          type="text"
-          name="email"
-          id="email"
-          placeholder="coolkid@coolkids.com"
-          onChange={e => this.setState({ email: e.target.value })}
-          value={this.state.email}
-          className={this.state.isValidEmail === false ? "error" : ""}
-        />
-      </ValidatedForm>
-    );
-  }
+  return (
+    <ValidatedForm
+      errMsg={errMsg}
+      onSubmit={handleSubmit}
+      successMsg={successMsg}
+      btnText="Subscribe"
+      loading={loading}
+    >
+      <label className="label" htmlFor="email">
+        Email
+      </label>
+      <input
+        type="text"
+        name="email"
+        id="email"
+        placeholder="coolkid@coolkids.com"
+        onChange={e => setEmail(e.target.value)}
+        value={email}
+        className={errMsg ? "error" : ""}
+      />
+    </ValidatedForm>
+  );
 }
