@@ -58,7 +58,7 @@ export default function NewsletterForm({ giveaway = "DEFAULT" }) {
         type="text"
         name="email"
         id="email"
-        placeholder="coolkid@coolkids.com"
+        placeholder="Enter your email"
         onChange={e => setEmail(e.target.value)}
         value={email}
         className={errMsg ? "error" : ""}
