@@ -36,12 +36,12 @@ export default function blog({ data, location }) {
       : post.node.frontmatter.tags.includes(category)
   );
 
-  const filteredPosts = rawPosts.filter(post => {
-    const publishDate = post.node.frontmatter.publishDate;
-    return moment().isAfter(publishDate);
-  });
+  // const filteredPosts = rawPosts.filter(post => {
+  //   const publishDate = post.node.frontmatter.publishDate;
+  //   return moment().isAfter(publishDate);
+  // });
 
-  const posts = filteredPosts.map(post => ({
+  const posts = rawPosts.map(post => ({
     id: post.node.id,
     excerpt: post.node.excerpt,
     ...post.node.frontmatter,

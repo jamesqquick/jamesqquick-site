@@ -7,7 +7,7 @@ published: true
 coverImage: ../../images/covers/placeholder-cover.jpg
 ---
 
-`youtube:https://www.youtube.com/watch?v=Hu_ySRAHyPw`
+`youtube:https://www.youtube.com/embed/Hu_ySRAHyPw`
 
 In the age of technology that we live in, the Computer Science industry is booming. It is becoming a more and more desired field because of the number of opportunities, pay, benefits, etc. However, everyday programming jobs across the world are going vacant because we can't find enough qualified candidates to fill them.
 
