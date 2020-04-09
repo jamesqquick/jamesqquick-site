@@ -15,7 +15,7 @@ In some ways, this shouldn't be too surprising. If you think about it, every com
 
 > Every company needs some sort of software, and developers are needed to build that software.
 
-Because of that, peoples across the world are trying to figure out how to break into the industry. Well, there are three different ways to do just that.
+Because of that, people across the world are trying to figure out how to break into the industry. Well, there are three different ways to do just that.
 
 - get a formal Computer Science degree
 - attend a programming Bootcamp
@@ -39,11 +39,11 @@ As I said, I have a formal CS degree. Though I wouldn't trade my overall college
 
 > When I graduated from college, I had never used source control/Git, had barely worked with a terminal, and had never learned the basics of developing or hosting a website
 
-I think my degree helped give me a deeper foundation in programming concepts (think Data Structures and Algorithms) than people typically get during a Bootcamp. On the other hand, I believe the knowledge that students learn in Bootcamps is much more practical. I would guess that most Bootcamp graduates are more prepared to contribute writing code than I was coming out of college.
+I think my degree helped give me a deeper foundation in programming concepts (think Data Structures and Algorithms) than people typically get during a Bootcamp. On the other hand, I believe the knowledge that students learn in Bootcamps is much more practical. I would guess that most Bootcamp graduates are more prepared to commit code than I was coming out of college.
 
-> I would guess that most Bootcamp graduates are more prepared to contribute writing code than I was coming out of college.
+> I would guess that most Bootcamp graduates are more prepared to commit code than I was coming out of college.
 
-There are two major negatives with getting a formal degree. It takes 2-4 years to complete a degree, and some people don't have that much time. Additionally, universities can be extremely expensive. I was incredibly lucky to have received full financial aid and didn't have to pay a dime. Depending on how much you would have to pay, you could consider cheaper options like in-state schools and community colleges.
+There are two major negatives with getting a formal degree. It takes 2-4 years to complete a degree, and some people don't have that much time. Additionally, universities can be extremely expensive. I was incredibly lucky to have received full financial aid and didn't have to pay a dime. Depending on your budget, you could consider cheaper options like in-state schools and community colleges.
 
 Here's one thing I can definitively say about having a formal degree. It makes it MUCH MUCH easier to get interviews. Although many companies are recognizing the fact that there are talented developers without degrees, unfortunately, many companies still require them.
 
@@ -84,7 +84,7 @@ While the plethora of options can be beneficial, it can also be difficult to cho
 
 As I mentioned above, I believe the curriculum in Bootcamps is more practical than most CS degrees. Because of this, if a student masters the concepts presented to him/her throughout the Bootcamp, they are arguably more prepared to hit the ground running in their first role.
 
-However, I do feel that Bootcamps typically move to fast. It's incredibly difficult to internalize all the topics that are taught in a Bootcamp simply because you have such little time. These programs are expedited for a reason (to get you a job ASAP), but that comes at a risk. I highly encourage all Bootcamp graduates to continue to study, learn, and built every day to be as prepared for their first role as possible.
+However, I do feel that Bootcamps typically move too fast. It's incredibly difficult to internalize all the topics that are taught in a Bootcamp simply because you have such little time. These programs are expedited for a reason (to get you a job ASAP), but that comes at a risk. I highly encourage all Bootcamp graduates to continue to study, learn, and build every day to be as prepared for their first role as possible.
 
 Because of the expedited time frame, Bootcamps are a pretty intensive commitment. If a student finishes a Bootcamp, you can bet that that person is incredibly passionate, motivated, and dedicated. Here are a few reasons why I think this is beneficial.
 
@@ -113,14 +113,16 @@ The last option on this list is to simply dig in and learn all the things you ne
 
 There is an amazing amount of free content available in the world. I mean just go to YouTube and search "JavaScript" and see how many videos you find. You can also find amazing paid content from instructors online (I have a list of Udemy courses I can recommend for $10) with prices of anywhere from $10-\$100.
 
-The availability of free and low-cost resources is one of the major benefits of self-teaching, but there is also a downside. With so much content available, many people just don't know where to start. Without the structure of a formal curriculum, it's easy to get overwhelmed quickly. Because of this, I recommend building relationships with people in the tech community that you can ask for guidance along the way. BTW, if you're reading this and want to ask me for advice, please don't hesitate to do so!
+The availability of free and low-cost resources is one of the major benefits of self-teaching, but there is also a downside. With so much content available, many people just don't know where to start. Without the structure of a formal curriculum, it's easy to get overwhelmed quickly. Because of this, I recommend building relationships with people in the tech community that you can ask for guidance along the way. By the way, if you're reading this and want to ask me for advice, please don't hesitate to do so!
 
 Outside of the cost, flexibility is probably the next major benefit. With self-teaching, you don't have to commute to a classroom. You don't have to give up your job. You can work learning into your everyday life. Again, this is incredibly difficult to do if you are not already hyper-focused. No one is going to be pushing you along. You have to do that yourself.
+
+I would consider being self-taught to be the most difficult route to landing a job in tech. One of the ways that you combat this is to ensure that you have a solid portfolio. Make sure that you have at least 3 solid projects that demonstrate your skills as a developer. I would recommend having at least one fullstack project that shows your abilities on the frontend and backend. This will help open up more opportunities for you as you apply. Just remember, your projects might be the only thing an employer has to gauge your abilities.
 
 ### Pros
 
 - cheap (ex. YouTube is free and Udemy courses go on sale for \$10)
-- self-paced, work when you can (don't have to leave your job\_
+- self-paced, work when you can (you don't have to leave your job)
 - follow your interests
 
 ### Cons
@@ -128,3 +130,9 @@ Outside of the cost, flexibility is probably the next major benefit. With self-t
 - lack of formal structure or progression path
 - lack of instructor for real-time learning/feedback
 - harder to get interviews without a degree or Bootcamp on your resume
+
+## Wrap Up
+
+My goal is to help where I can with people that are looking to transition careers. I love being a part of the process because people are truly inspiring for me. That's why this article was so much fun.
+
+I'm curious, what are your thoughts on the breakdown above? Do you agree? Disagree? Anything else you would add? What background do you have? Comment below or find me on twitter <a href="https://www.twitter.com/jamesqquick" target="_blank" el="noopener noreferrer" >@jamesqquick</a>.
