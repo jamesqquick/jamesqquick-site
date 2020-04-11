@@ -28,6 +28,7 @@
       color: $off-white;
       font-size: 1.8rem;
       font-weight: 500;
+      text-decoration: none;
     }
   }
 
@@ -41,6 +42,10 @@
     a {
       color: $off-white;
       margin-bottom: 2rem;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
     }
   }
 

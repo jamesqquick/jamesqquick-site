@@ -7,17 +7,19 @@ import { graphql } from "gatsby";
 import Card from "../components/Card";
 import ReactLivestream from "react-livestream";
 export default function live({ data }) {
-  const streams = data.allMarkdownRemark.edges.map(edge => ({
-    ...edge.node.frontmatter,
-    id: edge.node.id,
-    html: edge.node.html,
+  const streams = data.allSanityStream.nodes.map(node => ({
+    ...node,
+    slug: node.slug.current,
+    tags: node.tags.map(tag => tag.title),
   }));
+
   const currentDate = new Date();
+  currentDate.setDate(currentDate.getDate() - 1);
   const previousStreams = streams
-    .filter(stream => new Date(stream.date) <= currentDate)
+    .filter(stream => new Date(stream.publishedDate) < currentDate)
     .reverse();
   const upcomingStreams = streams.filter(
-    stream => new Date(stream.date) > currentDate
+    stream => new Date(stream.publishedDate) >= currentDate
   );
 
   return (
@@ -51,11 +53,11 @@ export default function live({ data }) {
           {upcomingStreams.map(stream => (
             <Card
               title={stream.title}
-              details={stream.date}
-              description={stream.html}
-              link={stream.link}
+              details={stream.publishedDate}
+              description={stream.excerpt}
+              link={stream.videoLink}
               isLinkLocal={false}
-              key={stream.id}
+              key={stream._id}
             ></Card>
           ))}
         </ul>
@@ -64,11 +66,11 @@ export default function live({ data }) {
           {previousStreams.map(stream => (
             <Card
               title={stream.title}
-              details={stream.date}
-              description={stream.html}
-              link={stream.link}
+              details={stream.publishedDate}
+              description={stream.excerpt}
+              link={stream.videoLink}
               isLinkLocal={false}
-              key={stream.id}
+              key={stream._id}
             ></Card>
           ))}
         </ul>
@@ -78,24 +80,20 @@ export default function live({ data }) {
 }
 
 export const query = graphql`
-  query MyQuery {
-    allMarkdownRemark(
-      sort: { order: ASC, fields: frontmatter___date }
-      filter: {
-        frontmatter: { published: { eq: true } }
-        fileAbsolutePath: { regex: "//livestreams//" }
-      }
-    ) {
-      edges {
-        node {
-          id
-          html
-          frontmatter {
-            title
-            date(formatString: "MM/DD/YYYY")
-            link
-            published
-          }
+  query {
+    allSanityStream(sort: { order: DESC, fields: [publishedDate] }) {
+      nodes {
+        title
+        slug {
+          current
+        }
+        body
+        videoLink
+        _id
+        excerpt
+        publishedDate(formatString: "MM/DD/YYYY")
+        tags {
+          title
         }
       }
     }

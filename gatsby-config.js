@@ -1,3 +1,7 @@
+require("dotenv").config();
+
+const isProd = process.env.NODE_ENV === "production";
+
 module.exports = {
   siteMetadata: {
     title: `James Q Quick`,
@@ -101,33 +105,27 @@ module.exports = {
         feeds: [
           {
             serialize: ({ query: { site, allMarkdownRemark } }) => {
-              return allMarkdownRemark.edges.map(edge => {
-                return Object.assign({}, edge.node.frontmatter, {
-                  description: edge.node.excerpt,
-                  publishDate: edge.node.frontmatter.publishDate,
-                  url: site.siteMetadata.siteUrl + edge.node.frontmatter.slug,
-                  guid: site.siteMetadata.siteUrl + edge.node.frontmatter.slug,
-                  custom_elements: [{ "content:encoded": edge.node.html }],
+              return allSanityPost.nodes.map(node => {
+                return Object.assign({}, node.frontmatter, {
+                  description: node.excerpt,
+                  publishDate: node.frontmatter.publishedDate,
+                  url: site.siteMetadata.siteUrl + node.slug.current,
+                  guid: site.siteMetadata.siteUrl + node.slug.current,
+                  custom_elements: [{ "content:encoded": node.html }],
                 });
               });
             },
             query: `
               {
-                allMarkdownRemark(
-                  filter: { fileAbsolutePath: {regex : "/\/posts\//"} },
-                  sort: { order: DESC, fields: [frontmatter___publishDate] },
-                ) {
-                  edges {
-                    node {
-                      excerpt
-                      html
-                      frontmatter {
-                        slug
-                        title
-                        publishDate(formatString:"MM/DD/YYYY")
-
-                      }
+                allSanityPost(sort: {order: DESC, fields: [publishedDate]}) {
+                  nodes {
+                    excerpt
+                    body
+                    slug {
+                      current
                     }
+                    title
+                    publishedDate(formatString: "MM/DD/YYYY")
                   }
                 }
               }
@@ -143,6 +141,16 @@ module.exports = {
       options: {
         endpoint:
           "https://jamesqquick.us15.list-manage.com/subscribe/post?u=f01b195e97641478be3ec306a&amp;id=f236f68fc1",
+      },
+    },
+    {
+      resolve: "gatsby-source-sanity",
+      options: {
+        projectId: "rx426fbd",
+        dataset: "production",
+        token: process.env.SANITY_TOKEN,
+        watchMode: !isProd,
+        overlayDrafts: !isProd,
       },
     },
   ],

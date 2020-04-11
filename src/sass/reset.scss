@@ -27,16 +27,13 @@ li {
 }
 
 a {
-  color: $secondary;
-  text-decoration-color: $secondary;
-  text-decoration: none;
-}
-a:visited {
-  color: $secondary;
+  transition: 250ms color;
 }
 
 a:hover {
   cursor: pointer;
+  text-decoration: underline;
+  color: $secondary;
   text-decoration: underline;
 }
 

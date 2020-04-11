@@ -5,34 +5,43 @@ import Share from "../components/Share";
 import "../sass/posts.scss";
 import Blurb from "../components/Blurb";
 import { graphql } from "gatsby";
+import ReactMarkdown from "react-markdown";
+import YouTube from "../components/YouTube";
 function BlogPost(props) {
-  const post = props.data.markdownRemark;
+  console.log(props);
+
+  const post = {
+    ...props.data.sanityPost,
+    slug: props.data.sanityPost.slug.current,
+    tags: props.data.sanityPost.tags.map(tag => tag.title),
+  };
+  console.log(post);
+
   const blurbHeader = "Subscribe to the newsletter for updated content.";
-  const coverImageUrl =
-    props.data.site.siteMetadata.siteUrl +
-    post.frontmatter.coverImage.childImageSharp.fluid.src;
+  const coverImageUrl = "";
+  // props.data.site.siteMetadata.siteUrl +
+  // post.coverImage.childImageSharp.fluid.src;
   return (
     <Layout>
       test
       <SEO
-        title={post.frontmatter.title}
+        title={post.title}
         keywords={[``]}
         type="blog"
         description={post.excerpt}
         image={coverImageUrl}
       />
-      <Share
-        url={"www.jamesqquick.com/" + post.frontmatter.slug}
-        title={post.frontmatter.title}
-      />
+      <Share url={"www.jamesqquick.com/" + post.slug} title={post.title} />
       <div className="container">
         <article className="post">
           <header>
-            <h1 className="post-title">{post.frontmatter.title}</h1>
-            <p className="post-date">{post.frontmatter.publishDate}</p>
+            <h1 className="post--title">{post.title}</h1>
+            <p className="post--date">{post.publishedDate}</p>
           </header>
-
-          <section dangerouslySetInnerHTML={{ __html: post.html }} />
+          <section>
+            {post.youTubeVideoId && <YouTube id={post.youTubeVideoId} />}
+            <ReactMarkdown source={post.body} linkTarget="_blank" />
+          </section>
           <Blurb
             header={blurbHeader}
             buttonLink="/newsletter"
@@ -48,30 +57,25 @@ function BlogPost(props) {
 export default BlogPost;
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
+  query BlogPostBySlug($id: String!) {
     site {
       siteMetadata {
         title
         siteUrl
       }
     }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      id
-      html
-      excerpt(pruneLength: 160)
-      frontmatter {
+    sanityPost(_id: { eq: $id }) {
+      title
+      slug {
+        current
+      }
+      excerpt
+      body
+      _id
+      youTubeVideoId
+      publishedDate(formatString: "MM/DD/YYYY")
+      tags {
         title
-        publishDate(formatString: "MM/DD/YYYY")
-        tags
-        slug
-        type
-        coverImage {
-          childImageSharp {
-            fluid(maxWidth: 800) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
       }
     }
   }

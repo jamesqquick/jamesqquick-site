@@ -7,10 +7,10 @@ import Card from "../components/Card";
 export default function talks({ data }) {
   const blurbHeader = "Intersted in me speaking at your event?";
 
-  const talks = data.allMarkdownRemark.edges.map(talk => ({
-    id: talk.node.id,
-    excerpt: talk.node.excerpt,
-    ...talk.node.frontmatter,
+  const talks = data.allSanityTalk.nodes.map(node => ({
+    ...node,
+    slug: node.slug.current,
+    tags: node.tags.map(tag => tag.title),
   }));
   return (
     <Layout>
@@ -22,13 +22,18 @@ export default function talks({ data }) {
         <ul>
           {talks.map(talk => (
             <Card
-              key={talk.id}
+              key={talk._id}
               title={talk.title}
               link={talk.slug}
               description={talk.excerpt}
-              details={talk.date}
+              details={talk.publishedDate}
             >
-              <p>{talk.conference}</p>
+              <p>
+                Conference -
+                <a href={talk.conferenceLink} target="_blank">
+                  {talk.conference}
+                </a>
+              </p>
             </Card>
           ))}
         </ul>
@@ -38,26 +43,23 @@ export default function talks({ data }) {
 }
 
 export const query = graphql`
-  query TalksQuery {
-    allMarkdownRemark(
-      sort: { order: DESC, fields: frontmatter___date }
-
-      filter: {
-        frontmatter: { published: { eq: true } }
-        fileAbsolutePath: { regex: "//talks//" }
-      }
-    ) {
-      edges {
-        node {
-          excerpt
-          id
-          frontmatter {
-            title
-            date(formatString: "MM/DD/YYYY")
-            slug
-            link
-            conference
-          }
+  query {
+    allSanityTalk(sort: { order: DESC, fields: [publishedDate] }) {
+      nodes {
+        title
+        slug {
+          current
+        }
+        body
+        videoLink
+        slidesLink
+        conferenceLink
+        conference
+        _id
+        excerpt
+        publishedDate(formatString: "MM/DD/YYYY")
+        tags {
+          title
         }
       }
     }

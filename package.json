@@ -30,6 +30,7 @@
     "gatsby-remark-images": "^3.1.39",
     "gatsby-remark-vscode": "^1.3.1",
     "gatsby-source-filesystem": "^2.1.8",
+    "gatsby-source-sanity": "^5.0.6",
     "gatsby-transformer-json": "^2.2.2",
     "gatsby-transformer-remark": "^2.6.14",
     "gatsby-transformer-sharp": "^2.2.5",
@@ -44,6 +45,7 @@
     "react-fontawesome": "^1.6.1",
     "react-helmet": "^5.2.1",
     "react-livestream": "^1.0.2",
+    "react-markdown": "^4.3.1",
     "react-scroll": "^1.7.12",
     "react-share": "^3.0.1"
   },

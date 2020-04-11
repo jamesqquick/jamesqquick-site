@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
 import "../sass/card.scss";
+const ReactMarkdown = require("react-markdown");
 
 export default function Card({
   title,
@@ -22,13 +23,8 @@ export default function Card({
         </a>
       )}
       <small className="card--date">{details}</small>
-      <div>
-        <p
-          className="card--description"
-          dangerouslySetInnerHTML={{ __html: description }}
-        ></p>
-        {children}
-      </div>
+      <ReactMarkdown source={description} />
+      {children}
     </li>
   );
 }

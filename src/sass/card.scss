@@ -3,12 +3,8 @@
 .card {
   margin-top: 2rem;
   padding: 2rem 0;
-  display: grid;
-  grid-template-columns: 1fr 150px;
-  align-items: center;
-  grid-column-gap: 20px;
   border-bottom: 2px solid $light-grey;
-
+  list-style: none;
   &:first-of-type {
     margin-top: 4rem;
   }

@@ -63,7 +63,7 @@ export default function ContactForm(props) {
       {!successMsg && (
         <form onSubmit={handleSubmit}>
           <input
-            category="text"
+            type="text"
             name="name"
             id="name"
             placeholder="Name"
@@ -78,7 +78,7 @@ export default function ContactForm(props) {
             className={errMsg && errMsg.includes("name") ? "error" : ""}
           />
           <input
-            category="text"
+            type="text"
             name="email"
             id="email"
             placeholder="Email"

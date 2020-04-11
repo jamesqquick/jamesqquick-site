@@ -1,11 +1,11 @@
 @import "variables";
 
 .post {
-  .post-title {
+  .post--title {
     margin-bottom: 5px;
   }
 
-  .post-date {
+  .post--date {
     margin-top: 0px;
     color: $text-light;
   }
@@ -44,6 +44,16 @@
     // background-color: #f4f4f4;
     // margin: 4rem 0;
   }
+
+  .post--links {
+    padding-left: 0;
+    list-style: none;
+    display: flex;
+  }
+
+  .post--links > * {
+    margin-right: 1rem;
+  }
 }
 
 .post--tag {
@@ -54,7 +64,7 @@
 }
 @media only screen and (max-width: 768px) {
   .post {
-    .post-title {
+    .post--title {
       font-size: 2.8rem;
       line-height: 3.4rem;
     }
