@@ -12,24 +12,28 @@
       -ms-transform: translateY(-2px);
       transform: translateY(-2px);
     }
-  }
-  a.youtube {
-    color: #eb3223;
-  }
+    &.youtube {
+      color: #eb3223;
+      width: auto;
+    }
+    &.instagram {
+      color: #eb3223;
+    }
 
-  a.facebook {
-    color: #4968ad;
-  }
+    &.facebook {
+      color: #4968ad;
+    }
 
-  a.twitch {
-    color: #644398;
-  }
+    &.twitch {
+      color: #644398;
+    }
 
-  a.twitter {
-    color: #49a1eb;
-  }
+    &.twitter {
+      color: #49a1eb;
+    }
 
-  a.linkedin {
-    color: #3077b0;
+    &.linkedin {
+      color: #3077b0;
+    }
   }
 }

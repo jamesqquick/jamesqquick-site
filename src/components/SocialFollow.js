@@ -27,12 +27,6 @@ export default function SocialFollow({ size, color }) {
         >
           <FontAwesomeIcon icon={faYoutube} size={sizesMap[size]} />
         </a>
-        {/* <a
-          href="https://www.facebook.com/jamesqquick/"
-          className="facebook social"
-        >
-          <FontAwesomeIcon icon={faFacebook} size={sizesMap[size]} />
-        </a> */}
         <a
           href="https://www.twitter.com/jamesqquick"
           className="twitter social"

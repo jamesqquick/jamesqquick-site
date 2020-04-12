@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import SEO from "../components/SEO";
 import Layout from "../components/Layout";
 import { graphql } from "gatsby";
-import moment from "moment";
 import Card from "../components/Card";
 export default function blog({ data, location }) {
   let posts = data.allSanityPost.nodes.map(post => ({
@@ -36,7 +35,7 @@ export default function blog({ data, location }) {
               title={post.title}
               details={post.publishedDate}
               description={post.excerpt}
-              link={post.slug}
+              link={"/blog/" + post.slug}
               key={post._id}
             >
               {displayTags(post.tags)}

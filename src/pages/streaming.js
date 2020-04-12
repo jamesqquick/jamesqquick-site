@@ -47,6 +47,7 @@ export default function live({ data }) {
           platform="twitch"
           twitchClientId={process.env.GATSBY_TWITCH_CLIENT_ID}
           twitchUserName="jamesqquick"
+          mixerChannelId={() => {}}
         />
         <h2>Upcoming Streams...</h2>
         <ul>

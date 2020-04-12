@@ -1,6 +1,8 @@
 import React from "react";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
+import Img from "gatsby-image";
+import { graphql } from "gatsby";
 
 export default function talk({ data }) {
   const talk = {
@@ -12,12 +14,15 @@ export default function talk({ data }) {
     <Layout>
       <SEO title={talk.title} keywords={[``]} />
       <div className="container ">
-        <article className="post">
+        <article className="talk">
           <header>
-            <h1 className="post--title">{talk.title}</h1>
-            <p className="post--date">{talk.publishedDate}</p>
+            <h1 className="talk--title">{talk.title}</h1>
+            <p className="talk--date">{talk.publishedDate}</p>
+            {talk.coverImage && !talk.youTubeVideoId && (
+              <Img fluid={talk.coverImage.asset.fluid} />
+            )}
           </header>
-          <ul className="post--links">
+          <ul className="talk--links">
             {talk.slidesLink && (
               <li>
                 <a
@@ -26,6 +31,17 @@ export default function talk({ data }) {
                   href={talk.slidesLink}
                 >
                   Slides
+                </a>
+              </li>
+            )}
+            {talk.conferenceLink && (
+              <li>
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={talk.conferenceLink}
+                >
+                  Conference
                 </a>
               </li>
             )}
@@ -71,6 +87,13 @@ export const pageQuery = graphql`
       publishedDate(formatString: "MM/DD/YYYY")
       tags {
         title
+      }
+      coverImage {
+        asset {
+          fluid(maxWidth: 700) {
+            ...GatsbySanityImageFluid
+          }
+        }
       }
     }
   }

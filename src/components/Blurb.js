@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "gatsby";
 import "../sass/blurb.scss";
 export default function Blurb({
   header,

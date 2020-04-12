@@ -24,13 +24,17 @@ export default function talks({ data }) {
             <Card
               key={talk._id}
               title={talk.title}
-              link={talk.slug}
+              link={"/talks/" + talk.slug}
               description={talk.excerpt}
               details={talk.publishedDate}
             >
               <p>
-                Conference -
-                <a href={talk.conferenceLink} target="_blank">
+                Event -
+                <a
+                  href={talk.conferenceLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   {talk.conference}
                 </a>
               </p>

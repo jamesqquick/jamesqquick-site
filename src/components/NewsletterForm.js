@@ -1,4 +1,4 @@
-import React, { useState, useReducer } from "react";
+import React, { useReducer } from "react";
 import "../sass/forms.scss";
 import addToMailchimp from "gatsby-plugin-mailchimp";
 import * as EmailValidator from "email-validator";

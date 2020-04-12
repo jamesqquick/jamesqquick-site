@@ -41,7 +41,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   talks.forEach(talk => {
     createPage({
-      path: talk.slug.current,
+      path: "/talks/" + talk.slug.current,
       component: talkPage,
       context: {
         id: talk._id,
@@ -74,7 +74,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   posts.forEach((post, index) => {
     createPage({
-      path: post.slug.current,
+      path: "/blog/" + post.slug.current,
       component: blogPost,
       context: {
         id: post._id,

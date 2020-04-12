@@ -7,6 +7,8 @@ import Blurb from "../components/Blurb";
 import { graphql } from "gatsby";
 import ReactMarkdown from "react-markdown";
 import YouTube from "../components/YouTube";
+import Img from "gatsby-image";
+
 function BlogPost(props) {
   console.log(props);
 
@@ -37,9 +39,13 @@ function BlogPost(props) {
           <header>
             <h1 className="post--title">{post.title}</h1>
             <p className="post--date">{post.publishedDate}</p>
-          </header>
-          <section>
+            {post.coverImage && !post.youTubeVideoId && (
+              <Img fluid={post.coverImage.asset.fluid} />
+            )}
             {post.youTubeVideoId && <YouTube id={post.youTubeVideoId} />}
+          </header>
+
+          <section>
             <ReactMarkdown source={post.body} linkTarget="_blank" />
           </section>
           <Blurb
@@ -76,6 +82,13 @@ export const pageQuery = graphql`
       publishedDate(formatString: "MM/DD/YYYY")
       tags {
         title
+      }
+      coverImage {
+        asset {
+          fluid(maxWidth: 700) {
+            ...GatsbySanityImageFluid
+          }
+        }
       }
     }
   }

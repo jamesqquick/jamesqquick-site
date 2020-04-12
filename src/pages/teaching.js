@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
-import { useStaticQuery, graphql, Link } from "gatsby";
+import { Link } from "gatsby";
 
 export default function teaching() {
   return (
