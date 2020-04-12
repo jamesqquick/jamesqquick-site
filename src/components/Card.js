@@ -22,8 +22,10 @@ export default function Card({
           <h3 className="card--title">{title}</h3>
         </a>
       )}
-      <small className="card--date">{details}</small>
-      <ReactMarkdown source={description} />
+      <p className="card--date">
+        <small>{details}</small>
+      </p>
+      {/* <ReactMarkdown source={description} /> */}
       {children}
     </li>
   );

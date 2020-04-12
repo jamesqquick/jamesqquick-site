@@ -3,11 +3,17 @@
 .post {
   .post--title {
     margin-bottom: 5px;
+    font-size: 3.2rem;
+    line-height: 4rem;
   }
 
   .post--date {
     margin-top: 0px;
     color: $text-light;
+  }
+
+  .post--link {
+    margin-right: 2rem;
   }
   blockquote {
     background: transparent;

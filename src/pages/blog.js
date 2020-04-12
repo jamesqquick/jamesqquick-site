@@ -3,6 +3,7 @@ import SEO from "../components/SEO";
 import Layout from "../components/Layout";
 import { graphql } from "gatsby";
 import Card from "../components/Card";
+import EventList from "../components/EventList";
 export default function blog({ data, location }) {
   let posts = data.allSanityPost.nodes.map(post => ({
     ...post,
@@ -10,38 +11,13 @@ export default function blog({ data, location }) {
     tags: post.tags.map(tag => tag.title),
   }));
 
-  const displayTags = tags => {
-    return (
-      <small>
-        Tags:{" "}
-        {tags.map((tag, i) => (
-          <small key={i} className="post--tag">
-            {tag}
-          </small>
-        ))}
-      </small>
-    );
-  };
-
   return (
     <Layout>
       <SEO title="Blog" keywords={[`blog`]} type="blog" />
       <div className="container">
         <h1 className="title">Blog</h1>
         <hr className="title-underline" />
-        <ul>
-          {posts.map(post => (
-            <Card
-              title={post.title}
-              details={post.publishedDate}
-              description={post.excerpt}
-              link={"/blog/" + post.slug}
-              key={post._id}
-            >
-              {displayTags(post.tags)}
-            </Card>
-          ))}
-        </ul>
+        <EventList events={posts} />
       </div>
     </Layout>
   );

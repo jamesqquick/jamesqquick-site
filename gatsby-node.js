@@ -16,7 +16,41 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
-  const talkPage = path.resolve("./src/templates/talk.js");
+
+  const streamPage = path.resolve("./src/templates/streamTemplate.js");
+
+  const streamsResult = await graphql(
+    `
+      query {
+        allSanityStream(sort: { order: DESC, fields: publishedDate }) {
+          nodes {
+            _id
+            slug {
+              current
+            }
+          }
+        }
+      }
+    `
+  );
+
+  if (streamsResult.errors) {
+    throw streamsResult.errors;
+  }
+
+  const streams = streamsResult.data.allSanityStream.nodes;
+
+  streams.forEach(stream => {
+    createPage({
+      path: stream.slug.current,
+      component: streamPage,
+      context: {
+        id: stream._id,
+      },
+    });
+  });
+
+  const talkPage = path.resolve("./src/templates/talkTemplate.js");
 
   const talksResult = await graphql(
     `
@@ -41,7 +75,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   talks.forEach(talk => {
     createPage({
-      path: "/talks/" + talk.slug.current,
+      path: talk.slug.current,
       component: talkPage,
       context: {
         id: talk._id,
@@ -49,7 +83,7 @@ exports.createPages = async ({ graphql, actions }) => {
     });
   });
 
-  const blogPost = path.resolve("./src/templates/blogPost.js");
+  const blogPost = path.resolve("./src/templates/blogPostTemplate.js");
 
   const postsResult = await graphql(
     `
@@ -74,7 +108,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   posts.forEach((post, index) => {
     createPage({
-      path: "/blog/" + post.slug.current,
+      path: post.slug.current,
       component: blogPost,
       context: {
         id: post._id,

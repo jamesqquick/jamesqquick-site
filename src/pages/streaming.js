@@ -4,8 +4,8 @@ import SEO from "../components/SEO";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTwitch } from "@fortawesome/free-brands-svg-icons";
 import { graphql } from "gatsby";
-import Card from "../components/Card";
 import ReactLivestream from "react-livestream";
+import EventList from "../components/EventList";
 export default function live({ data }) {
   const streams = data.allSanityStream.nodes.map(node => ({
     ...node,
@@ -50,31 +50,10 @@ export default function live({ data }) {
           mixerChannelId={() => {}}
         />
         <h2>Upcoming Streams...</h2>
-        <ul>
-          {upcomingStreams.map(stream => (
-            <Card
-              title={stream.title}
-              details={stream.publishedDate}
-              description={stream.excerpt}
-              link={stream.videoLink}
-              isLinkLocal={false}
-              key={stream._id}
-            ></Card>
-          ))}
-        </ul>
+        <EventList events={upcomingStreams} />
+
         <h2>Previous Streams...</h2>
-        <ul>
-          {previousStreams.map(stream => (
-            <Card
-              title={stream.title}
-              details={stream.publishedDate}
-              description={stream.excerpt}
-              link={stream.videoLink}
-              isLinkLocal={false}
-              key={stream._id}
-            ></Card>
-          ))}
-        </ul>
+        <EventList events={previousStreams} />
       </div>
     </Layout>
   );

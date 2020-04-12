@@ -4,6 +4,7 @@ import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 import ContactBlurb from "../components/ContactBlurb";
 import Card from "../components/Card";
+import EventList from "../components/EventList";
 export default function talks({ data }) {
   const blurbHeader = "Intersted in me speaking at your event?";
 
@@ -19,28 +20,8 @@ export default function talks({ data }) {
         <h1 className="text-center title">Speaking</h1>
         <hr className="title-underline" />
         <ContactBlurb header={blurbHeader} />
-        <ul>
-          {talks.map(talk => (
-            <Card
-              key={talk._id}
-              title={talk.title}
-              link={"/talks/" + talk.slug}
-              description={talk.excerpt}
-              details={talk.publishedDate}
-            >
-              <p>
-                Event -
-                <a
-                  href={talk.conferenceLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {talk.conference}
-                </a>
-              </p>
-            </Card>
-          ))}
-        </ul>
+
+        <EventList events={talks} />
       </div>
     </Layout>
   );
