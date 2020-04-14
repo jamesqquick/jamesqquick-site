@@ -25,7 +25,6 @@ module.exports = {
         plugins: [
           {
             resolve: `gatsby-remark-vscode`,
-            // All options are optional. Defaults shown here.
             options: {
               colorTheme: "Solarized Light",
             },
