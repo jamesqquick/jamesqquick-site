@@ -1,7 +1,7 @@
 ---
 title: CS Degree vs Programming Bootcamp vs Self-taught
 slug: /blog/degree-vs-bootcamp-vs-selftaught
-publishDate: "2020-04-13"
+publishDate: "2020-04-10"
 tags: learning, career
 published: true
 coverImage: ../../images/covers/placeholder-cover.jpg
