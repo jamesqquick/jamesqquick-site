@@ -17,7 +17,7 @@ export default function EventList({ events }) {
   return (
     <>
       {events && (
-        <ul>
+        <ul className="post-list">
           {events.map(event => (
             <Card
               title={event.title}

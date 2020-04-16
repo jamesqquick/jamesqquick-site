@@ -24,20 +24,30 @@ export default function Navbar() {
   `);
   return (
     <>
-      <button id="hamburgerBtn">
+      <button className="hamburgerBtn">
         <FontAwesomeIcon
-          icon={navOpen ? faTimes : faBars}
+          icon={faBars}
           size="2x"
           onClick={() => setNavOpen(!navOpen)}
         />
       </button>
+      {navOpen && (
+        <button id="closeBtn" className="closeBtn">
+          <FontAwesomeIcon
+            icon={faTimes}
+            size="2x"
+            onClick={() => setNavOpen(!navOpen)}
+          />
+        </button>
+      )}
       <nav className={"nav" + (navOpen ? " open" : "")} id="navbar">
         <div className="nav-brand">
           <Img
             fixed={data.file.childImageSharp.fixed}
             alt="James Q Quick headshot"
+            className="nav-brand-img"
           />
-          <Link to="/">
+          <Link to="/" className="nav-brand-link">
             James <strong>Q</strong> Quick
           </Link>
         </div>

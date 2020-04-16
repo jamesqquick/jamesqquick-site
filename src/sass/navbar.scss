@@ -60,13 +60,13 @@
   }
 }
 
-#hamburgerBtn {
+.hamburgerBtn {
   display: none;
   background-color: transparent;
   border: none;
 }
 
-#hamburgerBtn:hover {
+.hamburgerBtn:hover {
   cursor: pointer;
 }
 
@@ -75,26 +75,41 @@
     transform: translateX(-100vw);
     transition: transform 500ms;
 
+    .nav-brand {
+      .nav-brand-img {
+        display: none !important;
+      }
+
+      .nav-brand-link {
+        font-size: 2.4rem;
+      }
+    }
+
     .nav-items {
       align-items: center;
 
       .nav-item {
         display: block;
         margin-bottom: 1rem;
-      }
-    }
 
-    .nav-item > a {
-      font-size: 1.8rem;
+        & > a {
+          font-size: 1.8rem;
+        }
+      }
     }
   }
 
-  #hamburgerBtn {
+  .hamburgerBtn,
+  .closeBtn {
     position: fixed;
     top: 10rem;
     right: 2rem;
     display: inline-block;
     z-index: 100;
+  }
+
+  .closeBtn > svg {
+    color: $off-white;
   }
 
   .nav.open {

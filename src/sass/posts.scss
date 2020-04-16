@@ -1,5 +1,9 @@
 @import "variables";
 
+.post-list {
+  padding-left: 0;
+}
+
 .post {
   h2 > * {
     font-size: 3.2rem;
