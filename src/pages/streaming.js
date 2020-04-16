@@ -15,12 +15,12 @@ export default function live({ data }) {
 
   const currentDate = new Date();
   currentDate.setDate(currentDate.getDate() - 1);
-  const previousStreams = streams
-    .filter(stream => new Date(stream.publishedDate) < currentDate)
-    .reverse();
-  const upcomingStreams = streams.filter(
-    stream => new Date(stream.publishedDate) >= currentDate
+  const previousStreams = streams.filter(
+    stream => new Date(stream.publishedDate) < currentDate
   );
+  const upcomingStreams = streams
+    .filter(stream => new Date(stream.publishedDate) >= currentDate)
+    .reverse();
 
   return (
     <Layout>
