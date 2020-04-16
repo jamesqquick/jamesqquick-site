@@ -5,8 +5,16 @@
   padding: 2rem 0;
   border-bottom: 2px solid $light-grey;
   list-style: none;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-gap: 20px;
+  align-items: center;
   &:first-of-type {
     margin-top: 4rem;
+  }
+
+  .card--img {
+    width: 300px;
   }
 
   .card--title {

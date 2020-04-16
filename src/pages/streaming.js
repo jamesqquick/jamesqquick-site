@@ -50,10 +50,10 @@ export default function live({ data }) {
           mixerChannelId={() => {}}
         />
         <h2>Upcoming Streams...</h2>
-        <CardList events={upcomingStreams} />
+        <CardList cards={upcomingStreams} />
 
         <h2>Previous Streams...</h2>
-        <CardList events={previousStreams} />
+        <CardList cards={previousStreams} />
       </div>
     </Layout>
   );
@@ -71,6 +71,13 @@ export const query = graphql`
         videoLink
         _id
         excerpt
+        coverImage {
+          asset {
+            fluid(maxWidth: 700) {
+              ...GatsbySanityImageFluid
+            }
+          }
+        }
         publishedDate(formatString: "MM/DD/YYYY")
         tags {
           title

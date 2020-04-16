@@ -21,7 +21,7 @@ export default function talks({ data }) {
         <hr className="title-underline" />
         <ContactBlurb header={blurbHeader} />
 
-        <CardList events={talks} />
+        <CardList cards={talks} />
       </div>
     </Layout>
   );

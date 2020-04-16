@@ -1,7 +1,7 @@
 import Card from "../components/Card";
 import React from "react";
 
-export default function CardList({ events }) {
+export default function CardList({ cards }) {
   const displayTags = tags => {
     return (
       <small>
@@ -16,27 +16,28 @@ export default function CardList({ events }) {
   };
   return (
     <>
-      {events && (
+      {cards && (
         <ul className="post-list">
-          {events.map(event => (
+          {cards.map(card => (
             <Card
-              title={event.title}
-              details={event.publishedDate}
-              description={event.excerpt}
-              link={event.slug}
+              title={card.title}
+              details={card.publishedDate}
+              description={card.excerpt}
+              link={card.slug}
               isLinkLocal={true}
-              key={event._id}
+              key={card._id}
+              coverImage={card.coverImage}
             >
-              {event.tags && event.tags.length > 0 && displayTags(event.tags)}
-              {event.conference && (
+              {card.tags && card.tags.length > 0 && displayTags(card.tags)}
+              {card.conference && (
                 <p>
                   Event -
                   <a
-                    href={event.conferenceLink}
+                    href={card.conferenceLink}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    {event.conference}
+                    {card.conference}
                   </a>
                 </p>
               )}

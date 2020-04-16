@@ -17,7 +17,7 @@ export default function blog({ data, location }) {
       <div className="container">
         <h1 className="title">Blog</h1>
         <hr className="title-underline" />
-        <CardList events={posts} />
+        <CardList cards={posts} />
       </div>
     </Layout>
   );
