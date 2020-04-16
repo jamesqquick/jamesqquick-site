@@ -3,7 +3,7 @@ import SEO from "../components/SEO";
 import Layout from "../components/Layout";
 import { graphql } from "gatsby";
 import Card from "../components/Card";
-import EventList from "../components/EventList";
+import CardList from "../components/CardList";
 export default function blog({ data, location }) {
   let posts = data.allSanityPost.nodes.map(post => ({
     ...post,
@@ -17,7 +17,7 @@ export default function blog({ data, location }) {
       <div className="container">
         <h1 className="title">Blog</h1>
         <hr className="title-underline" />
-        <EventList events={posts} />
+        <CardList events={posts} />
       </div>
     </Layout>
   );

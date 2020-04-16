@@ -103,23 +103,21 @@ module.exports = {
         `,
         feeds: [
           {
-            serialize: ({ query: { site, allMarkdownRemark } }) => {
+            serialize: ({ query: { site, allSanityPost = [] } }) => {
               return allSanityPost.nodes.map(node => {
                 return Object.assign({}, node.frontmatter, {
                   description: node.excerpt,
-                  publishDate: node.frontmatter.publishedDate,
+                  publishDate: node.publishedDate,
                   url: site.siteMetadata.siteUrl + node.slug.current,
                   guid: site.siteMetadata.siteUrl + node.slug.current,
-                  custom_elements: [{ "content:encoded": node.html }],
                 });
               });
             },
             query: `
               {
-                allSanityPost(sort: {order: DESC, fields: [publishedDate]}) {
+                allSanityPost(sort: {order: DESC, fields: publishedDate}) {
                   nodes {
                     excerpt
-                    body
                     slug {
                       current
                     }

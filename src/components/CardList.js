@@ -1,7 +1,7 @@
 import Card from "../components/Card";
 import React from "react";
 
-export default function EventList({ events }) {
+export default function CardList({ events }) {
   const displayTags = tags => {
     return (
       <small>
