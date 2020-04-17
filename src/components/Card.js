@@ -12,25 +12,17 @@ export default function Card({
   coverImage,
 }) {
   return (
-    <li className="card">
+    <Link to={link} className="card">
       {coverImage && (
         <Img className="card--img" fluid={coverImage.asset.fluid} />
       )}
       <div className="card--content">
-        {isLinkLocal ? (
-          <Link to={link}>
-            <h3 className="card--title">{title}</h3>
-          </Link>
-        ) : (
-          <a href={link} target="_blank" rel="noopener noreferrer">
-            <h3 className="card--title">{title}</h3>
-          </a>
-        )}
+        <h3 className="card--title">{title}</h3>
         <p className="card--date">
           <small>{details}</small>
         </p>
         {children}
       </div>
-    </li>
+    </Link>
   );
 }

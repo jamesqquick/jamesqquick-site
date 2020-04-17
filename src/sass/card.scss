@@ -2,13 +2,26 @@
 
 .card {
   margin-top: 2rem;
-  padding: 2rem 0;
-  border-bottom: 2px solid $light-grey;
+  padding: 2rem;
   list-style: none;
   display: grid;
   grid-template-columns: auto 1fr;
   grid-gap: 20px;
   align-items: center;
+  text-decoration: none;
+  transition: transform 250ms;
+  border-bottom: 1px solid $light-grey;
+
+  // border-radius: 20px;
+
+  &:hover {
+    cursor: pointer;
+    // background-color: #f9f9f9;
+    text-decoration: none;
+    border-left: 4px solid $light-grey;
+    transform: translateX(-4px);
+  }
+
   &:first-of-type {
     margin-top: 4rem;
   }
@@ -17,9 +30,12 @@
     width: 300px;
   }
 
-  .card--title {
+  .card--title,
+  .card--title > a {
     margin: 0px;
     font-weight: 700;
+    font-size: 2rem;
+
     text-decoration: none;
   }
 
