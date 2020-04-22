@@ -9,6 +9,7 @@
     "@fortawesome/free-brands-svg-icons": "^5.10.1",
     "@fortawesome/free-solid-svg-icons": "^5.10.1",
     "@fortawesome/react-fontawesome": "^0.1.4",
+    "@sanity/block-content-to-react": "^2.0.7",
     "@sendgrid/mail": "^6.5.1",
     "dotenv": "^8.0.0",
     "email-validator": "^2.0.4",
