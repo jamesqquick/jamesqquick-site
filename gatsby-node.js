@@ -17,6 +17,39 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
+  const coursePage = path.resolve("./src/templates/courseTemplate.js");
+
+  const coursesResult = await graphql(
+    `
+      query {
+        allSanityCourse(sort: { order: DESC, fields: publishedDate }) {
+          nodes {
+            _id
+            slug {
+              current
+            }
+          }
+        }
+      }
+    `
+  );
+
+  if (coursesResult.errors) {
+    throw coursesResult.errors;
+  }
+
+  const courses = coursesResult.data.allSanityCourse.nodes;
+
+  courses.forEach(course => {
+    createPage({
+      path: course.slug.current,
+      component: coursePage,
+      context: {
+        id: course._id,
+      },
+    });
+  });
+
   const streamPage = path.resolve("./src/templates/streamTemplate.js");
 
   const streamsResult = await graphql(

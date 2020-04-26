@@ -56,7 +56,7 @@ export default function Navbar() {
           {/* <Link to="/about">About</Link> */}
           <Link to="/blog">Blog</Link>
           <Link to="/streaming">Streaming</Link>
-          <Link to="/teaching">Teaching</Link>
+          <Link to="/courses">Courses</Link>
           <Link to="/speaking">Speaking</Link>
           <Link to="/contact">Contact</Link>
         </ul>

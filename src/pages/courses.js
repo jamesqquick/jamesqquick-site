@@ -1,34 +1,31 @@
 import React from "react";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
-import { Link } from "gatsby";
+import { Link, graphQL } from "gatsby";
+import CardList from "../components/CardList";
 
-export default function teaching() {
+export default function teaching({ data }) {
+  console.log(data);
+  const courses = data.allSanityCourse.nodes.map(node => ({
+    ...node,
+    slug: node.slug.current,
+    tags: node.tags.map(tag => tag.title),
+  }));
   return (
     <Layout>
       <SEO
-        title="Teaching"
+        title="Courses"
         keywords={[
-          `teaching`,
+          `courses`,
           `web development`,
           `web design`,
           `developer tools`,
         ]}
       />
       <div className="container">
-        <h1 className="title">Teaching</h1>
+        <h1 className="title">Courses</h1>
         <hr className="title-underline" />
-        {/* <Blurb
-          header={coursesBlurbHeader}
-          buttonLink="https://www.learnbuildteach.com"
-          buttonText="Full Course List"
-          isRelativeLink={false}
-          btnType="btn-secondary"
-        /> */}
-        {/* <Img
-          fluid={data.file.childImageSharp.fluid}
-          alt="James Q Quick teaching"
-        /> */}
+
         <p>
           I've taught tens of thousands of students in person and online. I've
           got a passion for Web Development that I want to share with you!
@@ -50,7 +47,9 @@ export default function teaching() {
           <li>People Skills</li>
           <li>Career Development</li>
         </ul>
-        <h2>Where to Find My Content</h2>
+        <CardList cards={courses} />
+
+        {/* <h2>Where to Find My Content</h2>
         <p>
           I create content in different formats across different mediums. I am
           constantly creating new content so be sure to sign up for my{" "}
@@ -97,7 +96,7 @@ export default function teaching() {
               Scotch.io
             </a>
           </li>
-        </ul>
+        </ul> */}
         {/* <div className="text-center">
           <YouTubeSubscribe />
         </div> */}
@@ -113,3 +112,30 @@ export default function teaching() {
     </Layout>
   );
 }
+
+export const query = graphql`
+  query {
+    allSanityCourse(sort: { order: DESC, fields: [publishedDate] }) {
+      nodes {
+        title
+        courseLink
+        slug {
+          current
+        }
+        _id
+        excerpt
+        publishedDate(formatString: "MM/DD/YYYY")
+        tags {
+          title
+        }
+        coverImage {
+          asset {
+            fluid(maxWidth: 700) {
+              ...GatsbySanityImageFluid
+            }
+          }
+        }
+      }
+    }
+  }
+`;
