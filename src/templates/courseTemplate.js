@@ -4,13 +4,12 @@ import SEO from "../components/SEO";
 import "../sass/posts.scss";
 import { graphql } from "gatsby";
 import Post from "../components/Post";
-import PodiaNewsletter from "../components/PodiaNewsletter";
 
-function Course(props) {
+function Course({ data }) {
   const course = {
-    ...props.data.sanityCourse,
-    slug: props.data.sanityCourse.slug.current,
-    tags: props.data.sanityCourse.tags.map(tag => tag.title),
+    ...data.sanityCourse,
+    slug: data.sanityCourse.slug.current,
+    tags: data.sanityCourse.tags.map(tag => tag.title),
   };
   delete course.courseLink;
   const coverImageUrl = course.coverImage.asset.fluid.src;
@@ -23,12 +22,7 @@ function Course(props) {
         description={course.excerpt}
         image={coverImageUrl}
       />
-      {course.newsletterSignupURL && course.newsletterMessage && (
-        <>
-          <h3>{course.newsletterMessage}</h3>
-          <PodiaNewsletter url={course.newsletterSignupURL} />
-        </>
-      )}
+
       <Post post={course} />
     </Layout>
   );
