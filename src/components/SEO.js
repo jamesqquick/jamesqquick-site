@@ -26,7 +26,7 @@ function SEO({ description, lang, meta, title, type = `website`, image }) {
   );
 
   const metaDescription = description || site.siteMetadata.description;
-  const twitterImage = image || "/icons/icon-48x48.png";
+  const shareImage = image || "/icons/icon-48x48.png";
   return (
     <Helmet
       htmlAttributes={{
@@ -53,7 +53,7 @@ function SEO({ description, lang, meta, title, type = `website`, image }) {
         },
         {
           property: `og:image`,
-          content: "/icons/icon-48x48.png",
+          content: shareImage,
         },
         {
           name: `twitter:card`,
@@ -73,7 +73,7 @@ function SEO({ description, lang, meta, title, type = `website`, image }) {
         },
         {
           name: "twitter:image",
-          content: twitterImage,
+          content: shareImage,
         },
       ].concat(meta)}
     />

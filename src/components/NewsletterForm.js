@@ -1,6 +1,5 @@
 import React, { useReducer } from "react";
 import "../sass/forms.scss";
-import addToMailchimp from "gatsby-plugin-mailchimp";
 import * as EmailValidator from "email-validator";
 import submitReducer, { SUBMIT_ACTIONS } from "../reducers/SubmitReducer";
 
@@ -16,9 +15,7 @@ const initialState = {
   loading: false,
 };
 
-const FAILED_SUBSCRIBE_MESSAGE = "Ooops... newsletter subscribe failed.";
-
-export default function NewsletterForm({ giveaway = "DEFAULT" }) {
+export default function NewsletterForm({ giveaway = "DEFAULT", subscribe }) {
   const [state, dispatch] = useReducer(submitReducer, initialState);
   const { errMsg, email, successMsg, loading } = state;
 
@@ -34,21 +31,10 @@ export default function NewsletterForm({ giveaway = "DEFAULT" }) {
     } else {
       try {
         dispatch({ type: SUBMIT_ACTIONS.SUBMITTING });
-        const res = await addToMailchimp(email);
-        if (res.result === "success") {
-          const successMsg =
-            successMessages[giveaway] || successMessages["DEFAULT"];
-          dispatch({ type: SUBMIT_ACTIONS.SUCCESS, msg: successMsg });
-        } else if (res.result === "error") {
-          let errMsg = FAILED_SUBSCRIBE_MESSAGE;
-          if (res.msg.includes("already subscribed")) {
-            errMsg = "Looks like you're already subscribed.";
-          }
-          dispatch({ type: SUBMIT_ACTIONS.ERROR, msg: errMsg });
-        }
+        const res = await subscribe(email);
+        dispatch({ type: SUBMIT_ACTIONS.SUCCESS, msg: res });
       } catch (ex) {
-        const errMsg = FAILED_SUBSCRIBE_MESSAGE;
-        dispatch({ type: SUBMIT_ACTIONS.ERROR, msg: errMsg });
+        dispatch({ type: SUBMIT_ACTIONS.ERROR, msg: ex });
       }
     }
   };

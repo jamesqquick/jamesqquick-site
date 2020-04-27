@@ -2,6 +2,7 @@ import React from "react";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 import NewsletterForm from "../components/NewsletterForm";
+import MailchimpNewlsetter from "../components/MailchimpNewlsetter";
 const queryString = require("query-string");
 
 export default function newsletter({ location }) {
@@ -34,7 +35,7 @@ export default function newsletter({ location }) {
           <li>Premium Web Development Courses</li>
           <li>Tips on People Skills/Career Development</li>
         </ul>
-        <NewsletterForm giveaway={giveaway} />
+        <MailchimpNewlsetter giveaway={giveaway} />
       </div>
     </Layout>
   );
