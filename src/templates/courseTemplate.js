@@ -11,6 +11,8 @@ function Course({ data }) {
     slug: data.sanityCourse.slug.current,
     tags: data.sanityCourse.tags.map(tag => tag.title),
   };
+  const courseLink = course.courseLink;
+  course.externalLink = courseLink;
   delete course.courseLink;
   const coverImageUrl = course.coverImage.asset.fluid.src;
   return (

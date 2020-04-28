@@ -11,7 +11,7 @@ export default function Post({ post }) {
   //parse all of the links to iterate through and display
   const links = [];
   for (let key of Object.keys(post)) {
-    if (post[key] && key.includes("Link")) {
+    if (post[key] && key.includes("Link") && !key.includes("external")) {
       const index = key.indexOf("Link");
       const linkText = key.substring(0, index);
       links.push({ text: linkText, target: post[key] });
@@ -26,6 +26,7 @@ export default function Post({ post }) {
           <header>
             <h1 className="post--title">{post.title}</h1>
             <p className="post--date">{post.publishedDate}</p>
+
             {post.coverImage && !post.youTubeVideoId && (
               <Img fluid={post.coverImage.asset.fluid} />
             )}
@@ -36,6 +37,12 @@ export default function Post({ post }) {
                 <PodiaNewsletter url={post.newsletterSignupURL} />
               </>
             )}
+            {post.externalLink && !post.newsletterSignupURL && (
+              <a href={post.externalLink}>
+                <h2>Check it out!</h2>
+              </a>
+            )}
+
             {links.length > 0 &&
               links.map((link, index) => (
                 <a
