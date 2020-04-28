@@ -10,9 +10,19 @@ export default function talk({ data }) {
     slug: data.sanityStream.slug.current,
     tags: data.sanityStream.tags.map(tag => tag.title),
   };
+  let coverImageUrl = undefined;
+  if (stream.coverImage) {
+    coverImageUrl = stream.coverImage.asset.fluid.src;
+  }
   return (
     <Layout>
-      <SEO title={stream.title} keywords={[`live stream`]} />
+      <SEO
+        title={stream.title}
+        keywords={[`${stream.title}`]}
+        type="blog"
+        description={stream.excerpt}
+        image={coverImageUrl}
+      />
       <Post post={stream} />
     </Layout>
   );

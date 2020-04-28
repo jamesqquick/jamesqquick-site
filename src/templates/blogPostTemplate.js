@@ -11,9 +11,12 @@ function BlogPost(props) {
     slug: props.data.sanityPost.slug.current,
     tags: props.data.sanityPost.tags.map(tag => tag.title),
   };
-  const coverImageUrl = "";
-  // props.data.site.siteMetadata.siteUrl +
-  // post.coverImage.childImageSharp.fluid.src;
+
+  let coverImageUrl = undefined;
+  if (post.coverImage) {
+    coverImageUrl = post.coverImage.asset.fluid.src;
+  }
+
   return (
     <Layout>
       test
