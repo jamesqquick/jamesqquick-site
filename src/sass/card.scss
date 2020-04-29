@@ -9,8 +9,9 @@
   grid-gap: 20px;
   align-items: center;
   text-decoration: none;
-  transition: transform 250ms;
+  transition: transform 350ms;
   border-bottom: 1px solid $light-grey;
+  border-left: 4px solid rgba(0, 0, 0, 0);
 
   // border-radius: 20px;
 
@@ -19,7 +20,7 @@
     // background-color: #f9f9f9;
     text-decoration: none;
     border-left: 4px solid $light-grey;
-    transform: translateX(-4px);
+    transform: translateX(-2px);
   }
 
   &:first-of-type {
