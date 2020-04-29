@@ -53,6 +53,8 @@
 @media (max-width: 786px) {
   .card {
     grid-template-columns: 1fr;
+    padding: 0;
+    margin-bottom: 4rem;
 
     .card--description {
       margin-top: 10px;
