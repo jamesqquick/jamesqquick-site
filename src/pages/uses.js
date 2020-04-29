@@ -1,8 +1,21 @@
 import React from "react";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
+import Img from "gatsby-image";
+import { useStaticQuery, graphql } from "gatsby";
 
 export default function uses() {
+  const data = useStaticQuery(graphql`
+    query {
+      file(relativePath: { eq: "images/desk_setup.JPG" }) {
+        childImageSharp {
+          fluid(maxWidth: 700) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `);
   return (
     <Layout>
       <SEO
@@ -12,6 +25,7 @@ export default function uses() {
       <div className="container">
         <h1 className="title">What I Use</h1>
         <hr className="title-underline" />
+        <Img fluid={data.file.childImageSharp.fluid} alt="My desk setup" />
         <p>
           I get lots of questions about what kind of hardware, software, desk
           setup, etc. that I use. Well, here ya go!
@@ -96,13 +110,14 @@ export default function uses() {
             - it's free!
           </li>
         </ul>
-        <h2>Hardware</h2>
+        <h2>Hardware/Recording Equipment</h2>
         <ul>
           <li>2018 15 Inch Macbook Pro - 16gb ram, 500gb ssd</li>
-          <li>adjustable (crank) desk from Ikea</li>
-        </ul>
-        <h2>Recording Setup</h2>
-        <ul>
+          <li>
+            <a href="https://www.fully.com/design/jarvis-adjustable-height-desk-laminate.html">
+              Adjustable desk from Fully (72 x 30)
+            </a>
+          </li>
           <li>
             <a
               href="https://www.amazon.com/Shure-SM7B-Cardioid-Dynamic-Microphone/dp/B0002E4Z8M"
@@ -110,6 +125,33 @@ export default function uses() {
               rel="noopener noreferrer"
             >
               Shure SM7B Microphone
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.elgato.com/en/gaming/key-light"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              El Gato Key Lights (2x)
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.elgato.com/en/gaming/stream-deck"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              El Gato Stream Deck
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.elgato.com/en/gaming/green-screen-mt"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              El Gato Green Screen
             </a>
           </li>
           <li>
