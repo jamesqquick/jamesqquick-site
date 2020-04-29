@@ -37,6 +37,13 @@ export const query = graphql`
         tags {
           title
         }
+        coverImage {
+          asset {
+            fluid(maxWidth: 700) {
+              ...GatsbySanityImageFluid
+            }
+          }
+        }
       }
     }
   }
