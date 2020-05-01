@@ -38,6 +38,8 @@ export const pageQuery = graphql`
       slidesLink
       conference
       conferenceLink
+      codeLink
+
       publishedDate(formatString: "MM/DD/YYYY")
       tags {
         title

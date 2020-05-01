@@ -17,6 +17,7 @@ export default function Post({ post }) {
       links.push({ text: linkText, target: post[key] });
     }
   }
+  console.log(links);
 
   return (
     <>
