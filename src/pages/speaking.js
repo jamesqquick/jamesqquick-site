@@ -12,6 +12,7 @@ export default function talks({ data }) {
     ...node,
     slug: node.slug.current,
     tags: node.tags.map(tag => tag.title),
+    title: `${node.title} (${node.conference})`,
   }));
   return (
     <Layout>
