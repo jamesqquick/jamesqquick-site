@@ -11,10 +11,6 @@ module.exports = {
     twitterHandle: "@jamesqquick",
     url: `https://www.jamesqquick.com`,
   },
-  proxy: {
-    prefix: "/.netlify/functions",
-    url: "http://localhost:34567",
-  },
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-json`,

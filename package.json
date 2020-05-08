@@ -13,7 +13,7 @@
     "@sendgrid/mail": "^6.5.1",
     "dotenv": "^8.0.0",
     "email-validator": "^2.0.4",
-    "gatsby": "^2.13.51",
+    "gatsby": "^2.21.21",
     "gatsby-image": "^2.2.37",
     "gatsby-plugin-feed": "^2.3.6",
     "gatsby-plugin-google-analytics": "^2.1.7",
@@ -36,7 +36,6 @@
     "gatsby-transformer-remark": "^2.6.14",
     "gatsby-transformer-sharp": "^2.2.5",
     "moment": "^2.24.0",
-    "netlify-lambda": "^1.6.3",
     "node-sass": "^4.12.0",
     "nodemailer": "^6.4.2",
     "prop-types": "^15.7.2",
@@ -60,12 +59,9 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "prod": "npm run build; npm run build:lambda",
     "start": "npm run develop",
     "format": "prettier --write \"src/**/*.js\"",
-    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
-    "start:lambda": "netlify-lambda serve functions",
-    "build:lambda": "netlify-lambda build functions"
+    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
   },
   "repository": {
     "type": "git",
