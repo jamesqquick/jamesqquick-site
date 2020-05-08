@@ -28,7 +28,7 @@ export default function Uses() {
         <Img fluid={data.file.childImageSharp.fluid} alt="My desk setup" />
         <p>
           I get lots of questions about what kind of hardware, software, desk
-          setup, etc. that I use. Well, here ya go!!
+          setup, etc. that I use. Well, here ya go!
         </p>
         <h2>Software</h2>
         <ul>
