@@ -4,7 +4,7 @@ import SEO from "../components/SEO";
 import Img from "gatsby-image";
 import { useStaticQuery, graphql } from "gatsby";
 
-export default function uses() {
+export default function Uses() {
   const data = useStaticQuery(graphql`
     query {
       file(relativePath: { eq: "images/desk_setup.JPG" }) {
