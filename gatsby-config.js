@@ -1,6 +1,16 @@
 require("dotenv").config();
+const blocksToHTML = require("@sanity/block-content-to-html");
+const h = blocksToHTML.h; //h is used to build HTML known as hyprescript
+const imageUrlBuilder = require("@sanity/image-url");
 
 const isProd = process.env.NODE_ENV === "production";
+
+const sanityConfig = {
+  projectId: "rx426fbd",
+  dataset: "production",
+};
+const builder = imageUrlBuilder(sanityConfig);
+const imageUrlFor = source => builder.image(source);
 
 module.exports = {
   siteMetadata: {
@@ -86,45 +96,87 @@ module.exports = {
       resolve: `gatsby-plugin-feed`,
       options: {
         query: `
-          {
-            site {
-              siteMetadata {
-                title
-                description
-                siteUrl
-                site_url: siteUrl
-              }
+        {
+          site {
+            siteMetadata {
+              title
+              description
+              siteUrl
+              site_url: siteUrl
             }
           }
+        }
         `,
         feeds: [
           {
             serialize: ({ query: { site, allSanityPost = [] } }) => {
-              return allSanityPost.nodes.map(node => {
-                return Object.assign({}, node.frontmatter, {
-                  description: node.excerpt,
-                  publishDate: node.publishedDate,
-                  url: site.siteMetadata.siteUrl + node.slug.current,
-                  guid: site.siteMetadata.siteUrl + node.slug.current,
+              return allSanityPost.edges
+                .filter(({ node }) => node.slug)
+                .map(({ node }) => {
+                  const {
+                    title,
+                    publishedDate,
+                    slug,
+                    mainContent,
+                    excerpt,
+                  } = node;
+                  const url = site.siteMetadata.siteUrl + slug.current;
+                  const retVal = {
+                    title,
+                    date: publishedDate,
+                    url,
+                    description: excerpt,
+                    guid: url,
+                  };
+                  if (mainContent) {
+                    retVal["custom_elements"] = [
+                      {
+                        "content:encoded": {
+                          _cdata: blocksToHTML({
+                            blocks: mainContent,
+                            serializers: {
+                              types: {
+                                code: ({ node }) =>
+                                  h(
+                                    "pre",
+                                    h(
+                                      "code",
+                                      { lang: node.language },
+                                      node.code
+                                    )
+                                  ),
+                                myAwesomeImage: ({ node }) =>
+                                  h("img", {
+                                    src: imageUrlFor(node.asset).url(),
+                                  }),
+                              },
+                            },
+                          }),
+                        },
+                      },
+                    ];
+                  }
+                  return retVal;
                 });
-              });
             },
-            query: `
-              {
-                allSanityPost(sort: {order: DESC, fields: publishedDate}) {
-                  nodes {
+            query: `{
+              allSanityPost(sort: {fields: publishedDate, order: DESC}) {
+                edges {
+                  node {
                     excerpt
+                    mainContent: _rawMainContent(resolveReferences: { maxDepth: 10 })                    
+                    title
+                    publishedDate
                     slug {
                       current
                     }
-                    title
-                    publishedDate(formatString: "MM/DD/YYYY")
                   }
                 }
               }
+            }
             `,
-            output: "/feed",
-            title: "James Q Quick Blog RSS Feed",
+            output: "/feed.xml",
+            title: "James Q Quick",
           },
         ],
       },
@@ -139,8 +191,8 @@ module.exports = {
     {
       resolve: "gatsby-source-sanity",
       options: {
-        projectId: "rx426fbd",
-        dataset: "production",
+        projectId: sanityConfig.projectId,
+        dataset: sanityConfig.dataset,
         token: process.env.SANITY_TOKEN,
         watchMode: !isProd,
         overlayDrafts: !isProd,

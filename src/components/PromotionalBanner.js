@@ -5,11 +5,11 @@ export default function PromotionalBanner() {
     <div id="promotionalBanner">
       <p>
         <a
-          href="https://www.udemy.com/course/learn-visual-studio-code/"
+          href="https://www.jamesqquick.com/courses/react-and-serverless-fullstack-developmnent"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn everything you need to know about Visual Studio Code!
+          Learn how to build fullstack apps with React and Serverless!
         </a>
       </p>
     </div>
