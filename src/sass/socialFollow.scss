@@ -37,3 +37,33 @@
     }
   }
 }
+
+.youtube-link {
+  color: var(--youtube-color);
+  text-decoration: none;
+}
+.youtube-link:hover {
+  color: var(--youtube-color);
+  border-bottom: 2px solid var(--youtube-color);
+  text-decoration: none;
+}
+
+.twitch-link {
+  color: var(--twitch-color);
+  text-decoration: none;
+}
+.twitch-link:hover {
+  color: var(--twitch-color);
+  border-bottom: 2px solid var(--twitch-color);
+  text-decoration: none;
+}
+
+.brand-link {
+  color: var(--brand-color);
+  text-decoration: none;
+}
+.brand-link:hover {
+  color: var(--brand-color);
+  border-bottom: 2px solid var(--brand-color);
+  text-decoration: none;
+}

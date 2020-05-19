@@ -28,17 +28,53 @@ const IndexPage = ({ data }) => {
         <hr className="title-underline" />
         <h3 className="subtitle">Developer. Speaker. Teacher.</h3>
         <p>
-          I’m a Full-Stack Web Developer who is addicted to learning and loves
-          working with people. I speak at community events, participate in
-          Hackathons, and build continuously.
+          Hi, I’m James, a Web Developer who is addicted to learning and loves
+          working with people. I'm also an avid content creator with weekly
+          videos on{" "}
+          <a
+            className="youtube-link"
+            href="https://www.youtube.com/jamesqquick"
+            target="_blank"
+          >
+            <strong>YouTube</strong>
+          </a>
+          , live streams on{" "}
+          <a
+            className="twitch-link"
+            href="https://www.twitch.tv/jamesqquick"
+            target="_blank"
+          >
+            <strong>Twitch</strong>
+          </a>
+          , and courses/misc content on my{" "}
+          <a
+            className="brand-link "
+            href="learn.jamesqquick.com"
+            target="_blank"
+          >
+            <strong>Learning Platform</strong>
+          </a>
+          .
         </p>
         <h2>Learn. Build. Teach.</h2>
+        <p>This is the motto that I live by with everything I do!</p>
+
+        <ul>
+          <li>
+            <strong>Learn</strong> new technologies, frameworks, etc.
+          </li>
+          <li>
+            <strong>Build</strong> projects using what you learn
+          </li>
+          <li>
+            <strong>Teach</strong> others how to do it too
+          </li>
+        </ul>
         <p>
-          One of my favorite mottos is <strong>Learn.Build.Teach.</strong> The
-          idea is that you spend lots of time learning. Use what you learn to
-          build stuff that gets you excited. Then, teach other people how to do
-          it.
+          What's your best <strong>Learn.Build.Teach.</strong> moment?! Share on
+          Twitter using the hashtag #LearnBuildTeach.
         </p>
+
         <h2>Recent Posts</h2>
         <CardList cards={posts} />
 

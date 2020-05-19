@@ -6,6 +6,12 @@
 @import "section";
 @import "text";
 
+:root {
+  --youtube-color: #ff0000;
+  --twitch-color: #644398;
+  --brand-color: #de5456;
+}
+
 @media only screen and (max-width: 768px) {
   #downArrow {
     display: none;
