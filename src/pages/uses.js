@@ -4,23 +4,17 @@ import SEO from "../components/SEO";
 import Img from "gatsby-image";
 import { useStaticQuery, graphql } from "gatsby";
 
-export default function uses() {
-  const data = useStaticQuery(graphql`
-    query {
-      file(relativePath: { eq: "images/desk_setup.JPG" }) {
-        childImageSharp {
-          fluid(maxWidth: 700) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `);
+export default function uses({ data }) {
   return (
     <Layout>
       <SEO
-        title="Uses"
-        keywords={[`Uses`, `web development`, `web design`, `developer tools`]}
+        title="James Q Quick Uses"
+        keywords={[
+          `James Q Quick Uses`,
+          `web development`,
+          `web design`,
+          `developer tools`,
+        ]}
       />
       <div className="container">
         <h1 className="title">What I Use</h1>
@@ -186,3 +180,15 @@ export default function uses() {
     </Layout>
   );
 }
+
+export const query = graphql`
+  query {
+    file(relativePath: { eq: "images/desk_setup.JPG" }) {
+      childImageSharp {
+        fluid(maxWidth: 700) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`;

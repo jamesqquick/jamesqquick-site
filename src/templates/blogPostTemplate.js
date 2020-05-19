@@ -56,7 +56,6 @@ export const pageQuery = graphql`
         title
       }
       mainContent: _rawMainContent(resolveReferences: { maxDepth: 10 })
-
       coverImage {
         asset {
           fluid(maxWidth: 700) {
