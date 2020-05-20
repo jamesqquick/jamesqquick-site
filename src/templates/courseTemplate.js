@@ -55,6 +55,7 @@ export const pageQuery = graphql`
       mainContent: _rawMainContent(resolveReferences: { maxDepth: 10 })
       newsletterSignupURL
       newsletterMessage
+      youTubeVideoId
       coverImage {
         asset {
           fluid(maxWidth: 700) {
