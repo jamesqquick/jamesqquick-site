@@ -19,6 +19,7 @@ function SEO({ description, lang, meta, title, type = `website`, image }) {
             title
             description
             author
+            siteUrl
           }
         }
       }
@@ -26,7 +27,8 @@ function SEO({ description, lang, meta, title, type = `website`, image }) {
   );
 
   const metaDescription = description || site.siteMetadata.description;
-  const shareImage = image || "/icons/icon-48x48.png";
+  const shareImage =
+    image || site.siteMetadata.siteUrl + "/icons/icon-144x144.png";
   return (
     <Helmet
       htmlAttributes={{
