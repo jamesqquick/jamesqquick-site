@@ -32,12 +32,11 @@ li {
 a {
   transition: 250ms color;
   text-decoration: none;
-  color: inherit;
-}
-
-a:hover {
-  cursor: pointer;
-  border-bottom: 4px solid var(--brand);
+  color: var(--brand);
+  &:hover {
+    cursor: pointer;
+    border-bottom: 4px solid var(--brand);
+  }
 }
 
 h1 {

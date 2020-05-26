@@ -58,6 +58,10 @@ strong {
 
 .fancy-anchor {
   border-bottom: 4px solid var(--brand);
+
+  &:hover {
+    border-bottom: 4px solid var(--brand);
+  }
 }
 
 .display1 {
@@ -77,9 +81,9 @@ strong {
 }
 
 .text-youtube {
-  color: var(--youtube-color);
+  color: var(--youtube-color) !important;
 }
 
 .text-twitch {
-  color: var(--twitch-color);
+  color: var(--twitch-color) !important;
 }

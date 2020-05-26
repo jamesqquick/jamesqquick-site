@@ -11,6 +11,7 @@
       -webkit-transform: translateY(-2px);
       -ms-transform: translateY(-2px);
       transform: translateY(-2px);
+      border: none;
     }
     &.youtube {
       color: #eb3223;
@@ -41,6 +42,8 @@
 .social-icon {
   text-decoration: none;
   padding-right: 1rem;
+  border-bottom: none;
+  color: var(--black);
   &:hover {
     text-decoration: none;
     border-bottom: none;

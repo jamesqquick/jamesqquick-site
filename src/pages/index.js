@@ -50,7 +50,7 @@ const IndexPage = ({ data }) => {
           <h2 className="h2">
             <a
               href="https://www.youtube.com/c/jamesqquick"
-              className="text-youtube social-icon"
+              className=" social-icon text-youtube"
               target="_blank"
               rel="noopener noreferrer"
             >
