@@ -14,7 +14,7 @@ export default function resources() {
           `developer tools`,
         ]}
       />
-      <div className="container">
+      <section className="section">
         <h1 className="h1 title">Resources</h1>
         <hr className="title-underline" />
         <p>
@@ -481,7 +481,7 @@ export default function resources() {
             </a>
           </li>
         </ul>
-      </div>
+      </section>
     </Layout>
   );
 }

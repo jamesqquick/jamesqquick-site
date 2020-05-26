@@ -28,7 +28,7 @@ export default function live({ data }) {
         title="Streaming"
         keywords={[`live, live stream, streaming, twitch`]}
       />
-      <div className="container">
+      <header className="header">
         <h1 className="h1 title">Streaming</h1>
         <hr className="title-underline" />
         <p>
@@ -43,18 +43,22 @@ export default function live({ data }) {
           You can find me on Twitch where I will stream about Web Development,
           Design, Tools, People Skills, etc.
         </p>
+
         <ReactLivestream
           platform="twitch"
           twitchClientId={process.env.GATSBY_TWITCH_CLIENT_ID}
           twitchUserName="jamesqquick"
           mixerChannelId={() => {}}
         />
+      </header>
+      <section className="section">
         <h2 className="h2">Upcoming Streams...</h2>
         <CardList cards={upcomingStreams} />
-
+      </section>
+      <section className="section">
         <h2 className="h2">Previous Streams...</h2>
         <CardList cards={previousStreams} />
-      </div>
+      </section>
     </Layout>
   );
 }

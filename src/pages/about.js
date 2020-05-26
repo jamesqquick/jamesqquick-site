@@ -21,18 +21,16 @@ export default function about() {
       />
 
       <section className="section text-center section-light">
-        <div className="container">
-          <h1 className="h1 text-center section-title">About</h1>
-          <hr className="title-underline" />
-          <h3 className="h3 section-subtitle">Developer. Speaker. Teacher.</h3>
-          <p className="section-content">
-            I’m a Full-Stack Web Developer who is addicted to learning and loves
-            working with people. I speak at community events, participate in
-            Hackathons, and build continuously.
-          </p>
+        <h1 className="h1 text-center section-title">About</h1>
+        <hr className="title-underline" />
+        <h3 className="h3 section-subtitle">Developer. Speaker. Teacher.</h3>
+        <p className="section-content">
+          I’m a Full-Stack Web Developer who is addicted to learning and loves
+          working with people. I speak at community events, participate in
+          Hackathons, and build continuously.
+        </p>
 
-          <SocialFollow size="md" color="dark" />
-        </div>
+        <SocialFollow size="md" color="dark" />
       </section>
       <SplitView>
         <section className="text-center section ">

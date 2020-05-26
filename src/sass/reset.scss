@@ -18,6 +18,12 @@ body {
   margin-top: 4rem;
 }
 
+@media (max-width: 786px) {
+  .header {
+    margin-top: 1rem;
+  }
+}
+
 p,
 li {
   font-size: 1.6rem;

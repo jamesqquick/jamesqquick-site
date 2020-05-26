@@ -1,7 +1,6 @@
 @import "../sass/variables.scss";
 
 .nav {
-  padding: 40px 20px;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -42,6 +41,7 @@
 
 @media (max-width: 786px) {
   .nav {
+    padding: 0;
     .nav-items {
       display: flex;
       flex-direction: row;

@@ -4,7 +4,7 @@ import { Link } from "gatsby";
 
 export default function Navbar() {
   return (
-    <nav className="nav container">
+    <nav className="nav">
       <Link to="/" className="nav-brand">
         James <strong className="accent">Q</strong> Quick
       </Link>

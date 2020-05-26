@@ -21,7 +21,7 @@ export default function courses({ data }) {
           `developer tools`,
         ]}
       />
-      <div className="container">
+      <section className="section">
         <h1 className="h1 title">Courses</h1>
         <hr className="title-underline" />
 
@@ -53,7 +53,7 @@ export default function courses({ data }) {
             Contact Me!
           </Link>
         </div>
-      </div>
+      </section>
     </Layout>
   );
 }

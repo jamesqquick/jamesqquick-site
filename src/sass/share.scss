@@ -30,3 +30,9 @@ $brand-colors: (
     }
   }
 }
+
+@media (max-width: 786px) {
+  .post-social {
+    display: none;
+  }
+}

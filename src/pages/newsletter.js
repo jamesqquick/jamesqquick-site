@@ -19,7 +19,7 @@ export default function newsletter({ location }) {
           `James Q Quick`,
         ]}
       />
-      <div className="container">
+      <header className="header">
         <h1 className="h1 title">Newsletter</h1>
         <hr className="title-underline" />
         <p>
@@ -35,7 +35,7 @@ export default function newsletter({ location }) {
           <li>Tips on People Skills/Career Development</li>
         </ul>
         <MailchimpNewlsetter giveaway={giveaway} />
-      </div>
+      </header>
     </Layout>
   );
 }

@@ -22,9 +22,11 @@ const Layout = ({ children }) => {
   return (
     <div className="layout">
       {/* <PromotionalBanner /> */}
-      <Navbar siteTitle={data.site.siteMetadata.title} />
-      {children}
-      <Footer />
+      <div className="container">
+        <Navbar siteTitle={data.site.siteMetadata.title} />
+        {children}
+        <Footer />
+      </div>
     </div>
   );
 };

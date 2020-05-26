@@ -14,110 +14,88 @@ export default function Course({ course }) {
       <Share url={"www.jamesqquick.com/" + course.slug} title={course.title} />
       <article className="post">
         <header className="header">
-          <div className="container">
-            <h1 className="h1 post--title">{course.title}</h1>
-            <p className="post--date">Released: {course.publishedDate}</p>
+          <h1 className="h1 post--title">{course.title}</h1>
+          <p className="post--date">Released: {course.publishedDate}</p>
 
-            {course.coverImage && !course.youTubeVideoId && (
-              <Img fluid={course.coverImage.asset.fluid} />
+          {course.coverImage && !course.youTubeVideoId && (
+            <Img fluid={course.coverImage.asset.fluid} />
+          )}
+          {course.youTubeVideoId && <YouTube id={course.youTubeVideoId} />}
+          {!course.published &&
+            course.newsletterSignupURL &&
+            course.newsletterMessage && (
+              <>
+                <h3 className="h3">{course.newsletterMessage}</h3>
+                <PodiaNewsletter url={course.newsletterSignupURL} />
+              </>
             )}
-            {course.youTubeVideoId && <YouTube id={course.youTubeVideoId} />}
-            {!course.published &&
-              course.newsletterSignupURL &&
-              course.newsletterMessage && (
-                <>
-                  <h3 className="h3">{course.newsletterMessage}</h3>
-                  <PodiaNewsletter url={course.newsletterSignupURL} />
-                </>
-              )}
-          </div>
         </header>
         {course.courseOverview && (
           <section className="section">
-            <div className="container">
-              <>
-                <h2 className="h2">Course Overview</h2>
-                <BlockContent
-                  blocks={course.courseOverview}
-                  serializers={serializers}
-                />
-              </>
+            <h2 className="h2">Course Overview</h2>
+            <BlockContent
+              blocks={course.courseOverview}
+              serializers={serializers}
+              className="mb-8"
+            />
 
-              {course.published && course.cost && (
+            {course.published && course.fullCost && (
+              <>
                 <div className="text-center mt-4">
-                  <a href="#courseBuy">
-                    <button className="btn">Buy the Course</button>
+                  <a href="#courseBuy" className="btn">
+                    Buy the Course
                   </a>
                 </div>
-              )}
-              {course.externalLink && !course.newsletterSignupURL && (
-                <div className="text-center mt-4">
-                  <a href={course.externalLink} target="_blank">
-                    <button className="btn">Start Learning!</button>
-                  </a>
-                </div>
-              )}
-            </div>
+              </>
+            )}
+            {course.externalLink && !course.newsletterSignupURL && (
+              <div className="text-center mt-4">
+                <a href={course.externalLink} target="_blank">
+                  <button className="btn">Start Learning!</button>
+                </a>
+              </div>
+            )}
           </section>
         )}
         {course.whoIsItFor && (
           <section className="section">
-            <div className="container">
-              <>
-                {" "}
-                <h2 className="h2">Who Is It For</h2>
-                <BlockContent
-                  blocks={course.whoIsItFor}
-                  serializers={serializers}
-                />
-              </>
-            </div>
+            <h2 className="h2">Who Is It For</h2>
+            <BlockContent
+              blocks={course.whoIsItFor}
+              serializers={serializers}
+            />
           </section>
         )}
         {course.whatYouGet && (
           <section className="section ">
-            <div className="container">
-              <>
-                {" "}
-                <h2 className="h2">What You Get</h2>
-                <BlockContent
-                  blocks={course.whatYouGet}
-                  serializers={serializers}
-                />
-              </>
-            </div>
+            <>
+              {" "}
+              <h2 className="h2">What You Get</h2>
+              <BlockContent
+                blocks={course.whatYouGet}
+                serializers={serializers}
+              />
+            </>
           </section>
         )}
         {course.faq && (
           <section className="section ">
-            <div className="container">
-              <>
-                {" "}
-                <h2 className="h2">FAQ</h2>
-                <BlockContent blocks={course.faq} serializers={serializers} />
-              </>
-            </div>
+            <h2 className="h2">FAQ</h2>
+            <BlockContent blocks={course.faq} serializers={serializers} />
           </section>
         )}
         {course.courseOutline && (
           <section className="section ">
-            <div className="container">
-              <>
-                {" "}
-                <h2 className="h2">Course Outline</h2>
-                <BlockContent
-                  blocks={course.courseOutline}
-                  serializers={serializers}
-                />
-              </>
-            </div>
+            <h2 className="h2">Course Outline</h2>
+            <BlockContent
+              blocks={course.courseOutline}
+              serializers={serializers}
+            />
           </section>
         )}
         {course.published && (
           <section className="section" id="courseBuy">
-            <div className="container">
-              <CourseBuyCard course={course} />
-            </div>
+            <CourseBuyCard course={course} />
           </section>
         )}
       </article>

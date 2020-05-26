@@ -16,9 +16,11 @@ export default function uses({ data }) {
           `developer tools`,
         ]}
       />
-      <div className="container">
+      <header className="header">
         <h1 className="h1 title">What I Use</h1>
         <hr className="title-underline" />
+      </header>
+      <section className="section">
         <Img fluid={data.file.childImageSharp.fluid} alt="My desk setup" />
         <p>
           I get lots of questions about what kind of hardware, software, desk
@@ -176,7 +178,7 @@ export default function uses({ data }) {
             </a>
           </li>
         </ul>
-      </div>
+      </section>
     </Layout>
   );
 }

@@ -4,7 +4,7 @@ import SocialFollow from "./SocialFollow";
 
 export default function footer() {
   return (
-    <footer className="footer container">
+    <footer className="footer">
       <SocialFollow size="md" />
       <p className="text-center">
         Built with <strong>Gatsby</strong>. Data from <strong>Sanity.io</strong>

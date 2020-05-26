@@ -16,13 +16,14 @@ export default function talks({ data }) {
   return (
     <Layout>
       <SEO title="Speaking" keywords={[`conference talks`]} />
-      <div className="container">
+      <header className="header">
         <h1 className="h1 text-center title">Speaking</h1>
         <hr className="title-underline" />
         <ContactBlurb header={blurbHeader} />
-
+      </header>
+      <section>
         <CardList cards={talks} />
-      </div>
+      </section>
     </Layout>
   );
 }
