@@ -3,7 +3,6 @@ import { graphql } from "gatsby";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 import ContactBlurb from "../components/ContactBlurb";
-import Card from "../components/Card";
 import CardList from "../components/CardList";
 export default function talks({ data }) {
   const blurbHeader = "Intersted in me speaking at your event?";

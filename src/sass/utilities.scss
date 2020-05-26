@@ -3,11 +3,11 @@
 .container {
   max-width: 1000px;
   padding: 5rem;
-  margin: 50px auto 0 auto;
+  margin: 0 auto;
 }
 
 span.highlight {
-  color: $secondary;
+  color: var(--brand);
 }
 
 .text-light {
@@ -68,7 +68,7 @@ span.highlight {
   text-transform: uppercase;
 }
 .title-underline {
-  border-top-color: $secondary;
+  border-top-color: var(--brand);
   border-top-width: 4px;
   width: 100px;
   margin-bottom: 4rem;

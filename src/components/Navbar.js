@@ -63,7 +63,7 @@ export default function Navbar() {
         <div className="footer">
           {/* <NavNewsletter /> */}
           <Link to="/newsletter">
-            <button className="btn btn-secondary">Newsletter</button>
+            <button className="btn">Newsletter</button>
           </Link>
           <hr />
           <SocialFollow color="light" size={navOpen ? "md" : "sm"} />

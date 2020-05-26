@@ -24,61 +24,68 @@ const IndexPage = ({ data }) => {
         ]}
       />
       <div className="container ">
-        <h1 className="title">James Q Quick</h1>
-        <hr className="title-underline" />
-        <h3 className="subtitle">Developer. Speaker. Teacher.</h3>
-        <p>
-          Hi, I’m James, a Web Developer who is addicted to learning and loves
-          working with people. I'm also an avid content creator with weekly
-          videos on{" "}
-          <a
-            className="youtube-link"
-            href="https://www.youtube.com/jamesqquick"
-            target="_blank"
-          >
-            <strong>YouTube</strong>
-          </a>
-          , live streams on{" "}
-          <a
-            className="twitch-link"
-            href="https://www.twitch.tv/jamesqquick"
-            target="_blank"
-          >
-            <strong>Twitch</strong>
-          </a>
-          , and courses/misc content on my{" "}
-          <a
-            className="brand-link "
-            href="learn.jamesqquick.com"
-            target="_blank"
-          >
-            <strong>Learning Platform</strong>
-          </a>
-          .
-        </p>
-        <h2>Learn. Build. Teach.</h2>
-        <p>This is the motto that I live by with everything I do!</p>
+        <section>
+          <h1 className="title">James Q Quick</h1>
+          <hr className="title-underline" />
+          <h3 className="subtitle">Developer. Speaker. Teacher.</h3>
+          <p>
+            Hi, I’m James, a Web Developer who is addicted to learning and loves
+            working with people. I'm also an avid content creator with weekly
+            videos on{" "}
+            <a
+              className="youtube-link"
+              href="https://www.youtube.com/jamesqquick"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <strong>YouTube</strong>
+            </a>
+            , live streams on{" "}
+            <a
+              className="twitch-link"
+              href="https://www.twitch.tv/jamesqquick"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <strong>Twitch</strong>
+            </a>
+            , and courses/misc content on my{" "}
+            <a
+              className="brand-link "
+              href="learn.jamesqquick.com"
+              target="_blank"
+            >
+              <strong>Learning Platform</strong>
+            </a>
+            .
+          </p>
+        </section>
+        <section>
+          <h2>Learn. Build. Teach.</h2>
+          <p>This is the motto that I live by with everything I do!</p>
 
-        <ul>
-          <li>
-            <strong>Learn</strong> new technologies, frameworks, etc.
-          </li>
-          <li>
-            <strong>Build</strong> projects using what you learn
-          </li>
-          <li>
-            <strong>Teach</strong> others how to do it too
-          </li>
-        </ul>
-        <p>
-          What's your best <strong>Learn.Build.Teach.</strong> moment?! Share on
-          Twitter using the hashtag #LearnBuildTeach.
-        </p>
+          <ul>
+            <li>
+              <strong>Learn</strong> new technologies, frameworks, etc.
+            </li>
+            <li>
+              <strong>Build</strong> projects using what you learn
+            </li>
+            <li>
+              <strong>Teach</strong> others how to do it too
+            </li>
+          </ul>
+          <p>
+            What's your best <strong>Learn.Build.Teach.</strong> moment?! Share
+            on Twitter using the hashtag #LearnBuildTeach.
+          </p>
+        </section>
+        <section>
+          <h2>Recent Posts</h2>
+          <CardList cards={posts} />
 
-        <h2>Recent Posts</h2>
-        <CardList cards={posts} />
-
-        <SocialFollow size="md" color="dark" />
+          <SocialFollow size="md" color="dark" />
+        </section>
       </div>
     </Layout>
   );

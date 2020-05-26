@@ -3,10 +3,10 @@ import "../sass/forms.scss";
 import * as EmailValidator from "email-validator";
 import submitReducer, { SUBMIT_ACTIONS } from "../reducers/SubmitReducer";
 
-const successMessages = {
-  DEFAULT: "Thanks for SUBMITTING!",
-  // VSCODECHEATSHEET: <a href="https://www.google.com">Here is is</a>,
-};
+// const successMessages = {
+//   DEFAULT: "Thanks for SUBMITTING!",
+//   // VSCODECHEATSHEET: <a href="https://www.google.com">Here is is</a>,
+// };
 
 const initialState = {
   errMsg: "",

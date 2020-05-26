@@ -1,56 +1,37 @@
-@import "variables";
-
-.btn {
+.btn,
+a.btn {
   padding: 1.25rem 3rem;
-  background-color: $primary;
-  color: $off-white;
+  background-color: var(--brand);
+  color: var(--white);
   font-size: 1.6rem;
   width: 200px;
-  border: 2px solid $primary;
+  border: 2px solid var(--brand);
   transition: background-color 250ms;
   border-radius: 100px;
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
 
   &:visited {
-    color: $off-white;
+    color: var(--white);
     text-decoration: none;
   }
 
   &:hover {
     cursor: pointer;
-    background-color: $primary-dark;
+    background-color: var(--brand-dark);
     text-decoration: none;
+    transform: translateY(-1px);
   }
 
   &:disabled {
     opacity: 0.9;
     cursor: not-allowed;
-    background-color: $primary;
+    background-color: var(--brand);
 
     &:hover {
-      color: $off-white;
+      color: var(--white);
     }
-  }
-}
-
-.btn-secondary {
-  background-color: $secondary;
-  color: $off-white;
-  border: 2px solid $secondary;
-
-  &:visited {
-    color: $off-white;
-  }
-
-  &:hover {
-    cursor: pointer;
-    background-color: $secondary-dark;
-    text-decoration: none;
-  }
-
-  &:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    background-color: $secondary;
   }
 }
 

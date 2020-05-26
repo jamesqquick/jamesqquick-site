@@ -3,13 +3,13 @@
 #promotionalBanner {
   height: 5rem;
   position: fixed;
-  background: $secondary;
+  background: var(--brand);
   align-items: center;
   top: 0;
   left: 0;
   right: 0;
   padding: 0 2rem;
-  border-bottom: 4px solid $secondary-dark;
+  border-bottom: 4px solid var(--brand)-dark;
   z-index: 1000;
   text-align: center;
 

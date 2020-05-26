@@ -4,7 +4,6 @@ import ReactMarkdown from "react-markdown";
 import Img from "gatsby-image";
 import YouTube from "./YouTube";
 import serializers from "../serializers";
-import PodiaNewsletter from "./PodiaNewsletter";
 const BlockContent = require("@sanity/block-content-to-react");
 
 export default function Post({ post }) {
@@ -32,13 +31,8 @@ export default function Post({ post }) {
               <Img fluid={post.coverImage.asset.fluid} />
             )}
             {post.youTubeVideoId && <YouTube id={post.youTubeVideoId} />}
-            {post.newsletterSignupURL && post.newsletterMessage && (
-              <>
-                <h3>{post.newsletterMessage}</h3>
-                <PodiaNewsletter url={post.newsletterSignupURL} />
-              </>
-            )}
-            {post.externalLink && !post.newsletterSignupURL && (
+
+            {post.externalLink && (
               <a href={post.externalLink}>
                 <h2>Check it out!</h2>
               </a>
@@ -50,6 +44,7 @@ export default function Post({ post }) {
                   className="post--link"
                   href={link.target}
                   target="_blank"
+                  rel="noopener noreferrer"
                   key={index}
                 >
                   {link.text}
@@ -57,16 +52,14 @@ export default function Post({ post }) {
               ))}
           </header>
 
-          <section>
+          <section className="section">
             {post.mainContent && (
               <BlockContent
                 blocks={post.mainContent}
                 serializers={serializers}
               />
             )}
-            {!post.mainContent && (
-              <ReactMarkdown source={post.body} linkTarget="_blank" />
-            )}
+            {!post.mainContent && <ReactMarkdown source={post.body} />}
           </section>
         </article>
       </div>

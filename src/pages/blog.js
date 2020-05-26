@@ -2,7 +2,6 @@ import React from "react";
 import SEO from "../components/SEO";
 import Layout from "../components/Layout";
 import { graphql } from "gatsby";
-import Card from "../components/Card";
 import CardList from "../components/CardList";
 export default function blog({ data, location }) {
   let posts = data.allSanityPost.nodes.map(post => ({

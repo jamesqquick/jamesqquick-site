@@ -1,61 +1,8 @@
-@import "variables";
-
-@mixin section() {
-  padding: 9rem 10rem;
-  background-color: $off-white;
-  position: relative;
-}
-
 .section {
-  @include section();
-
-  .section-content {
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  .section-title {
-    margin-bottom: 8px;
-  }
-
-  .section-subtitle {
-    font-style: italic;
-    font-weight: 200;
-    font-size: 3.2rem;
-    margin-bottom: 1rem;
-  }
-}
-
-.section-full-height {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-
-  img {
-    height: 100vh;
-    object-fit: cover;
-  }
+  padding: 2rem 0;
+  position: relative;
 }
 
 .section-light {
   background-color: white;
-}
-
-.section-full {
-  padding: 0;
-}
-
-@media only screen and (max-width: 768px) {
-  .section {
-    padding: 8rem 3rem;
-
-    .section-subtitle {
-      margin-top: 0.5rem;
-    }
-  }
-  .section-full {
-    padding: 0;
-  }
 }

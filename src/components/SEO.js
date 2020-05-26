@@ -78,7 +78,9 @@ function SEO({ description, lang, meta, title, type = `website`, image }) {
           content: shareImage,
         },
       ].concat(meta)}
-    />
+    >
+      <script src="https://cdn.podia.com/embeds.js" async="async"></script>
+    </Helmet>
   );
 }
 

@@ -59,11 +59,11 @@
 }
 
 .brand-link {
-  color: var(--brand-color);
+  color: var(--brand);
   text-decoration: none;
 }
 .brand-link:hover {
-  color: var(--brand-color);
-  border-bottom: 2px solid var(--brand-color);
+  color: var(--brand);
+  border-bottom: 2px solid var(--brand);
   text-decoration: none;
 }

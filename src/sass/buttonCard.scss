@@ -1,0 +1,21 @@
+.buy-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  background-color: #fff;
+  max-width: 400px;
+  padding: 2rem 3rem;
+  margin: 2rem auto;
+}
+
+.checkbox-list > ul {
+  list-style: none;
+  margin: 4rem 0;
+  padding-left: 0;
+
+  & > li::before {
+    content: "✅";
+    padding-right: 1rem;
+  }
+}

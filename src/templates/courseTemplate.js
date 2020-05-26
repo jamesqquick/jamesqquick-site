@@ -3,9 +3,8 @@ import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 import "../sass/posts.scss";
 import { graphql } from "gatsby";
-import Post from "../components/Post";
-
-function Course({ data }) {
+import Course from "../components/Course";
+function CourseTemplate({ data }) {
   const course = {
     ...data.sanityCourse,
     slug: data.sanityCourse.slug.current,
@@ -25,12 +24,12 @@ function Course({ data }) {
         image={coverImageUrl}
       />
 
-      <Post post={course} />
+      <Course course={course} />
     </Layout>
   );
 }
 
-export default Course;
+export default CourseTemplate;
 
 export const pageQuery = graphql`
   query CourseBySlug($id: String!) {
@@ -52,10 +51,18 @@ export const pageQuery = graphql`
       tags {
         title
       }
-      mainContent: _rawMainContent(resolveReferences: { maxDepth: 10 })
+      whatYouGet: _rawWhatYouGet(resolveReferences: { maxDepth: 10 })
+      faq: _rawFaq(resolveReferences: { maxDepth: 10 })
+      courseOverview: _rawCourseOverview(resolveReferences: { maxDepth: 10 })
+      whoIsItFor: _rawWhoIsItFor(resolveReferences: { maxDepth: 10 })
+      courseOutline: _rawCourseOutline(resolveReferences: { maxDepth: 10 })
+      fullCost
+      discountCost
       newsletterSignupURL
       newsletterMessage
       youTubeVideoId
+      published
+      purchaseLink
       coverImage {
         asset {
           fluid(maxWidth: 700) {

@@ -3,7 +3,7 @@
 html {
   font-size: 10px;
   font-family: "Poppins", Helvetica, Arial, Lucida, sans-serif;
-  color: $black;
+  color: var(--black);
 }
 
 * {
@@ -23,7 +23,7 @@ li {
   color: rgb(75, 75, 75);
   line-height: 2.7rem;
   letter-spacing: 0.12rem;
-  color: $black;
+  color: var(--black);
 }
 
 a {
@@ -33,46 +33,7 @@ a {
 a:hover {
   cursor: pointer;
   text-decoration: underline;
-  color: $secondary;
-  text-decoration: underline;
-}
-
-h1 {
-  font-size: 5.2rem;
-  line-height: 8rem;
-  font-weight: 700;
-  margin: 0;
-  color: rgb(75, 75, 75);
-}
-
-h2 {
-  font-size: 3.2rem;
-  line-height: 4.2rem;
-  font-weight: 700;
-  margin: 0;
-  color: rgb(75, 75, 75);
-  margin-top: 4rem;
-}
-
-h3 {
-  font-size: 2.4rem;
-  line-height: 3.6rem;
-  margin-bottom: 2rem;
-  color: rgb(75, 75, 75);
-  font-weight: 500;
-}
-
-h4 {
-  font-size: 2.8rem;
-  margin-bottom: 2rem;
-  color: rgb(75, 75, 75);
-}
-
-small {
-  font-size: 1.4rem;
-  line-height: 2rem;
-}
-.underline {
+  color: var(--brand);
   text-decoration: underline;
 }
 
@@ -83,8 +44,4 @@ hr {
 
 ul {
   text-align: left;
-}
-strong {
-  // color: $secondary;
-  // text-transform: uppercase;
 }

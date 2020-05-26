@@ -1,5 +1,4 @@
 import React from "react";
-import NewsletterForm from "./NewsletterForm";
 
 export default function PodiaNewsletter({ url }) {
   return (

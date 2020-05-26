@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
-import { Link, graphQL } from "gatsby";
+import { Link, graphql } from "gatsby";
 import CardList from "../components/CardList";
 
 export default function courses({ data }) {
