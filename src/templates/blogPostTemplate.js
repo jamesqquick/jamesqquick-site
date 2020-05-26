@@ -19,7 +19,6 @@ function BlogPost(props) {
 
   return (
     <Layout>
-      test
       <SEO
         title={post.title}
         keywords={[``]}
