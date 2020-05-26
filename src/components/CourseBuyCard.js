@@ -16,7 +16,12 @@ export default function CourseBuyCard({ course }) {
         serializers={serializers}
         className="checkbox-list"
       />
-      <a href={course.purchaseLink} data-podia-embed="link" className="btn">
+      <a
+        href={course.purchaseLink}
+        rel="noopener noreferrer"
+        data-podia-embed="link"
+        className="btn"
+      >
         BUY NOW
       </a>
     </div>

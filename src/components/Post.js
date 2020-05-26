@@ -23,7 +23,7 @@ export default function Post({ post }) {
       <Share url={"www.jamesqquick.com/" + post.slug} title={post.title} />
       <div className="container">
         <article className="post">
-          <header>
+          <header className="header">
             <h1 className="post--title">{post.title}</h1>
             <p className="post--date">{post.publishedDate}</p>
 
@@ -33,7 +33,11 @@ export default function Post({ post }) {
             {post.youTubeVideoId && <YouTube id={post.youTubeVideoId} />}
 
             {post.externalLink && (
-              <a href={post.externalLink}>
+              <a
+                href={post.externalLink}
+                rel="noopener noreferrer"
+                target="_blank"
+              >
                 <h2>Check it out!</h2>
               </a>
             )}

@@ -13,7 +13,7 @@ export default function Course({ course }) {
     <>
       <Share url={"www.jamesqquick.com/" + course.slug} title={course.title} />
       <article className="post">
-        <header>
+        <header className="header">
           <div className="container">
             <h1 className="post--title">{course.title}</h1>
             <p className="post--date">Released: {course.publishedDate}</p>
@@ -30,38 +30,39 @@ export default function Course({ course }) {
                   <PodiaNewsletter url={course.newsletterSignupURL} />
                 </>
               )}
-            {course.externalLink && !course.newsletterSignupURL && (
-              <a href={course.externalLink}>
-                <h2>Check it out!</h2>
-              </a>
-            )}
           </div>
         </header>
-        <section className="section section-light ">
-          <div className="container">
-            {course.courseOverview && (
+        {course.courseOverview && (
+          <section className="section">
+            <div className="container">
               <>
-                {" "}
                 <h2>Course Overview</h2>
                 <BlockContent
                   blocks={course.courseOverview}
                   serializers={serializers}
                 />
               </>
-            )}
 
-            {course.published && (
-              <div className="text-center">
-                <a href="#courseBuy">
-                  <button className="btn">Buy the Course</button>
-                </a>
-              </div>
-            )}
-          </div>
-        </section>
-        <section className="section">
-          <div className="container">
-            {course.whoIsItFor && (
+              {course.published && course.cost && (
+                <div className="text-center mt-4">
+                  <a href="#courseBuy">
+                    <button className="btn">Buy the Course</button>
+                  </a>
+                </div>
+              )}
+              {course.externalLink && !course.newsletterSignupURL && (
+                <div className="text-center mt-4">
+                  <a href={course.externalLink} target="_blank">
+                    <button className="btn">Start Learning!</button>
+                  </a>
+                </div>
+              )}
+            </div>
+          </section>
+        )}
+        {course.whoIsItFor && (
+          <section className="section">
+            <div className="container">
               <>
                 {" "}
                 <h2>Who Is It For</h2>
@@ -70,12 +71,12 @@ export default function Course({ course }) {
                   serializers={serializers}
                 />
               </>
-            )}
-          </div>
-        </section>
-        <section className="section section-light">
-          <div className="container">
-            {course.whatYouGet && (
+            </div>
+          </section>
+        )}
+        {course.whatYouGet && (
+          <section className="section ">
+            <div className="container">
               <>
                 {" "}
                 <h2>What You Get</h2>
@@ -84,23 +85,23 @@ export default function Course({ course }) {
                   serializers={serializers}
                 />
               </>
-            )}
-          </div>
-        </section>
-        <section className="section ">
-          <div className="container">
-            {course.faq && (
+            </div>
+          </section>
+        )}
+        {course.faq && (
+          <section className="section ">
+            <div className="container">
               <>
                 {" "}
                 <h2>FAQ</h2>
                 <BlockContent blocks={course.faq} serializers={serializers} />
               </>
-            )}
-          </div>
-        </section>
-        <section className="section section-light">
-          <div className="container">
-            {course.courseOutline && (
+            </div>
+          </section>
+        )}
+        {course.courseOutline && (
+          <section className="section ">
+            <div className="container">
               <>
                 {" "}
                 <h2>Course Outline</h2>
@@ -109,14 +110,16 @@ export default function Course({ course }) {
                   serializers={serializers}
                 />
               </>
-            )}
-          </div>
-        </section>
-        <section className="section" id="courseBuy">
-          <div className="container">
-            <CourseBuyCard course={course} />
-          </div>
-        </section>
+            </div>
+          </section>
+        )}
+        {course.published && (
+          <section className="section" id="courseBuy">
+            <div className="container">
+              <CourseBuyCard course={course} />
+            </div>
+          </section>
+        )}
       </article>
     </>
   );
