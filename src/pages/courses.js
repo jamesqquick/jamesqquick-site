@@ -21,7 +21,7 @@ export default function courses({ data }) {
           `developer tools`,
         ]}
       />
-      <section className="section">
+      <header className="header">
         <h1 className="h1 title">Courses</h1>
         <hr className="title-underline" />
 
@@ -29,7 +29,9 @@ export default function courses({ data }) {
           I've taught tens of thousands of students in person and online. I've
           got a passion for Web Development that I want to share with you!
         </p>
+      </header>
 
+      <section className="section">
         <h2 className="h2">Learn Fullstack Web Development</h2>
         <p>Here's a few topics I can help you get better at.</p>
         <ul>
