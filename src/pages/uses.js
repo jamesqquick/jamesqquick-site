@@ -17,14 +17,14 @@ export default function uses({ data }) {
         ]}
       />
       <div className="container">
-        <h1 className="title">What I Use</h1>
+        <h1 className="h1 title">What I Use</h1>
         <hr className="title-underline" />
         <Img fluid={data.file.childImageSharp.fluid} alt="My desk setup" />
         <p>
           I get lots of questions about what kind of hardware, software, desk
           setup, etc. that I use. Well, here ya go!
         </p>
-        <h2>Software</h2>
+        <h2 className="h2">Software</h2>
         <ul>
           <li>
             <a
@@ -104,7 +104,7 @@ export default function uses({ data }) {
             - it's free!
           </li>
         </ul>
-        <h2>Hardware/Recording Equipment</h2>
+        <h2 className="h2">Hardware/Recording Equipment</h2>
         <ul>
           <li>2018 15 Inch Macbook Pro - 16gb ram, 500gb ssd</li>
           <li>

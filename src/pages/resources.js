@@ -15,7 +15,7 @@ export default function resources() {
         ]}
       />
       <div className="container">
-        <h1 className="title">Resources</h1>
+        <h1 className="h1 title">Resources</h1>
         <hr className="title-underline" />
         <p>
           I'm always sharing resources with people from one off questions. I
@@ -29,7 +29,7 @@ export default function resources() {
           feedback.
         </p>
         <h2>Paid Courses</h2>
-        <h3>JavaScript</h3>
+        <h3 className="h3">JavaScript</h3>
         <ul>
           <li>
             <a
@@ -77,7 +77,7 @@ export default function resources() {
             </a>
           </li>
         </ul>
-        <h3>React</h3>
+        <h3 className="h3">React</h3>
         <ul>
           <li>
             <a
@@ -139,7 +139,7 @@ export default function resources() {
             </a>
           </li>
         </ul>
-        <h3>Backend</h3>
+        <h3 className="h3">Backend</h3>
         <ul>
           <li>
             <a
@@ -178,7 +178,7 @@ export default function resources() {
             </a>
           </li>
         </ul>
-        <h3>CSS</h3>
+        <h3 className="h3">CSS</h3>
         <ul>
           <li>
             <a
@@ -208,8 +208,8 @@ export default function resources() {
             </a>
           </li>
         </ul>
-        <h2>Free Courses</h2>
-        <h3>JavaScript</h3>
+        <h2 className="h2">Free Courses</h2>
+        <h3 className="h3">JavaScript</h3>
         <ul>
           <li>
             <a
@@ -239,7 +239,7 @@ export default function resources() {
             </a>
           </li>
         </ul>
-        <h3>React</h3>
+        <h3 className="h3">React</h3>
         <ul>
           <li>
             <a
@@ -269,7 +269,7 @@ export default function resources() {
             </a>
           </li>
         </ul>
-        <h3>CSS</h3>
+        <h3 className="h3">CSS</h3>
         <ul>
           <li>
             <a
@@ -290,7 +290,7 @@ export default function resources() {
             </a>
           </li>
         </ul>
-        <h3>Misc</h3>
+        <h3 className="h3">Misc</h3>
         <ul>
           <li>
             <a

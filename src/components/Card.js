@@ -17,7 +17,7 @@ export default function Card({
         <Img className="card--img" fluid={coverImage.asset.fluid} />
       )}
       <div className="card--content">
-        <h3 className="card--title">{title}</h3>
+        <h3 className="h3 card--title">{title}</h3>
         <p className="card--date">
           <small>{details}</small>
         </p>

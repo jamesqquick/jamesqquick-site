@@ -7,7 +7,7 @@ export default function contact() {
     <Layout>
       <SEO title="Contact" keywords={[`contact`]} />
       <div className="container">
-        <h1 className="title">Contact</h1>
+        <h1 className="h1 title">Contact</h1>
         <hr className="title-underline" />
         <p>
           Interested in having me <strong>speak</strong> at your event? Creating

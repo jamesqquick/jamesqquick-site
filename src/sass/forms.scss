@@ -32,7 +32,7 @@ select {
   &:after {
     content: "<>";
     font: 11px "Consolas", monospace;
-    color: $light-grey;
+    color: var(--light-grey);
     transform: rotate(90deg);
     right: 8px;
     top: 2px;

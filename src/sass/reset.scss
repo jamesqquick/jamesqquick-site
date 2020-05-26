@@ -19,7 +19,6 @@ body {
 }
 
 p,
-a,
 li {
   font-size: 1.6rem;
   font-weight: 500;
@@ -32,13 +31,13 @@ li {
 
 a {
   transition: 250ms color;
+  text-decoration: none;
+  color: inherit;
 }
 
 a:hover {
   cursor: pointer;
-  text-decoration: underline;
-  color: var(--brand);
-  text-decoration: underline;
+  border-bottom: 4px solid var(--brand);
 }
 
 hr {

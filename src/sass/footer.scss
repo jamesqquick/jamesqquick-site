@@ -1,19 +1,4 @@
-@import "variables";
-
-footer {
-  background-color: $off-white;
-}
-
-.footer-content {
-  max-width: 900px;
-  padding: 2rem;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-}
-
-.footer-content > * {
-  align-items: center;
-  padding: 1rem;
-  text-align: center;
+.footer {
+  border-top: 2px solid var(--light-grey);
+  margin-top: 4rem;
 }

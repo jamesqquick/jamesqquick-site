@@ -29,17 +29,17 @@ export default function live({ data }) {
         keywords={[`live, live stream, streaming, twitch`]}
       />
       <div className="container">
-        <h1 className="title">Streaming</h1>
+        <h1 className="h1 title">Streaming</h1>
         <hr className="title-underline" />
         <p>
           <a
             href="https://www.twitch.tv/jamesqquick"
-            className="twitch social"
+            className="text-twitch social-icon"
             target="_blank"
             rel="noopener noreferrer"
           >
             <FontAwesomeIcon icon={faTwitch} size="2x" />
-          </a>{" "}
+          </a>
           You can find me on Twitch where I will stream about Web Development,
           Design, Tools, People Skills, etc.
         </p>
@@ -49,10 +49,10 @@ export default function live({ data }) {
           twitchUserName="jamesqquick"
           mixerChannelId={() => {}}
         />
-        <h2>Upcoming Streams...</h2>
+        <h2 className="h2">Upcoming Streams...</h2>
         <CardList cards={upcomingStreams} />
 
-        <h2>Previous Streams...</h2>
+        <h2 className="h2">Previous Streams...</h2>
         <CardList cards={previousStreams} />
       </div>
     </Layout>

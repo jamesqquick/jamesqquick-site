@@ -1,28 +1,46 @@
 @import "variables";
 
-h1 {
+.h1 {
   font-size: 5.2rem;
   line-height: 8rem;
-  margin: 0;
+  margin-bottom: 2rem;
+  margin-top: 0;
 }
 
-h2 {
+.h2 {
   font-size: 3.2rem;
   line-height: 4.2rem;
   margin: 0;
   margin-top: 4rem;
 }
 
-h3 {
+.h3 {
   font-size: 2.4rem;
   line-height: 3.6rem;
   margin-bottom: 2rem;
   font-weight: 500;
 }
 
-h4 {
+.h4 {
   font-size: 2rem;
   margin-bottom: 1rem;
+}
+
+.title {
+  margin-bottom: 8px;
+}
+// .title-underline {
+//   border-top-color: var(--brand);
+//   border-top-width: 4px;
+//   width: 100px;
+//   margin-bottom: 4rem;
+//   margin-top: -5px;
+// }
+
+.subtitle {
+  font-weight: 200;
+  margin-bottom: 4rem;
+  margin-top: -1rem;
 }
 
 small {
@@ -38,10 +56,30 @@ strong {
   // text-transform: uppercase;
 }
 
+.fancy-anchor {
+  border-bottom: 4px solid var(--brand);
+}
+
 .display1 {
   font-size: 7rem;
 }
 
 .twitch {
   color: #644398 !important;
+}
+
+.text-danger {
+  color: $error;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-youtube {
+  color: var(--youtube-color);
+}
+
+.text-twitch {
+  color: var(--twitch-color);
 }

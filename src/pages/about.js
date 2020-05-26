@@ -22,9 +22,9 @@ export default function about() {
 
       <section className="section text-center section-light">
         <div className="container">
-          <h1 className="text-center section-title">About</h1>
+          <h1 className="h1 text-center section-title">About</h1>
           <hr className="title-underline" />
-          <h3 className="section-subtitle">Developer. Speaker. Teacher.</h3>
+          <h3 className="h3 section-subtitle">Developer. Speaker. Teacher.</h3>
           <p className="section-content">
             I’m a Full-Stack Web Developer who is addicted to learning and loves
             working with people. I speak at community events, participate in
@@ -36,7 +36,7 @@ export default function about() {
       </section>
       <SplitView>
         <section className="text-center section ">
-          <h1 className="text-center section-title">Developer</h1>
+          <h1 className="h1 text-center section-title">Developer</h1>
           <hr className="title-underline" />
           <p className="section-content">
             I started teaching myself Web Development in 2016 through YouTube
@@ -49,7 +49,7 @@ export default function about() {
       <SplitView>
         <img src={speakingImage} alt="" className="img-cover " />
         <section className="section text-center section-light">
-          <h1 className="text-center section-title">Speaker</h1>
+          <h1 className="h1 text-center section-title">Speaker</h1>
           <hr className="title-underline" />
           <p className="section-content">
             I began my speaking career as a Technical Evangelist at Microsoft
@@ -60,7 +60,7 @@ export default function about() {
       </SplitView>
       <SplitView>
         <section className="section text-center ">
-          <h1 className="text-center section-title">Teacher</h1>
+          <h1 className="h1 text-center section-title">Teacher</h1>
           <hr className="title-underline" />
           <p className="section-content">
             I’ve taught <strong>tens of thousands</strong> of developers online

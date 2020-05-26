@@ -5,7 +5,7 @@ const BlockContent = require("@sanity/block-content-to-react");
 export default function CourseBuyCard({ course }) {
   return (
     <div className="buy-card">
-      <h4>Buy the Course</h4>
+      <h4 className="h4">Buy the Course</h4>
       <div className="flex-center">
         <small>$</small>
         <span className="display1">{course.fullCost}</span>

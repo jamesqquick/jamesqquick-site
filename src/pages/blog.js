@@ -14,7 +14,7 @@ export default function blog({ data, location }) {
     <Layout>
       <SEO title="Blog" keywords={[`blog`]} type="blog" />
       <div className="container">
-        <h1 className="title">Blog</h1>
+        <h1 className="h1 title">Blog</h1>
         <hr className="title-underline" />
         <CardList cards={posts} />
       </div>

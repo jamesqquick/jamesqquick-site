@@ -1,13 +1,9 @@
 @import "variables";
 
 .container {
-  max-width: 1000px;
-  padding: 5rem;
+  max-width: 800px;
+  padding: 2rem;
   margin: 0 auto;
-}
-
-span.highlight {
-  color: var(--brand);
 }
 
 .text-light {
@@ -37,51 +33,8 @@ span.highlight {
   object-position: left;
 }
 
-.hidden-sm {
-  display: default;
-}
-
-.text-danger {
-  color: $error;
-}
-
-.text-right {
-  text-align: right;
-}
-
 .img-cover {
   object-fit: cover;
-}
-
-.absolute-bottom {
-  position: absolute;
-  bottom: 5rem;
-}
-
-.underline {
-  text-decoration: underline;
-}
-
-.title {
-  margin-bottom: 8px;
-  text-align: center;
-  text-transform: uppercase;
-}
-.title-underline {
-  border-top-color: var(--brand);
-  border-top-width: 4px;
-  width: 100px;
-  margin-bottom: 4rem;
-  margin-top: -5px;
-}
-
-.subtitle {
-  font-style: italic;
-  font-weight: 200;
-  font-size: 3.2rem;
-  margin-bottom: 4rem;
-  margin-top: -3rem;
-  text-align: center;
 }
 
 .loader {
@@ -91,6 +44,10 @@ span.highlight {
 
 .mt-4 {
   margin-top: 4rem;
+}
+
+.accent {
+  color: var(--brand);
 }
 
 .loader:after {
@@ -113,11 +70,5 @@ span.highlight {
   }
   100% {
     transform: rotate(360deg);
-  }
-}
-
-@media only screen and (max-width: 768px) {
-  .hidden-sm {
-    display: none;
   }
 }

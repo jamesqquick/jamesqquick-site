@@ -38,32 +38,11 @@
   }
 }
 
-.youtube-link {
-  color: var(--youtube-color);
+.social-icon {
   text-decoration: none;
-}
-.youtube-link:hover {
-  color: var(--youtube-color);
-  border-bottom: 2px solid var(--youtube-color);
-  text-decoration: none;
-}
-
-.twitch-link {
-  color: var(--twitch-color);
-  text-decoration: none;
-}
-.twitch-link:hover {
-  color: var(--twitch-color);
-  border-bottom: 2px solid var(--twitch-color);
-  text-decoration: none;
-}
-
-.brand-link {
-  color: var(--brand);
-  text-decoration: none;
-}
-.brand-link:hover {
-  color: var(--brand);
-  border-bottom: 2px solid var(--brand);
-  text-decoration: none;
+  padding-right: 1rem;
+  &:hover {
+    text-decoration: none;
+    border-bottom: none;
+  }
 }

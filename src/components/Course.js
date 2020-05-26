@@ -15,7 +15,7 @@ export default function Course({ course }) {
       <article className="post">
         <header className="header">
           <div className="container">
-            <h1 className="post--title">{course.title}</h1>
+            <h1 className="h1 post--title">{course.title}</h1>
             <p className="post--date">Released: {course.publishedDate}</p>
 
             {course.coverImage && !course.youTubeVideoId && (
@@ -26,7 +26,7 @@ export default function Course({ course }) {
               course.newsletterSignupURL &&
               course.newsletterMessage && (
                 <>
-                  <h3>{course.newsletterMessage}</h3>
+                  <h3 className="h3">{course.newsletterMessage}</h3>
                   <PodiaNewsletter url={course.newsletterSignupURL} />
                 </>
               )}
@@ -36,7 +36,7 @@ export default function Course({ course }) {
           <section className="section">
             <div className="container">
               <>
-                <h2>Course Overview</h2>
+                <h2 className="h2">Course Overview</h2>
                 <BlockContent
                   blocks={course.courseOverview}
                   serializers={serializers}
@@ -65,7 +65,7 @@ export default function Course({ course }) {
             <div className="container">
               <>
                 {" "}
-                <h2>Who Is It For</h2>
+                <h2 className="h2">Who Is It For</h2>
                 <BlockContent
                   blocks={course.whoIsItFor}
                   serializers={serializers}
@@ -79,7 +79,7 @@ export default function Course({ course }) {
             <div className="container">
               <>
                 {" "}
-                <h2>What You Get</h2>
+                <h2 className="h2">What You Get</h2>
                 <BlockContent
                   blocks={course.whatYouGet}
                   serializers={serializers}
@@ -93,7 +93,7 @@ export default function Course({ course }) {
             <div className="container">
               <>
                 {" "}
-                <h2>FAQ</h2>
+                <h2 className="h2">FAQ</h2>
                 <BlockContent blocks={course.faq} serializers={serializers} />
               </>
             </div>
@@ -104,7 +104,7 @@ export default function Course({ course }) {
             <div className="container">
               <>
                 {" "}
-                <h2>Course Outline</h2>
+                <h2 className="h2">Course Outline</h2>
                 <BlockContent
                   blocks={course.courseOutline}
                   serializers={serializers}

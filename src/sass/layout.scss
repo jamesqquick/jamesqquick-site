@@ -1,14 +1,7 @@
 @import "variables";
 
 .layout {
-  margin-left: $navbar-width;
   min-height: 100vh;
   padding-top: 2rem;
   background-color: var(--white);
-}
-
-@media only screen and (max-width: 768px) {
-  .layout {
-    margin-left: 0;
-  }
 }

@@ -17,7 +17,7 @@ export default function talks({ data }) {
     <Layout>
       <SEO title="Speaking" keywords={[`conference talks`]} />
       <div className="container">
-        <h1 className="text-center title">Speaking</h1>
+        <h1 className="h1 text-center title">Speaking</h1>
         <hr className="title-underline" />
         <ContactBlurb header={blurbHeader} />
 

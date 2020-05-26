@@ -59,7 +59,7 @@ export default function ContactForm(props) {
 
   return (
     <>
-      {successMsg && <h2 className="text-center">{successMsg}</h2>}
+      {successMsg && <h2 className="h2 text-center">{successMsg}</h2>}
       {!successMsg && (
         <form onSubmit={handleSubmit}>
           <input

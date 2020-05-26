@@ -24,7 +24,7 @@ export default function Post({ post }) {
       <div className="container">
         <article className="post">
           <header className="header">
-            <h1 className="post--title">{post.title}</h1>
+            <h1 className="h1 post--title">{post.title}</h1>
             <p className="post--date">{post.publishedDate}</p>
 
             {post.coverImage && !post.youTubeVideoId && (
@@ -38,7 +38,7 @@ export default function Post({ post }) {
                 rel="noopener noreferrer"
                 target="_blank"
               >
-                <h2>Check it out!</h2>
+                <h2 className="h2">Check it out!</h2>
               </a>
             )}
 

@@ -22,7 +22,7 @@ export default function courses({ data }) {
         ]}
       />
       <div className="container">
-        <h1 className="title">Courses</h1>
+        <h1 className="h1 title">Courses</h1>
         <hr className="title-underline" />
 
         <p>
@@ -30,7 +30,7 @@ export default function courses({ data }) {
           got a passion for Web Development that I want to share with you!
         </p>
 
-        <h2>Learn Fullstack Web Development</h2>
+        <h2 className="h2">Learn Fullstack Web Development</h2>
         <p>Here's a few topics I can help you get better at.</p>
         <ul>
           <li>Frontend Development</li>
@@ -42,13 +42,17 @@ export default function courses({ data }) {
           <li>Career Development</li>
         </ul>
         <CardList cards={courses} />
-        <h2>Looking for Custom Content?</h2>
+        <h2 className="h2">Looking for Custom Content?</h2>
         <p>
           I often get requests to create custom content like individual courses,
-          one-off videos, articles, etc. If you're interested in something,{" "}
-          <Link to="/contact">contact me</Link> and include all of the necessary
-          details.
+          one-off videos, articles, etc. If you're interested in
+          something,contact me and include all of the necessary details.
         </p>
+        <div className="text-center mt-4">
+          <Link to="/contact" target="_blank" className="btn">
+            Contact Me!
+          </Link>
+        </div>
       </div>
     </Layout>
   );

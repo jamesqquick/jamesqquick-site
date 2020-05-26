@@ -20,7 +20,7 @@ export default function newsletter({ location }) {
         ]}
       />
       <div className="container">
-        <h1 className="title">Newsletter</h1>
+        <h1 className="h1 title">Newsletter</h1>
         <hr className="title-underline" />
         <p>
           Hi! I’m a fullstack Web Developer who is addicted to learning. I focus

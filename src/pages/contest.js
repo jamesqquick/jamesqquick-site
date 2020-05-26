@@ -6,7 +6,7 @@ export default function contest() {
     <Layout>
       <SEO title="Contest" keywords={[`contest`]} />
       <div className="container">
-        <h1 className="title">Contest</h1>
+        <h1 className=" h1 title">Contest</h1>
         <hr className="title-underline" />
         <p>Sorry, there are currently no contests going on</p>
         {/* <p>

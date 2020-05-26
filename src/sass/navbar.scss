@@ -1,129 +1,55 @@
 @import "../sass/variables.scss";
 
 .nav {
-  margin-top: 40px;
-  background-color: $primary-dark;
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  width: $navbar-width;
-  height: calc(100vh - 40px);
-  display: flex;
-  flex-direction: column;
   padding: 40px 20px;
-  justify-content: space-between;
-  color: $off-white;
-
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   .nav-brand {
-    text-align: center;
+    margin: 0 auto;
+    font-size: 2.4rem;
+    font-weight: 500;
+    text-decoration: none;
+    margin-bottom: 2rem;
+    color: var(--black);
 
-    img {
-      height: 120px;
-      width: 120px;
-      display: block;
-      margin: 0 auto 2rem auto;
-      border-radius: 100%;
-    }
-    a {
-      color: $off-white;
-      font-size: 1.8rem;
-      font-weight: 500;
-      text-decoration: none;
+    &:hover {
+      color: var(--black);
+      border-bottom: none;
     }
   }
 
   .nav-items {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-auto-columns: auto;
+    grid-auto-flow: column;
+    grid-gap: 2.5rem;
     padding-inline-start: 0;
-    justify-content: center;
-    margin-left: 1rem;
+  }
 
-    a {
-      color: $off-white;
-      margin-bottom: 2rem;
-      text-decoration: none;
+  .nav-item {
+    text-decoration: none;
+    font-size: 1.6rem;
+    color: var(--black);
+    border-bottom: 4px solid rgba(0, 0, 0, 0);
+    text-transform: uppercase;
+    &:hover {
+      border-bottom: 4px solid var(--brand);
+      color: var(--black);
     }
-    a:hover {
-      text-decoration: underline;
-    }
-  }
-
-  hr {
-    border-color: $off-white;
-    margin: 20px 0 5px 0;
-    width: 100%;
-  }
-
-  .footer .btn {
-    width: 100%;
   }
 }
 
-.hamburgerBtn {
-  display: none;
-  background-color: transparent;
-  border: none;
-}
-
-.hamburgerBtn:hover {
-  cursor: pointer;
-}
-
-@media only screen and (max-width: 768px) {
+@media (max-width: 786px) {
   .nav {
-    transform: translateX(-100vw);
-    transition: transform 500ms;
-
-    .nav-brand {
-      .nav-brand-img {
-        display: none !important;
-      }
-
-      .nav-brand-link {
-        font-size: 2.4rem;
-      }
-    }
-
     .nav-items {
-      align-items: center;
-
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
       .nav-item {
-        display: block;
-        margin-bottom: 1rem;
-
-        & > a {
-          font-size: 1.8rem;
-        }
+        margin-right: 2rem;
+        margin-bottom: 0.5rem;
       }
     }
-  }
-
-  .hamburgerBtn,
-  .closeBtn {
-    position: fixed;
-    top: 10rem;
-    right: 2rem;
-    display: inline-block;
-    z-index: 100;
-    background-color: transparent;
-    border: none;
-  }
-
-  .closeBtn > svg {
-    color: $off-white;
-  }
-
-  .nav.open {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    opacity: 0.98;
-    width: 100%;
-    z-index: 10;
-    transform: translateX(0);
-    padding-top: 10rem;
   }
 }

@@ -40,7 +40,7 @@ export default function NewsletterForm({ giveaway = "DEFAULT", subscribe }) {
   };
   return (
     <>
-      {successMsg && <h2 className="text-center">{successMsg}</h2>}
+      {successMsg && <h2 className="h2 text-center">{successMsg}</h2>}
       {!successMsg && (
         <form className="form" onSubmit={handleSubmit}>
           <label className="label" htmlFor="email">

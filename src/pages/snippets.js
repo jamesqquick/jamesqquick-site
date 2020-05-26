@@ -19,7 +19,7 @@ export default function snippets({ data }) {
       />
       <div className="container">
         <div className="post">
-          <h1 className="title">Snippets</h1>
+          <h1 className="h1 title">Snippets</h1>
           <hr className="title-underline" />
           <p>Here are some helpful snippets I use in Visual Studio Code</p>
           <div dangerouslySetInnerHTML={{ __html: content }} />

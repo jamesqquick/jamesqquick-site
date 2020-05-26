@@ -6,6 +6,7 @@ import Navbar from "./Navbar";
 import "../sass/layout.scss";
 import { useStaticQuery, graphql } from "gatsby";
 import PromotionalBanner from "./PromotionalBanner";
+import Footer from "./Footer";
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -20,10 +21,10 @@ const Layout = ({ children }) => {
 
   return (
     <div className="layout">
-      <PromotionalBanner />
+      {/* <PromotionalBanner /> */}
       <Navbar siteTitle={data.site.siteMetadata.title} />
       {children}
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };
