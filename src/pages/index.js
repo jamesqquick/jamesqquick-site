@@ -30,7 +30,7 @@ const IndexPage = ({ data }) => {
           `James Q Quick`,
         ]}
       />
-      <header className="header header-lg">
+      <header className="header ">
         <h1 className="h1 title text-center">
           James <span className="accent">Q</span> Quick
         </h1>
