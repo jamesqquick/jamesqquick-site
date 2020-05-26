@@ -36,13 +36,12 @@ export default function Course({ course }) {
             <BlockContent
               blocks={course.courseOverview}
               serializers={serializers}
-              className="mb-8"
             />
 
             {course.published && course.fullCost && (
               <>
-                <div className="text-center mt-4">
-                  <a href="#courseBuy" className="btn">
+                <div className="text-center ">
+                  <a href="#courseBuy" className="btn mt-4">
                     Buy the Course
                   </a>
                 </div>
@@ -95,6 +94,7 @@ export default function Course({ course }) {
         )}
         {course.published && (
           <section className="section" id="courseBuy">
+            <hr />
             <CourseBuyCard course={course} />
           </section>
         )}
