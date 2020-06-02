@@ -2,7 +2,7 @@ import React from "react";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 import { graphql } from "gatsby";
-import Post from "../components/Post";
+import Stream from "../components/Stream";
 
 export default function talk({ data }) {
   const stream = {
@@ -23,7 +23,7 @@ export default function talk({ data }) {
         description={stream.excerpt}
         image={coverImageUrl}
       />
-      <Post post={stream} />
+      <Stream post={stream} />
     </Layout>
   );
 }
@@ -44,6 +44,17 @@ export const pageQuery = graphql`
       body
       _id
       videoLink
+      topic
+      guestName
+      guestTitle
+      guestBio: _rawGuestBio(resolveReferences: { maxDepth: 10 })
+      guestImage {
+        asset {
+          fluid(maxWidth: 700) {
+            ...GatsbySanityImageFluid
+          }
+        }
+      }
       publishedDate(formatString: "MM/DD/YYYY")
       tags {
         title
