@@ -57,12 +57,12 @@
     margin: 3rem auto;
   }
 
-  pre {
+  .pre {
     font-size: 1.6rem;
-    padding: 1.5rem !important;
-    overflow: scroll;
-    background-color: #f4f4f4;
     margin: 4rem 0;
+    & > code {
+      background-color: inherit;
+    }
   }
 
   .post--links {
