@@ -49,7 +49,8 @@
     "react-livestream": "^1.0.2",
     "react-markdown": "^4.3.1",
     "react-scroll": "^1.7.12",
-    "react-share": "^3.0.1"
+    "react-share": "^3.0.1",
+    "react-syntax-highlighter": "^12.2.1"
   },
   "devDependencies": {
     "prettier": "^1.18.2"

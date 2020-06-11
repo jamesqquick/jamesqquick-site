@@ -29,12 +29,12 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
-          {
-            resolve: `gatsby-remark-vscode`,
-            options: {
-              colorTheme: "Solarized Light",
-            },
-          },
+          // {
+          //   resolve: `gatsby-remark-vscode`,
+          //   options: {
+          //     colorTheme: "Solarized Light",
+          //   },
+          // },
           {
             resolve: `gatsby-remark-images`,
             options: {

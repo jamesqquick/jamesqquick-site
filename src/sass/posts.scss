@@ -43,11 +43,11 @@
     }
   }
 
-  code:not([class]) {
-    background-color: $off-white;
-    padding: 1px 8px;
-    border-radius: 3px;
-  }
+  // code:not([class]) {
+  //   background-color: $off-white;
+  //   padding: 1px 8px;
+  //   border-radius: 3px;
+  // }
 
   img {
     width: 100%;
@@ -59,7 +59,7 @@
 
   pre {
     font-size: 1.6rem;
-    padding: 3rem 1rem;
+    padding: 1.5rem !important;
     overflow: scroll;
     background-color: #f4f4f4;
     margin: 4rem 0;
