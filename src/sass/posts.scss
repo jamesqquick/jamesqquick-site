@@ -43,11 +43,11 @@
     }
   }
 
-  // code:not([class]) {
-  //   background-color: $off-white;
-  //   padding: 1px 8px;
-  //   border-radius: 3px;
-  // }
+  code:not([class]) {
+    background-color: $off-white;
+    padding: 1px 8px;
+    border-radius: 3px;
+  }
 
   img {
     width: 100%;
