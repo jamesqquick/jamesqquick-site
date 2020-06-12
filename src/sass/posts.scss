@@ -57,11 +57,17 @@
     margin: 3rem auto;
   }
 
+  pre,
   .pre {
+    background-color: var(--light-grey);
+    padding: 1rem;
+    border-radius: 3px;
+    overflow: scroll;
     font-size: 1.6rem;
     margin: 4rem 0;
     & > code {
       background-color: inherit;
+      font-size: 1.6rem;
     }
   }
 
