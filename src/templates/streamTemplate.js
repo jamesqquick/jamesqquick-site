@@ -5,7 +5,6 @@ import { graphql } from "gatsby";
 import Stream from "../components/Stream";
 
 export default function talk({ data }) {
-  console.log(data.sanityStream);
   const stream = {
     ...data.sanityStream,
     slug: data.sanityStream.slug.current,

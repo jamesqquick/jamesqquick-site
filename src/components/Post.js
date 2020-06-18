@@ -8,7 +8,6 @@ const BlockContent = require("@sanity/block-content-to-react");
 
 export default function Post({ post }) {
   //parse all of the links to iterate through and display
-  console.log(post);
 
   const links = [];
   for (let key of Object.keys(post)) {

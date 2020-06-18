@@ -8,7 +8,6 @@ import CourseBuyCard from "./CourseBuyCard";
 const BlockContent = require("@sanity/block-content-to-react");
 
 export default function Course({ course }) {
-  console.log(course.published);
   return (
     <>
       <Share url={"www.jamesqquick.com/" + course.slug} title={course.title} />
