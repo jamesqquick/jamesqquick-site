@@ -38,6 +38,7 @@ export const pageQuery = graphql`
       slidesLink
       conference
       conferenceLink
+      youTubeVideoId
       codeLink
 
       publishedDate(formatString: "MM/DD/YYYY")
