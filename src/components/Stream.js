@@ -31,8 +31,8 @@ export default function Post({ post }) {
           <section className="section">
             <h2>
               {post.guestName} - {post.guestTitle}
-              <BlockContent blocks={post.guestBio} serializers={serializers} />
             </h2>
+            <BlockContent blocks={post.guestBio} serializers={serializers} />
           </section>
         )}
       </article>
