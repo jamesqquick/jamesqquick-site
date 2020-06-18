@@ -25,33 +25,7 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-json`,
     `gatsby-plugin-twitter`,
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: [
-          // {
-          //   resolve: `gatsby-remark-vscode`,
-          //   options: {
-          //     colorTheme: "Solarized Light",
-          //   },
-          // },
-          {
-            resolve: `gatsby-remark-images`,
-            options: {
-              maxWidth: 1000,
-            },
-          },
-          {
-            resolve: "gatsby-remark-embed-youtube",
-            options: {
-              width: 800,
-              height: 400,
-            },
-          },
-          `gatsby-remark-emoji`, // <-- this line adds emoji
-        ],
-      },
-    },
+
     {
       resolve: `gatsby-source-filesystem`,
       options: {

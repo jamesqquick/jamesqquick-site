@@ -72,7 +72,6 @@ export const query = graphql`
           current
         }
         body
-        videoLink
         _id
         excerpt
         coverImage {
