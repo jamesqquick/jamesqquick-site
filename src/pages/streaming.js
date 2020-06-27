@@ -11,6 +11,7 @@ export default function live({ data }) {
     ...node,
     slug: node.slug.current,
     tags: node.tags.map(tag => tag.title),
+    publishedDate: node.publishedDate.utc,
   }));
 
   const currentDate = new Date();
@@ -65,7 +66,7 @@ export default function live({ data }) {
 
 export const query = graphql`
   query {
-    allSanityStream(sort: { order: DESC, fields: [publishedDate] }) {
+    allSanityStream(sort: { order: DESC, fields: [publishedDate___utc] }) {
       nodes {
         title
         slug {
@@ -73,6 +74,9 @@ export const query = graphql`
         }
         body
         _id
+        publishedDate {
+          utc(formatString: "MM/DD/YYYY")
+        }
         excerpt
         coverImage {
           asset {
@@ -81,7 +85,6 @@ export const query = graphql`
             }
           }
         }
-        publishedDate(formatString: "MM/DD/YYYY")
         tags {
           title
         }

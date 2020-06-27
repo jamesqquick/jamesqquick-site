@@ -55,7 +55,9 @@ export const pageQuery = graphql`
           }
         }
       }
-      publishedDate(formatString: "MM/DD/YYYY")
+      publishedDate {
+        utc(formatString: "MM/DD/YYYY")
+      }
       tags {
         title
       }

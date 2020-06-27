@@ -55,7 +55,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const streamsResult = await graphql(
     `
       query {
-        allSanityStream(sort: { order: DESC, fields: publishedDate }) {
+        allSanityStream(sort: { order: DESC, fields: [publishedDate___utc] }) {
           nodes {
             _id
             slug {
