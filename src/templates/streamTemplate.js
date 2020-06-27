@@ -9,6 +9,7 @@ export default function talk({ data }) {
     ...data.sanityStream,
     slug: data.sanityStream.slug.current,
     tags: data.sanityStream.tags.map(tag => tag.title),
+    publishedDate: data.sanityStream.publishedDate.utc,
   };
   let coverImageUrl = undefined;
   if (stream.coverImage) {

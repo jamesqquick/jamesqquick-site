@@ -13,6 +13,7 @@ export default function live({ data }) {
     tags: node.tags.map(tag => tag.title),
     publishedDate: node.publishedDate.utc,
   }));
+  console.log(streams);
 
   const currentDate = new Date();
   currentDate.setDate(currentDate.getDate() - 1);
@@ -45,12 +46,12 @@ export default function live({ data }) {
           Design, Tools, People Skills, etc.
         </p>
 
-        <ReactLivestream
+        {/* <ReactLivestream
           platform="twitch"
           twitchClientId={process.env.GATSBY_TWITCH_CLIENT_ID}
           twitchUserName="jamesqquick"
           mixerChannelId={() => {}}
-        />
+        /> */}
       </header>
       <section className="section">
         <h2 className="h2">Upcoming Streams...</h2>
