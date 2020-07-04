@@ -29,9 +29,9 @@ export default function Navbar() {
         <Link className="nav-item" to="/newsletter">
           Newsletter
         </Link>
-        <Link className="nav-item" to="/uses">
+        {/* <Link className="nav-item" to="/uses">
           Uses
-        </Link>
+        </Link> */}
       </ul>
     </nav>
   );

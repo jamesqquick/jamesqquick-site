@@ -13,6 +13,7 @@ import {
   // faInstagram,
   faTwitch,
 } from "@fortawesome/free-brands-svg-icons";
+
 // import Img from "gatsby-image";
 
 const IndexPage = ({ data }) => {
@@ -60,7 +61,7 @@ const IndexPage = ({ data }) => {
           >
             <FontAwesomeIcon icon={faYoutube} />
           </a>
-          <span class="weight-regular">I Create Videos on </span>
+          <span className="weight-regular">I Create Videos on </span>
           <a
             href="https://www.youtube.com/jamesqquick"
             target="_blank"
@@ -119,6 +120,17 @@ const IndexPage = ({ data }) => {
           viewers while writing code. Come hang out with me in a live stream!
         </p>
       </section>
+      <section className="section">
+        <div className="text-center">
+          <p className="h3">
+            Interested updates, resources, and exclusive content?
+          </p>
+          <Link to="/newsletter" className="btn">
+            Newsletter
+          </Link>
+        </div>
+      </section>
+
       <section className="section">
         <h2 className="h2">Recent Posts</h2>
         <CardList cards={posts} />
