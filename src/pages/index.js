@@ -13,8 +13,7 @@ import {
   // faInstagram,
   faTwitch,
 } from "@fortawesome/free-brands-svg-icons";
-
-// import Img from "gatsby-image";
+import HeadshotWithText from "../components/HeadshotWithText";
 
 const IndexPage = ({ data }) => {
   let posts = data.allSanityPost.nodes.map(post => ({
@@ -33,7 +32,7 @@ const IndexPage = ({ data }) => {
           `James Q Quick`,
         ]}
       />
-      <header className="header ">
+      <header className="header">
         <h1 className="h1 title text-center">
           James <span className="accent">Q</span> Quick
         </h1>
@@ -41,15 +40,7 @@ const IndexPage = ({ data }) => {
         <h2 className="h2 subtitle text-center">
           Developer. Speaker. Teacher.
         </h2>
-        {/* <div className="text-center">
-          <Img fixed={data.file.childImageSharp.fixed} />
-        </div> */}
-        <p>
-          Hi, I’m James, a Fullstack Web Developer who is addicted to learning
-          and loves working with people. I live by the motto{" "}
-          <strong>Learn Build Teach</strong>, so I’m excited to share the things
-          I’ve learned with you!
-        </p>
+        <HeadshotWithText fixed={data.file.childImageSharp.fixed} />
       </header>
       <section className="section">
         <h2 className="h2">
@@ -61,7 +52,7 @@ const IndexPage = ({ data }) => {
           >
             <FontAwesomeIcon icon={faYoutube} />
           </a>
-          <span className="weight-regular">I Create Videos on </span>
+          <span className="weight-regular">I create videos on </span>
           <a
             href="https://www.youtube.com/jamesqquick"
             target="_blank"
@@ -82,7 +73,7 @@ const IndexPage = ({ data }) => {
           <Link to="/courses" className=" social-icon">
             <FontAwesomeIcon icon={faLaptopCode} />
           </Link>
-          <span className="weight-regular">I create free + premium </span>
+          <span className="weight-regular">I create awesome </span>
           <Link to="/courses" className="fancy-anchor">
             courses
           </Link>
@@ -143,7 +134,7 @@ export default IndexPage;
 
 export const query = graphql`
   query {
-    file(relativePath: { eq: "images/headshot-512.png" }) {
+    file(relativePath: { eq: "images/headshot.png" }) {
       childImageSharp {
         # Specify the image processing specifications right in the query.
         # Makes it trivial to update as your page's design changes.

@@ -1,13 +1,13 @@
 import React from "react";
-import Share from "./Share";
+// import Share from "./Share";
 import Img from "gatsby-image";
 import YouTube from "./YouTube";
 import serializers from "../serializers";
 import PodiaNewsletter from "./PodiaNewsletter";
 import CourseBuyCard from "./CourseBuyCard";
+import HeadshotWithText from "../components/HeadshotWithText";
 const BlockContent = require("@sanity/block-content-to-react");
-
-export default function Course({ course }) {
+export default function Course({ course, headshot }) {
   return (
     <>
       {/* <Share url={"www.jamesqquick.com/" + course.slug} title={course.title} /> */}
@@ -95,9 +95,11 @@ export default function Course({ course }) {
             />
           </section>
         )}
+        {/* <section className="section">
+          <HeadshotWithText fixed={headshot} />
+        </section> */}
         {course.published && (
           <section className="section" id="courseBuy">
-            <hr />
             <CourseBuyCard course={course} />
           </section>
         )}
