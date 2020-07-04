@@ -47,8 +47,8 @@ const IndexPage = ({ data }) => {
         <p>
           Hi, I’m James, a Fullstack Web Developer who is addicted to learning
           and loves working with people. I live by the motto{" "}
-          <strong>Learn. Build. Teach.</strong>, so I’m excited to share the
-          things I’ve learned with you!
+          <strong>Learn Build Teach</strong>, so I’m excited to share the things
+          I’ve learned with you!
         </p>
       </header>
       <section className="section">
@@ -82,7 +82,7 @@ const IndexPage = ({ data }) => {
           <Link to="/courses" className=" social-icon">
             <FontAwesomeIcon icon={faLaptopCode} />
           </Link>
-          <span class="weight-regular">I create free + premium </span>
+          <span className="weight-regular">I create free + premium </span>
           <Link to="/courses" className="fancy-anchor">
             courses
           </Link>
@@ -104,7 +104,7 @@ const IndexPage = ({ data }) => {
           >
             <FontAwesomeIcon icon={faTwitch} />
           </a>
-          <span class="weight-regular">I live stream on </span>
+          <span className="weight-regular">I live stream on </span>
           <a
             href="https://www.twitch.tv/jamesqquick"
             target="_blank"
