@@ -10,11 +10,11 @@ const BlockContent = require("@sanity/block-content-to-react");
 export default function Course({ course }) {
   return (
     <>
-      <Share url={"www.jamesqquick.com/" + course.slug} title={course.title} />
+      {/* <Share url={"www.jamesqquick.com/" + course.slug} title={course.title} /> */}
       <article className="post">
         <header className="header">
           <h1 className="h1 post--title">{course.title}</h1>
-          <p className="post--date">Released: {course.publishedDate}</p>
+          {/* <p className="post--date">Released: {course.publishedDate}</p> */}
 
           {course.coverImage && !course.youTubeVideoId && (
             <Img fluid={course.coverImage.asset.fluid} />
