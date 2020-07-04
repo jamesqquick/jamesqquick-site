@@ -1,13 +1,13 @@
 import React from "react";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
-import MailchimpNewlsetter from "../components/MailchimpNewlsetter";
+// import MailchimpNewlsetter from "../components/MailchimpNewlsetter";
 import PodiaNewsletter from "../components/PodiaNewsletter";
-const queryString = require("query-string");
+// const queryString = require("query-string");
 
-export default function newsletter({ location }) {
-  const queryParams = queryString.parse(location.search);
-  const giveaway = queryParams.giveaway || "DEFAULT";
+export default function newsletter() {
+  // const queryParams = queryString.parse(location.search);
+  // const giveaway = queryParams.giveaway || "DEFAULT";
 
   return (
     <Layout>

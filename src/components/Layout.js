@@ -5,7 +5,7 @@ import Navbar from "./Navbar";
 
 import "../sass/layout.scss";
 import { useStaticQuery, graphql } from "gatsby";
-import PromotionalBanner from "./PromotionalBanner";
+// import PromotionalBanner from "./PromotionalBanner";
 import Footer from "./Footer";
 
 const Layout = ({ children }) => {

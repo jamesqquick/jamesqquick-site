@@ -48,7 +48,11 @@ export default function Course({ course }) {
             )}
             {course.externalLink && !course.newsletterSignupURL && (
               <div className="text-center mt-4">
-                <a href={course.externalLink} target="_blank">
+                <a
+                  href={course.externalLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <button className="btn">Start Learning!</button>
                 </a>
               </div>

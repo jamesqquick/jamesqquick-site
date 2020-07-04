@@ -4,7 +4,7 @@ import SEO from "../components/SEO";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTwitch } from "@fortawesome/free-brands-svg-icons";
 import { graphql } from "gatsby";
-import ReactLivestream from "react-livestream";
+// import ReactLivestream from "react-livestream";
 import CardList from "../components/CardList";
 export default function live({ data }) {
   const streams = data.allSanityStream.nodes.map(node => ({

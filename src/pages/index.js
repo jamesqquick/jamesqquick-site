@@ -9,10 +9,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLaptopCode } from "@fortawesome/free-solid-svg-icons";
 import {
   faYoutube,
-  faTwitter,
-  faInstagram,
+  // faTwitter,
+  // faInstagram,
   faTwitch,
 } from "@fortawesome/free-brands-svg-icons";
+// import Img from "gatsby-image";
+
 const IndexPage = ({ data }) => {
   let posts = data.allSanityPost.nodes.map(post => ({
     ...post,
@@ -38,6 +40,9 @@ const IndexPage = ({ data }) => {
         <h2 className="h2 subtitle text-center">
           Developer. Speaker. Teacher.
         </h2>
+        {/* <div className="text-center">
+          <Img fixed={data.file.childImageSharp.fixed} />
+        </div> */}
         <p>
           Hi, I’m James, a Fullstack Web Developer who is addicted to learning
           and loves working with people. I live by the motto{" "}
@@ -55,7 +60,7 @@ const IndexPage = ({ data }) => {
           >
             <FontAwesomeIcon icon={faYoutube} />
           </a>
-          <span>I Create Videos on </span>
+          <span class="weight-regular">I Create Videos on </span>
           <a
             href="https://www.youtube.com/jamesqquick"
             target="_blank"
@@ -76,7 +81,7 @@ const IndexPage = ({ data }) => {
           <Link to="/courses" className=" social-icon">
             <FontAwesomeIcon icon={faLaptopCode} />
           </Link>
-          <span>I create free + premium </span>
+          <span class="weight-regular">I create free + premium </span>
           <Link to="/courses" className="fancy-anchor">
             courses
           </Link>
@@ -98,7 +103,7 @@ const IndexPage = ({ data }) => {
           >
             <FontAwesomeIcon icon={faTwitch} />
           </a>
-          <span>I live stream on </span>
+          <span class="weight-regular">I live stream on </span>
           <a
             href="https://www.twitch.tv/jamesqquick"
             target="_blank"
@@ -126,6 +131,15 @@ export default IndexPage;
 
 export const query = graphql`
   query {
+    file(relativePath: { eq: "images/headshot-512.png" }) {
+      childImageSharp {
+        # Specify the image processing specifications right in the query.
+        # Makes it trivial to update as your page's design changes.
+        fixed(width: 256, height: 256) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
     allSanityPost(sort: { order: DESC, fields: [publishedDate] }, limit: 5) {
       nodes {
         title
