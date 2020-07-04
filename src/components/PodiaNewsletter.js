@@ -1,6 +1,7 @@
 import React from "react";
 
-export default function PodiaNewsletter({ url }) {
+export default function PodiaNewsletter({ newsletterId }) {
+  const url = `https://learn.jamesqquick.com//email_lists/${newsletterId}/subscriptions`;
   return (
     <form action={url} acceptCharset="UTF-8" method="post">
       <input name="utf8" type="hidden" value="✓" />
