@@ -10,6 +10,7 @@ export default function talk({ data }) {
     slug: data.sanityStream.slug.current,
     publishedDate: data.sanityStream.publishedDate.local,
     tags: data.sanityStream.tags.map(tag => tag.title),
+    publishedDate: data.sanityStream.publishedDate.utc,
   };
   let coverImageUrl = undefined;
   if (stream.coverImage) {

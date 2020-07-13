@@ -1,21 +1,20 @@
 import React from "react";
-import Share from "./Share";
+// import Share from "./Share";
 import Img from "gatsby-image";
 import YouTube from "./YouTube";
 import serializers from "../serializers";
 import PodiaNewsletter from "./PodiaNewsletter";
 import CourseBuyCard from "./CourseBuyCard";
+import HeadshotWithText from "../components/HeadshotWithText";
 const BlockContent = require("@sanity/block-content-to-react");
-
-export default function Course({ course }) {
-  console.log(course.published);
+export default function Course({ course, headshot }) {
   return (
     <>
-      <Share url={"www.jamesqquick.com/" + course.slug} title={course.title} />
+      {/* <Share url={"www.jamesqquick.com/" + course.slug} title={course.title} /> */}
       <article className="post">
         <header className="header">
           <h1 className="h1 post--title">{course.title}</h1>
-          <p className="post--date">Released: {course.publishedDate}</p>
+          {/* <p className="post--date">Released: {course.publishedDate}</p> */}
 
           {course.coverImage && !course.youTubeVideoId && (
             <Img fluid={course.coverImage.asset.fluid} />
@@ -49,7 +48,11 @@ export default function Course({ course }) {
             )}
             {course.externalLink && !course.newsletterSignupURL && (
               <div className="text-center mt-4">
-                <a href={course.externalLink} target="_blank">
+                <a
+                  href={course.externalLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <button className="btn">Start Learning!</button>
                 </a>
               </div>
@@ -92,9 +95,11 @@ export default function Course({ course }) {
             />
           </section>
         )}
+        {/* <section className="section">
+          <HeadshotWithText fixed={headshot} />
+        </section> */}
         {course.published && (
           <section className="section" id="courseBuy">
-            <hr />
             <CourseBuyCard course={course} />
           </section>
         )}

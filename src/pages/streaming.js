@@ -13,7 +13,9 @@ export default function live({ data }) {
     publishedDate: node.publishedDate.utc,
     slug: prefixPath("streaming", node.slug.current),
     tags: node.tags.map(tag => tag.title),
+    publishedDate: node.publishedDate.utc,
   }));
+  console.log(streams);
 
   const currentDate = new Date();
   currentDate.setDate(currentDate.getDate() - 1);
@@ -70,6 +72,9 @@ export const query = graphql`
         }
         body
         _id
+        publishedDate {
+          utc(formatString: "MM/DD/YYYY")
+        }
         excerpt
         coverImage {
           asset {

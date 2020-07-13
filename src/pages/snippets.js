@@ -1,9 +1,10 @@
 import React from "react";
-import Layout from "../components/Layout";
-import SEO from "../components/SEO";
-import { graphql } from "gatsby";
+// import Layout from "../components/Layout";
+// import SEO from "../components/SEO";
+// import { graphql } from "gatsby";
 
 export default function snippets({ data }) {
+  return <h1>Snippets</h1>;
   // const content = data.allMarkdownRemark.edges[0].node.html;
   // return (
   //   <Layout>

@@ -10,9 +10,6 @@ export default function Navbar() {
       </Link>
 
       <ul className="nav-items">
-        <Link className="nav-item" to="/courses">
-          Courses
-        </Link>
         <Link className="nav-item" to="/blog">
           Blog
         </Link>
@@ -23,15 +20,18 @@ export default function Navbar() {
         <Link className="nav-item" to="/speaking">
           Speaking
         </Link>
+        <Link className="nav-item" to="/courses">
+          Courses
+        </Link>
         <Link className="nav-item" to="/contact">
           Contact
         </Link>
         <Link className="nav-item" to="/newsletter">
           Newsletter
         </Link>
-        <Link className="nav-item" to="/uses">
+        {/* <Link className="nav-item" to="/uses">
           Uses
-        </Link>
+        </Link> */}
       </ul>
     </nav>
   );

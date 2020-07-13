@@ -30,11 +30,22 @@
     text-decoration: none;
     font-size: 1.6rem;
     color: var(--black);
-    border-bottom: 4px solid rgba(0, 0, 0, 0);
+    padding-bottom: 4px;
+    border: none;
     text-transform: uppercase;
     &:hover {
-      border-bottom: 4px solid var(--brand);
       color: var(--black);
+      &:after {
+        width: 100%;
+      }
+    }
+
+    &:after {
+      content: "";
+      display: block;
+      width: 0;
+      border-bottom: 4px solid var(--brand);
+      transition: 0.25s;
     }
   }
 }

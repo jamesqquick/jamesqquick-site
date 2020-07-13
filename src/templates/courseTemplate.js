@@ -24,7 +24,7 @@ function CourseTemplate({ data }) {
         image={coverImageUrl}
       />
 
-      <Course course={course} />
+      <Course course={course} headshot={data.file.childImageSharp.fixed} />
     </Layout>
   );
 }
@@ -37,6 +37,15 @@ export const pageQuery = graphql`
       siteMetadata {
         title
         siteUrl
+      }
+    }
+    file(relativePath: { eq: "images/headshot.png" }) {
+      childImageSharp {
+        # Specify the image processing specifications right in the query.
+        # Makes it trivial to update as your page's design changes.
+        fixed(width: 256, height: 256) {
+          ...GatsbyImageSharpFixed
+        }
       }
     }
     sanityCourse(_id: { eq: $id }) {
