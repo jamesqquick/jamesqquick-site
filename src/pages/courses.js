@@ -3,11 +3,12 @@ import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 import { Link, graphql } from "gatsby";
 import CardList from "../components/CardList";
+import prefixPath from "../utils/prefixPath";
 
 export default function courses({ data }) {
   const courses = data.allSanityCourse.nodes.map(node => ({
     ...node,
-    slug: node.slug.current,
+    slug: prefixPath("courses", node.slug.current),
     tags: node.tags.map(tag => tag.title),
   }));
   return (

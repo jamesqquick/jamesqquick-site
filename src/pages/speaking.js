@@ -4,12 +4,14 @@ import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 import ContactBlurb from "../components/ContactBlurb";
 import CardList from "../components/CardList";
+import prefixPath from "../utils/prefixPath";
+
 export default function talks({ data }) {
   const blurbHeader = "Intersted in me speaking at your event?";
 
   const talks = data.allSanityTalk.nodes.map(node => ({
     ...node,
-    slug: node.slug.current,
+    slug: prefixPath("speaking", node.slug.current),
     tags: node.tags.map(tag => tag.title),
     title: `${node.title} (${node.conference})`,
   }));

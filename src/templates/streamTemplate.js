@@ -5,10 +5,10 @@ import { graphql } from "gatsby";
 import Stream from "../components/Stream";
 
 export default function talk({ data }) {
-  console.log(data.sanityStream);
   const stream = {
     ...data.sanityStream,
     slug: data.sanityStream.slug.current,
+    publishedDate: data.sanityStream.publishedDate.local,
     tags: data.sanityStream.tags.map(tag => tag.title),
   };
   let coverImageUrl = undefined;
@@ -56,7 +56,9 @@ export const pageQuery = graphql`
           }
         }
       }
-      publishedDate(formatString: "MM/DD/YYYY")
+      publishedDate {
+        local(formatString: "MM/DD/YYYY")
+      }
       tags {
         title
       }

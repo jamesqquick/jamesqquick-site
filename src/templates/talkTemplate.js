@@ -34,12 +34,11 @@ export const pageQuery = graphql`
       }
       body
       _id
-      videoLink
       slidesLink
       conference
       conferenceLink
       codeLink
-
+      youTubeVideoId
       publishedDate(formatString: "MM/DD/YYYY")
       tags {
         title

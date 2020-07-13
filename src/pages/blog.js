@@ -3,10 +3,12 @@ import SEO from "../components/SEO";
 import Layout from "../components/Layout";
 import { graphql } from "gatsby";
 import CardList from "../components/CardList";
+import prefixPath from "../utils/prefixPath";
+
 export default function blog({ data, location }) {
   let posts = data.allSanityPost.nodes.map(post => ({
     ...post,
-    slug: post.slug.current,
+    slug: prefixPath("blog", post.slug.current),
     tags: post.tags.map(tag => tag.title),
   }));
 

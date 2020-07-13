@@ -1,7 +1,6 @@
 const path = require("path");
 const { createFilePath } = require("gatsby-source-filesystem");
-const moment = require("moment");
-
+const prefixPath = require("./src/utils/prefixPath");
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
   if (node.internal.type === `MarkdownRemark`) {
@@ -42,7 +41,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   courses.forEach(course => {
     createPage({
-      path: course.slug.current,
+      path: prefixPath("courses", course.slug.current),
       component: coursePage,
       context: {
         id: course._id,
@@ -55,7 +54,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const streamsResult = await graphql(
     `
       query {
-        allSanityStream(sort: { order: DESC, fields: publishedDate }) {
+        allSanityStream(sort: { order: DESC, fields: publishedDate___utc }) {
           nodes {
             _id
             slug {
@@ -75,7 +74,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   streams.forEach(stream => {
     createPage({
-      path: stream.slug.current,
+      path: prefixPath("streaming", stream.slug.current),
       component: streamPage,
       context: {
         id: stream._id,
@@ -108,7 +107,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   talks.forEach(talk => {
     createPage({
-      path: talk.slug.current,
+      path: prefixPath("speaking", talk.slug.current),
       component: talkPage,
       context: {
         id: talk._id,
@@ -139,9 +138,9 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const posts = postsResult.data.allSanityPost.nodes;
 
-  posts.forEach((post, index) => {
+  posts.forEach(post => {
     createPage({
-      path: post.slug.current,
+      path: prefixPath("blog", post.slug.current),
       component: blogPost,
       context: {
         id: post._id,

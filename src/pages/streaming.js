@@ -4,12 +4,14 @@ import SEO from "../components/SEO";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTwitch } from "@fortawesome/free-brands-svg-icons";
 import { graphql } from "gatsby";
-import ReactLivestream from "react-livestream";
 import CardList from "../components/CardList";
+import prefixPath from "../utils/prefixPath";
+
 export default function live({ data }) {
   const streams = data.allSanityStream.nodes.map(node => ({
     ...node,
-    slug: node.slug.current,
+    publishedDate: node.publishedDate.utc,
+    slug: prefixPath("streaming", node.slug.current),
     tags: node.tags.map(tag => tag.title),
   }));
 
@@ -43,18 +45,13 @@ export default function live({ data }) {
           You can find me on Twitch where I will stream about Web Development,
           Design, Tools, People Skills, etc.
         </p>
-
-        <ReactLivestream
-          platform="twitch"
-          twitchClientId={process.env.GATSBY_TWITCH_CLIENT_ID}
-          twitchUserName="jamesqquick"
-          mixerChannelId={() => {}}
-        />
       </header>
-      <section className="section">
-        <h2 className="h2">Upcoming Streams...</h2>
-        <CardList cards={upcomingStreams} />
-      </section>
+      {upcomingStreams.length > 0 && (
+        <section className="section">
+          <h2 className="h2">Upcoming Streams...</h2>
+          <CardList cards={upcomingStreams} />
+        </section>
+      )}
       <section className="section">
         <h2 className="h2">Previous Streams...</h2>
         <CardList cards={previousStreams} />
@@ -65,7 +62,7 @@ export default function live({ data }) {
 
 export const query = graphql`
   query {
-    allSanityStream(sort: { order: DESC, fields: [publishedDate] }) {
+    allSanityStream(sort: { order: DESC, fields: publishedDate___utc }) {
       nodes {
         title
         slug {
@@ -81,7 +78,10 @@ export const query = graphql`
             }
           }
         }
-        publishedDate(formatString: "MM/DD/YYYY")
+        publishedDate {
+          utc(formatString: "MM/DD/YYYY")
+          local(formatString: "MM/DD/YYYY")
+        }
         tags {
           title
         }
