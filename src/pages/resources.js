@@ -11,8 +11,6 @@ export default function resources({ data }) {
     types.add(resource.type[0].title);
   }
   const typesArr = [...types];
-  console.log(typesArr);
-  console.log(resources);
   return (
     <Layout>
       <SEO
