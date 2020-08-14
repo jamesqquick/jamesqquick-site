@@ -114,7 +114,7 @@ const IndexPage = ({ data }) => {
       <section className="section">
         <div className="text-center">
           <p className="h3">
-            Interested updates, resources, and exclusive content?
+            Interested in updates, resources, and exclusive content?
           </p>
           <Link to="/newsletter" className="btn">
             Newsletter
