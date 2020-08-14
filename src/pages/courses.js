@@ -49,7 +49,7 @@ export default function courses({ data }) {
         <p>
           I often get requests to create custom content like individual courses,
           one-off videos, articles, etc. If you're interested in
-          something,contact me and include all of the necessary details.
+          something, contact me and include all of the necessary details.
         </p>
         <div className="text-center mt-4">
           <Link to="/contact" target="_blank" className="btn">
