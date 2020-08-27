@@ -15,23 +15,23 @@ export default function Navbar() {
         Developer. Speaker. Teacher.
       </h2>
       <ul className="nav-items">
-        <Link className="nav-item" to="/blog">
+        <Link className="nav-item" to="/blog" activeClassName="active">
           Blog
         </Link>
-        <Link className="nav-item" to="/streaming">
+        <Link className="nav-item" to="/streams" activeClassName="active">
           Streams
         </Link>
 
-        <Link className="nav-item" to="/speaking">
+        <Link className="nav-item" to="/talks" activeClassName="active">
           Talks
         </Link>
-        <Link className="nav-item" to="/courses">
+        <Link className="nav-item" to="/courses" activeClassName="active">
           Courses
         </Link>
-        <Link className="nav-item" to="/contact">
+        <Link className="nav-item" to="/contact" activeClassName="active">
           Contact
         </Link>
-        <Link className="nav-item" to="/newsletter">
+        <Link className="nav-item" to="/newsletter" activeClassName="active">
           Newsletter
         </Link>
         {/* <Link className="nav-item" to="/uses">

@@ -42,6 +42,13 @@
     padding-bottom: 4px;
     border: none;
     text-transform: uppercase;
+
+    &.active:after {
+      content: "";
+      display: block;
+      width: 100%;
+      border-bottom: 4px solid var(--brand);
+    }
     &:hover {
       color: var(--black);
       &:after {

@@ -77,7 +77,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   streams.forEach(stream => {
     createPage({
-      path: prefixPath("streaming", stream.slug.current),
+      path: prefixPath("streams", stream.slug.current),
       component: streamPage,
       context: {
         id: stream._id,
@@ -110,7 +110,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   talks.forEach(talk => {
     createPage({
-      path: prefixPath("speaking", talk.slug.current),
+      path: prefixPath("talks", talk.slug.current),
       component: talkPage,
       context: {
         id: talk._id,

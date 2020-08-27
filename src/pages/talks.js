@@ -11,7 +11,7 @@ export default function talks({ data }) {
 
   const talks = data.allSanityTalk.nodes.map(node => ({
     ...node,
-    slug: prefixPath("speaking", node.slug.current),
+    slug: prefixPath("talks", node.slug.current),
     tags: node.tags.map(tag => tag.title),
     title: `${node.title} (${node.conference})`,
   }));
