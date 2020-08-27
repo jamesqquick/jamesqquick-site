@@ -14,7 +14,6 @@ export default function live({ data }) {
     tags: node.tags.map(tag => tag.title),
     publishedDate: node.publishedDate.utc,
   }));
-  console.log(streams);
 
   const currentDate = new Date();
   currentDate.setDate(currentDate.getDate() - 1);

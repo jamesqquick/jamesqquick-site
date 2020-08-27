@@ -14,7 +14,6 @@ const IndexPage = props => {
     data,
     pathContext: { videos },
   } = props;
-  console.log(videos);
   const posts = data.allSanityPost.nodes.map(post => ({
     ...post,
     slug: post.slug.current,
