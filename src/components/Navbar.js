@@ -5,20 +5,25 @@ import { Link } from "gatsby";
 export default function Navbar() {
   return (
     <nav className="nav">
-      <Link to="/" className="nav-brand">
-        James <strong className="accent">Q</strong> Quick
-      </Link>
-
+      <h1 className="h1 nav-title text-center">
+        <Link to="/" className="nav-brand">
+          James <span className="accent">Q</span> Quick
+        </Link>
+      </h1>
+      {/* <hr className="title-underline" /> */}
+      <h2 className="h2 nav-subtitle text-center">
+        Developer. Speaker. Teacher.
+      </h2>
       <ul className="nav-items">
         <Link className="nav-item" to="/blog">
           Blog
         </Link>
         <Link className="nav-item" to="/streaming">
-          Streaming
+          Streams
         </Link>
 
         <Link className="nav-item" to="/speaking">
-          Speaking
+          Talks
         </Link>
         <Link className="nav-item" to="/courses">
           Courses

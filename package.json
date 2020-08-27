@@ -43,6 +43,7 @@
     "prop-types": "^15.7.2",
     "query-string": "^6.12.0",
     "react": "^16.8.6",
+    "react-awesome-reveal": "^3.0.0",
     "react-dom": "^16.8.6",
     "react-fontawesome": "^1.6.1",
     "react-helmet": "^5.2.1",

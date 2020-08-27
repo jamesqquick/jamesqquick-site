@@ -6,6 +6,12 @@
   margin: 0 auto;
 }
 
+@media (max-width: 786px) {
+  .container {
+    padding: 2rem 2rem;
+  }
+}
+
 .text-light {
   color: $off-white;
 }

@@ -5,7 +5,6 @@ import YouTube from "./YouTube";
 import serializers from "../serializers";
 import PodiaNewsletter from "./PodiaNewsletter";
 import CourseBuyCard from "./CourseBuyCard";
-import HeadshotWithText from "../components/HeadshotWithText";
 const BlockContent = require("@sanity/block-content-to-react");
 export default function Course({ course, headshot }) {
   return (
@@ -95,9 +94,7 @@ export default function Course({ course, headshot }) {
             />
           </section>
         )}
-        {/* <section className="section">
-          <HeadshotWithText fixed={headshot} />
-        </section> */}
+
         {course.published && (
           <section className="section" id="courseBuy">
             <CourseBuyCard course={course} />

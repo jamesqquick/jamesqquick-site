@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "gatsby";
+import { Link, graphql } from "gatsby";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
@@ -13,7 +13,9 @@ import {
   // faInstagram,
   faTwitch,
 } from "@fortawesome/free-brands-svg-icons";
-import HeadshotWithText from "../components/HeadshotWithText";
+import { Bounce } from "react-awesome-reveal";
+
+import Header from "../components/Header";
 
 const IndexPage = ({ data }) => {
   let posts = data.allSanityPost.nodes.map(post => ({
@@ -33,35 +35,22 @@ const IndexPage = ({ data }) => {
         ]}
       />
       <header className="header">
-        <h1 className="h1 title text-center">
-          James <span className="accent">Q</span> Quick
-        </h1>
-        {/* <hr className="title-underline" /> */}
-        <h2 className="h2 subtitle text-center">
-          Developer. Speaker. Teacher.
-        </h2>
-        <HeadshotWithText fixed={data.file.childImageSharp.fixed} />
+        <Header fixed={data.file.childImageSharp.fixed} />
       </header>
       <section className="section">
-        <h2 className="h2">
-          <a
-            href="https://www.youtube.com/c/jamesqquick"
-            className=" social-icon text-youtube"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FontAwesomeIcon icon={faYoutube} />
-          </a>
-          <span className="weight-regular">I create videos on </span>
-          <a
-            href="https://www.youtube.com/jamesqquick"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="fancy-anchor"
-          >
-            YouTube
-          </a>
-        </h2>
+        <Bounce triggerOnce={true}>
+          <h2 className="h2">
+            <span className="weight-regular">I make videos on </span>
+            <a
+              href="https://www.youtube.com/jamesqquick"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="fancy-anchor"
+            >
+              YOUTUBE
+            </a>
+          </h2>
+        </Bounce>
         <p>
           With hundreds of videos and over 10,000 subscribers, I've been
           creating YouTube videos for about 7 years. I create weekly videos on
@@ -69,15 +58,14 @@ const IndexPage = ({ data }) => {
         </p>
       </section>
       <section className="section">
-        <h2 className="h2">
-          <Link to="/courses" className=" social-icon">
-            <FontAwesomeIcon icon={faLaptopCode} />
-          </Link>
-          <span className="weight-regular">I create awesome </span>
-          <Link to="/courses" className="fancy-anchor">
-            courses
-          </Link>
-        </h2>
+        <Bounce triggerOnce={true}>
+          <h2 className="h2">
+            <span className="weight-regular">I create awesome </span>
+            <Link to="/courses" className="fancy-anchor">
+              COURSES
+            </Link>
+          </h2>
+        </Bounce>
         <p>
           Over the last couple of years, I've created courses on VS Code, Web
           Development basics, Node.js, React.js, and more. I love being able to
@@ -86,25 +74,19 @@ const IndexPage = ({ data }) => {
         </p>
       </section>
       <section className="section">
-        <h2 className="h2">
-          <a
-            href="https://www.twitch.tv/jamesqquick"
-            className="text-twitch social-icon"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FontAwesomeIcon icon={faTwitch} />
-          </a>
-          <span className="weight-regular">I live stream on </span>
-          <a
-            href="https://www.twitch.tv/jamesqquick"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="fancy-anchor"
-          >
-            Twitch
-          </a>
-        </h2>
+        <Bounce triggerOnce={true}>
+          <h2 className="h2">
+            <span className="weight-regular">I live stream on </span>
+            <a
+              href="https://www.twitch.tv/jamesqquick"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="fancy-anchor"
+            >
+              TWITCH
+            </a>
+          </h2>
+        </Bounce>
         <p>
           Live Streaming is the new hotness in the developer communitty, and
           I've definitely jumped on board. I love having live interaction with

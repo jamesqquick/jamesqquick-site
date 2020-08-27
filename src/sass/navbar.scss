@@ -6,8 +6,8 @@
   flex-direction: column;
   .nav-brand {
     margin: 0 auto;
-    font-size: 2.4rem;
-    font-weight: 500;
+    font-size: 4rem;
+    font-weight: 700;
     text-decoration: none;
     margin-bottom: 2rem;
     color: var(--black);
@@ -16,6 +16,15 @@
       color: var(--black);
       border-bottom: none;
     }
+  }
+
+  .nav-subtitle {
+    font-weight: 200;
+    margin-bottom: 1rem;
+    margin-top: -1rem;
+  }
+  .nav-title {
+    margin-bottom: 0;
   }
 
   .nav-items {
@@ -57,10 +66,25 @@
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
-      .nav-item {
-        margin-right: 2rem;
-        margin-bottom: 0.5rem;
-      }
+      grid-gap: 1rem;
+      justify-content: center;
+    }
+  }
+}
+
+@media (max-width: 460px) {
+  .nav {
+    .nav-title {
+      margin-bottom: 5px;
+      line-height: 4rem;
+    }
+
+    .nav-brand {
+      font-size: 2.4rem;
+      margin-bottom: 1rem;
+    }
+    .nav-subtitle {
+      font-size: 2rem;
     }
   }
 }

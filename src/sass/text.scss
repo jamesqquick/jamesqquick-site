@@ -62,9 +62,26 @@ strong {
 
 .fancy-anchor {
   border-bottom: 4px solid var(--brand);
-
+  position: relative;
+  margin: 0 5px;
+  &:after {
+    width: 0;
+    content: "";
+    z-index: -1;
+    transition: 250ms;
+  }
   &:hover {
-    border-bottom: 4px solid var(--brand);
+    color: var(--light-grey);
+    border: none;
+  }
+  &:hover:after {
+    display: block;
+    position: absolute;
+    top: 0;
+    width: calc(100% + 10px);
+    left: -5px;
+    bottom: 0;
+    background-color: var(--brand);
   }
 }
 
@@ -95,7 +112,7 @@ strong {
 @media (max-width: 786px) {
   .h1 {
     font-size: 3.2rem;
-    line-height: 4rem;
+    line-height: 6rem;
   }
 
   .h2 {
