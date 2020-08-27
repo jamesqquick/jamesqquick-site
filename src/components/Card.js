@@ -21,6 +21,7 @@ export default function Card({
         <p className="card--date">
           <small>{details}</small>
         </p>
+        <p>{description}</p>
         {children}
       </div>
     </Link>

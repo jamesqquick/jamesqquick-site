@@ -160,7 +160,6 @@ exports.createPages = async ({ graphql, actions }) => {
     const videos = await res.json();
     //const threeRecentVideos = [videos[0], videos[1], videos[2]];
     const threeRecentVideos = videos.slice(0, 3);
-    console.log(threeRecentVideos);
     createPage({
       path: "/",
       component: indexPage,

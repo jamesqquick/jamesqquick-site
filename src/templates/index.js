@@ -147,6 +147,13 @@ export const query = graphql`
         _id
         excerpt
         publishedDate(formatString: "MM/DD/YYYY")
+        coverImage {
+          asset {
+            fluid(maxWidth: 700) {
+              ...GatsbySanityImageFluid
+            }
+          }
+        }
         tags {
           title
         }

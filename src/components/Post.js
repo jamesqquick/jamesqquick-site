@@ -25,7 +25,7 @@ export default function Post({ post }) {
         <header className="header">
           <h1 className="h1 post--title">{post.title}</h1>
           <p className="post--date">{post.publishedDate}</p>
-
+          <p>{post.excerpt}</p>
           {post.coverImage && !post.youTubeVideoId && (
             <Img fluid={post.coverImage.asset.fluid} />
           )}
