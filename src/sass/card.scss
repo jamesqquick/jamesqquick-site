@@ -10,18 +10,12 @@
   align-items: center;
   text-decoration: none;
   transition: transform 350ms;
-  border-bottom: 1px solid var(--light-grey);
-  border-left: 4px solid rgba(0, 0, 0, 0);
-
-  // border-radius: 20px;
 
   &:hover {
     cursor: pointer;
-    // background-color: #f9f9f9;
     text-decoration: none;
-    border-left: 4px solid var(--light-grey);
-    transform: translateX(-2px);
-    border-bottom: 1px solid var(--light-grey);
+    transform: translateY(-2px);
+    border-bottom: none;
   }
 
   &:first-of-type {
@@ -46,8 +40,8 @@
   }
 
   .card--description {
-    margin-top: 5px;
-    font-size: 1.4rem;
+    margin-top: 0px;
+    margin-bottom: 5px;
   }
 }
 

@@ -10,7 +10,17 @@ export default function Card({
   children,
   isLinkLocal = true,
   coverImage,
+  imageOnly = false,
 }) {
+  if (imageOnly) {
+    return (
+      <Link to={link} className="img-card">
+        <Img className="card--img" fluid={coverImage.asset.fluid} />
+      </Link>
+    );
+  }
+
+  const shortDescription = description.substring(0, 100) + "...";
   return (
     <Link to={link} className="card">
       {coverImage && (
@@ -18,10 +28,10 @@ export default function Card({
       )}
       <div className="card--content">
         <h3 className="h3 card--title">{title}</h3>
+        <p className="card--description">{shortDescription}</p>
         <p className="card--date">
           <small>{details}</small>
         </p>
-        <p>{description}</p>
         {children}
       </div>
     </Link>
