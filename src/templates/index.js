@@ -14,7 +14,8 @@ const IndexPage = props => {
     data,
     pathContext: { videos },
   } = props;
-  let posts = data.allSanityPost.nodes.map(post => ({
+  console.log(videos);
+  const posts = data.allSanityPost.nodes.map(post => ({
     ...post,
     slug: post.slug.current,
     tags: post.tags.map(tag => tag.title),
@@ -46,7 +47,7 @@ const IndexPage = props => {
       </header>
       <section className="section">
         <h2 className="h2 flex flex-wrap">
-          <span className="weight-regular">I make videos on </span>
+          <span className="weight-regular">I do videos </span>
           <Bounce triggerOnce={true}>
             <a
               href="https://www.youtube.com/jamesqquick"
@@ -63,10 +64,22 @@ const IndexPage = props => {
           creating YouTube videos for about 7 years. I create weekly videos on
           Web Development.
         </p>
+        <div className="image-gallery">
+          {videos.map((video, i) => (
+            <a
+              key={i}
+              href={`https://www.youtube.com/watch?v=${video.videoId}`}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <img src={video.thumbnails.medium.url} />
+            </a>
+          ))}
+        </div>
       </section>
       <section className="section">
         <h2 className="h2 flex flex-wrap">
-          <span className="weight-regular">I create awesome </span>
+          <span className="weight-regular">I create </span>
           <Bounce triggerOnce={true}>
             <Link to="/courses" className="fancy-anchor">
               COURSES
@@ -82,7 +95,7 @@ const IndexPage = props => {
       </section>
       <section className="section">
         <h2 className="h2 flex flex-wrap">
-          <span className="weight-regular">I live stream on </span>
+          <span className="weight-regular">I live stream </span>
           <Bounce triggerOnce={true}>
             <a
               href="https://www.twitch.tv/jamesqquick"
@@ -101,14 +114,6 @@ const IndexPage = props => {
         </p>
         <CardList cards={streams} imageOnly={true} />
       </section>
-      {/* <section className="section">
-        <div className="text-center">
-          <p className="h3">Sign up for updates and exclusive content!</p>
-          <Link to="/newsletter" className="btn">
-            Newsletter
-          </Link>
-        </div>
-      </section> */}
 
       <section className="section">
         <h2 className="h2 flex flex-wrap">
