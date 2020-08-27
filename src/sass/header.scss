@@ -1,0 +1,21 @@
+.hero {
+  display: flex;
+  // margin: 5rem 0;
+
+  .headshot > .gatsby-image-wrapper {
+    border-radius: 100%;
+    margin-bottom: 2rem;
+    margin-left: 3rem;
+  }
+}
+
+@media (max-width: 786px) {
+  .hero {
+    display: block;
+    // text-align: center;
+    .headshot {
+      margin-right: 0;
+      display: none;
+    }
+  }
+}
