@@ -5,6 +5,8 @@ import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 import "../sass/hero.scss";
 import CardList from "../components/CardList";
+import prefixPath from "../utils/prefixPath";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLaptopCode } from "@fortawesome/free-solid-svg-icons";
 import {
@@ -17,11 +19,20 @@ import { Bounce } from "react-awesome-reveal";
 
 import Header from "../components/Header";
 
-const IndexPage = ({ data }) => {
+const IndexPage = props => {
+  const {
+    data,
+    pathContext: { videos },
+  } = props;
   let posts = data.allSanityPost.nodes.map(post => ({
     ...post,
     slug: post.slug.current,
     tags: post.tags.map(tag => tag.title),
+  }));
+  const courses = data.allSanityCourse.nodes.map(node => ({
+    ...node,
+    slug: prefixPath("courses", node.slug.current),
+    tags: node.tags.map(tag => tag.title),
   }));
   return (
     <Layout>
@@ -72,6 +83,7 @@ const IndexPage = ({ data }) => {
           put the things I've learned into a package for others to learn from.
           My goal is to put in the long hard hours so you don't have to!
         </p>
+        <CardList cards={courses} />
       </section>
       <section className="section">
         <Bounce triggerOnce={true}>
@@ -125,7 +137,7 @@ export const query = graphql`
         }
       }
     }
-    allSanityPost(sort: { order: DESC, fields: [publishedDate] }, limit: 5) {
+    allSanityPost(sort: { order: DESC, fields: [publishedDate] }, limit: 3) {
       nodes {
         title
         slug {
@@ -137,6 +149,28 @@ export const query = graphql`
         publishedDate(formatString: "MM/DD/YYYY")
         tags {
           title
+        }
+      }
+    }
+    allSanityCourse(limit: 3, sort: { order: DESC, fields: [publishedDate] }) {
+      nodes {
+        title
+        courseLink
+        slug {
+          current
+        }
+        _id
+        excerpt
+        publishedDate(formatString: "MM/DD/YYYY")
+        tags {
+          title
+        }
+        coverImage {
+          asset {
+            fluid(maxWidth: 700) {
+              ...GatsbySanityImageFluid
+            }
+          }
         }
       }
     }

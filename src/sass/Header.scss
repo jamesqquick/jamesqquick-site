@@ -1,4 +1,4 @@
-.header {
+.hero {
   display: flex;
   // margin: 5rem 0;
 
@@ -10,7 +10,7 @@
 }
 
 @media (max-width: 786px) {
-  .header {
+  .hero {
     display: block;
     // text-align: center;
     .headshot {

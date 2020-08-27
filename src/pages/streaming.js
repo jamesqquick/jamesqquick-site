@@ -10,7 +10,6 @@ import prefixPath from "../utils/prefixPath";
 export default function live({ data }) {
   const streams = data.allSanityStream.nodes.map(node => ({
     ...node,
-    publishedDate: node.publishedDate.utc,
     slug: prefixPath("streaming", node.slug.current),
     tags: node.tags.map(tag => tag.title),
     publishedDate: node.publishedDate.utc,

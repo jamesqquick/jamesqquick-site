@@ -4,7 +4,7 @@ import Img from "gatsby-image";
 import "../sass/header.scss";
 import SocialFollow from "./SocialFollow";
 const Header = ({ fixed }) => (
-  <div className="section header">
+  <div className="section hero">
     <div>
       <p className="h2">Hi, I'm James!</p>
       <p>
