@@ -12,16 +12,17 @@ import CardList from "../components/CardList";
 const IndexPage = props => {
   const {
     data,
-    pathContext: { videos },
+    pageContext: { videos },
   } = props;
   const posts = data.allSanityPost.nodes.map(post => ({
     ...post,
-    slug: post.slug.current,
+    slug: prefixPath("blog", post.slug.current),
+
     tags: post.tags.map(tag => tag.title),
   }));
   const streams = data.allSanityStream.nodes.map(node => ({
     ...node,
-    slug: prefixPath("streaming", node.slug.current),
+    slug: prefixPath("streams", node.slug.current),
     tags: node.tags.map(tag => tag.title),
     publishedDate: node.publishedDate.utc,
   }));
@@ -71,7 +72,7 @@ const IndexPage = props => {
               rel="noopener noreferrer"
               target="_blank"
             >
-              <img src={video.thumbnails.medium.url} />
+              <img src={video.thumbnails.medium.url} alt={video.title} />
             </a>
           ))}
         </div>
@@ -116,10 +117,10 @@ const IndexPage = props => {
 
       <section className="section">
         <h2 className="h2 flex flex-wrap">
-          <span className="weight-regular">I write on my </span>
+          <span className="weight-regular">I write </span>
           <Bounce triggerOnce={true}>
             <Link to="/blog" className="fancy-anchor">
-              BLOG
+              ARTICLES
             </Link>
           </Bounce>
         </h2>{" "}

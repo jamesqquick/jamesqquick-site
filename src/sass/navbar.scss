@@ -4,6 +4,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+
   .nav-brand {
     margin: 0 auto;
     font-size: 4rem;
@@ -70,11 +71,13 @@
   .nav {
     padding: 0;
     .nav-items {
-      display: flex;
-      flex-direction: row;
       flex-wrap: wrap;
-      grid-gap: 1rem;
+      display: flex;
+      grid-gap: 0rem;
       justify-content: center;
+      .nav-item {
+        margin: 0.5rem 1rem;
+      }
     }
   }
 }
