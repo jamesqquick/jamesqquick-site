@@ -15,6 +15,13 @@ export default function SocialFollow({ size, color, includeHandle = true }) {
     md: "2x",
     lg: "3x",
   };
+  const socials = ["youtube", "twitter", "instagram", "twitch"];
+  const socialToIconMap = {
+    youtube: { icon: faYoutube, link: "https://www.youtube.com/jamesqquick" },
+    twitter: { icon: faTwitter, link: "https://twitter.com/jamesqquick" },
+    instagram: { icon: faInstagram, link: "https://instagram.com/jamesqquick" },
+    twitch: { icon: faTwitch, link: "https://www.twitch.tv/jamesqquick" },
+  };
 
   return (
     <div className="social-follow">
@@ -24,53 +31,23 @@ export default function SocialFollow({ size, color, includeHandle = true }) {
         </p>
       )}
       <div className="flex">
-        <Fade triggerOnce={true}>
-          <a
-            href="https://www.youtube.com/c/jamesqquick"
-            className="youtube social"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FontAwesomeIcon icon={faYoutube} size={sizesMap[size]} />
-          </a>
-        </Fade>
-        <Fade triggerOnce={true} delay={100}>
-          <a
-            href="https://www.twitter.com/jamesqquick"
-            className="twitter social"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FontAwesomeIcon icon={faTwitter} size={sizesMap[size]} />
-          </a>
-        </Fade>
-        <Fade triggerOnce={true} delay={200}>
-          <a
-            href="https://www.instagram.com/jamesqquick"
-            className="instagram social"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FontAwesomeIcon icon={faInstagram} size={sizesMap[size]} />
-          </a>
-        </Fade>
-        <Fade triggerOnce={true} delay={300}>
-          <a
-            href="https://www.twitch.tv/jamesqquick"
-            className="twitch social"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FontAwesomeIcon icon={faTwitch} size={sizesMap[size]} />
-          </a>
-        </Fade>
-
-        {/* <a
-          href="https://www.linkedin.com/in/jamesqquick/"
-          className="linkedin social"
-        >
-          <FontAwesomeIcon icon={faLinkedin} size={sizesMap[size]} />
-        </a> */}
+        {socials.map((social, i) => (
+          <Fade triggerOnce={true}>
+            <a
+              href={socialToIconMap[social].link}
+              className={`${social} social`}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Link to ${social}`}
+            >
+              <FontAwesomeIcon
+                icon={socialToIconMap[social].icon}
+                size={sizesMap[size]}
+                aria-label={`Link to ${social}`}
+              />
+            </a>
+          </Fade>
+        ))}
       </div>
     </div>
   );

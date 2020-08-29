@@ -18,16 +18,9 @@ body {
   margin-top: 4rem;
 }
 
-.header-lg {
-  margin: 15vh 0;
-}
-
 @media (max-width: 786px) {
   .header {
     margin-top: 1rem;
-  }
-  .header-lg {
-    margin: 5vh 0;
   }
 }
 
@@ -84,4 +77,9 @@ hr {
 
 ul {
   text-align: left;
+}
+
+code {
+  max-width: 100%;
+  overflow: scroll;
 }
