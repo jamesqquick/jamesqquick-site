@@ -48,7 +48,6 @@ export const pageQuery = graphql`
       topic
       guestName
       guestTitle
-      guestBio: _rawGuestBio(resolveReferences: { maxDepth: 10 })
       guestImage {
         asset {
           fluid(maxWidth: 700) {
