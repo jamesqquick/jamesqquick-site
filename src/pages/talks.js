@@ -38,7 +38,7 @@ export const query = graphql`
         slug {
           current
         }
-        body
+        mainContent: _rawMainContent(resolveReferences: { maxDepth: 10 })
         videoLink
         slidesLink
         conferenceLink
@@ -48,6 +48,13 @@ export const query = graphql`
         publishedDate(formatString: "MM/DD/YYYY")
         tags {
           title
+        }
+        coverImage {
+          asset {
+            fluid(maxWidth: 700) {
+              ...GatsbySanityImageFluid
+            }
+          }
         }
       }
     }

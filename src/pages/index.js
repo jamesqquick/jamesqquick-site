@@ -10,16 +10,13 @@ import Header from "../components/Header";
 import CardList from "../components/CardList";
 
 const IndexPage = props => {
-  const {
-    data,
-    pageContext: { videos },
-  } = props;
+  const { data } = props;
   const posts = data.allSanityPost.nodes.map(post => ({
     ...post,
     slug: prefixPath("blog", post.slug.current),
-
     tags: post.tags.map(tag => tag.title),
   }));
+  const videos = data.allSanityYtVideo.nodes;
   const streams = data.allSanityStream.nodes.map(node => ({
     ...node,
     slug: prefixPath("streams", node.slug.current),
@@ -65,14 +62,14 @@ const IndexPage = props => {
           Web Development.
         </p>
         <div className="image-gallery">
-          {videos.map((video, i) => (
+          {videos.map(video => (
             <a
-              key={i}
-              href={`https://www.youtube.com/watch?v=${video.videoId}`}
+              key={video._id}
+              href={video.link}
               rel="noopener noreferrer"
               target="_blank"
             >
-              <img src={video.thumbnails.medium.url} alt={video.title} />
+              <img src={video.coverImage.asset.fluid.src} alt={video.title} />
             </a>
           ))}
         </div>
@@ -149,7 +146,6 @@ export const query = graphql`
         slug {
           current
         }
-        body
         _id
         excerpt
         publishedDate(formatString: "MM/DD/YYYY")
@@ -196,7 +192,6 @@ export const query = graphql`
         slug {
           current
         }
-        body
         _id
         publishedDate {
           utc(formatString: "MM/DD/YYYY")
@@ -215,6 +210,20 @@ export const query = graphql`
         }
         tags {
           title
+        }
+      }
+    }
+    allSanityYtVideo {
+      nodes {
+        title
+        _id
+        link
+        coverImage {
+          asset {
+            fluid(maxWidth: 700) {
+              ...GatsbySanityImageFluid
+            }
+          }
         }
       }
     }

@@ -150,24 +150,4 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     });
   });
-
-  try {
-    const res = await fetch(
-      "https://jqq-utils.netlify.app/.netlify/functions/recentYTVideos"
-    );
-    const indexPage = path.resolve("./src/templates/index.js");
-
-    const videos = await res.json();
-    //const threeRecentVideos = [videos[0], videos[1], videos[2]];
-    const threeRecentVideos = videos.slice(0, 3);
-    createPage({
-      path: "/",
-      component: indexPage,
-      context: {
-        videos: threeRecentVideos,
-      },
-    });
-  } catch (err) {
-    console.error(err);
-  }
 };

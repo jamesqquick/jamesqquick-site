@@ -47,7 +47,6 @@ export const pageQuery = graphql`
         current
       }
       excerpt
-      body
       _id
       youTubeVideoId
       publishedDate(formatString: "MM/DD/YYYY")

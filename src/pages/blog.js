@@ -33,7 +33,6 @@ export const query = graphql`
         slug {
           current
         }
-        body
         _id
         excerpt
         publishedDate(formatString: "MM/DD/YYYY")

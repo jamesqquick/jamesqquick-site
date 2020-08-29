@@ -32,7 +32,7 @@ export default function SocialFollow({ size, color, includeHandle = true }) {
       )}
       <div className="flex">
         {socials.map((social, i) => (
-          <Fade triggerOnce={true}>
+          <Fade triggerOnce={true} key={i}>
             <a
               href={socialToIconMap[social].link}
               className={`${social} social`}

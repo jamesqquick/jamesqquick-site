@@ -2,7 +2,7 @@ import React from "react";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 import { graphql } from "gatsby";
-import Stream from "../components/Stream";
+import Post from "../components/Post";
 
 export default function talk({ data }) {
   const stream = {
@@ -24,7 +24,7 @@ export default function talk({ data }) {
         description={stream.excerpt}
         image={coverImageUrl}
       />
-      <Stream post={stream} />
+      <Post post={stream} />
     </Layout>
   );
 }
@@ -42,7 +42,7 @@ export const pageQuery = graphql`
       slug {
         current
       }
-      body
+      mainContent: _rawMainContent(resolveReferences: { maxDepth: 10 })
       _id
       youTubeVideoId
       topic
