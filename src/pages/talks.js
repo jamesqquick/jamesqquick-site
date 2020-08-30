@@ -39,9 +39,6 @@ export const query = graphql`
           current
         }
         mainContent: _rawMainContent(resolveReferences: { maxDepth: 10 })
-        videoLink
-        slidesLink
-        conferenceLink
         conference
         _id
         excerpt

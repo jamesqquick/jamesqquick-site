@@ -2,7 +2,7 @@ import React from "react";
 import Share from "./Share";
 import Img from "gatsby-image";
 import YouTube from "./YouTube";
-import serializers from "../serializers";
+import serializers from "../serializers/serializers";
 const BlockContent = require("@sanity/block-content-to-react");
 
 export default function Post({ post, children }) {

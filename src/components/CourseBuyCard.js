@@ -1,5 +1,5 @@
 import React from "react";
-import serializers from "../serializers";
+import serializers from "../serializers/serializers";
 import "../sass/buttonCard.scss";
 const BlockContent = require("@sanity/block-content-to-react");
 export default function CourseBuyCard({ course }) {

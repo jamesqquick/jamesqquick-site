@@ -3,6 +3,7 @@ import Img from "gatsby-image";
 import { getFluidGatsbyImage } from "gatsby-source-sanity";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import iconLinksList from "./iconLinksList.js";
 
 const sanityConfig = { projectId: "rx426fbd", dataset: "production" };
 
@@ -25,5 +26,7 @@ export default {
       );
       return <Img fluid={fluidProps} />;
     },
+    iconLinksList,
+    iconLink: props => null,
   },
 };

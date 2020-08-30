@@ -55,11 +55,7 @@ export const pageQuery = graphql`
       }
       mainContent: _rawMainContent(resolveReferences: { maxDepth: 10 })
       _id
-      slidesLink
       conference
-      conferenceLink
-      youTubeVideoId
-      codeLink
       youTubeVideoId
       publishedDate(formatString: "MM/DD/YYYY")
       tags {

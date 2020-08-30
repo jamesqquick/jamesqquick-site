@@ -2,7 +2,7 @@ import React from "react";
 // import Share from "./Share";
 import Img from "gatsby-image";
 import YouTube from "./YouTube";
-import serializers from "../serializers";
+import serializers from "../serializers/serializers";
 import PodiaNewsletter from "./PodiaNewsletter";
 import CourseBuyCard from "./CourseBuyCard";
 const BlockContent = require("@sanity/block-content-to-react");
