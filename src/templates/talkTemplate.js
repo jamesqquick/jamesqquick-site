@@ -11,31 +11,11 @@ export default function talk({ data }) {
     slug: prefixPath("talks", data.sanityTalk.slug.current),
     tags: data.sanityTalk.tags.map(tag => tag.title),
   };
-  const links = [];
-  for (let key of Object.keys(talk)) {
-    if (talk[key] && key.includes("Link") && !key.includes("external")) {
-      const index = key.indexOf("Link");
-      const linkText = key.substring(0, index);
-      links.push({ text: linkText, target: talk[key] });
-    }
-  }
+
   return (
     <Layout>
       <SEO title={talk.title} keywords={[``]} />
-      <Post post={talk}>
-        {links.length > 0 &&
-          links.map((link, index) => (
-            <a
-              className="post--link"
-              href={link.target}
-              target="_blank"
-              rel="noopener noreferrer"
-              key={index}
-            >
-              {link.text}
-            </a>
-          ))}
-      </Post>
+      <Post post={talk} />
     </Layout>
   );
 }
