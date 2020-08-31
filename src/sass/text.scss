@@ -64,6 +64,7 @@ strong {
   border-bottom: 4px solid var(--brand);
   position: relative;
   margin: 0 10px;
+  font-size: inherit;
   &:after {
     width: 0;
     content: "";
