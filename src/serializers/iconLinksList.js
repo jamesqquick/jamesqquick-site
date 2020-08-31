@@ -13,7 +13,6 @@ export default ({ node: { links } }) => {
     code: faCode,
     video: faVideo,
   };
-  console.log(links);
   return (
     <div>
       {links &&

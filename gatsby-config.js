@@ -123,6 +123,8 @@ module.exports = {
                                   h("img", {
                                     src: imageUrlFor(node.asset).url(),
                                   }),
+                                iconLinksList: props => null,
+                                iconLink: props => null,
                               },
                             },
                           }),
@@ -140,7 +142,7 @@ module.exports = {
                     excerpt
                     mainContent: _rawMainContent(resolveReferences: { maxDepth: 10 })                    
                     title
-                    publishedDate
+                    publishedDate                
                     slug {
                       current
                     }
