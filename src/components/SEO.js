@@ -10,7 +10,15 @@ import PropTypes from "prop-types";
 import Helmet from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 
-function SEO({ description, lang, meta, title, type = `website`, image }) {
+function SEO({
+  description,
+  lang,
+  meta,
+  title,
+  type = `website`,
+  image,
+  keywords = [],
+}) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -18,13 +26,16 @@ function SEO({ description, lang, meta, title, type = `website`, image }) {
           siteMetadata {
             title
             description
+            keywords
             author
             siteUrl
+            keywords
           }
         }
       }
     `
   );
+  keywords = keywords.length > 0 ? keywords : site.siteMetadata.keywords;
 
   const metaDescription = description || site.siteMetadata.description;
   const shareImage =
@@ -76,6 +87,10 @@ function SEO({ description, lang, meta, title, type = `website`, image }) {
         {
           name: "twitter:image",
           content: shareImage,
+        },
+        {
+          name: "keywords",
+          content: keywords.join(", "),
         },
       ].concat(meta)}
     >

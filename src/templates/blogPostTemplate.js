@@ -21,7 +21,7 @@ function BlogPost(props) {
     <Layout>
       <SEO
         title={post.title}
-        keywords={[``]}
+        keywords={post.keywords}
         type="blog"
         description={post.excerpt}
         image={coverImageUrl}
@@ -53,6 +53,7 @@ export const pageQuery = graphql`
       tags {
         title
       }
+      keywords
       mainContent: _rawMainContent(resolveReferences: { maxDepth: 10 })
       coverImage {
         asset {

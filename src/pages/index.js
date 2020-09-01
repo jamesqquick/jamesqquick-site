@@ -30,15 +30,7 @@ const IndexPage = props => {
   }));
   return (
     <Layout>
-      <SEO
-        title="Home"
-        keywords={[
-          `web development`,
-          `web design`,
-          `developer tools`,
-          `James Q Quick`,
-        ]}
-      />
+      <SEO title="Home" />
       <header className="header">
         <Header fixed={data.file.childImageSharp.fixed} />
       </header>

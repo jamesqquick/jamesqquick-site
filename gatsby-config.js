@@ -16,7 +16,15 @@ module.exports = {
   siteMetadata: {
     title: `James Q Quick`,
     description: `Personal site for James Q. Quick, Developer, Speaker, and Teacher.`,
-    keywords: ["JavaScript", "React", "Web Development", "JAMStack"],
+    keywords: [
+      "James Q Quick",
+      "jamesqquick",
+      "James Quick",
+      "JavaScript",
+      "React",
+      "Web Development",
+      "JAMStack",
+    ],
     author: `@jamesqquick`,
     siteUrl: `https://www.jamesqquick.com`,
     twitterHandle: "@jamesqquick",
