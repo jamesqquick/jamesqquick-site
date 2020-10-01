@@ -4,5 +4,5 @@
   publish = "public"
 
 [context.develop] # 'staging' is a branch name
-  command = "NODE_ENV=test npm run build"
+  command = "NODE_ENV=dev npm run build"
   base = "staging"
