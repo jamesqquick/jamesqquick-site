@@ -2,8 +2,3 @@
   functions = "functions"
   command = "npm run build"
   publish = "public"
-
-[context.develop] # 'staging' is a branch name
-  command = "NODE_ENV=dev npm run build"
-  functions = "functions"
-  publish = "public"
