@@ -4,6 +4,7 @@ const h = blocksToHTML.h; //h is used to build HTML known as hyprescript
 const imageUrlBuilder = require("@sanity/image-url");
 
 const isProd = process.env.CONTEXT === "production";
+const isDev = process.env.NODE_ENV === "development";
 
 const sanityConfig = {
   projectId: "rx426fbd",
@@ -179,7 +180,7 @@ module.exports = {
         projectId: sanityConfig.projectId,
         dataset: sanityConfig.dataset,
         token: process.env.SANITY_TOKEN,
-        watchMode: !isProd,
+        watchMode: isDev,
         overlayDrafts: !isProd,
       },
     },

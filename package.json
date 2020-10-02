@@ -38,6 +38,7 @@
     "gatsby-transformer-json": "^2.2.2",
     "gatsby-transformer-remark": "^2.6.14",
     "gatsby-transformer-sharp": "^2.2.5",
+    "get-youtube-id": "^1.0.1",
     "moment": "^2.24.0",
     "node-fetch": "^2.6.0",
     "node-sass": "^4.12.0",
