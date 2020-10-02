@@ -135,6 +135,7 @@ module.exports = {
                                   }),
                                 iconLinksList: props => null,
                                 iconLink: props => null,
+                                ytVideo: props => null,
                               },
                             },
                           }),
