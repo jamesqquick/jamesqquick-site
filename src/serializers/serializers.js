@@ -12,7 +12,6 @@ const sanityConfig = { projectId: "rx426fbd", dataset: "production" };
 export default {
   types: {
     code: props => {
-      console.log(`'${props.node.code}'`);
       return (
         <SyntaxHighlighter
           language={props.node.language || "text"}
