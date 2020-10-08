@@ -2,6 +2,7 @@ require("dotenv").config();
 const blocksToHTML = require("@sanity/block-content-to-html");
 const h = blocksToHTML.h; //h is used to build HTML known as hyprescript
 const imageUrlBuilder = require("@sanity/image-url");
+const prefixPath = require("./src/utils/prefixPath");
 
 const isProd = process.env.CONTEXT === "production";
 const isDev = process.env.NODE_ENV === "development";
@@ -104,7 +105,7 @@ module.exports = {
                     mainContent,
                     excerpt,
                   } = node;
-                  const url = site.siteMetadata.siteUrl + slug.current;
+                  const url = site.siteMetadata.siteUrl + prefixPath("blog", slug.current);
                   const retVal = {
                     title,
                     date: publishedDate,
