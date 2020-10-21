@@ -11,11 +11,13 @@ export default function Post({ post, children }) {
       <Share url={"www.jamesqquick.com/" + post.slug} title={post.title} />
       <article className="post">
         <header className="header">
+          <Img
+            fluid={post.coverImage.asset.fluid}
+            style={{ marginBottom: "20px" }}
+          />
           <h1 className="h1 post--title">{post.title}</h1>
           <p className="post--date">{post.publishedDate}</p>
-          {post.coverImage && !post.youTubeVideoId && (
-            <Img fluid={post.coverImage.asset.fluid} />
-          )}
+
           {post.youTubeVideoId && <YouTube id={post.youTubeVideoId} />}
 
           {post.externalLink && (
