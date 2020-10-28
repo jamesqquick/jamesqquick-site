@@ -23,6 +23,10 @@ export default {
       );
     },
     myAwesomeImage: props => {
+      const { extension, url } = props.node.asset;
+      if (extension === "gif") {
+        return <img src={url} />;
+      }
       const fluidProps = getFluidGatsbyImage(
         props.node.asset,
         { maxWidth: 1024 },
