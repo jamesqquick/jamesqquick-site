@@ -3,6 +3,7 @@ import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 import { graphql } from "gatsby";
 import Post from "../components/Post";
+import WatchTwitch from "../components/WatchTwitch";
 
 export default function talk({ data }) {
   const stream = {
@@ -15,6 +16,10 @@ export default function talk({ data }) {
   if (stream.coverImage) {
     coverImageUrl = stream.coverImage.asset.fluid.src;
   }
+
+  const currentDate = new Date();
+  currentDate.setDate(currentDate.getDate() - 1);
+  const showTwitch = new Date(stream.publishedDate) > currentDate;
   return (
     <Layout>
       <SEO
@@ -24,6 +29,7 @@ export default function talk({ data }) {
         description={stream.excerpt}
         image={coverImageUrl}
       />
+      {showTwitch && <WatchTwitch />}
       <Post post={stream} />
     </Layout>
   );
