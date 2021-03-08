@@ -105,7 +105,9 @@ module.exports = {
                     mainContent,
                     excerpt,
                   } = node;
-                  const url = site.siteMetadata.siteUrl + prefixPath("blog", slug.current);
+                  const url =
+                    site.siteMetadata.siteUrl +
+                    prefixPath("blog", slug.current);
                   const retVal = {
                     title,
                     date: publishedDate,

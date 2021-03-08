@@ -69,9 +69,7 @@ export const query = graphql`
           current
         }
         _id
-        publishedDate {
-          utc(formatString: "MM/DD/YYYY")
-        }
+
         mainContent: _rawMainContent(resolveReferences: { maxDepth: 10 })
 
         excerpt

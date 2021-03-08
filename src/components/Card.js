@@ -20,7 +20,9 @@ export default function Card({
     );
   }
 
-  const shortDescription = description.substring(0, 100) + "...";
+  const shortDescription = description
+    ? description.substring(0, 100) + "..."
+    : "";
   return (
     <Link to={link} className="card">
       {coverImage && (
