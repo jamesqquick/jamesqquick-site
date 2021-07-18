@@ -34,9 +34,7 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    `gatsby-transformer-json`,
     `gatsby-plugin-twitter`,
-
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -68,6 +66,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-sass`,
+    `gatsby-plugin-image`,
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {

@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from "../components/Layout";
-import SEO from "../components/SEO";
+import Seo from "../components/SEO";
 import "../sass/posts.scss";
 import { graphql } from "gatsby";
 import Post from "../components/Post";
@@ -14,12 +14,13 @@ function BlogPost(props) {
 
   let coverImageUrl = undefined;
   if (post.coverImage) {
-    coverImageUrl = post.coverImage.asset.fluid.src;
+    coverImageUrl =
+      post.coverImage.asset.gatsbyImageData?.images?.fallback?.src;
   }
 
   return (
     <Layout>
-      <SEO
+      <Seo
         title={post.title}
         keywords={post.keywords}
         type="blog"
@@ -57,9 +58,7 @@ export const pageQuery = graphql`
       mainContent: _rawMainContent(resolveReferences: { maxDepth: 10 })
       coverImage {
         asset {
-          fluid(maxWidth: 700) {
-            ...GatsbySanityImageFluid
-          }
+          gatsbyImageData
         }
       }
     }

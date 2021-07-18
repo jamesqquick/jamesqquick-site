@@ -1,6 +1,6 @@
 import React from "react";
 import Share from "./Share";
-import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import YouTube from "./YouTube";
 import serializers from "../serializers/serializers";
 const BlockContent = require("@sanity/block-content-to-react");
@@ -12,8 +12,9 @@ export default function Post({ post, children }) {
       <article className="post">
         <header className="header">
           {!post.youTubeVideoId && post.coverImage && (
-            <Img
-              fluid={post.coverImage.asset.fluid}
+            <GatsbyImage
+              image={post.coverImage.asset.gatsbyImageData}
+              alt={post.title}
               style={{ marginBottom: "20px" }}
             />
           )}

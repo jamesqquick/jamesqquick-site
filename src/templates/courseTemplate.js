@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from "../components/Layout";
-import SEO from "../components/SEO";
+import Seo from "../components/SEO";
 import "../sass/posts.scss";
 import { graphql } from "gatsby";
 import Course from "../components/Course";
@@ -13,10 +13,14 @@ function CourseTemplate({ data }) {
   const courseLink = course.courseLink;
   course.externalLink = courseLink;
   delete course.courseLink;
-  const coverImageUrl = course.coverImage.asset.fluid.src;
+  let coverImageUrl = undefined;
+  if (course.coverImage) {
+    coverImageUrl =
+      course.coverImage.asset.gatsbyImageData?.images?.fallback?.src;
+  }
   return (
     <Layout>
-      <SEO
+      <Seo
         title={course.title}
         keywords={[`{course.title}`]}
         type="blog"
@@ -43,9 +47,7 @@ export const pageQuery = graphql`
       childImageSharp {
         # Specify the image processing specifications right in the query.
         # Makes it trivial to update as your page's design changes.
-        fixed(width: 256, height: 256) {
-          ...GatsbyImageSharpFixed
-        }
+        gatsbyImageData(layout: FIXED)
       }
     }
     sanityCourse(_id: { eq: $id }) {
@@ -74,9 +76,7 @@ export const pageQuery = graphql`
       purchaseLink
       coverImage {
         asset {
-          fluid(maxWidth: 700) {
-            ...GatsbySanityImageFluid
-          }
+          gatsbyImageData
         }
       }
     }

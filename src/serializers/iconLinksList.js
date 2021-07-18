@@ -6,7 +6,7 @@ import {
   faVideo,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-export default ({ node: { links } }) => {
+const IconLinksList = ({ node: { links } }) => {
   const typeToIconMap = {
     slides: faStickyNote,
     event: faMapMarker,
@@ -37,3 +37,4 @@ export default ({ node: { links } }) => {
     </div>
   );
 };
+export default IconLinksList;

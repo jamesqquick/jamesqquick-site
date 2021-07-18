@@ -4,13 +4,13 @@ import SplitView from "../components/SplitView";
 import interviewImage from "../data/images/interview.jpg";
 import speakingImage from "../data/images/speaking.jpg";
 import teachingImage from "../data/images/teaching.jpg";
-import SEO from "../components/SEO";
+import Seo from "../components/SEO";
 import SocialFollow from "../components/SocialFollow";
 
 export default function about() {
   return (
     <Layout>
-      <SEO
+      <Seo
         title="Home"
         keywords={[
           `web development`,

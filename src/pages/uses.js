@@ -1,13 +1,13 @@
 import React from "react";
 import Layout from "../components/Layout";
-import SEO from "../components/SEO";
-import Img from "gatsby-image";
+import Seo from "../components/SEO";
+import { GatsbyImage } from "gatsby-plugin-image";
 import { graphql } from "gatsby";
 
 export default function uses({ data }) {
   return (
     <Layout>
-      <SEO
+      <Seo
         title="James Q Quick Uses"
         keywords={[
           `James Q Quick Uses`,
@@ -21,7 +21,10 @@ export default function uses({ data }) {
         <hr className="title-underline" />
       </header>
       <section className="section">
-        <Img fluid={data.file.childImageSharp.fluid} alt="My desk setup" />
+        <GatsbyImage
+          fluid={data.file.childImageSharp.fluid}
+          alt="My desk setup"
+        />
         <p>
           I get lots of questions about what kind of hardware, software, desk
           setup, etc. that I use. Well, here ya go!
@@ -187,9 +190,7 @@ export const query = graphql`
   query {
     file(relativePath: { eq: "images/desk_setup.JPG" }) {
       childImageSharp {
-        fluid(maxWidth: 700) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData
       }
     }
   }

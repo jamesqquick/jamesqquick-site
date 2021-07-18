@@ -1,5 +1,5 @@
 import React from "react";
-import SEO from "../components/SEO";
+import Seo from "../components/SEO";
 import Layout from "../components/Layout";
 import { graphql } from "gatsby";
 import CardList from "../components/CardList";
@@ -14,7 +14,7 @@ export default function blog({ data, location }) {
 
   return (
     <Layout>
-      <SEO title="Blog" keywords={[`blog`]} type="blog" />
+      <Seo title="Blog" keywords={[`blog`]} type="blog" />
       <header className="header">
         <h1 className="h1 title">Blog</h1>
         <hr />
@@ -41,9 +41,7 @@ export const query = graphql`
         }
         coverImage {
           asset {
-            fluid(maxWidth: 700) {
-              ...GatsbySanityImageFluid
-            }
+            gatsbyImageData
           }
         }
       }

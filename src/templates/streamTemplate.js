@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from "../components/Layout";
-import SEO from "../components/SEO";
+import Seo from "../components/SEO";
 import { graphql } from "gatsby";
 import Post from "../components/Post";
 import WatchTwitch from "../components/WatchTwitch";
@@ -14,7 +14,8 @@ export default function talk({ data }) {
   };
   let coverImageUrl = undefined;
   if (stream.coverImage) {
-    coverImageUrl = stream.coverImage.asset.fluid.src;
+    coverImageUrl =
+      stream.coverImage.asset.gatsbyImageData?.images?.fallback?.src;
   }
 
   const currentDate = new Date();
@@ -22,7 +23,7 @@ export default function talk({ data }) {
   const showTwitch = new Date(stream.publishedDate) > currentDate;
   return (
     <Layout>
-      <SEO
+      <Seo
         title={stream.title}
         keywords={[`${stream.title}`]}
         type="blog"
@@ -56,9 +57,7 @@ export const pageQuery = graphql`
       guestTitle
       guestImage {
         asset {
-          fluid(maxWidth: 700) {
-            ...GatsbySanityImageFluid
-          }
+          gatsbyImageData
         }
       }
       publishedDate {
@@ -69,9 +68,7 @@ export const pageQuery = graphql`
       }
       coverImage {
         asset {
-          fluid(maxWidth: 700) {
-            ...GatsbySanityImageFluid
-          }
+          gatsbyImageData
         }
       }
     }

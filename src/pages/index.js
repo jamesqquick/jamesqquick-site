@@ -2,12 +2,13 @@ import React from "react";
 import { Link, graphql } from "gatsby";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import Layout from "../components/Layout";
-import SEO from "../components/SEO";
+import Seo from "../components/SEO";
 import "../sass/hero.scss";
 import prefixPath from "../utils/prefixPath";
 import { Bounce } from "react-awesome-reveal";
 import Header from "../components/Header";
 import CardList from "../components/CardList";
+import { GatsbyImage } from "gatsby-plugin-image";
 
 const IndexPage = props => {
   const { data } = props;
@@ -30,13 +31,13 @@ const IndexPage = props => {
   }));
   return (
     <Layout>
-      <SEO title="Home" />
+      <Seo title="Home" />
       <header className="header">
-        <Header fixed={data.file.childImageSharp.fixed} />
+        <Header />
       </header>
       <section className="section">
         <h2 className="h2 flex flex-wrap">
-          <span className="weight-regular">I do videos </span>
+          <span className="weight-regular">I do videos on</span>
           <Bounce triggerOnce={true}>
             <a
               href="https://www.youtube.com/jamesqquick"
@@ -61,7 +62,10 @@ const IndexPage = props => {
               rel="noopener noreferrer"
               target="_blank"
             >
-              <img src={video.coverImage.asset.fluid.src} alt={video.title} />
+              <GatsbyImage
+                image={video.coverImage.asset.gatsbyImageData}
+                alt={video.title}
+              />
             </a>
           ))}
         </div>
@@ -84,7 +88,7 @@ const IndexPage = props => {
       </section>
       <section className="section">
         <h2 className="h2 flex flex-wrap">
-          <span className="weight-regular">I live stream </span>
+          <span className="weight-regular">I live stream on </span>
           <Bounce triggerOnce={true}>
             <a
               href="https://www.twitch.tv/jamesqquick"
@@ -123,15 +127,6 @@ export default IndexPage;
 
 export const query = graphql`
   query {
-    file(relativePath: { eq: "images/headshot.png" }) {
-      childImageSharp {
-        # Specify the image processing specifications right in the query.
-        # Makes it trivial to update as your page's design changes.
-        fixed(width: 256, height: 256) {
-          ...GatsbyImageSharpFixed
-        }
-      }
-    }
     allSanityPost(sort: { order: DESC, fields: [publishedDate] }, limit: 3) {
       nodes {
         title
@@ -143,9 +138,7 @@ export const query = graphql`
         publishedDate(formatString: "MM/DD/YYYY")
         coverImage {
           asset {
-            fluid(maxWidth: 700) {
-              ...GatsbySanityImageFluid
-            }
+            gatsbyImageData
           }
         }
         tags {
@@ -168,9 +161,7 @@ export const query = graphql`
         }
         coverImage {
           asset {
-            fluid(maxWidth: 700) {
-              ...GatsbySanityImageFluid
-            }
+            gatsbyImageData
           }
         }
       }
@@ -191,9 +182,7 @@ export const query = graphql`
         excerpt
         coverImage {
           asset {
-            fluid(maxWidth: 700) {
-              ...GatsbySanityImageFluid
-            }
+            gatsbyImageData
           }
         }
         publishedDate {
@@ -212,9 +201,7 @@ export const query = graphql`
         link
         coverImage {
           asset {
-            fluid(maxWidth: 700) {
-              ...GatsbySanityImageFluid
-            }
+            gatsbyImageData
           }
         }
       }

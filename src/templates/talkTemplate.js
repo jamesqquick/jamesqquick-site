@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from "../components/Layout";
-import SEO from "../components/SEO";
+import Seo from "../components/SEO";
 import { graphql } from "gatsby";
 import Post from "../components/Post";
 import prefixPath from "../utils/prefixPath";
@@ -14,7 +14,7 @@ export default function talk({ data }) {
 
   return (
     <Layout>
-      <SEO title={talk.title} keywords={[``]} />
+      <Seo title={talk.title} keywords={[``]} />
       <Post post={talk} />
     </Layout>
   );
@@ -43,9 +43,7 @@ export const pageQuery = graphql`
       }
       coverImage {
         asset {
-          fluid(maxWidth: 700) {
-            ...GatsbySanityImageFluid
-          }
+          gatsbyImageData
         }
       }
     }

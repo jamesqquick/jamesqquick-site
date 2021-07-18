@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from "../components/Layout";
-import SEO from "../components/SEO";
+import Seo from "../components/SEO";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTwitch } from "@fortawesome/free-brands-svg-icons";
 import { graphql } from "gatsby";
@@ -26,7 +26,7 @@ export default function live({ data }) {
 
   return (
     <Layout>
-      <SEO
+      <Seo
         title="Streaming"
         keywords={[`live, live stream, streaming, twitch`]}
       />
@@ -75,9 +75,7 @@ export const query = graphql`
         excerpt
         coverImage {
           asset {
-            fluid(maxWidth: 700) {
-              ...GatsbySanityImageFluid
-            }
+            gatsbyImageData
           }
         }
         publishedDate {

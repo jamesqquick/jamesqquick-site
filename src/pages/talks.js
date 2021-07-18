@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/Layout";
-import SEO from "../components/SEO";
+import Seo from "../components/SEO";
 import ContactBlurb from "../components/ContactBlurb";
 import CardList from "../components/CardList";
 import prefixPath from "../utils/prefixPath";
@@ -17,7 +17,7 @@ export default function talks({ data }) {
   }));
   return (
     <Layout>
-      <SEO title="Speaking" keywords={[`conference talks`]} />
+      <Seo title="Speaking" keywords={[`conference talks`]} />
       <header className="header">
         <h1 className="h1 title">Speaking</h1>
         <hr className="title-underline" />
@@ -48,9 +48,7 @@ export const query = graphql`
         }
         coverImage {
           asset {
-            fluid(maxWidth: 700) {
-              ...GatsbySanityImageFluid
-            }
+            gatsbyImageData
           }
         }
       }

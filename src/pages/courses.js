@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from "../components/Layout";
-import SEO from "../components/SEO";
+import Seo from "../components/SEO";
 import { Link, graphql } from "gatsby";
 import CardList from "../components/CardList";
 import prefixPath from "../utils/prefixPath";
@@ -13,7 +13,7 @@ export default function courses({ data }) {
   }));
   return (
     <Layout>
-      <SEO
+      <Seo
         title="Courses"
         keywords={[
           `courses`,
@@ -78,9 +78,7 @@ export const query = graphql`
         }
         coverImage {
           asset {
-            fluid(maxWidth: 700) {
-              ...GatsbySanityImageFluid
-            }
+            gatsbyImageData
           }
         }
       }

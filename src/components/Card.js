@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
 import "../sass/card.scss";
-import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 export default function Card({
   title,
   link,
@@ -15,7 +15,7 @@ export default function Card({
   if (imageOnly) {
     return (
       <Link to={link} className="img-card">
-        <Img className="card--img" fluid={coverImage.asset.fluid} />
+        <GatsbyImage className="card--img" fluid={coverImage.asset.fluid} />
       </Link>
     );
   }
@@ -26,7 +26,11 @@ export default function Card({
   return (
     <Link to={link} className="card">
       {coverImage && (
-        <Img className="card--img" fluid={coverImage.asset.fluid} />
+        <GatsbyImage
+          className="card--img"
+          image={coverImage.asset.gatsbyImageData}
+          alt={title}
+        />
       )}
       <div className="card--content">
         <h3 className="h3 card--title">{title}</h3>

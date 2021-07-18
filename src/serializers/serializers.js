@@ -1,6 +1,6 @@
 import React from "react";
-import Img from "gatsby-image";
-import { getFluidGatsbyImage } from "gatsby-source-sanity";
+import { GatsbyImage } from "gatsby-plugin-image";
+import { getGatsbyImageData } from "gatsby-source-sanity";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import iconLinksList from "./iconLinksList.js";
@@ -9,7 +9,7 @@ import getYouTubeID from "get-youtube-id";
 
 const sanityConfig = { projectId: "rx426fbd", dataset: "production" };
 
-export default {
+const config = {
   types: {
     code: props => {
       return (
@@ -23,19 +23,22 @@ export default {
       );
     },
     myAwesomeImage: props => {
-      const { extension, url } = props.node.asset;
+      const { alt } = props.node;
+      const { extension, url, _id } = props.node.asset;
       if (extension === "gif") {
-        return <img src={url} />;
+        return <img src={url} alt={alt} />;
       }
-      const fluidProps = getFluidGatsbyImage(
-        props.node.asset,
+      const imageData = getGatsbyImageData(
+        _id,
         { maxWidth: 1024 },
         sanityConfig
       );
-      return <Img fluid={fluidProps} />;
+      return <GatsbyImage image={imageData} alt={alt} />;
     },
     iconLinksList,
     iconLink: props => null,
     ytVideo: props => <YouTube id={getYouTubeID(props.node.link)} />,
   },
 };
+
+export default config;

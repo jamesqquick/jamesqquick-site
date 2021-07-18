@@ -1,10 +1,10 @@
 import React from "react";
 import Layout from "../components/Layout";
-import SEO from "../components/SEO";
+import Seo from "../components/SEO";
 export default function contest() {
   return (
     <Layout>
-      <SEO title="Contest" keywords={[`contest`]} />
+      <Seo title="Contest" keywords={[`contest`]} />
       <h1 className=" h1 title">Contest</h1>
       <hr className="title-underline" />
       <p>Sorry, there are currently no contests going on</p>

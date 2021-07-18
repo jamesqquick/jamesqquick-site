@@ -6,7 +6,7 @@ export const SUBMIT_ACTIONS = {
   FIELD: "FIELD",
 };
 
-export default (state, action) => {
+const SubmitReducer = (state, action) => {
   switch (action.type) {
     case SUBMIT_ACTIONS.SUBMITTING: {
       return {
@@ -39,3 +39,5 @@ export default (state, action) => {
     }
   }
 };
+
+export default SubmitReducer;

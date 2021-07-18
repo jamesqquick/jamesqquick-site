@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from "../components/Layout";
-import SEO from "../components/SEO";
+import Seo from "../components/SEO";
 import { graphql } from "gatsby";
 
 export default function resources({ data }) {
@@ -13,7 +13,7 @@ export default function resources({ data }) {
   const typesArr = [...types];
   return (
     <Layout>
-      <SEO
+      <Seo
         title="Resources"
         keywords={[
           `teaching`,

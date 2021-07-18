@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from "../components/Layout";
-import SEO from "../components/SEO";
+import Seo from "../components/SEO";
 // import MailchimpNewlsetter from "../components/MailchimpNewlsetter";
 import PodiaNewsletter from "../components/PodiaNewsletter";
 // const queryString = require("query-string");
@@ -11,7 +11,7 @@ export default function newsletter() {
 
   return (
     <Layout>
-      <SEO
+      <Seo
         title="James Q Quick Newsletter"
         keywords={[
           `newsletter`,
