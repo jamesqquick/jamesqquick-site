@@ -4,6 +4,7 @@ import { getGatsbyImageData } from "gatsby-source-sanity";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import iconLinksList from "./iconLinksList.js";
+import iconLink from "./iconLink.js";
 import YouTube from "../components/YouTube.js";
 import getYouTubeID from "get-youtube-id";
 
@@ -11,7 +12,7 @@ const sanityConfig = { projectId: "rx426fbd", dataset: "production" };
 
 const config = {
   types: {
-    code: props => {
+    code: (props) => {
       return (
         <SyntaxHighlighter
           language={props.node.language || "text"}
@@ -22,7 +23,7 @@ const config = {
         </SyntaxHighlighter>
       );
     },
-    myAwesomeImage: props => {
+    myAwesomeImage: (props) => {
       const { alt } = props.node;
       const { extension, url, _id } = props.node.asset;
       if (extension === "gif") {
@@ -36,8 +37,8 @@ const config = {
       return <GatsbyImage image={imageData} alt={alt} />;
     },
     iconLinksList,
-    iconLink: props => null,
-    ytVideo: props => <YouTube id={getYouTubeID(props.node.link)} />,
+    iconLink,
+    ytVideo: (props) => <YouTube id={getYouTubeID(props.node.link)} />,
   },
 };
 
