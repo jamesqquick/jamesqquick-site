@@ -16,7 +16,7 @@
     "@sendgrid/mail": "^7.4.5",
     "dotenv": "^10.0.0",
     "email-validator": "^2.0.4",
-    "gatsby": "^3.9.1",
+    "gatsby": "^4.20.0",
     "gatsby-plugin-feed": "^3.9.0",
     "gatsby-plugin-google-analytics": "^3.9.0",
     "gatsby-plugin-google-fonts": "^1.0.1",
