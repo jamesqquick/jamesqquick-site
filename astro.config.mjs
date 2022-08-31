@@ -1,7 +1,6 @@
 import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
-import netlify from "@astrojs/netlify/functions";
 import tailwind from "@astrojs/tailwind";
 import image from "@astrojs/image";
 
@@ -12,5 +11,4 @@ export default defineConfig({
   site: "https://jamesqquick.com/",
   integrations: [mdx(), sitemap({}), tailwind(), image(), partytown()],
   output: "static",
-  //   adapter: netlify(),
 });
