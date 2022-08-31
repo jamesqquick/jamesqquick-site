@@ -1,0 +1,38 @@
+---
+export interface Props {
+  heading: string;
+  body: string;
+  image: string;
+  alt: string;
+  reversed?: boolean;
+  link?: string;
+}
+
+const { heading, body, image, alt, reversed = false, link } = Astro.props;
+---
+
+<div class="flex md:flex-row flex-col items-center gap-10 md:mt-40 mt-20">
+  <div>
+    <h2 class="text-4xl font-extrabold mb-3">{heading}</h2>
+    <p class="leading-8 tracking-wide text-xl font-light mb-4">
+      {body}
+    </p>
+    <slot />
+  </div>
+  {
+    link && (
+      <a
+        href={link}
+        class={`order-first md:order-${
+          reversed ? '0' : '1'
+        }   mb-0 hover:-translate-y-1 transition-transform`}
+      >
+        <img
+          src={image}
+          alt={alt}
+          class={`rounded-lg md:max-w-none w-[200px] sm:w-[300px]`}
+        />
+      </a>
+    )
+  }
+</div>

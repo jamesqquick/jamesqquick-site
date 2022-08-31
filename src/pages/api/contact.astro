@@ -1,0 +1,6 @@
+---
+console.log("hehe");
+const submittedData = Object.fromEntries(await Astro.request.formData());
+console.log(submittedData);
+Astro.redirect("/contact");
+---

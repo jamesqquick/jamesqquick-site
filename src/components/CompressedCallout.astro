@@ -1,0 +1,18 @@
+---
+import Link from './Link.astro';
+import SplitComponent from './SplitComponent.astro';
+const heading = 'Compressed.fm Podcast';
+const body =
+  'A weekly podcast all about Web Development and Web Design with a little bit of zest!';
+---
+
+<SplitComponent
+  heading={heading}
+  body={body}
+  image="/images/compressed.jpeg"
+  alt="Compressed.fm podcast"
+  reversed={true}
+  link="https://compressed.fm/"
+>
+  <Link href="https://compressed.fm/" text="Listen Now!" classStr="text-2xl" />
+</SplitComponent>

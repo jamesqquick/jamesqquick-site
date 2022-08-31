@@ -1,0 +1,23 @@
+---
+import Link from './Link.astro';
+import SplitComponent from './SplitComponent.astro';
+
+const heading = 'YouTube';
+const body =
+  'I teach modern Web Development with JavaScript through weekly YouTube videos!';
+---
+
+<SplitComponent
+  heading={heading}
+  body={body}
+  image="/images/socials/youtube.svg"
+  alt="James Q Quick on YoUTube"
+  reversed={true}
+  link="https://www.youtube.com/c/jamesqquick"
+>
+  <Link
+    href="https://www.youtube.com/c/jamesqquick"
+    text="Start Learning!"
+    classStr="text-2xl"
+  />
+</SplitComponent>

@@ -1,0 +1,24 @@
+---
+export interface Props {
+  newsletterId: string;
+}
+const { newsletterId } = Astro.props;
+const url = `https://learn.jamesqquick.com//email_lists/${newsletterId}/subscriptions`;
+---
+
+<form action={url} accept-charset="UTF-8" method="post">
+  <input name="utf8" type="hidden" value="✓" />
+  <input
+    type="email"
+    name="email"
+    required={true}
+    placeholder="Email"
+    class="w-full mb-2 bg-gray-100 rounded-lg p-4"
+  />
+  <button
+    type="submit"
+    class="bg-brand text-lg py-2 px-4 rounded-lg hover:-translate-y-1 transition-transform text-white w-52"
+  >
+    Subscribe
+  </button>
+</form>

@@ -1,0 +1,24 @@
+---
+import PodiaNewsletter from '../components/PodiaNewsletter.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Newsletter | James Q Quick"
+  description="Weekly newsletter about Web Development."
+>
+  <h1 class="text-4xl font-bold mb-4">Newsletter</h1>
+  <hr class="title-underline mb-6" />
+  <p class="mb-2">
+    Subscribe to learn more about <strong>Web Development</strong>,{' '}
+    <strong>Design</strong>, and <strong>Developer Tools</strong>. I love to
+    share, so here&apos;s what you can expect from this newsletter.
+  </p>
+  <ul class="list-disc mb-8">
+    <li>Latest Videos and Articles</li>
+    <li>Live Streams and Webinars</li>
+    <li>Course Announcements and Discounts</li>
+    <li>Career Development Tips</li>
+  </ul>
+  <PodiaNewsletter newsletterId={'65004'} />
+</BaseLayout>

@@ -1,0 +1,33 @@
+---
+import { getFormattedDate } from "../utils/dates";
+import YouTube from "./YouTube.astro";
+import { Image } from "@astrojs/image/components";
+
+export interface Props {
+    youTubeVideoId?: string;
+    coverImage: string;
+    title: string;
+    date: string;
+}
+
+const { youTubeVideoId, coverImage, title, date } = Astro.props;
+---
+
+<div class="mb-8">
+    {
+        youTubeVideoId ? (
+            <YouTube id={youTubeVideoId} />
+        ) : (
+            <img
+                src={coverImage}
+                alt={title}
+                width="1920"
+                height="1080"
+                class="rounded-lg"
+            />
+        )
+    }
+    <h1 class="text-4xl font-bold mt-10 mb-1">{title}</h1>
+    <time>{getFormattedDate(date)}</time>
+    <hr class="my-4" />
+</div>

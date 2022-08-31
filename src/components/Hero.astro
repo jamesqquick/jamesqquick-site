@@ -1,0 +1,28 @@
+---
+import Link from './Link.astro';
+import SocialFollow from './SocialFollow.astro';
+const heading = "Hi, I'm James!";
+---
+
+<div class="flex md:flex-row flex-col items-center gap-4">
+  <div>
+    <p class="text-3xl mb-3 font-black">{heading}</p>
+    <p class="leading-8 tracking-wide text-xl font-light mb-4">
+      I&apos;m a Fullstack Web Developer who is addicted to learning and loves
+      working with people. I live by the motto{' '}
+      <strong class="font-bold"
+        ><Link
+          href="https://learnbuildteach.com/"
+          text="Learn Build Teach"
+          classStr="text-2xl"
+        />
+      </strong>, so I’m excited to share the things I learn with you!
+    </p>
+    <SocialFollow includeHandle={false} />
+  </div>
+  <img
+    src="./images/headshot.png"
+    alt="James Q Quick Header"
+    class="rounded-full order-first md:order-1 w-[300px]"
+  />
+</div>

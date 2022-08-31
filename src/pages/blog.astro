@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LinkCard from '../components/LinkCard.astro';
+
+// Use Astro.glob() to fetch all posts, and then sort them by date.
+const posts = (await Astro.glob('./blog/*.{md,mdx}')).sort(
+  (a, b) =>
+    new Date(b.frontmatter.pubDate).valueOf() -
+    new Date(a.frontmatter.pubDate).valueOf()
+);
+---
+
+<BaseLayout title="Blog | James Q Quick">
+  {
+    posts.map((post) => (
+      <LinkCard
+        title={post.frontmatter.title}
+        date={post.frontmatter.pubDate}
+        slug={`/blog/${post.frontmatter.slug}`}
+      />
+    ))
+  }
+</BaseLayout>

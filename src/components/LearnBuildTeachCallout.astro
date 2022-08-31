@@ -1,0 +1,22 @@
+---
+import Link from './Link.astro';
+import SplitComponent from './SplitComponent.astro';
+
+const heading = 'Learn Build Teach';
+const body = 'A welcoming and open Discord community of Web Developers.';
+---
+
+<SplitComponent
+  heading={heading}
+  body={body}
+  image="/images/lbt-square.png"
+  alt="Learn Build Teach Discord"
+  reversed={true}
+  link="https://learnbuildteach.com/"
+>
+  <Link
+    href="https://learnbuildteach.com/"
+    text="Join the Community!"
+    classStr="text-2xl"
+  />
+</SplitComponent>
