@@ -5,3 +5,4 @@ public
 # Local Netlify folder
 .netlify
 lambda
+dist
