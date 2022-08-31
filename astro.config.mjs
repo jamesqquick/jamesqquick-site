@@ -10,15 +10,7 @@ import partytown from "@astrojs/partytown";
 // https://astro.build/config
 export default defineConfig({
   site: "https://jamesqquick.com/",
-  integrations: [
-    mdx(),
-    sitemap({
-      customPages: [],
-    }),
-    tailwind(),
-    image(),
-    partytown(),
-  ],
-  output: "server",
-  adapter: netlify(),
+  integrations: [mdx(), sitemap({}), tailwind(), image(), partytown()],
+  output: "static",
+  //   adapter: netlify(),
 });
