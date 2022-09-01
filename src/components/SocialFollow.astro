@@ -1,86 +1,86 @@
 ---
 export interface Props {
-    includeHandle?: boolean;
+  includeHandle?: boolean;
 }
 
 const { includeHandle } = Astro.props;
 ---
 
 <div class="flex flex-col md:flex-row md:items-center md:gap-4 gap-2">
-    {includeHandle && <p class="text-lg">@jamesqquick</p>}
-    <!-- <p>@{new Date().getFullYear()}</p> -->
-    <div class="flex gap-2">
-        <a href="https://www.youtube.com/c/jamesqquick">
-            <svg
-                aria-hidden="true"
-                focusable="false"
-                data-prefix="fab"
-                data-icon="youtube"
-                class="text-youtube hover:-translate-y-1 transition-transform cursor-pointer"
-                height="32"
-                role="img"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 576 512"
-                aria-label="Link to youtube"
-                ><path
-                    fill="currentColor"
-                    d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"
-                ></path>
-            </svg>
-        </a>
-        <a href="https://twitter.com/jamesqquick">
-            <svg
-                aria-hidden="true"
-                focusable="false"
-                data-prefix="fab"
-                data-icon="twitter"
-                class="text-twitter hover:-translate-y-1 transition-transform cursor-pointer"
-                role="img"
-                height="32"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 512 512"
-                aria-label="Link to twitter"
-                ><path
-                    fill="currentColor"
-                    d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"
-                ></path>
-            </svg>
-        </a>
+  {includeHandle && <p class="text-lg">@jamesqquick</p>}
+  <!-- <p>@{new Date().getFullYear()}</p> -->
+  <div class="flex gap-2">
+    <a href="https://www.youtube.com/c/jamesqquick" aria-label="YouTube">
+      <svg
+        aria-hidden="true"
+        focusable="false"
+        data-prefix="fab"
+        data-icon="youtube"
+        class="text-youtube hover:-translate-y-1 transition-transform cursor-pointer"
+        height="32"
+        role="img"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 576 512"
+        aria-label="YouTube"
+        ><path
+          fill="currentColor"
+          d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"
+        ></path>
+      </svg>
+    </a>
+    <a href="https://twitter.com/jamesqquick" aria-label="Twitter">
+      <svg
+        aria-hidden="true"
+        focusable="false"
+        data-prefix="fab"
+        data-icon="twitter"
+        class="text-twitter hover:-translate-y-1 transition-transform cursor-pointer"
+        role="img"
+        height="32"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 512 512"
+        aria-label="Twitter"
+        ><path
+          fill="currentColor"
+          d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"
+        ></path>
+      </svg>
+    </a>
 
-        <a href="https://www.twitch.tv/jamesqquick">
-            <svg
-                aria-hidden="true"
-                focusable="false"
-                data-prefix="fab"
-                data-icon="twitch"
-                class="text-twitch hover:-translate-y-1 transition-transform cursor-pointer"
-                height="32"
-                role="img"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 512 512"
-                aria-label="Link to twitch"
-                ><path
-                    fill="currentColor"
-                    d="M391.17,103.47H352.54v109.7h38.63ZM285,103H246.37V212.75H285ZM120.83,0,24.31,91.42V420.58H140.14V512l96.53-91.42h77.25L487.69,256V0ZM449.07,237.75l-77.22,73.12H294.61l-67.6,64v-64H140.14V36.58H449.07Z"
-                ></path>
-            </svg>
-        </a>
-        <a href="https://learnbuildteach.com/">
-            <svg
-                aria-hidden="true"
-                focusable="false"
-                data-prefix="fab"
-                data-icon="discord"
-                class="text-twitter hover:-translate-y-1 transition-transform cursor-pointer"
-                role="img"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 640 512"
-                width="30px"
-                ><path
-                    fill="currentColor"
-                    d="M524.5 69.84a1.5 1.5 0 0 0 -.764-.7A485.1 485.1 0 0 0 404.1 32.03a1.816 1.816 0 0 0 -1.923 .91 337.5 337.5 0 0 0 -14.9 30.6 447.8 447.8 0 0 0 -134.4 0 309.5 309.5 0 0 0 -15.14-30.6 1.89 1.89 0 0 0 -1.924-.91A483.7 483.7 0 0 0 116.1 69.14a1.712 1.712 0 0 0 -.788 .676C39.07 183.7 18.19 294.7 28.43 404.4a2.016 2.016 0 0 0 .765 1.375A487.7 487.7 0 0 0 176 479.9a1.9 1.9 0 0 0 2.063-.676A348.2 348.2 0 0 0 208.1 430.4a1.86 1.86 0 0 0 -1.019-2.588 321.2 321.2 0 0 1 -45.87-21.85 1.885 1.885 0 0 1 -.185-3.126c3.082-2.309 6.166-4.711 9.109-7.137a1.819 1.819 0 0 1 1.9-.256c96.23 43.92 200.4 43.92 295.5 0a1.812 1.812 0 0 1 1.924 .233c2.944 2.426 6.027 4.851 9.132 7.16a1.884 1.884 0 0 1 -.162 3.126 301.4 301.4 0 0 1 -45.89 21.83 1.875 1.875 0 0 0 -1 2.611 391.1 391.1 0 0 0 30.01 48.81 1.864 1.864 0 0 0 2.063 .7A486 486 0 0 0 610.7 405.7a1.882 1.882 0 0 0 .765-1.352C623.7 277.6 590.9 167.5 524.5 69.84zM222.5 337.6c-28.97 0-52.84-26.59-52.84-59.24S193.1 219.1 222.5 219.1c29.67 0 53.31 26.82 52.84 59.24C275.3 310.1 251.9 337.6 222.5 337.6zm195.4 0c-28.97 0-52.84-26.59-52.84-59.24S388.4 219.1 417.9 219.1c29.67 0 53.31 26.82 52.84 59.24C470.7 310.1 447.5 337.6 417.9 337.6z"
-                ></path>
-            </svg>
-        </a>
-    </div>
+    <a href="https://www.twitch.tv/jamesqquick" aria-label="Twitch">
+      <svg
+        aria-hidden="true"
+        focusable="false"
+        data-prefix="fab"
+        data-icon="twitch"
+        class="text-twitch hover:-translate-y-1 transition-transform cursor-pointer"
+        height="32"
+        role="img"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 512 512"
+        aria-label="Twitch"
+        ><path
+          fill="currentColor"
+          d="M391.17,103.47H352.54v109.7h38.63ZM285,103H246.37V212.75H285ZM120.83,0,24.31,91.42V420.58H140.14V512l96.53-91.42h77.25L487.69,256V0ZM449.07,237.75l-77.22,73.12H294.61l-67.6,64v-64H140.14V36.58H449.07Z"
+        ></path>
+      </svg>
+    </a>
+    <a href="https://learnbuildteach.com/">
+      <svg
+        aria-hidden="true"
+        focusable="false"
+        data-prefix="fab"
+        data-icon="discord"
+        class="text-twitter hover:-translate-y-1 transition-transform cursor-pointer"
+        role="img"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 640 512"
+        width="30px"
+        ><path
+          fill="currentColor"
+          d="M524.5 69.84a1.5 1.5 0 0 0 -.764-.7A485.1 485.1 0 0 0 404.1 32.03a1.816 1.816 0 0 0 -1.923 .91 337.5 337.5 0 0 0 -14.9 30.6 447.8 447.8 0 0 0 -134.4 0 309.5 309.5 0 0 0 -15.14-30.6 1.89 1.89 0 0 0 -1.924-.91A483.7 483.7 0 0 0 116.1 69.14a1.712 1.712 0 0 0 -.788 .676C39.07 183.7 18.19 294.7 28.43 404.4a2.016 2.016 0 0 0 .765 1.375A487.7 487.7 0 0 0 176 479.9a1.9 1.9 0 0 0 2.063-.676A348.2 348.2 0 0 0 208.1 430.4a1.86 1.86 0 0 0 -1.019-2.588 321.2 321.2 0 0 1 -45.87-21.85 1.885 1.885 0 0 1 -.185-3.126c3.082-2.309 6.166-4.711 9.109-7.137a1.819 1.819 0 0 1 1.9-.256c96.23 43.92 200.4 43.92 295.5 0a1.812 1.812 0 0 1 1.924 .233c2.944 2.426 6.027 4.851 9.132 7.16a1.884 1.884 0 0 1 -.162 3.126 301.4 301.4 0 0 1 -45.89 21.83 1.875 1.875 0 0 0 -1 2.611 391.1 391.1 0 0 0 30.01 48.81 1.864 1.864 0 0 0 2.063 .7A486 486 0 0 0 610.7 405.7a1.882 1.882 0 0 0 .765-1.352C623.7 277.6 590.9 167.5 524.5 69.84zM222.5 337.6c-28.97 0-52.84-26.59-52.84-59.24S193.1 219.1 222.5 219.1c29.67 0 53.31 26.82 52.84 59.24C275.3 310.1 251.9 337.6 222.5 337.6zm195.4 0c-28.97 0-52.84-26.59-52.84-59.24S388.4 219.1 417.9 219.1c29.67 0 53.31 26.82 52.84 59.24C470.7 310.1 447.5 337.6 417.9 337.6z"
+        ></path>
+      </svg>
+    </a>
+  </div>
 </div>
