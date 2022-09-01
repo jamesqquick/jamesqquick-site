@@ -1,8 +1,8 @@
 ---
 import Link from "./Link.astro";
 import SocialFollow from "./SocialFollow.astro";
-import headshot from "../../public/images/headshot.png";
-
+import headshot from "../images/headshot.png";
+import { Image } from "@astrojs/image/components";
 const heading = "Hi, I'm James!";
 ---
 
@@ -22,8 +22,10 @@ const heading = "Hi, I'm James!";
     </p>
     <SocialFollow includeHandle={false} />
   </div>
-  <img
+  <Image
     src={headshot}
+    width={300}
+    height={300}
     alt="James Q Quick Header"
     class="rounded-full order-first md:order-1 w-[300px]"
   />

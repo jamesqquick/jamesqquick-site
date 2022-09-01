@@ -1,22 +1,32 @@
 ---
-import Link from './Link.astro';
-import SplitComponent from './SplitComponent.astro';
+import Link from "./Link.astro";
+import { Image } from "@astrojs/image/components";
+import lbtLogo from "../images/lbt-square.png";
 
-const heading = 'Learn Build Teach';
-const body = 'A welcoming and open Discord community of Web Developers.';
+const heading = "Learn Build Teach";
+const body = "A welcoming and open Discord community of Web Developers.";
+const alt = "Learn Build Teach Discord community.";
+const link = "https://learnbuildteach.com/";
 ---
 
-<SplitComponent
-  heading={heading}
-  body={body}
-  image="/images/lbt-square.png"
-  alt="Learn Build Teach Discord"
-  reversed={true}
-  link="https://learnbuildteach.com/"
->
-  <Link
-    href="https://learnbuildteach.com/"
-    text="Join the Community!"
-    classStr="text-2xl"
-  />
-</SplitComponent>
+<div class="flex md:flex-row flex-col items-center gap-10 md:mt-40 mt-20">
+  <div>
+    <h2 class="text-4xl font-extrabold mb-3">{heading}</h2>
+    <p class="leading-8 tracking-wide text-xl font-light mb-4">
+      {body}
+    </p>
+    <Link href={link} text="Listen Now!" classStr="text-2xl" />
+  </div>
+  <a
+    href={link}
+    class={`order-first md:order-0  mb-0 hover:-translate-y-1 transition-transform`}
+  >
+    <Image
+      src={lbtLogo}
+      alt={alt}
+      height={300}
+      width={300}
+      class={`rounded-lg md:max-w-none w-[200px] sm:w-[300px]`}
+    />
+  </a>
+</div>

@@ -1,4 +1,6 @@
 ---
+import { Image } from "@astrojs/image/components";
+
 export interface Props {
   heading: string;
   body: string;
@@ -24,12 +26,14 @@ const { heading, body, image, alt, reversed = false, link } = Astro.props;
       <a
         href={link}
         class={`order-first md:order-${
-          reversed ? '0' : '1'
+          reversed ? "0" : "1"
         }   mb-0 hover:-translate-y-1 transition-transform`}
       >
-        <img
+        <Image
           src={image}
           alt={alt}
+          height={300}
+          width={300}
           class={`rounded-lg md:max-w-none w-[200px] sm:w-[300px]`}
         />
       </a>
