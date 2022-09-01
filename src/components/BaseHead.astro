@@ -8,7 +8,6 @@ export interface Props {
   description: string;
   image?: string;
 }
-const measurementId = import.meta.env.GA_MEASUREMENT_ID;
 const { title, description, image = "/images/headshot.png" } = Astro.props;
 ---
 
@@ -40,7 +39,7 @@ const { title, description, image = "/images/headshot.png" } = Astro.props;
 
 <script
   type="text/partytown"
-  src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`}
+  src={`https://www.googletagmanager.com/gtag/js?id=UA-43331509-2`}
 ></script>
 <script type="text/partytown">
   window.dataLayer = window.dataLayer || [];
@@ -48,5 +47,5 @@ const { title, description, image = "/images/headshot.png" } = Astro.props;
     dataLayer.push(arguments);
   }
   gtag("js", new Date());
-  gtag("config", measurementId);
+  gtag("config", "UA-43331509-2");
 </script>
