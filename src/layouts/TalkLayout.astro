@@ -1,0 +1,33 @@
+---
+import ArticleHeader from '../components/ArticleHeader.astro';
+import BaseLayout from './BaseLayout.astro';
+
+export interface Props {
+  content: {
+    title: string;
+    description: string;
+    pubDate?: string;
+    updatedDate?: string;
+    coverImage?: string;
+    youTubeVideoId?: string;
+  };
+}
+
+const {
+  content: { title, description, pubDate, youTubeVideoId, coverImage },
+} = Astro.props as Props;
+---
+
+<BaseLayout title={title} description={description} image={coverImage}>
+  <main>
+    <article class="prose prose-xl">
+      <ArticleHeader
+        coverImage={coverImage}
+        title={title}
+        date={pubDate}
+        youTubeVideoId={youTubeVideoId}
+      />
+      <slot />
+    </article>
+  </main>
+</BaseLayout>

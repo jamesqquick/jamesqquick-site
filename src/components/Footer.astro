@@ -1,0 +1,29 @@
+---
+import Link from './Link.astro';
+import SocialFollow from './SocialFollow.astro';
+
+const today = new Date();
+---
+
+<footer
+  class="text-sm text-center w-full max-w-4xl mx-auto mt-20 py-2 flex flex-col items-center gap-2"
+>
+  <hr class="w-full mb-2" />
+  <SocialFollow includeHandle={true} />
+  <p>
+    Built with{' '}
+    <strong>
+      <Link href="https://astro.build/" text="Astro" classStr="text-xl" />
+    </strong>| Styling with{' '}
+    <strong>
+      <Link
+        href="https://tailwindcss.com/"
+        text="Tailwind CSS"
+        classStr="text-xl"
+      />
+    </strong>| Hosted on{' '}
+    <strong>
+      <Link href="https://netlify.com/" text="Netlify" classStr="text-xl" />
+    </strong>
+  </p>
+</footer>

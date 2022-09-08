@@ -1,0 +1,26 @@
+---
+import Link from "./Link.astro";
+import { Image } from "@astrojs/image/components";
+import YouTubeIcon from "./socials/YouTubeIcon.astro";
+
+const heading = "YouTube";
+const body =
+  "With over 100k subscribers, I teach modern Web Development with JavaScript through weekly YouTube videos!";
+const link = "https://www.youtube.com/c/jamesqquick";
+const alt = "YouTube channel for James Q Quick";
+---
+
+<div
+  class="flex md:flex-row flex-col justify-center items-center gap-10 md:mt-40 mt-20"
+>
+  <div>
+    <h2 class="text-4xl text-center font-extrabold mb-3">
+      <YouTubeIcon />
+      {heading}
+    </h2>
+    <p class="leading-8 tracking-wide text-xl font-light mb-4">
+      {body}
+    </p>
+    <Link href={link} text="Watch Now!" classStr="text-2xl" />
+  </div>
+</div>

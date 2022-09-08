@@ -1,0 +1,18 @@
+---
+import { getFormattedDate } from "../utils/dates";
+
+export interface Props {
+    slug: string;
+    title: string;
+    date: string;
+}
+
+const { slug, date, title } = Astro.props;
+---
+
+<div class="overflow-hidden my-10">
+    <p>{getFormattedDate(date)}</p>
+    <a href={slug} class="hover:text-brand transition-colors">
+        <h2 class="text-3xl font-bold my-0">{title}</h2>
+    </a>
+</div>
