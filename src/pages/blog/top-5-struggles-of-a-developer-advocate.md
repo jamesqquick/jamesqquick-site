@@ -1,5 +1,5 @@
 ---
-layout: '../../layouts/BlogPostLayout.astro'
+layout: "../../layouts/BlogPostLayout.astro"
 title: Top 5 Struggles of a Developer Advocate
 slug: top-5-struggles-of-a-developer-advocate
 coverImage: /images/posts/top-5-struggles-of-a-developer-advocate/cover.png
@@ -10,7 +10,7 @@ youTubeVideoId: null
 
 Let me start by saying that I've been a Developer Advocate for about 6 years of my career, and I absolutely LOVE my job. If you've followed any bit of my content and career, that hopefully doesn't come as a surprise. In fact, I think Developer Advocate positions are often looked at as one of those "pie in the sky" type roles that people hype up in their minds. Here's a picture of me speaking at a conference, one of my favorite things to do in the world.
 
-![](/images/top-5-struggles-of-a-developer-advocate/1.png)
+![](/images/posts/top-5-struggles-of-a-developer-advocate/1.png)
 
 As I said, I love my job, but just like with every other position, there are some difficulties and struggles in the role. Let's look at the top 5 struggles I have as a Developer Advocate.
 
@@ -24,7 +24,7 @@ In Developer Advocate roles, this is a hard one to answer. It's just not easy to
 
 Let's start with an example. Let's say my company sponsors a conference, and I spend all day at a booth. During that day, I have really engaging conversations with 50 different people. How do I then translate that to impact?
 
-![](/images/top-5-struggles-of-a-developer-advocate/2.png)
+![](/images/posts/top-5-struggles-of-a-developer-advocate/2.png)
 
 The easy answer is "the more people we talk to, the more exposure we get". This is absolutely true. BUT there's often not a direct way to further track the impact of those conversations. There's no guarantee that any one of those conversations is going to lead to a sale for the company, at least not directly.
 
@@ -90,7 +90,7 @@ I should also add that your amount of travel is typically a personal preference 
 
 The last thing I'll add is that for every trip I do take, I try to take advantage of it. I love exploring new places, and I especially love doing this with my wife, Jess. In a recent trip to London for a conference talk, my wife joined me, so we left a few days early and took a vacation to Paris 🥰 Not ba huh?
 
-![](/images/top-5-struggles-of-a-developer-advocate/3.jpeg)
+![](/images/posts/top-5-struggles-of-a-developer-advocate/3.jpeg)
 
 ## Final Thoughts
 
