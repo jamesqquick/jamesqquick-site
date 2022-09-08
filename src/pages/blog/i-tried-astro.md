@@ -6,6 +6,7 @@ coverImage: /images/posts/i-tried-astro/cover.png
 pubDate: 2022-09-08
 description: I recently tried Astro framework for the first time, and it's amazing!
 youTubeVideoId: wND4lSml31A
+tags: javascript, explainer, astro
 ---
 
 I tried Astro after hearing all the hype, and I freaking love it!
