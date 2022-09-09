@@ -3,4 +3,4 @@
 
 export const SITE_TITLE = "James Q Quick - Developer. Speaker. Teacher.";
 export const SITE_DESCRIPTION =
-  "I teach Fulstack Web Development through content.";
+  "I teach Fullstack Web Development through content.";
