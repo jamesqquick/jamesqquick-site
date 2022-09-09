@@ -21,6 +21,8 @@ Here are five reasons you'll love it too:
 
 Astro is great for those who want to create pages without any default javascript. This means that each page is truly static and only html is sent to the browser. This can improve performance by reducing the amount of javascript that needs to be loaded.
 
+> This blog post is powered by [Contenda](https://contenda.co/) which can transform videos into blog posts including images, code snippets, and more! You can get early access and one FREE content transformation using [this onboarding link](https://contenda.co/jamesqquick).
+
 ## 2. Built-in Markdown Support (and mdx)
 
 Do you like writing in Markdown but find the struggle of setting up syntax highlighting a bit too much? Well, good news! With Astro, you get Markdown support and code highlighting out of the box. So you can focus on what you're writing instead of worrying about the technical details.

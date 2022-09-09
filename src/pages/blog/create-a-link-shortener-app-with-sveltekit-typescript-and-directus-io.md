@@ -25,6 +25,8 @@ There a few reasons to I really like Directus:
 
 Directus can sit on top of your existing SQL database which means you can add a REST API and/or GraphQL on top of your existing data in minutes! Fun stuff! Let’s get started.
 
+> This blog post is powered by [Contenda](https://contenda.co/) which can transform videos into blog posts including images, code snippets, and more! You can get early access and one FREE content transformation using [this onboarding link](https://contenda.co/jamesqquick).
+
 ## Set-Up
 
 In this case, instead of deploying our own instance of Directus, let’s use the built in managed version. To get started, create a free project and sign up with your Github account.

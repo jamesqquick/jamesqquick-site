@@ -20,6 +20,8 @@ Open a blank folder in your favorite text editor (VSCode for me). Then, create t
 - app.js
 - app.css
 
+> This blog post is powered by [Contenda](https://contenda.co/) which can transform videos into blog posts including images, code snippets, and more! You can get early access and one FREE content transformation using [this onboarding link](https://contenda.co/jamesqquick).
+
 In the HTML file, stub out a basic template with a few elements.
 
 - references to both `app.css` and `app.js`
