@@ -1,5 +1,5 @@
 ---
-layout: '../../layouts/BlogPostLayout.astro'
+layout: "../../layouts/BlogPostLayout.astro"
 title: BRAND NEW VS Code Extension for Testing APIs
 slug: new-vs-code-extension-for-testing-apis
 coverImage: /images/posts/new-vs-code-extension-for-testing-apis/cover.png
@@ -14,7 +14,7 @@ Did you know you can test your API endpoints right inside of [VS Code](https://c
 
 Open the extensions tab inside of VS Code and search for "RapidAPI Client". Then, click install.
 
-![](/images/new-vs-code-extension-for-testing-apis/1.png)
+![](/images/posts/new-vs-code-extension-for-testing-apis/1.png)
 
 You may be asked to reload VS Code, so go ahead and do that.
 
@@ -61,15 +61,15 @@ In this endpoint, I am returning a sample list of content that has been created 
 
 With the Node/Express server running, I'm now able to test out this endpoint inside of the [RapidAPI Client extension](https://marketplace.visualstudio.com/items?itemName=RapidAPI.vscode-rapidapi-client&utm_source=jamesqquick&utm_medium=DevRel&utm_campaign=DevRel) by sending a GET request to `http://localhost:3000/content`. To do so, open the extension using the icon in your sidebar.
 
-![](/images/new-vs-code-extension-for-testing-apis/2.png)
+![](/images/posts/new-vs-code-extension-for-testing-apis/2.png)
 
 Then, click the plus icon to create a new request and populate the address.
 
-![](/images/new-vs-code-extension-for-testing-apis/3.png)
+![](/images/posts/new-vs-code-extension-for-testing-apis/3.png)
 
 Then, click "New Request", and you should see the data returned from your API endpoint.
 
-![](/images/new-vs-code-extension-for-testing-apis/4.png)
+![](/images/posts/new-vs-code-extension-for-testing-apis/4.png)
 
 From here, you can do all the basic things you would expect.
 
@@ -91,7 +91,7 @@ This extension gives you a dropdown of languages that you can use to generate co
 
 To generate a JavaScript code snippet, select JavaScript as the language next to the "Request snippet" text in the bottom of the window. I'm choosing to use the Fetch API for my request. Then, you can click the `</>` button to generate the code snippet.
 
-![](/images/new-vs-code-extension-for-testing-apis/5.png)
+![](/images/posts/new-vs-code-extension-for-testing-apis/5.png)
 
 The resulting code snippet will look like this.
 
@@ -110,7 +110,7 @@ I've becoming a bigger and bigger fan of TypeScript, so I love to have TypeScrip
 
 To generate your TypeScript type, choose TypeScript from the dropdown and then click the code icon.
 
-![](/images/new-vs-code-extension-for-testing-apis/6.png)
+![](/images/posts/new-vs-code-extension-for-testing-apis/6.png)
 
 For my data, I get this TypeScript definition.
 

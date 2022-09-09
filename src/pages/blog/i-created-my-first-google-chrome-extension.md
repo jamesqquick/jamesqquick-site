@@ -1,5 +1,5 @@
 ---
-layout: '../../layouts/BlogPostLayout.astro'
+layout: "../../layouts/BlogPostLayout.astro"
 title: I Created My First Google Chrome Extension
 slug: i-created-my-first-google-chrome-extension
 coverImage: /images/posts/i-created-my-first-google-chrome-extension/cover.png
@@ -73,7 +73,7 @@ The second way to test is to create the Chrome extension by connecting it to the
 
 Then, choose `Load Unpacked` and connect it to your code folder. After you do, you'll see your extension listed.
 
-![](/images/i-created-my-first-google-chrome-extension/1.png)
+![](/images/posts/i-created-my-first-google-chrome-extension/1.png)
 
 After that, you should see the extension in your extension bar, and when you click it, you'll the base HTML being displayed.
 
@@ -212,7 +212,7 @@ For finishing touches, I threw in a bit of styling.
 
 With all of that in place, I needed to refresh the extension in Chrome and it worked beautifuly!
 
-![](/images/i-created-my-first-google-chrome-extension/2.png)
+![](/images/posts/i-created-my-first-google-chrome-extension/2.png)
 
 ## Wrap Up
 

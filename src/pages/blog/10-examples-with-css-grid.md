@@ -1,5 +1,5 @@
 ---
-layout: '../../layouts/BlogPostLayout.astro'
+layout: "../../layouts/BlogPostLayout.astro"
 title: 10 Examples with CSS Grid
 slug: 10-examples-with-css-grid
 coverImage: /images/posts/10-examples-with-css-grid/cover.png
@@ -32,40 +32,40 @@ For each example, there is a set of starter files and finished files. Open the f
 
 1\. Responsive 3 Column Grid
 
-![](/images/10-examples-with-css-grid/1.png)
+![](/images/posts/10-examples-with-css-grid/1.png)
 
 2\. Centered Content
 
-![](/images/10-examples-with-css-grid/2.png)
+![](/images/posts/10-examples-with-css-grid/2.png)
 
 3\. Reordered Content
 
-![](/images/10-examples-with-css-grid/3.png)
+![](/images/posts/10-examples-with-css-grid/3.png)
 
 4\. Responsive Navbar
 
-![](/images/10-examples-with-css-grid/4.png)
+![](/images/posts/10-examples-with-css-grid/4.png)
 
 5\. Asymetric Dashboard
 
-![](/images/10-examples-with-css-grid/5.png)
+![](/images/posts/10-examples-with-css-grid/5.png)
 
 6\. Responsive Card Gallery
 
-![](/images/10-examples-with-css-grid/6.png)
+![](/images/posts/10-examples-with-css-grid/6.png)
 
 7\. Asymetric Gallery Layout
 
-![](/images/10-examples-with-css-grid/7.png)
+![](/images/posts/10-examples-with-css-grid/7.png)
 
 8\. Responsive 2 Column with Footer
 
-![](/images/10-examples-with-css-grid/8.png)
+![](/images/posts/10-examples-with-css-grid/8.png)
 
 9\. Responsive 2 Column Grid with Footer (Grid Areas)
 
-![](/images/10-examples-with-css-grid/9.png)
+![](/images/posts/10-examples-with-css-grid/9.png)
 
 10\. Checkerboard Layout
 
-![](/images/10-examples-with-css-grid/10.png)
+![](/images/posts/10-examples-with-css-grid/10.png)

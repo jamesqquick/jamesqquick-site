@@ -1,20 +1,17 @@
 ---
 export interface Props {
-    id: string;
+  id: string;
 }
 
 const { id } = Astro.props;
 ---
 
-<div
-    class="relative h-0 overflow-hidden max-w-full w-full"
-    style={{ paddingBottom: "56.25%" }}
->
-    <iframe
-        title={id}
-        src={`https://www.youtube-nocookie.com/embed/${id}`}
-        frame-border="0"
-        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-        class="absolute top-0 left-0 w-full h-full"></iframe>
+<div class="relative h-0 overflow-hidden w-full pb-[56.25%]">
+  <iframe
+    title={id}
+    src={`https://www.youtube.com/embed/${id}`}
+    frame-border="0"
+    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen
+    class="absolute top-0 left-0 h-full w-full"></iframe>
 </div>

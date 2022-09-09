@@ -1,5 +1,5 @@
 ---
-layout: '../../layouts/BlogPostLayout.astro'
+layout: "../../layouts/BlogPostLayout.astro"
 title: Why and How to Get Started Live Streaming
 slug: why-and-how-to-get-started-live-streaming
 coverImage: /images/posts/why-and-how-to-get-started-live-streaming/cover.png
@@ -32,7 +32,7 @@ What gear do you need if you want to stream? Although many streamers have thousa
 
 I want to reimphasize, you don't need to invest tons of money up front. **My suggestion is to start cheap and gradually upgrade along the way**. All of the equipment I use today, I've accumulated over the course of several years.
 
-![](/images/why-and-how-to-get-started-live-streaming/1.png)
+![](/images/posts/why-and-how-to-get-started-live-streaming/1.png)
 
 ### Camera
 
@@ -84,7 +84,7 @@ The easiest way to show appreciation for your viewers is to respond to ALL of yo
 
 In addition to responding to chat messages, you need to give your viewers some way to interact with and potentially influence the stream itself. Not sure what I mean? Here are a couple of examples.
 
-![](/images/why-and-how-to-get-started-live-streaming/2.png)
+![](/images/posts/why-and-how-to-get-started-live-streaming/2.png)
 
 First, I have 2 Hue LED bulbs that can be controlled with code. So, I let users in my chat redeem their [channel points](https://help.twitch.tv/s/article/channel-points-guide?language=en_US), to change the color of my bulbs. It's a simple thing, but this is my most popular interaction by far.
 

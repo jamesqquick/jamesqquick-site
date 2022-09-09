@@ -1,5 +1,5 @@
 ---
-layout: '../../layouts/BlogPostLayout.astro'
+layout: "../../layouts/BlogPostLayout.astro"
 title: My Favorite FREE VS Code Font in 2022  - Install and Setup with FONT LIGATURES!
 slug: favorite-vs-code-font-2022
 coverImage: /images/posts/favorite-vs-code-font-2022/cover.png
@@ -16,11 +16,11 @@ To install the font, download the latest ZIP file from the [releases pages](http
 
 Then look for the different font files inside of the `ttf` folder.
 
-![](/images/favorite-vs-code-font-2022/1.png)
+![](/images/posts/favorite-vs-code-font-2022/1.png)
 
 On a Mac, you can double click each one of these files, and choose install.
 
-![](/images/favorite-vs-code-font-2022/2.png)
+![](/images/posts/favorite-vs-code-font-2022/2.png)
 
 On Windows, I believe you can right-click on the font files and choose "Install". Here's a link for more details, [How to Download and Install Cascadia Code Font for Windows](https://windowsloop.com/download-install-cascadia-code-font/) .
 
@@ -28,7 +28,7 @@ On Windows, I believe you can right-click on the font files and choose "Install"
 
 Now that you have the font installed, you need to configure VS Code to use it. This will only take a second. Open your VS Code settings by clicking the gear icon in the lower left corner. Then, search for "Font Family" and type in "Cascadia Code".
 
-![](/images/favorite-vs-code-font-2022/3.png)
+![](/images/posts/favorite-vs-code-font-2022/3.png)
 
 Now, if you look at your code, it should look much better! Note that you may see a bit of a delay here. You may have to close a code file and open it back up.
 
@@ -43,7 +43,7 @@ One of my favorite features of this font is the ability to use Font Ligatures wh
 
 Here's a final screenshot of my code!
 
-![](/images/favorite-vs-code-font-2022/4.png)
+![](/images/posts/favorite-vs-code-font-2022/4.png)
 
 Note that I think these a really neat, but keep in mind that you'll be sacrificing a bit of readability by using them since many people aren't used to seeing them.
 

@@ -1,5 +1,5 @@
 ---
-layout: '../../layouts/BlogPostLayout.astro'
+layout: "../../layouts/BlogPostLayout.astro"
 title: VS Code React Setup - 5 Tips
 slug: vs-code-react-setup-5-tips
 coverImage: /images/posts/vs-code-react-setup-5-tips/cover.png
@@ -100,13 +100,13 @@ VS Code was the first text editor (in my mind) that absolutely nailed intellisen
 
 Not familiar with intellisense? It's the ability for your editor to display relevant information based on the context of what you are typing. For example, if you type `document` and then `.` inside of a JavaScript file, VS Code will display all of the functions, properties, etc. related to the document object.
 
-![](/images/vs-code-react-setup-5-tips/1.jpeg)
+![](/images/posts/vs-code-react-setup-5-tips/1.jpeg)
 
 With VS Code intellisense, you will also see typed definitions for functions. In other words, VS Code will show you what type of data a function takes in as a parameter and what type of data that it returns.
 
 Did you know this also works with React? React comes with TypeScript typings which VS Code uses to provide us all of that fancy intellisense. The tip here is to leverage this information to your benefit. If you forget the name of a function, type `React.` and then scroll all of the info that VS Code provides!
 
-![](/images/vs-code-react-setup-5-tips/2.jpeg)
+![](/images/posts/vs-code-react-setup-5-tips/2.jpeg)
 
 ## 5\. Auto Import
 
@@ -116,7 +116,7 @@ Let me rephrase, I don't actually hate imports per say. I specifically hate **wr
 
 Going back to the idea of intellisense above, you get more than just information about objects. You also get context for other cool features, like "Auto Import". Don't believe me? Open up a React component and type `useState`, then arrow down untill you see this option and press enter.
 
-![](/images/vs-code-react-setup-5-tips/3.jpeg)
+![](/images/posts/vs-code-react-setup-5-tips/3.jpeg)
 
 Now, look at the top of your file you should see the import!
 

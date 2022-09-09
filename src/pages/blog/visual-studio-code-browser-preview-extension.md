@@ -1,5 +1,5 @@
 ---
-layout: '../../layouts/BlogPostLayout.astro'
+layout: "../../layouts/BlogPostLayout.astro"
 title: Visual Studio Code Browser Preview Extension
 slug: visual-studio-code-browser-preview-extension
 coverImage: /images/posts/visual-studio-code-browser-preview-extension/cover.png
@@ -10,7 +10,7 @@ youTubeVideoId: iyb9-eqQoMc
 
 Did you know you can view a live-reloading browser preview right inside of Visual Studio Code? Well, with the Browser Preview extension, you can do just that. Setting up your Visual Studio Code browser preview is just a few clicks away. Let's see how to do it.
 
-![](/images/visual-studio-code-browser-preview-extension/1.png)
+![](/images/posts/visual-studio-code-browser-preview-extension/1.png)
 
 ## Why The Browser Preview Extension
 
@@ -24,7 +24,7 @@ Alternatively, I've also tried setting VS Code and Google Chrome to take up 50% 
 
 Start by opening the extensions tab inside of VS Code. Then search for `Browser Preview` and click `install`.
 
-![](/images/visual-studio-code-browser-preview-extension/2.png)
+![](/images/posts/visual-studio-code-browser-preview-extension/2.png)
 
 ## Use the Extension
 
@@ -36,13 +36,13 @@ If you are using vanilla JavaScript, you can use the [Live Server](https://marke
 
 With your application and server running, now you can open the browser preview. Open the command pallette (`control + shift + p` on Windows and `command + shift + p` on Mac) and search for `Browser Preview: Open Preview.`
 
-![](/images/visual-studio-code-browser-preview-extension/3.png)
+![](/images/posts/visual-studio-code-browser-preview-extension/3.png)
 
 Now, you can type in the url of your app in the browser. Here's my "Quick Quiz" demo running at `localhost:5500.`
 
 > [Check out this FREE course if you're interested in learning to build a Quiz App with HTML, CSS, and JavaScript](https://www.youtube.com/watch?v=u98ROZjBWy8&list=PLDlWc9AfQBfZIkdVaOQXi1tizJeNJipEx)
 
-![](/images/visual-studio-code-browser-preview-extension/4.png)
+![](/images/posts/visual-studio-code-browser-preview-extension/4.png)
 
 ## Wrap Up
 

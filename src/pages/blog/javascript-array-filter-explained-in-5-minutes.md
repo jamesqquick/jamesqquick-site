@@ -1,5 +1,5 @@
 ---
-layout: '../../layouts/BlogPostLayout.astro'
+layout: "../../layouts/BlogPostLayout.astro"
 title: JavaScript Array Filter Method Practice in 5 Minutes
 slug: javascript-array-filter-explained-in-5-minutes
 coverImage: /images/posts/javascript-array-filter-explained-in-5-minutes/cover.png
@@ -14,7 +14,7 @@ JavaScript arrays have some powerful built-in methods that simplify working with
 
 This post is part of a series focused on learning JavaScript array methods. You can find the starter code in [this repository](https://bit.ly/jqq-array-practice).
 
-![](/images/javascript-array-filter-explained-in-5-minutes/1.png)
+![](/images/posts/javascript-array-filter-explained-in-5-minutes/1.png)
 
 In that repository, there is a `worksheet.js` file with some sample Star Wars data. So, clone the repository, open up the `worksheet.js` file, and scroll down to the Filter section. Alternatively, you can copy the sample data into a JavaScript file without cloning if you choose.
 
@@ -23,32 +23,32 @@ Here's the sample data.
 ```javascript
 const characters = [
   {
-    name: 'Luke Skywalker',
+    name: "Luke Skywalker",
     height: 172,
     mass: 77,
-    eye_color: 'blue',
-    gender: 'male',
+    eye_color: "blue",
+    gender: "male",
   },
   {
-    name: 'Darth Vader',
+    name: "Darth Vader",
     height: 202,
     mass: 136,
-    eye_color: 'yellow',
-    gender: 'male',
+    eye_color: "yellow",
+    gender: "male",
   },
   {
-    name: 'Leia Organa',
+    name: "Leia Organa",
     height: 150,
     mass: 49,
-    eye_color: 'brown',
-    gender: 'female',
+    eye_color: "brown",
+    gender: "female",
   },
   {
-    name: 'Anakin Skywalker',
+    name: "Anakin Skywalker",
     height: 188,
     mass: 84,
-    eye_color: 'blue',
-    gender: 'male',
+    eye_color: "blue",
+    gender: "male",
   },
 ];
 ```
@@ -116,7 +116,7 @@ Now, we only want to get male characters by checking the `gender` property of ea
 
 ```javascript
 const maleCharacters = characters.filter(
-  (character) => character.gender === 'male'
+  (character) => character.gender === "male"
 );
 ```
 
@@ -126,7 +126,7 @@ Lastly, we can tweak the previous filter to search for the string "female" as th
 
 ```javascript
 const femaleCharacters = characters.filter(
-  (character) => character.gender === 'female'
+  (character) => character.gender === "female"
 );
 ```
 

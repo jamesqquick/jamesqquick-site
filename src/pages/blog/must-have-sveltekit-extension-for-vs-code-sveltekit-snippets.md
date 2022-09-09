@@ -1,5 +1,5 @@
 ---
-layout: '../../layouts/BlogPostLayout.astro'
+layout: "../../layouts/BlogPostLayout.astro"
 title: Must Have SvelteKit Extension for VS Code - SvelteKit Snippets
 slug: must-have-sveltekit-extension-for-vs-code-sveltekit-snippets
 coverImage: /images/posts/must-have-sveltekit-extension-for-vs-code-sveltekit-snippets/cover.png
@@ -14,7 +14,7 @@ SvelteKit is one of my favorite frameworks right now, and it just got a whole lo
 
 To use the snippet, you can search for it in the extensions tab of the sidebar inside of VS Code and click install.
 
-![](/images/must-have-sveltekit-extension-for-vs-code-sveltekit-snippets/1.png)
+![](/images/posts/must-have-sveltekit-extension-for-vs-code-sveltekit-snippets/1.png)
 
 After you get it installed, now you'll have access to a load of different snippets that covers all of the essentials.
 
@@ -25,11 +25,11 @@ After you get it installed, now you'll have access to a load of different snippe
 
 This basically gives you the building blocks for everything you need to work with SvelteKit. Here is a full list from the docs.
 
-![](/images/must-have-sveltekit-extension-for-vs-code-sveltekit-snippets/2.png)
+![](/images/posts/must-have-sveltekit-extension-for-vs-code-sveltekit-snippets/2.png)
 
 To trigger an extension, simply start typing its prefix. For example, if you want to generate a SvelteKit component, you'd start typing `kitComp`.
 
-![](/images/must-have-sveltekit-extension-for-vs-code-sveltekit-snippets/3.png)
+![](/images/posts/must-have-sveltekit-extension-for-vs-code-sveltekit-snippets/3.png)
 
 Notice, there's even an option for TypeScript! Then, to complete the snippet, you can press enter and look at your wonderful new component.
 
@@ -37,4 +37,4 @@ Notice, there's even an option for TypeScript! Then, to complete the snippet, yo
 
 If you want to learn more about SvelteKit, make sure to check out our ([Amy Dutton](https://twitter.com/selfteachme) and I) upcoming SvelteKit course, [Everything Svelte](https://www.everythingsvelte.com/). We'll cover everything you need to know about working with SvelteKit, Supabase, and much much more!
 
-![](/images/must-have-sveltekit-extension-for-vs-code-sveltekit-snippets/4.png)
+![](/images/posts/must-have-sveltekit-extension-for-vs-code-sveltekit-snippets/4.png)
