@@ -35,7 +35,7 @@ I'm really excited about the possibilities that Astro offers for making website 
 
 ## 4. Bring Your Own Framework (React, Svelte, Vue, etc.)
 
-Next up is the no javascript feature! This allows you to use other frameworks inside of Astro. So, if you have components that are already written in frameworks like View or Svelte or React, you can just bring them right into Astro and they'll work.
+Next up is the no javascript feature! This allows you to use other frameworks inside of Astro. So, if you have components that are already written in frameworks like Vue or Svelte or React, you can just bring them right into Astro and they'll work.
 
 This is really cool because you can use the components you're already familiar with, without having to load javascript by default. You can just add a tag for client load to tell when and if to load the javascript associated with it. So if you want a button where you want the functionality you want to maintain pieces of state, you can just add a tag for client load and the javascript will only load when you need it.
 
