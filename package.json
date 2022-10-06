@@ -21,6 +21,7 @@
     "astro": "^1.0.9"
   },
   "dependencies": {
-    "@astrojs/netlify": "^1.0.1"
+    "@astrojs/netlify": "^1.0.1",
+    "fast-xml-parser": "^4.0.10"
   }
 }
