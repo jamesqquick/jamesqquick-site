@@ -15,7 +15,7 @@ module.exports = {
       },
     },
     fontFamily: {
-      sans: ["Poppins", "ui-sans-serif"],
+      sans: ["Poppins", "ui-sans-serif", "sans-serif"],
     },
   },
   safelist: [
