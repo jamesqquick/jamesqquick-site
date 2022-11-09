@@ -12,10 +12,9 @@ const { youTubeVideoId, coverImage, title, date } = Astro.props;
 ---
 
 <div class="mb-8">
+  {youTubeVideoId && <YouTube id={youTubeVideoId} />}
   {
-    youTubeVideoId ? (
-      <YouTube id={youTubeVideoId} />
-    ) : (
+    coverImage && !youTubeVideoId && (
       <img
         src={coverImage}
         alt={title}

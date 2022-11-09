@@ -3,7 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import LinkCard from "../components/LinkCard.astro";
 
 // Use Astro.glob() to fetch all posts, and then sort them by date.
-const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
+const posts = (await Astro.glob("./courses/*.{md,mdx}")).sort(
   (a, b) =>
     new Date(b.frontmatter.pubDate).valueOf() -
     new Date(a.frontmatter.pubDate).valueOf()
@@ -16,7 +16,7 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
       <LinkCard
         title={post.frontmatter.title}
         date={post.frontmatter.pubDate}
-        slug={`/blog/${post.frontmatter.slug}`}
+        slug={`/courses/${post.frontmatter.slug}`}
       />
     ))
   }
