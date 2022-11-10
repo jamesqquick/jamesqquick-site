@@ -25,6 +25,6 @@ const { youTubeVideoId, coverImage, title, date } = Astro.props;
     )
   }
   <h1 class="text-4xl font-bold mt-10 mb-1">{title}</h1>
-  <time>{getFormattedDate(date)}</time>
+  {date && <time>{getFormattedDate(date)}</time>}
   <hr class="my-4" />
 </div>
