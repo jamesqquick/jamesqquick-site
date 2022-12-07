@@ -9,7 +9,7 @@ description: Learn to build a secure and production-ready fullstack application 
 
 Tired of building Todo apps? Want to know what it's like to build a real-world application from start to finish?
 
-[Check out the course!](https://jamesquick.podia.com/react-and-serverless-fullstack-web-development)
+[Check out the course!](https://learn.jamesqquick.com/react-and-serverless-fullstack-web-development)
 
 ## Course Overview
 
@@ -136,4 +136,4 @@ Other questions? Feel free to reach out in chat or send me an email at me@jamesq
 - recap of what we accomplished
 - what do to do next
 
-[Check out the course!](https://jamesquick.podia.com/react-and-serverless-fullstack-web-development)
+[Check out the course!](https://learn.jamesqquick.com/react-and-serverless-fullstack-web-development)
