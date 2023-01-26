@@ -1,0 +1,47 @@
+---
+import { Icon } from 'astro-icon'
+import Button from './Button.astro';
+
+
+---
+
+<form  accept-charset="UTF-8" method="post">
+  <input name="utf8" type="hidden" value="✓" />
+  <div class="mb-10">
+        <label for="eventName" class="text-lg md:text-2xl font-light block mb-2">Organization/Event Name</label>
+        <input
+            type="text"
+            name="eventName"
+            required={true}
+            class="border-2 py-4 px-2 bg-transparent grow w-full"
+        />
+  </div>
+    <div class="mb-10">
+        <label for="fullName" class="text-lg md:text-2xl font-light block mb-2">Full Name</label>
+        <input
+            type="text"
+            name="fullName"
+            required={true}
+            class="border-2 py-4 px-2 bg-transparent grow w-full"
+        />
+    </div>
+    <div class="mb-10">
+        <label for="email" class="text-lg md:text-2xl font-light block mb-2">Email</label>
+        <input
+            type="email"
+            name="email"
+            required={true}
+            class="border-2 py-4 px-2 bg-transparent grow w-full"
+        />
+    </div>
+    <div class="mb-10">
+        <label for="detials" class="text-lg md:text-2xl font-light block mb-2">Anything else you think I should know like dates, location, etc.</label>
+        <textarea
+            name="details"
+            required={true}
+            rows="10"
+            class="border-2 py-4 px-2 bg-transparent grow w-full"
+        />
+    </div>
+    <Button text="Send Request"/>
+</form>

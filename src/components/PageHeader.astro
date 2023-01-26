@@ -1,0 +1,23 @@
+---
+import Button from "./Button.astro";
+import Divider from "./Divider.astro";
+import YouTube from "./YouTube.astro";
+
+export interface Props {
+    heading:string,
+    body:string,
+    youTubeVideoId:string
+}
+
+const {heading, body, btnText, youTubeVideoId} = Astro.props;
+---
+
+<div class="mb-20 grid grid-cols-1 lg:grid-cols-2 space-between gap-10">
+    <div>
+        <h1 class="text-6xl text-brand font-bold mb-10">{heading}</h1>
+        <p class="text-4xl font-light mb-5">{body}</p>
+        <slot/>
+    </div>
+    <YouTube id={youTubeVideoId} />
+</div>
+<Divider size={1}/>

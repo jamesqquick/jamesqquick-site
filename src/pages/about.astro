@@ -1,0 +1,27 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro"
+import Microsoft from "../images/Microsoft.png";
+import FedEx from "../images/FedEx.png";
+import PlanetScale from "../images/PlanetScale.png";
+import Auth0 from "../images/Auth0.png";
+import PageHeader from "../components/PageHeader.astro";
+import Bio from "../components/Bio.astro";
+import Divider from "../components/Divider.astro";
+
+---
+
+<BaseLayout title="About | James Q Quick" description="James Q Quick is a Developer, Speaker, and Teacher with a passion for teaching developers through content.">
+   <PageHeader heading="About" body="I use Content Creation to teach and inspire the Developer Community." youTubeVideoId="WSLJIy-XYGg"/>
+        
+    <p class="font-light mb-6">WORK EXPERIENCE</p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 items-end mb-40 gap-y-10">
+        <img class="h-10" src={Microsoft.src}/>
+        <img class="h-10" src={FedEx.src}/>
+        <img class="h-10" src={Auth0.src}/>
+        <img class="h-10" src={PlanetScale.src}/>
+    </div>
+    <Divider />
+    <section class="my-24">
+        <Bio/>
+    </section>
+</BaseLayout>
