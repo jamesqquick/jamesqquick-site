@@ -16,7 +16,6 @@ export interface Props {
 const {
   content: { title, description, pubDate, youTubeVideoId, coverImage },
 } = Astro.props as Props;
-console.log(youTubeVideoId, coverImage);
 ---
 
 <BaseLayout title={title} description={description} image={coverImage}>

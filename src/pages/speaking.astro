@@ -15,8 +15,8 @@ import Button from "../components/Button.astro";
 ---
 
 <BaseLayout>
-    <PageHeader heading="Speaking" body="I use my voice to teach and inspire the Developer community." youTubeVideoId="WSLJIy-XYGg" >
-        <Button id="inviteBtn" text="Invite Me To Speak?" isLink href="#speakerForm" newTab={false} classStr="mt-4"/>
+    <PageHeader heading="Speaking" body="I use my voice to teach and inspire the Developer community." image={speaking}>
+        <Button id="inviteBtn" text="Invite Me To Speak" isLink href="#speakerForm" newTab={false} classStr="mt-4"/>
     </PageHeader>
     
     <section class="my-24">
@@ -52,9 +52,9 @@ import Button from "../components/Button.astro";
         
         <Divider />
     </section>
-    <section class="my-24">
+    <!-- <section class="my-24">
         <h2 class="text-6xl mb-20">Testimonials</h2>
-    </section>
+    </section> -->
     <Divider />
     <section class="my-24">
         <h2 class="text-6xl mb-20">Past Talks</h2>
