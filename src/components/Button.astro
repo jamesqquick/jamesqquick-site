@@ -1,0 +1,38 @@
+---
+export interface Props {
+    text: string,
+    handler?: any,
+    isLink?: boolean,
+    href?:string,
+    newTab?: boolean,
+    classStr?:string,
+    id?:string
+    download?:boolean
+}
+const {text, handler, isLink = false, href = "/", newTab = false, classStr, id, download = false} = Astro.props;
+const classes = `text-2xl rounded-full px-10 py-4 border text-white hover:text-brand hover:border-brand inline-block transition ${classStr || ''}`;
+---
+{
+    !isLink &&
+    <button class={classes} onclick={handler} id={id|| ''}>
+        {text}
+    </button>
+}
+{ isLink && download &&
+    <a href={href} class={classes} download>
+        {text}
+    </a>
+}
+{
+    isLink && newTab &&
+    <a href={href} class={classes} rel="noopener noreferrer" target="_blank" id={id|| ''}>
+        {text}
+    </a>
+}
+
+{
+    isLink && !newTab && !download &&
+    <a href={href} class={classes} id={id|| ''}>
+        {text}
+    </a>
+}

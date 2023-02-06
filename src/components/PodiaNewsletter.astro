@@ -1,4 +1,7 @@
 ---
+import { Icon } from 'astro-icon'
+import Button from './Button.astro';
+
 export interface Props {
   newsletterId: string;
 }
@@ -8,17 +11,22 @@ const url = `https://learn.jamesqquick.com//email_lists/${newsletterId}/subscrip
 
 <form action={url} accept-charset="UTF-8" method="post">
   <input name="utf8" type="hidden" value="✓" />
-  <input
-    type="email"
-    name="email"
-    required={true}
-    placeholder="Email"
-    class="w-full mb-2 bg-gray-100 rounded-lg p-4"
-  />
-  <button
-    type="submit"
-    class="bg-brand text-lg py-2 px-4 rounded-lg hover:-translate-y-1 transition-transform text-white w-52"
-  >
-    Subscribe
-  </button>
+  <label for="email" class="text-xl md:text-2xl font-bold block mb-2">Email Address</label>
+  <div class="flex flex-col md:flex-row gap-10">
+        <input
+            type="email"
+            name="email"
+            required={true}
+            placeholder="me@jamesqquick.com"
+            class="border-2 py-4 px-2 bg-transparent grow"
+        />
+        <!-- <button
+        type="submit"
+        class="text-brand text-xl font-bold py-2 px-4 rounded-lg hover:-translate-y-1 transition-transform"
+        >
+            Sign me up <Icon class="inline h-10 w-10"  name="mdi:arrow-right" />
+        </button> -->
+        <Button text="Sign me up!" />
+
+    </div>  
 </form>

@@ -1,16 +1,19 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
+import Divider from "../components/Divider.astro";
 import Footer from "../components/Footer.astro";
-import Header from "../components/Header.astro";
+import Navbar from "../components/Navbar.astro";
+import NewsletterSection from "../components/NewsletterSection.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../config";
 
 export interface Props {
   title?: string;
   description?: string;
   image?: string;
+  bottomDivider?: boolean;
 }
 
-const { title, description, image } = Astro.props;
+const { title, description, image, bottomDivider = true } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -22,12 +25,16 @@ const { title, description, image } = Astro.props;
       image={image}
     />
   </head>
-  <body>
-    <div class="flex flex-col min-h-screen py-4">
-      <Header />
-      <div class="px-8 mx-auto grow w-full">
-        <main class="container mx-auto flex-1 max-w-4xl">
+  <body class="bg-bg text-white">
+    <div class="flex flex-col min-h-screen overflow-x-hidden">
+      <Navbar/>
+      <div class="mx-auto grow w-full">
+        <main class="max-w-[1200px] mx-auto mt-10 px-4  md:px-10">
           <slot />
+          {bottomDivider &&
+              <Divider/>
+            }
+          <NewsletterSection/>
         </main>
       </div>
       <Footer />

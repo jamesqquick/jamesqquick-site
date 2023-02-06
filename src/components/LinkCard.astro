@@ -1,18 +1,36 @@
 ---
 import { getFormattedDate } from "../utils/dates";
+import Button from "./Button.astro";
 
 export interface Props {
     slug: string;
     title: string;
     date: string;
+    btnText?: string;
 }
 
-const { slug, date, title } = Astro.props;
+const { slug, date, title, btnText="Read" } = Astro.props;
+
+let titleParts = [];
+if(title.includes("-")){
+    titleParts = title.split('-')
+}
 ---
 
-<div class="overflow-hidden my-10">
-    <p>{getFormattedDate(date)}</p>
+<!-- <div class="overflow-hidden my-10">
+    
     <a href={slug} class="hover:text-brand transition-colors">
         <h2 class="text-3xl font-bold my-0">{title}</h2>
     </a>
+</div> -->
+
+<div class="bg-bgDark  rounded-3xl py-20 px-20 text-300 flex flex-col lg:flex-row justify-center lg:justify-between lg:items-center">
+    <div>
+      <h2 class=" text-brand text-4xl font-light mb-2">{titleParts[0] || title}</h2>
+      {titleParts[1] &&
+      <p class="mb-2 text-2xl">{titleParts[1]}</p>
+    }
+      <p class="mb-10">{getFormattedDate(date)}</p>
+      <Button text={btnText} isLink href={slug}/>
+    </div>
 </div>

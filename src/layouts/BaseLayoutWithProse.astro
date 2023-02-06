@@ -2,6 +2,7 @@
 import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
+import Navbar from "../components/Navbar.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../config";
 
 export interface Props {
@@ -24,7 +25,7 @@ const { title, description, image } = Astro.props;
   </head>
   <body>
     <div class="flex flex-col min-h-screen py-4">
-      <Header />
+      <Navbar />
       <div class="px-8 mx-auto grow w-full">
         <main class="container mx-auto flex-1 max-w-4xl prose prose-xl">
           <slot />

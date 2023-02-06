@@ -1,32 +1,58 @@
 ---
-import Link from "./Link.astro";
+import selfie from "../images/selfie.png";
+import logo from "../images/logo.svg";
+import { Picture } from "@astrojs/image/components";
 import SocialFollow from "./SocialFollow.astro";
-import headshot from "../images/headshot.png";
-import { Image } from "@astrojs/image/components";
-const heading = "Developer. Speaker. Teacher.";
+import Divider from "./Divider.astro";
 ---
-
-<div class="flex md:flex-row flex-col items-center gap-4">
-  <div>
-    <h1 class="text-3xl mb-3 font-black">{heading}</h1>
-    <p class="leading-8 tracking-wide text-xl font-light mb-4">
-      I&apos;m a Fullstack Web Developer who is addicted to learning and loves
-      working with people. I live by the motto{" "}
-      <strong class="font-bold"
-        ><Link
-          href="https://learnbuildteach.com/"
-          text="Learn Build Teach"
-          classStr="text-2xl"
-        />
-      </strong>, so I’m excited to share the things I learn with you!
-    </p>
-    <SocialFollow includeHandle={false} />
-  </div>
-  <Image
-    src={headshot}
-    width={300}
-    height={300}
-    alt="James Q Quick Header"
-    class="rounded-full order-first md:order-1 w-[300px]"
-  />
+<script>
+    let nouns = ["Developer.", "Speaker.", "Teacher."];
+    let noun = nouns[0];
+    let nounIndex = 0;
+    const typewriterText = document.querySelector('.typewriter');
+    typewriterText.innerHTML = noun;
+setInterval(() => {
+    nounIndex = (nounIndex + 1) % nouns.length;
+    noun = nouns[nounIndex];
+        typewriterText.innerHTML = noun;
+}, 6000)
+</script>
+<div class=" px-8 -mt-10 mx-0 xl:-mx-20">
+    <div class="max-w-6xl mx-auto items-start justify-center gap-4 pb-20 sm:pb-0 sm:h-[calc(100vh-180px)]  flex flex-col relative ">
+        <div class="xl:max-w-xl max-w-lg relative translate-y-0 sm:-translate-y-60 ">
+            <h1 class="xl:text-8xl text-4xl md:text-6xl  mb-8 font-bold" aria-label="James Q Quick: Developer. Speaker. Teacher.">I'm a <span class="text-brand block typewriter"></span></h1>
+            <p class="text-xl md:text-2xl mb-5 lg:max-w-sm xl:max-w-6xl">I use content creation to <span class="text-brand font-bold">teach and inspire</span> developers.</p>
+            <SocialFollow />
+        </div>
+        <img src={logo} class="absolute sm:block hidden  right-0 lg:-right-20 -top-20 h-screen  -z-10 opacity-70 max-w-4xl" />
+        <Picture src={selfie} sizes="(max-width:800px) 100vw, 800px" widths={[400, 800, 1600]} aspectRatio="1:1" class="absolute hidden sm:block  bottom-0 right-0 translate-x-20 xl:max-w-[800px] lg:max-w-[700px] md:max-w-[600px]" alt="James Q Quick selfie"/>
+    </div>
 </div>
+
+<style>
+.typewriter {
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .1em solid orange;
+  white-space: nowrap; /* Keeps the content on a single line */
+  animation: 
+    typing 6s steps(40, end) infinite,
+    blink-caret 0.75s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  0% { width: 0 }
+  5% { width: 0 }
+  30% { width: 100% }
+  60% { width: 100% }
+  95% { width: 0 }
+  100% { width: 0 }
+}
+
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange; }
+}
+</style>

@@ -11,13 +11,17 @@ const posts = (await Astro.glob("./courses/*.{md,mdx}")).sort(
 ---
 
 <BaseLayout title="Blog | James Q Quick">
-  {
-    posts.map((post) => (
-      <LinkCard
-        title={post.frontmatter.title}
-        date={post.frontmatter.pubDate}
-        slug={`/courses/${post.frontmatter.slug}`}
-      />
-    ))
-  }
+    <div class="grid gap-20">
+
+        {
+            posts.map((post) => (
+                <LinkCard
+                title={post.frontmatter.title}
+                date={post.frontmatter.pubDate}
+                slug={`/courses/${post.frontmatter.slug}`}
+                btnText="Learn More"
+                />
+                ))
+            }
+            </div>
 </BaseLayout>

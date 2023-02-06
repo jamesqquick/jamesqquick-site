@@ -1,8 +1,25 @@
-/*
-  The CSS in this style tag is based off of Bear Blog's default CSS.
-  https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
-  License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
- */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700');
 
+@media screen and (max-width: 1024px) {
+    body[data-menu-open] {
+        overflow-y: hidden;
+    }
+}
 
+a {
+    @apply  hover:text-brand  transition-all;
+}
+
+p {
+    font-family: 'Roboto';
+    @apply tracking-wider font-light;
+}
+
+h1 p {
+    font-family: 'Poppins';
+}
+
+html {
+    scroll-behavior: smooth;
+  }

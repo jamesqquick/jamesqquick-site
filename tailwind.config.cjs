@@ -10,8 +10,10 @@ module.exports = {
         twitch: "#644398",
         twitter: "#49a1eb",
         linkedin: "#3077b0",
-        brand: "#de5254",
         discord: "#f865f2",
+        brand: "#0AFA94",
+        bg: "#242845",
+        bgDark: "#10121D",
       },
     },
     fontFamily: {
@@ -25,6 +27,11 @@ module.exports = {
     "text-twitch",
     "text-twitter",
     "text-linkedin",
+    "h-[0.5px]",
+    "h-[1px]",
+    "h-[2px]",
+    "h-[4px]",
+    "transition-all",
   ],
   plugins: [require("@tailwindcss/typography")],
 };

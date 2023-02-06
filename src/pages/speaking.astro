@@ -1,0 +1,115 @@
+---
+import { Image } from "@astrojs/image/components";
+import { Icon } from "astro-icon";
+import Divider from "../components/Divider.astro";
+import PageHeader from "../components/PageHeader.astro"
+import YouTube from "../components/YouTube.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ato from "../images/speaking/ato.png";
+import that from "../images/speaking/that.png";
+import render from "../images/speaking/render.png";
+import speaking from "../images/speaking/speaking.jpg";
+import Bio from "../components/Bio.astro";
+import SpeakerForm from "../components/speaking/SpeakerForm.astro";
+import Button from "../components/Button.astro";
+import Testimonial from "../components/speaking/Testimonial.astro";
+
+
+const testimonials = await Astro.glob("../data/speaking/testimonials/*.{md,mdx}");
+---
+
+<BaseLayout>
+    <PageHeader heading="Speaking" body="I use my voice to teach and inspire the Developer community." image={speaking}>
+        <Button id="inviteBtn" text="Invite Me To Speak" isLink href="#speakerForm" newTab={false} classStr="mt-4"/>
+    </PageHeader>
+    
+    <section class="my-24">
+        <h2 class="text-6xl mb-20">3 Core Topics</h2>
+        <div class="grid grid-cols-7 gap-10">
+            <p class="w-14 mt-2 ">ONE</p>
+            <div class="col-span-6">
+                <h3 class="text-4xl mb-1">Career Advice</h3>
+                <p>I'm a firm believer that we, as individuals, are solely responsible for what happens in our career. I encourage others to take control of their career while pursuing happiness, whatever that may look like for them.</p>
+            </div>
+            <p class="w-28 mt-2">TWO</p>
+            <div class="col-span-6">
+                <h3 class="text-4xl mb-1">Personal Brand</h3>
+                <p>Your personal brand is the most valuable asset you will ever own. My personal brand enabled me to work for myself while pursuing my passion of teaching others through Content Creation. </p>
+            </div>
+            <p class="w-28 mt-2">THREE</p>
+            <div class="col-span-6">
+                <h3 class="text-4xl mb-1">Modern Web Development</h3>
+                <p>The Web Development ecosystem is constantly evolving. I love spending time learning about the latest frameworks, methodologies, and tools, and I'm eager to share those learnings with the community.</p>
+            </div>
+        </div>
+        <Divider />
+    </section>
+    <section class="my-24">
+        <h2 class="text-6xl mb-20">Upcoming Events</h2>
+        <div class="flex gap-x-8 flex-col lg:flex-row  py-8 lg:items-center">
+            <div class="flex flex-col flex-1 gap-x-8">
+                <p class="w-18 mt-2 ">May 29</p>
+                <h3 class="text-4xl ">Render ATL</h3>
+            </div>
+                <a href="https://www.renderatl.com/" class="text-brand text-2xl font-bold" rel="noopener noreferrer" target="_blank" >Details <Icon class="inline h-10 w-10"  name="mdi:arrow-right" /></a>
+        </div>
+        
+        <!-- <Divider /> -->
+    </section>
+    <Divider />
+    <section class="my-24">
+        <h2 class="text-6xl mb-20">Testimonials</h2>
+        <div class="flex flex-col gap-20">
+            {testimonials.map(testimonial => (<Testimonial testimonial={testimonial}/>))}
+        </div>
+    </section>
+    <Divider />
+    <section class="my-24">
+        <h2 class="text-6xl mb-20">Past Talks</h2>
+        <div class="grid gap-40">
+
+            <div class="grid grid-cols-1 lg:grid-cols-7 gap-8">
+                <div class="col-span-5 row-span-2">
+                    <YouTube id="DajdLKD0OmQ" />
+                </div>
+                <div class="col-span-2 row-start-1">
+                    <Image src={that} class="mb-2"/>
+                    <h3 class="text-4xl tracking-wide font-light">Feeling Stuck In Your Career...? What Next</h3>
+                </div>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-7 gap-8">
+            <div class="col-span-5 row-span-2">
+                <YouTube id="BRgVeUSYxXo" />
+            </div>
+            <div class="col-span-2 row-start-1">
+                <Image src={ato} class="mb-2"/>
+                <h3 class="text-4xl mt-4 tracking-wide font-light">How Content Creation Took My Career To The Next Level</h3>
+            </div>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-7 gap-8">
+            <div class="col-span-5 row-span-2">
+                <YouTube id="f5LZMuujLrM" />
+            </div>
+            <div class="col-span-2 row-start-1">
+                <Image src={render} class="mb-2"/>
+                <h3 class="text-4xl mt-4 tracking-wide font-light">The State of Serverless in Modern Web Development</h3>
+            </div>
+        </div>
+    </div>
+    </section>
+    <Divider />
+    <section class="my-24">
+        <Bio/>
+    </section>
+    <Divider />
+    <section class="my-24" id="speakerForm">
+        <div class="grid lg:grid-cols-2 gap-10">
+            <div>
+                <h2 class="text-6xl mb-10">Want Me To Speak At Your Event?</h2>
+                <Image src={speaking}/>
+            </div>
+            <SpeakerForm/>
+        </div>
+
+    </section>
+</BaseLayout>

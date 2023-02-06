@@ -1,14 +1,30 @@
 ---
-import CompressedCallout from "../components/CompressedCallout.astro";
 import Hero from "../components/Hero.astro";
-import LearnBuildTeachCallout from "../components/LearnBuildTeachCallout.astro";
-import YouTubeCallout from "../components/YouTubeCallout.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import compressedLogo from "../images/compressed.jpeg";
+import LogoCallout from "../components/LogoCallout.astro";
+import lbtLogo from "../images/lbt-square.png";
+import youtubeLogo from "../images/socials/youtube.png"
+import Divider from "../components/Divider.astro";
 ---
 
 <BaseLayout>
     <Hero />
-    <CompressedCallout />
-    <YouTubeCallout />
-    <LearnBuildTeachCallout />
+    <Divider yMargin={false} classStr="mb-40"/>
+    <div class="mx-auto mt-20 rounded-xl">
+        <div class="flex flex-col gap-20 mb-40">
+            <LogoCallout heading="Compressed.fm Podcast" body="Amy Dutton and I co-host the Compressed.fm podcast, a weekly podcast about Web Development and Design with a little bit of zest." link="https://compressed.fm/" alt="Logo for Compressed.fm, a weekly podcast about Web Development and Design" logoSrc={compressedLogo.src} btnText="Listen!" />
+            
+            <LogoCallout heading="YouTube"
+            body=  "With over 100k subscribers, I teach modern Web Development with JavaScript through weekly YouTube videos!"
+            link="https://www.youtube.com/c/jamesqquick"
+            alt="YouTube channel for James Q Quick" logoSrc={youtubeLogo} btnText="Watch!"/>
+            
+            <LogoCallout heading="Learn Build Teach"
+            body="A welcoming and open Discord community of Web Developers."
+            alt="Learn Build Teach Discord community."
+            link="https://learnbuildteach.com/" logoSrc={lbtLogo.src} btnText="Join Us!"/>
+        </div>
+    </div>
+
 </BaseLayout>
