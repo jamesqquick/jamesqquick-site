@@ -10,13 +10,12 @@ import that from "../images/speaking/that.png";
 import render from "../images/speaking/render.png";
 import speaking from "../images/speaking/speaking.jpg";
 import Bio from "../components/Bio.astro";
-import SpeakerForm from "../components/SpeakerForm.astro";
+import SpeakerForm from "../components/speaking/SpeakerForm.astro";
 import Button from "../components/Button.astro";
-
-// https://twitter.com/isaaczara_
-// I had the pleasure of hearing James speak at Modern Frontends conference and I can confidently say he is a true expert in his field. Not only was he able to break down complex topics into easily understandable concepts, but he also provided valuable insights and practical takeaways for the audience.
+import Testimonial from "../components/speaking/Testimonial.astro";
 
 
+const testimonials = await Astro.glob("../data/speaking/testimonials/*.{md,mdx}");
 ---
 
 <BaseLayout>
@@ -30,7 +29,7 @@ import Button from "../components/Button.astro";
             <p class="w-14 mt-2 ">ONE</p>
             <div class="col-span-6">
                 <h3 class="text-4xl mb-1">Career Advice</h3>
-                <p>I'm a firm believer that we, as individuals, are the solely responsible for what happens in our career. I encourage others to take control of their career while pursuing happiness, whatever that may look like for them.</p>
+                <p>I'm a firm believer that we, as individuals, are solely responsible for what happens in our career. I encourage others to take control of their career while pursuing happiness, whatever that may look like for them.</p>
             </div>
             <p class="w-28 mt-2">TWO</p>
             <div class="col-span-6">
@@ -47,19 +46,23 @@ import Button from "../components/Button.astro";
     </section>
     <section class="my-24">
         <h2 class="text-6xl mb-20">Upcoming Events</h2>
-        <div class="flex gap-8 first-of-type:border-t border-b py-8 items-center">
-            <div class="flex flex-col md:flex-row flex-1 gap-x-8">
+        <div class="flex gap-x-8 flex-col lg:flex-row  py-8 lg:items-center">
+            <div class="flex flex-col flex-1 gap-x-8">
                 <p class="w-18 mt-2 ">May 29</p>
                 <h3 class="text-4xl ">Render ATL</h3>
             </div>
                 <a href="https://www.renderatl.com/" class="text-brand text-2xl font-bold" rel="noopener noreferrer" target="_blank" >Details <Icon class="inline h-10 w-10"  name="mdi:arrow-right" /></a>
         </div>
         
-        <Divider />
+        <!-- <Divider /> -->
     </section>
-    <!-- <section class="my-24">
+    <Divider />
+    <section class="my-24">
         <h2 class="text-6xl mb-20">Testimonials</h2>
-    </section> -->
+        <div class="flex flex-col gap-20">
+            {testimonials.map(testimonial => (<Testimonial testimonial={testimonial}/>))}
+        </div>
+    </section>
     <Divider />
     <section class="my-24">
         <h2 class="text-6xl mb-20">Past Talks</h2>
@@ -69,16 +72,16 @@ import Button from "../components/Button.astro";
                 <div class="col-span-5 row-span-2">
                     <YouTube id="DajdLKD0OmQ" />
                 </div>
-            <div class="col-span-2">
-                <Image src={that} class="mb-2"/>
-                <h3 class="text-4xl tracking-wide font-light">Feeling Stuck In Your Career...? What Next</h3>
-            </div>
+                <div class="col-span-2 row-start-1">
+                    <Image src={that} class="mb-2"/>
+                    <h3 class="text-4xl tracking-wide font-light">Feeling Stuck In Your Career...? What Next</h3>
+                </div>
         </div>
         <div class="grid grid-cols-1 lg:grid-cols-7 gap-8">
             <div class="col-span-5 row-span-2">
                 <YouTube id="BRgVeUSYxXo" />
             </div>
-            <div class="col-span-2">
+            <div class="col-span-2 row-start-1">
                 <Image src={ato} class="mb-2"/>
                 <h3 class="text-4xl mt-4 tracking-wide font-light">How Content Creation Took My Career To The Next Level</h3>
             </div>
@@ -87,7 +90,7 @@ import Button from "../components/Button.astro";
             <div class="col-span-5 row-span-2">
                 <YouTube id="f5LZMuujLrM" />
             </div>
-            <div class="col-span-2">
+            <div class="col-span-2 row-start-1">
                 <Image src={render} class="mb-2"/>
                 <h3 class="text-4xl mt-4 tracking-wide font-light">The State of Serverless in Modern Web Development</h3>
             </div>

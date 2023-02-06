@@ -31,6 +31,7 @@ module.exports = {
     "h-[1px]",
     "h-[2px]",
     "h-[4px]",
+    "transition-all",
   ],
   plugins: [require("@tailwindcss/typography")],
 };

@@ -1,5 +1,6 @@
 ---
 import { Icon } from 'astro-icon'
+import Button from './Button.astro';
 
 export interface Props {
   newsletterId: string;
@@ -19,11 +20,13 @@ const url = `https://learn.jamesqquick.com//email_lists/${newsletterId}/subscrip
             placeholder="me@jamesqquick.com"
             class="border-2 py-4 px-2 bg-transparent grow"
         />
-        <button
+        <!-- <button
         type="submit"
         class="text-brand text-xl font-bold py-2 px-4 rounded-lg hover:-translate-y-1 transition-transform"
         >
             Sign me up <Icon class="inline h-10 w-10"  name="mdi:arrow-right" />
-        </button>
+        </button> -->
+        <Button text="Sign me up!" />
+
     </div>  
 </form>

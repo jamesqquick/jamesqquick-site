@@ -25,11 +25,11 @@ const { title, description, image, bottomDivider = true } = Astro.props;
       image={image}
     />
   </head>
-  <body class="bg-bg text-white overflow-x-hidden">
-    <div class="flex flex-col min-h-screen">
+  <body class="bg-bg text-white">
+    <div class="flex flex-col min-h-screen overflow-x-hidden">
       <Navbar/>
       <div class="mx-auto grow w-full">
-        <main class="max-w-[1200px] mx-auto mt-10 px-4 md:px-10">
+        <main class="max-w-[1200px] mx-auto mt-10 px-4  md:px-10">
           <slot />
           {bottomDivider &&
               <Divider/>
