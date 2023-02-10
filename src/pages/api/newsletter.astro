@@ -1,23 +1,48 @@
 ---
-import { XMLParser } from "fast-xml-parser";
-const response = await fetch("https://www.compressed.fm/rss.xml");
-const data = await response.text();
-const parser = new XMLParser();
-let jObj = parser.parse(data);
-const lastEpisode = jObj.rss.channel.item[0];
-const {
-  title: compressedTitle,
-  description: compressedDescription,
-  link: compressedLink,
-} = lastEpisode;
+import Parser from 'rss-parser';
+import {decode} from 'html-entities';
+
+const parser: Parser = new Parser({});
+
+
+const lbtSharesURL = import.meta.env.LBT_API_BASE + "shares?newsletter=true";
+
+const sharesResponse = await fetch(lbtSharesURL);
+const {data:recentShares} = await sharesResponse.json();
+
+const compressedFeed = await  parser.parseURL(import.meta.env.COMPRESSEDFM_RSS_FEED_URL);
+const recentCompressedEpisode = compressedFeed.items[0];
+
+const getRecentYouTubeVideos = async () => {
+  const YOUTUBE_VIDEOS_URL = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UC-T8W79DN6PBnzomelvqJYw&maxResults=10&order=date&type=video&key=${import.meta.env.YOUTUBE_API_KEY}`;
+  const res =  await fetch(YOUTUBE_VIDEOS_URL);
+  const {items} = await res.json();
+
+  const formattedYouTubeVideos = items?.map((video: any) => ({
+    id: video.id.videoId,
+    title:decode(video.snippet.title),
+    thumbnails: video.snippet.thumbnails,
+  }));
+
+  return formattedYouTubeVideos;
+};
+const recentYouTubeVideos = await getRecentYouTubeVideos();
 ---
 
-<h1>Recent Videos</h1>
+<h1>Recent Videos </h1>
+{recentYouTubeVideos
+  .map(
+    (video: any) => (
+<h2><a href={`https://www.youtube.com/watch?v=${video.id}`}>{video.title}</a></h2>
+<img src={video.thumbnails.high.url}/>
+)
+
+  )}
 <br />
 
 <h1>TikTok of the Week</h1>
 <p>Describe the TikTok</p>
-<p><a href="">Watch the full video</a></p>
+<p><a href="https://www.tiktok.com/@jamesqquick">Watch the full video</a></p>
 <br />
 
 <h1>Content From the #LearnBuildTeach Community</h1>
@@ -27,6 +52,15 @@ const {
     >Discord community</a
   >.
 </p>
+<ul>
+{recentShares
+  .map(
+    (share) => 
+<li><a href={share.link}>{share.title}</a> by {share.user.username}</li>
+
+  )
+  }
+</ul>
 <br />
 <p>
   Want to share your work and learn from others? <a
@@ -35,9 +69,9 @@ const {
 </p>
 <br />
 
-<h1>Latest Episode of Compressed.fm - {compressedTitle}</h1>
-<p>{compressedDescription}</p>
-<p><a href={compressedLink}>Listen to the full episode</a></p>
+<h1>Latest Episode of Compressed.fm - {recentCompressedEpisode.title}</h1>
+<p>{recentCompressedEpisode.content}</p>
+<p><a href={recentCompressedEpisode.link}>Listen to the full episode</a></p>
 <br />
 <h1>Want to Stay Connected?</h1>
 <ul>
