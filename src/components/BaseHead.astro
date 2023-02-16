@@ -7,14 +7,16 @@ export interface Props {
   title: string;
   description: string;
   image?: string;
+  slug: string
 }
-const { title, description, image = "/images/selfie-lg.jpeg" } = Astro.props;
+const { title, description, image = "/images/selfie-lg.jpeg", slug } = Astro.props;
 ---
 
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<meta name="theme-color" content="#0AFA94" />
 
 <meta name="generator" content={Astro.generator} />
 
@@ -29,6 +31,7 @@ const { title, description, image = "/images/selfie-lg.jpeg" } = Astro.props;
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={new URL(image, Astro.url)} />
+<meta property="og:image:alt" content={description} />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
@@ -36,6 +39,11 @@ const { title, description, image = "/images/selfie-lg.jpeg" } = Astro.props;
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
+<meta property="twitter:image:alt" content={description} />
+
+<!-- Canonical Link -->
+<link rel="canonical" href={Astro.url} />
+
 
 <script
   type="text/partytown"
