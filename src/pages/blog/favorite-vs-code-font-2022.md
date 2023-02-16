@@ -1,10 +1,10 @@
 ---
 layout: "../../layouts/BlogPostLayout.astro"
-title: My Favorite FREE VS Code Font in 2022  - Install and Setup with FONT LIGATURES!
+title: My Favorite FREE VS Code Font in 2022
 slug: favorite-vs-code-font-2022
 coverImage: /images/posts/favorite-vs-code-font-2022/cover.png
 pubDate: 2022-08-02
-description:
+description: My favorite VS Code font in 2022 is free
 youTubeVideoId: n9sklnvelhg
 ---
 
