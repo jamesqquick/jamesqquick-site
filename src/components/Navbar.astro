@@ -5,10 +5,10 @@ import { Icon } from 'astro-icon'
 ---
 
 <nav class="lg:px-20 px-1 sm:px-5 py-5 flex flex-col sm:flex-row gap-5 justify-center sm:justify-between items-center sm:items-center w-screen z-10  h-[100px]  mb-[80px]">
-    <a href="/" class="text-white hover:text-brand h-5 sm:h-10">
+    <a href="/" class="text-white hover:text-brand h-5 sm:h-10" aria-label="home page">
         <NameLogo height={20}/>
     </a>
-    <button id="hamburger">
+    <button id="hamburger" aria-label="menu" aria-controls="mobileMenu">
         <Icon class="inline lg:hidden h-10 w-10 hover:text-brand cursor-pointer"  name="mdi:menu" />
     </button>
     <div id="mobileMenu" class="fixed lg:flex items-center justify-center lg:relative inset-0 bg-bg hidden py-5 md:py-20 lg:py-0 overflow-auto">
@@ -17,13 +17,13 @@ import { Icon } from 'astro-icon'
                 <Icon class="inline lg:hidden h-10 w-10 hover:text-brand cursor-pointer mb-10"  name="mdi:close " />
             </button>
 
-            <a href="/about" class="hover:text-brand transition-colors">about</a>
-            <a href="/blog" class="hover:text-brand transition-colors">blog</a>
-            <a href="/speaking" class="hover:text-brand transition-colors">speaking</a>
-            <a href="/newsletter" class="hover:text-brand transition-colors"
+            <a href="/about/" class="hover:text-brand transition-colors">about</a>
+            <a href="/blog/" class="hover:text-brand transition-colors">blog</a>
+            <a href="/speaking/" class="hover:text-brand transition-colors">speaking</a>
+            <a href="/newsletter/" class="hover:text-brand transition-colors"
             >newsletter</a
             >
-            <a href="/courses" class="hover:text-brand transition-colors"
+            <a href="/courses/" class="hover:text-brand transition-colors"
             >courses</a
             >
             <a href="https://compressed.fm/" rel="noopener noreferrer" target="_blank" class="hover:text-brand transition-colors">podcast</a>

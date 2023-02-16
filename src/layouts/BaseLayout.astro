@@ -27,7 +27,9 @@ const { title, description, image, bottomDivider = true } = Astro.props;
   </head>
   <body class="bg-bg text-white">
     <div class="flex flex-col min-h-screen overflow-x-hidden">
-      <Navbar/>
+    <header>    
+            <Navbar/>
+        </header>
       <div class="mx-auto grow w-full">
         <main class="max-w-[1200px] mx-auto mt-10 px-4  md:px-10">
           <slot />
