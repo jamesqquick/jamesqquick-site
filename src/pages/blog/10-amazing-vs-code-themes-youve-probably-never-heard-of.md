@@ -16,44 +16,44 @@ There are tons of amazing themes for VS Code out there. Lots of them are incredi
 
 ## [Panda Theme](https://marketplace.visualstudio.com/items?itemName=tinkertrain.theme-panda)
 
-![Panda Theme VS Code Theme](/images/posts/10-amazing-vs-code-themes-you've-probably-never-heard-of/1.jpeg)
+![Panda Theme VS Code Theme](/images/posts/10-amazing-vs-code-themes-youve-probably-never-heard-of/1.jpeg)
 
 ## [Punk Dark Theme](https://marketplace.visualstudio.com/items?itemName=jaccon.punk-dark-theme)
 
-![Punk Dark Theme VS Code Theme](/images/posts/10-amazing-vs-code-themes-you've-probably-never-heard-of/2.jpeg)
+![Punk Dark Theme VS Code Theme](/images/posts/10-amazing-vs-code-themes-youve-probably-never-heard-of/2.jpeg)
 
 ## [Andromeda](https://marketplace.visualstudio.com/items?itemName=EliverLara.andromeda)
 
-![Andromeda VS Code Theme](/images/posts/10-amazing-vs-code-themes-you've-probably-never-heard-of/3.jpeg)
+![Andromeda VS Code Theme](/images/posts/10-amazing-vs-code-themes-youve-probably-never-heard-of/3.jpeg)
 
 ## [Poimandres](https://marketplace.visualstudio.com/items?itemName=pmndrs.pmndrs)
 
-![Poimandres VS Code Theme](/images/posts/10-amazing-vs-code-themes-you've-probably-never-heard-of/4.jpeg)
+![Poimandres VS Code Theme](/images/posts/10-amazing-vs-code-themes-youve-probably-never-heard-of/4.jpeg)
 
 ## [Gentle Themes](https://marketplace.visualstudio.com/items?itemName=lukeocodes.gentle-themes)
 
-![Gentle Themes VS Code Theme](/images/posts/10-amazing-vs-code-themes-you've-probably-never-heard-of/5.jpeg)
+![Gentle Themes VS Code Theme](/images/posts/10-amazing-vs-code-themes-youve-probably-never-heard-of/5.jpeg)
 
 ## [Cyberpunk](https://marketplace.visualstudio.com/items?itemName=max-SS.cyberpunk)
 
-![Cyberpunk VS Code Theme](/images/posts/10-amazing-vs-code-themes-you've-probably-never-heard-of/6.jpeg)
+![Cyberpunk VS Code Theme](/images/posts/10-amazing-vs-code-themes-youve-probably-never-heard-of/6.jpeg)
 
 ## [Moonlight](https://marketplace.visualstudio.com/items?itemName=atomiks.moonlight)
 
-![Moonlight VS Code Theme](/images/posts/10-amazing-vs-code-themes-you've-probably-never-heard-of/7.jpeg)
+![Moonlight VS Code Theme](/images/posts/10-amazing-vs-code-themes-youve-probably-never-heard-of/7.jpeg)
 
 ## [Vitesse Theme](https://marketplace.visualstudio.com/items?itemName=antfu.theme-vitesse)
 
-![Vitesse Theme VS Code Theme](/images/posts/10-amazing-vs-code-themes-you've-probably-never-heard-of/8.jpeg)
+![Vitesse Theme VS Code Theme](/images/posts/10-amazing-vs-code-themes-youve-probably-never-heard-of/8.jpeg)
 
 ## [DuoTone Dark Themes](https://marketplace.visualstudio.com/items?itemName=sallar.vscode-duotone-dark)
 
-![DuoTone Dark Themes VS Code Theme](/images/posts/10-amazing-vs-code-themes-you've-probably-never-heard-of/9.jpeg)
+![DuoTone Dark Themes VS Code Theme](/images/posts/10-amazing-vs-code-themes-youve-probably-never-heard-of/9.jpeg)
 
 ## [Blueberry Banana](https://marketplace.visualstudio.com/items?itemName=pshershov.blueberry-banana)
 
-![Blueberry Banana VS Code Theme](/images/posts/10-amazing-vs-code-themes-you've-probably-never-heard-of/10.jpeg)
+![Blueberry Banana VS Code Theme](/images/posts/10-amazing-vs-code-themes-youve-probably-never-heard-of/10.jpeg)
 
 ## [The Unnamed](https://marketplace.visualstudio.com/items?itemName=eliostruyf.vscode-unnamed-theme)
 
-![The Unnamed VS Code Theme](/images/posts/10-amazing-vs-code-themes-you've-probably-never-heard-of/11.jpeg)
+![The Unnamed VS Code Theme](/images/posts/10-amazing-vs-code-themes-youve-probably-never-heard-of/11.jpeg)

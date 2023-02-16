@@ -7,7 +7,7 @@ const {frontmatter: {name, title, image}} = testimonial;
 
 <div class="flex flex-col md:flex-row gap-12 items-center justify-center md:odd:flex-row-reverse">
     <div class="min-w-[260px] ">
-        <Image src={image} width={260} height={260} class="rounded-full "/>
+        <Image src={image} width={260} height={260} class="rounded-full" format={"webp"} alt={`headshot of ${name}`}/>
     </div>
     <div>
         <p class="mb-6 tracking-wide">{testimonial.rawContent()}
