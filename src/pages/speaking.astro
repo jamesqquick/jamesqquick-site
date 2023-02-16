@@ -19,7 +19,7 @@ const testimonials = await Astro.glob("../data/speaking/testimonials/*.{md,mdx}"
 ---
 
 <BaseLayout>
-    <PageHeader heading="Speaking" body="I use my voice to teach and inspire the Developer community." image={speaking}>
+    <PageHeader heading="Speaking" body="I use my voice to teach and inspire the Developer community." image={speaking} alt="James speaking at All Things Open Conference">
         <Button id="inviteBtn" text="Invite Me To Speak" isLink href="#speakerForm" newTab={false} classStr="mt-4"/>
     </PageHeader>
     
@@ -73,7 +73,7 @@ const testimonials = await Astro.glob("../data/speaking/testimonials/*.{md,mdx}"
                     <YouTube id="DajdLKD0OmQ" />
                 </div>
                 <div class="col-span-2 row-start-1">
-                    <Image src={that} class="mb-2"/>
+                    <Image src={that} class="mb-2" alt="That Conference Logo"/>
                     <h3 class="text-4xl tracking-wide font-light">Feeling Stuck In Your Career...? What Next</h3>
                 </div>
         </div>
@@ -82,7 +82,7 @@ const testimonials = await Astro.glob("../data/speaking/testimonials/*.{md,mdx}"
                 <YouTube id="BRgVeUSYxXo" />
             </div>
             <div class="col-span-2 row-start-1">
-                <Image src={ato} class="mb-2"/>
+                <Image src={ato} class="mb-2" alt="All Things Open Logo"/>
                 <h3 class="text-4xl mt-4 tracking-wide font-light">How Content Creation Took My Career To The Next Level</h3>
             </div>
         </div>
@@ -91,7 +91,7 @@ const testimonials = await Astro.glob("../data/speaking/testimonials/*.{md,mdx}"
                 <YouTube id="f5LZMuujLrM" />
             </div>
             <div class="col-span-2 row-start-1">
-                <Image src={render} class="mb-2"/>
+                <Image src={render} class="mb-2" alt="RenderATL Logo"/>
                 <h3 class="text-4xl mt-4 tracking-wide font-light">The State of Serverless in Modern Web Development</h3>
             </div>
         </div>
@@ -106,7 +106,7 @@ const testimonials = await Astro.glob("../data/speaking/testimonials/*.{md,mdx}"
         <div class="grid lg:grid-cols-2 gap-10">
             <div>
                 <h2 class="text-6xl mb-10">Want Me To Speak At Your Event?</h2>
-                <Image src={speaking}/>
+                <Image src={speaking} alt="James speaking at All Things Open conference"/>
             </div>
             <SpeakerForm/>
         </div>

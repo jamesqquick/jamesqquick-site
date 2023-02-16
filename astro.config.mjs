@@ -18,7 +18,9 @@ export default defineConfig({
         forward: ["dataLayer.push"],
       },
     }),
-    image(),
+    image({
+      serviceEntryPoint: "@astrojs/image/sharp",
+    }),
   ],
   output: "static",
 });

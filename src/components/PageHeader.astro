@@ -8,10 +8,11 @@ export interface Props {
     body:string,
     youTubeVideoId?:string,
     hasDivider?: boolean,
-    image?: any
+    image?: any,
+    alt: string
 }
 
-const {heading, body, youTubeVideoId, hasDivider = true, image} = Astro.props;
+const {heading, body, youTubeVideoId, hasDivider = true, image, alt} = Astro.props;
 ---
 
 <div class={`mb-20 grid grid-cols-1 items-center lg:grid-cols-2 space-between gap-10`}>
@@ -24,7 +25,7 @@ const {heading, body, youTubeVideoId, hasDivider = true, image} = Astro.props;
         <YouTube id={youTubeVideoId} />
     }
     { image && !youTubeVideoId && 
-        <Image src={image}/>
+        <Image src={image} alt={alt}/>
     }
 </div>
 {hasDivider &&

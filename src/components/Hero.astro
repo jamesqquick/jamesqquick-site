@@ -3,7 +3,6 @@ import selfie from "../images/selfie.png";
 import logo from "../images/logo.svg";
 import { Picture } from "@astrojs/image/components";
 import SocialFollow from "./SocialFollow.astro";
-import Divider from "./Divider.astro";
 ---
 <script>
     let nouns = ["Developer.", "Speaker.", "Teacher."];
@@ -24,7 +23,7 @@ setInterval(() => {
             <p class="text-xl md:text-2xl mb-5 lg:max-w-sm xl:max-w-6xl">I use content creation to <span class="text-brand font-bold">teach and inspire</span> developers.</p>
             <SocialFollow />
         </div>
-        <img src={logo} class="absolute sm:block hidden  right-0 lg:-right-20 -top-20 h-screen  -z-10 opacity-70 max-w-4xl"  alt=""/>
+        <img src={logo.src} class="absolute sm:block hidden right-0 lg:-right-20 -top-20 h-screen  -z-10 opacity-70 max-w-4xl"  alt=""/>
         <Picture src={selfie} sizes="(max-width:800px) 100vw, 800px" widths={[400, 800, 1600]} aspectRatio="1:1" class="absolute hidden sm:block  bottom-0 right-0 translate-x-20 xl:max-w-[800px] lg:max-w-[700px] md:max-w-[600px]" alt="James Q Quick selfie"/>
     </div>
 </div>
