@@ -1,6 +1,13 @@
 ---
 import Button from "./Button.astro";
 
+export interface Props {
+    slug: string;
+    currentPage: number;
+    lastPage: number;
+}
+
+
 const {slug, currentPage, lastPage} = Astro.props;
 ---
 <div class="flex justify-between my-10">
