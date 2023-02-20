@@ -5,6 +5,7 @@ coverImage: /images/posts/top-5-pieces-of-advice-for-aspiring-and-learning-devel
 pubDate: 2020-09-22
 description: Here are my top five pieces of advice for aspiring and learning developers.
 youTubeVideoId: V4UYuvegsTg
+tags: career
 ---
 
 Since I started my professional career, I’ve worked with countless developers in person and online. I’ve done 1:1 sessions, conference talks, guest lectures, and even taught an 8-month Bootcamp in 2019 (shoutout to the Launch Code crew here in Memphis).

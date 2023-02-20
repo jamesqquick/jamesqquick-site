@@ -5,6 +5,7 @@ coverImage: /images/posts/10-examples-with-css-grid/cover.png
 pubDate: 2020-03-17
 description: After spending two weeks learning about CSS Grid, here's 10 examples to demonstrate what I learned.
 youTubeVideoId: wfXz8rW_fUs
+tags: css
 ---
 
 I've decided to spend some dedicated time learning more about different technologies this year. My goal is to spend about 2 weeks on topics like Vue, Serverless, TypeScript, Headless CMS, etc. This way I can hold myself accountable. The first topic I dove into was **CSS Grid**.

@@ -1,11 +1,12 @@
 ---
-layout: '../../layouts/BlogPostLayout.astro'
+layout: "../../layouts/BlogPostLayout.astro"
 title: React Router in 5 Minutes
 slug: react-router-in-five-minutes
 coverImage: /images/posts/react-router-in-five-minutes/cover.png
 pubDate: 2020-06-09
 description: Learn how to setup React Router in 5 minutes!
 youTubeVideoId: yQf1KbGiwiI
+tags: react
 ---
 
 I use React all of the time and always have to look up how to setup React Router. In this post, I'll show you how to setup React Router in five minutes.
@@ -23,7 +24,7 @@ npm install react-router-dom
 To add the routes, we need to import the `BrowserRouter` and `Route` components from the package. Often, you'll see `BrowserRouter` renamed as `Router` as it is below.
 
 ```javascript
-import { Route, BrowserRouter as Router } from 'react-router-dom';
+import { Route, BrowserRouter as Router } from "react-router-dom";
 ```
 
 Now, wrap the app in the `Router` component.
@@ -72,7 +73,7 @@ function App() {
 With React Router, to link to different pages in your app, you'll need to use the `Link` component instead of traditional anchor tags. Import it like so.
 
 ```javascript
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 ```
 
 You'll use these in your Navbar and other areas in your app. Here's what they'll look like wherever you decide to use them. Just specify the `to` property which is the path of the page to navigate to.

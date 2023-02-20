@@ -1,11 +1,12 @@
 ---
-layout: '../../layouts/BlogPostLayout.astro'
+layout: "../../layouts/BlogPostLayout.astro"
 title: 15 Common Beginner JavaScript Mistakes
 slug: 15-common-beginner-javascript-mistakes
 coverImage: /images/posts/15-common-beginner-javascript-mistakes/cover.png
 pubDate: 2022-07-19
 description: Here are the 15 most common mistakes I've seen beginner JavaScript developers make.
 youTubeVideoId: pWnJY_Wkde4
+tags: javascript
 ---
 
 I've taught JavaScript to hundreds of people in-person and thousands online. During my time teaching, I've seen beginner JavaScript developers make the same mistakes over and over....and over again. Here are the 15 most common beginner JavaScript mistakes I've seen.
@@ -141,8 +142,8 @@ For more details, here's another [great article from freeCodeCamp](https://www.f
 Poorly named variables make code **one million times more difficult to read and follow**. This is a mistake I've seen every single beginner developer that I've worked with make. Using names like `thing1`, `thing2`, and `anotherThing` give no context as to what the variables are. This makes it much harder for me to help debug someone's code. Let's take a look at an example.
 
 ```javascript
-const arr = ['James', 'Jess', 'Lily', 'Sevi'];
-let str = '';
+const arr = ["James", "Jess", "Lily", "Sevi"];
+let str = "";
 for (let i = 0; i < arr.length; i++) {
   const tmp = arr[i];
   str += tmp[0];
@@ -153,8 +154,8 @@ console.log(str);
 The variables `arr`, `str`, and `tmp` give no context for what the variables are and what the code is doing. Here's an example that uses naming conventions that add much more context.
 
 ```javascript
-const names = ['James', 'Jess', 'Lily', 'Sevi'];
-let retVal = '';
+const names = ["James", "Jess", "Lily", "Sevi"];
+let retVal = "";
 for (let i = 0; i < arr.length; i++) {
   const name = arr[i];
   retVal += name[0];

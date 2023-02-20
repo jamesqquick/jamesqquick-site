@@ -4,6 +4,7 @@ slug: hello-world
 coverImage: /images/posts/hello-world/cover.jpg
 pubDate: 2019-08-18
 description: As a developer, there's no other way to start something new than with "Hello World". Although I've blogged a ton in the past, this is the first post on my personal site.
+tags: career
 ---
 
 As a developer, there's no other way to start something new than with "Hello World". Although I've blogged a ton in the past, this is the first post on my personal site. So, without further adieu...

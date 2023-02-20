@@ -4,6 +4,7 @@ slug: 100k-subscribers-on-youtube-5-things-i-learned
 coverImage: /images/posts/100k-subscribers-on-youtube-5-things-i-learned/cover.jpg
 pubDate: 2021-09-10
 description: 100k Subscribers On YouTube - 5 Things I Learned
+tags: career
 ---
 
 I just **crossed 100k subscribers on [YouTube](https://www.youtube.com/c/jamesqquick)**, and to be honest, I'm a bit overwhelmed by it. It's really hard to believe that after 7 years of creating YouTube videos, there are 100,000 people that really enjoy the content I put out.

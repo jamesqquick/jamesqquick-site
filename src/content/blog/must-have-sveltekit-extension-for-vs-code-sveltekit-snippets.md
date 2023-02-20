@@ -5,6 +5,7 @@ coverImage: /images/posts/must-have-sveltekit-extension-for-vs-code-sveltekit-sn
 pubDate: 2022-01-06
 description: SvelteKit is one of the best frameworks out there, and working with it just got much much easier!
 youTubeVideoId: uY6hN96AIFo
+tags: sveltekit
 ---
 
 SvelteKit is one of my favorite frameworks right now, and it just got a whole lot easier to work with inside of VS Code. The [SvelteKit Snippets extension](https://marketplace.visualstudio.com/items?itemName=stordahl.sveltekit-snippets) for VS Code is a must-have! Let's take a quick look.

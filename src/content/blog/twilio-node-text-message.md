@@ -1,11 +1,12 @@
 ---
-layout: '../../layouts/BlogPostLayout.astro'
+layout: "../../layouts/BlogPostLayout.astro"
 title: Twilio and Node - Send Your First Text Message
 slug: twilio-node-text-message
 coverImage: /images/posts/twilio-node-text-message/cover.png
 pubDate: 2020-02-11
 description: Learn how to send text messages in Node with Twilio.
 youTubeVideoId: 26X0rVLo6gc
+tags: nodejs
 ---
 
 I saw my first [Twilio](https://www.twilio.com/) demo about 7 years ago, and it was one of the coolest things I had ever seen. A room full of hundreds of attendees submitted their phone numbers, and all of them received text messages within seconds. In this article, I'll show you how to use [Node.js](https://nodejs.org/en/) and Twilio to send your first text message.

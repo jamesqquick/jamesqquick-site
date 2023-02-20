@@ -17,7 +17,7 @@ export async function getStaticPaths({ paginate }: any) {
 
 <BaseLayout title="Blog | James Q Quick">
     <h1 class="text-6xl text-brand font-bold mb-10">Blog</h1>
-    <Pagination slug="/blog" currentPage={page.currentPage} lastPage={page.lastPage} />
+    <Pagination next={page.url.next} prev={page.url.prev} currentPage={page.currentPage} lastPage={page.lastPage} />
     <div class="flex flex-col gap-10">
         {
             posts.map((post) => (
@@ -26,7 +26,9 @@ export async function getStaticPaths({ paginate }: any) {
                     date={post.data.pubDate}
                     slug={`/blog/${post.slug}`}
                 />
-                ))
+            ))
         }
     </div>
+    <Pagination next={page.url.next} prev={page.url.prev} currentPage={page.currentPage} lastPage={page.lastPage} />
+
 </BaseLayout>

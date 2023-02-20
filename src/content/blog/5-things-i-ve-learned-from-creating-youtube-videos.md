@@ -1,11 +1,12 @@
 ---
-layout: '../../layouts/BlogPostLayout.astro'
+layout: "../../layouts/BlogPostLayout.astro"
 title: 5 Things I've Learned From Creating YouTube Videos
 slug: 5-things-i-ve-learned-from-creating-youtube-videos
 coverImage: /images/posts/5-things-i-ve-learned-from-creating-youtube-videos/cover.png
 pubDate: 2020-11-10
 description: Creating YouTube videos has changed my life. Here's 5 things I've learned!
 youTubeVideoId: 4T-QwWnuHkc
+tags: career
 ---
 
 I've been creating Youtube videos for about 6 years now, and I can confidently say it has changed both my life and my career in a positive way. I've learned so much that I figured it would be worthwhile to share my learnings here!

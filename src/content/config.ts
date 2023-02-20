@@ -15,6 +15,20 @@ const blogsCollection = defineCollection({
     pubDate: z.date(),
     description: z.string(),
     youTubeVideoId: z.string().optional(),
+    tags: z.enum([
+      "vs code",
+      "javascript",
+      "astro",
+      "career",
+      "astro",
+      "sveltekit",
+      "css",
+      "nextjs",
+      "nodejs",
+      "react",
+      "tools",
+      "misc",
+    ]),
   }),
 });
 

@@ -5,6 +5,7 @@ coverImage: /images/posts/i-created-a-developer-rap-video-here-s-what-i-learned/
 pubDate: 2021-07-23
 description: I created a developer rap video. Here's what I learned.
 youTubeVideoId: ZdAr4DQD-nA
+tags: career
 ---
 
 I've been writing rap songs for almost 10 years now, but I haven't shared much publicly. In fact, I've basically treated my rap music as a private journal, but this week I took a pretty big leap.

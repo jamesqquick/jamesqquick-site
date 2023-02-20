@@ -4,6 +4,7 @@ slug: how-i-prepare-for-conference-talks
 coverImage: /images/posts/how-i-prepare-for-conference-talks/cover.png
 pubDate: 2019-08-26
 description: Last week I was asked how I prepare for conference talks, and here's how I do it.
+tags: career
 ---
 
 Last week I was asked by [Damian Montero](https://twitter.com/DamianMontero) ([here's the tweet](https://twitter.com/DamianMontero/status/1163130404771119110?s=20)) how I prepare for giving conference talks. I was pretty flattered to be asked this, so I figured I would make a quick post to share some thoughts!

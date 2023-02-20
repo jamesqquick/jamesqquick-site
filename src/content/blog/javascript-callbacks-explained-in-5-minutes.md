@@ -1,11 +1,12 @@
 ---
-layout: '../../layouts/BlogPostLayout.astro'
+layout: "../../layouts/BlogPostLayout.astro"
 title: JavaScript Callbacks Explained in 5 Minutes
 slug: javascript-callbacks-explained-in-5-minutes
 coverImage: /images/posts/javascript-callbacks-explained-in-5-minutes/cover.png
 pubDate: 2022-08-09
 description: Callbacks are an essential part of understanding JavaScript especially when dealing with asynchronous code. Let's cover the basics of callbacks in about 5 minutes with a handful of examples!
 youTubeVideoId: kz_vwAF4NHI
+tags: javascript
 ---
 
 Callbacks are an essential part of understanding JavaScript especially when dealing with asynchronous code. Let's cover the basics of callbacks in about 5 minutes with a handful of examples!
@@ -28,7 +29,7 @@ One of the first times that JavaScript developers encounter a callback function 
 
 ```javascript
 setTimeout(() => {
-  console.log('Hello');
+  console.log("Hello");
 }, 100);
 ```
 
@@ -37,7 +38,7 @@ In this case, we are telling JavaScript to call our callback function after wait
 ```javascript
 //this is the callback function
 const timeoutCallback = () => {
-  console.log('Hello');
+  console.log("Hello");
 };
 
 setTimeout(timeoutCallback, 100);
@@ -50,7 +51,7 @@ It works the exact same as the previous snippet, but now we've separated the fun
 If you've written much JavaScript in the past couple of years, you're probably familiar with array functions like `map()`, `reduce()`, `filter()`, `forEach()`, etc. Each of these functions leverages callbacks. They each will iterate through an array and call the callback function for each item. Here's an example with `forEach()`.
 
 ```javascript
-const names = ['james', 'jess', 'lily', 'sevy'];
+const names = ["james", "jess", "lily", "sevy"];
 names.forEach((name) => {
   console.log(name);
 });

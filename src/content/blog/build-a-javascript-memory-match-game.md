@@ -5,6 +5,7 @@ coverImage: /images/posts/build-a-javascript-memory-match-game/cover.png
 pubDate: 2022-08-25
 description: Learn how to build a memory match game with JavaScript
 youTubeVideoId: Z2O3QxpcdSk
+tags: javascript
 ---
 
 In this tutorial, we’re going to build a PokeMatch game with vanilla HTML, CSS, and JavaScript. The Pokemon API is free and fun to work with, so let’s get started.

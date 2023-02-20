@@ -5,6 +5,7 @@ coverImage: /images/posts/javascript-trends-2023/cover.jpg
 pubDate: 2023-02-15
 description: Here are five trends in JavaScript to keep an eye out for this year!
 youTubeVideoId: 8SgwWpm8M4Y
+tags: javascript
 ---
 
 The JavaScript ecosystem moves overwhelmingly fast. Honestly, it's hard to keep up with. Let's take a quick look at five trends in JavaScript that you should be paying attention to in 2023.

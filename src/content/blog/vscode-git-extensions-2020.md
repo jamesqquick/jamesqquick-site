@@ -1,11 +1,12 @@
 ---
-layout: '../../layouts/BlogPostLayout.astro'
+layout: "../../layouts/BlogPostLayout.astro"
 title: Top Visual Studio Code Git Extensions in 2020
 slug: vscode-git-extensions-2020
 coverImage: /images/posts/vscode-git-extensions-2020/cover.png
 pubDate: 2020-04-14
 description: Although VS Code has some great built-in functionality for Git, by finding the right Visual Studio Code extensions, you can power up your Git workflow right inside of your editor.
 youTubeVideoId: N8L6RJ5uZoE
+tags: vs code
 ---
 
 Although VS Code has some great built-in functionality for Git, by finding the right Visual Studio Code extensions, you can power up your Git workflow right inside of your editor. Let's take a look at the top Visual Studio Code extensions for Git and Github!

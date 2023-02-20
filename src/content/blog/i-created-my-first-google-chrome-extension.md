@@ -5,6 +5,7 @@ coverImage: /images/posts/i-created-my-first-google-chrome-extension/cover.png
 pubDate: 2020-08-11
 description: As a developer, it's nice to be able to create things to make your life easier. I was tired of having to open up my videos just to copy the link and share it. So, I created my first Chrome Extension! It shows me a list of my most recent videos and allows me to copy the link directly!
 youTubeVideoId: 3Xq_QfYdmMQ
+tags: javascript
 ---
 
 As a developer, it's nice to be able to create things to make your life easier. I was tired of having to open up my previous YouTube videos just to copy the link and share it. So, I created my first Chrome Extension! It shows me a list of my most recent videos and allows me to copy the link directly.

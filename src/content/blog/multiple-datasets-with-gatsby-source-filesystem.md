@@ -4,6 +4,7 @@ slug: multiple-datasets-with-gatsby-source-filesystem
 coverImage: /images/posts/multiple-datasets-with-gatsby-source-filesystem/cover.png
 pubDate: 2020-01-24
 description: Learn how to query multiple different data sets in Gatsby with the Gatsby Source Filesystem plugin.
+tags: javascript
 ---
 
 Gatsby is one of the more popular frameworks for building blogs these days. By using the [`gatsby-source-filesystem`](https://www.gatsbyjs.org/packages/gatsby-source-filesystem/) plugin you can read in markdown files and generate corresponding blog post pages.

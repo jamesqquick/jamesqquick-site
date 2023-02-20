@@ -5,6 +5,7 @@ coverImage: /images/posts/supercharge-your-git-workflow-with-the-gitlens-vs-code
 pubDate: 2020-09-01
 description: Want to supercharge your Git workflow inside of Visual Studio Code? Well, you need to check out the GitLens extension. It's jam-packed with amazing features for improving your Git workflow right inside of VS Code.
 youTubeVideoId: C6wMNoe78oc
+tags: vs code
 ---
 
 The other day, I saw a list of GUI tools for working with Git, and I thought, what about VS Code?

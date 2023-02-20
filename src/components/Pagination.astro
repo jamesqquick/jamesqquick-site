@@ -2,21 +2,22 @@
 import Button from "./Button.astro";
 
 export interface Props {
-    slug: string;
     currentPage: number;
     lastPage: number;
+    next: string | undefined;
+    prev: string | undefined;
 }
 
 
-const {slug, currentPage, lastPage} = Astro.props;
+const {currentPage, lastPage, next, prev} = Astro.props;
 ---
 <div class="flex justify-between my-10">
 
-        <Button text="Previous" classStr={currentPage <= 1 ? 'invisible': ''} isLink={true} newTab={false} href={`${slug}/${currentPage - 1}`} />
+        <Button text="Previous" classStr={currentPage <= 1 ? 'invisible': ''} isLink={true} newTab={false} href={prev} />
 
     {
         currentPage < lastPage &&
-        <Button text="Next" isLink={true} newTab={false} href={`${slug}/${currentPage + 1}`} />
+        <Button text="Next" isLink={true} newTab={false} href={next} />
     }
 
 </div>

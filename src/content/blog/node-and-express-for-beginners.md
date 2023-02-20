@@ -1,11 +1,12 @@
 ---
-layout: '../../layouts/BlogPostLayout.astro'
+layout: "../../layouts/BlogPostLayout.astro"
 title: Node and Express for Beginners
 slug: node-and-express-for-beginners
 coverImage: /images/posts/node-and-express-for-beginners/cover.png
 pubDate: 2019-10-12
 description: Let's learn how to create a server with Node and Express
 youTubeVideoId: tGys_vYNbF4
+tags: nodejs
 ---
 
 You can use JavaScript to do many things like build a website, mobile app, and even a backend server with [Nodejs](https://nodejs.org/en/). In fact, I would argue that using Node is one of the easiest ways to get up and going with a web server. In this article, we will look at creating a web server with Node and a popular package called [Express.](https://www.npmjs.com/package/express)

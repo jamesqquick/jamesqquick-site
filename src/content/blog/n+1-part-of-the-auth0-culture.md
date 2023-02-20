@@ -4,6 +4,7 @@ slug: n+1-part-of-the-auth0-culture
 coverImage: /images/posts/n+1-part-of-the-auth0-culture/cover.jpg
 pubDate: 2020-02-06
 description: Learn how Auth0 embraces one of its core tenants, N+1>N.
+tags: career
 ---
 
 A couple of weeks ago I posted an [article](https://www.jamesqquick.com/blog/i-got-corrected-on-my-second-day) about an interaction I had with the CTO at [Auth0](http://auth0.com/), [Matias Woloski](https://twitter.com/woloski). On just my second day, I got feedback from Matias about how I could improve my pitch for who we are and what we do. At the time, I related this to one of our core pillars, `We give a shit`. After thinking about it more, it also brings up another one of our core pillars, "N+1>N".

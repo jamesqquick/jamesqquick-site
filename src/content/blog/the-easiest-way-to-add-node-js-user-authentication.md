@@ -1,11 +1,12 @@
 ---
-layout: '../../layouts/BlogPostLayout.astro'
+layout: "../../layouts/BlogPostLayout.astro"
 title: The Easiest Way to Add Node.js User Authentication
 slug: the-easiest-way-to-add-node-js-user-authentication
 coverImage: /images/posts/the-easiest-way-to-add-node-js-user-authentication/cover.jpeg
 pubDate: 2020-10-28
 description: The easiest way to add user authentication in your Node.js apps. We will use Auth0 to do the hard work of authentication and then add the Express OpenID Connect library to our Node.js app to trigger login/logout workflows, protecting API routes, etc.
 youTubeVideoId: QQwo4E_B0y8
+tags: nodejs
 ---
 
 Adding authentication in your Node.js applications can be a daunting task. Even if you're using Passport.js to do some of the heavy lifting, it's still tricky to incorporate. In this article, let's see how to use the [express-openid-connect](https://github.com/auth0/express-openid-connect) library to add authentication to your Node.js/Express application 💪 Trust me, this is by far the easiest way I've found to do this!

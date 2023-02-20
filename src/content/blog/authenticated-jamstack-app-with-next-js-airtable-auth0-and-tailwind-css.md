@@ -1,11 +1,12 @@
 ---
-layout: '../../layouts/BlogPostLayout.astro'
+layout: "../../layouts/BlogPostLayout.astro"
 title: Build an Authenticated JAMstack App with Next.js, Airtable, Auth0, and Tailwind CSS
 slug: authenticated-jamstack-app-with-next-js-airtable-auth0-and-tailwind-css
 coverImage: /images/posts/authenticated-jamstack-app-with-next-js-airtable-auth0-and-tailwind-css/cover.png
 pubDate: 2020-10-05
 description: Learn to incorporate authentication and real data into a Next.js app!
 youTubeVideoId: TNKzKtNTjls
+tags: nextjs
 ---
 
 Next.js makes building Full-stack applications in the JAMstack much easier, but there's still a few pieces to figure out. Where are you going to store data? How are you handling authentication? Well, here's how we are going to put it all together.
