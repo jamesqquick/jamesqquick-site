@@ -5,13 +5,13 @@ import Button from "./Button.astro";
 export interface Props {
     slug: string;
     title: string;
-    date: string;
+    date: Date;
     btnText?: string;
 }
 
 const { slug, date, title, btnText="Read" } = Astro.props;
 
-let titleParts = [];
+let titleParts:string[] = [];
 if(title.includes("-")){
     titleParts = title.split('-')
 }

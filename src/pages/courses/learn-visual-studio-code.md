@@ -1,5 +1,4 @@
 ---
-layout: "../../layouts/BlogPostLayout.astro"
 title: Learn Visual Studio Code
 slug: learn-visual-studio-code
 coverImage: /images/courses/learn-visual-studio-code/cover.png

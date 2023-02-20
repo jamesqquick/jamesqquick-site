@@ -1,5 +1,4 @@
 ---
-layout: "../../layouts/BlogPostLayout.astro"
 title: React and Serverless Fullstack Development
 slug: react-and-serverless-fullstack-developmnent
 coverImage: /images/courses/react-and-serverless-fullstack-developmnent/cover.png

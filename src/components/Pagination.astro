@@ -1,0 +1,15 @@
+---
+import Button from "./Button.astro";
+
+const {slug, currentPage, lastPage} = Astro.props;
+---
+<div class="flex justify-between my-10">
+
+        <Button text="Previous" classStr={currentPage <= 1 ? 'invisible': ''} isLink={true} newTab={false} href={`${slug}/${currentPage - 1}`} />
+
+    {
+        currentPage < lastPage &&
+        <Button text="Next" isLink={true} newTab={false} href={`${slug}/${currentPage + 1}`} />
+    }
+
+</div>
