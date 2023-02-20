@@ -9,7 +9,7 @@ const posts = (await getSortedBlogPosts()).slice(0,10);
 
 <BaseLayout title="Blog | James Q Quick">
     <h1 class="text-6xl text-brand font-bold mb-10">Blog</h1>
-    <Pagination next={'/blog/1'} prev={undefined}  currentPage={1} lastPage={2}  />
+    <Pagination next={'/blog/2'} prev={undefined}  currentPage={1} lastPage={2}  />
     <div class="flex flex-col gap-10">
         {
             posts.map((post) => (
@@ -18,7 +18,7 @@ const posts = (await getSortedBlogPosts()).slice(0,10);
                     date={post.data.pubDate}
                     slug={`/blog/${post.slug}`}
                 />
-                ))
+            ))
         }
     </div>
 </BaseLayout>
