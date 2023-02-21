@@ -9,12 +9,14 @@ import SocialFollow from "./SocialFollow.astro";
     let noun = nouns[0];
     let nounIndex = 0;
     const typewriterText = document.querySelector('.typewriter');
-    typewriterText.innerHTML = noun;
-setInterval(() => {
-    nounIndex = (nounIndex + 1) % nouns.length;
-    noun = nouns[nounIndex];
+    if(typewriterText){
         typewriterText.innerHTML = noun;
-}, 6000)
+        setInterval(() => {
+            nounIndex = (nounIndex + 1) % nouns.length;
+            noun = nouns[nounIndex];
+            typewriterText.innerHTML = noun;
+        }, 6000)
+    }
 </script>
 <div class=" px-8 -mt-10 mx-0 xl:-mx-20">
     <div class="max-w-6xl mx-auto items-start justify-center gap-4 pb-20 sm:pb-0 sm:h-[calc(100vh-180px)]  flex flex-col relative ">

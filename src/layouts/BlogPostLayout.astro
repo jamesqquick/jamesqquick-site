@@ -3,7 +3,7 @@ import ArticleHeader from "../components/ArticleHeader.astro";
 import BaseLayout from "./BaseLayout.astro";
 
 export interface Props {
-  content: {
+  frontmatter: {
     title: string;
     description: string;
     pubDate?: string;
@@ -14,8 +14,9 @@ export interface Props {
 }
 
 const {
-  content: { title, description, pubDate, youTubeVideoId, coverImage },
+  frontmatter: { title, description, pubDate, youTubeVideoId, coverImage }, 
 } = Astro.props as Props;
+
 ---
 
 <BaseLayout title={title} description={description} image={coverImage}>

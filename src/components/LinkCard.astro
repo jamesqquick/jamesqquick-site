@@ -1,31 +1,33 @@
 ---
 import { getFormattedDate } from "../utils/dates";
 import Button from "./Button.astro";
+import javascriptLogo from "../images/js.png"
+import { Image } from "@astrojs/image/components";
 
 export interface Props {
     slug: string;
     title: string;
-    date: string;
+    date: Date;
     btnText?: string;
+    tag?: string
 }
 
-const { slug, date, title, btnText="Read" } = Astro.props;
+const { slug, date, title, btnText="Read", tag } = Astro.props;
 
-let titleParts = [];
+const tagToLogo = {
+    "javascript": javascriptLogo
+}
+
+let titleParts:string[] = [];
 if(title.includes("-")){
     titleParts = title.split('-')
 }
 ---
 
-<!-- <div class="overflow-hidden my-10">
-    
-    <a href={slug} class="hover:text-brand transition-colors">
-        <h2 class="text-3xl font-bold my-0">{title}</h2>
-    </a>
-</div> -->
+<div class="bg-bgDark overflow-hidden  rounded-3xl text-300 flex items-stretch flex-col lg:flex-row justify-center lg:justify-start ">
+{tag && tagToLogo[tag] && <Image src={tagToLogo[tag]} width={300} alt={`Cover`} class="max-w-xs object-cover"/>}
 
-<div class="bg-bgDark  rounded-3xl py-20 px-20 text-300 flex flex-col lg:flex-row justify-center lg:justify-between lg:items-center">
-    <div>
+    <div class="py-20 px-20">
       <h2 class=" text-brand text-4xl font-light mb-2">{titleParts[0] || title}</h2>
       {titleParts[1] &&
       <p class="mb-2 text-2xl">{titleParts[1]}</p>

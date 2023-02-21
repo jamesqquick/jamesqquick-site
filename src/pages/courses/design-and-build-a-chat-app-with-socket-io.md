@@ -1,5 +1,4 @@
 ---
-layout: "../../layouts/BlogPostLayout.astro"
 title: Design and Build a Chat App with Socket.io
 slug: design-and-build-a-chat-app-with-socket-io
 coverImage: /images/courses/design-and-build-a-chat-app-with-socket-io/cover.png

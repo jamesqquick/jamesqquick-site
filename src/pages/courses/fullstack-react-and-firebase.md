@@ -1,5 +1,4 @@
 ---
-layout: "../../layouts/BlogPostLayout.astro"
 title: Fullstack React and Firebase
 slug: fullstack-react-and-firebase
 pubDate: 2020-02-00

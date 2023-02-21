@@ -13,9 +13,9 @@ import Bio from "../components/Bio.astro";
 import SpeakerForm from "../components/speaking/SpeakerForm.astro";
 import Button from "../components/Button.astro";
 import Testimonial from "../components/speaking/Testimonial.astro";
+import { getCollection } from 'astro:content';
 
-
-const testimonials = await Astro.glob("../data/speaking/testimonials/*.{md,mdx}");
+const testimonials = await getCollection('testimonial');
 ---
 
 <BaseLayout>

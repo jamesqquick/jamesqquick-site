@@ -1,5 +1,4 @@
 ---
-layout: "../../layouts/BlogPostLayout.astro"
 title: Build a Quiz App with HTML, CSS, and JavaScript
 slug: build-a-quiz-app-with-html-css-and-javascript
 coverImage: /images/courses/build-a-quiz-app-with-html-css-and-javascript/cover.png
