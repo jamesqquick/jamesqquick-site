@@ -11,7 +11,7 @@ import { Icon } from 'astro-icon'
     <button id="hamburger" aria-label="menu" aria-controls="mobileMenu">
         <Icon class="inline lg:hidden h-10 w-10 hover:text-brand cursor-pointer"  name="mdi:menu" />
     </button>
-    <div id="mobileMenu" class="fixed lg:flex items-center justify-center lg:relative inset-0 bg-bg hidden py-5 md:py-20 lg:py-0 overflow-auto">
+    <div id="mobileMenu" class="fixed lg:flex items-center justify-center lg:relative inset-0 bg-bg hidden py-5 md:py-20 lg:py-0 overflow-auto z-10">
         <div class="flex flex-col lg:flex-row gap-10 lg:gap-5 font-light text-center lg:text-left text-2xl lg:text-xl">
             <button id="close">
                 <Icon class="inline lg:hidden h-10 w-10 hover:text-brand cursor-pointer mb-10"  name="mdi:close " />
