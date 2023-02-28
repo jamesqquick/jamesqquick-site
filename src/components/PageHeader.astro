@@ -1,33 +1,40 @@
 ---
-import {Image} from "@astrojs/image/components";
+import { Image } from "@astrojs/image/components";
 import Divider from "./Divider.astro";
 import YouTube from "./YouTube.astro";
 
 export interface Props {
-    heading:string,
-    body:string,
-    youTubeVideoId?:string,
-    hasDivider?: boolean,
-    image?: any,
-    alt: string
+  heading: string;
+  body: string;
+  youTubeVideoId?: string;
+  hasDivider?: boolean;
+  image?: any;
+  alt?: string;
 }
 
-const {heading, body, youTubeVideoId, hasDivider = true, image, alt} = Astro.props;
+const {
+  heading,
+  body,
+  youTubeVideoId,
+  hasDivider = true,
+  image,
+  alt,
+} = Astro.props;
 ---
 
-<div class={`mb-20 grid grid-cols-1 items-center lg:grid-cols-2 space-between gap-10`}>
-    <div>
-        <h1 class="text-6xl text-brand font-bold mb-10">{heading}</h1>
-        <p class="text-4xl font-light mb-5">{body}</p>
-        <slot/>
-    </div>
-    { youTubeVideoId && 
-        <YouTube id={youTubeVideoId} />
-    }
-    { image && !youTubeVideoId && 
-        <Image src={image} alt={alt}/>
-    }
+<div
+  class={`mb-20 grid grid-cols-1 items-center lg:grid-cols-2 space-between gap-10`}
+>
+  <div>
+    <h1 class="text-6xl text-brand font-bold mb-10">{heading}</h1>
+    <p class="text-4xl font-light mb-5">{body}</p>
+    <slot />
+  </div>
+  {youTubeVideoId && <YouTube id={youTubeVideoId} />}
+  {
+    image && !youTubeVideoId && (
+      <Image src={image} alt={alt} class="rounded-md" />
+    )
+  }
 </div>
-{hasDivider &&
-    <Divider size={1}/>
-}
+{hasDivider && <Divider size={1} />}

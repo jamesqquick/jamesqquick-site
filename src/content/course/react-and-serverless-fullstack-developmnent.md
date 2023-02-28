@@ -1,6 +1,5 @@
 ---
 title: React and Serverless Fullstack Development
-slug: react-and-serverless-fullstack-developmnent
 coverImage: /images/courses/react-and-serverless-fullstack-developmnent/cover.png
 pubDate: 2020-05-00
 description: Learn to build a secure and production-ready fullstack application from start to finish.

@@ -1,6 +1,5 @@
 ---
 title: Build a Quiz App with HTML, CSS, and JavaScript
-slug: build-a-quiz-app-with-html-css-and-javascript
 coverImage: /images/courses/build-a-quiz-app-with-html-css-and-javascript/cover.png
 pubDate: 2019-02-00
 description: Learn how to build a Quiz app without the assistance of libraries or frameworks.

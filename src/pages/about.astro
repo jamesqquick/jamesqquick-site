@@ -1,5 +1,5 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro"
+import BaseLayout from "../layouts/BaseLayout.astro";
 import Microsoft from "../images/Microsoft.png";
 import fedex from "../images/fedex.png";
 import PlanetScale from "../images/PlanetScale.png";
@@ -9,22 +9,32 @@ import Bio from "../components/Bio.astro";
 import Divider from "../components/Divider.astro";
 import speaking from "../images/speaking/speaking.jpg";
 
-
+export const prerender = true;
 ---
 
-<BaseLayout title="About | James Q Quick" description="James Q Quick is a Developer, Speaker, and Teacher with a passion for teaching developers through content.">
-   <PageHeader heading="About" body="I use content creation to teach and inspire developers." hasDivider={false} alt="James speaking at All Things Open conferen"
-   image={speaking}/>
-        
-    <p class="font-light mb-6">WORK EXPERIENCE</p>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 items-end mb-40 gap-y-10">
-        <img class="h-10" src={Microsoft.src}/>
-        <img class="h-10" src={fedex.src}/>
-        <img class="h-10" src={Auth0.src}/>
-        <img class="h-10" src={PlanetScale.src}/>
-    </div>
-    <Divider />
-    <section class="my-24">
-        <Bio/>
-    </section>
+<BaseLayout
+  title="About | James Q Quick"
+  description="James Q Quick is a Developer, Speaker, and Teacher with a passion for teaching developers through content."
+>
+  <PageHeader
+    heading="About"
+    body="I use content creation to teach and inspire developers."
+    hasDivider={false}
+    alt="James speaking at All Things Open conferen"
+    image={speaking}
+  />
+
+  <p class="font-light mb-6">WORK EXPERIENCE</p>
+  <div
+    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 items-end mb-40 gap-y-10"
+  >
+    <img class="h-10" src={Microsoft.src} />
+    <img class="h-10" src={fedex.src} />
+    <img class="h-10" src={Auth0.src} />
+    <img class="h-10" src={PlanetScale.src} />
+  </div>
+  <Divider />
+  <section class="my-24">
+    <Bio />
+  </section>
 </BaseLayout>
