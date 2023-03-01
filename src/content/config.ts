@@ -8,6 +8,16 @@ const testimonialsCollection = defineCollection({
   }),
 });
 
+const coursesCollection = defineCollection({
+  schema: z.object({
+    title: z.string(),
+    coverImage: z.string(),
+    pubDate: z.date(),
+    description: z.string(),
+    youTubeVideoId: z.string().optional(),
+  }),
+});
+
 const blogsCollection = defineCollection({
   schema: z.object({
     title: z.string(),
@@ -35,4 +45,5 @@ const blogsCollection = defineCollection({
 export const collections = {
   testimonial: testimonialsCollection,
   blog: blogsCollection,
+  course: coursesCollection,
 };
