@@ -4,6 +4,8 @@ import LinkCard from "../components/LinkCard.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { getSortedCourses } from "../utils/blog";
 
+export const prerender = true;
+
 const courses = await getSortedCourses();
 ---
 

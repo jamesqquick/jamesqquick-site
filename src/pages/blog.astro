@@ -4,21 +4,23 @@ import LinkCard from "../components/LinkCard.astro";
 import { getSortedBlogPosts } from "../utils/blog";
 import Pagination from "../components/Pagination.astro";
 
-const posts = (await getSortedBlogPosts()).slice(0,10);
+const posts = (await getSortedBlogPosts()).slice(0, 10);
+
+export const prerender = true;
 ---
 
 <BaseLayout title="Blog | James Q Quick">
-    <h1 class="text-6xl text-brand font-bold mb-10">Blog</h1>
-    <Pagination next={'/blog/2'} prev={undefined}  currentPage={1} lastPage={2}  />
-    <div class="flex flex-col gap-10">
-        {
-            posts.map((post) => (
-                <LinkCard
-                    title={post.data.title}
-                    date={post.data.pubDate}
-                    slug={`/blog/${post.slug}`}
-                />
-            ))
-        }
-    </div>
+  <h1 class="text-6xl text-brand font-bold mb-10">Blog</h1>
+  <Pagination next={"/blog/2"} prev={undefined} currentPage={1} lastPage={2} />
+  <div class="flex flex-col gap-10">
+    {
+      posts.map((post) => (
+        <LinkCard
+          title={post.data.title}
+          date={post.data.pubDate}
+          slug={`/blog/${post.slug}`}
+        />
+      ))
+    }
+  </div>
 </BaseLayout>
