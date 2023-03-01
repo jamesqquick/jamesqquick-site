@@ -6,22 +6,22 @@ export interface Props {
   frontmatter: {
     title: string;
     description: string;
-    pubDate?: string;
-    updatedDate?: string;
-    coverImage?: string;
+    pubDate: Date;
+    coverImage: string;
     youTubeVideoId?: string;
   };
 }
 
 const {
-  frontmatter: { title, description, pubDate, youTubeVideoId, coverImage }, 
+  frontmatter: { title, description, pubDate, youTubeVideoId, coverImage },
 } = Astro.props as Props;
-
 ---
 
 <BaseLayout title={title} description={description} image={coverImage}>
   <main>
-    <article class="prose prose-invert prose-xl max-w-none prose-h2:text-brand prose-img:rounded-lg prose-p:text-white">
+    <article
+      class="prose prose-invert prose-xl max-w-none prose-h2:text-brand prose-img:rounded-lg prose-p:text-white"
+    >
       <ArticleHeader
         coverImage={coverImage}
         title={title}

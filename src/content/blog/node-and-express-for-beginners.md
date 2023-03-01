@@ -1,5 +1,4 @@
 ---
-layout: "../../layouts/BlogPostLayout.astro"
 title: Node and Express for Beginners
 slug: node-and-express-for-beginners
 coverImage: /images/posts/node-and-express-for-beginners/cover.png

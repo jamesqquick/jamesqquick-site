@@ -1,5 +1,4 @@
 ---
-layout: "../../layouts/BlogPostLayout.astro"
 title: The Easiest Way to Add Node.js User Authentication
 slug: the-easiest-way-to-add-node-js-user-authentication
 coverImage: /images/posts/the-easiest-way-to-add-node-js-user-authentication/cover.jpeg

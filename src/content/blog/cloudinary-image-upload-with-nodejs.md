@@ -1,5 +1,4 @@
 ---
-layout: "../../layouts/BlogPostLayout.astro"
 title: Cloudinary Image Upload with Nodejs
 slug: cloudinary-image-upload-with-nodejs
 coverImage: /images/posts/cloudinary-image-upload-with-nodejs/cover.png

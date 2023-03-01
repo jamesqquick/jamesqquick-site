@@ -1,5 +1,4 @@
 ---
-layout: "../../layouts/BlogPostLayout.astro"
 title: Build a JavaScript Search Bar
 slug: build-a-javascript-search-bar
 coverImage: /images/posts/build-a-javascript-search-bar/cover.png

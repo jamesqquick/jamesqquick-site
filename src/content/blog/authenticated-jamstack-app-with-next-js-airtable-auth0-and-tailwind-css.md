@@ -1,5 +1,4 @@
 ---
-layout: "../../layouts/BlogPostLayout.astro"
 title: Build an Authenticated JAMstack App with Next.js, Airtable, Auth0, and Tailwind CSS
 slug: authenticated-jamstack-app-with-next-js-airtable-auth0-and-tailwind-css
 coverImage: /images/posts/authenticated-jamstack-app-with-next-js-airtable-auth0-and-tailwind-css/cover.png

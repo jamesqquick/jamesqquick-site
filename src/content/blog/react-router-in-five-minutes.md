@@ -1,5 +1,4 @@
 ---
-layout: "../../layouts/BlogPostLayout.astro"
 title: React Router in 5 Minutes
 slug: react-router-in-five-minutes
 coverImage: /images/posts/react-router-in-five-minutes/cover.png

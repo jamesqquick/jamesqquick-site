@@ -1,5 +1,4 @@
 ---
-layout: "../../layouts/BlogPostLayout.astro"
 title: Top Visual Studio Code Git Extensions in 2020
 slug: vscode-git-extensions-2020
 coverImage: /images/posts/vscode-git-extensions-2020/cover.png

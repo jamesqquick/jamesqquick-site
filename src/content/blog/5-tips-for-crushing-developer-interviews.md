@@ -1,5 +1,4 @@
 ---
-layout: "../../layouts/BlogPostLayout.astro"
 title: 5 Tips for Crushing Developer Interviews
 slug: 5-tips-for-crushing-developer-interviews
 coverImage: /images/posts/5-tips-for-crushing-developer-interviews/cover.png

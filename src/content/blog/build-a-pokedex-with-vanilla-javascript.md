@@ -1,5 +1,4 @@
 ---
-layout: "../../layouts/BlogPostLayout.astro"
 title: Build a Pokedex with Vanilla JavaScript
 slug: build-a-pokedex-with-vanilla-javascript
 coverImage: /images/posts/build-a-pokedex-with-vanilla-javascript/cover.png

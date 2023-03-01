@@ -1,5 +1,4 @@
 ---
-layout: "../../layouts/BlogPostLayout.astro"
 title: Settings Sync Extension for Visual Studio Code
 slug: settings-sync-extension-for-visual-studio-code
 coverImage: /images/posts/settings-sync-extension-for-visual-studio-code/cover.png

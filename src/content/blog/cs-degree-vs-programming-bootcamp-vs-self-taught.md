@@ -1,5 +1,4 @@
 ---
-layout: "../../layouts/BlogPostLayout.astro"
 title: CS Degree vs Programming Bootcamp vs Self-taught
 slug: cs-degree-vs-programming-bootcamp-vs-self-taught
 coverImage: /images/posts/cs-degree-vs-programming-bootcamp-vs-self-taught/cover.png

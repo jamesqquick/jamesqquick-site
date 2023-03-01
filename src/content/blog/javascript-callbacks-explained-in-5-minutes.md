@@ -1,5 +1,4 @@
 ---
-layout: "../../layouts/BlogPostLayout.astro"
 title: JavaScript Callbacks Explained in 5 Minutes
 slug: javascript-callbacks-explained-in-5-minutes
 coverImage: /images/posts/javascript-callbacks-explained-in-5-minutes/cover.png

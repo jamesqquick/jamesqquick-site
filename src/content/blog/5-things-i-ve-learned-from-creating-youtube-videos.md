@@ -1,5 +1,4 @@
 ---
-layout: "../../layouts/BlogPostLayout.astro"
 title: 5 Things I've Learned From Creating YouTube Videos
 slug: 5-things-i-ve-learned-from-creating-youtube-videos
 coverImage: /images/posts/5-things-i-ve-learned-from-creating-youtube-videos/cover.png

@@ -1,5 +1,4 @@
 ---
-layout: "../../layouts/BlogPostLayout.astro"
 title: How To Test NPM Packages Locally
 slug: how-to-test-npm-packages-locally
 coverImage: /images/posts/how-to-test-npm-packages-locally/cover.png

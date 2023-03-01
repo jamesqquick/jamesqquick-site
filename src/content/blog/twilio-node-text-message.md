@@ -1,5 +1,4 @@
 ---
-layout: "../../layouts/BlogPostLayout.astro"
 title: Twilio and Node - Send Your First Text Message
 slug: twilio-node-text-message
 coverImage: /images/posts/twilio-node-text-message/cover.png

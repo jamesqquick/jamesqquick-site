@@ -1,5 +1,4 @@
 ---
-layout: "../../layouts/BlogPostLayout.astro"
 title: 15 Common Beginner JavaScript Mistakes
 slug: 15-common-beginner-javascript-mistakes
 coverImage: /images/posts/15-common-beginner-javascript-mistakes/cover.png
