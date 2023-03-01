@@ -481,6 +481,43 @@ declare module 'astro:content' {
   data: InferEntrySchema<"blog">
 },
 },
+"course": {
+"build-a-quiz-app-with-html-css-and-javascript.md": {
+  id: "build-a-quiz-app-with-html-css-and-javascript.md",
+  slug: "build-a-quiz-app-with-html-css-and-javascript",
+  body: string,
+  collection: "course",
+  data: InferEntrySchema<"course">
+},
+"design-and-build-a-chat-app-with-socket-io.md": {
+  id: "design-and-build-a-chat-app-with-socket-io.md",
+  slug: "design-and-build-a-chat-app-with-socket-io",
+  body: string,
+  collection: "course",
+  data: InferEntrySchema<"course">
+},
+"fullstack-react-and-firebase.md": {
+  id: "fullstack-react-and-firebase.md",
+  slug: "fullstack-react-and-firebase",
+  body: string,
+  collection: "course",
+  data: InferEntrySchema<"course">
+},
+"learn-visual-studio-code.md": {
+  id: "learn-visual-studio-code.md",
+  slug: "learn-visual-studio-code",
+  body: string,
+  collection: "course",
+  data: InferEntrySchema<"course">
+},
+"react-and-serverless-fullstack-developmnent.md": {
+  id: "react-and-serverless-fullstack-developmnent.md",
+  slug: "react-and-serverless-fullstack-developmnent",
+  body: string,
+  collection: "course",
+  data: InferEntrySchema<"course">
+},
+},
 "testimonial": {
 "bekah.md": {
   id: "bekah.md",

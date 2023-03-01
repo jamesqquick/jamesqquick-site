@@ -1,0 +1,23 @@
+---
+const { redirect } = Astro.params;
+
+const redirectsMap = new Map<string, string>([
+  ["podcast", "https://compressed.fm/"],
+  ["youtube", "https://www.youtube.com/c/jamesqquick"],
+  ["twitter", "https://twitter.com/jamesqquick"],
+  ["language-learners", "https://discord.gg/6FxN5CNJGk?ref=jonathan-creamer"],
+  ["discord", "https://learnbuildteach.com/"],
+]);
+
+let redirectURL;
+
+if (!redirect) {
+  redirectURL = "/";
+} else if (!redirectsMap.get(redirect)) {
+  redirectURL = "404";
+} else {
+  redirectURL = redirectsMap.get(redirect);
+}
+
+return Astro.redirect(redirectURL);
+---

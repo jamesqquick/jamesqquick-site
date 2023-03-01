@@ -1,6 +1,6 @@
 ---
 title: Fullstack React and Firebase
-slug: fullstack-react-and-firebase
+coverImage: /images/courses/fullstack-react-and-firebase/cover.jpg
 pubDate: 2020-02-00
 description: Learn how to build a full-stack quiz app using React and Firebase.
 ---
