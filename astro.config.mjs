@@ -4,6 +4,7 @@ import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
 import partytown from "@astrojs/partytown";
 import image from "@astrojs/image";
+import netlify from "@astrojs/netlify/functions";
 
 // https://astro.build/config
 export default defineConfig({
@@ -23,4 +24,5 @@ export default defineConfig({
     }),
   ],
   output: "static",
+  adapter: netlify(),
 });
