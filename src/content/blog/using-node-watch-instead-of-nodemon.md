@@ -5,7 +5,8 @@ coverImage: /images/posts/using-node-watch-instead-of-nodemon/cover.jpg
 pubDate: 2023-02-17
 description: You can use the watch command in Node instead of using nodemon.
 youTubeVideoId: QPSnFzj9eUw
-tags: nodejs
+tags:
+  - nodejs
 ---
 
 Nodemon has been the go-to tool for years for running a live-reloading Node.js server, but you may not need it anymore! You can now use the new `--watch` flag in Node instead.

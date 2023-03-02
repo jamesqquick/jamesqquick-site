@@ -4,7 +4,8 @@ slug: goals-for-2022
 coverImage: /images/posts/goals-for-2022/cover.png
 pubDate: 2022-01-07
 description: I'm so excited and optimistic for 2022!
-tags: career
+tags:
+  - career
 ---
 
 Every year I take some time to reflect on the previous and set goals for myself for the upcoming year. Well, 2022 is a new year so here are my goals!

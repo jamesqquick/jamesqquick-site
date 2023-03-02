@@ -4,7 +4,8 @@ slug: announcing-advent-of-javascript-a-free-series-of-javascript-challenges
 coverImage: /images/posts/announcing-advent-of-javascript-a-free-series-of-javascript-challenges/cover.png
 pubDate: 2021-12-08
 description: Announcing Advent of JavaScript - A FREE Series of JavaScript Challenges
-tags: javascript
+tags:
+  - javascript
 ---
 
 I'm super happy to announce a new FREE set of JavaScript challenges called [Advent of JavaScript](https://adventofjs.com/) 🎉 For 24 days, you'll get to develop your JavaScript skills with one new challenge each day. Each challenge includes:

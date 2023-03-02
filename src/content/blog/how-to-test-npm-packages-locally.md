@@ -5,7 +5,8 @@ coverImage: /images/posts/how-to-test-npm-packages-locally/cover.png
 pubDate: 2020-06-23
 description: Learn how to test your NPM packages locally before publishing.
 youTubeVideoId: Knw8U5XyHaM
-tags: javascript
+tags:
+  - javascript
 ---
 
 When creating NPM packages, it's much better to test them locally before publishing. Let's take a look at how to do that.

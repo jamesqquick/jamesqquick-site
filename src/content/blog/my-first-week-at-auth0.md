@@ -4,7 +4,8 @@ slug: my-first-week-at-auth0
 coverImage: /images/posts/my-first-week-at-auth0/cover.jpg
 pubDate: 2020-01-15
 description: I had an amazing first week at Auth0. Here's what I learned!
-tags: career
+tags:
+  - career
 ---
 
 I had an amazing first week at Auth0. Here's what I learned!

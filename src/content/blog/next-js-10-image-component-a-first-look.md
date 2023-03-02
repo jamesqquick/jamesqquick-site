@@ -5,7 +5,8 @@ coverImage: /images/posts/next-js-10-image-component-a-first-look/cover.jpg
 pubDate: 2020-12-16
 description: Let's take a first look at the Next.js 10 Image Component.
 youTubeVideoId: PsDz3kpp354
-tags: nextjs
+tags:
+  - nextjs
 ---
 
 Images can make or break performance on your site. With Next.js 10 and its new [Image component](https://nextjs.org/docs/api-reference/next/image), optimizing image performance in your sites just got a lot easier. This is a sought-after feature from developers, so let's take a look.

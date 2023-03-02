@@ -5,7 +5,8 @@ coverImage: /images/posts/how-to-create-and-publish-npm-packages/cover.png
 pubDate: 2020-06-23
 description: Ever wondered how to create and publish NPM packages that millions of JavaScript developers across the world can use? Creating and publishing NPM Packages is much simpler than you might think. It's as simple as creating an account, creating a repository, and connecting them together. You'll have your first NPM package published in just a few minutes!
 youTubeVideoId: Knw8U5XyHaM
-tags: javascript
+tags:
+  - javascript
 ---
 
 Ever wondered how to create and publish NPM packages that millions of JavaScript developers across the world can use? Well, creating and publishing NPM Packages is much simpler than you might think. Let's see how!

@@ -4,7 +4,8 @@ slug: how-to-redirect-netlify-functions-to-a-simpler-path
 coverImage: /images/posts/how-to-redirect-netlify-functions-to-a-simpler-path/cover.png
 pubDate: 2020-08-06
 description: Netlify Functions are one of the easiest ways to get started with Serverless. However, the default path to call a Netlify Function is a bit cumbersome. Let's learn how to simplify that path with redirects.
-tags: tools
+tags:
+  - tools
 ---
 
 Netlify Functions are one of the easiest ways to get started with Serverless, but the default path to call one is a bit tedious at `/.netlify/functions/<function_name>`. Let’s see how to simplify this so that we can call `/api/<function_name>`.

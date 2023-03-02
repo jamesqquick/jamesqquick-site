@@ -4,7 +4,8 @@ slug: parse-json-request-body-in-express
 coverImage: /images/posts/parse-json-request-body-in-express/cover.png
 pubDate: 2020-08-29
 description: Learn how to parse JSON body from a post request in Express.
-tags: nodejs
+tags:
+  - nodejs
 ---
 
 By default, you won't be able to parse JSON from the body of an incoming request with Express.js. The good news it, though, that it only takes one extra line of configuration.

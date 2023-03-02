@@ -5,7 +5,8 @@ coverImage: /images/posts/15-common-beginner-javascript-mistakes/cover.png
 pubDate: 2022-07-19
 description: Here are the 15 most common mistakes I've seen beginner JavaScript developers make.
 youTubeVideoId: pWnJY_Wkde4
-tags: javascript
+tags:
+  - javascript
 ---
 
 I've taught JavaScript to hundreds of people in-person and thousands online. During my time teaching, I've seen beginner JavaScript developers make the same mistakes over and over....and over again. Here are the 15 most common beginner JavaScript mistakes I've seen.

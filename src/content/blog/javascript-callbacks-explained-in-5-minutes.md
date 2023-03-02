@@ -5,7 +5,8 @@ coverImage: /images/posts/javascript-callbacks-explained-in-5-minutes/cover.png
 pubDate: 2022-08-09
 description: Callbacks are an essential part of understanding JavaScript especially when dealing with asynchronous code. Let's cover the basics of callbacks in about 5 minutes with a handful of examples!
 youTubeVideoId: kz_vwAF4NHI
-tags: javascript
+tags:
+  - javascript
 ---
 
 Callbacks are an essential part of understanding JavaScript especially when dealing with asynchronous code. Let's cover the basics of callbacks in about 5 minutes with a handful of examples!

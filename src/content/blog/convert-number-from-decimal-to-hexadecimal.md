@@ -4,7 +4,8 @@ slug: convert-number-from-decimal-to-hexadecimal
 coverImage: /images/posts/convert-number-from-decimal-to-hexadecimal/cover.png
 pubDate: 2020-06-18
 description: Learn how to convert a number in JavaScript from Decimal (base 10) to Hexadecimal (base 16)
-tags: javascript
+tags:
+  - javascript
 ---
 
 I'm currently working on a mini course where I will show to dynamically lighten and darken colors in JavaScript. To do this, I needed to be able to convert numbers from decimal to hexadecimal and visa versa. Let's see how!

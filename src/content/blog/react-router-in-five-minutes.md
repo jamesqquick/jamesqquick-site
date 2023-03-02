@@ -5,7 +5,8 @@ coverImage: /images/posts/react-router-in-five-minutes/cover.png
 pubDate: 2020-06-09
 description: Learn how to setup React Router in 5 minutes!
 youTubeVideoId: yQf1KbGiwiI
-tags: react
+tags:
+  - react
 ---
 
 I use React all of the time and always have to look up how to setup React Router. In this post, I'll show you how to setup React Router in five minutes.

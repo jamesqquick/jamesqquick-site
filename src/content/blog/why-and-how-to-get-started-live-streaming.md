@@ -4,7 +4,8 @@ slug: why-and-how-to-get-started-live-streaming
 coverImage: /images/posts/why-and-how-to-get-started-live-streaming/cover.png
 pubDate: 2021-07-14
 description: Learn how and why I got started Live Streaming early in 2020.
-tags: career
+tags:
+  - career
 ---
 
 Live Streaming has seemingly become all the rage for developers these days. You've probably watched a Live Stream, but have you ever thought about Live Streaming yourself? In this article, I'll talk about why I got started and some tips to help you start also.

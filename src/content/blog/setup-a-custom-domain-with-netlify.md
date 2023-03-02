@@ -5,7 +5,8 @@ coverImage: /images/posts/setup-a-custom-domain-with-netlify/cover.png
 pubDate: 2022-07-14
 description: Setup a Custom Domain with Netlify
 youTubeVideoId: bY7Tkh9Vz8I
-tags: tools
+tags:
+  - tools
 ---
 
 Websites are always better with custom domains. Let's learn how to set up a custom domain with your Netlify app in just a few minutes.

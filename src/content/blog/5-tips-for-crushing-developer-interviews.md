@@ -5,7 +5,8 @@ coverImage: /images/posts/5-tips-for-crushing-developer-interviews/cover.png
 pubDate: 2021-03-09
 description: Here are 5 ways you can improve your chances of doing well in a developer interview.
 youTubeVideoId: OCon6U10jlI
-tags: career
+tags:
+  - career
 ---
 
 I am currently teaching a Programming Bootcamp for about 100 students that are going to be looking for jobs soon. With the end drawing near, I've been thinking about what advice to give them when it comes to developer interviews? I was also thinking, why not share that advice with the world?

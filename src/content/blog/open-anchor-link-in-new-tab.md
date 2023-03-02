@@ -4,7 +4,8 @@ slug: open-anchor-link-in-new-tab
 coverImage: /images/posts/open-anchor-link-in-new-tab/cover.png
 pubDate: 2020-04-24
 description: Learn how to open a link from an anchor tag in a new browser tab
-tags: misc
+tags:
+  - misc
 ---
 
 If you include links on your site, you probably want those to open up in a different tab so that users don't completely leave your site. This is certainly true for me site. Recently, i've had to look this up so many times, that I'm finally creating the post.

@@ -3,6 +3,7 @@ title: React and Serverless Fullstack Development
 coverImage: /images/courses/react-and-serverless-fullstack-developmnent/cover.png
 pubDate: 2020-05-00
 description: Learn to build a secure and production-ready fullstack application from start to finish.
+type: Course
 ---
 
 Tired of building Todo apps? Want to know what it's like to build a real-world application from start to finish?

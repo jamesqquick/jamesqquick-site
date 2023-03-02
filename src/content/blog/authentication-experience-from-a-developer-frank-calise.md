@@ -4,7 +4,8 @@ slug: authentication-experience-from-a-developer-frank-calise
 coverImage: /images/posts/authentication-experience-from-a-developer-frank-calise/cover.png
 pubDate: 2020-01-24
 description: Here about Frank Calise's experience with implementing authentication with Auth0 into a mobile app.
-tags: career
+tags:
+  - career
 ---
 
 Here about Frank Calise's experience with implementing authentication with Auth0 into a mobile app.

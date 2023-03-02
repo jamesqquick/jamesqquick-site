@@ -5,7 +5,8 @@ coverImage: /images/posts/settings-sync-extension-for-visual-studio-code/cover.p
 pubDate: 2020-01-28
 description: The beautiful thing about Visual Studio Code is how easy it is to customize, but what happens if you get a new computer?
 youTubeVideoId: f-uzUsHTQ8s
-tags: vs code
+tags:
+  - vs code
 ---
 
 The beautiful thing about Visual Studio Code is how easy it is to customize, but what happens if you get a new computer? You have to take the time to install all the same extensions, manually copy over settings and keybindings, etc.

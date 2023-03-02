@@ -5,7 +5,8 @@ coverImage: /images/posts/cs-degree-vs-programming-bootcamp-vs-self-taught/cover
 pubDate: 2020-04-09
 description: Let's discuss the pros and cons of a Computer Science Degree vs a Programming Bootcamp vs being self-taught.
 youTubeVideoId: Hu_ySRAHyPw
-tags: career
+tags:
+  - career
 ---
 
 In the age of technology that we live in, the Computer Science industry is booming. It is becoming a more and more desired field because of the number of opportunities, pay, benefits, etc. However, everyday programming jobs across the world are going vacant because we can't find enough qualified candidates to fill them.

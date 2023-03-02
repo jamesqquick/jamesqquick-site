@@ -5,7 +5,8 @@ coverImage: /images/posts/cloudinary-image-upload-with-nodejs/cover.png
 pubDate: 2020-06-16
 description: Learn how to upload images to Cloudinary with Nodejs
 youTubeVideoId: Rw_QeJLnCK4
-tags: nodejs
+tags:
+  - nodejs
 ---
 
 Cloudinary is an amazing product for storing, transforming, and optimizing your media. By using Cloudinary, you can optimize your images and make your websites faster and increase user experience. Let's see how to upload images to Cloudinary using the Node SDK.

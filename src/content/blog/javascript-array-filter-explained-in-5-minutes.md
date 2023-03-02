@@ -5,7 +5,8 @@ coverImage: /images/posts/javascript-array-filter-explained-in-5-minutes/cover.p
 pubDate: 2021-01-04
 description: JavaScript arrays have some powerful built-in methods that simplify working with them. Let's look at the array filter() method.
 youTubeVideoId: 3LOEGS4qcRM
-tags: javascript
+tags:
+  - javascript
 ---
 
 JavaScript arrays have some powerful built-in methods that simplify working with them. In this article, let's look at the array `filter() `method.

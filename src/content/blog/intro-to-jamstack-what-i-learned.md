@@ -4,7 +4,8 @@ slug: intro-to-jamstack-what-i-learned
 coverImage: /images/posts/intro-to-jamstack-what-i-learned/cover.png
 pubDate: 2020-04-20
 description: I just recently finished the Intro to the JAMstack course by Jason Lengstorf on Frontend Masters and loved it! I consider myself to be relatively well versed in the JAMstack, but I still learned a ton. Here are a few of the tidbits.
-tags: javascript
+tags:
+  - javascript
 ---
 
 I just recently finished the ["Intro to the JAMstack"](https://frontendmasters.com/workshops/jamstack/) course by Jason Lengstorf on Frontend Masters and loved it! I consider myself to be relatively well versed in the JAMstack, but I still learned a ton. Here are a few of the tidbits.

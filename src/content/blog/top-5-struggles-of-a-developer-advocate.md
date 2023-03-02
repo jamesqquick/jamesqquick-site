@@ -4,7 +4,8 @@ slug: top-5-struggles-of-a-developer-advocate
 coverImage: /images/posts/top-5-struggles-of-a-developer-advocate/cover.png
 pubDate: 2022-05-17
 description: Let's look at the top 5 struggles I have as a Developer Advocate.
-tags: career
+tags:
+  - career
 ---
 
 Let me start by saying that I've been a Developer Advocate for about 6 years of my career, and I absolutely LOVE my job. If you've followed any bit of my content and career, that hopefully doesn't come as a surprise. In fact, I think Developer Advocate positions are often looked at as one of those "pie in the sky" type roles that people hype up in their minds. Here's a picture of me speaking at a conference, one of my favorite things to do in the world.
