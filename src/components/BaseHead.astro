@@ -2,6 +2,7 @@
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
 import "../styles/global.css";
+import { GoogleAnalytics } from "astro-analytics";
 
 export interface Props {
   title: string;
@@ -43,16 +44,15 @@ const { title, description, image = "/images/selfie-lg.jpeg" } = Astro.props;
 <!-- Canonical Link -->
 <link rel="canonical" href={Astro.url} />
 
-
-<script
-  type="text/partytown"
-  src="https://www.googletagmanager.com/gtag/js?id=UA-43331509-2"
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-43331509-2"
 ></script>
-<script type="text/partytown">
+<script>
   window.dataLayer = window.dataLayer || [];
   function gtag() {
     dataLayer.push(arguments);
   }
   gtag("js", new Date());
+
   gtag("config", "UA-43331509-2");
 </script>
