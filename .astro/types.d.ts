@@ -312,6 +312,13 @@ declare module 'astro:content' {
   collection: "blog",
   data: InferEntrySchema<"blog">
 },
+"make-deep-clones-in-javascript-with-structuredclone.md": {
+  id: "make-deep-clones-in-javascript-with-structuredclone.md",
+  slug: "deep-clones-javascript-structuredclone",
+  body: string,
+  collection: "blog",
+  data: InferEntrySchema<"blog">
+},
 "multiple-datasets-with-gatsby-source-filesystem.md": {
   id: "multiple-datasets-with-gatsby-source-filesystem.md",
   slug: "multiple-datasets-with-gatsby-source-filesystem",
