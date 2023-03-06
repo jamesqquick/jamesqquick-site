@@ -130,6 +130,13 @@ declare module 'astro:content' {
   collection: "blog",
   data: InferEntrySchema<"blog">
 },
+"appwrite-best-developer-tools-on-product-hunt-in-2022.md": {
+  id: "appwrite-best-developer-tools-on-product-hunt-in-2022.md",
+  slug: "appwrite-developer-tools-product-hunt-2022",
+  body: string,
+  collection: "blog",
+  data: InferEntrySchema<"blog">
+},
 "authenticated-jamstack-app-with-next-js-airtable-auth0-and-tailwind-css.md": {
   id: "authenticated-jamstack-app-with-next-js-airtable-auth0-and-tailwind-css.md",
   slug: "authenticated-jamstack-app-with-next-js-airtable-auth0-and-tailwind-css",
