@@ -70,4 +70,4 @@ The structured clone function can clone any object, including DOM nodes, and han
 
 ## Conclusion
 
-In summary, deep cloning of objects is crucial when working with JavaScript objects. While there have been various methods to make deep clones of objects, the new 'Structured Clone' function in JavaScript makes it easier to do so with minimal dependencies on third-party libraries. Give it a try in your next project and see how it can simplify your code.
+In summary, deep cloning of objects is crucial when working with JavaScript objects. While there have been various methods to make deep clones of objects, the new 'structuredClone' function in JavaScript makes it easier to do so with minimal dependencies on third-party libraries. Give it a try in your next project and see how it can simplify your code.
