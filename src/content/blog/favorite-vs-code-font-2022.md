@@ -33,6 +33,8 @@ Now that you have the font installed, you need to configure VS Code to use it. T
 
 Now, if you look at your code, it should look much better! Note that you may see a bit of a delay here. You may have to close a code file and open it back up.
 
+> Interested in learning more about VS Code, check out [my FREE VS Code Cheatsheet](https://learn.jamesqquick.com/vs-code-cheat-sheet).
+
 ## Font Ligatures
 
 One of my favorite features of this font is the ability to use Font Ligatures which create custom characters for things like triple equals, arrows, etc. In your settings, search for "Font Ligatures", and click "Edit in settings.json". Then, assign that property in JSON to `true`.
