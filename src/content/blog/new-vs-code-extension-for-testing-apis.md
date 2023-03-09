@@ -6,7 +6,7 @@ pubDate: 2022-08-01
 description: Test your APIs directly inside of VS Code with the RapidAPI Client extension.
 youTubeVideoId: VuO-Haub9-I
 tags:
-  - vs code
+  - vscode
 ---
 
 Did you know you can test your API endpoints right inside of [VS Code](https://code.visualstudio.com/)? I recently discovered a [BRAND NEW VS Code extension for for doing just that from RapidAPI](https://marketplace.visualstudio.com/items?itemName=RapidAPI.vscode-rapidapi-client&utm_source=jamesqquick&utm_medium=DevRel&utm_campaign=DevRel). Let's see how to use it and a few of it's best features!

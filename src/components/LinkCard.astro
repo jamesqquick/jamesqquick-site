@@ -1,38 +1,54 @@
 ---
 import { getFormattedDate } from "../utils/dates";
 import Button from "./Button.astro";
-import javascriptLogo from "../images/js.png"
+import javascript from "../images/blog/logos/javascript.png";
+import react from "../images/blog/logos/react.png";
+import sveltekit from "../images/blog/logos/sveltekit.png";
+import vscode from "../images/blog/logos/vscode.png";
+import nodejs from "../images/blog/logos/nodejs.png";
 import { Image } from "@astrojs/image/components";
 
 export interface Props {
-    slug: string;
-    title: string;
-    date: Date;
-    btnText?: string;
-    tag?: string
+  slug: string;
+  title: string;
+  date: Date;
+  btnText?: string;
+  tag?: string;
 }
 
-const { slug, date, title, btnText="Read", tag } = Astro.props;
+const { slug, date, title, btnText = "Read", tag } = Astro.props;
 
 const tagToLogo = {
-    "javascript": javascriptLogo
-}
+  javascript,
+  vscode,
+  sveltekit,
+  react,
+  nodejs,
+};
 
-let titleParts:string[] = [];
-if(title.includes("-")){
-    titleParts = title.split('-')
+let titleParts: string[] = [];
+if (title.includes("-")) {
+  titleParts = title.split("-");
 }
 ---
 
-<div class="bg-bgDark overflow-hidden  rounded-3xl text-300 flex items-stretch flex-col lg:flex-row justify-center lg:justify-start ">
-{tag && tagToLogo[tag] && <Image src={tagToLogo[tag]} width={300} alt={`Cover`} class="max-w-xs object-cover"/>}
+<div
+  class="bg-bgDark overflow-hidden rounded-3xl text-300 flex flex-col sm:flex-row sm:justify-start"
+>
+  {
+    tag && tagToLogo[tag] && (
+      <div class="flex items-center justify-center sm:pl-6 pt-8 sm:pt-0  w-full sm:min-w-[200px] sm:max-w-[200px] md:min-w-[200px] md:max-w-[200px]">
+        <Image src={tagToLogo[tag]} alt={`Cover`} class="max-w-xs " />
+      </div>
+    )
+  }
 
-    <div class="py-20 px-20">
-      <h2 class=" text-brand text-4xl font-light mb-2">{titleParts[0] || title}</h2>
-      {titleParts[1] &&
-      <p class="mb-2 text-2xl">{titleParts[1]}</p>
-    }
-      <p class="mb-10">{getFormattedDate(date)}</p>
-      <Button text={btnText} isLink href={slug}/>
-    </div>
+  <div class="p-10 lg:p-20">
+    <h2 class="text-brand text-2xl lg:text-4xl font-light mb-2">
+      {titleParts[0] || title}
+    </h2>
+    {titleParts[1] && <p class="mb-2 text-2xl">{titleParts[1]}</p>}
+    <p class="mb-10">{getFormattedDate(date)}</p>
+    <Button text={btnText} isLink href={slug} />
+  </div>
 </div>

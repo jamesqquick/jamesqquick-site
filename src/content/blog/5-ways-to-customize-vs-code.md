@@ -6,7 +6,7 @@ pubDate: 2020-10-21
 description: Learn how to customize your VS Code to impress your friends!
 youTubeVideoId: yvXHM2NByh4
 tags:
-  - vs code
+  - vscode
 ---
 
 The beauty of Visual Studio Code is how easy it is to customize. I've spent tons of time learning how to optimize VS Code for me, so I wanted to share how you can do it too!

@@ -19,6 +19,7 @@ export const prerender = true;
           title={post.data.title}
           date={post.data.pubDate}
           slug={`/blog/${post.slug}`}
+          tag={post.data.tags[0]}
         />
       ))
     }

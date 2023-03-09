@@ -6,7 +6,7 @@ pubDate: 2023-02-16
 description: Here are 10 less popular VS Code themes to check out
 youTubeVideoId: 7l2NQp6pbnA
 tags:
-  - vs code
+  - vscode
 ---
 
 There are tons of amazing themes for VS Code out there. Lots of them are incredible popular. Themes like Cobalt 2, Night Owl, etc. Even though those are great themes, let's take a look at a few that you may not have heard of before!

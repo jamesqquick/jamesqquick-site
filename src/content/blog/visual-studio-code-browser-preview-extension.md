@@ -3,10 +3,13 @@ title: Visual Studio Code Browser Preview Extension
 slug: visual-studio-code-browser-preview-extension
 coverImage: /images/posts/visual-studio-code-browser-preview-extension/cover.png
 pubDate: 2020-04-28
-description: Did you know you can view a live-reloading browser preview right inside of Visual Studio Code? Well, with the Browser Preview extension, you can do just that. Setting up your Visual Studio Code browser preview is just a few clicks away.
+description: Did you know you can view a live-reloading browser preview right inside of
+  Visual Studio Code? Well, with the Browser Preview extension, you can do just
+  that. Setting up your Visual Studio Code browser preview is just a few clicks
+  away.
 youTubeVideoId: iyb9-eqQoMc
 tags:
-  - vs code
+  - vscode
 ---
 
 Did you know you can view a live-reloading browser preview right inside of Visual Studio Code? Well, with the Browser Preview extension, you can do just that. Setting up your Visual Studio Code browser preview is just a few clicks away. Let's see how to do it.

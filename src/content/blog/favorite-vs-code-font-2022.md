@@ -6,7 +6,7 @@ pubDate: 2022-08-02
 description: My favorite VS Code font in 2022 is free
 youTubeVideoId: n9sklnvelhg
 tags:
-  - vs code
+  - vscode
 ---
 
 VS Code is amazing, but it's pretty boring looking by default. The good news is that it only takes a few minutes to start to customize it and make it look much more fun! In this article, I'm going to show you how to install and setup my favorite FREE VS Code font, [Cascadia Code](https://github.com/microsoft/cascadia-code).

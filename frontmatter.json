@@ -109,32 +109,37 @@
       "path": "[[workspace]]/src/content/blog",
       "title": "blog",
       "originalPath": "[[workspace]]/src/content/blog",
-      "contentTypes": ["default"]
+      "contentTypes": [
+        "default"
+      ]
     },
     {
       "path": "[[workspace]]/src/content/course",
       "title": "course",
       "originalPath": "[[workspace]]/src/content/course",
-      "contentTypes": ["Course"]
+      "contentTypes": [
+        "Course"
+      ]
     },
     {
       "title": "testimonial",
       "path": "[[workspace]]/src/content/testimonial",
-      "contentTypes": ["Testimonial"]
+      "contentTypes": [
+        "Testimonial"
+      ]
     }
   ],
   "frontMatter.taxonomy.tags": [
+    "astro",
     "career",
-    "javascript",
-    "vs code",
-    "astro",
-    "astro",
-    "sveltekit",
     "css",
+    "javascript",
+    "misc",
     "nextjs",
     "nodejs",
     "react",
+    "sveltekit",
     "tools",
-    "misc"
+    "vscode"
   ]
 }
