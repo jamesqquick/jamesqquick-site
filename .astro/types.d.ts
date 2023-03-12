@@ -445,6 +445,13 @@ declare module 'astro:content' {
   collection: "blog",
   data: InferEntrySchema<"blog">
 },
+"the-front-matter-vs-code-extension-managing-markdown-blog-posts-with-ease.md": {
+  id: "the-front-matter-vs-code-extension-managing-markdown-blog-posts-with-ease.md",
+  slug: "front-matter-code-extension",
+  body: string,
+  collection: "blog",
+  data: InferEntrySchema<"blog">
+},
 "top-5-pieces-of-advice-for-aspiring-and-learning-developers.md": {
   id: "top-5-pieces-of-advice-for-aspiring-and-learning-developers.md",
   slug: "top-5-pieces-of-advice-for-aspiring-and-learning-developers",
