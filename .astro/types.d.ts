@@ -151,6 +151,13 @@ declare module 'astro:content' {
   collection: "blog",
   data: InferEntrySchema<"blog">
 },
+"best-browser-for-web-developers.md": {
+  id: "best-browser-for-web-developers.md",
+  slug: "browser-web-developers",
+  body: string,
+  collection: "blog",
+  data: InferEntrySchema<"blog">
+},
 "build-a-javascript-memory-match-game.md": {
   id: "build-a-javascript-memory-match-game.md",
   slug: "build-a-javascript-memory-match-game",
