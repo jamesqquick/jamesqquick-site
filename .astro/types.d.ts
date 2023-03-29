@@ -109,6 +109,13 @@ declare module 'astro:content' {
   collection: "blog",
   data: InferEntrySchema<"blog">
 },
+"5-ways-i've-used-chatgpt-in-my-javascript-projects.md": {
+  id: "5-ways-i've-used-chatgpt-in-my-javascript-projects.md",
+  slug: "5-ways-chatgpt-javascript-projects",
+  body: string,
+  collection: "blog",
+  data: InferEntrySchema<"blog">
+},
 "5-ways-to-customize-vs-code.md": {
   id: "5-ways-to-customize-vs-code.md",
   slug: "5-ways-to-customize-vs-code",

@@ -27,7 +27,7 @@ This process is not only tedious and error-prone, but it can also lead to ineffi
 
 The code generation feature in Xata (`xata-cogen`) is designed to help you generate TypeScript code and types that match your database's data models automatically. With the `xata-cogen` command, you can generate a client file that includes all the types you need to work with your data models in TypeScript. Here you can see the types generated for a job table.
 
-![](/images/posts/typescript-databases-types-sync-xata/1.jpeg)Here's how this works in practice:
+![Generated typesscript types from Xata codegen](/images/posts/typescript-databases-types-sync-xata/1.jpeg)Here's how this works in practice:
 
 1. Create a Xata configuration file (`.xatarc`) to configure your Xata project, database, and output folder.
 
