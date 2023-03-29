@@ -473,6 +473,13 @@ declare module 'astro:content' {
   collection: "blog",
   data: InferEntrySchema<"blog">
 },
+"typescript-and-databases---keep-your-types-in-sync-with-xata.md": {
+  id: "typescript-and-databases---keep-your-types-in-sync-with-xata.md",
+  slug: "typescript-databases-types-sync-xata",
+  body: string,
+  collection: "blog",
+  data: InferEntrySchema<"blog">
+},
 "using-node-watch-instead-of-nodemon.md": {
   id: "using-node-watch-instead-of-nodemon.md",
   slug: "using-node-watch-instead-of-nodemon",
