@@ -95,6 +95,13 @@ declare module 'astro:content' {
   collection: "blog",
   data: InferEntrySchema<"blog">
 },
+"2023-04-04-3-regrets-from-my-computer-science-degree.md": {
+  id: "2023-04-04-3-regrets-from-my-computer-science-degree.md",
+  slug: "3-regrets-computer-science-degree",
+  body: string,
+  collection: "blog",
+  data: InferEntrySchema<"blog">
+},
 "5-things-i-ve-learned-from-creating-youtube-videos.md": {
   id: "5-things-i-ve-learned-from-creating-youtube-videos.md",
   slug: "5-things-i-ve-learned-from-creating-youtube-videos",
