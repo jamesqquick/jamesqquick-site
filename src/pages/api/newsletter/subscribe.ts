@@ -9,8 +9,11 @@ export const post: APIRoute = async (context) => {
     });
   }
   const newsletterURL = `https://learn.jamesqquick.com/email_lists/${newsletterId}/subscriptions`;
+  console.log("trying for form data")
   const formData = await context.request.formData();
+  console.log(formData)
   const email = formData.get("email")?.valueOf();
+  console.log(email")
 
   if (typeof email !== "string" || !validateEmail(email)) {
     return new Response(JSON.stringify({ msg: "Invalid email" }), {
