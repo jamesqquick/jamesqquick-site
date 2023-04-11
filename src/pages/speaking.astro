@@ -10,7 +10,7 @@ import that from "../images/speaking/that.png";
 import render from "../images/speaking/render.png";
 import speaking from "../images/speaking/speaking.jpg";
 import Bio from "../components/Bio.astro";
-import SpeakerForm from "../components/speaking/SpeakerForm.astro";
+import SpeakerForm from "../components/speaking/SpeakerForm.svelte";
 import Button from "../components/Button.astro";
 import Testimonial from "../components/speaking/Testimonial.astro";
 import { getCollection } from "astro:content";
@@ -145,7 +145,7 @@ const testimonials = await getCollection("testimonial");
   </section>
   <Divider />
   <section class="my-24" id="speakerForm">
-    <div class="grid lg:grid-cols-2 gap-10">
+    <div class="grid lg:grid-cols-2 gap-10 items-center">
       <div>
         <h2 class="text-6xl mb-10">Want Me To Speak At Your Event?</h2>
         <Image
@@ -153,7 +153,7 @@ const testimonials = await getCollection("testimonial");
           alt="James speaking at All Things Open conference"
         />
       </div>
-      <SpeakerForm />
+      <SpeakerForm client:visible />
     </div>
   </section>
 </BaseLayout>
