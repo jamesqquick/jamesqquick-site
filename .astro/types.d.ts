@@ -146,6 +146,13 @@ declare module 'astro:content' {
   collection: "blog",
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] },
+"2023-04-19-use-ai-to-create-bash-scripts-using-fig.md": {
+  id: "2023-04-19-use-ai-to-create-bash-scripts-using-fig.md",
+  slug: "ai-create-bash-scripts-fig",
+  body: string,
+  collection: "blog",
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] },
 "5-things-i-ve-learned-from-creating-youtube-videos.md": {
   id: "5-things-i-ve-learned-from-creating-youtube-videos.md",
   slug: "5-things-i-ve-learned-from-creating-youtube-videos",
