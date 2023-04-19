@@ -19,7 +19,7 @@ import SocialFollow from "./SocialFollow.astro";
     }, 6000);
   }
 </script>
-<div class="px-8 -mt-10 mx-0 xl:-mx-20">
+<div class="px-2 sm:px-8 -mt-10 mx-0 xl:-mx-20">
   <div
     class="max-w-6xl mx-auto items-start justify-center gap-4 pb-20 sm:pb-0 sm:h-[calc(100vh-180px)] flex flex-col relative"
   >
@@ -37,18 +37,15 @@ import SocialFollow from "./SocialFollow.astro";
       </p>
       <SocialFollow />
     </div>
-    <img
-      src={logo.src}
-      class="absolute sm:block hidden right-0 lg:-right-20 -top-20 h-screen -z-10 opacity-70 max-w-4xl"
-      alt=""
-    />
+
     <Picture
       src={selfie}
-      sizes="(max-width:800px) 100vw, 800px"
-      widths={[400, 800, 1600]}
+      sizes="800px"
+      widths={[800]}
       aspectRatio="1:1"
-      class="absolute hidden sm:block bottom-0 right-0 translate-x-20 xl:max-w-[800px] lg:max-w-[700px] md:max-w-[600px]"
+      class="absolute hidden sm:block bottom-0 right-0 translate-x-20 xl:w-[800px] sm:w-[700px]"
       alt="James Q Quick selfie"
+      format="webp"
     />
   </div>
 </div>

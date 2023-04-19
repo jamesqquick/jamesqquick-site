@@ -2,25 +2,29 @@
 import { Image } from "@astrojs/image/components";
 import Button from "./Button.astro";
 
-const {heading, body, link, alt, logoSrc, btnText} = Astro.props;
+const { heading, body, link, alt, logoSrc, btnText } = Astro.props;
 ---
 
-<div class="bg-bgDark rounded-3xl py-20 px-20 text-300 flex flex-col xl:flex-row justify-center xl:justify-between items-center">
-    <div>
+<div
+  class="bg-bgDark rounded-3xl py-20 px-4 sm:px-20 text-300 flex flex-col xl:flex-row justify-center xl:justify-between items-center"
+>
+  <div>
     <h2 class="text-2xl sm:text-4xl lg:text-6xl font-light mb-6">{heading}</h2>
-    <p class="leading-8 tracking-wide text-md sm:text-lg lg:text-xl font-light mb-10">
+    <p
+      class="leading-8 tracking-wide text-md sm:text-lg lg:text-xl font-light mb-10"
+    >
       {body}
     </p>
     <Button text={btnText} isLink href={link} />
   </div>
 
-    <Image
-      src={logoSrc}
-      alt={alt}
-      height={300}
-      width={300}
-      class={`rounded-lg md:max-w-none w-[200px] sm:w-[300px] xl:translate-x-[100px]
+  <Image
+    src={logoSrc}
+    alt={alt}
+    height={300}
+    width={300}
+    class={`rounded-lg md:max-w-none w-[200px] sm:w-[300px] xl:translate-x-[100px]
       order-first xl:order-1 mb-10 xl:mb-0`}
-      
-    />
+    format="webp"
+  />
 </div>
