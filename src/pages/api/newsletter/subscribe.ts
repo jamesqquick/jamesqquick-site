@@ -71,7 +71,7 @@ export const options: APIRoute = async () => {
   return new Response(null, {
     status: 204,
     headers: {
-      "Access-Control-Allow-Origin": "https://astrocourse.dev/",
+      "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Methods": "POST, OPTIONS",
     },
   });
