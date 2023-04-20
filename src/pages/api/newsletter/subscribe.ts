@@ -6,6 +6,10 @@ export const post: APIRoute = async (context) => {
   if (!newsletterId) {
     return new Response(JSON.stringify({ msg: "Newsletter id required" }), {
       status: 400,
+      headers: {
+        "Access-Control-Allow-Origin": "https://astrocourse.dev/",
+        "Access-Control-Allow-Methods": "POST, OPTIONS",
+      },
     });
   }
   const newsletterURL = `https://learn.jamesqquick.com/email_lists/${newsletterId}/subscriptions`;
@@ -15,6 +19,10 @@ export const post: APIRoute = async (context) => {
   if (typeof email !== "string" || !validateEmail(email)) {
     return new Response(JSON.stringify({ msg: "Invalid email" }), {
       status: 400,
+      headers: {
+        "Access-Control-Allow-Origin": "https://astrocourse.dev/",
+        "Access-Control-Allow-Methods": "POST, OPTIONS",
+      },
     });
   }
   try {
