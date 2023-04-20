@@ -3,13 +3,14 @@ import { validateEmail } from "../../../utils/newsletter";
 
 export const post: APIRoute = async (context) => {
   const newsletterId = context.url.searchParams.get("id");
+  const headers = {
+    "Access-Control-Allow-Origin": "https://astrocourse.dev/",
+    "Access-Control-Allow-Methods": "POST, OPTIONS",
+  };
   if (!newsletterId) {
     return new Response(JSON.stringify({ msg: "Newsletter id required" }), {
       status: 400,
-      headers: {
-        "Access-Control-Allow-Origin": "https://astrocourse.dev/",
-        "Access-Control-Allow-Methods": "POST, OPTIONS",
-      },
+      headers,
     });
   }
   const newsletterURL = `https://learn.jamesqquick.com/email_lists/${newsletterId}/subscriptions`;
@@ -19,10 +20,7 @@ export const post: APIRoute = async (context) => {
   if (typeof email !== "string" || !validateEmail(email)) {
     return new Response(JSON.stringify({ msg: "Invalid email" }), {
       status: 400,
-      headers: {
-        "Access-Control-Allow-Origin": "https://astrocourse.dev/",
-        "Access-Control-Allow-Methods": "POST, OPTIONS",
-      },
+      headers,
     });
   }
   try {
@@ -40,7 +38,10 @@ export const post: APIRoute = async (context) => {
     if (res.status === 404) {
       return new Response(
         JSON.stringify({ msg: `Couldn't find that newsletter` }),
-        { status: 404 }
+        {
+          status: 404,
+          headers,
+        }
       );
     }
     if (res.status !== 200) {
@@ -48,16 +49,19 @@ export const post: APIRoute = async (context) => {
         JSON.stringify({ msg: "Error", res: JSON.stringify(res) }),
         {
           status: 500,
+          headers,
         }
       );
     }
     return new Response(JSON.stringify({ msg: "Subscribed successfully" }), {
       status: 200,
+      headers,
     });
   } catch (err) {
     console.error(err);
     return new Response(JSON.stringify({ err }), {
       status: 500,
+      headers,
     });
   }
 };
