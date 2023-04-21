@@ -153,6 +153,13 @@ declare module 'astro:content' {
   collection: "blog",
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] },
+"2023-04-21-is-create-react-app-really-dead.md": {
+  id: "2023-04-21-is-create-react-app-really-dead.md",
+  slug: "create-react-app-dead",
+  body: string,
+  collection: "blog",
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] },
 "2023-04-21-tips-for-handling-and-tracking-errors-in-javascript.md": {
   id: "2023-04-21-tips-for-handling-and-tracking-errors-in-javascript.md",
   slug: "tips-handling-tracking-errors-javascript",
