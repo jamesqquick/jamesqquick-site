@@ -1,5 +1,6 @@
 ---
 import LinkCard from "../../components/LinkCard.astro";
+import LinkCardList from "../../components/LinkCardList.astro";
 import Pagination from "../../components/Pagination.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getSortedBlogPosts } from "../../utils/blog";
@@ -23,17 +24,7 @@ const { data: posts } = page;
     currentPage={page.currentPage}
     lastPage={page.lastPage}
   />
-  <div class="flex flex-col gap-10">
-    {
-      posts.map((post) => (
-        <LinkCard
-          title={post.data.title}
-          date={post.data.pubDate}
-          slug={`/blog/${post.slug}`}
-        />
-      ))
-    }
-  </div>
+  <LinkCardList posts={posts} />
   <Pagination
     next={page.url.next}
     prev={page.url.prev}

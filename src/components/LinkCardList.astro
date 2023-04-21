@@ -1,0 +1,19 @@
+---
+import LinkCard from "./LinkCard.astro";
+
+const { posts } = Astro.props;
+---
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+  {
+    posts.map((post) => (
+      <LinkCard
+        title={post.data.title}
+        date={post.data.pubDate}
+        slug={`/blog/${post.slug}`}
+        tag={post.data.tags[0]}
+        image={post.data.coverImage}
+      />
+    ))
+  }
+</div>
