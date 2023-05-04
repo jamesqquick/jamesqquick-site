@@ -167,6 +167,13 @@ declare module 'astro:content' {
   collection: "blog",
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] },
+"2023-05-04-how-to-add-openai-to-your-nextjs-project.md": {
+  id: "2023-05-04-how-to-add-openai-to-your-nextjs-project.md",
+  slug: "add-openai-nextjs-project",
+  body: string,
+  collection: "blog",
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] },
 "5-things-i-ve-learned-from-creating-youtube-videos.md": {
   id: "5-things-i-ve-learned-from-creating-youtube-videos.md",
   slug: "5-things-i-ve-learned-from-creating-youtube-videos",
