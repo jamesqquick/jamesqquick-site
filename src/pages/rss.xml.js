@@ -13,12 +13,12 @@ export const get = async () => {
     description: post.data.description,
     link: `/blog/${post.slug}/`,
     content: sanitizeHtml(parser.render(post.body)),
+    image: `/blog/${post.slug}/${post.data.image}`,
   }));
   return rss({
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
     site: import.meta.env.SITE,
-
     items,
   });
 };

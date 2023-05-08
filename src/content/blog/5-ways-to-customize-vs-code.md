@@ -15,6 +15,8 @@ The beauty of Visual Studio Code is how easy it is to customize. I've spent tons
 
 Let's look at 5 different ways you can customize your VS Code.
 
+> Interested in learning more about VS Code? Check out the [FREE VS Code cheatsheet](https://learn.jamesqquick.com/vs-code-cheat-sheet)!
+
 ## [](#1-themes)1\. Themes
 
 Themes are probably the first and easiest way to customize your VS Code to look much nicer. There are so many themes out there, but here are a few of my favorites.

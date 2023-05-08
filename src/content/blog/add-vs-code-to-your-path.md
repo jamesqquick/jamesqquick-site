@@ -12,4 +12,6 @@ When you install VS Code, you'll want to make sure you also add it to your path.
 
 Open the command palette (`CMD+Shift+P` on Mac and `CTRL+Shift+P` on Windows) and type `Shell Command`. You'll see two options, one to `Install 'code' command in PATH` and one to `Uninstall 'code' command from PATH`.
 
+> Interested in learning more about VS Code? Check out the [FREE VS Code cheatsheet](https://learn.jamesqquick.com/vs-code-cheat-sheet)!
+
 If you haven't guessed already, choose `Install 'code' command in PATH`. You should then be able to use the `code` command from the command line. If, later on, you for some reason need to remove it from the path, follow the same steps but choose `Uninstall 'code' command from PATH`.

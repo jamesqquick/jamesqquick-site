@@ -50,6 +50,8 @@ Here's a final screenshot of my code!
 
 Note that I think these a really neat, but keep in mind that you'll be sacrificing a bit of readability by using them since many people aren't used to seeing them.
 
+> Interested in learning more about VS Code? Check out the [FREE VS Code cheatsheet](https://learn.jamesqquick.com/vs-code-cheat-sheet)!
+
 ## Extra Fonts
 
 I figured I'd give you two additional font options if you're interested.
