@@ -29,6 +29,7 @@
     "astro-icon": "^0.8.0",
     "fast-xml-parser": "^4.0.10",
     "html-entities": "^2.3.3",
+    "markdown-it": "^13.0.1",
     "plop": "^3.1.2",
     "rss-parser": "^3.12.0",
     "sanitize-html": "^2.10.0",
