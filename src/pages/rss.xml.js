@@ -1,12 +1,12 @@
-import rss, { pagesGlobToRssItems } from "@astrojs/rss";
+import rss from "@astrojs/rss";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
-import { getCollection } from "astro:content";
 import sanitizeHtml from "sanitize-html";
 import MarkdownIt from "markdown-it";
+import { getSortedBlogPosts } from "../utils/blog";
 const parser = new MarkdownIt();
 
 export const get = async () => {
-  const blogs = await getCollection("blog");
+  const blogs = await getSortedBlogPosts();
   const items = blogs.map((post) => ({
     title: post.data.title,
     pubDate: post.data.pubDate,
