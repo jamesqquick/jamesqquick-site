@@ -1,0 +1,23 @@
+---
+import { getCollection } from "astro:content";
+import Section from "./Section.astro";
+import Testimonial from "./speaking/Testimonial.astro";
+
+const testimonials = await getCollection("testimonial");
+---
+
+<Section
+  title="testimonials"
+  subtitle="What people are saying"
+  hasYPadding={false}
+  hasMaxWidth={false}
+  classStr="lg:max-w-8xl mx-auto"
+>
+  <div class="grid grid-cols-1 xl:grid-cols-3 gap-4 gap-y-10 items-baseline">
+    {
+      testimonials.map((testimonial) => (
+        <Testimonial testimonial={testimonial} />
+      ))
+    }
+  </div>
+</Section>

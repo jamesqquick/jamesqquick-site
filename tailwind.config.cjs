@@ -14,6 +14,7 @@ module.exports = {
         brand: "#0AFA94",
         bg: "#242845",
         bgDark: "#10121D",
+        bgLight: "#363C68",
       },
     },
     fontFamily: {

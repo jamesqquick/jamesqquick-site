@@ -29,7 +29,6 @@
         email = "";
       }
       const data = await res.json();
-      console.log(data);
     } catch (err) {
       console.error(err);
     } finally {
@@ -47,18 +46,18 @@
       {/if}
     </div>
     <label for="email" class="sr-only" aria-label="Email">Email Address</label>
-    <div class="flex flex-col md:flex-row gap-4 md:gap-10">
+    <div class="flex flex-col md:flex-row gap-4 md:gap-10 relative">
       <input
         type="email"
         name="email"
         bind:value={email}
         required={true}
         placeholder="dev@developer.com"
-        class="border-2 py-4 px-4 bg-transparent grow rounded-full"
+        class="border-2 py-6 px-6 bg-transparent grow rounded-full"
       />
 
       <button
-        class="text-2xl rounded-full px-10 py-4 border-2 text-white hover:text-brand hover:border-brand hover:scale-105 transition-all inline-block"
+        class="text-xl rounded-full px-4 py-4 sm:py-2 bg-white text-bg hover:bg-brand hover:border-brand hover:scale-105 transition-all inline-block sm:absolute right-4 top-[50%] -translate-y-[50%] mt-6 sm:mt-0"
       >
         Sign Me Up!
       </button>
@@ -66,9 +65,7 @@
   </form>
 {/if}
 {#if successMsg}
-  <h2 class={`text-4xl font-bold md:text-6xl text-brand mb-4 text-center`}>
-    Success!
-  </h2>
+  <h2 class={`text-2xl font-bold  text-brand mb-2 text-center`}>Subscribed!</h2>
 
   <p class={`text-xl  md:text-2xl text-white mb-4 text-center`}>
     You just made an amazing decision. 👏

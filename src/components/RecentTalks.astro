@@ -1,0 +1,42 @@
+---
+import { getSortedTalks } from "../utils/contentCollections";
+import HLineText from "./HLineText.astro";
+import Section from "./Section.astro";
+const talks = await getSortedTalks();
+---
+
+<Section hasYPadding={false}>
+  <div class="grid gap-16">
+    {
+      talks.map((talk) => (
+        <div class="flex md:flex-row flex-col gap-4 items-start md:items-center">
+          <div class="rounded-full border h-20 w-20 border-white border-opacity-50 flex items-center justify-center">
+            <img
+              class="rounded-full w-14 h-14"
+              src={talk.data.conferenceLogo}
+              alt={talk.data.conferenceName}
+            />
+          </div>
+          <div class="grow">
+            <p class="text-brand">{talk.data.conferenceName}</p>
+            <h3 class="text-2xl tracking-wide font-light max-w-lg">
+              {talk.data.title}
+            </h3>
+            <p class="opacity-60 text-sm">
+              {talk.data.date.toLocaleDateString("en-us", {
+                year: "numeric",
+                month: "short",
+              })}
+            </p>
+          </div>
+          <a class="underline underline-offset-4" href={talk.data.videoLink}>
+            Watch on YouTube
+          </a>
+        </div>
+      ))
+    }
+  </div>
+  <div class="my-20">
+    <HLineText />
+  </div>
+</Section>

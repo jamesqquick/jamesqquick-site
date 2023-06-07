@@ -5,6 +5,19 @@ const testimonialsCollection = defineCollection({
     title: z.string(),
     name: z.string(),
     image: z.string(),
+    shortQuote: z.string(),
+  }),
+});
+
+const talksCollection = defineCollection({
+  schema: z.object({
+    conferenceName: z.string(),
+    conferenceLocation: z.string(),
+    conferenceLink: z.string(),
+    conferenceLogo: z.string(),
+    videoLink: z.string(),
+    title: z.string(),
+    date: z.date(),
   }),
 });
 
@@ -15,6 +28,8 @@ const coursesCollection = defineCollection({
     pubDate: z.date(),
     description: z.string(),
     youTubeVideoId: z.string().optional(),
+    featured: z.boolean().optional(),
+    link: z.string().optional(),
   }),
 });
 
@@ -33,4 +48,5 @@ export const collections = {
   testimonial: testimonialsCollection,
   blog: blogsCollection,
   course: coursesCollection,
+  talk: talksCollection,
 };

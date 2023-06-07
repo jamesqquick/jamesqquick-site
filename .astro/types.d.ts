@@ -617,6 +617,13 @@ declare module 'astro:content' {
   collection: "course",
   data: InferEntrySchema<"course">
 } & { render(): Render[".md"] },
+"build-moder-websites-with-astro.md": {
+  id: "build-moder-websites-with-astro.md",
+  slug: "build-moder-websites-with-astro",
+  body: string,
+  collection: "course",
+  data: InferEntrySchema<"course">
+} & { render(): Render[".md"] },
 "design-and-build-a-chat-app-with-socket-io.md": {
   id: "design-and-build-a-chat-app-with-socket-io.md",
   slug: "design-and-build-a-chat-app-with-socket-io",
@@ -644,6 +651,29 @@ declare module 'astro:content' {
   body: string,
   collection: "course",
   data: InferEntrySchema<"course">
+} & { render(): Render[".md"] },
+},
+"talk": {
+"all-things-open-2022.md": {
+  id: "all-things-open-2022.md",
+  slug: "all-things-open-2022",
+  body: string,
+  collection: "talk",
+  data: InferEntrySchema<"talk">
+} & { render(): Render[".md"] },
+"render-atl-2022.md": {
+  id: "render-atl-2022.md",
+  slug: "render-atl-2022",
+  body: string,
+  collection: "talk",
+  data: InferEntrySchema<"talk">
+} & { render(): Render[".md"] },
+"that-conference-austin-2023.md": {
+  id: "that-conference-austin-2023.md",
+  slug: "that-conference-austin-2023",
+  body: string,
+  collection: "talk",
+  data: InferEntrySchema<"talk">
 } & { render(): Render[".md"] },
 },
 "testimonial": {

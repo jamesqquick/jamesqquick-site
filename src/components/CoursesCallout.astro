@@ -1,0 +1,74 @@
+---
+import { getSortedCourses } from "../utils/contentCollections";
+import HLineText from "./HLineText.astro";
+import Link from "./Link.astro";
+import Section from "./Section.astro";
+
+const courses = (await getSortedCourses()).slice(0, 4);
+const featuredCourse = courses.splice(0, 1)[0];
+
+const title = "Courses";
+const subtitle = `Learn how to build for the web`;
+const description = `Looking to take your web development skills to the next level? Check out my collection of courses, offering osmething for everyone whether you're a seasoned developer or just getting started.`;
+---
+
+<Section
+  title={title}
+  subtitle={subtitle}
+  description={description}
+  isHeader={true}
+>
+  <div>
+    {
+      featuredCourse?.data.title && (
+        <div class="mb-20">
+          <div class="flex flex-col lg:flex-row gap-x-10 lg:items-center gap-y-8">
+            <div class="w-full lg:w-1/2">
+              <img
+                src={featuredCourse.data.coverImage}
+                alt={featuredCourse.data.title}
+                class="w-full rounded-lg"
+              />
+            </div>
+            <div class="w-full lg:w-1/2">
+              <p class="opacity-80 uppercase mb-4">Beginner - Intermediate</p>
+              <h4 class="text-2xl mb-2">{featuredCourse.data.title}</h4>
+              <p class="mb-4">{featuredCourse.data.description}</p>
+              {featuredCourse.data.link && (
+                <Link
+                  href={featuredCourse.data.link}
+                  isFancy={false}
+                  text="View Course"
+                  classStr="underline text-brand"
+                />
+              )}
+            </div>
+          </div>
+        </div>
+      )
+    }
+    <div class="mb-10">
+      <HLineText text="Other Courses" />
+    </div>
+    <div class="flex flex-col lg:flex-row justify-center gap-10">
+      {
+        courses.map((course) => (
+          <div class="flex gap-x-8 lg:gap-x-2 items-center lg:justify-between">
+            <img
+              src={course.data.coverImage}
+              alt={course.data.title}
+              class=" rounded-lg h-16 w-16 object-cover border border-white"
+            />
+            <a
+              href={course.data.link}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <h4 class=" w-52">{course.data.title}</h4>
+            </a>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</Section>

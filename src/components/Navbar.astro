@@ -4,7 +4,7 @@ import { Icon } from "astro-icon";
 ---
 
 <nav
-  class="lg:px-20 px-1 sm:px-5 py-5 flex flex-col sm:flex-row gap-5 justify-center sm:justify-between items-center sm:items-center w-screen z-10 h-[100px] mb-[80px] bg-transparent"
+  class="lg:px-20 px-1 sm:px-5 sm:py-5 py-20 flex flex-row gap-5 justify-center sm:justify-between items-center sm:items-center w-screen z-10 h-[100px] bg-transparent"
 >
   <a
     href="/"
@@ -13,7 +13,12 @@ import { Icon } from "astro-icon";
   >
     <NameLogo height={20} />
   </a>
-  <button id="hamburger" aria-label="menu" aria-controls="mobileMenu">
+  <button
+    id="hamburger"
+    aria-label="menu"
+    aria-controls="mobileMenu"
+    class="absolute sm:relative right-4 top-2"
+  >
     <Icon
       class="inline lg:hidden h-10 w-10 hover:text-brand cursor-pointer"
       name="mdi:menu"
@@ -38,9 +43,9 @@ import { Icon } from "astro-icon";
       <a href="/speaking/" class="hover:text-brand transition-colors"
         >speaking</a
       >
-      <a href="/newsletter/" class="hover:text-brand transition-colors"
+      <!-- <a href="/newsletter/" class="hover:text-brand transition-colors"
         >newsletter</a
-      >
+      > -->
       <a href="/courses/" class="hover:text-brand transition-colors">courses</a>
       <a
         href="https://compressed.fm/"

@@ -15,28 +15,27 @@ if (title.includes("-")) {
 }
 ---
 
-<div class="mb-8">
-  {date && <time>{getFormattedDate(date)}</time>}
-  <div class="mb-10 mt-1">
-    <h1 class="text-6xl text-brand font-bold">
-      {titleParts[0] || title}
-      {
-        titleParts[1] && (
-          <p class="text-4xl mt-1 text-300 text-white">{titleParts[1]}</p>
-        )
-      }
-    </h1>
-  </div>
-  {youTubeVideoId && <YouTube id={youTubeVideoId} />}
-  {
-    coverImage && !youTubeVideoId && (
-      <img
-        src={coverImage}
-        alt={title}
-        width="1920"
-        height="1080"
-        class="rounded-lg"
-      />
-    )
-  }
+< class="mb-8">
+{date && <time>{getFormattedDate(date)}</time>}
+<div class="mb-10 mt-1">
+  <h1 class="text-6xl text-brand font-bold">
+    {titleParts[0] || title}
+    {
+      titleParts[1] && (
+        <p class="text-4xl mt-1 text-300 text-white">{titleParts[1]}</p>
+      )
+    }
+  </h1>
 </div>
+{youTubeVideoId && <YouTube id={youTubeVideoId} />}
+{
+  coverImage && !youTubeVideoId && (
+    <img
+      src={coverImage}
+      alt={title}
+      width="1920"
+      height="1080"
+      class="rounded-lg"
+    />
+  )
+}

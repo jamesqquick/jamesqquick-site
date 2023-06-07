@@ -1,94 +1,60 @@
 ---
 import selfie from "../images/selfie.png";
-import logo from "../images/logo.svg";
 import { Picture } from "@astrojs/image/components";
-import SocialFollow from "./SocialFollow.astro";
+import Button, { ButtonType } from "./Button.astro";
+import page from "../pages/blog/[page].astro";
+
+export interface Props {
+  title: string;
+  tagline: string;
+  hasImage?: boolean;
+  description?: string;
+  hasFullHeight?: boolean;
+}
+
+const {
+  title,
+  tagline,
+  hasImage = true,
+  description,
+  hasFullHeight = true,
+} = Astro.props as Props;
 ---
 
-<script>
-  let nouns = ["Developer.", "Speaker.", "Teacher."];
-  let noun = nouns[0];
-  let nounIndex = 0;
-  const typewriterText = document.querySelector(".typewriter");
-  if (typewriterText) {
-    typewriterText.innerHTML = noun;
-    setInterval(() => {
-      nounIndex = (nounIndex + 1) % nouns.length;
-      noun = nouns[nounIndex];
-      typewriterText.innerHTML = noun;
-    }, 6000);
-  }
-</script>
-<div class="px-2 sm:px-8 -mt-10 mx-0 xl:-mx-20">
+<div class="max-w-8xl mx-auto px-4 md:px-10 pt-10">
   <div
-    class="max-w-6xl mx-auto items-start justify-center gap-4 pb-20 sm:pb-0 sm:h-[calc(100vh-180px)] flex flex-col relative"
+    class={`gap-4 gap-x-0  flex flex-col xl:items-end xl:flex-row relative ${
+      hasFullHeight ? "xl:h-[calc(100vh-180px)] sm:pb-0" : "py-20"
+    } max-w-7xl mx-auto`}
   >
-    <div class="xl:max-w-xl max-w-lg relative translate-y-0 sm:-translate-y-60">
-      <h1
-        class="xl:text-8xl text-4xl md:text-6xl mb-8 font-bold"
-        aria-label="I'm a developer, speaker, and teacher."
-      >
-        I'm a <span class="text-brand block typewriter"></span>
+    <div
+      class="relative self-center xl:mb-40 mr-0 xl:-mr-[100px] xl:mx-auto max-w-2xl"
+    >
+      <h1 class="text-2xl mb-4 text-brand">
+        {title}
+        <span
+          class="text-4xl block text-white md:text-6xl xl:mb-8 font-bold leading-[60px] md:leading-[80px] mb-2"
+          aria-label="James Q Quick - developer, speaker, and teacher."
+        >
+          {tagline}
+        </span>
       </h1>
-      <p class="text-xl md:text-2xl mb-5 lg:max-w-sm xl:max-w-6xl">
-        I use content creation to <span class="text-brand font-bold"
-          >teach and inspire</span
-        > developers.
-      </p>
-      <SocialFollow />
+      {description && <p class="opacity-80 text-lg">{description}</p>}
+      <slot />
     </div>
-
-    <Picture
-      src={selfie}
-      sizes="800px"
-      widths={[800]}
-      aspectRatio="1:1"
-      class="absolute hidden sm:block bottom-0 right-0 translate-x-20 xl:w-[800px] sm:w-[700px]"
-      alt="James Q Quick selfie"
-      format="webp"
-    />
+    {
+      hasImage && (
+        <Picture
+          src={selfie}
+          sizes="600px"
+          widths={[800]}
+          aspectRatio="1:1"
+          class="md:-mt-20 xl:mt-0 w-full xl:w-[800px] max-w-[600px] xl:max-w-[700px] mx-auto"
+          alt="James Q Quick selfie"
+          format="webp"
+        />
+      )
+    }
+    {!hasImage && <div class="w-1/2" />}
   </div>
 </div>
-
-<style>
-  .typewriter {
-    overflow: hidden; /* Ensures the content is not revealed until the animation */
-    border-right: 0.1em solid orange;
-    white-space: nowrap; /* Keeps the content on a single line */
-    animation: typing 6s steps(40, end) infinite,
-      blink-caret 0.75s step-end infinite;
-  }
-
-  /* The typing effect */
-  @keyframes typing {
-    0% {
-      width: 0;
-    }
-    5% {
-      width: 0;
-    }
-    30% {
-      width: 100%;
-    }
-    60% {
-      width: 100%;
-    }
-    95% {
-      width: 0;
-    }
-    100% {
-      width: 0;
-    }
-  }
-
-  /* The typewriter cursor effect */
-  @keyframes blink-caret {
-    from,
-    to {
-      border-color: transparent;
-    }
-    50% {
-      border-color: orange;
-    }
-  }
-</style>

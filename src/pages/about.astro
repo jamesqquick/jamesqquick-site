@@ -8,6 +8,10 @@ import PageHeader from "../components/PageHeader.astro";
 import Bio from "../components/Bio.astro";
 import Divider from "../components/Divider.astro";
 import speaking from "../images/speaking/speaking.jpg";
+import Hero from "../components/Hero.astro";
+import SocialCallout from "../components/SocialCallout.astro";
+import Section from "../components/Section.astro";
+import AboutCallout from "../components/AboutCallout.astro";
 
 export const prerender = true;
 ---
@@ -16,25 +20,48 @@ export const prerender = true;
   title="About | James Q Quick"
   description="James Q Quick is a Developer, Speaker, and Teacher with a passion for teaching developers through content."
 >
-  <PageHeader
-    heading="About"
-    body="I use content creation to teach and inspire developers."
-    hasDivider={false}
-    alt="James speaking at All Things Open conferen"
-    image={speaking}
+  <Hero
+    title="Get to know James"
+    tagline="JavaScript Developer, Speaker, and Teacher"
   />
+  <SocialCallout />
+  <AboutCallout>
+    <div class="text-lg flex flex-col gap-y-4">
+      <p>
+        James is a JavaScript Developer, Speaker, and Teacher with a passion for
+        teaching developers through various mediums of content. He is a firm
+        believer in work-life balance, the on-going pursuit of personal
+        happiness, and empowering others to take control of their career. His
+        personal philosophy of “Learn Build Teach” has blossomed into a growing
+        community of aspiring and established developers focused on helping each
+        succeed.
+      </p>
 
-  <p class="font-light mb-6">WORK EXPERIENCE</p>
-  <div
-    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 items-end mb-40 gap-y-10"
-  >
-    <img class="h-10" src={Microsoft.src} alt="Microsoft logo" />
-    <img class="h-10" src={fedex.src} alt="FedEx logo" />
-    <img class="h-10" src={Auth0.src} alt="Auth0 logo" />
-    <img class="h-10" src={PlanetScale.src} alt="PlanetScale logo" />
-  </div>
-  <Divider />
-  <section class="my-24">
-    <Bio />
-  </section>
+      <p>
+        His professional experience includes Software Development at Fedex and
+        Developer Advocacy at Microsoft, Auth0, and PlanetScale. He is currently
+        working as a full-time Technical Content Creator focused on growing his
+        YouTube audience of over 150k subscribers, a weekly Web Development
+        podcast called Compressed.fm, and an array of online courses.
+      </p>
+
+      <p>
+        James has partnered with notable companies like Cloudflare, Microsoft,
+        Fauna, Cloudinary, and more along his content creation journey. In his
+        spare time, James plays co-ed soccer with his wife, spends time with his
+        dogs, and can solve a Rubik's cube in under a minute.
+      </p>
+      <div class="flex justify-between max-w-[260px]">
+        <a class="underline underline-offset-4 text-gray-400" href="/courses"
+          >Courses</a
+        >
+        <a class="underline underline-offset-4 text-gray-400" href="/speaking"
+          >Speaking</a
+        >
+        <a class="underline underline-offset-4 text-gray-400" href="/blog"
+          >Blog</a
+        >
+      </div>
+    </div>
+  </AboutCallout>
 </BaseLayout>

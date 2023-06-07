@@ -4,6 +4,7 @@ coverImage: /images/courses/design-and-build-a-chat-app-with-socket-io/cover.png
 pubDate: 2018-05-00
 description: Learn design and build a chat application using Node and Socket.io by using modern web features.
 type: Course
+link: https://www.youtube.com/playlist?list=PLDlWc9AfQBfbyGwhSlxg16mQGpGnauCwq
 ---
 
 This mini series is jam packed full of useful information for the beginner to intermediate Web Developer.

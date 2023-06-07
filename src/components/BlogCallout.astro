@@ -1,0 +1,17 @@
+---
+import { getSortedBlogPosts } from "../utils/contentCollections";
+import LinkCardList from "./LinkCardList.astro";
+import Section from "../components/Section.astro";
+const posts = await getSortedBlogPosts();
+
+const title = "Blog";
+const description =
+  "Explore my blog for easy-to-follow web development guides and career tips.";
+const subtitle = "Web development articles";
+---
+
+<Section title={title} subtitle={subtitle} description={description}>
+  <div>
+    <LinkCardList posts={posts.slice(0, 2)} />
+  </div>
+</Section>

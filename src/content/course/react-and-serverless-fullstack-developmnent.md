@@ -4,6 +4,7 @@ coverImage: /images/courses/react-and-serverless-fullstack-developmnent/cover.pn
 pubDate: 2020-05-00
 description: Learn to build a secure and production-ready fullstack application from start to finish.
 type: Course
+link: https://learn.jamesqquick.com/react-and-serverless-fullstack-web-development
 ---
 
 Tired of building Todo apps? Want to know what it's like to build a real-world application from start to finish?

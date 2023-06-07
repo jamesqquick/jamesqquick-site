@@ -1,38 +1,78 @@
 ---
 export interface Props {
-    text: string,
-    handler?: any,
-    isLink?: boolean,
-    href?:string,
-    newTab?: boolean,
-    classStr?:string,
-    id?:string
-    download?:boolean
+  text?: string;
+  handler?: any;
+  isLink?: boolean;
+  href?: string;
+  newTab?: boolean;
+  classStr?: string;
+  id?: string;
+  download?: boolean;
+  type?: ButtonType;
 }
-const {text, handler, isLink = false, href = "/", newTab = false, classStr, id, download = false} = Astro.props;
-const classes = `text-2xl rounded-full px-10 py-4 border text-white hover:text-brand hover:border-brand inline-block transition ${classStr || ''}`;
+
+export enum ButtonType {
+  PRIMARY = "primary",
+  SECONDARY = "secondary",
+}
+const {
+  text,
+  handler,
+  isLink = false,
+  href = "/",
+  newTab = false,
+  classStr,
+  id,
+  download = false,
+  type = ButtonType.SECONDARY,
+} = Astro.props;
+
+const colorClasses = {
+  primary: "bg-brand border-brand text-bg text-bg hover:text-bg ",
+  secondary:
+    "text-white bg-bg border-white hover:text-brand hover:border-brand",
+};
+const classes = `text-center text-xl lg:text-2xl rounded-full px-10 py-4 border inline-block transition flex gap-x-4 justify-center ${
+  classStr || ""
+} ${colorClasses[type]}`;
 ---
+
 {
-    !isLink &&
-    <button class={classes} onclick={handler} id={id|| ''}>
-        {text}
+  !isLink && (
+    <button class={classes} onclick={handler} id={id || ""}>
+      {text && text}
+      <slot />
     </button>
-}
-{ isLink && download &&
-    <a href={href} class={classes} download>
-        {text}
-    </a>
+  )
 }
 {
-    isLink && newTab &&
-    <a href={href} class={classes} rel="noopener noreferrer" target="_blank" id={id|| ''}>
-        {text}
+  isLink && download && (
+    <a href={href} class={classes} download>
+      {text && text}
+      <slot />
     </a>
+  )
+}
+{
+  isLink && newTab && (
+    <a
+      href={href}
+      class={classes}
+      rel="noopener noreferrer"
+      target="_blank"
+      id={id || ""}
+    >
+      {text && text}
+      <slot />
+    </a>
+  )
 }
 
 {
-    isLink && !newTab && !download &&
-    <a href={href} class={classes} id={id|| ''}>
-        {text}
+  isLink && !newTab && !download && (
+    <a href={href} class={classes} id={id || ""}>
+      {text && text}
+      <slot />
     </a>
+  )
 }

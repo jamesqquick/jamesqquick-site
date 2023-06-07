@@ -2,8 +2,9 @@
 import LinkCard from "../../components/LinkCard.astro";
 import LinkCardList from "../../components/LinkCardList.astro";
 import Pagination from "../../components/Pagination.astro";
+import Section from "../../components/Section.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { getSortedBlogPosts } from "../../utils/blog";
+import { getSortedBlogPosts } from "../../utils/contentCollections";
 
 export const prerender = true;
 
@@ -17,18 +18,21 @@ const { data: posts } = page;
 ---
 
 <BaseLayout title="Blog | James Q Quick">
-  <h1 class="text-6xl text-brand font-bold mb-10">Blog</h1>
-  <Pagination
-    next={page.url.next}
-    prev={page.url.prev}
-    currentPage={page.currentPage}
-    lastPage={page.lastPage}
-  />
-  <LinkCardList posts={posts} />
-  <Pagination
-    next={page.url.next}
-    prev={page.url.prev}
-    currentPage={page.currentPage}
-    lastPage={page.lastPage}
-  />
+  <Section hasYPadding={false}>
+    <h1 class="text-6xl text-brand font-bold mb-10">Blog</h1>
+    <Pagination
+      next={page.url.next}
+      prev={page.url.prev}
+      currentPage={page.currentPage}
+      lastPage={page.lastPage}
+    />
+    <div class="mb-10"></div>
+    <LinkCardList posts={posts} />
+    <Pagination
+      next={page.url.next}
+      prev={page.url.prev}
+      currentPage={page.currentPage}
+      lastPage={page.lastPage}
+    />
+  </Section>
 </BaseLayout>

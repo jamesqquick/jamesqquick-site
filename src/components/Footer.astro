@@ -1,36 +1,88 @@
 ---
 import Link from "./Link.astro";
-import SocialFollow from "./SocialFollow.astro";
-
+import SocialFollow, { IconSize } from "./SocialFollow.astro";
+import Logo from "../images/logo.astro";
+import NewsletterSection from "./NewsletterSection.astro";
 const today = new Date();
 ---
 
-<footer
-  class="text-sm text-center w-full max-w-4xl mx-auto mt-40 pb-10 px-4 flex flex-col items-center gap-2"
->
-  <SocialFollow includeHandle={true} />
-  <div class="flex flex-col md:flex-row gap-4 mt-4">
-    <div>
-      Built with{" "}
-      <strong>
-        <Link href="https://astro.build/" text="Astro" classStr="text-lg" />
-      </strong>
+<footer class="py-10 md:px-8 max-w-6xl mx-auto">
+  <div class="bg-bgLight md:rounded-2xl py-10 px-4 md:px-10 mb-10">
+    <Logo classStr="fill-white h-16 w-16 mb-10" />
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 mb-10">
+      <NewsletterSection />
+      <!-- <SocialFollow includeHandle={true} /> -->
+      <div class="">
+        <p class="text-xl font-bold mb-6">Quick links</p>
+        <div class="flex flex-col md:flex-row gap-x-20 mb-6">
+          <div class="flex flex-col gap-y-2 mb-2">
+            <Link classStr="" href="/about" text="About" isFancy={false} />
+            <Link classStr="" href="/courses" text="Courses" isFancy={false} />
+            <Link
+              classStr=""
+              href="/speaking"
+              text="Speaking"
+              isFancy={false}
+            />
+            <Link classStr="" href="/blog" text="Blog" isFancy={false} />
+          </div>
+          <div class="flex flex-col gap-y-2">
+            <Link
+              href="https://learnbuildteach.com/"
+              text="Learn Build Teach"
+              classStr=""
+              isFancy={false}
+            />
+            <Link
+              href="https://compressed.fm/"
+              text="Compressed.fm Podcast"
+              classStr=""
+              isFancy={false}
+            />
+          </div>
+        </div>
+        <SocialFollow size={IconSize.Small} />
+      </div>
     </div>
-    <div>
-      Styling with{" "}
-      <strong>
-        <Link
-          href="https://tailwindcss.com/"
-          text="Tailwind CSS"
-          classStr="text-lg"
-        />
-      </strong>
+    <div class="flex flex-col justify-center sm:flex-row gap-y-2">
+      <span>
+        Built with{" "}
+        <strong>
+          <Link href="https://astro.build/" text="Astro" classStr="" />
+        </strong>
+        <span class="mx-2 sm:inline hidden">|</span>
+      </span>
+      <span>
+        Styling with{" "}
+        <strong>
+          <Link
+            href="https://tailwindcss.com/"
+            text="Tailwind CSS"
+            classStr=""
+          />
+        </strong>
+        <span class="mx-2 sm:inline hidden">|</span>
+      </span>
+      <span>
+        Hosted on{" "}
+        <strong>
+          <Link href="https://netlify.com/" text="Netlify" classStr="" />
+        </strong>
+      </span>
     </div>
-    <div>
-      Hosted on{" "}
-      <strong>
-        <Link href="https://netlify.com/" text="Netlify" classStr="text-lg" />
-      </strong>
-    </div>
+  </div>
+  <div
+    class="flex flex-col gap-4 sm:flex-row items-center opacity-80 justify-between px-4"
+  >
+    <p>
+      Copyright. {today.getFullYear()} James Q Quick
+    </p>
+
+    <p>
+      Design by <a
+        class="underline underline-offset-4"
+        href="https://twitter.com/BenaiahBarango">Benaiah Barango</a
+      >
+    </p>
   </div>
 </footer>

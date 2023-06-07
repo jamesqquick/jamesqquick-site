@@ -1,0 +1,15 @@
+---
+import LightCallout from "./LightCallout.astro";
+import SocialFollow from "./SocialFollow.astro";
+---
+
+<LightCallout>
+  <div class="flex flex-col md:flex-row justify-center gap-x-4 items-center">
+    <div class="text-center mb-6 md:mb-0">
+      <p class="text-xl mb-1">@jamesqquick</p>
+      <p class="text-xl opacity-60">250k+ followers</p>
+    </div>
+    <div class="hidden md:block h-12 w-[1px] bg-white opacity-40"></div>
+    <SocialFollow />
+  </div>
+</LightCallout>

@@ -1,48 +1,64 @@
 ---
 import Hero from "../components/Hero.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import compressedLogo from "../images/compressed.jpeg";
-import LogoCallout from "../components/LogoCallout.astro";
-import lbtLogo from "../images/lbt-square.png";
-import youtubeLogo from "../images/socials/youtube.png";
-import Divider from "../components/Divider.astro";
+import WorkExperience from "../components/WorkExperience.astro";
+import SocialCallout from "../components/SocialCallout.astro";
+import BlogCallout from "../components/BlogCallout.astro";
+import AboutCallout from "../components/AboutCallout.astro";
+import SpeakingCallout from "../components/SpeakingCallout.astro";
+import CoursesCallout from "../components/CoursesCallout.astro";
+import Button, { ButtonType } from "../components/Button.astro";
 
 export const prerender = true;
 ---
 
 <BaseLayout>
-  <Hero />
-  <Divider yMargin={false} classStr="mb-40" />
-  <section>
-    <div class="mx-auto mt-20 rounded-xl">
-      <div class="flex flex-col gap-20 mb-40">
-        <LogoCallout
-          heading="Compressed.fm Podcast"
-          body="Amy Dutton and I co-host the Compressed.fm podcast, a weekly podcast about Web Development and Design with a little bit of zest."
-          link="https://compressed.fm/"
-          alt="Compressed.fm logo"
-          logoSrc={compressedLogo.src}
-          btnText="Listen!"
-        />
-
-        <LogoCallout
-          heading="YouTube"
-          body="With over 100k subscribers, I teach modern Web Development with JavaScript through weekly YouTube videos!"
-          link="https://www.youtube.com/c/jamesqquick"
-          alt="YouTube logo"
-          logoSrc={youtubeLogo}
-          btnText="Watch!"
-        />
-
-        <LogoCallout
-          heading="Learn Build Teach"
-          body="A welcoming and open Discord community of Web Developers."
-          alt="Learn Build Teach Discord community."
-          link="https://learnbuildteach.com/"
-          logoSrc={lbtLogo.src}
-          btnText="Join Us!"
-        />
-      </div>
+  <Hero
+    title={`Hi, I'm James!`}
+    tagline={"I teach and inspire developers through content."}
+  >
+    <div class="flex flex-col gap-y-4 sm:flex-row gap-x-4 my-8">
+      <Button
+        text="Get to know me"
+        href="/about"
+        isLink
+        type={ButtonType.SECONDARY}
+      />
+      <Button
+        text="Work with me"
+        href="/speaking"
+        isLink
+        type={ButtonType.PRIMARY}
+      />
     </div>
-  </section>
+  </Hero>
+  <SocialCallout />
+  <AboutCallout>
+    <div>
+      <p class="mb-4 text-lg">
+        With over 10 years of experience teaching students, my passion for
+        teaching developers has led me to full-time Technical Content Creation.
+      </p><p class="mb-4 text-lg">
+        I believe in work-life balance, personal happiness, and empowering
+        others to take control of their career. My personal philosophy of "Learn
+        Build Teach" has blossomed into a growing community of aspiring and
+        established developers focused on helping each other succeed.
+      </p>
+      <p class="mb-4 text-lg">
+        I also co-host a weekly podcast about web design and development called
+        Compressed.fm and publish weekly Youtube videos.
+      </p>
+      <Button
+        href="/about"
+        classStr="mt-8"
+        isLink={true}
+        text="Learn more about me"
+        type={ButtonType.SECONDARY}
+      />
+    </div>
+  </AboutCallout>
+  <WorkExperience />
+  <CoursesCallout />
+  <SpeakingCallout />
+  <BlogCallout />
 </BaseLayout>

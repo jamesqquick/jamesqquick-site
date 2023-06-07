@@ -1,10 +1,17 @@
 ---
+import { CollectionEntry } from "astro:content";
 import LinkCard from "./LinkCard.astro";
+import Pagination from "./Pagination.astro";
+import Section from "./Section.astro";
+
+export interface Props {
+  posts: CollectionEntry<"blog">[];
+}
 
 const { posts } = Astro.props;
 ---
 
-<div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-16">
   {
     posts.map((post) => (
       <LinkCard

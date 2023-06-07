@@ -1,17 +1,44 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { getSortedBlogPosts } from "../utils/blog";
+import { getSortedBlogPosts } from "../utils/contentCollections";
 import Pagination from "../components/Pagination.astro";
 import LinkCardList from "../components/LinkCardList.astro";
+import Hero from "../components/Hero.astro";
+import FeaturedBlogCallout from "../components/FeaturedBlogCallout.astro";
+import Section from "../components/Section.astro";
 
 const posts = (await getSortedBlogPosts()).slice(0, 10);
-
+const featuredPost = posts.splice(0, 1)[0];
 export const prerender = true;
 ---
 
 <BaseLayout title="Blog | James Q Quick">
-  <h1 class="text-6xl text-brand font-bold mb-10">Blog</h1>
-  <Pagination next={"/blog/2"} prev={undefined} currentPage={1} lastPage={2} />
-  <LinkCardList posts={posts} />
-  <Pagination next={"/blog/2"} prev={undefined} currentPage={1} lastPage={2} />
+  <Section
+    title="Blog"
+    subtitle="Articles for web developers"
+    description="I try to document everything that I learn so that you can learn as well. Anything from modern web development to career tips."
+    isHeader={true}
+  >
+    <FeaturedBlogCallout post={featuredPost} />
+    <Section>
+      <div
+        class="flex lg:flex-row flex-col gap-8 justify-between items-center mb-16"
+      >
+        <h2 class="text-4xl font-bold">More Posts</h2>
+        <Pagination
+          next={"/blog/2"}
+          prev={undefined}
+          currentPage={1}
+          lastPage={2}
+        />
+      </div>
+      <LinkCardList posts={posts} />
+      <Pagination
+        next={"/blog/2"}
+        prev={undefined}
+        currentPage={1}
+        lastPage={2}
+      />
+    </Section>
+  </Section>
 </BaseLayout>

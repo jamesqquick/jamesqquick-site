@@ -1,21 +1,41 @@
 ---
 import { Image } from "@astrojs/image/components";
+import { Icon } from "astro-icon";
 
-const {testimonial} = Astro.props;
-const {data: {name, title, image}} = testimonial;
-const { Content, headings } = await testimonial.render();
+export interface Props {
+  testimonial: any;
+  isShort?: boolean;
+}
 
+const { testimonial, isShort = false } = Astro.props;
+const {
+  data: { name, title, image, quote, shortQuote },
+} = testimonial;
+const { Content } = await testimonial.render();
 ---
 
-<div class="flex flex-col md:flex-row gap-12 items-center justify-center md:odd:flex-row-reverse">
-    <div class="min-w-[260px] ">
-        <Image src={image} width={260} height={260} class="rounded-full" format={"webp"} alt={`headshot of ${name}`}/>
-    </div>
+<div class="bg-bgLight rounded-xl p-8">
+  <div class="absolute -top-4 -left-4 -z-10 opacity-40">
+    <Icon name="gridicons:quote" />
+  </div>
+  <div
+    class="tracking-wider text-xl relative italic leading-8 opacity-90 mb-10"
+  >
+    {!isShort && <Content />}
+    {isShort && shortQuote}
+  </div>
+  <div class="flex flex-row items-center gap-4">
+    <Image
+      src={image}
+      width={260}
+      height={260}
+      class="rounded-full h-20 w-20"
+      format={"webp"}
+      alt={`headshot of ${name}`}
+    />
     <div>
-        <div class="mb-6 tracking-wide">
-            <Content class="mb-6"/>
-        </div>
-        <h3 class="text-xl font-bold">{name}</h3>
-        <h4 class="text-xl font-light ">{title}</h4>
+      <h3 class="text-xl opacity-80 text-brand font-bold">{name}</h3>
+      <h4 class="text-base font-light opacity-80">{title}</h4>
     </div>
+  </div>
 </div>

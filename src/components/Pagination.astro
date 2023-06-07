@@ -1,23 +1,38 @@
 ---
 import Button from "./Button.astro";
+import Icon from "astro-icon";
 
 export interface Props {
-    currentPage: number;
-    lastPage: number;
-    next: string | undefined;
-    prev: string | undefined;
+  currentPage: number;
+  lastPage: number;
+  next: string | undefined;
+  prev: string | undefined;
 }
 
-
-const {currentPage, lastPage, next, prev} = Astro.props;
+const { currentPage, lastPage, next, prev } = Astro.props;
 ---
-<div class="flex justify-between my-10">
 
-        <Button text="Previous" classStr={currentPage <= 1 ? 'invisible': ''} isLink={true} newTab={false} href={prev} />
+<div class="flex justify-between sm:flex-row flex-col gap-2">
+  {
+    currentPage > 1 ? (
+      <Button
+        classStr={currentPage <= 1 ? "invisible" : ""}
+        isLink={true}
+        newTab={false}
+        href={prev}
+      >
+        <Icon name="mdi:arrow-left" class="w-6" /> Prev
+      </Button>
+    ) : (
+      <div />
+    )
+  }
 
-    {
-        currentPage < lastPage &&
-        <Button text="Next" isLink={true} newTab={false} href={next} />
-    }
-
+  {
+    currentPage < lastPage && (
+      <Button text="Next" isLink={true} newTab={false} href={next}>
+        <Icon name="mdi:arrow-right" class="w-6" />
+      </Button>
+    )
+  }
 </div>

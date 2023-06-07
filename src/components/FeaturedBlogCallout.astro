@@ -1,0 +1,43 @@
+---
+import { CollectionEntry } from "astro:content";
+import LightCallout from "./LightCallout.astro";
+import { post } from "../pages/api/speaking";
+import Section from "./Section.astro";
+
+export interface Props {
+  post: CollectionEntry<"blog">;
+}
+
+const { post } = Astro.props as Props;
+---
+
+<Section hasYPadding={false}>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+    <img src={post.data.coverImage} class="rounded-2xl" />
+
+    <div>
+      <p class="text-lg uppercase text-brand">Featured</p>
+      <a href={`/blog/${post.slug}`}>
+        <h2 class="text-3xl font-bold mb-1">{post.data.title}</h2>
+      </a>
+      <p class="text-lg opacity-80 mb-4">
+        {post.data.description}
+      </p>
+      <div class="flex justify-between">
+        <a class="underline underline-offset-4" href={`/blog/${post.slug}`}
+          >Read blog</a
+        >
+
+        <p class="text-lg opacity-80">
+          {
+            post.data.pubDate.toLocaleDateString("en-us", {
+              year: "numeric",
+              month: "short",
+              day: "numeric",
+            })
+          }
+        </p>
+      </div>
+    </div>
+  </div>
+</Section>

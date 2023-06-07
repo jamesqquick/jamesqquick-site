@@ -1,0 +1,52 @@
+---
+import Button, { ButtonType } from "./Button.astro";
+import { Image } from "@astrojs/image/components";
+import discordCard from "../images/about/discord.png";
+import compressedCard from "../images/about/compressed.png";
+import Section from "./Section.astro";
+const title = "About Me";
+const subtitle = "Developer. Speaker. Teacher.";
+---
+
+<Section title={title} subtitle={subtitle}>
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-10 gap-y-10 items-center">
+    <slot />
+    <div class="mr-20 hidden sm:block">
+      <div class="relative">
+        <div
+          class="left-4 translate-x-12 right-4 border-2 border-brand rounded-2xl absolute top-[60%] h-[90%] -z-10 max-w-[550px]"
+        >
+        </div>
+        <a
+          href="https://compressed.fm/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image
+            src={compressedCard.src}
+            alt="Compressed.fm Podcast"
+            height={356}
+            width={686}
+            class={`rounded-2xl translate-x-32 mb-20 relative`}
+            format="webp"
+          />
+        </a>
+      </div>
+
+      <a
+        href="https://learnbuildteach.com"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Image
+          src={discordCard.src}
+          alt="Learn Build Teach Discord"
+          height={356}
+          width={686}
+          class={`rounded-2xl`}
+          format="webp"
+        />
+      </a>
+    </div>
+  </div>
+</Section>

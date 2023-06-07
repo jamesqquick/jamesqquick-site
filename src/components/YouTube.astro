@@ -1,12 +1,17 @@
 ---
 export interface Props {
   id: string;
+  classStr?: string;
 }
 
-const { id } = Astro.props;
+const { id, classStr } = Astro.props;
 ---
 
-<div class="relative h-0 overflow-hidden w-full pb-[56.25%]">
+<div
+  class={`relative h-0 overflow-hidden w-full pb-[56.25%] rounded-lg ${
+    classStr && classStr
+  }`}
+>
   <iframe
     title={id}
     src={`https://www.youtube.com/embed/${id}`}
