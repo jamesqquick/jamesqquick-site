@@ -181,6 +181,13 @@ declare module 'astro:content' {
   collection: "blog",
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] },
+"2023-06-20-5-utility-apps-i-use-every-day-(for-mac).md": {
+  id: "2023-06-20-5-utility-apps-i-use-every-day-(for-mac).md",
+  slug: "5-utility-apps-mac",
+  body: string,
+  collection: "blog",
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] },
 "5-things-i-ve-learned-from-creating-youtube-videos.md": {
   id: "5-things-i-ve-learned-from-creating-youtube-videos.md",
   slug: "5-things-i-ve-learned-from-creating-youtube-videos",
