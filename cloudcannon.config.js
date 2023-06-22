@@ -18,8 +18,7 @@ module.exports = {
 
       // The URL function for items in this collection
       url: (filePath, parsed, { filters }) => {
-        const { slug } = filters.slug(parsed);
-        return `/blog/${slug.replace(".md")}/`;
+        return `/blog/${parsed.slug}`;
       },
 
       output: true,
