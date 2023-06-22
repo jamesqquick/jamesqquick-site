@@ -11,7 +11,7 @@ module.exports = {
   collections_config: {
     posts: {
       // Reads the contents of each file in this directory
-      path: "_posts",
+      path: "/src/content/blog",
 
       // How to parse the files in this collection
       parser: "front-matter",
