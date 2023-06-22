@@ -18,9 +18,8 @@ module.exports = {
 
       // The URL function for items in this collection
       url: (filePath, parsed, { filters }) => {
-        const year = new Date(parsed.date).getFullYear();
-        const slug = filters.slugify(parsed.title || "");
-        return `/posts/${year}/${slug}/`;
+        const { slug } = filters.slug(parsed);
+        return `/blog/${slug}/`;
       },
 
       output: true,
