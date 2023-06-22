@@ -26,17 +26,4 @@ module.exports = {
       output: true,
     },
   },
-
-  // Generates the data for select and multiselect inputs matching these names
-  data_config: {
-    authors: {
-      // Reads the contents of this file
-      path: "data/authors.csv",
-    },
-    offices: {
-      // Reads the contents of each file in this directory
-      path: "data/offices",
-      parser: "json",
-    },
-  },
 };
