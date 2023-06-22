@@ -2,7 +2,7 @@ module.exports = {
   // Global CloudCannon configuration
 
   // Read from ./src instead of .
-  source: "src",
+  source: "",
 
   // Write to ./output/_cloudcannon/info.json instead of ./_cloudcannon/info.json
   output: "output",
