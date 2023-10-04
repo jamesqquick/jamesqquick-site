@@ -9,7 +9,7 @@ export interface Props {
   youTubeVideoId?: string;
   hasDivider?: boolean;
   image?: any;
-  alt: string;
+  alt?: string;
 }
 
 const {
@@ -18,7 +18,7 @@ const {
   youTubeVideoId,
   hasDivider = true,
   image,
-  alt,
+  alt = "",
 } = Astro.props;
 ---
 

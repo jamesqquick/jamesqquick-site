@@ -23,12 +23,11 @@
 
       if (res.status !== 200) {
         errorMsg = "Subscribe failed. Please try again.";
-      } else {
+        return
+      }
         errorMsg = null;
         successMsg = "You have been subscribed!";
         email = "";
-      }
-      const data = await res.json();
     } catch (err) {
       console.error(err);
     } finally {
