@@ -7,13 +7,21 @@ export interface Props {
     title: string;
     description: string;
     pubDate: Date;
+    date: Date;
     coverImage: string;
     youTubeVideoId?: string;
   };
 }
 
 const {
-  frontmatter: { title, description, pubDate, youTubeVideoId, coverImage },
+  frontmatter: {
+    title,
+    description,
+    pubDate,
+    youTubeVideoId,
+    coverImage,
+    date,
+  },
 } = Astro.props as Props;
 ---
 
@@ -25,7 +33,7 @@ const {
       <ArticleHeader
         coverImage={coverImage}
         title={title}
-        date={pubDate}
+        date={pubDate || date}
         youTubeVideoId={youTubeVideoId}
       />
       <slot />

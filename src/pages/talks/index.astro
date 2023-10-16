@@ -1,0 +1,20 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getSortedTalks } from "../../utils/contentCollections";
+import Pagination from "../../components/Pagination.astro";
+import LinkCardList from "../../components/LinkCardList.astro";
+import Hero from "../../components/Hero.astro";
+import FeaturedBlogCallout from "../../components/FeaturedBlogCallout.astro";
+import Section from "../../components/Section.astro";
+import TalkCardList from "../../components/TalkCardList.astro";
+
+const talks = (await getSortedTalks()).slice(0, 10);
+const featuredPost = talks.splice(0, 1)[0];
+export const prerender = true;
+---
+
+<BaseLayout title="Blog | James Q Quick">
+  <Section title="Talks" subtitle="From James Q Quick" isHeader={true}>
+    <TalkCardList talks={talks} />
+  </Section>
+</BaseLayout>

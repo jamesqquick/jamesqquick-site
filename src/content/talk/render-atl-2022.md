@@ -7,3 +7,5 @@ conferenceLocation: Atlanta, GA
 conferenceLogo: /images/talks/render.png
 videoLink: https://www.youtube.com/watch?v=f5LZMuujLrM
 ---
+
+Serverless is another one of those hot buzzwords, but do you really know what it means? How it impacts you as a developer? How it changes the way you build projects with the modern web?

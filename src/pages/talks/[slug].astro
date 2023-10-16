@@ -1,0 +1,39 @@
+---
+import { CollectionEntry, getCollection } from "astro:content";
+import BlogPostLayout from "../../layouts/BlogPostLayout.astro";
+import { Icon } from "astro-icon";
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  console.log("getting static paths");
+  const talkEntries = await getCollection("talk");
+  console.log(talkEntries);
+  return talkEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+export interface Props {
+  entry: CollectionEntry<"talk">;
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<BlogPostLayout frontmatter={entry.data}>
+  {
+    entry.data.slidesLink && (
+      <a href={entry.data.slidesLink} class="cursor-pointer no-underline">
+        <span>Slides</span>
+        <Icon
+          class="inline h-6 w-6 hover:text-brand cursor-pointer"
+          name="mdi:file"
+        />
+      </a>
+    )
+  }
+  <Content />
+</BlogPostLayout>

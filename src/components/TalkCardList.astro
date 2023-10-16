@@ -1,0 +1,24 @@
+---
+import { CollectionEntry } from "astro:content";
+import TalkCard from "./TalkCard.astro";
+
+export interface Props {
+  talks: CollectionEntry<"talk">[];
+}
+
+const { talks } = Astro.props;
+---
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-16">
+  {
+    talks.map((talk) => (
+      <TalkCard
+        title={talk.data.title}
+        date={talk.data.date}
+        slug={`/talks/${talk.slug}`}
+        conferenceName={talk.data.conferenceName}
+        conferenceLink={talk.data.conferenceLink}
+      />
+    ))
+  }
+</div>

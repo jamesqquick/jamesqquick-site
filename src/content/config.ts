@@ -15,9 +15,10 @@ const talksCollection = defineCollection({
     conferenceLocation: z.string(),
     conferenceLink: z.string(),
     conferenceLogo: z.string(),
-    videoLink: z.string(),
+    videoLink: z.string().optional(),
     title: z.string(),
     date: z.date(),
+    slidesLink: z.string().optional(),
   }),
 });
 

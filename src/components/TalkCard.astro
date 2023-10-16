@@ -1,0 +1,26 @@
+---
+import { getFormattedDate } from "../utils/dates";
+
+export interface Props {
+  slug: string;
+  title: string;
+  date: Date;
+  conferenceName: string;
+  conferenceLink: string;
+}
+
+const { slug, date, title, conferenceName, conferenceLink } = Astro.props;
+---
+
+<div class="overflow-hidden border rounded-lg p-4">
+  <div class="flex justify-between mb-3">
+    <p>{getFormattedDate(date)}</p>
+    <a href={conferenceLink}><p>{conferenceName}</p></a>
+  </div>
+  <a href={slug} class="grow hover:underline mb-1 block">
+    <h3 class="font-bold text-brand text-2xl transition-colors mb-1">
+      {title}
+    </h3>
+  </a>
+  <!-- <p class="line-clamp-3">{description}</p> -->
+</div>
