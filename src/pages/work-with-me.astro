@@ -1,0 +1,113 @@
+---
+import Button, { ButtonType } from "../components/Button.astro";
+import Hero from "../components/Hero.astro";
+import Section from "../components/Section.astro";
+import SocialCallout from "../components/SocialCallout.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <Hero
+    title={`Collaboration`}
+    tagline={"Let's work together!"}
+    description={"As a developer, speaker, content creator, and consultant, I offer a range of services that can benefit individuals, organizations, and aspiring developers."}
+    hasImage={false}
+  >
+    <div class="">
+      <Button text="Learn More" href="/" isLink type={ButtonType.PRIMARY} />
+    </div>
+  </Hero>
+  <SocialCallout />
+  <Section title="Services" subtitle="Choose from one of these options">
+    <div class="flex flex-col">
+      <div
+        class="self-center flex w-full max-w-[1473px] grow flex-col mt-24 max-md:max-w-full"
+      >
+        <div class="self-stretch z-[1] px-5 max-md:max-w-full">
+          <div
+            class="gap-5 flex max-md:flex-col max-md:items-stretch max-md:gap-0"
+          >
+            <div class="flex flex-col items-stretch w-[33%] max-md:w-full">
+              <div
+                class="border border-[color:var(--white,#FFF)] flex grow flex-col w-full mx-auto px-5 py-10 rounded-[35px] border-solid max-md:max-w-full max-md:mt-10"
+              >
+                <div
+                  class="self-center flex w-[380px] max-w-full flex-col mt-8 mb-6"
+                >
+                  <img
+                    loading="lazy"
+                    srcSet="https://cdn.builder.io/api/v1/image/assets/TEMP/26021fe1-5566-4a07-b994-7fd3b9d3d6da?apiKey=8b8dd7b90408465f92cfcdaadd2e463a&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/26021fe1-5566-4a07-b994-7fd3b9d3d6da?apiKey=8b8dd7b90408465f92cfcdaadd2e463a&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/26021fe1-5566-4a07-b994-7fd3b9d3d6da?apiKey=8b8dd7b90408465f92cfcdaadd2e463a&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/26021fe1-5566-4a07-b994-7fd3b9d3d6da?apiKey=8b8dd7b90408465f92cfcdaadd2e463a&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/26021fe1-5566-4a07-b994-7fd3b9d3d6da?apiKey=8b8dd7b90408465f92cfcdaadd2e463a&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/26021fe1-5566-4a07-b994-7fd3b9d3d6da?apiKey=8b8dd7b90408465f92cfcdaadd2e463a&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/26021fe1-5566-4a07-b994-7fd3b9d3d6da?apiKey=8b8dd7b90408465f92cfcdaadd2e463a&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/26021fe1-5566-4a07-b994-7fd3b9d3d6da?apiKey=8b8dd7b90408465f92cfcdaadd2e463a&"
+                    class="aspect-[0.58] object-cover object-center w-[21px] shrink-0 border-[1.5px] border-solid border-white"
+                  />
+                  <div class="text-white text-3xl font-bold mt-12">
+                    Book me to speak
+                  </div>
+                  <div class="text-white text-lg w-[379px] max-w-full mt-9">
+                    From modern web development to career growth and personal
+                    development, I aim to...
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="flex flex-col items-stretch w-[33%] ml-5 max-md:w-full">
+              <div
+                class="border border-[color:var(--green,#09FA94)] flex grow flex-col w-full mx-auto pt-7 pb-10 px-5 rounded-[35px] border-solid max-md:max-w-full max-md:mt-10"
+              >
+                <div
+                  class="flex w-[399px] max-w-full flex-col ml-5 mb-6 max-md:ml-2.5"
+                >
+                  <div
+                    class="absolute top-4 right-4 text-slate-800 text-base items-start bg-brand w-[108px] max-w-full px-3.5 py-2.5 rounded-3xl"
+                  >
+                    Learn more
+                  </div>
+                  <img
+                    loading="lazy"
+                    srcSet="https://cdn.builder.io/api/v1/image/assets/TEMP/50b0fa61-7ed4-403b-bad8-3de1f16b8a17?apiKey=8b8dd7b90408465f92cfcdaadd2e463a&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/50b0fa61-7ed4-403b-bad8-3de1f16b8a17?apiKey=8b8dd7b90408465f92cfcdaadd2e463a&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/50b0fa61-7ed4-403b-bad8-3de1f16b8a17?apiKey=8b8dd7b90408465f92cfcdaadd2e463a&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/50b0fa61-7ed4-403b-bad8-3de1f16b8a17?apiKey=8b8dd7b90408465f92cfcdaadd2e463a&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/50b0fa61-7ed4-403b-bad8-3de1f16b8a17?apiKey=8b8dd7b90408465f92cfcdaadd2e463a&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/50b0fa61-7ed4-403b-bad8-3de1f16b8a17?apiKey=8b8dd7b90408465f92cfcdaadd2e463a&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/50b0fa61-7ed4-403b-bad8-3de1f16b8a17?apiKey=8b8dd7b90408465f92cfcdaadd2e463a&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/50b0fa61-7ed4-403b-bad8-3de1f16b8a17?apiKey=8b8dd7b90408465f92cfcdaadd2e463a&"
+                    class="aspect-[1.2] object-cover object-center w-9 shrink-0 mt-1 border-[1.5px] border-solid border-emerald-400"
+                  />
+                  <div class="text-white text-3xl font-bold ml-px mt-14">
+                    Sponsor my content
+                  </div>
+                  <div
+                    class="text-white text-lg w-[379px] max-w-full ml-px mt-9"
+                  >
+                    Having built strong relationships and earned trust in the
+                    developer communities, there ar...
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="flex flex-col items-stretch w-[33%] ml-5 max-md:w-full">
+              <div
+                class="border border-[color:var(--white,#FFF)] flex grow flex-col w-full mx-auto px-5 py-10 rounded-[35px] border-solid max-md:max-w-full max-md:mt-10"
+              >
+                <div
+                  class="self-center flex w-[380px] max-w-full flex-col mt-7 mb-6"
+                >
+                  <img
+                    loading="lazy"
+                    srcSet="https://cdn.builder.io/api/v1/image/assets/TEMP/d4764c24-387b-42cb-9f7f-e41afce33bad?apiKey=8b8dd7b90408465f92cfcdaadd2e463a&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/d4764c24-387b-42cb-9f7f-e41afce33bad?apiKey=8b8dd7b90408465f92cfcdaadd2e463a&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/d4764c24-387b-42cb-9f7f-e41afce33bad?apiKey=8b8dd7b90408465f92cfcdaadd2e463a&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/d4764c24-387b-42cb-9f7f-e41afce33bad?apiKey=8b8dd7b90408465f92cfcdaadd2e463a&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/d4764c24-387b-42cb-9f7f-e41afce33bad?apiKey=8b8dd7b90408465f92cfcdaadd2e463a&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/d4764c24-387b-42cb-9f7f-e41afce33bad?apiKey=8b8dd7b90408465f92cfcdaadd2e463a&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/d4764c24-387b-42cb-9f7f-e41afce33bad?apiKey=8b8dd7b90408465f92cfcdaadd2e463a&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/d4764c24-387b-42cb-9f7f-e41afce33bad?apiKey=8b8dd7b90408465f92cfcdaadd2e463a&"
+                    class="aspect-[1.39] object-cover object-center w-[46px] shrink-0 border-[1.5px] border-solid border-white"
+                  />
+                  <div class="text-white text-3xl font-bold mt-14">
+                    Consultation
+                  </div>
+                  <div class="text-white text-lg w-[379px] max-w-full mt-10">
+                    Looking to enhance your developer experience and engage with
+                    your developer commun...
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <img
+          loading="lazy"
+          srcSet="https://cdn.builder.io/api/v1/image/assets/TEMP/83ffee43-590e-4705-bd75-a5b57b239b14?apiKey=8b8dd7b90408465f92cfcdaadd2e463a&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/83ffee43-590e-4705-bd75-a5b57b239b14?apiKey=8b8dd7b90408465f92cfcdaadd2e463a&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/83ffee43-590e-4705-bd75-a5b57b239b14?apiKey=8b8dd7b90408465f92cfcdaadd2e463a&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/83ffee43-590e-4705-bd75-a5b57b239b14?apiKey=8b8dd7b90408465f92cfcdaadd2e463a&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/83ffee43-590e-4705-bd75-a5b57b239b14?apiKey=8b8dd7b90408465f92cfcdaadd2e463a&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/83ffee43-590e-4705-bd75-a5b57b239b14?apiKey=8b8dd7b90408465f92cfcdaadd2e463a&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/83ffee43-590e-4705-bd75-a5b57b239b14?apiKey=8b8dd7b90408465f92cfcdaadd2e463a&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/83ffee43-590e-4705-bd75-a5b57b239b14?apiKey=8b8dd7b90408465f92cfcdaadd2e463a&"
+          class="aspect-square object-cover object-center w-9 self-center mt-0 shrink-0 ml-44"
+        />
+      </div>
+    </div>
+  </Section>
+</BaseLayout>

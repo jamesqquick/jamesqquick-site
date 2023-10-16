@@ -1,9 +1,8 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
-import Divider from "../components/Divider.astro";
 import Footer from "../components/Footer.astro";
 import Navbar from "../components/Navbar.astro";
-import NewsletterSection from "../components/NewsletterSection.astro";
+import TopCallout from "../components/TopCallout.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../config";
 
 export interface Props {
@@ -26,6 +25,11 @@ const { title, description, image, bottomDivider = true } = Astro.props;
     />
   </head>
   <body class="bg-bg text-white">
+    <TopCallout
+      text="Learn to build websites using Astro 3.0, the all-in-one framework for the modern web."
+      link="https://astrocourse.dev/"
+      linkText="Start Learning!"
+    />
     <div class="flex flex-col min-h-screen overflow-x-hidden">
       <header>
         <Navbar />
