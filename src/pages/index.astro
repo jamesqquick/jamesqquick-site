@@ -8,6 +8,7 @@ import AboutCallout from "../components/AboutCallout.astro";
 import SpeakingCallout from "../components/SpeakingCallout.astro";
 import CoursesCallout from "../components/CoursesCallout.astro";
 import Button, { ButtonType } from "../components/Button.astro";
+import Link from "../components/Link.astro";
 
 export const prerender = true;
 ---
@@ -41,12 +42,18 @@ export const prerender = true;
       </p><p class="mb-4 text-lg">
         I believe in work-life balance, personal happiness, and empowering
         others to take control of their career. My personal philosophy of "Learn
-        Build Teach" has blossomed into a growing community of aspiring and
-        established developers focused on helping each other succeed.
+        Build Teach" has blossomed into a growing <Link
+          href="https://learnbuildteach.com/"
+          text="Discord community"
+        /> of aspiring and established developers focused on helping each other succeed.
       </p>
       <p class="mb-4 text-lg">
         I also co-host a weekly podcast about web design and development called
-        Compressed.fm and publish weekly Youtube videos.
+        <Link href="https://compressed.fm/" text="Compressed.fm" /> and publish weekly
+        <Link
+          href="https://www.youtube.com/c/jamesqquick"
+          text="Youtube videos"
+        />.
       </p>
       <Button
         href="/about"
@@ -60,5 +67,5 @@ export const prerender = true;
   <WorkExperience />
   <CoursesCallout />
   <SpeakingCallout />
-  <BlogCallout />
+  <!-- <BlogCallout /> -->
 </BaseLayout>
