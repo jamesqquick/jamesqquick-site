@@ -25,7 +25,6 @@ export const post: APIRoute = async (context) => {
   try {
     const subject = `Speaker Request for ${eventName} from ${fullName}`;
     await sendEmail(email, details, subject);
-    console.log("email sent");
     return new Response(
       JSON.stringify({ msg: "Request submitted successfully" }),
       {

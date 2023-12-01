@@ -67,7 +67,6 @@ export const post: APIRoute = async (context) => {
 };
 
 export const options: APIRoute = async () => {
-  console.log("Preflight");
   return new Response(null, {
     status: 204,
     headers: {

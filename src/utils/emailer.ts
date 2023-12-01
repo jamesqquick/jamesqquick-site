@@ -1,5 +1,4 @@
 import sgMail from "@sendgrid/mail";
-console.log(import.meta.env.SENDGRID_API_KEY);
 sgMail.setApiKey(import.meta.env.SENDGRID_API_KEY);
 
 export const sendEmail = async (
