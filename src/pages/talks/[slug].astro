@@ -6,9 +6,7 @@ import { Icon } from "astro-icon";
 export const prerender = true;
 
 export async function getStaticPaths() {
-  console.log("getting static paths");
   const talkEntries = await getCollection("talk");
-  console.log(talkEntries);
   return talkEntries.map((entry) => ({
     params: { slug: entry.slug },
     props: { entry },
