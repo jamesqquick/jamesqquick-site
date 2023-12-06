@@ -1,7 +1,7 @@
 ---
 title: Build an Authenticated JAMstack App with Next.js, Airtable, Auth0, and Tailwind CSS
 slug: authenticated-jamstack-app-with-next-js-airtable-auth0-and-tailwind-css
-coverImage: /images/posts/authenticated-jamstack-app-with-next-js-airtable-auth0-and-tailwind-css/cover.png
+coverImage: ./images/authenticated-jamstack-app-with-next-js-airtable-auth0-and-tailwind-css/cover.png
 pubDate: 2020-10-05
 description: Learn to incorporate authentication and real data into a Next.js app!
 youTubeVideoId: TNKzKtNTjls

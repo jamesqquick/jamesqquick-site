@@ -1,7 +1,7 @@
 ---
 title: Make Deep Clones in JavaScript With structuredClone
 slug: deep-clones-javascript-structuredclone
-coverImage: /images/posts/deep-clones-javascript-structuredclone/cover.jpg
+coverImage: ./images/deep-clones-javascript-structuredclone/cover.jpg
 pubDate: 2023-03-06T19:31:32.361Z
 description: Learn how to make deep clones in JavaScript.
 youTubeVideoId: wAj074hO_3g

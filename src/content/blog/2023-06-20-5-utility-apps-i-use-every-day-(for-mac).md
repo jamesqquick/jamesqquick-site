@@ -1,7 +1,7 @@
 ---
 title: 5 Utility Apps I Use Every Day (For Mac)
 slug: 5-utility-apps-mac
-coverImage: /images/posts/5-utility-apps-mac/cover.png
+coverImage: ./images/5-utility-apps-mac/cover.png
 pubDate: 2023-06-20T15:05:40.317Z
 description: Discover 5 essential Mac utility apps to boost your developer efficiency and streamline your workflow like Keyboard Maestro, Raycast, and more.
 youTubeVideoId: p6oCyY123U0

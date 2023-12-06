@@ -1,7 +1,7 @@
 ---
 title: Why and How to Get Started Live Streaming
 slug: why-and-how-to-get-started-live-streaming
-coverImage: /images/posts/why-and-how-to-get-started-live-streaming/cover.png
+coverImage: ./images/why-and-how-to-get-started-live-streaming/cover.png
 pubDate: 2021-07-14
 description: Learn how and why I got started Live Streaming early in 2020.
 tags:

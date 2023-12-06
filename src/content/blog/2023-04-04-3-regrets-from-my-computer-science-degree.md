@@ -1,7 +1,7 @@
 ---
 title: 3 Regrets From My Computer Science Degree
 slug: 3-regrets-computer-science-degree
-coverImage: "/images/posts/3-regrets-computer-science-degree/cover.jpg"
+coverImage: "./images/3-regrets-computer-science-degree/cover.jpg"
 pubDate: 2023-04-04T18:48:27.344Z
 description: I didn't get the most out of my computer science degree!
 youTubeVideoId: ""

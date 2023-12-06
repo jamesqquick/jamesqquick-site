@@ -1,7 +1,7 @@
 ---
 title: BRAND NEW VS Code Extension for Testing APIs
 slug: new-vs-code-extension-for-testing-apis
-coverImage: /images/posts/new-vs-code-extension-for-testing-apis/cover.png
+coverImage: ./images/new-vs-code-extension-for-testing-apis/cover.png
 pubDate: 2022-08-01
 description: Test your APIs directly inside of VS Code with the RapidAPI Client extension.
 youTubeVideoId: VuO-Haub9-I

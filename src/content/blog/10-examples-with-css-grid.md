@@ -1,7 +1,7 @@
 ---
 title: 10 Examples with CSS Grid
 slug: 10-examples-with-css-grid
-coverImage: /images/posts/10-examples-with-css-grid/cover.png
+coverImage: ./images/10-examples-with-css-grid/cover.png
 pubDate: 2020-03-17
 description: After spending two weeks learning about CSS Grid, here's 10 examples to demonstrate what I learned.
 youTubeVideoId: wfXz8rW_fUs

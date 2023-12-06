@@ -1,7 +1,7 @@
 ---
 title: Twilio and Node - Send Your First Text Message
 slug: twilio-node-text-message
-coverImage: /images/posts/twilio-node-text-message/cover.png
+coverImage: ./images/twilio-node-text-message/cover.png
 pubDate: 2020-02-11
 description: Learn how to send text messages in Node with Twilio.
 youTubeVideoId: 26X0rVLo6gc

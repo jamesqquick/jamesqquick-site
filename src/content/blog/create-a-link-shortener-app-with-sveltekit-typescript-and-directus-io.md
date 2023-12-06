@@ -1,7 +1,7 @@
 ---
 title: Create a Link Shortener App with SvelteKit, TypeScript, and Directus.io
 slug: create-a-link-shortener-app-with-sveltekit-typescript-and-directus-io
-coverImage: /images/posts/create-a-link-shortener-app-with-sveltekit-typescript-and-directus-io/cover.png
+coverImage: ./images/create-a-link-shortener-app-with-sveltekit-typescript-and-directus-io/cover.png
 pubDate: 2022-08-24
 description: Learn how to build a link shortener app with SvelteKit, TypeScript, and Directus.io
 youTubeVideoId: 5AUUSZ5wv10

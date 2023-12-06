@@ -1,7 +1,7 @@
 ---
 title: React Router in 5 Minutes
 slug: react-router-in-five-minutes
-coverImage: /images/posts/react-router-in-five-minutes/cover.png
+coverImage: ./images/react-router-in-five-minutes/cover.png
 pubDate: 2020-06-09
 description: Learn how to setup React Router in 5 minutes!
 youTubeVideoId: yQf1KbGiwiI

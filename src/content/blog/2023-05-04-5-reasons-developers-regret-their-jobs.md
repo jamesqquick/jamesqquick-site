@@ -1,7 +1,7 @@
 ---
 title: 5 Reasons Developers Regret Their Jobs
 slug: 5-reasons-developers-regret-jobs
-coverImage: /images/posts/5-reasons-developers-regret-jobs/cover.jpg
+coverImage: ./images/5-reasons-developers-regret-jobs/cover.jpg
 pubDate: 2023-05-04T20:54:16.600Z
 description: Don't make these mistakes when considering roles in your career. Make sure your next role is your best role!
 youTubeVideoId: _IRieMFbsjw

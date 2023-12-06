@@ -1,7 +1,7 @@
 ---
 title: Parse JSON Request Body in Express
 slug: parse-json-request-body-in-express
-coverImage: /images/posts/parse-json-request-body-in-express/cover.png
+coverImage: ./images/parse-json-request-body-in-express/cover.png
 pubDate: 2020-08-29
 description: Learn how to parse JSON body from a post request in Express.
 tags:

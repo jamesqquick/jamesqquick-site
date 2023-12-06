@@ -1,7 +1,7 @@
 ---
 title: VS Code React Setup - 5 Tips
 slug: vs-code-react-setup-5-tips
-coverImage: /images/posts/vs-code-react-setup-5-tips/cover.png
+coverImage: ./images/vs-code-react-setup-5-tips/cover.png
 pubDate: 2020-05-19
 description: Want to become a better React developer? Your VS Code React setup can drastically change the way you create React apps. In this video, we'll cover 5 tips to improve your VS Code React setup to also improve your efficiency and proficiency as a React developer!
 youTubeVideoId: 9EMUJm7qdxM

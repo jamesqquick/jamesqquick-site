@@ -1,21 +1,24 @@
 ---
 import { getFormattedDate } from "../utils/dates";
-import Button from "./Button.astro";
 import javascript from "../images/blog/logos/javascript.png";
 import react from "../images/blog/logos/react.png";
 import sveltekit from "../images/blog/logos/sveltekit.png";
 import vscode from "../images/blog/logos/vscode.png";
 import nodejs from "../images/blog/logos/nodejs.png";
 import chatgpt from "../images/blog/logos/chatgpt.png";
-import { Image } from "@astrojs/image/components";
-
+import { Image } from "astro:assets";
 export interface Props {
   slug: string;
   title: string;
   date: Date;
   btnText?: string;
   tag?: string;
-  image?: string;
+  image?: {
+    height: number;
+    src: string;
+    width: number;
+    format: "avif" | "png" | "webp" | "jpeg" | "jpg" | "svg" | "tiff" | "gif";
+  };
 }
 
 const { slug, date, title, btnText = "Read", tag, image } = Astro.props;
@@ -31,7 +34,15 @@ const tagToLogo = {
 
 <div class="overflow-hidden">
   <div class="flex items-center justify-center w-full object-cover mb-4">
-    <img src={image} class="rounded-2xl" />
+    <a href={slug} class="grow hover:underline">
+      <Image
+        height={540}
+        width={960}
+        src={image}
+        class="rounded-2xl"
+        alt={title}
+      />
+    </a>
   </div>
 
   <p class="mb-1">{getFormattedDate(date)}</p>

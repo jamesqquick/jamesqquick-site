@@ -1,7 +1,7 @@
 ---
 title: Open Anchor Link in New Tab
 slug: open-anchor-link-in-new-tab
-coverImage: /images/posts/open-anchor-link-in-new-tab/cover.png
+coverImage: ./images/open-anchor-link-in-new-tab/cover.png
 pubDate: 2020-04-24
 description: Learn how to open a link from an anchor tag in a new browser tab
 tags:

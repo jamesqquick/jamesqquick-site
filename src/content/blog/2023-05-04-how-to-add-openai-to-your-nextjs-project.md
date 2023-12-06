@@ -1,7 +1,7 @@
 ---
 title: How to Add OpenAI To Your Nextjs Project
 slug: add-openai-nextjs-project
-coverImage: /images/posts/add-openai-nextjs-project/ChatGPT Nextjs.jpg
+coverImage: ./images/add-openai-nextjs-project/ChatGPT Nextjs.jpg
 pubDate: 2023-05-04T15:06:49.228Z
 description: Learn how to incorporate AI into your Next project using the openAI SDK.
 youTubeVideoId: 2xwv4T552lM

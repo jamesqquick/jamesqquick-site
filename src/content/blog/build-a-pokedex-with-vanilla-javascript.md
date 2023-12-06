@@ -1,7 +1,7 @@
 ---
 title: Build a Pokedex with Vanilla JavaScript
 slug: build-a-pokedex-with-vanilla-javascript
-coverImage: /images/posts/build-a-pokedex-with-vanilla-javascript/cover.png
+coverImage: ./images/build-a-pokedex-with-vanilla-javascript/cover.png
 pubDate: 2019-09-03
 description: Use Vanilla JavaScript to bulid a Pokedex.
 youTubeVideoId: T-VQUKeSU1w

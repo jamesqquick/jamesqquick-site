@@ -1,7 +1,7 @@
 ---
 title: Cloudinary Image Upload with Nodejs
 slug: cloudinary-image-upload-with-nodejs
-coverImage: /images/posts/cloudinary-image-upload-with-nodejs/cover.png
+coverImage: ./images/cloudinary-image-upload-with-nodejs/cover.png
 pubDate: 2020-06-16
 description: Learn how to upload images to Cloudinary with Nodejs
 youTubeVideoId: Rw_QeJLnCK4

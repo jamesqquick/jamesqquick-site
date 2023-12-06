@@ -20,6 +20,7 @@ export const getSortedCourses = async (): Promise<
 
 export const getSortedTalks = async (): Promise<CollectionEntry<"talk">[]> => {
   return (await getCollection("talk")).sort(
-    (a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf()
+    (a, b) =>
+      new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
   );
 };

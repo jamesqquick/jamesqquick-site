@@ -1,7 +1,7 @@
 ---
 title: Appwrite Best Developer Tools on Product Hunt in 2022
 slug: appwrite-developer-tools-product-hunt-2022
-coverImage: /images/posts/appwrite-developer-tools-product-hunt-2022/cover.jpg
+coverImage: ./images/appwrite-developer-tools-product-hunt-2022/cover.jpg
 pubDate: 2023-03-06T19:54:34.055Z
 description: Appwrite is a Backend as a Service that changes the way we build applications
 youTubeVideoId: 2i_kQx9oXRA

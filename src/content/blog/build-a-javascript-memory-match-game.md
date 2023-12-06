@@ -1,7 +1,7 @@
 ---
 title: Build a JavaScript Memory Match Game
 slug: build-a-javascript-memory-match-game
-coverImage: /images/posts/build-a-javascript-memory-match-game/cover.png
+coverImage: ./images/build-a-javascript-memory-match-game/cover.png
 pubDate: 2022-08-25
 description: Learn how to build a memory match game with JavaScript
 youTubeVideoId: Z2O3QxpcdSk

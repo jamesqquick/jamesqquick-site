@@ -1,7 +1,7 @@
 ---
 title: Setup a Custom Domain with Netlify
 slug: setup-a-custom-domain-with-netlify
-coverImage: /images/posts/setup-a-custom-domain-with-netlify/cover.png
+coverImage: ./images/setup-a-custom-domain-with-netlify/cover.png
 pubDate: 2022-07-14
 description: Setup a Custom Domain with Netlify
 youTubeVideoId: bY7Tkh9Vz8I

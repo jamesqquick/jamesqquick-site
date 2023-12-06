@@ -1,7 +1,7 @@
 ---
 title: 5 Ways to Customize VS Code
 slug: 5-ways-to-customize-vs-code
-coverImage: /images/posts/5-ways-to-customize-vs-code/cover.jpg
+coverImage: ./images/5-ways-to-customize-vs-code/cover.jpg
 pubDate: 2020-10-21
 description: Learn how to customize your VS Code to impress your friends!
 youTubeVideoId: yvXHM2NByh4

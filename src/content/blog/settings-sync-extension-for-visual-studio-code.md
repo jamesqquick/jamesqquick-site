@@ -1,9 +1,10 @@
 ---
 title: Settings Sync Extension for Visual Studio Code
 slug: settings-sync-extension-for-visual-studio-code
-coverImage: /images/posts/settings-sync-extension-for-visual-studio-code/cover.png
+coverImage: ./images/settings-sync-extension-for-visual-studio-code/cover.png
 pubDate: 2020-01-28
-description: The beautiful thing about Visual Studio Code is how easy it is to customize,
+description:
+  The beautiful thing about Visual Studio Code is how easy it is to customize,
   but what happens if you get a new computer?
 youTubeVideoId: f-uzUsHTQ8s
 tags:

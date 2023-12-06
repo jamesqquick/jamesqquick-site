@@ -17,7 +17,7 @@ const talksCollection = defineCollection({
     conferenceLogo: z.string(),
     videoLink: z.string().optional(),
     title: z.string(),
-    date: z.date(),
+    pubDate: z.date(),
     slidesLink: z.string().optional(),
   }),
 });
@@ -35,14 +35,15 @@ const coursesCollection = defineCollection({
 });
 
 const blogsCollection = defineCollection({
-  schema: z.object({
-    title: z.string(),
-    coverImage: z.string(),
-    pubDate: z.date(),
-    description: z.string(),
-    youTubeVideoId: z.string().optional(),
-    tags: z.array(z.string()),
-  }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      coverImage: image(),
+      pubDate: z.date(),
+      description: z.string(),
+      youTubeVideoId: z.string().optional(),
+      tags: z.array(z.string()),
+    }),
 });
 
 export const collections = {

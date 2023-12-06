@@ -1,6 +1,5 @@
 ---
-import Button, { ButtonType } from "./Button.astro";
-import { Image } from "@astrojs/image/components";
+import { Image } from "astro:assets";
 import discordCard from "../images/about/discord.png";
 import compressedCard from "../images/about/compressed.png";
 import Section from "./Section.astro";
@@ -23,7 +22,7 @@ const subtitle = "Developer. Speaker. Teacher.";
           rel="noopener noreferrer"
         >
           <Image
-            src={compressedCard.src}
+            src={compressedCard}
             alt="Compressed.fm Podcast"
             height={356}
             width={686}
@@ -39,7 +38,7 @@ const subtitle = "Developer. Speaker. Teacher.";
         rel="noopener noreferrer"
       >
         <Image
-          src={discordCard.src}
+          src={discordCard}
           alt="Learn Build Teach Discord"
           height={356}
           width={686}

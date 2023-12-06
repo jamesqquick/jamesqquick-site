@@ -23,7 +23,7 @@ const talks = await getSortedTalks();
               {talk.data.title}
             </h3>
             <p class="opacity-60 text-sm">
-              {talk.data.date.toLocaleDateString("en-us", {
+              {talk.data.pubDate.toLocaleDateString("en-us", {
                 year: "numeric",
                 month: "short",
               })}

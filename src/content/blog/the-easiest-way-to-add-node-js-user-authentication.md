@@ -1,7 +1,7 @@
 ---
 title: The Easiest Way to Add Node.js User Authentication
 slug: the-easiest-way-to-add-node-js-user-authentication
-coverImage: /images/posts/the-easiest-way-to-add-node-js-user-authentication/cover.jpeg
+coverImage: ./images/the-easiest-way-to-add-node-js-user-authentication/cover.jpeg
 pubDate: 2020-10-28
 description: The easiest way to add user authentication in your Node.js apps. We will use Auth0 to do the hard work of authentication and then add the Express OpenID Connect library to our Node.js app to trigger login/logout workflows, protecting API routes, etc.
 youTubeVideoId: QQwo4E_B0y8

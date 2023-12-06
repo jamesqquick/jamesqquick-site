@@ -1,7 +1,7 @@
 ---
 title: JavaScript Trends in 2023
 slug: javascript-trends-2023
-coverImage: /images/posts/javascript-trends-2023/cover.jpg
+coverImage: ./images/javascript-trends-2023/cover.jpg
 pubDate: 2023-02-15
 description: Here are five trends in JavaScript to keep an eye out for this year!
 youTubeVideoId: 8SgwWpm8M4Y

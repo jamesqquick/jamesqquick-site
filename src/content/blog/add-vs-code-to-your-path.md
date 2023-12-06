@@ -1,7 +1,7 @@
 ---
 title: Add VS Code To Your Path
 slug: add-vs-code-to-your-path
-coverImage: /images/posts/add-vs-code-to-your-path/cover.png
+coverImage: ./images/add-vs-code-to-your-path/cover.png
 pubDate: 2020-01-28
 description: Learn how to add VS Code to your path so you can open it from the terminal.
 tags:

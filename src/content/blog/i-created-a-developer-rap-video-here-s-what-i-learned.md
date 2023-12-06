@@ -1,7 +1,7 @@
 ---
 title: I Created a Developer Rap Video - Here's What I Learned
 slug: i-created-a-developer-rap-video-here-s-what-i-learned
-coverImage: /images/posts/i-created-a-developer-rap-video-here-s-what-i-learned/cover.png
+coverImage: ./images/i-created-a-developer-rap-video-here-s-what-i-learned/cover.png
 pubDate: 2021-07-23
 description: I created a developer rap video. Here's what I learned.
 youTubeVideoId: ZdAr4DQD-nA

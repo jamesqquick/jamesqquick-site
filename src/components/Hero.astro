@@ -1,6 +1,6 @@
 ---
 import selfie from "../images/selfie.png";
-import { Picture } from "@astrojs/image/components";
+import { Image } from "astro:assets";
 
 export interface Props {
   title: string;
@@ -42,11 +42,10 @@ const {
     </div>
     {
       hasImage && (
-        <Picture
+        <Image
           src={selfie}
-          sizes="600px"
-          widths={[800]}
-          aspectRatio="1:1"
+          height={1080 / 2}
+          width={1920 / 2}
           class="md:-mt-20 xl:mt-0 w-full xl:w-[800px] max-w-[600px] xl:max-w-[700px] mx-auto"
           alt="James Q Quick selfie"
           format="webp"

@@ -1,7 +1,7 @@
 ---
 title: Querying Multiple Datasets with Gatsby Source Filesystem
 slug: multiple-datasets-with-gatsby-source-filesystem
-coverImage: /images/posts/multiple-datasets-with-gatsby-source-filesystem/cover.png
+coverImage: ./images/multiple-datasets-with-gatsby-source-filesystem/cover.png
 pubDate: 2020-01-24
 description: Learn how to query multiple different data sets in Gatsby with the Gatsby Source Filesystem plugin.
 tags:

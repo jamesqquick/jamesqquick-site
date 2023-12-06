@@ -1,9 +1,10 @@
 ---
 title: Settings Sync is Built Into Visual Studio Code Now
 slug: settings-sync-in-visual-studio-code
-coverImage: /images/posts/settings-sync-in-visual-studio-code/cover.png
+coverImage: ./images/settings-sync-in-visual-studio-code/cover.png
 pubDate: 2020-09-15
-description: You no longer have to download the Settings Sync extension in Visual Studio
+description:
+  You no longer have to download the Settings Sync extension in Visual Studio
   Code.
 youTubeVideoId: 3dsq39DEgZ8
 tags:

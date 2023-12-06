@@ -1,7 +1,7 @@
 ---
 title: Best Browser For Web Developers?
 slug: browser-web-developers
-coverImage: /images/posts/browser-web-developers/Front Matter.jpg
+coverImage: ./images/browser-web-developers/Front Matter.jpg
 pubDate: 2023-03-12T20:25:26.922Z
 description: Polypane is a new browser with amazing developer features.
 youTubeVideoId: hyDtibu3mSo

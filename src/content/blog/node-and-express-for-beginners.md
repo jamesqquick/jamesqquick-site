@@ -1,7 +1,7 @@
 ---
 title: Node and Express for Beginners
 slug: node-and-express-for-beginners
-coverImage: /images/posts/node-and-express-for-beginners/cover.png
+coverImage: ./images/node-and-express-for-beginners/cover.png
 pubDate: 2019-10-12
 description: Let's learn how to create a server with Node and Express
 youTubeVideoId: tGys_vYNbF4

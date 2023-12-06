@@ -1,7 +1,7 @@
 ---
 title: How I Prepare for Conference Talks
 slug: how-i-prepare-for-conference-talks
-coverImage: /images/posts/how-i-prepare-for-conference-talks/cover.png
+coverImage: ./images/how-i-prepare-for-conference-talks/cover.png
 pubDate: 2019-08-26
 description: Last week I was asked how I prepare for conference talks, and here's how I do it.
 tags:

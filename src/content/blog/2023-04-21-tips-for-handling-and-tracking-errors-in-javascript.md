@@ -1,7 +1,7 @@
 ---
 title: Tips For Handling and Tracking Errors in JavaScript
 slug: tips-handling-tracking-errors-javascript
-coverImage: /images/posts/tips-handling-tracking-errors-javascript/cover.jpeg
+coverImage: ./images/tips-handling-tracking-errors-javascript/cover.jpeg
 pubDate: 2023-04-21T18:57:48.746Z
 description: "Learn to handle and track errors more efficiently in JavaScript"
 youTubeVideoId: mrJ-mK8shYQ

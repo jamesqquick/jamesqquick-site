@@ -1,7 +1,7 @@
 ---
 title: I Got Corrected on My Second Day, and I Loved It
 slug: i-got-corrected-on-my-second-day
-coverImage: /images/posts/i-got-corrected-on-my-second-day/cover.jpg
+coverImage: ./images/i-got-corrected-on-my-second-day/cover.jpg
 pubDate: 2020-01-21
 description: On my second day at Auth0, I got a very impactful message from upper management.
 tags:

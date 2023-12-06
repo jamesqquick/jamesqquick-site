@@ -1,7 +1,7 @@
 ---
 title: I Tried Astro - 5 Reasons Why I Love It!
 slug: i-tried-astro
-coverImage: /images/posts/i-tried-astro/cover.png
+coverImage: ./images/i-tried-astro/cover.png
 pubDate: 2022-09-08
 description: I recently tried Astro framework for the first time, and it's amazing!
 youTubeVideoId: wND4lSml31A

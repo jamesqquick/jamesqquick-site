@@ -1,7 +1,7 @@
 ---
 title: My Terminal Has SUPER Powers!
 slug: my-terminal-has-super-powers
-coverImage: /images/posts/my-terminal-has-super-powers/cover.png
+coverImage: ./images/my-terminal-has-super-powers/cover.png
 pubDate: 2022-01-25
 description: This plugin is amazing! I recently tried the Fig.io plugin for my terminal and it is AWESOME. You can get autocomplete and IntelliSense just like you do inside of VS Code right inside of your terminal.
 youTubeVideoId: nVEPbUsFYxk

@@ -1,7 +1,7 @@
 ---
 title: Must Have SvelteKit Extension for VS Code - SvelteKit Snippets
 slug: must-have-sveltekit-extension-for-vs-code-sveltekit-snippets
-coverImage: /images/posts/must-have-sveltekit-extension-for-vs-code-sveltekit-snippets/cover.png
+coverImage: ./images/must-have-sveltekit-extension-for-vs-code-sveltekit-snippets/cover.png
 pubDate: 2022-01-06
 description: SvelteKit is one of the best frameworks out there, and working with it just got much much easier!
 youTubeVideoId: uY6hN96AIFo

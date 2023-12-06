@@ -1,7 +1,7 @@
 ---
 title: Goals for 2022
 slug: goals-for-2022
-coverImage: /images/posts/goals-for-2022/cover.png
+coverImage: ./images/goals-for-2022/cover.png
 pubDate: 2022-01-07
 description: I'm so excited and optimistic for 2022!
 tags:

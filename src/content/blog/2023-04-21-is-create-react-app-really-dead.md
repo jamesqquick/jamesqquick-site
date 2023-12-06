@@ -1,7 +1,7 @@
 ---
 title: Is Create React App Really Dead?
 slug: create-react-app-dead
-coverImage: /images/posts/create-react-app-dead/cover.jpeg
+coverImage: ./images/create-react-app-dead/cover.jpeg
 pubDate: 2023-04-21T19:16:51.265Z
 description: Create React App makes up 40% of projects depoyed to Netlify. Is it really dead?
 youTubeVideoId: A2kWoKnpy1U

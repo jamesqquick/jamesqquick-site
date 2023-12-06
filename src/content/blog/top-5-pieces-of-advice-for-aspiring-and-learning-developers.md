@@ -1,7 +1,7 @@
 ---
 title: Top 5 Pieces of Advice for Aspiring and Learning Developers
 slug: top-5-pieces-of-advice-for-aspiring-and-learning-developers
-coverImage: /images/posts/top-5-pieces-of-advice-for-aspiring-and-learning-developers/cover.jpg
+coverImage: ./images/top-5-pieces-of-advice-for-aspiring-and-learning-developers/cover.jpg
 pubDate: 2020-09-22
 description: Here are my top five pieces of advice for aspiring and learning developers.
 youTubeVideoId: V4UYuvegsTg

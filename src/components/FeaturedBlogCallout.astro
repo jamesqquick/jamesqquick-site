@@ -1,6 +1,7 @@
 ---
 import { CollectionEntry } from "astro:content";
 import Section from "./Section.astro";
+import { Image } from "astro:assets";
 
 export interface Props {
   post: CollectionEntry<"blog">;
@@ -11,8 +12,15 @@ const { post } = Astro.props as Props;
 
 <Section hasYPadding={false}>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-    <img src={post.data.coverImage} class="rounded-2xl" />
-
+    <a href={`/blog/${post.slug}`}>
+      <Image
+        height={540}
+        width={960}
+        src={post.data.coverImage}
+        class="rounded-2xl"
+        alt={post.data.title}
+      />
+    </a>
     <div>
       <p class="text-lg uppercase text-brand">Featured</p>
       <a href={`/blog/${post.slug}`}>

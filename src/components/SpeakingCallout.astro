@@ -1,48 +1,52 @@
 ---
-import { Image } from "@astrojs/image/components";
 import { getCollection } from "astro:content";
 import speaking from "../images/speaking/speaking.jpg";
 import Button, { ButtonType } from "./Button.astro";
 import Testimonial from "./speaking/Testimonial.astro";
+import { Image } from "astro:assets";
 
 const testimonials = await getCollection("testimonial");
 ---
 
-<section class="flex flex-col xl:flex-row items-center bg-bgLight">
-  <div class="px-8 md:px-10 py-20">
-    <h2 class="text-4xl mb-2">
-      <span
-        class="block text-brand text-2xl text-light tracking-widest uppercase font-light"
-        >Speaking</span
-      >
-    </h2>
-    <p class="mb-6 text-4xl leading-[50px] font-bold">
-      I use my voice to teach and inspire the Developer community.
-    </p>
-    <p class="mb-12">
-      I've had the priveledge of sharing my experiences at conferences across
-      the world. From modern web development to career growth and personal
-      development, I aim to inspire and educate my fellow developers.
-    </p>
-    <div class="flex flex-col md:flex-row gap-y-4 lg:flex-row gap-x-4 mb-20">
-      <Button
-        text="Previous talks"
-        href="/speaking"
-        isLink
-        type={ButtonType.SECONDARY}
-      />
-      <Button
-        text="Invite me to speak"
-        href="/speaking"
-        isLink
-        type={ButtonType.PRIMARY}
-      />
+<section class="bg-bgLight px-2">
+  <div class="max-w-6xl mx-auto">
+    <div class="px-8 md:px-10 py-20">
+      <h2 class="text-4xl mb-2">
+        <span
+          class="block text-brand text-2xl text-light tracking-widest uppercase font-light"
+          >Speaking</span
+        >
+      </h2>
+      <p class="mb-6 text-4xl leading-[50px] font-bold">
+        I use my voice to teach and inspire the Developer community.
+      </p>
+      <p class="mb-12">
+        I've had the priveledge of sharing my experiences at conferences across
+        the world. From modern web development to career growth and personal
+        development, I aim to inspire and educate my fellow developers.
+      </p>
+      <div class="flex flex-col md:flex-row gap-y-4 lg:flex-row gap-x-4 mb-20">
+        <Button
+          text="Previous talks"
+          href="/speaking"
+          isLink
+          type={ButtonType.SECONDARY}
+        />
+        <Button
+          text="Invite me to speak"
+          href="/speaking"
+          isLink
+          type={ButtonType.PRIMARY}
+        />
+      </div>
+      <Testimonial testimonial={testimonials[0]} isShort={true} />
     </div>
-    <Testimonial testimonial={testimonials[0]} isShort={true} />
+    <!-- <Image
+            src={speaking}
+            width={670}
+            height={800}
+            alt={"James speaking at a conference"}
+            class="max-w-2xl order-first xl:order-none my-0 md:my-10 xl:my-0 rounded-none md:rounded-md xl:rounded-none"
+            /> -->
   </div>
-  <Image
-    src={speaking}
-    alt={"James speaking at a conference"}
-    class="max-w-2xl order-first xl:order-none my-0 md:my-10 xl:my-0 rounded-none md:rounded-md xl:rounded-none"
-  />
 </section>

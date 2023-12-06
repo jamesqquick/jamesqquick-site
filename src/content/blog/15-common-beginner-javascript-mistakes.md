@@ -1,7 +1,7 @@
 ---
 title: 15 Common Beginner JavaScript Mistakes
 slug: 15-common-beginner-javascript-mistakes
-coverImage: /images/posts/15-common-beginner-javascript-mistakes/cover.png
+coverImage: ./images/15-common-beginner-javascript-mistakes/cover.png
 pubDate: 2022-07-19
 description: Here are the 15 most common mistakes I've seen beginner JavaScript developers make.
 youTubeVideoId: pWnJY_Wkde4

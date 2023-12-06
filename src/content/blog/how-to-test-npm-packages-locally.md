@@ -1,7 +1,7 @@
 ---
 title: How To Test NPM Packages Locally
 slug: how-to-test-npm-packages-locally
-coverImage: /images/posts/how-to-test-npm-packages-locally/cover.png
+coverImage: ./images/how-to-test-npm-packages-locally/cover.png
 pubDate: 2020-06-23
 description: Learn how to test your NPM packages locally before publishing.
 youTubeVideoId: Knw8U5XyHaM

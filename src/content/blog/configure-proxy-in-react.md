@@ -1,7 +1,7 @@
 ---
 title: Configure a Proxy in React
 slug: configure-proxy-in-react
-coverImage: /images/posts/configure-proxy-in-react/cover.png
+coverImage: ./images/configure-proxy-in-react/cover.png
 pubDate: 2020-02-26
 description: Learn how to configure a proxy in your React applications.
 tags:

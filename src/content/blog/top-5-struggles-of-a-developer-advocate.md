@@ -1,7 +1,7 @@
 ---
 title: Top 5 Struggles of a Developer Advocate
 slug: top-5-struggles-of-a-developer-advocate
-coverImage: /images/posts/top-5-struggles-of-a-developer-advocate/cover.png
+coverImage: ./images/top-5-struggles-of-a-developer-advocate/cover.png
 pubDate: 2022-05-17
 description: Let's look at the top 5 struggles I have as a Developer Advocate.
 tags:

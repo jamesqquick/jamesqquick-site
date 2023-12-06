@@ -1,5 +1,4 @@
 ---
-import { Picture } from "@astrojs/image/components";
 import Button from "./Button.astro";
 import selfie from "../images/selfie-lg.jpeg";
 ---
@@ -31,14 +30,6 @@ import selfie from "../images/selfie-lg.jpeg";
     </p>
   </div>
   <div>
-    <Picture
-      src={selfie}
-      alt="Selfie of James Q Quick"
-      sizes="(max-width:800px) 100vw, 800px"
-      widths={[400, 800, 1600]}
-      aspectRatio="1:1"
-      class="mb-8"
-    />
     <Button
       classStr="mt-4 inline-block"
       text="Download Headshot"

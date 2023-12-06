@@ -1,4 +1,5 @@
 ---
+import { getImage } from "astro:assets";
 import ArticleHeader from "../components/ArticleHeader.astro";
 import BaseLayout from "./BaseLayout.astro";
 
@@ -7,25 +8,24 @@ export interface Props {
     title: string;
     description: string;
     pubDate: Date;
-    date: Date;
-    coverImage: string;
+    coverImage: {
+      src: string;
+      width: number;
+      height: number;
+      format: "png" | "jpg" | "jpeg" | "tiff" | "webp" | "gif" | "svg" | "avif";
+    };
     youTubeVideoId?: string;
   };
 }
 
 const {
-  frontmatter: {
-    title,
-    description,
-    pubDate,
-    youTubeVideoId,
-    coverImage,
-    date,
-  },
+  frontmatter: { title, description, pubDate, youTubeVideoId, coverImage },
 } = Astro.props as Props;
+
+const { src: imageURL } = await getImage({ src: coverImage });
 ---
 
-<BaseLayout title={title} description={description} image={coverImage}>
+<BaseLayout title={title} description={description} image={imageURL}>
   <main class="max-w-6xl mx-auto px-8">
     <article
       class="prose prose-invert prose-xl max-w-none prose-h2:text-brand prose-img:rounded-lg prose-p:text-white"
@@ -33,7 +33,7 @@ const {
       <ArticleHeader
         coverImage={coverImage}
         title={title}
-        date={pubDate || date}
+        date={pubDate}
         youTubeVideoId={youTubeVideoId}
       />
       <slot />

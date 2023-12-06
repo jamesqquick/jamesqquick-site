@@ -1,14 +1,21 @@
 ---
+import { Image } from "astro:assets";
 import { getFormattedDate } from "../utils/dates";
 import YouTube from "./YouTube.astro";
 export interface Props {
   youTubeVideoId?: string;
-  coverImage: string;
+  coverImage: {
+    src: string;
+    width: number;
+    height: number;
+    format: "png" | "jpg" | "jpeg" | "tiff" | "webp" | "gif" | "svg" | "avif";
+  };
   title: string;
   date: Date;
 }
 
 const { youTubeVideoId, coverImage, title, date } = Astro.props;
+
 let titleParts: string[] = [];
 if (title.includes("-")) {
   titleParts = title.split("-");
@@ -30,11 +37,11 @@ if (title.includes("-")) {
   {youTubeVideoId && <YouTube id={youTubeVideoId} />}
   {
     coverImage && !youTubeVideoId && (
-      <img
+      <Image
         src={coverImage}
         alt={title}
-        width="1920"
-        height="1080"
+        width={1920 * (2 / 3)}
+        height={1080 * (2 / 3)}
         class="rounded-lg"
       />
     )

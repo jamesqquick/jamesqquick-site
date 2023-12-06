@@ -1,7 +1,7 @@
 ---
 title: How I Used ChatGPT In My JavaScript Projects
 slug: 5-ways-chatgpt-javascript-projects
-coverImage: /images/posts/5-ways-chatgpt-javascript-projects/cover.jpeg
+coverImage: ./images/5-ways-chatgpt-javascript-projects/cover.jpeg
 pubDate: 2023-03-29T16:07:57.150Z
 description: 5 ways I've used ChatGPT in my recent projects.
 youTubeVideoId: 7_FHP691q5g

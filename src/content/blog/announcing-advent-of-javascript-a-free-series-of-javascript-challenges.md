@@ -1,7 +1,7 @@
 ---
 title: Announcing Advent of JavaScript - A FREE Series of JavaScript Challenges
 slug: announcing-advent-of-javascript-a-free-series-of-javascript-challenges
-coverImage: /images/posts/announcing-advent-of-javascript-a-free-series-of-javascript-challenges/cover.png
+coverImage: ./images/announcing-advent-of-javascript-a-free-series-of-javascript-challenges/cover.png
 pubDate: 2021-12-08
 description: Announcing Advent of JavaScript - A FREE Series of JavaScript Challenges
 tags:

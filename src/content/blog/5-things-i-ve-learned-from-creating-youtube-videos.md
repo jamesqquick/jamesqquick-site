@@ -1,7 +1,7 @@
 ---
 title: 5 Things I've Learned From Creating YouTube Videos
 slug: 5-things-i-ve-learned-from-creating-youtube-videos
-coverImage: /images/posts/5-things-i-ve-learned-from-creating-youtube-videos/cover.png
+coverImage: ./images/5-things-i-ve-learned-from-creating-youtube-videos/cover.png
 pubDate: 2020-11-10
 description: Creating YouTube videos has changed my life. Here's 5 things I've learned!
 youTubeVideoId: 4T-QwWnuHkc

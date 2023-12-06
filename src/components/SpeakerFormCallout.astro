@@ -1,9 +1,9 @@
 ---
-import { Picture } from "@astrojs/image/components";
-import Button from "./Button.astro";
 import Section from "./Section.astro";
 import SpeakerForm from "./speaking/SpeakerForm.svelte";
 import selfie from "../images/selfie-lg.jpeg";
+import { Image } from "astro:assets";
+import Link from "./Link.astro";
 ---
 
 <Section hasYPadding={false} classStr="pb-20">
@@ -12,10 +12,17 @@ import selfie from "../images/selfie-lg.jpeg";
       <p class="mb-2 text-4xl leading-[50px] font-bold">
         Want me to speak at your event?
       </p>
-      <p class="text-xl opacity-80 mb-12">
-        I’d be honored to! Please fill out the speaker form to initiate the
-        process and let's make it happen
+      <p class="text-xl opacity-80 mb-4">
+        Please first read through my <Link
+          text="Speaker Rider"
+          isFancy={true}
+          href="/speaking/rider"
+          classStr="font-bold"
+        />
+        first to make sure it's a good fit. Then, fill out the speaker form to initiate
+        the process and let's make it happen.
       </p>
+      <p class="text-xl mb-12">Thank you so much for considering me!</p>
       <h2
         class="mb-2 block text-brand text-2xl text-light tracking-widest uppercase font-bold"
       >
@@ -24,21 +31,24 @@ import selfie from "../images/selfie-lg.jpeg";
       <div class="mb-10">
         <p class="text-lg underline underline-offset-4 mb-4">Speaker Bio</p>
         <p>
-          James is a JavaScript Developer, Speaker, and Teacher with a passion
-          for teaching developers through content. He is a full-time Technical
-          Content Creator with years of experience in Software Development and
-          Developer Advocacy. In his spare time, he runs a YouTube channel,
-          plays co-ed soccer with his wife, spends time with his dogs, and can
-          solve a Rubik's cube in under a minute.
+          James is a JS Developer, Keynote Speaker, and Content Creator whose
+          passion for teaching has impacted hundreds of thousands of developers
+          across the world. With 10+ years of Software Development and Developer
+          Advocacy experience, he brings deep technical knowledge as well as a
+          proven ability to communicate across levels of understanding and
+          experience to impact a broad audience of developers. In his spare
+          time, he runs a thriving Discord community called Learn Build Teach,
+          plays co-ed soccer with his wife, and can solve a Rubik's cube in
+          under a minute.
         </p>
       </div>
-      <Picture
+      <Image
         src={selfie}
         alt="Selfie of James Q Quick"
-        sizes="(max-width:800px) 100vw, 800px"
-        widths={[400]}
-        aspectRatio="1:1"
-        class="mb-4 rounded-lg h-48 w-48"
+        width={426}
+        height={284}
+        format="webp"
+        class="mb-4 rounded-lg"
       />
       <a href="/images/selfie-square.jpeg" class="underline underline-offset-4"
         >Download headshot</a

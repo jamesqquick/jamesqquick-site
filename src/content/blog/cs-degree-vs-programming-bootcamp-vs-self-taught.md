@@ -1,7 +1,7 @@
 ---
 title: CS Degree vs Programming Bootcamp vs Self-taught
 slug: cs-degree-vs-programming-bootcamp-vs-self-taught
-coverImage: /images/posts/cs-degree-vs-programming-bootcamp-vs-self-taught/cover.png
+coverImage: ./images/cs-degree-vs-programming-bootcamp-vs-self-taught/cover.png
 pubDate: 2020-04-09
 description: Let's discuss the pros and cons of a Computer Science Degree vs a Programming Bootcamp vs being self-taught.
 youTubeVideoId: Hu_ySRAHyPw

@@ -1,0 +1,27 @@
+---
+import { getImage } from "astro:assets";
+import ArticleHeader from "../components/ArticleHeader.astro";
+import BaseLayout from "./BaseLayout.astro";
+
+export interface Props {
+  frontmatter: {
+    title: string;
+    description: string;
+  };
+}
+
+const {
+  frontmatter: { title, description },
+} = Astro.props as Props;
+---
+
+<BaseLayout title={title} description={description}>
+  <main class="max-w-6xl mx-auto px-8">
+    <article
+      class="prose prose-invert prose-xl max-w-none prose-h2:text-brand prose-img:rounded-lg prose-p:text-white"
+    >
+      <h1>{title}</h1>
+      <slot />
+    </article>
+  </main>
+</BaseLayout>

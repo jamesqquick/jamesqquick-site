@@ -1,7 +1,7 @@
 ---
 title: Build a JavaScript Search Bar
 slug: build-a-javascript-search-bar
-coverImage: /images/posts/build-a-javascript-search-bar/cover.png
+coverImage: ./images/build-a-javascript-search-bar/cover.png
 pubDate: 2020-02-04
 description: Learn how to build a search bar in JavaScript to search/filter through data.
 youTubeVideoId: wxz5vJ1BWrc
