@@ -3,13 +3,9 @@ import { getCollection } from "astro:content";
 import LinkCard from "../components/LinkCard.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { getSortedCourses } from "../utils/contentCollections";
-import Hero from "../components/Hero.astro";
 import CoursesCallout from "../components/CoursesCallout.astro";
-import Section from "../components/Section.astro";
 
 export const prerender = true;
-
-const courses = await getSortedCourses();
 ---
 
 <BaseLayout title="Courses | James Q Quick">

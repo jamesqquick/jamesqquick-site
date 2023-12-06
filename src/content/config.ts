@@ -15,7 +15,7 @@ const talksCollection = defineCollection({
     conferenceLocation: z.string(),
     conferenceLink: z.string(),
     conferenceLogo: z.string(),
-    videoLink: z.string().optional(),
+    youTubeVideoId: z.string().optional(),
     title: z.string(),
     pubDate: z.date(),
     slidesLink: z.string().optional(),
@@ -23,15 +23,16 @@ const talksCollection = defineCollection({
 });
 
 const coursesCollection = defineCollection({
-  schema: z.object({
-    title: z.string(),
-    coverImage: z.string(),
-    pubDate: z.date(),
-    description: z.string(),
-    youTubeVideoId: z.string().optional(),
-    featured: z.boolean().optional(),
-    link: z.string().optional(),
-  }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      coverImage: image(),
+      pubDate: z.date(),
+      description: z.string(),
+      youTubeVideoId: z.string().optional(),
+      featured: z.boolean().optional(),
+      link: z.string().optional(),
+    }),
 });
 
 const blogsCollection = defineCollection({

@@ -3,23 +3,29 @@ import ArticleHeader from "../components/ArticleHeader.astro";
 import BaseLayout from "./BaseLayout.astro";
 
 export interface Props {
-  content: {
+  frontmatter: {
     title: string;
-    description: string;
     pubDate: Date;
-    coverImage: string;
-    youTubeVideoId?: string;
+    conferenceName: string;
+    conferenceLocation: string;
+    conferenceLink: string;
+    conferenceLogo: string;
+    youTubeVideoId?: string | undefined;
+    slidesLink?: string | undefined;
   };
 }
 
 const {
-  content: { title, description, pubDate, youTubeVideoId, coverImage },
+  frontmatter: { title, pubDate, youTubeVideoId },
 } = Astro.props as Props;
+console.log(title, youTubeVideoId);
 ---
 
-<BaseLayout title={title} description={description} image={coverImage}>
-  <main>
-    <article class="prose prose-xl">
+<BaseLayout title={title} description={title}>
+  <main class="max-w-6xl mx-auto px-8">
+    <article
+      class="prose prose-invert prose-xl max-w-none prose-h2:text-brand prose-img:rounded-lg prose-p:text-white"
+    >
       <ArticleHeader
         title={title}
         date={pubDate}

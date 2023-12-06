@@ -1,6 +1,6 @@
 ---
 title: Learn Visual Studio Code
-coverImage: /images/courses/learn-visual-studio-code/cover.png
+coverImage: ./cover.png
 pubDate: 2020-01-10
 description: Learn everything you need to know about Visual Studio Code!
 type: Course

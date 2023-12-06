@@ -1,7 +1,7 @@
 ---
 import { CollectionEntry, getCollection } from "astro:content";
-import BlogPostLayout from "../../layouts/BlogPostLayout.astro";
 import { Icon } from "astro-icon";
+import TalkLayout from "../../layouts/TalkLayout.astro";
 
 export const prerender = true;
 
@@ -19,9 +19,10 @@ export interface Props {
 
 const { entry } = Astro.props;
 const { Content } = await entry.render();
+console.log(entry);
 ---
 
-<BlogPostLayout frontmatter={entry.data}>
+<TalkLayout frontmatter={entry.data}>
   {
     entry.data.slidesLink && (
       <a href={entry.data.slidesLink} class="cursor-pointer no-underline">
@@ -34,4 +35,4 @@ const { Content } = await entry.render();
     )
   }
   <Content />
-</BlogPostLayout>
+</TalkLayout>

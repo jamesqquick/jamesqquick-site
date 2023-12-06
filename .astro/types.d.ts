@@ -705,44 +705,44 @@ declare module 'astro:content' {
 } & { render(): Render[".md"] };
 };
 "course": {
-"build-a-quiz-app-with-html-css-and-javascript.md": {
-	id: "build-a-quiz-app-with-html-css-and-javascript.md";
-  slug: "build-a-quiz-app-with-html-css-and-javascript";
+"courses/build-a-quiz-app-with-html-css-and-javascript/build-a-quiz-app-with-html-css-and-javascript.md": {
+	id: "courses/build-a-quiz-app-with-html-css-and-javascript/build-a-quiz-app-with-html-css-and-javascript.md";
+  slug: "courses/build-a-quiz-app-with-html-css-and-javascript/build-a-quiz-app-with-html-css-and-javascript";
   body: string;
   collection: "course";
   data: InferEntrySchema<"course">
 } & { render(): Render[".md"] };
-"build-moder-websites-with-astro.md": {
-	id: "build-moder-websites-with-astro.md";
-  slug: "build-moder-websites-with-astro";
+"courses/design-and-build-a-chat-app-with-socket-io/design-and-build-a-chat-app-with-socket-io.md": {
+	id: "courses/design-and-build-a-chat-app-with-socket-io/design-and-build-a-chat-app-with-socket-io.md";
+  slug: "courses/design-and-build-a-chat-app-with-socket-io/design-and-build-a-chat-app-with-socket-io";
   body: string;
   collection: "course";
   data: InferEntrySchema<"course">
 } & { render(): Render[".md"] };
-"design-and-build-a-chat-app-with-socket-io.md": {
-	id: "design-and-build-a-chat-app-with-socket-io.md";
-  slug: "design-and-build-a-chat-app-with-socket-io";
+"courses/fullstack-react-and-firebase/fullstack-react-and-firebase.md": {
+	id: "courses/fullstack-react-and-firebase/fullstack-react-and-firebase.md";
+  slug: "courses/fullstack-react-and-firebase/fullstack-react-and-firebase";
   body: string;
   collection: "course";
   data: InferEntrySchema<"course">
 } & { render(): Render[".md"] };
-"fullstack-react-and-firebase.md": {
-	id: "fullstack-react-and-firebase.md";
-  slug: "fullstack-react-and-firebase";
+"courses/learn-visual-studio-code/learn-visual-studio-code.md": {
+	id: "courses/learn-visual-studio-code/learn-visual-studio-code.md";
+  slug: "courses/learn-visual-studio-code/learn-visual-studio-code";
   body: string;
   collection: "course";
   data: InferEntrySchema<"course">
 } & { render(): Render[".md"] };
-"learn-visual-studio-code.md": {
-	id: "learn-visual-studio-code.md";
-  slug: "learn-visual-studio-code";
+"courses/modern-websites-with-astro/build-modern-websites-with-astro.md": {
+	id: "courses/modern-websites-with-astro/build-modern-websites-with-astro.md";
+  slug: "courses/modern-websites-with-astro/build-modern-websites-with-astro";
   body: string;
   collection: "course";
   data: InferEntrySchema<"course">
 } & { render(): Render[".md"] };
-"react-and-serverless-fullstack-developmnent.md": {
-	id: "react-and-serverless-fullstack-developmnent.md";
-  slug: "react-and-serverless-fullstack-developmnent";
+"courses/react-and-serverless-fullstack-developmnent/react-and-serverless-fullstack-developmnent.md": {
+	id: "courses/react-and-serverless-fullstack-developmnent/react-and-serverless-fullstack-developmnent.md";
+  slug: "courses/react-and-serverless-fullstack-developmnent/react-and-serverless-fullstack-developmnent";
   body: string;
   collection: "course";
   data: InferEntrySchema<"course">

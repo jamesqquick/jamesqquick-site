@@ -3,7 +3,7 @@ import { getSortedCourses } from "../utils/contentCollections";
 import HLineText from "./HLineText.astro";
 import Link from "./Link.astro";
 import Section from "./Section.astro";
-
+import { Image } from "astro:assets";
 const courses = (await getSortedCourses()).slice(0, 4);
 const featuredCourse = courses.splice(0, 1)[0];
 
@@ -24,9 +24,12 @@ const description = `Looking to take your web development skills to the next lev
         <div class="mb-20">
           <div class="flex flex-col lg:flex-row gap-x-10 lg:items-center gap-y-8">
             <div class="w-full lg:w-1/2">
-              <img
+              <Image
                 src={featuredCourse.data.coverImage}
                 alt={featuredCourse.data.title}
+                height={1080 / 2}
+                width={1920 / 2}
+                format="webp"
                 class="w-full rounded-lg"
               />
             </div>
@@ -54,7 +57,10 @@ const description = `Looking to take your web development skills to the next lev
       {
         courses.map((course) => (
           <div class="flex gap-x-8 lg:gap-x-2 items-center lg:justify-between">
-            <img
+            <Image
+              height={256}
+              width={256}
+              format="webp"
               src={course.data.coverImage}
               alt={course.data.title}
               class=" rounded-lg h-16 w-16 object-cover border border-white"
