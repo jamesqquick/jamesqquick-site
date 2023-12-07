@@ -16,7 +16,7 @@
     "@astrojs/tailwind": "^5.0.3",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/typography": "^0.5.10",
-    "astro": "^4.0.2",
+    "astro": "^4.0.3",
     "prettier-plugin-astro": "^0.8.0"
   },
   "dependencies": {
