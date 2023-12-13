@@ -1,8 +1,9 @@
 import type { APIRoute } from "astro";
 import { validateEmail } from "../../../utils/newsletter";
 
-export const post: APIRoute = async (context) => {
+export const POST: APIRoute = async (context) => {
   const newsletterId = context.url.searchParams.get("id");
+  console.log(newsletterId);
   const headers = {
     "Access-Control-Allow-Origin": "*",
     "Access-Control-Allow-Methods": "POST, OPTIONS",
