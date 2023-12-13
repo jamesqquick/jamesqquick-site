@@ -2,7 +2,7 @@ import { APIRoute } from "astro";
 import { validateEmail } from "../../utils/newsletter";
 import { sendEmail } from "../../utils/emailer";
 
-export const post: APIRoute = async (context) => {
+export const POST: APIRoute = async (context) => {
   const formData = await context.request.formData();
   const email = formData.get("email")?.valueOf();
   const eventName = formData.get("eventName")?.valueOf();
