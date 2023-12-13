@@ -3,7 +3,6 @@ import { validateEmail } from "../../../utils/newsletter";
 
 export const POST: APIRoute = async (context) => {
   const newsletterId = context.url.searchParams.get("id");
-  console.log(newsletterId);
   const headers = {
     "Access-Control-Allow-Origin": "*",
     "Access-Control-Allow-Methods": "POST, OPTIONS",
@@ -36,6 +35,7 @@ export const POST: APIRoute = async (context) => {
     };
 
     const res = await fetch(newsletterURL, options);
+    const data = await res.text();
     if (res.status === 404) {
       return new Response(
         JSON.stringify({ msg: `Couldn't find that newsletter` }),

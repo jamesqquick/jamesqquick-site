@@ -39,7 +39,10 @@
 </script>
 
 {#if !successMsg}
-  <form on:submit|preventDefault={handleOnSubmit}>
+  <form
+    action={`https://learn.jamesqquick.com/email_lists/${newsletterId}/subscriptions`}
+    method="post"
+  >
     <div class="h-6">
       {#if errorMsg}
         <p class="text-red-400">{errorMsg}</p>
