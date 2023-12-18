@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { validateEmail } from "../../utils/newsletter";
   import { fade } from "svelte/transition";
   let email = "";
   let fullName = "";
@@ -35,62 +34,69 @@
   };
 </script>
 
-{#if successMsg}
-  <p class="text-2xl text-center" transition:fade>{successMsg}</p>
-{:else}
-  <form on:submit|preventDefault={handleSubmit} transition:fade>
-    <input name="utf8" type="hidden" value="✓" />
-    <div class="mb-10">
-      <label for="eventName" class="text-lg font-light block mb-2"
-        >*Organization or event name</label
-      >
-      <input
-        type="text"
-        name="eventName"
-        bind:value={eventName}
-        required={true}
-        class="border-2 py-4 px-2 bg-transparent grow w-full rounded-lg"
-      />
-    </div>
-    <div class="mb-10">
-      <label for="fullName" class="text-lg font-light block mb-2"
-        >*Full Name</label
-      >
-      <input
-        type="text"
-        name="fullName"
-        bind:value={fullName}
-        required={true}
-        class="border-2 py-4 px-2 bg-transparent grow w-full rounded-lg"
-      />
-    </div>
-    <div class="mb-10">
-      <label for="email" class="text-lg font-light block mb-2">*Email</label>
-      <input
-        type="email"
-        name="email"
-        bind:value={email}
-        required={true}
-        class="border-2 py-4 px-2 bg-transparent grow w-full rounded-lg"
-      />
-    </div>
-    <div class="mb-4">
-      <label for="detials" class="text-lg font-light block mb-2"
-        >*Anything else you think I should know like dates, location, etc.</label
-      >
-      <textarea
-        name="details"
-        required={true}
-        bind:value={details}
-        rows="10"
-        class="border-2 py-4 px-2 bg-transparent grow w-full rounded-lg"
-      />
-    </div>
-    <div class="h-4"><p>{errorMsg}</p></div>
-    <button
-      class={"text-2xl rounded-lg px-10 py-4 border text-white hover:text-brand hover:border-brand inline-block transition-all duration-300 ease-in-out"}
+<form on:submit|preventDefault={handleSubmit} transition:fade>
+  <input name="utf8" type="hidden" value="✓" />
+  <div class="mb-10">
+    <label for="eventName" class="text-lg font-light block mb-2"
+      >*Organization or event name</label
     >
-      Send Request
-    </button>
-  </form>
-{/if}
+    <input
+      type="text"
+      name="eventName"
+      id="eventName"
+      bind:value={eventName}
+      required={true}
+      class="border-2 py-4 px-2 bg-transparent grow w-full rounded-lg"
+    />
+  </div>
+  <div class="mb-10">
+    <label for="fullName" class="text-lg font-light block mb-2"
+      >*Full Name</label
+    >
+    <input
+      type="text"
+      id="fullName"
+      name="fullName"
+      bind:value={fullName}
+      required={true}
+      class="border-2 py-4 px-2 bg-transparent grow w-full rounded-lg"
+    />
+  </div>
+  <div class="mb-10">
+    <label for="email" class="text-lg font-light block mb-2">*Email</label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      bind:value={email}
+      required={true}
+      class="border-2 py-4 px-2 bg-transparent grow w-full rounded-lg"
+    />
+  </div>
+  <div class="mb-4">
+    <label for="detials" class="text-lg font-light block mb-2"
+      >*Anything else you think I should know like dates, location, etc.</label
+    >
+    <textarea
+      name="details"
+      id="details"
+      required={true}
+      bind:value={details}
+      rows="10"
+      class="border-2 py-4 px-2 bg-transparent grow w-full rounded-lg"
+    />
+  </div>
+
+  <button
+    class={"text-2xl rounded-lg mb-6 px-10 py-4 border text-white hover:text-brand hover:border-brand inline-block transition-all duration-300 ease-in-out"}
+  >
+    Send Request
+  </button>
+  <p class="text-2xl text-center" transition:fade>
+    {#if successMsg}
+      {successMsg}
+    {:else if errorMsg}
+      {errorMsg}
+    {/if}
+  </p>
+</form>

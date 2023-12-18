@@ -18,9 +18,9 @@ export const POST: APIRoute = async (context) => {
     !eventName ||
     typeof eventName !== "string"
   ) {
-    return new Response(
-      JSON.stringify({ msg: "Invalid request", status: 400 })
-    );
+    return new Response(JSON.stringify({ msg: "Invalid request" }), {
+      status: 400,
+    });
   }
   try {
     const subject = `Speaker Request for ${eventName} from ${fullName}`;

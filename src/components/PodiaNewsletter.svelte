@@ -52,7 +52,7 @@
     <div class="flex flex-col md:flex-row gap-4 md:gap-10 relative">
       <input
         type="email"
-        name="email"
+        id="email"
         bind:value={email}
         required={true}
         placeholder="dev@developer.com"
