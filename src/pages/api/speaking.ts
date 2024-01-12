@@ -8,6 +8,7 @@ export const POST: APIRoute = async (context) => {
   const eventName = formData.get("eventName")?.valueOf();
   const fullName = formData.get("fullName")?.valueOf();
   const details = formData.get("details")?.valueOf();
+  console.log(email, eventName, fullName, details);
   if (
     typeof email !== "string" ||
     !validateEmail(email) ||
