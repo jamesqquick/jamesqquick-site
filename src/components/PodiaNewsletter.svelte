@@ -54,6 +54,7 @@
         type="email"
         id="email"
         bind:value={email}
+        name="email"
         required={true}
         placeholder="dev@developer.com"
         class="border-2 py-6 px-6 bg-transparent grow rounded-full"
