@@ -23,16 +23,16 @@ console.log(entry);
 ---
 
 <TalkLayout frontmatter={entry.data}>
+  <Content />
   {
     entry.data.slidesLink && (
       <a href={entry.data.slidesLink} class="cursor-pointer no-underline">
         <span>Slides</span>
         <Icon
           class="inline h-6 w-6 hover:text-brand cursor-pointer"
-          name="mdi:file"
+          name="mdi:download"
         />
       </a>
     )
   }
-  <Content />
 </TalkLayout>
