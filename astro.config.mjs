@@ -5,13 +5,13 @@ import tailwind from "@astrojs/tailwind";
 import netlify from "@astrojs/netlify/functions";
 import svelte from "@astrojs/svelte";
 
-import sentry from "@sentry/astro";
-import spotlightjs from "@spotlightjs/astro";
+// import sentry from "@sentry/astro";
+// import spotlightjs from "@spotlightjs/astro";
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://jamesqquick.com/",
-  integrations: [mdx(), sitemap({}), tailwind(), svelte(), sentry(), spotlightjs()],
+  integrations: [mdx(), sitemap({}), tailwind(), svelte()],
   output: "server",
-  adapter: netlify()
+  adapter: netlify(),
 });
