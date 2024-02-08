@@ -1,0 +1,15 @@
+---
+import StreamingLayout from "../../../layouts/StreamingLayout.astro";
+import VideoFrame, { VideoFrameSize } from "../VideoFrame.astro";
+---
+
+<StreamingLayout title="JQQ Streams">
+  <div class="flex gap-x-8">
+    <VideoFrame
+      size={VideoFrameSize.LG}
+      header="James Q Quick"
+      subheader="Developer. Speaker. Teacher."
+    />
+    <VideoFrame size={VideoFrameSize.LG} />
+  </div>
+</StreamingLayout>

@@ -1,0 +1,42 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import SocialFollow from "../components/SocialFollow.astro";
+
+import { SITE_DESCRIPTION, SITE_TITLE } from "../config";
+import Logo from "../images/logo.astro";
+
+export interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  bottomDivider?: boolean;
+}
+
+const { title, description, image, bottomDivider = true } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <BaseHead
+      title={title || SITE_TITLE}
+      description={description || SITE_DESCRIPTION}
+      image={image}
+    />
+  </head>
+  <body class="bg-bg border w-[1920px] h-[1080px]">
+    <main class="h-full relative">
+      <div class="absolute top-8 right-8 z-10 fill-white">
+        <Logo classStr="w-24 h-24" />
+      </div>
+
+      <div class="flex items-center h-full flex-col justify-between">
+        <div></div>
+        <slot />
+        <footer class="h-16 flex gap-x-8 items-center text-white pb-8">
+          <span class="text-4xl">@jamesqquick</span><SocialFollow />
+        </footer>
+      </div>
+    </main>
+  </body>
+</html>

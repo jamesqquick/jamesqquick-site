@@ -1,0 +1,14 @@
+---
+import StreamingLayout from "../../../layouts/StreamingLayout.astro";
+import VideoFrame, { VideoFrameSize } from "../VideoFrame.astro";
+---
+
+<StreamingLayout title="JQQ Streams">
+  <div class="relative">
+    <VideoFrame size={VideoFrameSize.XL} />
+    <div class="absolute -bottom-16 -right-16 flex flex-col gap-y-4">
+      <VideoFrame size={VideoFrameSize.MD} />
+      <VideoFrame size={VideoFrameSize.MD} />
+    </div>
+  </div>
+</StreamingLayout>

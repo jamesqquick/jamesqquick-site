@@ -1,6 +1,7 @@
 ---
 import NameLogo from "./NameLogo.astro";
 import { Icon } from "astro-icon";
+import Logo from "../images/logo.astro";
 ---
 
 <nav
@@ -11,7 +12,8 @@ import { Icon } from "astro-icon";
     class="text-white hover:text-brand h-5 sm:h-10"
     aria-label="home page"
   >
-    <NameLogo height={20} />
+    <!-- <NameLogo /> -->
+    <Logo classStr="fill-white h-16 w-16 mb-10" />
   </a>
   <button
     id="hamburger"

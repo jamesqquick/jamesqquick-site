@@ -1,0 +1,13 @@
+---
+import StreamingLayout from "../../../layouts/StreamingLayout.astro";
+import VideoFrame, { VideoFrameSize } from "../VideoFrame.astro";
+interface Props {
+  header: string;
+}
+
+const { header } = Astro.props;
+---
+
+<StreamingLayout title="JQQ Streams">
+  <VideoFrame size={VideoFrameSize.XL} />
+</StreamingLayout>
