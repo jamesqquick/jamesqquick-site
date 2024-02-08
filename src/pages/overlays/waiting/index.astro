@@ -1,0 +1,12 @@
+---
+import StreamingLayout from "../../../layouts/StreamingLayout.astro";
+import StreamingTextCallout from "../StreamingTextCallout.astro";
+
+const text = Astro.url.searchParams.get("text")! || "James is Cool!";
+---
+
+<StreamingLayout title="JQQ Streams" includeLogo={true}>
+  <div class="absolute inset-0 bg-waiting -z-10"></div>
+
+  <StreamingTextCallout header={text} />
+</StreamingLayout>

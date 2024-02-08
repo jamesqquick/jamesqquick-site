@@ -20,6 +20,7 @@ module.exports = {
         interviewing: "url('/images/overlays/interviewing.png')",
         talking: "url('/images/overlays/talking.png')",
         coding: "url('/images/overlays/coding.png')",
+        waiting: "url('/images/overlays/waiting.png')",
       },
     },
     fontFamily: {
