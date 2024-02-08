@@ -4,6 +4,7 @@ export enum VideoFrameSize {
   MD = "w-[480px] h-[270px]",
   LG = "w-[832px] h-[432px]",
   XL = "w-[1600px] h-[900px]",
+  VXL = "w-[832px] h-[840px]",
 }
 
 export interface Props {
@@ -16,7 +17,7 @@ const { size = VideoFrameSize.MD, header, subheader }: Props = Astro.props;
 ---
 
 <div class="flex flex-col gap-y-2">
-  <div class=`${size} border-[10px] rounded-2xl`></div>
+  <div class=`${size} border-[12px] rounded-2xl`></div>
   <div class="translate-y-2">
     {header && <h2 class="text-white text-4xl text-center">{header}</h2>}
     {subheader && <p class="text-white text-xl text-center">{subheader}</p>}
