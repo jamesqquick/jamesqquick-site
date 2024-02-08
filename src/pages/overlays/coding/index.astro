@@ -5,10 +5,10 @@ import VideoFrame, { VideoFrameSize } from "../VideoFrame.astro";
 
 <StreamingLayout title="JQQ Streams">
   <div class="absolute inset-0 bg-coding -z-10"></div>
+  <div class="absolute bottom-10 right-20 -translate-y-0.5">
+    <VideoFrame size={VideoFrameSize.MD} />
+  </div>
   <div class="flex gap-x-20 -translate-y-1">
     <!-- <VideoFrame size={VideoFrameSize.XL} /> -->
-    <div class="absolute -bottom-[80px] -right-[80px]">
-      <VideoFrame size={VideoFrameSize.MD} />
-    </div>
   </div>
 </StreamingLayout>
