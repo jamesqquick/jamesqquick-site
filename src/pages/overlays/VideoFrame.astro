@@ -16,7 +16,7 @@ const { size = VideoFrameSize.MD, header, subheader }: Props = Astro.props;
 ---
 
 <div class="flex flex-col gap-y-2">
-  <div class=`${size} border-8 rounded-2xl`></div>
+  <div class=`${size} border-[10px] rounded-2xl`></div>
   <div class="translate-y-2">
     {header && <h2 class="text-white text-4xl text-center">{header}</h2>}
     {subheader && <p class="text-white text-xl text-center">{subheader}</p>}
