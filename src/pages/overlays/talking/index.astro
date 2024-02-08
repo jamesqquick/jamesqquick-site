@@ -9,5 +9,8 @@ const { header } = Astro.props;
 ---
 
 <StreamingLayout title="JQQ Streams">
-  <VideoFrame size={VideoFrameSize.XL} />
+  <div class="absolute inset-0 bg-talking -z-10"></div>
+  <div class="-translate-y-1">
+    <VideoFrame size={VideoFrameSize.XL} />
+  </div>
 </StreamingLayout>

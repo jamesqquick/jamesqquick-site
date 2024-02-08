@@ -16,6 +16,10 @@ module.exports = {
         bgDark: "#10121D",
         bgLight: "#363C68",
       },
+      backgroundImage: {
+        interviewing: "url('/images/overlays/interviewing.png')",
+        talking: "url('/images/overlays/talking.png')",
+      },
     },
     fontFamily: {
       sans: ["Poppins", "ui-sans-serif", "sans-serif"],
