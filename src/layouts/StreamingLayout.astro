@@ -1,25 +1,27 @@
 ---
+import { XataClient } from "src/xata";
 import BaseHead from "../components/BaseHead.astro";
-import SocialFollow from "../components/SocialFollow.astro";
+import SocialFollow, { IconSize } from "../components/SocialFollow.astro";
 
 import { SITE_DESCRIPTION, SITE_TITLE } from "../config";
 import Logo from "../images/logo.astro";
+
+const xata = new XataClient({
+  apiKey: import.meta.env.XATA_API_KEY,
+  branch: import.meta.env.XATA_BRANCH,
+});
+let settings = await xata.db.settings
+  .select(["title", "sponsor1.*", "sponsor2.*", "guestName", "guestTitle"])
+  .getFirst();
 
 export interface Props {
   title?: string;
   description?: string;
   image?: string;
-  bottomDivider?: boolean;
   includeLogo?: boolean;
 }
 
-const {
-  title,
-  description,
-  image,
-  bottomDivider = true,
-  includeLogo = false,
-} = Astro.props;
+const { title, description, image, includeLogo = false } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -44,8 +46,24 @@ const {
       <div class="flex items-center h-full flex-col justify-between">
         <div></div>
         <slot />
-        <footer class="h-16 flex gap-x-8 items-center text-white pb-8">
-          <span class="text-4xl">@jamesqquick</span><SocialFollow />
+        <footer
+          class="h-16 flex gap-x-8 items-center text-white pb-8 justify-between w-full px-10"
+        >
+          <div class="w-[400px]">
+            <span class="flex w-min flex-col items-center gap-y-1">
+              <span class="text-2xl">@jamesqquick</span><SocialFollow
+                size={IconSize.Small}
+              />
+            </span>
+          </div>
+          <p class="text-2xl font-bold">{settings?.title}</p>
+          <p class="flex items-center justify-end w-[400px]">
+            Sponsored by <img
+              class="h-10"
+              src={settings?.sponsor1?.logo?.url}
+            />
+            <img class="h-10" src={settings?.sponsor2?.logo?.url} />
+          </p>
         </footer>
       </div>
     </main>

@@ -13,6 +13,10 @@
     "noEmit": true,
     // Replace `astro/client` with `@astrojs/image/client`
     "types": ["@astrojs/client"],
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": ["src/components/*"]
+    }
   }
 }

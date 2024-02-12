@@ -1,6 +1,14 @@
 ---
 import StreamingLayout from "../../../layouts/StreamingLayout.astro";
+import { XataClient } from "../../../xata";
 import VideoFrame, { VideoFrameSize } from "../VideoFrame.astro";
+
+const xata = new XataClient({
+  apiKey: import.meta.env.XATA_API_KEY,
+  branch: import.meta.env.XATA_BRANCH,
+});
+let settings = await xata.db.settings.getFirst();
+const { guestName, guestTitle } = settings;
 ---
 
 <StreamingLayout title="JQQ Streams">
@@ -11,6 +19,10 @@ import VideoFrame, { VideoFrameSize } from "../VideoFrame.astro";
       header="James Q Quick"
       subheader="Developer. Speaker. Teacher."
     />
-    <VideoFrame size={VideoFrameSize.VXL} />
+    <VideoFrame
+      size={VideoFrameSize.VXL}
+      header={guestName}
+      subheader={guestTitle}
+    />
   </div>
 </StreamingLayout>

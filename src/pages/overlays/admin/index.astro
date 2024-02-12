@@ -1,0 +1,161 @@
+---
+import Hero from "@components/Hero.astro";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { XataClient } from "../../../xata";
+
+const xata = new XataClient({
+  apiKey: import.meta.env.XATA_API_KEY,
+  branch: import.meta.env.XATA_BRANCH,
+});
+let settings = await xata.db.settings.getFirst();
+
+if (Astro.request.method === "POST") {
+  console.log("POST REQUEST");
+  const data = await Astro.request.formData();
+  const title = data.get("title");
+  const sponsor1 = data.get("sponsor1");
+  const sponsor2 = data.get("sponsor2");
+  const guestName = data.get("guestName");
+  const guestTitle = data.get("guestTitle");
+  const key = data.get("key");
+
+  if (key !== import.meta.env.SUPER_SECRET_KEY) {
+    return Astro.redirect(`/overlays/admin?flash=Invalid key!`);
+  }
+  try {
+    if (!title) {
+      return Astro.redirect(`/overlays/admin?flash=Title is required!`);
+    } else if (!settings) {
+      return Astro.redirect(`/overlays/admin?flash=Something failed!`);
+    } else {
+      await settings.update({
+        title,
+        sponsor1: sponsor1 || null,
+        sponsor2: sponsor2 || null,
+        guestName,
+        guestTitle,
+      });
+      return Astro.redirect(`/overlays/admin?flash=Settings updated!`);
+    }
+  } catch (err) {
+    console.error(err);
+    return Astro.redirect(`/overlays/admin?flash=Something failed!`);
+  }
+}
+const { sponsor1, sponsor2 } = settings;
+const sponsors = await xata.db.sponsors.getMany();
+// console.log(sponsors);
+const flash = Astro.url.searchParams.get("flash")! || "";
+---
+
+<BaseLayout>
+  <Hero
+    title={`Overlays Admin!`}
+    tagline={"Let's Make Streaming So Much Fun!"}
+    hasImage={false}
+    hasFullHeight={false}
+  />
+  <main class="max-w-6xl mx-auto px-8">
+    <p>{flash}</p>
+    <form class="flex flex-col gap-y-4" method="post">
+      <div>
+        <label for="title" class="text-xl mb-1">Title</label>
+        <div class="flex flex-col md:flex-row gap-4 md:gap-10 relative">
+          <input
+            type="text"
+            id="title"
+            value={settings?.title || ""}
+            name="title"
+            required={true}
+            class="border-2 py-6 px-6 bg-transparent grow rounded-full"
+          />
+        </div>
+      </div>
+      <div>
+        <label for="sponsor1" class="text-xl mb-1">Sponsor 1</label>
+        <div class="flex flex-col md:flex-row gap-4 md:gap-10 relative">
+          <select
+            id="sponsor1"
+            name="sponsor1"
+            class="border-2 py-6 px-6 bg-transparent grow rounded-full"
+          >
+            <option value={""}>None</option>
+            {
+              sponsors.map((sponsor) => (
+                <option
+                  value={sponsor.id}
+                  selected={sponsor.id === sponsor1?.id}
+                >
+                  {sponsor.name}
+                </option>
+              ))
+            }
+          </select>
+        </div>
+        <div>
+          <label for="sponsor2" class="text-xl mb-1">Sponsor 2</label>
+          <div class="flex flex-col md:flex-row gap-4 md:gap-10 relative">
+            <select
+              id="sponsor2"
+              name="sponsor2"
+              class="border-2 py-6 px-6 bg-transparent grow rounded-full"
+            >
+              <option value={""}> None</option>
+
+              {
+                sponsors.map((sponsor) => (
+                  <option
+                    value={sponsor.id}
+                    selected={sponsor.id === sponsor2?.id}
+                  >
+                    {sponsor.name}
+                  </option>
+                ))
+              }
+            </select>
+          </div>
+        </div>
+      </div>
+      <div>
+        <label for="guestName" class="text-xl mb-1">Guest Name</label>
+        <div class="flex flex-col md:flex-row gap-4 md:gap-10 relative">
+          <input
+            type="text"
+            id="title"
+            value={settings?.guestName || ""}
+            name="guestName"
+            class="border-2 py-6 px-6 bg-transparent grow rounded-full"
+          />
+        </div>
+      </div>
+      <div>
+        <label for="guestTitle" class="text-xl mb-1">Guest Title</label>
+        <div class="flex flex-col md:flex-row gap-4 md:gap-10 relative">
+          <input
+            type="text"
+            id="guestTitle"
+            value={settings?.guestTitle || ""}
+            name="guestTitle"
+            class="border-2 py-6 px-6 bg-transparent grow rounded-full"
+          />
+        </div>
+      </div>
+      <div>
+        <label for="key" class="text-xl mb-1">Super Secret Key</label>
+        <div class="flex flex-col md:flex-row gap-4 md:gap-10 relative">
+          <input
+            type="password"
+            id="key"
+            name="key"
+            class="border-2 py-6 px-6 bg-transparent grow rounded-full"
+          />
+        </div>
+      </div>
+      <button
+        class="text-xl rounded-full px-4 py-4 sm:py-2 bg-white text-bg hover:bg-brand hover:border-brand hover:scale-105 transition-all inline-block mt-6 sm:mt-0"
+      >
+        Submit
+      </button>
+    </form>
+  </main>
+</BaseLayout>

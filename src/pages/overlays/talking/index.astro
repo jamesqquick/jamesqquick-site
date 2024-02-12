@@ -1,6 +1,14 @@
 ---
+import { XataClient } from "src/xata";
 import StreamingLayout from "../../../layouts/StreamingLayout.astro";
 import VideoFrame, { VideoFrameSize } from "../VideoFrame.astro";
+
+const xata = new XataClient({
+  apiKey: import.meta.env.XATA_API_KEY,
+  branch: import.meta.env.XATA_BRANCH,
+});
+let settings = await xata.db.settings.getFirst();
+
 interface Props {
   header: string;
 }
