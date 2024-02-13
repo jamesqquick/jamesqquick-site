@@ -1,8 +1,8 @@
 ---
-import { getSortedTalks } from "../utils/contentCollections";
+import { getFeaturedTalks } from "../utils/contentCollections";
 import HLineText from "./HLineText.astro";
 import Section from "./Section.astro";
-const talks = await getSortedTalks();
+const talks = await getFeaturedTalks();
 ---
 
 <Section hasYPadding={false}>

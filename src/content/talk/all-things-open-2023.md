@@ -3,6 +3,7 @@ conferenceName: All Things Open
 conferenceLink: https://2023.allthingsopen.org/
 title: Feeling Stuck In Your Career... Now What?
 pubDate: 2023-10-17
+featured: true
 conferenceLocation: Raleigh, NC
 conferenceLogo: /images/talks/ato.png
 slidesLink: https://drive.google.com/file/d/18Cprw5KZstYChHhQFNcFvyeogdyBDCKS/view?usp=sharing

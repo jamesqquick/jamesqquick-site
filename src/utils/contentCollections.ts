@@ -24,3 +24,16 @@ export const getSortedTalks = async (): Promise<CollectionEntry<"talk">[]> => {
       new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
   );
 };
+
+export const getFeaturedTalks = async (): Promise<
+  CollectionEntry<"talk">[]
+> => {
+  const allTalks = await getCollection("talk");
+
+  return allTalks
+    .sort(
+      (a, b) =>
+        new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
+    )
+    .filter((talk) => talk.data.featured === true);
+};

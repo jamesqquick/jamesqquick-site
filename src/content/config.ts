@@ -19,6 +19,7 @@ const talksCollection = defineCollection({
     title: z.string(),
     pubDate: z.date(),
     slidesLink: z.string().optional(),
+    featured: z.boolean().default(false),
   }),
 });
 

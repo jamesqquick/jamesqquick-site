@@ -6,6 +6,7 @@ pubDate: 2022-11-01
 conferenceLocation: Raleigh, NC
 conferenceLogo: /images/talks/ato.png
 youTubeVideoId: BRgVeUSYxXo
+featured: true
 ---
 
 YouTube, TikTok, Twitter, and the like. What possible impact can they have on your career? Well, content creation has drastically changed the trajectory of my career, and it can do the same for you!
