@@ -1,6 +1,6 @@
 ---
 name: Bekah Hawrot Weigel
-title: Technical Community Builder
+title: Developer Experience Lead
 image: /images/testimonials/bekah.jpeg
 type: Testimonial
 shortQuote: I've never walked away from one of his talks without feeling inspired, capable, or willing to learn something new.
