@@ -25,6 +25,8 @@ const tables = [
       },
       { name: "guestName", type: "string" },
       { name: "guestTitle", type: "string" },
+      { name: "description", type: "text" },
+      { name: "sponsor3", type: "link", link: { table: "sponsors" } },
     ],
   },
   {
@@ -36,6 +38,7 @@ const tables = [
     revLinks: [
       { column: "sponsor1", table: "settings" },
       { column: "sponsor2", table: "settings" },
+      { column: "sponsor3", table: "settings" },
     ],
   },
 ] as const;

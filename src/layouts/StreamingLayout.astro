@@ -11,7 +11,14 @@ const xata = new XataClient({
   branch: import.meta.env.XATA_BRANCH,
 });
 let settings = await xata.db.settings
-  .select(["title", "sponsor1.*", "sponsor2.*", "guestName", "guestTitle"])
+  .select([
+    "title",
+    "sponsor1.*",
+    "sponsor2.*",
+    "sponsor3.*",
+    "guestName",
+    "guestTitle",
+  ])
   .getFirst();
 
 export interface Props {
@@ -57,12 +64,10 @@ const { title, description, image, includeLogo = false } = Astro.props;
             </span>
           </div>
           <p class="text-2xl font-bold">{settings?.title}</p>
-          <p class="flex items-center justify-end w-[400px]">
-            Sponsored by <img
-              class="h-10"
-              src={settings?.sponsor1?.logo?.url}
-            />
+          <p class="flex items-center justify-end gap-x-4 w-[400px]">
+            <img class="h-10" src={settings?.sponsor1?.logo?.url} />
             <img class="h-10" src={settings?.sponsor2?.logo?.url} />
+            <img class="h-6" src={settings?.sponsor3?.logo?.url} />
           </p>
         </footer>
       </div>

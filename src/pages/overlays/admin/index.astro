@@ -15,6 +15,7 @@ if (Astro.request.method === "POST") {
   const title = data.get("title");
   const sponsor1 = data.get("sponsor1");
   const sponsor2 = data.get("sponsor2");
+  const sponsor3 = data.get("sponsor3");
   const guestName = data.get("guestName");
   const guestTitle = data.get("guestTitle");
   const key = data.get("key");
@@ -32,6 +33,7 @@ if (Astro.request.method === "POST") {
         title,
         sponsor1: sponsor1 || null,
         sponsor2: sponsor2 || null,
+        sponsor3: sponsor3 || null,
         guestName,
         guestTitle,
       });
@@ -42,7 +44,7 @@ if (Astro.request.method === "POST") {
     return Astro.redirect(`/overlays/admin?flash=Something failed!`);
   }
 }
-const { sponsor1, sponsor2 } = settings;
+const { sponsor1, sponsor2, sponsor3 } = settings;
 const sponsors = await xata.db.sponsors.getMany();
 // console.log(sponsors);
 const flash = Astro.url.searchParams.get("flash")! || "";
@@ -114,6 +116,29 @@ const flash = Astro.url.searchParams.get("flash")! || "";
               }
             </select>
           </div>
+        </div>
+      </div>
+      <div>
+        <label for="sponsor3" class="text-xl mb-1">Sponsor 3</label>
+        <div class="flex flex-col md:flex-row gap-4 md:gap-10 relative">
+          <select
+            id="sponsor3"
+            name="sponsor3"
+            class="border-2 py-6 px-6 bg-transparent grow rounded-full"
+          >
+            <option value={""}> None</option>
+
+            {
+              sponsors.map((sponsor) => (
+                <option
+                  value={sponsor.id}
+                  selected={sponsor.id === sponsor3?.id}
+                >
+                  {sponsor.name}
+                </option>
+              ))
+            }
+          </select>
         </div>
       </div>
       <div>
