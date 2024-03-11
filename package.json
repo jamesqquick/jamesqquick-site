@@ -23,7 +23,7 @@
     "@astrojs/netlify": "^5.1.1",
     "@astrojs/svelte": "^5.0.0",
     "@sendgrid/mail": "^8.1.0",
-    "@sentry/astro": "^7.101.0",
+    "@sentry/astro": "^7.106.1",
     "@spotlightjs/astro": "^1.0.15",
     "@xata.io/client": "^0.29.1",
     "astro-embed": "^0.6.1",

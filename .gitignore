@@ -8,3 +8,5 @@ lambda
 dist
 
 .astro
+# Sentry Config File
+.sentryclirc
