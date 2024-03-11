@@ -16,7 +16,6 @@ export default defineConfig({
     sitemap({}),
     tailwind(),
     svelte(),
-    spotlightjs(),
     sentry({
       dsn: "https://ab69a01d3403b79bf1b71fdce18be5a7@o4506232146034688.ingest.us.sentry.io/4506384553869312",
       //   sourceMapsUploadOptions: {
@@ -24,6 +23,7 @@ export default defineConfig({
       //     authToken: process.env.SENTRY_AUTH_TOKEN,
       //   },
     }),
+    spotlightjs(),
   ],
   output: "server",
   adapter: netlify(),
