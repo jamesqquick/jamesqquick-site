@@ -19,7 +19,6 @@ export interface Props {
 
 const { entry } = Astro.props;
 const { Content } = await entry.render();
-console.log(entry);
 ---
 
 <TalkLayout frontmatter={entry.data}>

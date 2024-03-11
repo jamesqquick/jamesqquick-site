@@ -18,7 +18,6 @@ export interface Props {
 const {
   frontmatter: { title, pubDate, youTubeVideoId },
 } = Astro.props as Props;
-console.log(title, youTubeVideoId);
 ---
 
 <BaseLayout title={title} description={title}>

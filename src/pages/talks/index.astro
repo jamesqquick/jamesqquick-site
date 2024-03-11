@@ -9,7 +9,6 @@ import Section from "../../components/Section.astro";
 import TalkCardList from "../../components/TalkCardList.astro";
 
 const talks = (await getSortedTalks()).slice(0, 10);
-console.log(talks);
 // const featuredPost = talks.splice(0, 1)[0];
 export const prerender = true;
 ---

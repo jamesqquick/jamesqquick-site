@@ -18,10 +18,10 @@ export default defineConfig({
     svelte(),
     sentry({
       dsn: process.env.SENTRY_DSN,
-      sourceMapsUploadOptions: {
-        project: "james-q-quick-website",
-        authToken: process.env.SENTRY_AUTH_TOKEN,
-      },
+      //   sourceMapsUploadOptions: {
+      //     project: "james-q-quick-website",
+      //     authToken: process.env.SENTRY_AUTH_TOKEN,
+      //   },
     }),
     spotlightjs(),
   ],
