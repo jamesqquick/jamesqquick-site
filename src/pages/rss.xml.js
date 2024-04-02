@@ -5,7 +5,7 @@ import MarkdownIt from "markdown-it";
 import { getSortedBlogPosts } from "../utils/contentCollections";
 const parser = new MarkdownIt();
 
-export const get = async () => {
+export const GET = async () => {
   const blogs = await getSortedBlogPosts();
   const items = blogs.map((post) => ({
     title: post.data.title,
