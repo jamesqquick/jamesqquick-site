@@ -1,15 +1,16 @@
 ---
 import { getFeaturedTalks } from "../utils/contentCollections";
 import HLineText from "./HLineText.astro";
+import Link from "./Link.astro";
 import Section from "./Section.astro";
 const talks = await getFeaturedTalks();
 ---
 
 <Section hasYPadding={false}>
-  <div class="grid gap-16">
+  <div class="grid gap-24">
     {
       talks.map((talk) => (
-        <div class="flex md:flex-row flex-col gap-4 items-start md:items-center">
+        <div class="flex lg:flex-row flex-col gap-4 items-start :items-center">
           <div class="rounded-full border h-20 w-20 border-white border-opacity-50 flex items-center justify-center">
             <img
               class="rounded-full w-14 h-14"
@@ -29,9 +30,13 @@ const talks = await getFeaturedTalks();
               })}
             </p>
           </div>
-          <a class="underline underline-offset-4" href={talk.data.videoLink}>
-            Watch on YouTube
-          </a>
+
+          <Link
+            classStr=""
+            href={talk.data.videoLink}
+            text="Watch on YouTube"
+            isFancy={true}
+          />
         </div>
       ))
     }

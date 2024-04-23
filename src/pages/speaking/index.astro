@@ -6,7 +6,7 @@ import { getCollection } from "astro:content";
 import Hero from "../../components/Hero.astro";
 import NextTalkCallout from "../../components/NextTalkCallout.astro";
 import Section from "../../components/Section.astro";
-import RecentTalksCallout from "../../components/RecentTalksCallout.astro";
+import FeaturedTalksCallout from "../../components/FeaturedTalksCalllout.astro";
 import RecentTalks from "../../components/RecentTalks.astro";
 import HLineText from "../../components/HLineText.astro";
 import Testimonials from "../../components/Testimonials.astro";
@@ -76,12 +76,16 @@ const topics: Topic[] = [
       </div>
     </Section>
   </div>
-  <RecentTalksCallout />
-  <Section classStr="mt-40 mb-0 pb-0 ">
-    <HLineText text="More talks" />
-  </Section>
+  <FeaturedTalksCallout />
+  <div class="pt-20 md:pt-40">
+    <Section classStr="mb-0 pb-0">
+      <div class="py-10 md:py-16">
+        <HLineText text="More talks" />
+      </div>
+      <RecentTalks />
+    </Section>
+  </div>
 
-  <RecentTalks />
   <Testimonials />
   <div class="my-20">
     <HLineText />

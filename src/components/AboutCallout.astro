@@ -3,11 +3,13 @@ import { Image } from "astro:assets";
 import discordCard from "../images/about/discord.png";
 import compressedCard from "../images/about/compressed.png";
 import Section from "./Section.astro";
+import SectionHeader from "./SectionHeader.astro";
 const title = "About Me";
 const subtitle = "Developer. Speaker. Teacher.";
 ---
 
-<Section title={title} subtitle={subtitle}>
+<Section>
+  <SectionHeader title={title} subtitle={subtitle} />
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-10 gap-y-10 items-center">
     <slot />
     <div class="mr-20 hidden sm:block">

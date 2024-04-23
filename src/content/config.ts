@@ -10,17 +10,19 @@ const testimonialsCollection = defineCollection({
 });
 
 const talksCollection = defineCollection({
-  schema: z.object({
-    conferenceName: z.string(),
-    conferenceLocation: z.string(),
-    conferenceLink: z.string(),
-    conferenceLogo: z.string(),
-    youTubeVideoId: z.string().optional(),
-    title: z.string(),
-    pubDate: z.date(),
-    slidesLink: z.string().optional(),
-    featured: z.boolean().default(false),
-  }),
+  schema: ({ image }) =>
+    z.object({
+      conferenceName: z.string(),
+      conferenceLocation: z.string(),
+      conferenceLink: z.string(),
+      coverImage: image().optional(),
+      conferenceLogo: z.string(),
+      youTubeVideoId: z.string().optional(),
+      title: z.string(),
+      pubDate: z.date(),
+      slidesLink: z.string().optional(),
+      featured: z.boolean().default(false),
+    }),
 });
 
 const coursesCollection = defineCollection({

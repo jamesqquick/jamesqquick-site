@@ -22,44 +22,12 @@ const {
 } = Astro.props as Props;
 ---
 
-<div
+<section
   class={`px-8 ${hasYPadding ? "py-20" : ""} ${isLight ? "bg-bgLight" : ""} ${
     classStr ? classStr : ""
   }`}
 >
-  <section class={`${hasMaxWidth ? "max-w-6xl" : ""} mx-auto`}>
-    <div class="text-center mb-20 max-w-4xl mx-auto">
-      {
-        title && isHeader && (
-          <h1 class="text-4xl mb-2">
-            <span class="block text-brand text-2xl text-light tracking-widest uppercase font-light">
-              {title}
-            </span>
-            {subtitle && (
-              <span class="block mb-2 text-4xl leading-[50px] font-bold text-white">
-                {subtitle}
-              </span>
-            )}
-          </h1>
-        )
-      }
-      {
-        title && !isHeader && (
-          <h2 class="text-4xl mb-2">
-            <span class="block text-brand text-2xl text-light tracking-widest uppercase font-light">
-              {title}
-            </span>
-            {subtitle && (
-              <span class="block mb-2 text-4xl leading-[50px] font-bold text-white">
-                {subtitle}
-              </span>
-            )}
-          </h2>
-        )
-      }
-
-      {description && <p class="text-xl opacity-80">{description}</p>}
-    </div>
+  <div class={`${hasMaxWidth ? "max-w-6xl" : ""} mx-auto`}>
     <slot />
-  </section>
-</div>
+  </div>
+</section>

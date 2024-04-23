@@ -18,9 +18,7 @@ const { Content } = await testimonial.render();
   <div class="absolute -top-4 -left-4 -z-10 opacity-40">
     <Icon name="gridicons:quote" />
   </div>
-  <div
-    class="tracking-wider text-xl relative italic leading-8 opacity-90 mb-10"
-  >
+  <div class="tracking-wider text-xl relative leading-8 opacity-90 mb-10">
     {!isShort && <Content />}
     {isShort && shortQuote}
   </div>

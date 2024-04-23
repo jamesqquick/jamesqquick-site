@@ -3,11 +3,15 @@ import Microsoft from "../images/Microsoft.png";
 import fedex from "../images/fedex.png";
 import PlanetScale from "../images/PlanetScale.png";
 import Auth0 from "../images/Auth0.png";
-import LightCallout from "./LightCallout.astro";
+import Section from "./Section.astro";
+import SectionHeader from "./SectionHeader.astro";
+
+const title = "Work Experience";
+const subtitle = "I've worked at some amazing companies";
 ---
 
-<LightCallout>
-  <h2 class="opacity-60 text-xl text-center mb-10">WORK EXPERIENCE</h2>
+<Section isLight={true}>
+  <SectionHeader title={title} subtitle={subtitle} />
   <div
     class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 items-end place-items-center gap-y-16 max-x-xl mx-auto"
   >
@@ -16,4 +20,4 @@ import LightCallout from "./LightCallout.astro";
     <img class="h-10" src={Auth0.src} alt="Auth0 logo" />
     <img class="h-10" src={PlanetScale.src} alt="PlanetScale logo" />
   </div>
-</LightCallout>
+</Section>

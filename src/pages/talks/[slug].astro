@@ -22,7 +22,6 @@ const { Content } = await entry.render();
 ---
 
 <TalkLayout frontmatter={entry.data}>
-  <Content />
   {
     entry.data.slidesLink && (
       <a href={entry.data.slidesLink} class="cursor-pointer no-underline">
@@ -34,4 +33,5 @@ const { Content } = await entry.render();
       </a>
     )
   }
+  <Content />
 </TalkLayout>

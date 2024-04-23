@@ -13,7 +13,7 @@ const testimonials = await getCollection("testimonial");
   hasMaxWidth={false}
   classStr="lg:max-w-8xl mx-auto"
 >
-  <div class="grid grid-cols-1 xl:grid-cols-3 gap-4 gap-y-10 items-baseline">
+  <div class="grid grid-cols-1 gap-4 gap-y-10 items-baseline">
     {
       testimonials.map((testimonial) => (
         <Testimonial testimonial={testimonial} />

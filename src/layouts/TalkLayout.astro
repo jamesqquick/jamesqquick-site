@@ -1,6 +1,10 @@
 ---
+import HLineText from "@components/HLineText.astro";
+import SpeakerFormCallout from "@components/SpeakerFormCallout.astro";
+import Testimonials from "@components/Testimonials.astro";
 import ArticleHeader from "../components/ArticleHeader.astro";
 import BaseLayout from "./BaseLayout.astro";
+import SectionHeader from "@components/SectionHeader.astro";
 
 export interface Props {
   frontmatter: {
@@ -12,25 +16,42 @@ export interface Props {
     conferenceLogo: string;
     youTubeVideoId?: string | undefined;
     slidesLink?: string | undefined;
+    coverImage?: {
+      src: string;
+      width: number;
+      height: number;
+      format: "png" | "jpg" | "jpeg" | "tiff" | "webp" | "gif" | "svg" | "avif";
+    };
   };
 }
 
 const {
-  frontmatter: { title, pubDate, youTubeVideoId },
+  frontmatter: { title, pubDate, youTubeVideoId, coverImage, conferenceName },
 } = Astro.props as Props;
 ---
 
 <BaseLayout title={title} description={title}>
-  <main class="max-w-6xl mx-auto px-8">
+  <main class="max-w-6xl mx-auto">
     <article
-      class="prose prose-invert prose-xl max-w-none prose-h2:text-brand prose-img:rounded-lg prose-p:text-white"
+      class="prose prose-invert prose-xl max-w-none prose-h2:text-brand prose-img:rounded-lg prose-p:text-white px-8"
     >
       <ArticleHeader
         title={title}
         date={pubDate}
         youTubeVideoId={youTubeVideoId}
+        coverImage={coverImage}
       />
       <slot />
     </article>
+    <div class="my-20">
+      <HLineText />
+    </div>
+    <Testimonials />
+    <div class="my-20">
+      <HLineText />
+    </div>
+    <div id="speakerForm">
+      <SpeakerFormCallout />
+    </div>
   </main>
 </BaseLayout>

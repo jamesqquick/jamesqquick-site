@@ -4,6 +4,7 @@ import HLineText from "./HLineText.astro";
 import Link from "./Link.astro";
 import Section from "./Section.astro";
 import { Image } from "astro:assets";
+import SectionHeader from "./SectionHeader.astro";
 const courses = (await getSortedCourses()).slice(0, 4);
 const featuredCourse = courses.splice(0, 1)[0];
 
@@ -12,12 +13,8 @@ const subtitle = `Learn how to build for the web`;
 const description = `Looking to take your web development skills to the next level? Check out my collection of courses, offering something for everyone whether you're a seasoned developer or just getting started.`;
 ---
 
-<Section
-  title={title}
-  subtitle={subtitle}
-  description={description}
-  isHeader={true}
->
+<Section>
+  <SectionHeader title={title} subtitle={subtitle} description={description} />
   <div>
     {
       featuredCourse?.data.title && (

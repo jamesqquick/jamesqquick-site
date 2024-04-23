@@ -3,6 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import SocialCallout from "../components/SocialCallout.astro";
 import AboutCallout from "../components/AboutCallout.astro";
 import Hero from "../components/Hero.astro";
+import Link from "@components/Link.astro";
 
 export const prerender = true;
 ---
@@ -11,10 +12,7 @@ export const prerender = true;
   title="About | James Q Quick"
   description="James Q Quick is a Developer, Speaker, and Teacher with a passion for teaching developers through content."
 >
-  <Hero
-    title="Get to know James"
-    tagline="JavaScript Developer, Speaker, and Teacher"
-  />
+  <Hero title="Get to know me" tagline="Developer, Speaker, and Teacher" />
   <SocialCallout />
   <AboutCallout>
     <div class="text-lg flex flex-col gap-y-4">
@@ -43,15 +41,9 @@ export const prerender = true;
         dogs, and can solve a Rubik's cube in under a minute.
       </p>
       <div class="flex justify-between max-w-[260px]">
-        <a class="underline underline-offset-4 text-gray-400" href="/courses"
-          >Courses</a
-        >
-        <a class="underline underline-offset-4 text-gray-400" href="/speaking"
-          >Speaking</a
-        >
-        <a class="underline underline-offset-4 text-gray-400" href="/blog"
-          >Blog</a
-        >
+        <Link isFancy={true} href="/courses" text="Courses" />
+        <Link isFancy={true} href="/speaking" text="Speaking" />
+        <Link isFancy={true} href="/blog" text="Blog" />
       </div>
     </div>
   </AboutCallout>
