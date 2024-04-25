@@ -714,6 +714,13 @@ declare module 'astro:content' {
   collection: "talk";
   data: InferEntrySchema<"talk">
 } & { render(): Render[".md"] };
+"frontend-design-conference-2024.md": {
+	id: "frontend-design-conference-2024.md";
+  slug: "frontend-design-conference-2024";
+  body: string;
+  collection: "talk";
+  data: InferEntrySchema<"talk">
+} & { render(): Render[".md"] };
 "jam-dev-2024.md": {
 	id: "jam-dev-2024.md";
   slug: "jam-dev-2024";
