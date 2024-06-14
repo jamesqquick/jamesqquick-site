@@ -742,6 +742,13 @@ declare module 'astro:content' {
   collection: "talk";
   data: InferEntrySchema<"talk">
 } & { render(): Render[".md"] };
+"render-atl-2024.md": {
+	id: "render-atl-2024.md";
+  slug: "render-atl-2024";
+  body: string;
+  collection: "talk";
+  data: InferEntrySchema<"talk">
+} & { render(): Render[".md"] };
 "that-conference-austin-2023.md": {
 	id: "that-conference-austin-2023.md";
   slug: "that-conference-austin-2023";
