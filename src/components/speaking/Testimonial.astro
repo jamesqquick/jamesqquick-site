@@ -1,5 +1,5 @@
 ---
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
 
 export interface Props {
@@ -15,9 +15,6 @@ const { Content } = await testimonial.render();
 ---
 
 <div class="bg-bgLight rounded-xl p-8">
-  <div class="absolute -top-4 -left-4 -z-10 opacity-40">
-    <Icon name="gridicons:quote" />
-  </div>
   <div class="tracking-wider text-xl relative leading-8 opacity-90 mb-10">
     {!isShort && <Content />}
     {isShort && shortQuote}

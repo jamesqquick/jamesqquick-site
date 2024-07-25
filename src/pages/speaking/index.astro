@@ -1,5 +1,5 @@
 ---
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon/components";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Button, { ButtonType } from "../../components/Button.astro";
 import { getCollection } from "astro:content";
@@ -27,17 +27,17 @@ const topics: Topic[] = [
   {
     title: "Personal Brand",
     description: `Your personal brand is the most valuable asset you will ever own. My personal brand enabled me to work for myself while pursuing my passion of teaching others through Content Creation.`,
-    icon: "ph:star-light",
+    icon: "mdi:star-box",
   },
   {
     title: "Developer Careers",
     description: `We are solely responsible for what happens in our career. I encourage others to take control of their career while pursuing happiness, whatever that may look like for them.`,
-    icon: "healthicons:low-bars-outline",
+    icon: "mdi:account",
   },
   {
     title: "Modern Web Development",
     description: `The Web Development ecosystem is constantly evolving. I love spending time learning about the latest frameworks, methodologies, and tools, and I'm eager to share those learnings with the community.`,
-    icon: "ic:baseline-computer",
+    icon: "mdi:laptop",
   },
 ];
 ---
@@ -66,8 +66,7 @@ const topics: Topic[] = [
         {
           topics.map((topic) => (
             <div class="flex-row max-w-xl">
-              <Icon name={topic.icon} class="h-16 opacity-80 mb-4" />
-
+              <Icon size={40} name={topic.icon} class="opacity-80 mb-4" />
               <p class="text-brand text-lg font-bold mb-2">{topic.title}</p>
               <p>{topic.description}</p>
             </div>
