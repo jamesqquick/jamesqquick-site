@@ -17,14 +17,13 @@ export default defineConfig({
     sitemap({}),
     tailwind(),
     svelte(),
-    sentry({
-      dsn: "https://ab69a01d3403b79bf1b71fdce18be5a7@o4506232146034688.ingest.us.sentry.io/4506384553869312",
-      //   sourceMapsUploadOptions: {
-      //     project: "james-q-quick-website",
-      //     authToken: process.env.SENTRY_AUTH_TOKEN,
-      //   },
-    }),
-    spotlightjs(),
+    // sentry({
+    //   dsn: "https://ab69a01d3403b79bf1b71fdce18be5a7@o4506232146034688.ingest.us.sentry.io/4506384553869312",
+    //   //   sourceMapsUploadOptions: {
+    //   //     project: "james-q-quick-website",
+    //   //     authToken: process.env.SENTRY_AUTH_TOKEN,
+    //   //   },
+    // }),
     icon({
       include: {
         // Include only three `mdi` icons in the bundle
@@ -37,6 +36,7 @@ export default defineConfig({
           "account",
           "laptop",
           "star-box",
+          "download",
         ],
       },
     }),
