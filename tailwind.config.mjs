@@ -24,7 +24,7 @@ module.exports = {
       },
     },
     fontFamily: {
-      sans: ["Poppins", "ui-sans-serif", "sans-serif"],
+      sans: ["Satoshi", "ui-sans-serif", "sans-serif"],
     },
   },
   safelist: [

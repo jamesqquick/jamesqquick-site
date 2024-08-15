@@ -22,12 +22,10 @@ const {
 <div class="max-w-8xl mx-auto px-4 md:px-10 pt-10">
   <div
     class={`gap-4 gap-x-0  flex flex-col xl:items-end xl:flex-row relative ${
-      hasFullHeight ? "xl:h-[calc(100vh-180px)] sm:pb-0" : "py-20"
+      hasFullHeight ? "xl:h-[calc(100vh-240px)] sm:pb-0" : "py-20"
     } max-w-7xl mx-auto`}
   >
-    <div
-      class="relative self-center xl:mb-40 mr-0 xl:-mr-[100px] xl:mx-auto max-w-2xl"
-    >
+    <div class="relative self-center xl:mb-80 mr-0 xl:-mr-[100px] max-w-3xl">
       <h1 class="text-2xl mb-4 text-brand">
         {title}
         <span
@@ -46,7 +44,7 @@ const {
           src={selfie}
           height={1080 / 2}
           width={1920 / 2}
-          class="md:-mt-20 xl:mt-0 w-full xl:w-[800px] max-w-[600px] xl:max-w-[700px] mx-auto"
+          class="md:-mt-20 xl:mt-0 w-full xl:w-[700px] max-w-[600px] xl:max-w-[700px] mx-auto xl:absolute right-0"
           alt="James Q Quick selfie"
           format="webp"
           loading="eager"

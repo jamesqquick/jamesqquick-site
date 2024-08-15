@@ -15,7 +15,7 @@ const { posts } = Astro.props;
       <LinkCard
         title={post.data.title}
         date={post.data.pubDate}
-        slug={`/blog/${post.slug}`}
+        slug={`/blog/${post.id}`}
         tag={post.data.tags[0]}
         image={post.data.coverImage}
       />

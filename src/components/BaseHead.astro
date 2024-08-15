@@ -2,6 +2,9 @@
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
 import "../styles/global.css";
+import { AstroFont } from "astro-font";
+import { ViewTransitions } from "astro:transitions";
+import { join } from "node:path";
 
 export interface Props {
   title: string;
@@ -43,7 +46,41 @@ const { title, description, image = "/images/selfie-lg.jpeg" } = Astro.props;
 <!-- Canonical Link -->
 <link rel="canonical" href={Astro.url} />
 
-<!-- Google tag (gtag.js) -->
+<AstroFont
+  config={[
+    {
+      name: "Satoshi",
+      src: [
+        {
+          style: "normal",
+          weight: "400",
+          path: join(process.cwd(), "public", "fonts", "Satoshi-Regular.ttf"),
+        },
+        {
+          style: "medium",
+          weight: "500",
+          path: join(process.cwd(), "public", "fonts", "Satoshi-Medium.ttf"),
+        },
+        {
+          style: "light",
+          weight: "300",
+          path: join(process.cwd(), "public", "fonts", "Satoshi-Light.ttf"),
+        },
+        {
+          style: "bold",
+          weight: "700",
+          path: join(process.cwd(), "public", "fonts", "Satoshi-Bold.ttf"),
+        },
+      ],
+      preload: false,
+      display: "swap",
+      selector: "body",
+      fallback: "sans-serif",
+    },
+  ]}
+/>
+<ViewTransitions />
+
 <script
   defer
   data-domain="jamesqquick.com"

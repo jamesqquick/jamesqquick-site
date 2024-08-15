@@ -11,9 +11,9 @@ export const GET = async () => {
     title: post.data.title,
     pubDate: post.data.pubDate,
     description: post.data.description,
-    link: `/blog/${post.slug}/`,
+    link: `/blog/${post.id}/`,
     content: sanitizeHtml(parser.render(post.body)),
-    image: `/blog/${post.slug}/${post.data.image}`,
+    image: `/blog/${post.id}/${post.data.image}`,
   }));
   return rss({
     title: SITE_TITLE,

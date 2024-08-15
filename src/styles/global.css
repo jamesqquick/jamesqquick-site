@@ -1,25 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700');
-
 @media screen and (max-width: 1024px) {
-    body[data-menu-open] {
-        overflow-y: hidden;
-    }
+  body[data-menu-open] {
+    overflow-y: hidden;
+  }
 }
 
 a {
-    @apply  hover:text-brand  transition-all;
+  @apply hover:text-brand  transition-all;
 }
 
 p {
-    font-family: 'Roboto';
-    @apply tracking-wider font-light;
+  font-family: "Satoshi";
+  @apply tracking-wider font-light;
 }
 
 h1 p {
-    font-family: 'Poppins';
+  font-family: "Satoshi";
 }
 
 html {
-    scroll-behavior: smooth;
-  }
+  scroll-behavior: smooth;
+}

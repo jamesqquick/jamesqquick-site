@@ -1,6 +1,6 @@
 ---
-import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
+import { render } from "astro:content";
 
 export interface Props {
   testimonial: any;
@@ -9,9 +9,9 @@ export interface Props {
 
 const { testimonial, isShort = false } = Astro.props;
 const {
-  data: { name, title, image, quote, shortQuote },
+  data: { name, title, image, shortQuote },
 } = testimonial;
-const { Content } = await testimonial.render();
+const { Content } = await render(testimonial);
 ---
 
 <div class="bg-bgLight rounded-xl p-8">
