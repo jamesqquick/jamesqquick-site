@@ -28,14 +28,20 @@
     "@sentry/astro": "^8.20.0",
     "@spotlightjs/astro": "^2.1.1",
     "@xata.io/client": "^0.29.1",
+    "astro-cloudinary": "^1.0.0-beta.2",
     "astro-embed": "^0.6.1",
     "astro-icon": "^1.1.0",
+    "astro-tailwind-config-viewer": "^2.0.1",
+    "cloudinary": "^2.4.0",
     "fast-xml-parser": "^4.0.10",
     "html-entities": "^2.3.3",
+    "i": "^0.3.7",
     "markdown-it": "^14.1.0",
+    "npm": "^10.8.2",
     "rss-parser": "^3.13.0",
     "sanitize-html": "^2.10.0",
     "sharp": "^0.31.3",
-    "svelte": "^5.0.0-next.1"
+    "svelte": "^5.0.0-next.1",
+    "tailwindcss": "^3.4.7"
   }
 }

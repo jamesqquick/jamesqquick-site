@@ -1,0 +1,47 @@
+---
+import BaseLayout from "src/layouts/BaseLayout.astro";
+import { CldImage } from "astro-cloudinary";
+import { v2 as cloudinary } from "cloudinary";
+import Section from "@components/Section.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+
+cloudinary.config({
+  cloud_name: import.meta.env.PUBLIC_CLOUDINARY_CLOUD_NAME,
+  api_key: import.meta.env.CLOUDINARY_API_KEY,
+  api_secret: import.meta.env.CLOUDINARY_API_SECRET,
+});
+
+const { resources } = await cloudinary.search
+  .expression(`folder=jqq-selfies/*`)
+  .sort_by("public_id", "desc")
+  .fields("tags")
+  .fields("width")
+  .fields("height")
+  .execute();
+---
+
+<BaseLayout title="Selfies | James Q Quick">
+  <Section>
+    <SectionHeader
+      title={"JQQ Selfies"}
+      subtitle={"Selfies with developers I've met around the world!"}
+    />
+
+    <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6">
+      {
+        resources.map((resource) => (
+          <div class="max-w-full overflow-hidden">
+            <CldImage
+              src={resource.public_id}
+              width={resource.width}
+              height={resource.height}
+              alt="James selfie"
+              class="rounded-md cursor-pointer hover:scale-110 max-w-full transition-transform duration-200"
+              sizes="400px"
+            />
+          </div>
+        ))
+      }
+    </div>
+  </Section>
+</BaseLayout>
