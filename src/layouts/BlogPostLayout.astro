@@ -31,10 +31,10 @@ const { src: imageURL } = await getImage({ src: coverImage });
       class="prose prose-invert prose-xl max-w-none prose-h2:text-brand prose-img:rounded-lg prose-p:text-white"
     >
       <ArticleHeader
-        coverImage={coverImage}
-        title={title}
-        date={pubDate}
-        youTubeVideoId={youTubeVideoId}
+      
+      title={title}
+      date={pubDate}
+      youTubeVideoId={youTubeVideoId}
       />
       <slot />
     </article>

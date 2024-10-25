@@ -19,16 +19,10 @@ const { data: posts } = page;
 
 <BaseLayout title="Blog | James Q Quick">
   <Section hasYPadding={false}>
-    <h1 class="text-6xl text-brand font-bold mb-10">Blog</h1>
-    <Pagination
-      next={page.url.next}
-      prev={page.url.prev}
-      currentPage={page.currentPage}
-      lastPage={page.lastPage}
-    />
-    <div class="mb-10"></div>
-    <LinkCardList posts={posts} />
-    <Pagination
+        <h1 class="text-6xl text-brand font-bold mb-10">Blog</h1>
+        <div class="mb-10"></div>
+        <LinkCardList posts={posts} />
+        <Pagination
       next={page.url.next}
       prev={page.url.prev}
       currentPage={page.currentPage}

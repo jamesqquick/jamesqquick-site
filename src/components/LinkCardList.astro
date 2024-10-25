@@ -9,7 +9,7 @@ export interface Props {
 const { posts } = Astro.props;
 ---
 
-<div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-16">
+<div class="grid gap-10 mb-16">
   {
     posts.map((post) => (
       <LinkCard

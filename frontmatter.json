@@ -1,132 +1,198 @@
 {
   "$schema": "https://frontmatter.codes/frontmatter.schema.json",
-  "frontMatter.framework.startCommand": "npm run dev",
-  "frontMatter.preview.host": "localhost:3000",
+  "frontMatter.framework.id": "astro",
+  "frontMatter.preview.host": "http://localhost:4321",
+  "frontMatter.content.publicFolder": "public",
+  "frontMatter.content.pageFolders": [
+    {
+      "title": "data",
+      "path": "[[workspace]]/data"
+    },
+    {
+      "title": "data",
+      "path": "[[workspace]]/src/data"
+    }
+  ],
   "frontMatter.taxonomy.contentTypes": [
     {
-      "name": "default",
+      "name": "testimonial",
       "pageBundle": false,
-      "previewPath": "'blog'",
+      "clearEmpty": true,
       "fields": [
         {
-          "title": "title",
           "name": "title",
-          "type": "string"
+          "type": "string",
+          "single": true,
+          "required": true
         },
         {
-          "title": "slug",
-          "name": "slug",
-          "type": "slug"
+          "name": "name",
+          "type": "string",
+          "single": true,
+          "required": true
         },
         {
-          "title": "coverImage",
+          "name": "image",
+          "type": "image",
+          "required": true,
+          "isPreviewImage": true
+        },
+        {
+          "name": "shortQuote",
+          "type": "string",
+          "single": true,
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "blog",
+      "pageBundle": false,
+      "clearEmpty": true,
+      "fields": [
+        {
+          "name": "title",
+          "type": "string",
+          "single": true,
+          "required": true
+        },
+        {
+          "name": "coverImage",
+          "type": "image",
+          "required": true,
+          "isPreviewImage": true
+        },
+        {
+          "name": "pubDate",
+          "type": "datetime",
+          "default": "{{now}}",
+          "required": true
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "single": true,
+          "required": true
+        },
+        {
+          "name": "youTubeVideoId",
+          "type": "string",
+          "single": true
+        },
+        {
+          "name": "tags",
+          "type": "tags",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "course",
+      "pageBundle": false,
+      "clearEmpty": true,
+      "fields": [
+        {
+          "name": "title",
+          "type": "string",
+          "single": true,
+          "required": true
+        },
+        {
+          "name": "coverImage",
+          "type": "image",
+          "required": true,
+          "isPreviewImage": true
+        },
+        {
+          "name": "pubDate",
+          "type": "datetime",
+          "default": "{{now}}",
+          "required": true
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "single": true,
+          "required": true
+        },
+        {
+          "name": "youTubeVideoId",
+          "type": "string",
+          "single": true
+        },
+        {
+          "name": "featured",
+          "type": "boolean"
+        },
+        {
+          "name": "link",
+          "type": "string",
+          "single": true
+        }
+      ]
+    },
+    {
+      "name": "talk",
+      "pageBundle": false,
+      "clearEmpty": true,
+      "fields": [
+        {
+          "name": "conferenceName",
+          "type": "string",
+          "single": true,
+          "required": true
+        },
+        {
+          "name": "conferenceLocation",
+          "type": "string",
+          "single": true,
+          "required": true
+        },
+        {
+          "name": "conferenceLink",
+          "type": "string",
+          "single": true,
+          "required": true
+        },
+        {
           "name": "coverImage",
           "type": "image",
           "isPreviewImage": true
         },
         {
-          "title": "pubDate",
+          "name": "conferenceLogo",
+          "type": "string",
+          "single": true,
+          "required": true
+        },
+        {
+          "name": "youTubeVideoId",
+          "type": "string",
+          "single": true
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "single": true,
+          "required": true
+        },
+        {
           "name": "pubDate",
           "type": "datetime",
-          "default": "{{now}}"
+          "default": "{{now}}",
+          "required": true
         },
         {
-          "title": "description",
-          "name": "description",
-          "type": "string"
-        },
-        {
-          "title": "youTubeVideoId",
-          "name": "youTubeVideoId",
-          "type": "string"
-        },
-        {
-          "title": "tags",
-          "name": "tags",
-          "type": "tags",
-          "taxonomyLimit": 3
-        }
-      ]
-    },
-    {
-      "name": "Testimonial",
-      "pageBundle": false,
-      "previewPath": null,
-      "fields": [
-        {
-          "title": "Title",
-          "name": "title",
+          "name": "slidesLink",
           "type": "string",
           "single": true
         },
         {
-          "title": "Fullname",
-          "name": "name",
-          "type": "string",
-          "single": true
-        },
-        {
-          "title": "Image",
-          "name": "image",
-          "type": "image",
-          "isPreviewImage": true
-        }
-      ]
-    },
-    {
-      "name": "Course",
-      "pageBundle": false,
-      "previewPath": null,
-      "fields": [
-        {
-          "title": "Title",
-          "name": "title",
-          "type": "string",
-          "single": true
-        },
-        {
-          "title": "Slug",
-          "name": "slug",
-          "type": "slug"
-        },
-        {
-          "title": "Publishing date",
-          "name": "pubDate",
-          "type": "datetime"
-        },
-        {
-          "title": "Description",
-          "name": "description",
-          "type": "string"
+          "name": "featured",
+          "type": "boolean"
         }
       ]
     }
   ],
-  "frontMatter.framework.id": "other",
-  "frontMatter.content.publicFolder": "public",
-  "frontMatter.content.pageFolders": [
-    {
-      "path": "[[workspace]]/src/content/blog",
-      "title": "blog",
-      "originalPath": "[[workspace]]/src/content/blog",
-      "contentTypes": [
-        "default"
-      ]
-    },
-    {
-      "path": "[[workspace]]/src/content/course",
-      "title": "course",
-      "originalPath": "[[workspace]]/src/content/course",
-      "contentTypes": [
-        "Course"
-      ]
-    },
-    {
-      "title": "testimonial",
-      "path": "[[workspace]]/src/content/testimonial",
-      "contentTypes": [
-        "Testimonial"
-      ]
-    }
-  ]
+  "frontMatter.git.enabled": true
 }
