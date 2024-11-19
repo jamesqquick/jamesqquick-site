@@ -84,7 +84,7 @@
       bind:value={details}
       rows="10"
       class="border-2 py-4 px-2 bg-transparent grow w-full rounded-lg"
-    />
+    ></textarea>
   </div>
 
   <button

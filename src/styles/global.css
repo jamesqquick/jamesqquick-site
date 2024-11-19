@@ -6,6 +6,7 @@
 
 a {
   @apply hover:text-brand  transition-all;
+  font-family: "Satoshi";
 }
 
 p {
@@ -13,7 +14,7 @@ p {
   @apply tracking-wider font-light;
 }
 
-h1 p {
+h1 {
   font-family: "Satoshi";
 }
 

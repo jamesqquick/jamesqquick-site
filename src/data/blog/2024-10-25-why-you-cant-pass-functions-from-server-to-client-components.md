@@ -10,7 +10,7 @@ tags:
   - react
 ---
 
-Up until the last couple of years in React, the typical way to interact with a back-end is by making a `fetch` request to an API endpoint. There are a few downsides to this:
+Up until the last couple of years in React, the typical way to interact with a back-end was by making a `fetch` request to an API endpoint. There are a few downsides to this:
 
 - having to create an entire API route
 - having to maintain state on the client
@@ -32,7 +32,7 @@ export default function ClientButton({ action }: Props) {
 
 There's a lot of magic that makes this possible. This is something I can dig into in another post.
 
-If you're anything like me, though, you have wondered why you couldn't just pass a regular function as a prop to your Client Copmonent. Well, if you try it, you'll get an error similar to this.
+If you're anything like me, though, you may have wondered why you couldn't just pass a regular function as a prop to your Client Copmonent. Well, if you try it, you'll get an error similar to this.
 
 ```
  Functions cannot be passed directly to Client Components unless you explicitly expose it by marking it with "use server".
@@ -40,7 +40,7 @@ If you're anything like me, though, you have wondered why you couldn't just pass
 
 Why is that? Well, it's because JavaScript functions aren't serializable. What does this mean?
 
-JavaScript functions depend on the context that they're defined in, in other words a closure. For example, say you have a function that calls another function or accesses a variable not defined within the function itself? What would happen? Take this example.
+JavaScript functions depend on the scope that they're defined in, in other words a [closure](https://www.w3schools.com/js/js_function_closures.asp). For example, say you have a function that calls another function or accesses a variable not defined within the function itself? What would happen? Take this example.
 
 ```javascript
 const age = 1;
@@ -50,9 +50,9 @@ const incrementAge = () => {
 };
 ```
 
-If I wanted to pass the function `incrementAge` to the client, how would the client know about the `age` variable? The answer is, it wouldn't and this code would fail. Because the client won't have any context for the original scope on the server, there's no way to safely pass functions from the server to the client.
+If I wanted to pass the function `incrementAge` to the client, how would the client know about the `age` variable? The answer is, it wouldn't and this code would fail. Since the client won't have any context for the original scope on the server, there's no way to safely pass functions from the server to the client.
 
-You may also start to wonder, what about passing [pure functions](https://www.geeksforgeeks.org/pure-functions-in-javascript/), ones that don't mutate or "reach outside of themselves". That's a good idea, but the reality is, functions don't inherently require that. It's just a paradigm you **can** follow.
+You may also start to wonder, what about passing [pure functions](https://www.geeksforgeeks.org/pure-functions-in-javascript/), ones that don't mutate or "reach outside of themselves". That's a good idea, but the reality is, functions don't inherently require that. It's just a paradigm you **can** follow. Therefore, you can't depend on the developer only passing pure functions.
 
 All in all, there's no way to guarantee that a function passed from the server to the client would be able to run successfuly. Therefore, functions cannot be passed from Server to Client components because they are not serializable.
 
