@@ -15,26 +15,13 @@ export const prerender = true;
 
 <BaseLayout>
   <Hero
-    title={`Hi, I'm James!`}
-    tagline={"I teach developers around the world."}
+    title={`Hi. I'm James Q Quick.`}
+    tagline={"Developer. Speaker. Teacher."}
   >
-    <div class="flex flex-col gap-y-4 sm:flex-row gap-x-4 my-8">
-      <Button
-        text="Get to know me"
-        href="/about"
-        isLink
-        type={ButtonType.SECONDARY}
-      />
-      <Button
-        text="Work with me"
-        href="/speaking"
-        isLink
-        type={ButtonType.PRIMARY}
-      />
-    </div>
+      
   </Hero>
   <SocialCallout />
-  <AboutCallout>
+  <!-- <AboutCallout>
     <div>
       <p class="mb-4 text-lg">
         With over 10 years of experience teaching students, my passion for
@@ -63,9 +50,10 @@ export const prerender = true;
         type={ButtonType.SECONDARY}
       />
     </div>
-  </AboutCallout>
-    <WorkExperience />
+  </AboutCallout> -->
   <CoursesCallout />
-  <SpeakingCallout />
+  <WorkExperience />
+
+  <!-- <SpeakingCallout /> -->
   <!-- <BlogCallout /> -->
 </BaseLayout>

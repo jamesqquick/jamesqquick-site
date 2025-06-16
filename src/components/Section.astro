@@ -1,24 +1,16 @@
 ---
 export interface Props {
-  title?: string;
-  subtitle?: string;
-  description?: string;
   isLight?: boolean;
   classStr?: string;
   hasYPadding?: boolean;
   hasMaxWidth?: boolean;
-  isHeader?: boolean;
 }
 
 const {
-  title,
-  subtitle,
-  description,
   isLight = false,
   classStr,
   hasYPadding = true,
   hasMaxWidth = true,
-  isHeader = false,
 } = Astro.props as Props;
 ---
 

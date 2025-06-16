@@ -11,6 +11,7 @@ import RecentTalks from "../../components/RecentTalks.astro";
 import HLineText from "../../components/HLineText.astro";
 import Testimonials from "../../components/Testimonials.astro";
 import SpeakerFormCallout from "../../components/SpeakerFormCallout.astro";
+import SectionHeader from "@components/SectionHeader.astro";
 
 export const prerender = true;
 
@@ -25,43 +26,29 @@ interface Topic {
 }
 const topics: Topic[] = [
   {
-    title: "Personal Brand",
-    description: `Your personal brand is the most valuable asset you will ever own. My personal brand enabled me to work for myself while pursuing my passion of teaching others through Content Creation.`,
+    title: "Brand and Careers",
+    description: `I believe your career is solely in your control. I want you to find happiness in your career, whatever that may look like for you.`,
     icon: "mdi:star-box",
   },
   {
-    title: "Developer Careers",
-    description: `We are solely responsible for what happens in our career. I encourage others to take control of their career while pursuing happiness, whatever that may look like for them.`,
+    title: "Developer Experience",
+    description: `I've worked in the developer community my entire career. I love building tools and experiences that make developers' lives easier.`,
     icon: "mdi:account",
   },
   {
     title: "Modern Web Development",
-    description: `The Web Development ecosystem is constantly evolving. I love spending time learning about the latest frameworks, methodologies, and tools, and I'm eager to share those learnings with the community.`,
+    description: `I love learning about the latest frameworks, methodologies, and best practices, and I'm eager to share those learnings with you.`,
     icon: "mdi:laptop",
   },
 ];
 ---
 
 <BaseLayout>
-  <Hero title="Speaking" tagline="I use my voice to inspire developers.">
-    <div class="flex flex-col gap-y-4 sm:flex-row gap-x-4 my-8">
-      <Button
-        text="What I talk about"
-        href="#whatToExpect"
-        isLink
-        type={ButtonType.SECONDARY}
-      />
-      <Button
-        text="Book me to speak"
-        href="#speakerForm"
-        isLink
-        type={ButtonType.PRIMARY}
-      />
-    </div>
-  </Hero>
+  <Hero title="Speaking" tagline="International keynote speaker."/>
   <NextTalkCallout />
   <div id="whatToExpect" class="pt-10">
     <Section title={title} subtitle={subtitle}>
+        <SectionHeader title={title} subtitle={subtitle} />
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {
           topics.map((topic) => (
@@ -79,7 +66,7 @@ const topics: Topic[] = [
   <div class="pt-20 md:pt-40">
     <Section classStr="mb-0 pb-0">
       <div class="py-10 md:py-16">
-        <HLineText text="More talks" />
+        <HLineText text="More" />
       </div>
       <RecentTalks />
     </Section>
@@ -89,6 +76,11 @@ const topics: Topic[] = [
   <div class="my-20">
     <HLineText />
   </div>
+  <SectionHeader
+    title="Invite me"
+    subtitle="Have me speak at your event"
+    
+  />
   <div id="speakerForm">
     <SpeakerFormCallout />
   </div>

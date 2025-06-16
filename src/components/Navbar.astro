@@ -4,37 +4,37 @@ import Logo from "../images/logo.astro";
 ---
 
 <nav
-  class="lg:px-20 px-1 sm:px-5 sm:py-5 py-20 flex flex-row gap-5 justify-center sm:justify-between items-center sm:items-center w-screen z-10 h-[100px] bg-transparent"
+  class="lg:px-20 px-4 py-8 max-w-full lg:max-w-6xl mx-auto md:py-20 flex flex-row gap-5 justify-between items-center sm:items-center w-screen z-10 h-[100px] bg-transparent"
 >
   <a
     href="/"
-    class="text-white hover:text-brand h-5 sm:h-10"
+    class="text-white hover:text-brand "
     aria-label="home page"
   >
     <!-- <NameLogo /> -->
-    <Logo classStr="fill-white h-16 w-16 mb-10" />
+    <Logo classStr="fill-white h-12 w-12 md:h-16 md:w-16" />
   </a>
   <button
     id="hamburger"
     aria-label="menu"
     aria-controls="mobileMenu"
-    class="absolute sm:relative right-4 top-2"
+    class=""
   >
     <Icon
-      class="inline lg:hidden h-10 w-10 hover:text-brand cursor-pointer"
+      class="inline md:hidden h-10 w-10 hover:text-brand cursor-pointer"
       name="mdi:menu"
     />
   </button>
   <div
     id="mobileMenu"
-    class="fixed lg:flex items-center justify-center lg:relative inset-0 bg-bg hidden py-5 md:py-20 lg:py-0 overflow-auto z-10"
+    class="fixed md:flex items-center justify-center md:relative inset-0 bg-bg hidden py-5 md:py-20  overflow-auto z-10"
   >
     <div
-      class="flex flex-col lg:flex-row gap-10 lg:gap-5 font-light text-center lg:text-left text-2xl lg:text-xl"
+      class="flex flex-col md:flex-row gap-10 md:gap-5 font-light text-center md:text-left text-2xl md:text-xl"
     >
       <button id="close">
         <Icon
-          class="inline lg:hidden h-10 w-10 hover:text-brand cursor-pointer mb-10"
+          class="inline md:hidden h-10 w-10 hover:text-brand cursor-pointer mb-10"
           name="mdi:close"
         />
       </button>
