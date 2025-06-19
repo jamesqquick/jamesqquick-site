@@ -6,8 +6,10 @@ interface Props {
     classStr?: string;
 }
 const { text, ariaLabel, classStr } = Astro.props;
+console.log(ariaLabel)
 ---
 
-<h1 class={`text-4xl block text-white md:text-6xl font-bold leading-[40px] md:leading-[66px] ${classStr}`} aria-label={ariaLabel || text}>
+<h2 class={`text-3xl text-white md:text-4xl font-bold ${classStr}`} aria-label={ariaLabel || text}>
   {text}
-</h1>
+</h2>
+

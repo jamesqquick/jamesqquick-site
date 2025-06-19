@@ -1,22 +1,20 @@
 ---
+import HeroSection from "@components/HeroSection.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import SectionHeader from "@components/SectionHeader.astro";
 import Section from "@components/Section.astro";
+import SectionHeader from "@components/SectionHeader.astro";
 const title = "About Me";
 const subtitle = "Developer. Speaker. Teacher.";
+const description = "James is a developer, keynote speaker, and teacher whose work has impacted thousands of developers across the world. James has over 10 years of Software Development and Developer Advocacy experience, and is currently serving as Head of Developer Experience at BigCommerce. In his spare time, he enjoys traveling and playing co-ed soccer with his wife, chasing around their toddler, and solving a Rubik's cube in under a minute.";
 export const prerender = true;
 ---
 
 <BaseLayout
   title="About | James Q Quick"
-  description="James Q Quick is a Developer, Speaker, and Teacher with a passion for teaching developers through content."
+  description={description}
 >
 
-<Section>
 
-    <SectionHeader title={title} subtitle={subtitle} />
-    <p>
-        James is a developer, keynote speaker, and teacher whose work has impacted thousands of developers across the world. James has over 10 years of Software Development and Developer Advocacy experience, and is currently serving as Head of Developer Experience at BigCommerce. In his spare time, he enjoys traveling and playing co-ed soccer with his wife, chasing around their toddler, and solving a Rubik's cube in under a minute.
-    </p>
-</Section>
+<HeroSection title={title} subtitle={subtitle} hasFullHeight={false} description={description}/>
+    
 </BaseLayout>

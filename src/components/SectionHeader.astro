@@ -1,13 +1,26 @@
-    ---
-export interface Props {
-  title?: string;
-  subtitle?: string;
-  description?: string;
-}
-const { title, subtitle, description } = Astro.props;
 ---
+import H2 from './H2.astro';
 
-<div class="pb-20 text-center mx-auto">
+
+interface Props {
+    title: string;
+    subtitle?: string;
+    description?: string;
+    variant?: "primary" | "secondary";
+}
+const { title, variant = "primary", subtitle, description } = Astro.props as Props;
+---
+{variant === "primary" &&(
+  
+    <div class="flex items-center gap-x-10 mb-20">
+  <H2 text={title} classStr="shrink-0" />
+  <div class="h-[0.5px] w-full grow-2 bg-gray-100 opacity-50"/>
+  <slot name="cta" />
+</div>
+    )}
+
+{variant === "secondary" && (
+    <div class="pb-20 text-center mx-auto">
   <h1 class="text-4xl mb-2">
     <span
       class="block text-brand text-2xl text-light tracking-widest uppercase font-light"
@@ -24,3 +37,4 @@ const { title, subtitle, description } = Astro.props;
   </h1>
   {description && <p class="text-xl opacity-80 ">{description}</p>}
 </div>
+)}

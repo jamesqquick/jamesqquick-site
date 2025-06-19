@@ -39,6 +39,7 @@ const coursesCollection = defineCollection({
       youTubeVideoId: z.string().optional(),
       featured: z.boolean().optional(),
       link: z.string().optional(),
+      tags: z.array(z.string()),
     }),
 });
 

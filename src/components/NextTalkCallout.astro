@@ -1,13 +1,19 @@
 ---
 import Section from "./Section.astro";
+import SectionHeader from "./SectionHeader.astro";
 ---
 
 <Section isLight={true}>
+    <SectionHeader
+        title="Next Talk"
+        subtitle="Find out where I'll be speaking next"
+        variant="secondary"
+    />
   <div
     class="flex sm:flex-row flex-col max-w-xl mx-auto justify-between items-center gap-y-8 text-center"
   >
     <div>
-      <p class="text-xl">Next talk</p>
+      <p class="text-xl">When</p>
       <p class="opacity-60">June 25th, 2025</p>
     </div>
     <div class="w-8 sm:w-[2px] h-[2px] sm:h-8 bg-gray-400 opacity-40"></div>

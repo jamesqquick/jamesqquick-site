@@ -11,9 +11,10 @@ export interface Props {
   slug: string;
   title: string;
   date: Date;
+  description?: string;
   btnText?: string;
   tag?: string;
-  image?: {
+  image: {
     height: number;
     src: string;
     width: number;
@@ -21,7 +22,7 @@ export interface Props {
   };
 }
 
-const { slug, date, title, btnText = "Read", tag, image } = Astro.props;
+const { slug, date, title, btnText = "Read", tag, image, description } = Astro.props;
 const tagToLogo = {
   javascript,
   vscode,
@@ -33,17 +34,17 @@ const tagToLogo = {
 ---
 
 <div class="overflow-hidden">
-  <!-- <div class="flex items-center justify-center w-full object-cover mb-4">
+  <div class="flex items-center justify-center w-full object-cover mb-4">
     <a href={slug} class="grow hover:underline">
       <Image
         height={540}
         width={960}
         src={image}
-        class="rounded-2xl"
         alt={title}
+        class="rounded-2xl aspect-video object-cover"
       />
     </a>
-  </div> -->
+  </div>
 
   <p class="mb-1">{getFormattedDate(date)}</p>
   <a href={slug} class="grow hover:underline">
@@ -53,6 +54,9 @@ const tagToLogo = {
       {title}
     </h3>
   </a>
+  {description && (
+    <p class="text-gray-400">{description}</p>
+  )}
 </div>
 <!-- {
         tag && tagToLogo[tag] && (

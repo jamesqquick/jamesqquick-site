@@ -2,6 +2,8 @@
 import { CollectionEntry } from "astro:content";
 import Section from "./Section.astro";
 import { Image } from "astro:assets";
+import Link from "./Link.astro";
+import SplitSection from "./SplitSection.astro";
 
 export interface Props {
   post: CollectionEntry<"blog">;
@@ -10,9 +12,8 @@ export interface Props {
 const { post } = Astro.props as Props;
 ---
 
-<Section hasYPadding={false}>
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-    <a href={`/blog/${post.id}`}>
+<SplitSection isLight={true} hasYPadding={true}>
+    <a href={`/blog/${post.id}`} slot="left">
       <Image
         height={540}
         width={960}
@@ -21,7 +22,7 @@ const { post } = Astro.props as Props;
         alt={post.data.title}
       />
     </a>
-    <div>
+    <div slot="right">
       <p class="text-lg uppercase text-brand">Featured</p>
       <a href={`/blog/${post.id}`}>
         <h2 class="text-3xl font-bold mb-1">{post.data.title}</h2>
@@ -30,10 +31,8 @@ const { post } = Astro.props as Props;
         {post.data.description}
       </p>
       <div class="flex justify-between">
-        <a class="underline underline-offset-4" href={`/blog/${post.id}`}
-          >Read blog</a
-        >
-
+        <Link isFancy={true}  href={`/blog/${post.id}`}
+          text="Read blog"/>
         <p class="text-lg opacity-80">
           {
             post.data.pubDate.toLocaleDateString("en-us", {
@@ -45,5 +44,4 @@ const { post } = Astro.props as Props;
         </p>
       </div>
     </div>
-  </div>
-</Section>
+</SplitSection>

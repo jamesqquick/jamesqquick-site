@@ -1,6 +1,6 @@
 ---
-import selfie from "../images/selfie.png";
 import { Image } from "astro:assets";
+import Section from "./Section.astro";
 
 export interface Props {
   title: string;
@@ -8,20 +8,23 @@ export interface Props {
   hasImage?: boolean;
   description?: string;
   hasFullHeight?: boolean;
+  image?: ImageMetadata
+  imageAlt?: string;
 }
 
 const {
   title,
   tagline,
-  hasImage = true,
   description,
   hasFullHeight = true,
+  image,
+  imageAlt
 } = Astro.props as Props;
 ---
 
-<div class="max-w-8xl mx-auto px-4 md:px-10">
+<Section hasYPadding={false} >
   <div
-    class={`gap-4 gap-y-12 flex flex-col lg:items-center lg:flex-row ${
+    class={`gap-4 gap-y-12 flex flex-col pt-20 lg:items-center lg:flex-row ${
       hasFullHeight ? "lg:h-[calc(100vh-240px)] sm:pb-0" : "py-20"
     } max-w-7xl mx-auto`}
   >
@@ -41,19 +44,18 @@ const {
     <div class="lg:w-3/5 lg:self-end flex justify-center">
 
         {
-            hasImage && (
+            image && imageAlt && (
                 <Image
-                src={selfie}
-                height={1280}
-                width={1280}
+                src={image}
+                height={image.height}
+                width={image.width}
                 class="max-w-full md:w-[600px] lg:w-[700px]  -mt-24 lg:mt-0"
-                alt="James Q Quick selfie"
+                alt={imageAlt}
                 format="webp"
                 loading="eager"
                 />
             )
         }
         </div>
-    {!hasImage && <div class="w-1/2" />}
   </div>
 </div>

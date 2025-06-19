@@ -1,5 +1,5 @@
 ---
-import Button from "./Button.astro";
+import Button, { ButtonType } from "./Button.astro";
 import { Icon } from "astro-icon/components";
 
 export interface Props {
@@ -20,6 +20,8 @@ const { currentPage, lastPage, next, prev } = Astro.props;
         isLink={true}
         newTab={false}
         href={prev}
+        hasOutline={false}
+        type={ButtonType.TERTIARY}
       >
         <Icon name="mdi:arrow-left" class="w-6" /> Prev
       </Button>
@@ -30,7 +32,7 @@ const { currentPage, lastPage, next, prev } = Astro.props;
 
   {
     currentPage < lastPage && (
-      <Button text="Next" isLink={true} newTab={false} href={next}>
+      <Button text="Next" isLink={true} newTab={false} href={next} >
         <Icon name="mdi:arrow-right" class="w-6" />
       </Button>
     )

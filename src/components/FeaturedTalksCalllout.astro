@@ -1,14 +1,14 @@
 ---
 import Section from "./Section.astro";
-import SectionHeader from "./SectionHeader.astro";
 import YouTube from "./YouTube.astro";
+import SectionHeader from "./SectionHeader.astro";
 
 const title = "Talks";
 const subtitle = `Some of my favorite talks!`;
 ---
 
 <Section isLight={true}>
-  <SectionHeader title={title} subtitle={subtitle} />
+  <SectionHeader title={title} subtitle={subtitle} variant="secondary"/>
   <div class="pb-16 -mb-60 md:-mb-80">
     <YouTube id="DajdLKD0OmQ" classStr="rounded-2xl " />
   </div>

@@ -4,6 +4,9 @@ coverImage: ./cover.jpg
 pubDate: 2020-02-00
 description: Learn how to build a full-stack quiz app using React and Firebase.
 type: Course
+tags:
+  - JavaScript
+  - React
 link: https://leveluptutorials.com/tutorials/fullstack-react-and-firebase
 ---
 

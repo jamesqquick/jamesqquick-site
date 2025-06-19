@@ -9,11 +9,13 @@ export interface Props {
   id?: string;
   download?: boolean;
   type?: ButtonType;
+  hasOutline?: boolean;
 }
 
 export enum ButtonType {
   PRIMARY = "primary",
   SECONDARY = "secondary",
+    TERTIARY = "tertiary",
 }
 const {
   text,
@@ -25,14 +27,16 @@ const {
   id,
   download = false,
   type = ButtonType.SECONDARY,
+  hasOutline = true,
 } = Astro.props;
 
 const colorClasses = {
   primary: "bg-brand border-brand text-bg text-bg hover:text-bg ",
   secondary:
-    "text-white bg-bg border-white hover:text-brand hover:border-brand",
+    "text-white  border-white hover:text-brand hover:border-brand ",
+    tertiary: "text-white border-white border-transparent hover:text-brand",
 };
-const classes = `text-center text-xl lg:text-2xl rounded-full px-10 py-4 border inline-block transition flex gap-x-4 justify-center ${
+const classes = `text-center text-lg lg:text-xl rounded-full px-8 py-2 border inline-block transition flex gap-x-4 items-center justify-center ${
   classStr || ""
 } ${colorClasses[type]}`;
 ---

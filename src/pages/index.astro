@@ -9,6 +9,7 @@ import SpeakingCallout from "../components/SpeakingCallout.astro";
 import CoursesCallout from "../components/CoursesCallout.astro";
 import Button, { ButtonType } from "../components/Button.astro";
 import Link from "../components/Link.astro";
+import selfie from "../images/selfie.png";
 
 export const prerender = true;
 ---
@@ -17,6 +18,8 @@ export const prerender = true;
   <Hero
     title={`Hi. I'm James Q Quick.`}
     tagline={"Developer. Speaker. Teacher."}
+    image={selfie}
+    imageAlt="James Q Quick selfie"
   >
       
   </Hero>

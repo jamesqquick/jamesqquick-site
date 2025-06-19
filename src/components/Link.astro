@@ -4,12 +4,13 @@ export interface Props {
   text: string;
   classStr?: string;
   isFancy?: boolean;
+  showUnderline?: boolean;
 }
-const { href, text, classStr = "", isFancy = true } = Astro.props;
+const { href, text, classStr = "", isFancy = true, showUnderline = true } = Astro.props;
 ---
 
 <a
-  class={`group transition-all duration-300 ease-in-out relative cursor-pointer ${classStr} pl-1 ${
+  class={`group transition-all duration-300 ease-in-out relative cursor-pointer ${classStr} ${
     isFancy ? "hover:text-bg" : "hover:text-brand"
   } z-20`}
   href={href}
@@ -18,7 +19,7 @@ const { href, text, classStr = "", isFancy = true } = Astro.props;
 >
   {text}{
     isFancy && (
-      <span class="absolute left-0 -bottom-0 w-full h-0.5 bg-brand -z-10 group-hover:h-full group-hover:transition-all rounded-sm" />
+      <span class={`absolute left-0 right-0 group-hover:-left-1 group-hover:-right-1 bottom-1  bg-white group-hover:bg-brand -z-10 group-hover:h-full group-hover:transition-all rounded-sm ${showUnderline ? "h-[1px]" : "h-0"}`} />
     )
   }
 </a>

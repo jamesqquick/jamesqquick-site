@@ -4,6 +4,9 @@ coverImage: ./cover.png
 pubDate: 2020-05-00
 description: Learn to build a secure and production-ready fullstack application from start to finish.
 type: Course
+tags:
+  - React
+  - JavaScript
 link: https://learn.jamesqquick.com/react-and-serverless-fullstack-web-development
 ---
 

@@ -3,7 +3,7 @@ import BaseLayout from "src/layouts/BaseLayout.astro";
 import { CldImage } from "astro-cloudinary";
 import { v2 as cloudinary } from "cloudinary";
 import Section from "@components/Section.astro";
-import SectionHeader from "@components/SectionHeader.astro";
+import PageHeader from "@components/PageHeader.astro";
 
 cloudinary.config({
   cloud_name: import.meta.env.PUBLIC_CLOUDINARY_CLOUD_NAME,
@@ -22,7 +22,7 @@ const { resources } = await cloudinary.search
 
 <BaseLayout title="Selfies | James Q Quick">
   <Section>
-    <SectionHeader
+    <PageHeader
       title={"JQQ Selfies"}
       subtitle={"Selfies with developers I've met around the world!"}
     />

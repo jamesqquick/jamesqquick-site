@@ -4,6 +4,8 @@ coverImage: ./cover.png
 pubDate: 2019-02-00
 description: Learn how to build a Quiz app without the assistance of libraries or frameworks.
 type: Course
+tags:
+  - JavaScript
 link: https://www.youtube.com/watch?v=u98ROZjBWy8&list=PLDlWc9AfQBfZIkdVaOQXi1tizJeNJipEx
 ---
 

@@ -1,0 +1,53 @@
+---
+import { CollectionEntry } from "astro:content";
+import Section from "./Section.astro";
+import { Image } from "astro:assets";
+import Link from "./Link.astro";
+import SplitSection from "./SplitSection.astro";
+
+export interface Props {
+  image: CollectionEntry<"images">;
+    title: string;
+    description: string;
+    href:string
+    date: Date
+    isLight?: boolean;
+    hasYPadding?: boolean;
+    classStr?: string;
+}
+
+const { image, title, description, href, date, isLight, hasYPadding = true, classStr } = Astro.props as Props;
+
+---
+
+<SplitSection isLight={isLight} hasYPadding={hasYPadding} classStr={classStr}>
+    <a href={href} slot="left">
+      <Image
+        height={540}
+        width={960}
+        src={image}
+        class="rounded-2xl"
+        alt={title}
+      />
+    </a>
+    <div slot="right">
+      <p class="text-lg uppercase text-brand">Featured</p>
+      <a href={href}>
+        <h2 class="text-3xl font-bold mb-1">{title}</h2>
+      </a>
+      <p class="text-lg opacity-80 mb-4">
+        {description}
+      </p>
+      <div class="flex justify-between">
+        <Link isFancy={true}  href={href}
+          text="Read blog"/>
+        <p class="text-lg opacity-80">
+          {date.toLocaleDateString("en-us", {
+            year: "numeric",
+            month: "short",
+            day: "numeric",
+          })}
+        </p>
+      </div>
+    </div>
+</SplitSection>

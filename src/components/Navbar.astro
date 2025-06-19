@@ -1,65 +1,65 @@
 ---
 import { Icon } from "astro-icon/components";
 import Logo from "../images/logo.astro";
+import Section from "./Section.astro";
 ---
 
-<nav
-  class="lg:px-20 px-4 py-8 max-w-full lg:max-w-6xl mx-auto md:py-20 flex flex-row gap-5 justify-between items-center sm:items-center w-screen z-10 h-[100px] bg-transparent"
->
-  <a
-    href="/"
-    class="text-white hover:text-brand "
-    aria-label="home page"
-  >
-    <!-- <NameLogo /> -->
-    <Logo classStr="fill-white h-12 w-12 md:h-16 md:w-16" />
-  </a>
-  <button
-    id="hamburger"
-    aria-label="menu"
-    aria-controls="mobileMenu"
-    class=""
-  >
-    <Icon
-      class="inline md:hidden h-10 w-10 hover:text-brand cursor-pointer"
-      name="mdi:menu"
-    />
-  </button>
-  <div
-    id="mobileMenu"
-    class="fixed md:flex items-center justify-center md:relative inset-0 bg-bg hidden py-5 md:py-20  overflow-auto z-10"
-  >
-    <div
-      class="flex flex-col md:flex-row gap-10 md:gap-5 font-light text-center md:text-left text-2xl md:text-xl"
-    >
-      <button id="close">
-        <Icon
-          class="inline md:hidden h-10 w-10 hover:text-brand cursor-pointer mb-10"
-          name="mdi:close"
-        />
-      </button>
+<Section hasYPadding={false}>
 
-      <a href="/about/" class="hover:text-brand transition-colors">about</a>
-      <a href="/blog/" class="hover:text-brand transition-colors">blog</a>
-      <a href="/speaking/" class="hover:text-brand transition-colors"
-        >speaking</a
-      >
-      <a href="/courses/" class="hover:text-brand transition-colors">courses</a>
-      <a href="/uses" class="hover:text-brand transition-colors">uses</a>
-    </div>
-  </div>
+    <nav class=" flex flex-row gap-5 justify-between items-center sm:items-center z-10 h-[100px] bg-transparent relative">
+    <a
+        href="/"
+        class="text-white hover:text-brand "
+        aria-label="home page"
+    >
+    <!-- <NameLogo /> -->
+    <Logo classStr="fill-white h-12 w-12" />
+    </a>
+    <button
+        id="hamburger"
+        aria-label="menu"
+        aria-controls="mobileMenu"
+        class="md:hidden hover:text-brand cursor-pointer"
+    >
+        <Icon
+        class="inline  h-10 w-10 "
+        name="mdi:menu"
+        />
+    </button>
+    <div
+id="mobileMenu"
+    class="fixed md:flex items-center justify-center md:relative inset-0 bg-bg md:bg-transparent hidden py-5 overflow-auto z-10"
+    >
+<div
+class="flex flex-col md:flex-row gap-10 md:gap-5 font-light text-center md:text-left text-2xl md:text-xl relative pt-10"
+>
+    <button id="close">
+        <Icon
+        class="inline absolute top-4 right-4 md:hidden h-10 w-10 hover:text-brand cursor-pointer "
+        name="mdi:close"
+        />
+    </button>
+
+    <a href="/about/" class="hover:text-brand transition-colors">About</a>
+    <a href="/blog/" class="hover:text-brand transition-colors">Blog</a>
+    <a href="/speaking/" class="hover:text-brand transition-colors"
+    >Speaking</a>
+    <a href="/courses/" class="hover:text-brand transition-colors">Courses</a>
+    <a href="/uses" class="hover:text-brand transition-colors">Uses</a>
+</div>
+</div>
 </nav>
+</Section>
 <script>
-  const hamburger = document.getElementById("hamburger");
-  const close = document.getElementById("close");
+    const hamburger = document.getElementById("hamburger") as HTMLButtonElement;
+  const close = document.getElementById("close") as HTMLButtonElement;
+  const mobileMenu = document.getElementById("mobileMenu") as HTMLDivElement;
   hamburger.addEventListener("click", () => {
-    const mobileMenu = document.getElementById("mobileMenu");
     mobileMenu.classList.remove("hidden");
     document.body.dataset.menuOpen = "true";
   });
 
   close.addEventListener("click", () => {
-    const mobileMenu = document.getElementById("mobileMenu");
     mobileMenu.classList.add("hidden");
     delete document.body.dataset.menuOpen;
   });

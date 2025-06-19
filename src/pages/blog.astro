@@ -4,24 +4,42 @@ import { getSortedBlogPosts } from "../utils/contentCollections";
 import Pagination from "../components/Pagination.astro";
 import LinkCardList from "../components/LinkCardList.astro";
 import Section from "../components/Section.astro";
+import HeroSection from "@components/HeroSection.astro";
+import FeaturedBlogCallout from "@components/FeaturedBlogCallout.astro";
+import FeaturedSplitSection from "@components/FeaturedSplitSection.astro";
+import SectionHeader from "@components/SectionHeader.astro";
 
 const posts = (await getSortedBlogPosts()).slice(0, 10);
+const featuredPost = posts.splice(0, 1)[0];
 export const prerender = true;
 ---
 
 <BaseLayout title="Blog | James Q Quick">
-    <Section hasYPadding={false}>
-    <h1 class="text-6xl text-brand font-bold mb-10">Blog</h1>
-      <div
-        class="flex lg:flex-row flex-col gap-8 justify-between items-center mb-16"
-      >
-      </div>
-      <LinkCardList posts={posts} />
-      <Pagination
-        next={"/blog/2"}
-        prev={undefined}
-        currentPage={1}
-        lastPage={2}
-      />
-  </SectionHeader>
+        <HeroSection
+            title="Blog"
+            hasFullHeight={false}
+            subtitle="Articles for web developers!"
+            description="I write about modern web development, developer experience, careers, and more!"
+            h1AriaLabel="Blog | James Q Quick"
+        />
+            <FeaturedSplitSection isLight={true} image={featuredPost.data.coverImage} title={featuredPost.data.title} description={featuredPost.data.description} href={featuredPost.data.link} date={featuredPost.data.pubDate} />
+        <Section isLight={false} classStr="mt-8">
+            <SectionHeader title="More Posts" >
+                <Pagination
+                slot="cta"
+                next={"/blog/2"}
+                prev={undefined}
+                currentPage={1}
+                lastPage={2}
+                />
+                </SectionHeader>
+
+          <LinkCardList items={posts} />
+          <Pagination
+          next={"/blog/2"}
+          prev={undefined}
+          currentPage={1}
+          lastPage={2}
+          />
+        </Section>
 </BaseLayout>

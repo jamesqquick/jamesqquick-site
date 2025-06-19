@@ -15,6 +15,7 @@ module.exports = {
         bg: "#242845",
         bgDark: "#10121D",
         bgLight: "#363C68",
+        bgLightBrand: "#C8FEE7",
       },
       backgroundImage: {
         interviewing: "url('/images/overlays/interviewing.png')",

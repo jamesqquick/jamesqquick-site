@@ -4,6 +4,9 @@ coverImage: ./cover.jpg
 pubDate: 2023-06-01
 description: A hands-on course to teach you to build performance and dynamic websites the modern way using Astro, the all-in-one-framework designed for speed!
 type: Course
+tags:
+  - JavaScript
+  - Astro
 featured: true
 link: https://astrocourse.dev/
 ---

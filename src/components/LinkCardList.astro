@@ -3,21 +3,23 @@ import { CollectionEntry } from "astro:content";
 import LinkCard from "./LinkCard.astro";
 
 export interface Props {
-  posts: CollectionEntry<"blog">[];
+  items: CollectionEntry<"blog" | "course">[];
+  includeDescription?: boolean;
 }
 
-const { posts } = Astro.props;
+const { items, includeDescription } = Astro.props;
 ---
 
-<div class="grid gap-10 mb-16">
+<div class="grid gap-16 grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 mb-16">
   {
-    posts.map((post) => (
+    items.map((item) => (
       <LinkCard
-        title={post.data.title}
-        date={post.data.pubDate}
-        slug={`/blog/${post.id}`}
-        tag={post.data.tags[0]}
-        image={post.data.coverImage}
+        title={item.data.title}
+        date={item.data.pubDate}
+        slug={`/blog/${item.id}`}
+        tag={item.data.tags[0]}
+        image={item.data.coverImage}
+        description={includeDescription ? item.data.description : undefined}
       />
     ))
   }

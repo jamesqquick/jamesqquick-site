@@ -1,0 +1,27 @@
+---
+
+interface Props {
+  size?: "small" | "medium" | "large";
+  border?: 'brand' | 'lightBrand';
+  classStr?: string;
+  fill?: 'brand' | 'lightBrand';
+}
+
+const { size = "medium", border = "brand", classStr, fill } = Astro.props;
+
+const sizeClasses = {
+  small: "w-24 h-24",
+  medium: "w-32 h-32",
+  large: "w-40 h-40"
+};
+const borderClasses = {
+  brand: "border border-brand",
+  lightBrand: "border border-bgLightBrand",
+};
+
+const fillClasses = {
+  brand: "bg-brand",
+  lightBrand: "bg-bgLightBrand",
+};
+---
+<div class={`border ${borderClasses[border]} rounded-3xl opacity-50  ${sizeClasses[size]} ${fill && fillClasses[fill] } ${classStr}`} />

@@ -1,39 +1,26 @@
----
-import Divider from "./Divider.astro";
-import YouTube from "./YouTube.astro";
-
+    ---
 export interface Props {
-  heading: string;
-  body: string;
-  youTubeVideoId?: string;
-  hasDivider?: boolean;
-  image?: any;
-  alt: string;
+  title?: string;
+  subtitle?: string;
+  description?: string;
 }
-
-const {
-  heading,
-  body,
-  youTubeVideoId,
-  hasDivider = true,
-  image,
-  alt,
-} = Astro.props;
+const { title, subtitle, description } = Astro.props;
 ---
 
-<div
-  class={`mb-20 grid grid-cols-1 items-center lg:grid-cols-2 space-between gap-10`}
->
-  <div>
-    <h1 class="text-6xl text-brand font-bold mb-10">{heading}</h1>
-    <p class="text-4xl font-light mb-5">{body}</p>
-    <slot />
-  </div>
-  {youTubeVideoId && <YouTube id={youTubeVideoId} />}
-  {
-    image && !youTubeVideoId && (
-      <Image src={image} alt={alt} class="rounded-md" />
-    )
-  }
+<div class="pb-20 text-center mx-auto">
+  <h1 class="text-4xl mb-2">
+    <span
+      class="block text-brand text-2xl text-light tracking-widest uppercase font-light"
+    >
+      {title}
+    </span>
+    {
+      subtitle && (
+        <span class="block mb-2 text-4xl leading-[50px] font-bold text-white">
+          {subtitle}
+        </span>
+      )
+    }
+  </h1>
+  {description && <p class="text-xl opacity-80 ">{description}</p>}
 </div>
-{hasDivider && <Divider size={1} />}

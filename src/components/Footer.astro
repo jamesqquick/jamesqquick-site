@@ -1,45 +1,40 @@
 ---
 import Link from "./Link.astro";
-import SocialFollow, { IconSize } from "./SocialFollow.astro";
 import Logo from "../images/logo.astro";
 import NewsletterSection from "./NewsletterSection.astro";
-const today = new Date();
+import Section from "./Section.astro";
 ---
-
-<footer class="py-10 md:px-8 max-w-6xl mx-auto">
-  <div class="bg-bgLight md:rounded-2xl py-10 px-4 md:px-10 mb-10">
-    <Logo classStr="fill-white h-16 w-16 mb-10" />
-      <NewsletterSection />
-   
-  </div>
-  
-
-  
-  <div class="flex flex-col justify-center sm:flex-row gap-y-2">
-    <span>
-      Built with{" "}
-      <strong>
-        <Link href="https://astro.build/" text="Astro" classStr="" />
-      </strong>
-      <span class="mx-2 sm:inline hidden">|</span>
-    </span>
-    <span>
-      Styling with{" "}
-      <strong>
-        <Link
-          href="https://tailwindcss.com/"
-          text="Tailwind CSS"
-          classStr=""
-        />
-      </strong>
-      <span class="mx-2 sm:inline hidden">|</span>
-    </span>
-    <span>
-      Hosted on{" "}
-      <strong>
-        <Link href="https://netlify.com/" text="Netlify" classStr="" />
-      </strong>
-    </span>
-  </div>
-
-</footer>
+<Section hasYPadding={false}>
+    <footer class="py-10">
+        <div class="bg-bgLight md:rounded-2xl py-10 px-4 md:px-10 mb-10">
+            <Logo classStr="fill-white h-16 w-16 mb-10" />
+            <NewsletterSection />
+            
+        </div>
+        
+        
+        
+        <div class="flex flex-col justify-center sm:flex-row gap-y-2">
+            <span>
+                Built with{" "}
+                <Link href="https://astro.build/" text="Astro" classStr="font-bold pb-1" />
+                <span class="mx-2 sm:inline hidden">|</span>
+            </span>
+            <span>
+                Styling with{" "}
+                <Link
+                href="https://tailwindcss.com/"
+                text="Tailwind CSS"
+                classStr="font-bold pb-1"
+                />
+                <span class="mx-2 sm:inline hidden">|</span>
+            </span>
+            <span>
+                Hosted on{" "}
+                <Link href="https://netlify.com/" text="Netlify" classStr="font-bold pb-1"  />
+            </span>
+        </div>
+        
+    </footer>
+    
+</Section>

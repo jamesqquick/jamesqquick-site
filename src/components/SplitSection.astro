@@ -1,0 +1,22 @@
+---
+import Section from "./Section.astro";
+
+export interface Props {
+    isLight?: boolean
+    hasYPadding?: boolean;
+    classStr?: string;
+}
+
+const { isLight, hasYPadding, classStr } = Astro.props as Props;
+---
+
+<Section hasYPadding={hasYPadding} isLight={isLight} classStr={classStr}>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+    <div>
+        <slot name="left" />
+    </div>
+    <div>
+      <slot name="right" />
+    </div>
+  </div>
+</Section>

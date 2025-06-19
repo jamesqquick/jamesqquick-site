@@ -1,10 +1,11 @@
 ---
-import LinkCard from "../../components/LinkCard.astro";
+import SectionHeader from "@components/SectionHeader.astro";
 import LinkCardList from "../../components/LinkCardList.astro";
 import Pagination from "../../components/Pagination.astro";
 import Section from "../../components/Section.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getSortedBlogPosts } from "../../utils/contentCollections";
+import HeroSection from "@components/HeroSection.astro";
 
 export const prerender = true;
 
@@ -18,15 +19,31 @@ const { data: posts } = page;
 ---
 
 <BaseLayout title="Blog | James Q Quick">
-  <Section hasYPadding={false}>
-        <h1 class="text-6xl text-brand font-bold mb-10">Blog</h1>
-        <div class="mb-10"></div>
-        <LinkCardList posts={posts} />
-        <Pagination
+    <HeroSection
+        title="Blog"
+        hasFullHeight={false}
+        subtitle="Articles for web developers!"
+        description="I write about modern web development, developer experience, careers, and more!"
+        h1AriaLabel="Blog | James Q Quick"
+    />
+    
+    <Section isLight={true}>
+        <SectionHeader title={page.currentPage === 1 ? "Latest Posts" : `Page ${page.currentPage}`} >
+            <Pagination
+            slot="cta"
+            next={page.url.next}
+            prev={page.url.prev}
+            currentPage={page.currentPage}
+            lastPage={page.lastPage}
+          />
+            </SectionHeader>
+
+      <LinkCardList items={posts} />
+      <Pagination
       next={page.url.next}
       prev={page.url.prev}
       currentPage={page.currentPage}
       lastPage={page.lastPage}
     />
-  </Section>
+    </Section>
 </BaseLayout>
