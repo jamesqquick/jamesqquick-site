@@ -16,7 +16,7 @@ export const prerender = true;
 
 const testimonials = await getCollection("testimonial");
 const title = "Topics";
-const subtitle = "What do I talk about?";
+const subtitle = "What I like to talk about";
 
 interface Topic {
   title: string;
@@ -26,17 +26,17 @@ interface Topic {
 const topics: Topic[] = [
   {
     title: "Brand and Careers",
-    description: `I believe your career is solely in your control. I want you to find happiness in your career, whatever that may look like for you.`,
-    icon: "mdi:star-box",
+    description: `I want you to find happiness in your career, whatever that may look like for you.`,
+    icon: "mdi:star-outline",
   },
   {
     title: "Developer Experience",
-    description: `I've worked in the developer community my entire career. I love building tools and experiences that make developers' lives easier.`,
+    description: `I love building tools and experiences that make developers' lives easier.`,
     icon: "mdi:account",
   },
   {
-    title: "Modern Web Development",
-    description: `I love learning about the latest frameworks, methodologies, and best practices, and I'm eager to share those learnings with you.`,
+    title: "Web Development",
+    description: `I love to talk about the latest frameworks, methodologies, and best practices.`,
     icon: "mdi:laptop",
   },
 ];
@@ -44,17 +44,24 @@ const topics: Topic[] = [
 
 <BaseLayout>
   <HeroSection title="Speaking" subtitle="International keynote speaker."/>
-  <NextTalkCallout />
+  <!-- <NextTalkCallout /> -->
   <div id="whatToExpect" class="pt-10">
-    <Section>
+    <Section isLight={true}>
         <PageHeader title={title} subtitle={subtitle} />
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+      <div class="flex lg:flex-row flex-col gap-y-20 lg:gap-8 lg:items-center relative">
+        <div class="dashed w-[1px] top-[calc(50%/5)] left-6 bottom-[calc(50%/3)] lg:h-[1px] opacity-30  fill-brand lg:left-[calc(50%/3)] lg:right-[calc(50%/3)] absolute lg:top-8 lg:w-auto  " />
+
         {
-          topics.map((topic) => (
-            <div class="flex-row max-w-xl">
-              <Icon size={40} name={topic.icon} class="opacity-80 mb-4" />
-              <p class="text-brand text-lg font-bold mb-2">{topic.title}</p>
-              <p>{topic.description}</p>
+          topics.map((topic, i) => (
+            <div class="flex flex-row lg:flex-col gap-x-4 md:gap-x-10 lg:gap-x-4 lg:gap-y-10 z-10 ">
+                <div class="rounded-full lg:mx-auto shrink-0 bg-bg w-12 h-12 lg:w-16 lg:h-16 flex items-center justify-self-center justify-center">
+                    <Icon size={24} name={topic.icon} class=" text-brand" />
+                </div>
+                <div class="gap-y-2 lg:text-center">
+                    <p class="text-xl font-bold">{topic.title}</p>
+                    <p class="opacity-80">{topic.description}</p>
+                </div>
             </div>
           ))
         }
@@ -96,3 +103,8 @@ const topics: Topic[] = [
     </div>
   </section> -->
 </BaseLayout>
+<style>
+    .dashed {
+   background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%230AFA94'  stroke-width='3' stroke-dasharray='6%2c 14' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+}
+</style>

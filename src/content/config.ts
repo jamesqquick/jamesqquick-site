@@ -48,7 +48,7 @@ const blogsCollection = defineCollection({
   schema: ({ image }) =>
     z.object({
       title: z.string(),
-      coverImage: image().optional(),
+      coverImage: image(),
       pubDate: z.date(),
       description: z.string(),
       youTubeVideoId: z.string().optional(),

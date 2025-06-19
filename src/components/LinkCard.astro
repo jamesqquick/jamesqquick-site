@@ -15,11 +15,11 @@ export interface Props {
   btnText?: string;
   tag?: string;
   image: {
-    height: number;
     src: string;
     width: number;
+    height: number;
     format: "avif" | "png" | "webp" | "jpeg" | "jpg" | "svg" | "tiff" | "gif";
-  };
+};
 }
 
 const { slug, date, title, btnText = "Read", tag, image, description } = Astro.props;
@@ -37,8 +37,8 @@ const tagToLogo = {
   <div class="flex items-center justify-center w-full object-cover mb-4">
     <a href={slug} class="grow hover:underline">
       <Image
-        height={540}
-        width={960}
+        height={image.height}
+        width={image.width}
         src={image}
         alt={title}
         class="rounded-2xl aspect-video object-cover"

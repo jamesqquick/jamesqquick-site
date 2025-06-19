@@ -5,13 +5,20 @@ import Pagination from "../components/Pagination.astro";
 import LinkCardList from "../components/LinkCardList.astro";
 import Section from "../components/Section.astro";
 import HeroSection from "@components/HeroSection.astro";
-import FeaturedBlogCallout from "@components/FeaturedBlogCallout.astro";
 import FeaturedSplitSection from "@components/FeaturedSplitSection.astro";
 import SectionHeader from "@components/SectionHeader.astro";
 
 const posts = (await getSortedBlogPosts()).slice(0, 10);
 const featuredPost = posts.splice(0, 1)[0];
 export const prerender = true;
+
+const formattedPosts = posts.map((post) => ({
+  ...post.data,
+  image: post.data.coverImage,
+  date: post.data.pubDate,
+  id: post.id,
+  link: `/blog/${post.id}`,
+}));
 ---
 
 <BaseLayout title="Blog | James Q Quick">
@@ -34,7 +41,7 @@ export const prerender = true;
                 />
                 </SectionHeader>
 
-          <LinkCardList items={posts} />
+          <LinkCardList items={formattedPosts} />
           <Pagination
           next={"/blog/2"}
           prev={undefined}

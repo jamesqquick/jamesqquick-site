@@ -2,13 +2,14 @@
 import { getImage } from "astro:assets";
 import ArticleHeader from "../components/ArticleHeader.astro";
 import BaseLayout from "./BaseLayout.astro";
+import Section from "@components/Section.astro";
 
 export interface Props {
   frontmatter: {
     title: string;
     description: string;
     pubDate: Date;
-    coverImage?: {
+    coverImage: {
       src: string;
       width: number;
       height: number;
@@ -26,17 +27,20 @@ const { src: imageURL } = await getImage({ src: coverImage });
 ---
 
 <BaseLayout title={title} description={description} image={imageURL}>
-  <main class="max-w-6xl mx-auto px-8">
-    <article
-      class="prose prose-invert font-['Satoshi'] prose-xl max-w-none prose-h2:text-brand prose-img:rounded-lg prose-p:text-white"
-    >
-      <ArticleHeader
-      
-      title={title}
-      date={pubDate}
-      youTubeVideoId={youTubeVideoId}
-      />
-      <slot />
+  <main >
+    <Section>
+
+        <article
+        class="prose prose-invert font-['Satoshi'] prose-xl max-w-none prose-h2:text-brand prose-img:rounded-lg prose-p:text-white"
+        >
+        <ArticleHeader
+        coverImage={coverImage}
+        title={title}
+        date={pubDate}
+        youTubeVideoId={youTubeVideoId}
+        />
+        <slot />
     </article>
+</Section>
   </main>
 </BaseLayout>

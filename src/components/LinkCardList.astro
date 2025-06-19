@@ -3,23 +3,38 @@ import { CollectionEntry } from "astro:content";
 import LinkCard from "./LinkCard.astro";
 
 export interface Props {
-  items: CollectionEntry<"blog" | "course">[];
+  items: {
+      id:string;
+      title: string;
+      date: Date;
+      image: {
+        src: string;
+        width: number;
+        height: number;
+        format: "avif" | "png" | "webp" | "jpeg" | "jpg" | "svg" | "tiff" | "gif";
+      };
+      description?: string;
+      tags?: string[];
+      link: string;
+  }[];
   includeDescription?: boolean;
 }
 
+
 const { items, includeDescription } = Astro.props;
+console.log(items.map((item) => item.image));
 ---
 
 <div class="grid gap-16 grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 mb-16">
   {
     items.map((item) => (
       <LinkCard
-        title={item.data.title}
-        date={item.data.pubDate}
-        slug={`/blog/${item.id}`}
-        tag={item.data.tags[0]}
-        image={item.data.coverImage}
-        description={includeDescription ? item.data.description : undefined}
+        title={item.title}
+        date={item.date}
+        slug={item.link}
+        tag={item?.tags ? item.tags[0] : undefined}
+        image={item.image}
+        description={includeDescription ? item.description : undefined}
       />
     ))
   }

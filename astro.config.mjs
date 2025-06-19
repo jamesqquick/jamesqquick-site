@@ -27,7 +27,7 @@ export default defineConfig({
           "menu",
           "account",
           "laptop",
-          "star-box",
+          "star-outline",
           "download",
         ],
       },

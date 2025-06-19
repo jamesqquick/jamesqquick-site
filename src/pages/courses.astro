@@ -16,13 +16,21 @@ const description = `Looking to take your web development skills to the next lev
 
 const courses = (await getSortedCourses());
 const featuredCourse = courses.splice(0, 1)[0];
+const formattedCourses = courses.map((course) => ({
+  ...course.data,
+  image: course.data.coverImage,
+  date: course.data.pubDate,
+  id: course.id,
+  link: `/courses/${course.id}`,
+}));
+
 ---
 
 <BaseLayout title="Courses | James Q Quick">
     <HeroSection title={title} subtitle={subtitle} description={description} hasFullHeight={false}/>
-    <FeaturedSplitSection image={featuredCourse.data.coverImage} title={featuredCourse.data.title} description={featuredCourse.data.description} href={featuredCourse.data.link} date={featuredCourse.data.pubDate} />
+    <FeaturedSplitSection isLight={true} image={featuredCourse.data.coverImage} title={featuredCourse.data.title} description={featuredCourse.data.description} href={featuredCourse.data.link} date={featuredCourse.data.pubDate} />
     <Section hasYPadding={true}>
         <SectionHeader title="More courses"/>
-        <LinkCardList items={courses} includeDescription={true} />
+        <LinkCardList items={formattedCourses} includeDescription={true} />
     </Section>
 </BaseLayout>
