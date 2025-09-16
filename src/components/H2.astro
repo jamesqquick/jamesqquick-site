@@ -1,15 +1,15 @@
 ---
-
 interface Props {
-    text: string;
-    ariaLabel?: string;
-    classStr?: string;
+  text: string;
+  ariaLabel?: string;
+  classStr?: string;
 }
 const { text, ariaLabel, classStr } = Astro.props;
-console.log(ariaLabel)
 ---
 
-<h2 class={`text-3xl text-white md:text-4xl font-bold ${classStr}`} aria-label={ariaLabel || text}>
+<h2
+  class={`text-3xl text-white md:text-4xl font-bold ${classStr}`}
+  aria-label={ariaLabel || text}
+>
   {text}
 </h2>
-

@@ -4,25 +4,23 @@ import LinkCard from "./LinkCard.astro";
 
 export interface Props {
   items: {
-      id:string;
-      title: string;
-      date: Date;
-      image: {
-        src: string;
-        width: number;
-        height: number;
-        format: "avif" | "png" | "webp" | "jpeg" | "jpg" | "svg" | "tiff" | "gif";
-      };
-      description?: string;
-      tags?: string[];
-      link: string;
+    id: string;
+    title: string;
+    date: Date;
+    image: {
+      src: string;
+      width: number;
+      height: number;
+      format: "avif" | "png" | "webp" | "jpeg" | "jpg" | "svg" | "tiff" | "gif";
+    };
+    description?: string;
+    tags?: string[];
+    link: string;
   }[];
   includeDescription?: boolean;
 }
 
-
 const { items, includeDescription } = Astro.props;
-console.log(items.map((item) => item.image));
 ---
 
 <div class="grid gap-16 grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 mb-16">
