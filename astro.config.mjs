@@ -5,39 +5,23 @@ import tailwind from "@astrojs/tailwind";
 import netlify from "@astrojs/netlify";
 import svelte from "@astrojs/svelte";
 import icon from "astro-icon";
-
 import tailwindConfigViewer from "astro-tailwind-config-viewer";
+
+import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://jamesqquick.com/",
-  integrations: [
-    mdx(),
-    sitemap({}),
-    tailwind(),
-    svelte(),
-    icon({
-      include: {
-        // Include only three `mdi` icons in the bundle
-        mdi: [
-          "close",
-          "account-plus",
-          "arrow-left",
-          "arrow-right",
-          "menu",
-          "account",
-          "laptop",
-          "star-outline",
-          "download",
-        ],
-      },
-    }),
-    tailwindConfigViewer(),
-  ],
+  integrations: [mdx(), sitemap({}), tailwind(), svelte(), icon({
+    include: {
+      // Include only three `mdi` icons in the bundle
+      mdi: ["close", "account-plus", "arrow-left", "arrow-right", "menu", "account", "laptop", "star-outline", "download"]
+    }
+  }), tailwindConfigViewer(), react()],
   output: "server",
   adapter: netlify(),
   experimental: {
     contentLayer: true,
-    contentIntellisense: true,
-  },
+    contentIntellisense: true
+  }
 });

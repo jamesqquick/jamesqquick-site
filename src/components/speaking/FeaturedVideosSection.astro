@@ -1,0 +1,45 @@
+---
+import Section from "@components/Section.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import VideosCarousel from "./VideosCarousel";
+
+const videos = [
+  {
+    title: "THAT Conference",
+    date: "January 2024",
+    location: "Austin, TX",
+    thumbnail: "/images/that-keynote.jpg",
+    videoUrl: "https://www.youtube.com/watch?v=DajdLKD0OmQ",
+  },
+  {
+    title: "InfoBip Conference",
+    date: "May 2023",
+    location: "Zadar, Croatia",
+    thumbnail: "/images/info-bip-shift.jpg",
+    id: "DajdLKD0OmQ",
+  },
+  {
+    title: "RenderATL",
+    date: "Jne 2024",
+    location: "Atlanta, GA",
+    thumbnail: "/images/that-keynote.jpg",
+    id: "DajdLKD0OmQ",
+  },
+  {
+    title: "THOSE Conference",
+    date: "May 2024",
+    location: "NYC, NY",
+    thumbnail: "/images/info-bip-shift.jpg",
+    id: "DajdLKD0OmQ",
+  },
+];
+---
+
+<Section>
+  <SectionHeader
+    variant="secondary"
+    title="Featured"
+    subtitle="Some of my favorite talks"
+  />
+  <VideosCarousel videos={videos} client:load />
+</Section>

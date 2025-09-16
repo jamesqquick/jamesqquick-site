@@ -1,0 +1,164 @@
+---
+
+interface Props {
+  videos: {
+    title: string;
+    date: string;
+    location: string;
+    videoUrl: string;
+    thumbnail: string;
+  }[];
+}   
+
+const { videos } = Astro.props as Props;
+---
+<div id="vanilla-carousel" class="relative w-full max-w-5xl mx-auto mb-8 min-h-[480px]">
+  <button class="carousel-nav-btn left absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white text-[#232646] rounded-full w-10 h-10 text-2xl shadow flex items-center justify-center" aria-label="Previous slide">&larr;</button>
+  <div class="carousel-track flex items-center justify-center transition-transform duration-500 relative"></div>
+  <button class="carousel-nav-btn right absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white text-[#232646] rounded-full w-10 h-10 text-2xl shadow flex items-center justify-center" aria-label="Next slide">&rarr;</button>
+  <div class="carousel-pagination flex justify-center gap-2 mt-10"></div>
+</div>
+
+<script type="module">
+  const videos = JSON.parse(`<?= JSON.stringify(videos) ?>`);
+  const container = document.getElementById('vanilla-carousel');
+  const track = container.querySelector('.carousel-track');
+  const pagination = container.querySelector('.carousel-pagination');
+  const prevBtn = container.querySelector('.carousel-nav-btn.left');
+  const nextBtn = container.querySelector('.carousel-nav-btn.right');
+  let centerIdx = 0;
+  let playingIdx = null;
+
+  function getWrappedIdx(idx) {
+    return (idx + videos.length) % videos.length;
+  }
+
+  function renderSlides() {
+    track.innerHTML = '';
+    for (let i = 0; i < videos.length; i++) {
+      let slideClasses = "carousel-slide flex-shrink-0 relative transition-all duration-400";
+      if (i === centerIdx) slideClasses += " z-20 opacity-100 scale-105";
+      else if (i === getWrappedIdx(centerIdx - 1) || i === getWrappedIdx(centerIdx + 1)) slideClasses += " z-10 opacity-70 scale-95";
+      else slideClasses += " opacity-20 pointer-events-none";
+      slideClasses += " w-full max-w-3xl mx-4";
+
+      const slide = document.createElement('div');
+      slide.className = slideClasses;
+      slide.dataset.idx = i;
+
+      let content = '';
+      if (playingIdx === i && i === centerIdx) {
+        const ytId = getYouTubeId(videos[i].videoUrl);
+        content += `
+          <iframe
+            src="https://www.youtube.com/embed/${ytId}?autoplay=1"
+            allow="autoplay; encrypted-media"
+            allowfullscreen
+            class="absolute w-full h-full left-0 top-0 rounded-2xl"
+            style="aspect-ratio:16/9;"
+          ></iframe>
+        `;
+      } else {
+        content += `
+          <img src="${videos[i].thumbnail}" alt="${videos[i].title}" class="w-full aspect-video rounded-2xl object-cover bg-gray-900" />
+        `;
+        if (i === centerIdx) {
+          content += `
+            <button class="carousel-play-btn absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-black/50 rounded-full p-6 flex items-center justify-center" aria-label="Play ${videos[i].title}">
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                <circle cx="24" cy="24" r="24" fill="#fff" fill-opacity="0.7"/>
+                <polygon points="20,16 34,24 20,32" fill="#232646"/>
+              </svg>
+            </button>
+          `;
+        }
+      }
+
+      slide.innerHTML = `
+        <div class="relative w-full aspect-video rounded-2xl overflow-hidden bg-gray-900">
+          ${content}
+        </div>
+        ${i === centerIdx ? `
+          <div class="mt-6 text-center">
+            <div class="text-gray-300 text-sm">${videos[i].date}</div>
+            <div class="font-semibold">${videos[i].title}</div>
+            <div class="text-gray-400 text-sm">${videos[i].location}</div>
+          </div>
+        ` : ''}
+      `;
+      track.appendChild(slide);
+    }
+    attachSlideEvents();
+  }
+
+  function renderPagination() {
+    pagination.innerHTML = '';
+    for (let i = 0; i < videos.length; i++) {
+      const dot = document.createElement('button');
+      dot.className = 'carousel-dot w-4 h-4 rounded-full bg-[#44476a] transition-colors duration-200' + (i === centerIdx ? ' bg-[#7b8cff]' : '');
+      dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+      dot.onclick = () => {
+        centerIdx = i;
+        playingIdx = null;
+        renderSlides();
+        renderPagination();
+      };
+      pagination.appendChild(dot);
+    }
+  }
+
+  function attachSlideEvents() {
+    const playBtn = track.querySelector('.carousel-slide.z-20 .carousel-play-btn');
+    if (playBtn) {
+      playBtn.onclick = () => {
+        playingIdx = centerIdx;
+        renderSlides();
+      };
+    }
+  }
+
+  function getYouTubeId(url) {
+    const match = url.match(/(?:youtube\.com\/(?:embed\/|watch\\?v=)|youtu\.be\\/)([\\w-]{11})/);
+    return match ? match[1] : null;
+  }
+
+  prevBtn.onclick = () => {
+    centerIdx = getWrappedIdx(centerIdx - 1);
+    playingIdx = null;
+    renderSlides();
+    renderPagination();
+  };
+  nextBtn.onclick = () => {
+    centerIdx = getWrappedIdx(centerIdx + 1);
+    playingIdx = null;
+    renderSlides();
+    renderPagination();
+  };
+
+  // Swipe support
+  let startX = null;
+  track.addEventListener('touchstart', e => {
+    startX = e.touches[0].clientX;
+  });
+  track.addEventListener('touchend', e => {
+    if (startX === null) return;
+    const endX = e.changedTouches[0].clientX;
+    if (endX - startX > 50) {
+      prevBtn.click();
+    } else if (startX - endX > 50) {
+      nextBtn.click();
+    }
+    startX = null;
+  });
+
+  // Keyboard support
+  container.tabIndex = 0;
+  container.addEventListener('keydown', e => {
+    if (e.key === 'ArrowLeft') prevBtn.click();
+    if (e.key === 'ArrowRight') nextBtn.click();
+  });
+
+  // Initial render
+  renderSlides();
+  renderPagination();
+</script>
