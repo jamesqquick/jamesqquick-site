@@ -1,10 +1,14 @@
 ---
 import Hero from "@components/Hero.astro";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { SUPER_SECRET_KEY, XATA_API_KEY } from "astro:env/server";
 import { XataClient } from "../../../xata";
 
+if (!XATA_API_KEY) {
+  throw new Error("XATA_API_KEY is not configured");
+}
 const xata = new XataClient({
-  apiKey: import.meta.env.XATA_API_KEY,
+  apiKey: XATA_API_KEY,
   branch: import.meta.env.XATA_BRANCH,
 });
 let settings = await xata.db.settings.getFirst();
@@ -20,7 +24,7 @@ if (Astro.request.method === "POST") {
   const guestTitle = data.get("guestTitle");
   const key = data.get("key");
 
-  if (key !== import.meta.env.SUPER_SECRET_KEY) {
+  if (key !== SUPER_SECRET_KEY) {
     return Astro.redirect(`/overlays/admin?flash=Invalid key!`);
   }
   try {

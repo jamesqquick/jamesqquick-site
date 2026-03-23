@@ -1,4 +1,8 @@
 ---
+import {
+  CLOUDINARY_API_KEY,
+  CLOUDINARY_API_SECRET,
+} from "astro:env/server";
 import BaseLayout from "src/layouts/BaseLayout.astro";
 import { CldImage } from "astro-cloudinary";
 import { v2 as cloudinary } from "cloudinary";
@@ -7,9 +11,13 @@ import PageHeader from "@components/PageHeader.astro";
 
 cloudinary.config({
   cloud_name: import.meta.env.PUBLIC_CLOUDINARY_CLOUD_NAME,
-  api_key: import.meta.env.CLOUDINARY_API_KEY,
-  api_secret: import.meta.env.CLOUDINARY_API_SECRET,
+  api_key: CLOUDINARY_API_KEY,
+  api_secret: CLOUDINARY_API_SECRET,
 });
+
+if (!CLOUDINARY_API_KEY || !CLOUDINARY_API_SECRET) {
+  throw new Error("Cloudinary API credentials are not configured");
+}
 
 const { resources } = await cloudinary.search
   .expression(`folder=jqq-selfies/*`)

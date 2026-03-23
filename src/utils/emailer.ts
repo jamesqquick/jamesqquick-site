@@ -1,5 +1,11 @@
 import sgMail from "@sendgrid/mail";
-sgMail.setApiKey(import.meta.env.SENDGRID_API_KEY);
+import { SENDGRID_API_KEY } from "astro:env/server";
+
+if (!SENDGRID_API_KEY) {
+  throw new Error("SENDGRID_API_KEY is not configured");
+}
+
+sgMail.setApiKey(SENDGRID_API_KEY);
 
 export const sendEmail = async (
   fromEmail: string,
