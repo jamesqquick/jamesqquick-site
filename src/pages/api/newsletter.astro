@@ -1,6 +1,7 @@
 ---
 // import Parser from "rss-parser";
 import { decode } from "html-entities";
+import { YOUTUBE_API_KEY } from "astro:env/server";
 
 // const parser = new Parser({});
 
@@ -15,8 +16,11 @@ const { data: recentShares } = await sharesResponse.json();
 // const recentCompressedEpisode = compressedFeed.items[0];
 
 const getRecentYouTubeVideos = async () => {
+  if (!YOUTUBE_API_KEY) {
+    throw new Error("YOUTUBE_API_KEY is not configured");
+  }
   const YOUTUBE_VIDEOS_URL = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UC-T8W79DN6PBnzomelvqJYw&maxResults=10&order=date&type=video&key=${
-    import.meta.env.YOUTUBE_API_KEY
+    YOUTUBE_API_KEY
   }`;
   const res = await fetch(YOUTUBE_VIDEOS_URL);
   const { items } = await res.json();

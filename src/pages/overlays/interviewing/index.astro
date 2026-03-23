@@ -1,10 +1,14 @@
 ---
+import { XATA_API_KEY } from "astro:env/server";
 import StreamingLayout from "../../../layouts/StreamingLayout.astro";
 import { XataClient } from "../../../xata";
 import VideoFrame, { VideoFrameSize } from "../VideoFrame.astro";
 
+if (!XATA_API_KEY) {
+  throw new Error("XATA_API_KEY is not configured");
+}
 const xata = new XataClient({
-  apiKey: import.meta.env.XATA_API_KEY,
+  apiKey: XATA_API_KEY,
   branch: import.meta.env.XATA_BRANCH,
 });
 let settings = await xata.db.settings.getFirst();
