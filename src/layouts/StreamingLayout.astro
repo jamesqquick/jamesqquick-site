@@ -1,4 +1,5 @@
 ---
+import { XATA_API_KEY } from "astro:env/server";
 import { XataClient } from "src/xata";
 import BaseHead from "../components/BaseHead.astro";
 import SocialFollow, { IconSize } from "../components/SocialFollow.astro";
@@ -6,8 +7,11 @@ import SocialFollow, { IconSize } from "../components/SocialFollow.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../config";
 import Logo from "../images/logo.astro";
 
+if (!XATA_API_KEY) {
+  throw new Error("XATA_API_KEY is not configured");
+}
 const xata = new XataClient({
-  apiKey: import.meta.env.XATA_API_KEY,
+  apiKey: XATA_API_KEY,
   branch: import.meta.env.XATA_BRANCH,
 });
 let settings = await xata.db.settings
