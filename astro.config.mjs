@@ -6,8 +6,6 @@ import netlify from "@astrojs/netlify";
 import svelte from "@astrojs/svelte";
 import icon from "astro-icon";
 
-import tailwindConfigViewer from "astro-tailwind-config-viewer";
-
 // https://astro.build/config
 export default defineConfig({
   site: "https://jamesqquick.com/",
@@ -32,12 +30,10 @@ export default defineConfig({
         ],
       },
     }),
-    tailwindConfigViewer(),
   ],
   output: "server",
   adapter: netlify(),
   experimental: {
-    contentLayer: true,
     contentIntellisense: true,
   },
 });
