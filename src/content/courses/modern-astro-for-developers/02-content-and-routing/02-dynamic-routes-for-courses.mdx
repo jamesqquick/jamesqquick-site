@@ -1,0 +1,43 @@
+---
+slug: dynamic-routes-for-courses
+title: Dynamic Routes for Courses
+moduleSlug: content-and-routing
+moduleTitle: Content and Routing
+moduleOrder: 2
+lessonOrder: 2
+published: true
+duration: "18m"
+summary: Build stable course and lesson URLs from slugs and metadata.
+videoId: ""
+transcript: ""
+resources:
+  - title: Routing guide
+    href: https://docs.astro.build/en/core-concepts/routing/
+---
+
+## Stable URLs from metadata
+
+For long-running courses, URL stability is non-negotiable.
+
+Instead of deriving URLs from file paths alone, you want:
+
+- an explicit `courseSlug`
+- explicit `moduleSlug`
+- explicit `lessonSlug`
+
+Then route generation becomes deterministic even if files move during refactors.
+
+## Suggested URL pattern
+
+Use a nested structure like:
+
+`/courses/{courseSlug}/{moduleSlug}/{lessonSlug}`
+
+## Ordering without surprises
+
+For navigation, rely on:
+
+- `course.order`
+- `moduleOrder` (module-level ordering)
+- `lessonOrder` (lesson-level ordering)
+
