@@ -1,0 +1,31 @@
+---
+import Section from "../Section.astro";
+
+export interface Topic {
+  title: string;
+  description: string;
+}
+
+export interface Props {
+  topics: Topic[];
+}
+
+const { topics } = Astro.props as Props;
+---
+
+<Section hasYPadding={false} classStr="py-20 md:py-28">
+  <div class="text-center mb-12">
+    <p class="uppercase tracking-[0.2em] text-brand text-xs mb-3">expertise</p>
+    <h2 class="text-3xl md:text-5xl font-bold">What I speak about</h2>
+  </div>
+  <div class="grid gap-5 md:grid-cols-3">
+    {
+      topics.map((topic) => (
+        <article class="rounded-2xl bg-bgLight p-7 h-full border border-white/5">
+          <h3 class="text-2xl font-semibold mb-3">{topic.title}</h3>
+          <p class="opacity-80">{topic.description}</p>
+        </article>
+      ))
+    }
+  </div>
+</Section>

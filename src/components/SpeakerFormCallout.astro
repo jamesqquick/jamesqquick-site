@@ -4,15 +4,19 @@ import SpeakerForm from "./speaking/SpeakerForm.svelte";
 import selfie from "../images/selfie-lg.jpeg";
 import { Image } from "astro:assets";
 import Link from "./Link.astro";
+
+export interface Props {
+  kitLinks?: { label: string; href: string }[];
+}
+
+const { kitLinks = [] } = Astro.props as Props;
 ---
 
-<Section
-  hasYPadding={false}
-  hasMaxWidth={false}
-  classStr="pb-20"
->
+<Section hasYPadding={false} hasMaxWidth={false} classStr="pb-20">
   <div class="grid lg:grid-cols-2 grid-cols-1 gap-10">
     <div>
+      <p class="text-brand uppercase tracking-[0.2em] text-xs mb-3">invite</p>
+      <h2 class="text-4xl font-bold mb-4">Bring this talk to your event</h2>
       <p class="opacity-80 mb-10">
         Please first read through my <Link
           text="Speaker Rider"
@@ -28,6 +32,17 @@ import Link from "./Link.astro";
       >
         You might need
       </h2>
+      {
+        kitLinks.length > 0 && (
+          <ul class="mb-8 flex flex-col gap-3">
+            {kitLinks.map((item) => (
+              <li>
+                <Link href={item.href} text={item.label} isFancy={false} classStr="underline underline-offset-4" />
+              </li>
+            ))}
+          </ul>
+        )
+      }
       <div class="mb-10">
         <p class="text-lg underline underline-offset-4 mb-4">Speaker Bio</p>
         <p>

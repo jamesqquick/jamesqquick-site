@@ -1,110 +1,38 @@
 ---
-import { Icon } from "astro-icon/components";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { getCollection } from "astro:content";
-import NextTalkCallout from "../../components/NextTalkCallout.astro";
-import Section from "../../components/Section.astro";
-import FeaturedTalksCallout from "../../components/FeaturedTalksCalllout.astro";
-import RecentTalks from "../../components/RecentTalks.astro";
-import HLineText from "../../components/HLineText.astro";
 import Testimonials from "../../components/Testimonials.astro";
 import SpeakerFormCallout from "../../components/SpeakerFormCallout.astro";
-import PageHeader from "@components/PageHeader.astro";
-import HeroSection from "@components/HeroSection.astro";
+import SpeakingHero from "../../components/speaking/SpeakingHero.astro";
+import SpeakingStats from "../../components/speaking/SpeakingStats.astro";
+import SpeakingTopics from "../../components/speaking/SpeakingTopics.astro";
+import SpeakingFeaturedTalk from "../../components/speaking/SpeakingFeaturedTalk.astro";
+import SpeakingAbout from "../../components/speaking/SpeakingAbout.astro";
+import SpeakingGallery from "../../components/speaking/SpeakingGallery.astro";
+import SpeakingEventCta from "../../components/speaking/SpeakingEventCta.astro";
+import {
+  speakingHero,
+  speakingStats,
+  speakingTopics,
+  featuredTalk,
+  speakingAbout,
+  speakingGallery,
+  eventCta,
+  speakerKitLinks,
+} from "../../data/speakingPage";
 
 export const prerender = true;
-
-const testimonials = await getCollection("testimonial");
-const title = "Topics";
-const subtitle = "What I like to talk about";
-
-interface Topic {
-  title: string;
-  description: string;
-  icon: string;
-}
-const topics: Topic[] = [
-  {
-    title: "Brand and Careers",
-    description: `I want you to find happiness in your career, whatever that may look like for you.`,
-    icon: "mdi:star-outline",
-  },
-  {
-    title: "Developer Experience",
-    description: `I love building tools and experiences that make developers' lives easier.`,
-    icon: "mdi:account",
-  },
-  {
-    title: "Web Development",
-    description: `I love to talk about the latest frameworks, methodologies, and best practices.`,
-    icon: "mdi:laptop",
-  },
-];
 ---
 
 <BaseLayout>
-  <HeroSection title="Speaking" subtitle="International keynote speaker."/>
-  <!-- <NextTalkCallout /> -->
-  <div id="whatToExpect" class="pt-10">
-    <Section isLight={true}>
-        <PageHeader title={title} subtitle={subtitle} />
-
-      <div class="flex lg:flex-row flex-col gap-y-20 lg:gap-8 lg:items-center relative">
-        <div class="dashed w-[1px] top-[calc(50%/5)] left-6 bottom-[calc(50%/3)] lg:h-[1px] opacity-30  fill-brand lg:left-[calc(50%/3)] lg:right-[calc(50%/3)] absolute lg:top-8 lg:w-auto  " />
-
-        {
-          topics.map((topic, i) => (
-            <div class="flex flex-row lg:flex-col gap-x-4 md:gap-x-10 lg:gap-x-4 lg:gap-y-10 z-10 ">
-                <div class="rounded-full lg:mx-auto shrink-0 bg-bg w-12 h-12 lg:w-16 lg:h-16 flex items-center justify-self-center justify-center">
-                    <Icon size={24} name={topic.icon} class=" text-brand" />
-                </div>
-                <div class="gap-y-2 lg:text-center">
-                    <p class="text-xl font-bold">{topic.title}</p>
-                    <p class="opacity-80">{topic.description}</p>
-                </div>
-            </div>
-          ))
-        }
-      </div>
-    </Section>
-  </div>
-  <FeaturedTalksCallout />
-  <div class="pt-20 md:pt-40">
-    <Section classStr="mb-0 pb-0">
-      <div class="py-10 md:py-16">
-        <HLineText text="More" />
-      </div>
-      <RecentTalks />
-    </Section>
-  </div>
-
+  <SpeakingHero {...speakingHero} />
+  <SpeakingStats stats={speakingStats} />
+  <SpeakingTopics topics={speakingTopics} />
+  <SpeakingFeaturedTalk {...featuredTalk} />
+  <SpeakingAbout {...speakingAbout} />
   <Testimonials />
-  <div class="my-20">
-    <HLineText />
-  </div>
-  <PageHeader
-    title="Invite me"
-    subtitle="Have me speak at your event"
-    
-  />
+  <SpeakingGallery items={speakingGallery} />
+  <SpeakingEventCta {...eventCta} />
   <div id="speakerForm">
-    <SpeakerFormCallout />
+    <SpeakerFormCallout kitLinks={speakerKitLinks} />
   </div>
-
-  <!-- <section class="my-24" id="speakerForm">
-    <div class="grid lg:grid-cols-2 gap-10 items-center">
-      <div>
-        <h2 class="text-6xl mb-10">Want Me To Speak At Your Event?</h2>
-        <Image
-          src={speaking}
-          alt="James speaking at All Things Open conference"
-        />
-      </div>
-    </div>
-  </section> -->
 </BaseLayout>
-<style>
-    .dashed {
-   background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%230AFA94'  stroke-width='3' stroke-dasharray='6%2c 14' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
-}
-</style>

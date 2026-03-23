@@ -1,0 +1,25 @@
+---
+import Section from "../Section.astro";
+import YouTube from "../YouTube.astro";
+import Link from "../Link.astro";
+
+export interface Props {
+  eyebrow: string;
+  heading: string;
+  youtubeId: string;
+  watchCta: { label: string; href: string };
+}
+
+const { eyebrow, heading, youtubeId, watchCta } = Astro.props as Props;
+---
+
+<Section hasYPadding={false} classStr="pt-4 pb-20 md:pb-28">
+  <div class="text-center mb-10">
+    <p class="uppercase tracking-[0.2em] text-brand text-xs mb-3">{eyebrow}</p>
+    <h2 class="text-3xl md:text-5xl font-bold mb-5">{heading}</h2>
+    <Link href={watchCta.href} text={watchCta.label} classStr="font-semibold" />
+  </div>
+  <div class="max-w-5xl mx-auto rounded-2xl overflow-hidden border border-white/10">
+    <YouTube id={youtubeId} classStr="rounded-none" />
+  </div>
+</Section>

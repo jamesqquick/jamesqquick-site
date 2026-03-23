@@ -1,0 +1,20 @@
+---
+import Section from "../Section.astro";
+import Link from "../Link.astro";
+
+export interface Props {
+  heading: string;
+  body: string;
+  primaryCta: { label: string; href: string };
+}
+
+const { heading, body, primaryCta } = Astro.props as Props;
+---
+
+<Section isLight={true} hasYPadding={false} classStr="py-20">
+  <div class="max-w-3xl text-center mx-auto">
+    <h2 class="text-3xl md:text-5xl font-bold mb-5">{heading}</h2>
+    <p class="text-lg opacity-80 mb-8">{body}</p>
+    <Link href={primaryCta.href} text={primaryCta.label} classStr="font-semibold" />
+  </div>
+</Section>

@@ -1,0 +1,27 @@
+---
+import Section from "../Section.astro";
+
+export interface Stat {
+  label: string;
+  value: string;
+}
+
+export interface Props {
+  stats: Stat[];
+}
+
+const { stats } = Astro.props as Props;
+---
+
+<Section isLight={true} hasYPadding={false} classStr="py-10">
+  <div class="grid gap-6 md:grid-cols-3">
+    {
+      stats.map((item) => (
+        <div class="rounded-lg border border-white/10 bg-bg px-6 py-5 text-center">
+          <p class="text-3xl font-bold text-brand">{item.value}</p>
+          <p class="text-xs tracking-[0.12em] uppercase opacity-70 mt-1">{item.label}</p>
+        </div>
+      ))
+    }
+  </div>
+</Section>

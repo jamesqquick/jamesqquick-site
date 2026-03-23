@@ -1,0 +1,29 @@
+---
+import Section from "../Section.astro";
+
+export interface GalleryItem {
+  src: string;
+  alt: string;
+  href: string;
+}
+
+export interface Props {
+  items: GalleryItem[];
+}
+
+const { items } = Astro.props as Props;
+---
+
+<Section hasYPadding={false} hasMaxWidth={false} classStr="py-14">
+  <div class="max-w-7xl mx-auto px-8">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+      {
+        items.map((item) => (
+          <a href={item.href} target="_blank" rel="noopener noreferrer" class="block rounded-xl overflow-hidden border border-white/10">
+            <img src={item.src} alt={item.alt} class="w-full h-44 md:h-56 object-cover transition-transform duration-300 hover:scale-105" loading="lazy" />
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</Section>
