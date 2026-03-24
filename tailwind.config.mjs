@@ -12,7 +12,8 @@ module.exports = {
         linkedin: "#3077b0",
         discord: "#f865f2",
         brand: "#0AFA94",
-        bg: "#242845",
+        // Primary page background — dark navy (speaking / site mockup)
+        bg: "#1A1E33",
         bgDark: "#10121D",
         bgLight: "#363C68",
         bgLightBrand: "#C8FEE7",

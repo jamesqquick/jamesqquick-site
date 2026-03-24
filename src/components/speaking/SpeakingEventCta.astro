@@ -1,0 +1,24 @@
+---
+import Section from "../Section.astro";
+
+export interface Props {
+  heading: string;
+  body: string;
+  primaryCta: { label: string; href: string };
+}
+
+const { heading, body, primaryCta } = Astro.props as Props;
+---
+
+<Section hasYPadding={false} classStr="py-16 md:py-20 bg-[#c8ccef] text-bgDark">
+  <div class="max-w-3xl text-center mx-auto">
+    <h2 class="text-3xl md:text-5xl font-bold mb-5">{heading}</h2>
+    <p class="text-lg opacity-80 mb-8">{body}</p>
+    <a
+      href={primaryCta.href}
+      class="inline-block rounded-full border border-bgDark/40 px-6 py-3 font-semibold transition-colors hover:border-bgDark hover:bg-bgDark hover:text-white"
+    >
+      {primaryCta.label}
+    </a>
+  </div>
+</Section>

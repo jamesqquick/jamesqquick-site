@@ -63,6 +63,8 @@ export default defineConfig({
           "laptop",
           "star-outline",
           "download",
+          "chart-bar",
+          "monitor",
         ],
       },
     }),
