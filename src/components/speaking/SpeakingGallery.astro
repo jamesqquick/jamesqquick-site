@@ -1,8 +1,10 @@
 ---
-import Section from "../Section.astro";
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+import type { ImageMetadata } from "astro";
 
 export interface GalleryItem {
-  src: string;
+  src: ImageMetadata;
   alt: string;
   href: string;
 }
@@ -14,16 +16,108 @@ export interface Props {
 const { items } = Astro.props as Props;
 ---
 
-<Section hasYPadding={false} hasMaxWidth={false} classStr="py-14">
-  <div class="max-w-7xl mx-auto px-8">
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
-      {
-        items.map((item) => (
-          <a href={item.href} target="_blank" rel="noopener noreferrer" class="block rounded-xl overflow-hidden border border-white/10">
-            <img src={item.src} alt={item.alt} class="w-full h-44 md:h-56 object-cover transition-transform duration-300 hover:scale-105" loading="lazy" />
-          </a>
-        ))
-      }
+<section class="pt-12 pb-0 md:pt-16 md:pb-0">
+  <div class="grid w-full grid-cols-1 gap-0 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-3" data-gallery-grid>
+    {
+      items.map((item, idx) => (
+        <button
+          type="button"
+          class="block overflow-hidden text-left"
+          data-gallery-open
+          data-index={idx}
+          aria-label={`Open image: ${item.alt}`}
+        >
+          <Image
+            src={item.src}
+            alt={item.alt}
+            format="webp"
+            quality={80}
+            widths={[480, 768, 1024]}
+            sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+            class="h-80 w-full object-cover md:h-80 lg:h-96 transition-transform duration-300 hover:scale-105"
+            loading="lazy"
+          />
+        </button>
+      ))
+    }
+  </div>
+
+  <div
+    data-gallery-modal
+    class="fixed inset-0 z-[120] hidden items-center justify-center bg-black/90 p-4 sm:p-6"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Image viewer"
+  >
+    <button
+      type="button"
+      data-gallery-modal-backdrop
+      class="absolute inset-0 cursor-default"
+      aria-label="Close image viewer"
+    ></button>
+    <div class="relative z-10 w-full max-w-7xl">
+      <button
+        type="button"
+        data-gallery-modal-close
+        class="absolute -top-11 right-0 flex h-9 w-9 items-center justify-center rounded-full border border-white/30 text-white/90 transition-colors hover:text-brand hover:border-brand/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+        aria-label="Close image viewer"
+      >
+        <Icon name="mdi:close" class="h-5 w-5" aria-hidden="true" />
+      </button>
+      <img
+        data-gallery-modal-image
+        src=""
+        alt=""
+        class="mx-auto max-h-[90vh] w-auto max-w-full rounded-xl border border-white/15 bg-black object-contain shadow-2xl shadow-black/60"
+      />
     </div>
   </div>
-</Section>
+</section>
+
+<script>
+  const roots = document.querySelectorAll("[data-gallery-grid]");
+
+  roots.forEach((grid) => {
+    const modal = document.querySelector("[data-gallery-modal]");
+    if (!modal) return;
+
+    const modalImage = modal.querySelector("[data-gallery-modal-image]");
+    const modalCloseBtn = modal.querySelector("[data-gallery-modal-close]");
+    const modalBackdrop = modal.querySelector("[data-gallery-modal-backdrop]");
+    const openButtons = grid.querySelectorAll("[data-gallery-open]");
+
+    let lastFocusedEl = null;
+
+    const closeModal = () => {
+      if (!(modalImage instanceof HTMLImageElement)) return;
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+      modalImage.src = "";
+      modalImage.alt = "";
+      if (lastFocusedEl instanceof HTMLElement) lastFocusedEl.focus();
+    };
+
+    const openModal = (src, alt, trigger) => {
+      if (!(modalImage instanceof HTMLImageElement)) return;
+      modalImage.src = src;
+      modalImage.alt = alt || "Expanded gallery image";
+      lastFocusedEl = trigger;
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+    };
+
+    openButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const image = btn.querySelector("img");
+        if (!(image instanceof HTMLImageElement)) return;
+        openModal(image.currentSrc || image.src, image.alt, btn);
+      });
+    });
+
+    modalCloseBtn?.addEventListener("click", closeModal);
+    modalBackdrop?.addEventListener("click", closeModal);
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeModal();
+    });
+  });
+</script>

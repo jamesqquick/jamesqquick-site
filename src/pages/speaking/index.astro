@@ -1,10 +1,10 @@
 ---
+import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Testimonials from "../../components/Testimonials.astro";
 import SpeakerFormCallout from "../../components/SpeakerFormCallout.astro";
 import SpeakingHero from "../../components/speaking/SpeakingHero.astro";
 import SpeakingStats from "../../components/speaking/SpeakingStats.astro";
-import SpeakingTopics from "../../components/speaking/SpeakingTopics.astro";
 import SpeakingFeaturedTalk from "../../components/speaking/SpeakingFeaturedTalk.astro";
 import SpeakingAbout from "../../components/speaking/SpeakingAbout.astro";
 import SpeakingGallery from "../../components/speaking/SpeakingGallery.astro";
@@ -12,7 +12,6 @@ import SpeakingEventCta from "../../components/speaking/SpeakingEventCta.astro";
 import {
   speakingHero,
   speakingStats,
-  speakingTopics,
   featuredTalk,
   speakingAbout,
   speakingGallery,
@@ -21,13 +20,26 @@ import {
 } from "../../data/speakingPage";
 
 export const prerender = true;
+
+const favoriteTalks = (await getCollection("talk"))
+  .filter((talk) => Boolean(talk.data.youTubeVideoId))
+  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
+  .map((talk) => {
+    const youtubeId = talk.data.youTubeVideoId!;
+    return {
+      title: talk.data.title,
+      youtubeId,
+      href: `https://www.youtube.com/watch?v=${youtubeId}`,
+      month: talk.data.pubDate.toLocaleString("en-US", { month: "long" }),
+      year: talk.data.pubDate.getFullYear(),
+    };
+  });
 ---
 
 <BaseLayout>
   <SpeakingHero {...speakingHero} />
   <SpeakingStats stats={speakingStats} />
-  <SpeakingTopics topics={speakingTopics} />
-  <SpeakingFeaturedTalk {...featuredTalk} />
+  <SpeakingFeaturedTalk {...featuredTalk} talks={favoriteTalks} />
   <SpeakingAbout {...speakingAbout} />
   <Testimonials />
   <SpeakingGallery items={speakingGallery} />

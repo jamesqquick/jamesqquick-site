@@ -1,27 +1,71 @@
 ---
 import Section from "../Section.astro";
+import { Icon } from "astro-icon/components";
 
-export interface Stat {
-  label: string;
-  value: string;
+export interface SpeakingStat {
+  title: string;
+  description: string;
+  icon: string;
 }
 
 export interface Props {
-  stats: Stat[];
+  stats: SpeakingStat[];
 }
 
 const { stats } = Astro.props as Props;
 ---
 
-<Section isLight={true} hasYPadding={false} classStr="py-10">
-  <div class="grid gap-6 md:grid-cols-3">
-    {
-      stats.map((item) => (
-        <div class="rounded-lg border border-white/10 bg-bg px-6 py-5 text-center">
-          <p class="text-3xl font-bold text-brand">{item.value}</p>
-          <p class="text-xs tracking-[0.12em] uppercase opacity-70 mt-1">{item.label}</p>
-        </div>
-      ))
-    }
+<Section hasYPadding={false} classStr="relative bg-bgLight py-14 md:py-20">
+  <div class="relative max-w-6xl mx-auto">
+    <div class="mx-auto mb-10 max-w-3xl text-center md:mb-12">
+      <h2 class="mb-4 text-3xl font-bold md:text-5xl">What I talk about</h2>
+      <p class="text-base leading-relaxed text-white/75 md:text-lg">
+        Sessions designed to help developers grow their careers, sharpen their craft, and build with confidence.
+      </p>
+    </div>
+
+    <div class="relative">
+      <!-- Dotted connector: behind grid (z-0); icon circles use solid bg so the line doesn’t show through -->
+      <div
+        class="pointer-events-none absolute top-8 z-0 hidden h-[3px] text-brand/90 md:left-[16.67%] md:right-[16.67%] md:top-9 md:block"
+        aria-hidden="true"
+      >
+        <svg
+          class="h-full w-full"
+          preserveAspectRatio="none"
+          viewBox="0 0 1000 6"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <line
+            x1="0"
+            y1="3"
+            x2="1000"
+            y2="3"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-dasharray="10 26"
+            stroke-linecap="round"
+          />
+        </svg>
+      </div>
+
+      <div class="relative z-10 grid gap-12 md:grid-cols-3 md:gap-8">
+        {
+          stats.map((item) => (
+            <div class="flex flex-col items-center text-center">
+              <div
+                class="relative mb-6 flex h-16 w-16 shrink-0 items-center justify-center rounded-full border border-white/10 bg-bgLight shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06)] md:h-[4.5rem] md:w-[4.5rem]"
+              >
+                <Icon name={item.icon} class="h-8 w-8 text-brand md:h-9 md:w-9" aria-hidden="true" />
+              </div>
+              <h3 class="mb-3 text-lg font-bold text-white md:text-xl">{item.title}</h3>
+              <p class="max-w-xs text-sm leading-relaxed text-white/70 md:max-w-none md:text-base">
+                {item.description}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
   </div>
 </Section>

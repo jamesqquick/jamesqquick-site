@@ -12,12 +12,12 @@ export interface Props {
 const { kitLinks = [] } = Astro.props as Props;
 ---
 
-<Section hasYPadding={false} hasMaxWidth={false} classStr="pb-20">
-  <div class="grid lg:grid-cols-2 grid-cols-1 gap-10">
-    <div>
-      <p class="text-brand uppercase tracking-[0.2em] text-xs mb-3">invite</p>
-      <h2 class="text-4xl font-bold mb-4">Bring this talk to your event</h2>
-      <p class="opacity-80 mb-10">
+<Section hasYPadding={false} hasMaxWidth={false} classStr="py-16 md:py-20">
+  <div class="grid grid-cols-1 gap-8 max-w-6xl mx-auto lg:grid-cols-2">
+    <div class="rounded-2xl border border-white/10 bg-bgLight p-8">
+      <p class="text-brand uppercase tracking-[0.2em] text-xs mb-3">Let's work together</p>
+      <h2 class="text-4xl font-bold mb-4">Bring me to your event</h2>
+      <p class="opacity-80 mb-8">
         Please first read through my <Link
           text="Speaker Rider"
           isFancy={true}
@@ -28,9 +28,9 @@ const { kitLinks = [] } = Astro.props as Props;
       </p>
 
       <h2
-        class="mb-2 block text-brand text-2xl text-light tracking-widest uppercase font-bold"
+        class="mb-2 block text-brand text-xl tracking-widest uppercase font-bold"
       >
-        You might need
+        You might also need
       </h2>
       {
         kitLinks.length > 0 && (
@@ -45,8 +45,8 @@ const { kitLinks = [] } = Astro.props as Props;
       }
       <div class="mb-10">
         <p class="text-lg underline underline-offset-4 mb-4">Speaker Bio</p>
-        <p>
-            James is a developer, keynote speaker, and teacher whose work has impacted thousands of developers across the world. James has over 10 years of Software Development and Developer Advocacy experience, and is currently serving as Head of Developer Experience at BigCommerce. In his spare time, he enjoys traveling and playing co-ed soccer with his wife, chasing around their toddler, and solving a Rubik's cube in under a minute.
+        <p class="opacity-85">
+            James is a developer, keynote speaker, and teacher whose work has impacted thousands of developers across the world. James has over 10 years of Software Development and Developer Advocacy experience. In his spare time, he enjoys traveling and playing co-ed soccer with his wife, playing with their two kids, and solving a Rubik's cube in under a minute.
         </p>
       </div>
       <Image
@@ -55,12 +55,16 @@ const { kitLinks = [] } = Astro.props as Props;
         width={426}
         height={284}
         format="webp"
-        class="mb-4 rounded-lg"
+        class="mb-4 rounded-lg w-full max-w-md"
       />
       <a href="/images/selfie-square.jpeg" class="underline underline-offset-4"
         >Download headshot</a
       >
     </div>
-    <SpeakerForm client:load />
+    <div class="rounded-2xl border border-white/10 bg-bgLight p-8">
+      <p class="text-brand uppercase tracking-[0.2em] text-xs mb-3">Request details</p>
+      <h3 class="text-3xl font-bold mb-6">Tell me about your event</h3>
+      <SpeakerForm client:load />
+    </div>
   </div>
 </Section>

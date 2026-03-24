@@ -21,18 +21,18 @@ const {
 } = Astro.props as Props;
 ---
 
-<Section hasYPadding={false} classStr="py-20 md:py-28">
+<Section hasYPadding={false} classStr="py-16 md:py-20 bg-bgLight">
   <div class="grid gap-10 lg:grid-cols-2 items-center">
     <div>
       <p class="uppercase tracking-[0.2em] text-brand text-xs mb-3">{eyebrow}</p>
-      <h2 class="text-3xl md:text-5xl font-bold mb-5">{heading}</h2>
-      <p class="text-lg opacity-80 max-w-2xl">{description}</p>
+      <h2 class="text-3xl md:text-5xl font-bold mb-5 max-w-xl">{heading}</h2>
+      <p class="text-lg opacity-80 max-w-2xl leading-relaxed">{description}</p>
       <div class="mt-7">
         <Link href={readMoreCta.href} text={readMoreCta.label} classStr="font-semibold" />
       </div>
     </div>
-    <div class="rounded-2xl overflow-hidden border border-white/10">
-      <img src={imageSrc} alt={imageAlt} class="w-full h-[360px] object-cover" loading="lazy" />
+    <div class="rounded-2xl overflow-hidden">
+      <img src={imageSrc} alt={imageAlt} class="w-full h-[360px] md:h-[420px] object-cover" loading="lazy" />
     </div>
   </div>
 </Section>

@@ -50,6 +50,9 @@ importers:
       cloudinary:
         specifier: ^2.4.0
         version: 2.5.1
+      embla-carousel:
+        specifier: ^8.6.0
+        version: 8.6.0
       fast-xml-parser:
         specifier: ^4.0.10
         version: 4.5.0
@@ -3058,6 +3061,9 @@ packages:
 
   electron-to-chromium@1.5.35:
     resolution: {integrity: sha512-hOSRInrIDm0Brzp4IHW2F/VM+638qOL2CzE0DgpnGzKW27C95IqqeqgKz/hxHGnvPxvQGpHUGD5qRVC9EZY2+A==}
+
+  embla-carousel@8.6.0:
+    resolution: {integrity: sha512-SjWyZBHJPbqxHOzckOfo8lHisEaJWmwd23XppYFYVh10bU66/Pn5tkVkbkCMZVdbUE5eTCI2nD8OyIP4Z+uwkA==}
 
   emmet@2.4.11:
     resolution: {integrity: sha512-23QPJB3moh/U9sT4rQzGgeyyGIrcM+GH5uVYg2C6wZIxAIJq7Ng3QLT79tl8FUwDXhyq9SusfknOrofAKqvgyQ==}
@@ -9748,6 +9754,8 @@ snapshots:
   electron-to-chromium@1.5.321: {}
 
   electron-to-chromium@1.5.35: {}
+
+  embla-carousel@8.6.0: {}
 
   emmet@2.4.11:
     dependencies:

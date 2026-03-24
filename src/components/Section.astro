@@ -4,6 +4,7 @@ export interface Props {
   classStr?: string;
   hasYPadding?: boolean;
   hasMaxWidth?: boolean;
+  id?: string;
 }
 
 const {
@@ -11,10 +12,12 @@ const {
   classStr,
   hasYPadding = true,
   hasMaxWidth = true,
+  id,
 } = Astro.props as Props;
 ---
 
 <section
+  id={id}
   class={`px-8 ${hasYPadding ? "py-20 md:py-40" : ""} ${isLight ? "bg-bgLight" : ""} ${
     classStr ? classStr : ""
   }`}
