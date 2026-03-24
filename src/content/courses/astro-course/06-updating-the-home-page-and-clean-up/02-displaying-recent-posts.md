@@ -1,6 +1,6 @@
 ---
 slug: displaying-recent-posts
-title: Displaying Recent Posts.mp4
+title: Displaying Recent Posts
 moduleSlug: updating-the-home-page-and-clean-up
 moduleTitle: Updating the Home Page and Clean Up
 moduleOrder: 6
@@ -13,6 +13,5 @@ transcript: ""
 resources: []
 ---
 
-# Displaying Recent Posts.mp4
-
+# Displaying Recent Posts
 Lesson scaffold only.

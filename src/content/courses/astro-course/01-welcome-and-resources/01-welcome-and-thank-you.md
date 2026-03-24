@@ -1,6 +1,6 @@
 ---
 slug: welcome-and-thank-you
-title: Welcome and Thank You.mp4
+title: Welcome and Thank You
 moduleSlug: welcome-and-resources
 moduleTitle: Welcome and Resources
 moduleOrder: 1
@@ -13,6 +13,5 @@ transcript: ""
 resources: []
 ---
 
-# Welcome and Thank You.mp4
-
+# Welcome and Thank You
 Lesson scaffold only.

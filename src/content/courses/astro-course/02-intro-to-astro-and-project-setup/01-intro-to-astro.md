@@ -1,6 +1,6 @@
 ---
 slug: intro-to-astro
-title: Intro To Astro.mp4
+title: Intro To Astro
 moduleSlug: intro-to-astro-and-project-setup
 moduleTitle: Intro to Astro and Project Setup
 moduleOrder: 2
@@ -13,6 +13,5 @@ transcript: ""
 resources: []
 ---
 
-# Intro To Astro.mp4
-
+# Intro To Astro
 Lesson scaffold only.

@@ -1,6 +1,6 @@
 ---
 slug: updating-the-site-config-property
-title: Updating the Site Config Property.mp4
+title: Updating the Site Config Property
 moduleSlug: deploying
 moduleTitle: Deploying
 moduleOrder: 9
@@ -13,6 +13,5 @@ transcript: ""
 resources: []
 ---
 
-# Updating the Site Config Property.mp4
-
+# Updating the Site Config Property
 Lesson scaffold only.

@@ -1,6 +1,6 @@
 ---
 slug: styling-blog-posts-using-the-tailwind-typography-plugin
-title: Styling Blog Posts Using The Tailwind Typography Plugin.mp4
+title: Styling Blog Posts Using The Tailwind Typography Plugin
 moduleSlug: dynamic-routes-and-pagination
 moduleTitle: Dynamic Routes and Pagination
 moduleOrder: 4
@@ -13,6 +13,5 @@ transcript: ""
 resources: []
 ---
 
-# Styling Blog Posts Using The Tailwind Typography Plugin.mp4
-
+# Styling Blog Posts Using The Tailwind Typography Plugin
 Lesson scaffold only.

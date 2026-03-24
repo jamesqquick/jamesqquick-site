@@ -1,6 +1,6 @@
 ---
 slug: shortcuts-that-i-use
-title: Shortcuts That I Use.mp4
+title: Shortcuts That I Use
 moduleSlug: intro-to-astro-and-project-setup
 moduleTitle: Intro to Astro and Project Setup
 moduleOrder: 2
@@ -13,6 +13,5 @@ transcript: ""
 resources: []
 ---
 
-# Shortcuts That I Use.mp4
-
+# Shortcuts That I Use
 Lesson scaffold only.

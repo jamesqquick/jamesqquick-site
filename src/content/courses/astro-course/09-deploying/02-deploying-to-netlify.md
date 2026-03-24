@@ -1,6 +1,6 @@
 ---
 slug: deploying-to-netlify
-title: Deploying to Netlify.mp4
+title: Deploying to Netlify
 moduleSlug: deploying
 moduleTitle: Deploying
 moduleOrder: 9
@@ -13,6 +13,5 @@ transcript: ""
 resources: []
 ---
 
-# Deploying to Netlify.mp4
-
+# Deploying to Netlify
 Lesson scaffold only.

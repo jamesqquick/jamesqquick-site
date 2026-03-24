@@ -1,6 +1,6 @@
 ---
 slug: displaying-a-featured-post
-title: Displaying a Featured Post.mp4
+title: Displaying a Featured Post
 moduleSlug: updating-the-home-page-and-clean-up
 moduleTitle: Updating the Home Page and Clean Up
 moduleOrder: 6
@@ -13,6 +13,5 @@ transcript: ""
 resources: []
 ---
 
-# Displaying a Featured Post.mp4
-
+# Displaying a Featured Post
 Lesson scaffold only.

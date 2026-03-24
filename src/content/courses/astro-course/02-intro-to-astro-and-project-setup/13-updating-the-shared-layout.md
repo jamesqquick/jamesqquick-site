@@ -1,6 +1,6 @@
 ---
 slug: updating-the-shared-layout
-title: Updating the Shared Layout.mp4
+title: Updating the Shared Layout
 moduleSlug: intro-to-astro-and-project-setup
 moduleTitle: Intro to Astro and Project Setup
 moduleOrder: 2
@@ -13,6 +13,5 @@ transcript: ""
 resources: []
 ---
 
-# Updating the Shared Layout.mp4
-
+# Updating the Shared Layout
 Lesson scaffold only.

@@ -1,6 +1,6 @@
 ---
 slug: cleaning-up-code-with-reusable-components
-title: Cleaning Up Code With Reusable Components.mp4
+title: Cleaning Up Code With Reusable Components
 moduleSlug: dynamic-routes-and-pagination
 moduleTitle: Dynamic Routes and Pagination
 moduleOrder: 4
@@ -13,6 +13,5 @@ transcript: ""
 resources: []
 ---
 
-# Cleaning Up Code With Reusable Components.mp4
-
+# Cleaning Up Code With Reusable Components
 Lesson scaffold only.

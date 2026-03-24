@@ -1,6 +1,6 @@
 ---
 slug: updating-the-header-and-footer-components
-title: Updating the Header and Footer Components.mp4
+title: Updating the Header and Footer Components
 moduleSlug: intro-to-astro-and-project-setup
 moduleTitle: Intro to Astro and Project Setup
 moduleOrder: 2
@@ -13,6 +13,5 @@ transcript: ""
 resources: []
 ---
 
-# Updating the Header and Footer Components.mp4
-
+# Updating the Header and Footer Components
 Lesson scaffold only.

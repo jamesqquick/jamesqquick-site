@@ -1,6 +1,6 @@
 ---
 slug: creating-the-postlist-component
-title: Creating the PostList Component.mp4
+title: Creating the PostList Component
 moduleSlug: working-with-markdown-and-content-collections
 moduleTitle: Working with Markdown and Content Collections
 moduleOrder: 3
@@ -13,6 +13,5 @@ transcript: ""
 resources: []
 ---
 
-# Creating the PostList Component.mp4
-
+# Creating the PostList Component
 Lesson scaffold only.

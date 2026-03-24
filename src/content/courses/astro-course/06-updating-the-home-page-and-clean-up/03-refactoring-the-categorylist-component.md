@@ -1,6 +1,6 @@
 ---
 slug: refactoring-the-categorylist-component
-title: Refactoring the CategoryList Component.mp4
+title: Refactoring the CategoryList Component
 moduleSlug: updating-the-home-page-and-clean-up
 moduleTitle: Updating the Home Page and Clean Up
 moduleOrder: 6
@@ -13,6 +13,5 @@ transcript: ""
 resources: []
 ---
 
-# Refactoring the CategoryList Component.mp4
-
+# Refactoring the CategoryList Component
 Lesson scaffold only.

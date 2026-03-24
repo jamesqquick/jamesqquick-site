@@ -1,6 +1,6 @@
 ---
 slug: vs-code-setup
-title: VS Code Setup.mp4
+title: VS Code Setup
 moduleSlug: intro-to-astro-and-project-setup
 moduleTitle: Intro to Astro and Project Setup
 moduleOrder: 2
@@ -13,6 +13,5 @@ transcript: ""
 resources: []
 ---
 
-# VS Code Setup.mp4
-
+# VS Code Setup
 Lesson scaffold only.

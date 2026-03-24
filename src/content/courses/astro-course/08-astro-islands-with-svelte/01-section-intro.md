@@ -1,6 +1,6 @@
 ---
 slug: section-intro
-title: Section Intro.mp4
+title: Section Intro
 moduleSlug: astro-islands-with-svelte
 moduleTitle: Astro Islands with Svelte
 moduleOrder: 8
@@ -13,6 +13,5 @@ transcript: ""
 resources: []
 ---
 
-# Section Intro.mp4
-
+# Section Intro
 Lesson scaffold only.

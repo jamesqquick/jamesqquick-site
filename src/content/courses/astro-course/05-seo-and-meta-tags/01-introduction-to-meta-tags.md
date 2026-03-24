@@ -1,6 +1,6 @@
 ---
 slug: introduction-to-meta-tags
-title: Introduction to Meta Tags.mp4
+title: Introduction to Meta Tags
 moduleSlug: seo-and-meta-tags
 moduleTitle: SEO and Meta Tags
 moduleOrder: 5
@@ -13,6 +13,5 @@ transcript: ""
 resources: []
 ---
 
-# Introduction to Meta Tags.mp4
-
+# Introduction to Meta Tags
 Lesson scaffold only.

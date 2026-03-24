@@ -1,6 +1,6 @@
 ---
 slug: adding-svelte-and-client-directives
-title: Adding Svelte (and Client Directives) .mp4
+title: Adding Svelte (and Client Directives)
 moduleSlug: astro-islands-with-svelte
 moduleTitle: Astro Islands with Svelte
 moduleOrder: 8
@@ -13,6 +13,5 @@ transcript: ""
 resources: []
 ---
 
-# Adding Svelte (and Client Directives) .mp4
-
+# Adding Svelte (and Client Directives)
 Lesson scaffold only.

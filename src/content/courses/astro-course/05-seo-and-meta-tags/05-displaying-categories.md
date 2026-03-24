@@ -1,6 +1,6 @@
 ---
 slug: displaying-categories
-title: Displaying Categories.mp4
+title: Displaying Categories
 moduleSlug: seo-and-meta-tags
 moduleTitle: SEO and Meta Tags
 moduleOrder: 5
@@ -13,6 +13,5 @@ transcript: ""
 resources: []
 ---
 
-# Displaying Categories.mp4
-
+# Displaying Categories
 Lesson scaffold only.

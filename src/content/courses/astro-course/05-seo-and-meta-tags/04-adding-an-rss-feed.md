@@ -1,6 +1,6 @@
 ---
 slug: adding-an-rss-feed
-title: Adding an RSS Feed.mp4
+title: Adding an RSS Feed
 moduleSlug: seo-and-meta-tags
 moduleTitle: SEO and Meta Tags
 moduleOrder: 5
@@ -13,6 +13,5 @@ transcript: ""
 resources: []
 ---
 
-# Adding an RSS Feed.mp4
-
+# Adding an RSS Feed
 Lesson scaffold only.

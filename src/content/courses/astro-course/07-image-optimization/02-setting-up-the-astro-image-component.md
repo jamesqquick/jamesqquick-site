@@ -1,6 +1,6 @@
 ---
 slug: setting-up-the-astro-image-component
-title: Setting Up The Astro Image Component.mp4
+title: Setting Up The Astro Image Component
 moduleSlug: image-optimization
 moduleTitle: Image Optimization
 moduleOrder: 7
@@ -13,6 +13,5 @@ transcript: ""
 resources: []
 ---
 
-# Setting Up The Astro Image Component.mp4
-
+# Setting Up The Astro Image Component
 Lesson scaffold only.

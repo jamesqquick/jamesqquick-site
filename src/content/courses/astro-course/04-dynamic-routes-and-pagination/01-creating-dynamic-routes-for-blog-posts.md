@@ -1,6 +1,6 @@
 ---
 slug: creating-dynamic-routes-for-blog-posts
-title: Creating Dynamic Routes for Blog Posts.mp4
+title: Creating Dynamic Routes for Blog Posts
 moduleSlug: dynamic-routes-and-pagination
 moduleTitle: Dynamic Routes and Pagination
 moduleOrder: 4
@@ -13,6 +13,5 @@ transcript: ""
 resources: []
 ---
 
-# Creating Dynamic Routes for Blog Posts.mp4
-
+# Creating Dynamic Routes for Blog Posts
 Lesson scaffold only.

@@ -1,6 +1,6 @@
 ---
 slug: creating-the-share-component
-title: Creating the Share Component.mp4
+title: Creating the Share Component
 moduleSlug: dynamic-routes-and-pagination
 moduleTitle: Dynamic Routes and Pagination
 moduleOrder: 4
@@ -13,6 +13,5 @@ transcript: ""
 resources: []
 ---
 
-# Creating the Share Component.mp4
-
+# Creating the Share Component
 Lesson scaffold only.

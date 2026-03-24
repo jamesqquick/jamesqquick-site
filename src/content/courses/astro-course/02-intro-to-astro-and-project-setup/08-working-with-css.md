@@ -1,6 +1,6 @@
 ---
 slug: working-with-css
-title: Working With CSS.mp4
+title: Working With CSS
 moduleSlug: intro-to-astro-and-project-setup
 moduleTitle: Intro to Astro and Project Setup
 moduleOrder: 2
@@ -13,6 +13,5 @@ transcript: ""
 resources: []
 ---
 
-# Working With CSS.mp4
-
+# Working With CSS
 Lesson scaffold only.

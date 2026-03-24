@@ -1,6 +1,6 @@
 ---
 slug: creating-the-tableofcontents-component
-title: Creating the TableOfContents Component.mp4
+title: Creating the TableOfContents Component
 moduleSlug: dynamic-routes-and-pagination
 moduleTitle: Dynamic Routes and Pagination
 moduleOrder: 4
@@ -13,6 +13,5 @@ transcript: ""
 resources: []
 ---
 
-# Creating the TableOfContents Component.mp4
-
+# Creating the TableOfContents Component
 Lesson scaffold only.

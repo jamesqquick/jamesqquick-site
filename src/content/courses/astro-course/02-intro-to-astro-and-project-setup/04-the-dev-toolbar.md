@@ -1,6 +1,6 @@
 ---
 slug: the-dev-toolbar
-title: The Dev Toolbar.mp4
+title: The Dev Toolbar
 moduleSlug: intro-to-astro-and-project-setup
 moduleTitle: Intro to Astro and Project Setup
 moduleOrder: 2
@@ -13,6 +13,5 @@ transcript: ""
 resources: []
 ---
 
-# The Dev Toolbar.mp4
-
+# The Dev Toolbar
 Lesson scaffold only.

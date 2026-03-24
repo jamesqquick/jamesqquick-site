@@ -1,6 +1,6 @@
 ---
 slug: querying-and-displaying-list-of-blog-posts
-title: Querying and Displaying List of Blog Posts.mp4
+title: Querying and Displaying List of Blog Posts
 moduleSlug: working-with-markdown-and-content-collections
 moduleTitle: Working with Markdown and Content Collections
 moduleOrder: 3
@@ -13,6 +13,5 @@ transcript: ""
 resources: []
 ---
 
-# Querying and Displaying List of Blog Posts.mp4
-
+# Querying and Displaying List of Blog Posts
 Lesson scaffold only.

@@ -1,6 +1,6 @@
 ---
 slug: resources
-title: Resources.mp4
+title: Resources
 moduleSlug: welcome-and-resources
 moduleTitle: Welcome and Resources
 moduleOrder: 1
@@ -13,6 +13,5 @@ transcript: ""
 resources: []
 ---
 
-# Resources.mp4
-
+# Resources
 Lesson scaffold only.

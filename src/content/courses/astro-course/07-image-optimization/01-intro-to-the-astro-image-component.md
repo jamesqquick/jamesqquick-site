@@ -1,6 +1,6 @@
 ---
 slug: intro-to-the-astro-image-component
-title: Intro to the Astro Image Component.mp4
+title: Intro to the Astro Image Component
 moduleSlug: image-optimization
 moduleTitle: Image Optimization
 moduleOrder: 7
@@ -13,6 +13,5 @@ transcript: ""
 resources: []
 ---
 
-# Intro to the Astro Image Component.mp4
-
+# Intro to the Astro Image Component
 Lesson scaffold only.

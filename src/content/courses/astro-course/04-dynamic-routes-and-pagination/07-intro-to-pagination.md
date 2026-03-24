@@ -1,6 +1,6 @@
 ---
 slug: intro-to-pagination
-title: Intro to Pagination.mp4
+title: Intro to Pagination
 moduleSlug: dynamic-routes-and-pagination
 moduleTitle: Dynamic Routes and Pagination
 moduleOrder: 4
@@ -13,6 +13,5 @@ transcript: ""
 resources: []
 ---
 
-# Intro to Pagination.mp4
-
+# Intro to Pagination
 Lesson scaffold only.

@@ -1,6 +1,6 @@
 ---
 slug: creating-your-first-astro-project
-title: Creating Your First Astro Project.mp4
+title: Creating Your First Astro Project
 moduleSlug: intro-to-astro-and-project-setup
 moduleTitle: Intro to Astro and Project Setup
 moduleOrder: 2
@@ -13,6 +13,5 @@ transcript: ""
 resources: []
 ---
 
-# Creating Your First Astro Project.mp4
-
+# Creating Your First Astro Project
 Lesson scaffold only.

@@ -1,6 +1,6 @@
 ---
 slug: setting-up-a-github-repository
-title: Setting Up a Github Repository.mp4
+title: Setting Up a Github Repository
 moduleSlug: deploying
 moduleTitle: Deploying
 moduleOrder: 9
@@ -13,6 +13,5 @@ transcript: ""
 resources: []
 ---
 
-# Setting Up a Github Repository.mp4
-
+# Setting Up a Github Repository
 Lesson scaffold only.

@@ -1,6 +1,6 @@
 ---
 slug: astro-4-0
-title: Astro 4.0.mp4
+title: Astro 4.0
 moduleSlug: intro-to-astro-and-project-setup
 moduleTitle: Intro to Astro and Project Setup
 moduleOrder: 2
@@ -13,6 +13,5 @@ transcript: ""
 resources: []
 ---
 
-# Astro 4.0.mp4
-
+# Astro 4.0
 Lesson scaffold only.

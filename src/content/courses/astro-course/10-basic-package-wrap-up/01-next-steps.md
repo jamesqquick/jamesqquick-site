@@ -1,6 +1,6 @@
 ---
 slug: next-steps
-title: Next Steps.mp4
+title: Next Steps
 moduleSlug: basic-package-wrap-up
 moduleTitle: Basic Package Wrap Up
 moduleOrder: 10
@@ -13,6 +13,5 @@ transcript: ""
 resources: []
 ---
 
-# Next Steps.mp4
-
+# Next Steps
 Lesson scaffold only.

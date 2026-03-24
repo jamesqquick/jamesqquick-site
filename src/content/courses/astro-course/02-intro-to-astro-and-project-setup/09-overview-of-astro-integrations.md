@@ -1,6 +1,6 @@
 ---
 slug: overview-of-astro-integrations
-title: Overview of Astro Integrations.mp4
+title: Overview of Astro Integrations
 moduleSlug: intro-to-astro-and-project-setup
 moduleTitle: Intro to Astro and Project Setup
 moduleOrder: 2
@@ -13,6 +13,5 @@ transcript: ""
 resources: []
 ---
 
-# Overview of Astro Integrations.mp4
-
+# Overview of Astro Integrations
 Lesson scaffold only.

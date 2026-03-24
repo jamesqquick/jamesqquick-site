@@ -1,6 +1,6 @@
 ---
 slug: adding-meta-tags
-title: Adding Meta Tags.mp4
+title: Adding Meta Tags
 moduleSlug: seo-and-meta-tags
 moduleTitle: SEO and Meta Tags
 moduleOrder: 5
@@ -13,6 +13,5 @@ transcript: ""
 resources: []
 ---
 
-# Adding Meta Tags.mp4
-
+# Adding Meta Tags
 Lesson scaffold only.

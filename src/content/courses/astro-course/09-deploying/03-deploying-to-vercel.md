@@ -1,6 +1,6 @@
 ---
 slug: deploying-to-vercel
-title: Deploying to Vercel.mp4
+title: Deploying to Vercel
 moduleSlug: deploying
 moduleTitle: Deploying
 moduleOrder: 9
@@ -13,6 +13,5 @@ transcript: ""
 resources: []
 ---
 
-# Deploying to Vercel.mp4
-
+# Deploying to Vercel
 Lesson scaffold only.
