@@ -15,4 +15,6 @@ resources: []
 
 # (Final Code) CHALLENGE: Implemented Category Pagination
 
-Lesson scaffold only.
+Final code:
+
+- [https://github.com/jamesqquick/astro-course-demo/tree/ssg/src/pages/category](https://github.com/jamesqquick/astro-course-demo/tree/ssg/src/pages/category)
