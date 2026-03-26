@@ -1,7 +1,7 @@
 ---
 import Section from "@components/Section.astro";
 import FeaturedSplitSection from "@components/FeaturedSplitSection.astro";
-import { getSortedCourses } from "src/utils/contentCollections";
+import { getCourseHostType, getCourseUrl, getInternalCourses } from "src/utils/contentCollections";
 import SectionHeader from "@components/SectionHeader.astro";
 import {Image} from "astro:assets";
 
@@ -12,13 +12,28 @@ const subtitle = `Learn to build for the modern web`;
 const description = `Looking to take your web development skills to the next level? Check out my collection of courses, offering something for everyone whether you're a seasoned developer or just getting started.`;
 
 //only get the first 4 courses
-const courses = (await getSortedCourses()).slice(0, 4);
+const courses = (await getInternalCourses())
+  .filter(
+    (course) => course.data.coverImage && course.data.description && (course.data.updatedDate ?? course.data.pubDate)
+  )
+  .slice(0, 4);
 const featuredCourse = courses.splice(0, 1)[0];
 ---
 <Section classStr="pt-20 md:pt-40" hasYPadding={false}>
   <SectionHeader title={title} subtitle={subtitle} description={description} variant="secondary"/>
 </Section>
-<FeaturedSplitSection classStr="pb-20" hasYPadding={false}  image={featuredCourse.data.coverImage} title={featuredCourse.data.title} description={featuredCourse.data.description} href={featuredCourse.data.link} date={featuredCourse.data.pubDate} />
+{featuredCourse && (
+  <FeaturedSplitSection
+    classStr="pb-20"
+    hasYPadding={false}
+    image={featuredCourse.data.coverImage!}
+    title={featuredCourse.data.title}
+    description={featuredCourse.data.description!}
+    href={getCourseUrl(featuredCourse)}
+    date={(featuredCourse.data.updatedDate ?? featuredCourse.data.pubDate)!}
+    openInNewTab={getCourseHostType(featuredCourse) === "external"}
+  />
+)}
 <Section hasYPadding={false} classStr="pb-20 md:pb-40">
 <SectionHeader title="Other courses"/>
 <div class="flex flex-col lg:flex-row justify-center gap-10">
@@ -29,14 +44,14 @@ const featuredCourse = courses.splice(0, 1)[0];
             height={256}
             width={256}
             format="webp"
-            src={course.data.coverImage}
+            src={course.data.coverImage!}
             alt={course.data.title}
             class=" rounded-lg h-16 w-16 object-cover border border-white"
           />
           <a
-            href={course.data.link}
+            href={getCourseUrl(course)}
             rel="noopener noreferrer"
-            target="_blank"
+            target={getCourseHostType(course) === "external" ? "_blank" : undefined}
           >
             <h4 class=" w-52">{course.data.title}</h4>
           </a>

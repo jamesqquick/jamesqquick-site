@@ -1,0 +1,164 @@
+---
+import { render } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Section from "../../components/Section.astro";
+import Sidebar from "../../components/course-content/Sidebar.astro";
+import {
+  getCourseBySlug,
+  getNormalizedLessonId,
+  getInternalCourses,
+  getLessonsBySection,
+  getSectionsByCourseSlug,
+  lessonUrl,
+} from "src/utils/contentCollections";
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const courses = await getInternalCourses();
+  return courses.map((course) => ({
+    params: { courseSlug: course.data.slug ?? course.id.split("/")[0] },
+  }));
+}
+
+const courseSlug = Astro.params.courseSlug!;
+const course = await getCourseBySlug(courseSlug);
+
+if (!course || course.data.hostType === "external") {
+  return Astro.redirect("/courses");
+}
+
+const sections = await getSectionsByCourseSlug(courseSlug);
+const sectionsWithLessons = await Promise.all(
+  sections.map(async (section) => ({
+    ...section,
+    lessons: await getLessonsBySection(courseSlug, section.slug),
+  }))
+);
+const lessons = sectionsWithLessons.flatMap((section) => section.lessons);
+const firstLesson = lessons[0];
+const { Content } = await render(course);
+---
+
+<BaseLayout title={`${course.data.title} | Course`} description={course.data.description}>
+  <main>
+    <div class="border-b border-gray-800 lg:hidden px-6 py-3">
+      <button
+        id="open-sidebar-btn"
+        aria-label="Open course navigation"
+        class="inline-flex items-center gap-2 text-sm text-gray-200"
+      >
+        <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+        Course Menu
+      </button>
+    </div>
+
+    <div id="sidebar-drawer" class="fixed inset-0 z-50 hidden lg:hidden">
+      <div id="sidebar-overlay" class="absolute inset-0 bg-black/40"></div>
+      <aside class="absolute left-0 top-0 h-full w-80 max-w-[85vw] overflow-y-auto border-r border-gray-800 bg-[#121212] p-5">
+        <button id="close-sidebar-btn" aria-label="Close navigation" class="mb-4 text-sm text-gray-300">
+          Close
+        </button>
+        <Sidebar
+          course={course}
+          sections={sections}
+          lessons={lessons}
+          currentLessonId=""
+          completedLessons={[]}
+        />
+      </aside>
+    </div>
+
+    <Section>
+      <div class="grid gap-8 lg:grid-cols-[280px,1fr]">
+        <aside class="hidden lg:block lg:sticky lg:top-0 lg:h-screen lg:overflow-y-auto border-r border-gray-800 pr-4">
+          <Sidebar
+            course={course}
+            sections={sections}
+            lessons={lessons}
+            currentLessonId=""
+            completedLessons={[]}
+          />
+        </aside>
+        <article class="prose prose-invert font-['Satoshi'] prose-xl max-w-none prose-h2:text-brand prose-img:rounded-lg prose-p:text-white">
+          <p><a href="/courses">Courses</a> / {course.data.title}</p>
+          <h1>{course.data.title}</h1>
+          {course.data.description && <p>{course.data.description}</p>}
+          <p id="course-progress-text">0 of {lessons.length} lessons completed</p>
+          <div class="w-full bg-gray-800 rounded-full h-3 mb-6">
+            <div id="course-progress-bar" class="bg-brand h-3 rounded-full" style="width:0%"></div>
+          </div>
+          {firstLesson && (
+            <p>
+              <a id="course-cta" href={lessonUrl(firstLesson.id)}>Start Course</a>
+            </p>
+          )}
+          <Content />
+          <h2>Course Outline</h2>
+          {sectionsWithLessons.map((section) => (
+            <>
+              <h3>{section.title}</h3>
+              <ol>
+                {section.lessons.map((lesson) => (
+                  <li>
+                    <a href={lessonUrl(lesson.id)}>{lesson.data.title}</a>
+                  </li>
+                ))}
+              </ol>
+            </>
+          ))}
+        </article>
+      </div>
+    </Section>
+  </main>
+</BaseLayout>
+
+<script define:vars={{ courseSlug, lessonIds: lessons.map((l) => getNormalizedLessonId(l.id)), firstLessonId: firstLesson ? getNormalizedLessonId(firstLesson.id) : null }}>
+  const progress = JSON.parse(localStorage.getItem("progress") || "{}");
+  const completedCount = lessonIds.filter((id) => Boolean(progress[id])).length;
+  const total = lessonIds.length;
+  const percent = total > 0 ? Math.round((completedCount / total) * 100) : 0;
+
+  const text = document.getElementById("course-progress-text");
+  if (text) text.textContent = `${completedCount} of ${total} lessons completed`;
+  const bar = document.getElementById("course-progress-bar");
+  if (bar) bar.style.width = `${percent}%`;
+
+  const cta = document.getElementById("course-cta");
+  if (cta && total > 0) {
+    const nextIncomplete = lessonIds.find((id) => !progress[id]) ?? firstLessonId;
+    if (nextIncomplete) {
+      const parts = nextIncomplete.split("/");
+      const sectionIndex = parts.indexOf("sections");
+      const sectionSlug = sectionIndex >= 0 ? parts[sectionIndex + 1] : parts[1];
+      const lessonSlug = parts[parts.length - 1];
+      cta.setAttribute("href", `/course/${courseSlug}/${sectionSlug}/${lessonSlug}`);
+      cta.textContent =
+        completedCount === 0
+          ? "Start Course"
+          : completedCount === total
+            ? "Review Course"
+            : "Continue Course";
+    }
+  }
+
+  const drawer = document.getElementById("sidebar-drawer");
+  const openBtn = document.getElementById("open-sidebar-btn");
+  const closeBtn = document.getElementById("close-sidebar-btn");
+  const overlay = document.getElementById("sidebar-overlay");
+  const openDrawer = () => drawer?.classList.remove("hidden");
+  const closeDrawer = () => drawer?.classList.add("hidden");
+
+  openBtn?.addEventListener("click", openDrawer);
+  closeBtn?.addEventListener("click", closeDrawer);
+  overlay?.addEventListener("click", closeDrawer);
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && drawer && !drawer.classList.contains("hidden")) {
+      closeDrawer();
+    }
+  });
+</script>

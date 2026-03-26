@@ -1,0 +1,79 @@
+---
+export type QuizQuestion = {
+  text: string;
+  answers: string[];
+  correct: number;
+};
+
+export interface Props {
+  questions: QuizQuestion[];
+}
+
+const { questions = [] } = Astro.props as Props;
+const quizId = `quiz-${Math.random().toString(36).slice(2, 8)}`;
+---
+
+<div class="not-prose my-8 space-y-6" data-quiz-id={quizId}>
+  {questions.map((question, qIndex) => (
+    <div class="rounded-xl border border-gray-700 p-5" data-question={qIndex}>
+      <p class="mb-3 text-sm font-semibold">{question.text}</p>
+      <div class="space-y-2">
+        {question.answers.map((answer, aIndex) => (
+          <button
+            type="button"
+            class="quiz-answer w-full rounded-lg border border-gray-700 px-4 py-2.5 text-left text-sm hover:border-brand"
+            data-question={qIndex}
+            data-answer={aIndex}
+            data-correct={aIndex === question.correct ? "true" : "false"}
+          >
+            {answer}
+          </button>
+        ))}
+      </div>
+      <p class="quiz-feedback mt-3 hidden text-sm font-medium" />
+    </div>
+  ))}
+</div>
+
+<script>
+  const initQuiz = () => {
+    document.querySelectorAll<HTMLButtonElement>(".quiz-answer").forEach((button) => {
+      if (button.dataset.bound === "true") return;
+      button.dataset.bound = "true";
+
+      button.addEventListener("click", () => {
+        const questionEl = button.closest<HTMLElement>("[data-question]");
+        if (!questionEl || questionEl.classList.contains("answered")) return;
+
+        questionEl.classList.add("answered");
+        const isCorrect = button.dataset.correct === "true";
+
+        if (isCorrect) {
+          button.classList.add("border-green-500", "bg-green-500/10");
+        } else {
+          button.classList.add("border-red-500", "bg-red-500/10");
+          const correctButton = questionEl.querySelector<HTMLButtonElement>(
+            '.quiz-answer[data-correct="true"]'
+          );
+          correctButton?.classList.add("border-green-500", "bg-green-500/10");
+        }
+
+        questionEl.querySelectorAll<HTMLButtonElement>(".quiz-answer").forEach((answerButton) => {
+          answerButton.disabled = true;
+          answerButton.classList.remove("hover:border-brand");
+        });
+
+        const feedback = questionEl.querySelector<HTMLElement>(".quiz-feedback");
+        if (!feedback) return;
+        feedback.classList.remove("hidden", "text-green-400", "text-red-400");
+        feedback.textContent = isCorrect
+          ? "Correct!"
+          : "Incorrect — see the correct answer above.";
+        feedback.classList.add(isCorrect ? "text-green-400" : "text-red-400");
+      });
+    });
+  };
+
+  initQuiz();
+  document.addEventListener("astro:after-swap", initQuiz);
+</script>

@@ -16,23 +16,27 @@ export interface Props {
     description?: string;
     tags?: string[];
     link: string;
+    openInNewTab?: boolean;
   }[];
   includeDescription?: boolean;
+  dateLabelPrefix?: string;
 }
 
-const { items, includeDescription } = Astro.props;
+const { items, includeDescription, dateLabelPrefix } = Astro.props;
 ---
 
-<div class="grid gap-16 grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 mb-16">
+<div class="grid gap-16 grid-cols-1 md:grid-cols-2 xl:grid-cols-3 mb-16">
   {
     items.map((item) => (
       <LinkCard
         title={item.title}
         date={item.date}
         slug={item.link}
+        openInNewTab={item.openInNewTab}
         tag={item?.tags ? item.tags[0] : undefined}
         image={item.image}
         description={includeDescription ? item.description : undefined}
+        dateLabelPrefix={dateLabelPrefix}
       />
     ))
   }

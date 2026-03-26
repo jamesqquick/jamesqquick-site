@@ -1,0 +1,32 @@
+<div class="not-prose my-6 space-y-4 steps-container">
+  <slot />
+</div>
+
+<style>
+  .steps-container {
+    counter-reset: step;
+  }
+
+  .steps-container :global(> div) {
+    counter-increment: step;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .steps-container :global(> div::before) {
+    content: counter(step);
+    width: 2rem;
+    height: 2rem;
+    border-radius: 9999px;
+    background: rgb(88 28 135 / 0.25);
+    color: rgb(196 181 253);
+    font-size: 0.875rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+</style>
