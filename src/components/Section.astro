@@ -18,11 +18,45 @@ const {
 
 <section
   id={id}
-  class={`px-8 ${hasYPadding ? "py-20 md:py-40" : ""} ${isLight ? "bg-bgLight" : ""} ${
+  class={`section-base ${hasYPadding ? "section-padding" : ""} ${isLight ? "section-light" : ""} ${
     classStr ? classStr : ""
   }`}
 >
-  <div class={`${hasMaxWidth ? "max-w-6xl" : ""} mx-auto`}>
+  <div class={`${hasMaxWidth ? "section-container" : ""} mx-auto`}>
     <slot />
   </div>
 </section>
+
+<style>
+  .section-base {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .section-padding {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .section-light {
+    background: var(--legacy-bg-light);
+  }
+
+  .section-container {
+    max-width: var(--container-lg);
+  }
+
+  @media (min-width: 768px) {
+    .section-padding {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .section-padding {
+      padding-top: 8rem;
+      padding-bottom: 8rem;
+    }
+  }
+</style>

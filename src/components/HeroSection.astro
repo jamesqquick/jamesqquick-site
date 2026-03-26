@@ -23,21 +23,47 @@ const {
 
 <Section hasYPadding={false} >
   <div
-    class={`py-20 flex items-center ${
-      hasFullHeight ? "lg:h-[calc(100vh-240px)] lg:py-0" : "md:py-40"
+    class={`hero-shell py-20 flex items-center ${
+      hasFullHeight ? "lg:h-[calc(100vh-240px)] lg:py-0" : "md:py-32 lg:py-40"
     } `}
   >
-  
     <div class="max-w-xl">
-      <div class="mb-2 ">
-        <p class="text-2xl md:text-3xl text-brand">{title}</p>
+      <div class="mb-2">
+        <p class="hero-kicker text-2xl md:text-3xl">{title}</p>
         <H1
           text={subtitle}
           ariaLabel={h1AriaLabel}
         />
       </div>
-      {description && <p class="opacity-80 text-lg">{description}</p>}
+      {description && <p class="hero-description text-lg">{description}</p>}
     </div>
     <Rectangle size="medium" border="lightBrand" classStr="hidden md:block absolute -right-10 top-[200px] " />
     <Rectangle size="medium" border="brand" classStr="hidden md:block absolute right-10 top-[280px]"  />
 </div>
+
+<style>
+  .hero-shell {
+    position: relative;
+  }
+
+  .hero-shell::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(700px 220px at 15% 15%, var(--color-accent-subtle), transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-kicker {
+    color: var(--color-accent);
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  .hero-description {
+    color: var(--color-text-muted);
+    max-width: 42rem;
+    line-height: 1.56;
+  }
+</style>

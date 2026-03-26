@@ -10,8 +10,8 @@ const { href, text, classStr = "", isFancy = true, showUnderline = true } = Astr
 ---
 
 <a
-  class={`group transition-all duration-300 ease-in-out relative cursor-pointer ${classStr} ${
-    isFancy ? "hover:text-bg" : "hover:text-brand"
+  class={`link-base group relative cursor-pointer ${classStr} ${
+    isFancy ? "link-fancy" : "link-simple"
   } z-20`}
   href={href}
   rel="noopener noreferrer"
@@ -19,7 +19,53 @@ const { href, text, classStr = "", isFancy = true, showUnderline = true } = Astr
 >
   {text}{
     isFancy && (
-      <span class={`absolute left-0 right-0 group-hover:-left-1 group-hover:-right-1 bottom-1  bg-white group-hover:bg-brand -z-10 group-hover:h-full group-hover:transition-all rounded-sm ${showUnderline ? "h-[1px]" : "h-0"}`} />
+      <span class={`link-fancy-bg absolute left-0 right-0 bottom-1 -z-10 rounded-sm ${showUnderline ? "h-[1px]" : "h-0"}`} />
     )
   }
 </a>
+
+<style>
+  .link-base {
+    transition:
+      color var(--duration-fast) var(--ease-out),
+      box-shadow var(--duration-fast) var(--ease-out);
+  }
+
+  .link-base:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .link-simple {
+    color: inherit;
+  }
+
+  .link-simple:hover {
+    color: var(--color-accent);
+  }
+
+  .link-fancy {
+    color: var(--color-text);
+  }
+
+  .link-fancy:hover {
+    color: var(--color-bg);
+  }
+
+  .link-fancy-bg {
+    background: var(--color-text);
+    transition:
+      left var(--duration-normal) var(--ease-out),
+      right var(--duration-normal) var(--ease-out),
+      height var(--duration-normal) var(--ease-out),
+      background-color var(--duration-normal) var(--ease-out);
+  }
+
+  .link-fancy:hover .link-fancy-bg {
+    left: -0.25rem;
+    right: -0.25rem;
+    height: 100%;
+    background: var(--color-accent);
+  }
+</style>

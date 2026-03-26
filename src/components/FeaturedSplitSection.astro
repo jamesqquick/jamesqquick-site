@@ -26,22 +26,22 @@ const { image, title, description, href, date, isLight, hasYPadding = true, clas
         height={540}
         width={960}
         src={image}
-        class="rounded-2xl"
+        class="featured-image"
         alt={title}
       />
     </a>
-    <div slot="right">
-      <p class="text-lg uppercase text-brand">Featured</p>
-      <a href={href}>
-        <h2 class="text-3xl font-bold mb-1">{title}</h2>
+    <div slot="right" class="featured-content" data-interactive>
+      <p class="featured-kicker text-lg uppercase">Featured</p>
+      <a href={href} class="featured-title-link">
+        <h2 class="featured-title text-3xl font-bold mb-1">{title}</h2>
       </a>
-      <p class="text-lg opacity-80 mb-4">
+      <p class="featured-description text-lg mb-4">
         {description}
       </p>
-      <div class="flex justify-between">
+      <div class="flex justify-between items-center gap-4">
         <Link isFancy={true}  href={href}
           text="Read blog"/>
-        <p class="text-lg opacity-80">
+        <p class="featured-date text-lg">
           {date.toLocaleDateString("en-us", {
             year: "numeric",
             month: "short",
@@ -51,3 +51,51 @@ const { image, title, description, href, date, isLight, hasYPadding = true, clas
       </div>
     </div>
 </SplitSection>
+
+<style>
+  .featured-image {
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+  }
+
+  .featured-content {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+    padding: 1.5rem;
+    transition:
+      transform var(--duration-normal) var(--ease-out),
+      box-shadow var(--duration-normal) var(--ease-out),
+      border-color var(--duration-fast) var(--ease-out);
+  }
+
+  .featured-content:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-accent);
+  }
+
+  .featured-kicker {
+    color: var(--color-accent);
+    font-family: var(--font-sans);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+
+  .featured-title {
+    font-family: var(--font-display);
+    color: var(--color-text);
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+  }
+
+  .featured-title-link:hover .featured-title {
+    color: var(--color-accent);
+  }
+
+  .featured-description,
+  .featured-date {
+    color: var(--color-text-muted);
+  }
+</style>

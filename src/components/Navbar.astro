@@ -5,62 +5,127 @@ import Section from "./Section.astro";
 ---
 
 <Section hasYPadding={false}>
-
-    <nav class=" flex flex-row gap-5 justify-between items-center sm:items-center z-10 h-[100px] bg-transparent relative">
+  <nav class="navbar-shell flex flex-row gap-5 justify-between items-center sm:items-center z-10 h-[100px] bg-transparent relative">
     <a
-        href="/"
-        class="text-white hover:text-brand "
-        aria-label="home page"
+      href="/"
+      class="nav-link"
+      aria-label="home page"
     >
-    <!-- <NameLogo /> -->
-    <Logo classStr="fill-white h-12 w-12" />
+      <!-- <NameLogo /> -->
+      <Logo classStr="fill-current h-12 w-12" />
     </a>
+    <div class="hidden md:flex items-center gap-6 text-lg">
+      <a href="/about/" class="nav-link transition-colors">About</a>
+      <a href="/blog/" class="nav-link transition-colors">Blog</a>
+      <a href="/speaking/" class="nav-link transition-colors">Speaking</a>
+      <a href="/courses/" class="nav-link transition-colors">Courses</a>
+      <a href="/uses" class="nav-link transition-colors">Uses</a>
+      <button id="themeToggleDesktop" aria-label="toggle theme" class="theme-toggle">
+        <Icon class="inline h-6 w-6" name="mdi:theme-light-dark" />
+      </button>
+    </div>
     <button
-        id="hamburger"
-        aria-label="menu"
-        aria-controls="mobileMenu"
-        class="md:hidden hover:text-brand cursor-pointer"
+      id="hamburger"
+      aria-label="menu"
+      aria-controls="mobileMenu"
+      class="md:hidden nav-link cursor-pointer"
     >
-        <Icon
+      <Icon
         class="inline  h-10 w-10 "
         name="mdi:menu"
-        />
+      />
     </button>
     <div
-id="mobileMenu"
-    class="fixed md:flex items-center justify-center md:relative inset-0 bg-bg md:bg-transparent hidden py-5 overflow-auto z-10"
+      id="mobileMenu"
+      class="fixed md:flex items-center justify-center md:relative inset-0 bg-bg md:bg-transparent hidden py-5 overflow-auto z-10"
     >
-<div
-class="flex flex-col md:flex-row gap-10 md:gap-5 font-light text-center md:text-left text-2xl md:text-xl relative pt-10"
->
-    <button id="close">
-        <Icon
-        class="inline absolute top-4 right-4 md:hidden h-10 w-10 hover:text-brand cursor-pointer "
-        name="mdi:close"
-        />
-    </button>
-
-    <a href="/about/" class="hover:text-brand transition-colors">About</a>
-    <a href="/blog/" class="hover:text-brand transition-colors">Blog</a>
-    <a href="/speaking/" class="hover:text-brand transition-colors"
-    >Speaking</a>
-    <a href="/courses/" class="hover:text-brand transition-colors">Courses</a>
-    <a href="/uses" class="hover:text-brand transition-colors">Uses</a>
-</div>
-</div>
-</nav>
+      <div
+        class="flex flex-col md:flex-row gap-10 md:gap-5 font-light text-center md:text-left text-2xl md:text-xl relative pt-10"
+      >
+        <button id="close" class="nav-link">
+          <Icon
+            class="inline absolute top-4 right-4 md:hidden h-10 w-10 cursor-pointer "
+            name="mdi:close"
+          />
+        </button>
+        <a href="/about/" class="nav-link transition-colors">About</a>
+        <a href="/blog/" class="nav-link transition-colors">Blog</a>
+        <a href="/speaking/" class="nav-link transition-colors">Speaking</a>
+        <a href="/courses/" class="nav-link transition-colors">Courses</a>
+        <a href="/uses" class="nav-link transition-colors">Uses</a>
+        <button id="themeToggleMobile" aria-label="toggle theme" class="theme-toggle md:hidden">
+          <Icon class="inline h-8 w-8" name="mdi:theme-light-dark" />
+        </button>
+      </div>
+    </div>
+  </nav>
 </Section>
+
+<style>
+  .navbar-shell {
+    color: var(--color-text);
+  }
+
+  .nav-link {
+    color: inherit;
+    transition: color var(--duration-fast) var(--ease-out);
+  }
+
+  .nav-link:hover {
+    color: var(--color-accent);
+  }
+
+  .nav-link:focus-visible,
+  .theme-toggle:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+    border-radius: 8px;
+  }
+
+  .theme-toggle {
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-button);
+    padding: 0.5rem;
+    transition:
+      color var(--duration-fast) var(--ease-out),
+      border-color var(--duration-fast) var(--ease-out),
+      background-color var(--duration-fast) var(--ease-out);
+  }
+
+  .theme-toggle:hover {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+    background: var(--color-accent-subtle);
+  }
+</style>
+
 <script>
-    const hamburger = document.getElementById("hamburger") as HTMLButtonElement;
-  const close = document.getElementById("close") as HTMLButtonElement;
-  const mobileMenu = document.getElementById("mobileMenu") as HTMLDivElement;
-  hamburger.addEventListener("click", () => {
-    mobileMenu.classList.remove("hidden");
+  const hamburger = document.getElementById("hamburger") as HTMLButtonElement | null;
+  const close = document.getElementById("close") as HTMLButtonElement | null;
+  const mobileMenu = document.getElementById("mobileMenu") as HTMLDivElement | null;
+  const themeToggleDesktop = document.getElementById(
+    "themeToggleDesktop"
+  ) as HTMLButtonElement | null;
+  const themeToggleMobile = document.getElementById("themeToggleMobile") as HTMLButtonElement | null;
+
+  const toggleTheme = () => {
+    const current = document.documentElement.getAttribute("data-theme");
+    const next = current === "light" ? "dark" : "light";
+    document.documentElement.setAttribute("data-theme", next);
+    localStorage.setItem("theme", next);
+  };
+
+  hamburger?.addEventListener("click", () => {
+    mobileMenu?.classList.remove("hidden");
     document.body.dataset.menuOpen = "true";
   });
 
-  close.addEventListener("click", () => {
-    mobileMenu.classList.add("hidden");
+  close?.addEventListener("click", () => {
+    mobileMenu?.classList.add("hidden");
     delete document.body.dataset.menuOpen;
   });
+
+  themeToggleDesktop?.addEventListener("click", toggleTheme);
+  themeToggleMobile?.addEventListener("click", toggleTheme);
 </script>
