@@ -1,0 +1,44 @@
+---
+export interface Props {
+  url: string;
+  title?: string;
+}
+
+const { url, title = "Lesson video" } = Astro.props as Props;
+
+const extractYouTubeId = (input: string): string | null => {
+  const shortMatch = input.match(/youtu\.be\/([a-zA-Z0-9_-]{11})/);
+  if (shortMatch?.[1]) return shortMatch[1];
+
+  const standardOrEmbedMatch = input.match(
+    /youtube\.com\/(?:watch\?.*v=|embed\/)([a-zA-Z0-9_-]{11})/
+  );
+  if (standardOrEmbedMatch?.[1]) return standardOrEmbedMatch[1];
+
+  return null;
+};
+
+const videoId = extractYouTubeId(url);
+const embedUrl = videoId
+  ? `https://www.youtube-nocookie.com/embed/${videoId}?rel=0&modestbranding=1`
+  : null;
+---
+
+{embedUrl && (
+  <div class="not-prose mb-8">
+    <div
+      class="relative w-full overflow-hidden rounded-xl border border-gray-700 bg-black"
+      style="padding-bottom: 56.25%;"
+    >
+      <iframe
+        src={embedUrl}
+        title={title}
+        class="absolute inset-0 h-full w-full"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+        loading="lazy"
+      />
+    </div>
+    <p class="mt-2 text-xs text-gray-400">Prefer reading? The written lesson is below.</p>
+  </div>
+)}

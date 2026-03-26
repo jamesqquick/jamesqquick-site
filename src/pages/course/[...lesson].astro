@@ -1,0 +1,274 @@
+---
+import { render } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Section from "../../components/Section.astro";
+import Sidebar from "../../components/course-content/Sidebar.astro";
+import VideoEmbed from "../../components/course-content/VideoEmbed.astro";
+import Callout from "../../components/mdx/Callout.astro";
+import Tabs from "../../components/mdx/Tabs.astro";
+import Tab from "../../components/mdx/Tab.astro";
+import Steps from "../../components/mdx/Steps.astro";
+import FileTree from "../../components/mdx/FileTree.astro";
+import Quiz from "../../components/mdx/Quiz.astro";
+import StackBlitz from "../../components/mdx/StackBlitz.astro";
+import {
+  getCourseBySlug,
+  getCourseSlug,
+  getInternalCourses,
+  getLessonSlug,
+  getLessonsByCourseSlug,
+  getNormalizedLessonId,
+  getSectionsByCourseSlug,
+  getSectionSlug,
+  lessonUrl,
+} from "src/utils/contentCollections";
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const courses = await getInternalCourses();
+  const perCourseLessons = await Promise.all(
+    courses.map((course) =>
+      getLessonsByCourseSlug(course.data.slug ?? course.id.split("/")[0])
+    )
+  );
+  const lessons = perCourseLessons.flat();
+
+  return lessons.map((lesson) => ({
+    params: {
+      lesson: `${getCourseSlug(lesson.id)}/${getSectionSlug(lesson.id)}/${getLessonSlug(lesson.id)}`,
+    },
+  }));
+}
+
+const lessonParam = Astro.params.lesson;
+const parts = lessonParam?.split("/") ?? [];
+if (parts.length !== 3) return Astro.redirect("/courses");
+const [courseSlug, sectionSlug, lessonSlug] = parts;
+
+const course = await getCourseBySlug(courseSlug);
+const lessons = await getLessonsByCourseSlug(courseSlug);
+const sections = await getSectionsByCourseSlug(courseSlug);
+const lesson = lessons.find(
+  (entry) =>
+    getSectionSlug(entry.id) === sectionSlug &&
+    getLessonSlug(entry.id) === lessonSlug
+);
+if (!course || !lesson) return Astro.redirect("/courses");
+
+const currentIndex = lessons.findIndex((l) => l.id === lesson.id);
+const prevLesson = currentIndex > 0 ? lessons[currentIndex - 1] : null;
+const nextLesson = currentIndex < lessons.length - 1 ? lessons[currentIndex + 1] : null;
+const lessonVideoUrl = lesson.data.videoUrl ?? (lesson.data.videoId ? `https://www.youtube.com/watch?v=${lesson.data.videoId}` : undefined);
+const { Content } = await render(lesson);
+const mdxComponents = { Callout, Tabs, Tab, Steps, FileTree, Quiz, StackBlitz };
+---
+
+<BaseLayout title={`${lesson.data.title} | ${course.data.title}`} description={lesson.data.summary ?? course.data.description}>
+  <main>
+    <div class="border-b border-gray-800 lg:hidden px-6 py-3">
+      <button
+        id="open-sidebar-btn"
+        aria-label="Open course navigation"
+        class="inline-flex items-center gap-2 text-sm text-gray-200"
+      >
+        <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+        Course Menu
+      </button>
+    </div>
+
+    <div id="sidebar-drawer" class="fixed inset-0 z-50 hidden lg:hidden">
+      <div id="sidebar-overlay" class="absolute inset-0 bg-black/40"></div>
+      <aside class="absolute left-0 top-0 h-full w-80 max-w-[85vw] overflow-y-auto border-r border-gray-800 bg-[#121212] p-5">
+        <button id="close-sidebar-btn" aria-label="Close navigation" class="mb-4 text-sm text-gray-300">
+          Close
+        </button>
+        <Sidebar
+          course={course}
+          sections={sections}
+          lessons={lessons}
+          currentLessonId={getNormalizedLessonId(lesson.id)}
+          completedLessons={[]}
+        />
+      </aside>
+    </div>
+
+    <Section classStr="pt-8 lg:pt-12">
+      <div class="grid gap-8 lg:grid-cols-[280px,1fr]">
+        <aside class="hidden lg:block lg:sticky lg:top-0 lg:h-screen lg:overflow-y-auto border-r border-gray-800 pr-4">
+          <Sidebar
+            course={course}
+            sections={sections}
+            lessons={lessons}
+            currentLessonId={getNormalizedLessonId(lesson.id)}
+            completedLessons={[]}
+          />
+        </aside>
+        <article class="prose prose-invert font-['Satoshi'] prose-xl max-w-none prose-h2:text-brand prose-img:rounded-lg prose-p:text-white prose-pre:rounded-xl prose-pre:border prose-pre:border-gray-700">
+        <div class="mb-6 flex flex-wrap items-center justify-between gap-3 not-prose">
+          <p class="m-0">
+            <a href="/courses">Courses</a> / <a href={`/course/${courseSlug}`}>{course.data.title}</a> / {lesson.data.title}
+          </p>
+          <button id="mark-complete-btn" class="inline-flex items-center gap-1.5 border border-gray-700 rounded-md px-2.5 py-1.5 text-xs no-underline transition-colors hover:border-brand">
+            <svg viewBox="0 0 24 24" class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span>Mark as Complete</span>
+          </button>
+        </div>
+        {lessonVideoUrl && (
+          <VideoEmbed
+            url={lessonVideoUrl}
+            title={`${lesson.data.title} — Video`}
+          />
+        )}
+          <Content components={mdxComponents} />
+        <div class="mt-8 rounded-xl border border-gray-700 p-4">
+          <div class="flex items-center justify-between text-sm text-gray-300">
+            <p>Lesson {currentIndex + 1} of {lessons.length}</p>
+            <p>{Math.round(((currentIndex + 1) / lessons.length) * 100)}%</p>
+          </div>
+          <div class="w-full rounded-full h-2 mt-1.5 bg-gray-600/60 border border-gray-500/70">
+            <div class="bg-brand h-2 rounded-full" style={`width:${Math.round(((currentIndex + 1) / lessons.length) * 100)}%`}></div>
+            </div>
+        </div>
+        <div class="mt-4 rounded-xl border border-gray-700 p-4">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-4">
+            {prevLesson ? (
+              <a
+                href={lessonUrl(prevLesson.id)}
+                class="flex items-center gap-3 rounded-xl border border-gray-700 px-4 py-3 no-underline hover:no-underline transition-colors hover:border-brand"
+              >
+                <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-gray-600 text-sm">
+                  ←
+                </span>
+                <span class="min-w-0">
+                  <span class="block text-xs uppercase tracking-wider text-gray-400">Previous</span>
+                  <span class="block truncate text-sm text-white">{prevLesson.data.title}</span>
+                </span>
+              </a>
+            ) : (
+              <span />
+            )}
+              {nextLesson ? (
+              <a
+                id="next-lesson-link"
+                href={lessonUrl(nextLesson.id)}
+                class="flex items-center justify-between gap-3 rounded-xl border border-gray-700 px-4 py-3 no-underline hover:no-underline transition-colors hover:border-brand"
+              >
+                <span class="min-w-0 text-right">
+                  <span class="block text-xs uppercase tracking-wider text-gray-400">Next</span>
+                  <span class="block truncate text-sm text-white">{nextLesson.data.title}</span>
+                </span>
+                <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-gray-600 text-sm">
+                  →
+                </span>
+              </a>
+              ) : (
+              <a
+                href={`/course/${courseSlug}/complete`}
+                class="flex items-center justify-between gap-3 rounded-xl border border-gray-700 px-4 py-3 no-underline hover:no-underline transition-colors hover:border-brand"
+              >
+                <span class="min-w-0 text-right">
+                  <span class="block text-xs uppercase tracking-wider text-gray-400">Finish</span>
+                  <span class="block truncate text-sm text-white">Complete Course</span>
+                </span>
+                <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-gray-600 text-sm">
+                  →
+                </span>
+              </a>
+              )}
+            </div>
+          </div>
+        </article>
+      </div>
+    </Section>
+  </main>
+</BaseLayout>
+
+<script define:vars={{ normalizedLessonId: getNormalizedLessonId(lesson.id), courseSlug, courseTitle: course.data.title, courseLessonIds: lessons.map((entry) => getNormalizedLessonId(entry.id)) }}>
+  const checkSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+  const progress = JSON.parse(localStorage.getItem("progress") || "{}");
+  const markBtn = document.getElementById("mark-complete-btn");
+  const nextLessonLink = document.getElementById("next-lesson-link");
+  const drawer = document.getElementById("sidebar-drawer");
+  const openBtn = document.getElementById("open-sidebar-btn");
+  const closeBtn = document.getElementById("close-sidebar-btn");
+  const overlay = document.getElementById("sidebar-overlay");
+
+  const hydrateChecks = () => {
+    const checks = document.querySelectorAll(".lesson-check");
+    checks.forEach((checkEl) => {
+      const lessonId = checkEl.getAttribute("data-lesson-id");
+      if (!lessonId) return;
+      if (progress[lessonId]) {
+        checkEl.classList.add("bg-green-500", "border-green-500");
+        checkEl.classList.remove("border-gray-500");
+        checkEl.innerHTML = checkSvg;
+      } else {
+        checkEl.classList.remove("bg-green-500", "border-green-500");
+        checkEl.classList.add("border-gray-500");
+        checkEl.innerHTML = "";
+      }
+    });
+  };
+
+  const syncMarkButton = () => {
+    if (!markBtn) return;
+    const label = progress[normalizedLessonId] ? "Completed" : "Mark as Complete";
+    const textSpan = markBtn.querySelector("span");
+    if (textSpan) textSpan.textContent = label;
+  };
+  const openDrawer = () => drawer?.classList.remove("hidden");
+  const closeDrawer = () => drawer?.classList.add("hidden");
+
+  openBtn?.addEventListener("click", openDrawer);
+  closeBtn?.addEventListener("click", closeDrawer);
+  overlay?.addEventListener("click", closeDrawer);
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && drawer && !drawer.classList.contains("hidden")) {
+      closeDrawer();
+    }
+  });
+
+  document.addEventListener("astro:after-swap", hydrateChecks);
+  hydrateChecks();
+  syncMarkButton();
+
+  nextLessonLink?.addEventListener("click", () => {
+    if (!progress[normalizedLessonId]) {
+      progress[normalizedLessonId] = true;
+      localStorage.setItem("progress", JSON.stringify(progress));
+      hydrateChecks();
+      syncMarkButton();
+    }
+  });
+
+  markBtn?.addEventListener("click", () => {
+    progress[normalizedLessonId] = !progress[normalizedLessonId];
+    localStorage.setItem("progress", JSON.stringify(progress));
+    hydrateChecks();
+    syncMarkButton();
+
+    if (progress[normalizedLessonId]) {
+      const allComplete =
+        courseLessonIds.length > 0 &&
+        courseLessonIds.every((id) => Boolean(progress[id]));
+      if (allComplete) {
+        const certificates = JSON.parse(localStorage.getItem("certificates") || "{}");
+        certificates[courseSlug] = certificates[courseSlug] ?? {
+          id: `${courseSlug}-${Date.now().toString(36)}`,
+          courseName: courseTitle,
+          completedAt: new Date().toISOString(),
+        };
+        localStorage.setItem("certificates", JSON.stringify(certificates));
+        window.location.href = `/course/${courseSlug}/complete`;
+      }
+    }
+  });
+
+</script>

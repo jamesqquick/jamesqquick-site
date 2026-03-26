@@ -1,27 +1,26 @@
 ---
-import { CollectionEntry } from "astro:content";
 import Section from "./Section.astro";
 import { Image } from "astro:assets";
-import Link from "./Link.astro";
 import SplitSection from "./SplitSection.astro";
 
 export interface Props {
-  image: CollectionEntry<"images">;
+  image: any;
     title: string;
     description: string;
     href:string
     date: Date
+    openInNewTab?: boolean;
     isLight?: boolean;
     hasYPadding?: boolean;
     classStr?: string;
 }
 
-const { image, title, description, href, date, isLight, hasYPadding = true, classStr } = Astro.props as Props;
+const { image, title, description, href, date, openInNewTab = false, isLight, hasYPadding = true, classStr } = Astro.props as Props;
 
 ---
 
 <SplitSection isLight={isLight} hasYPadding={hasYPadding} classStr={classStr}>
-    <a href={href} slot="left">
+    <a href={href} slot="left" target={openInNewTab ? "_blank" : undefined} rel={openInNewTab ? "noopener noreferrer" : undefined}>
       <Image
         height={540}
         width={960}
@@ -32,17 +31,15 @@ const { image, title, description, href, date, isLight, hasYPadding = true, clas
     </a>
     <div slot="right">
       <p class="text-lg uppercase text-brand">Featured</p>
-      <a href={href}>
+      <a href={href} target={openInNewTab ? "_blank" : undefined} rel={openInNewTab ? "noopener noreferrer" : undefined}>
         <h2 class="text-3xl font-bold mb-1">{title}</h2>
       </a>
       <p class="text-lg opacity-80 mb-4">
         {description}
       </p>
-      <div class="flex justify-between">
-        <Link isFancy={true}  href={href}
-          text="Read blog"/>
+      <div class="flex justify-start">
         <p class="text-lg opacity-80">
-          {date.toLocaleDateString("en-us", {
+          Last updated on {date.toLocaleDateString("en-us", {
             year: "numeric",
             month: "short",
             day: "numeric",

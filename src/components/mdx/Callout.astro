@@ -1,0 +1,26 @@
+---
+export interface Props {
+  type?: "tip" | "warning" | "info" | "danger";
+}
+
+const { type = "info" } = Astro.props as Props;
+
+const variants = {
+  tip: { icon: "💡", label: "Tip", bg: "bg-green-500/10", stripe: "bg-green-500" },
+  warning: { icon: "⚠️", label: "Warning", bg: "bg-amber-500/10", stripe: "bg-amber-500" },
+  info: { icon: "ℹ️", label: "Info", bg: "bg-blue-500/10", stripe: "bg-blue-500" },
+  danger: { icon: "🚨", label: "Danger", bg: "bg-red-500/10", stripe: "bg-red-500" },
+} as const;
+
+const variant = variants[type];
+---
+
+<aside class:list={["not-prose my-6 relative overflow-hidden rounded-xl", variant.bg]} role="note">
+  <div class:list={["absolute inset-y-0 left-0 w-1.5", variant.stripe]} />
+  <div class="p-4 pl-6">
+    <p class="mb-1 text-sm font-semibold">{variant.icon} {variant.label}</p>
+    <div class="text-sm">
+      <slot />
+    </div>
+  </div>
+</aside>

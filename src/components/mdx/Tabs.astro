@@ -1,0 +1,60 @@
+---
+export interface Props {
+  labels: string[];
+}
+
+const { labels } = Astro.props as Props;
+const tabsId = `tabs-${Math.random().toString(36).slice(2, 10)}`;
+---
+
+<div class="not-prose my-6" data-tabs-id={tabsId}>
+  <div class="flex border-b border-gray-700" role="tablist">
+    {labels.map((label, index) => (
+      <button
+        role="tab"
+        aria-selected={index === 0 ? "true" : "false"}
+        data-tab-index={index}
+        class:list={[
+          "px-4 py-2 text-sm border-b-2",
+          index === 0
+            ? "border-brand text-brand"
+            : "border-transparent text-gray-400 hover:text-gray-200",
+        ]}
+      >
+        {label}
+      </button>
+    ))}
+  </div>
+  <div class="pt-4">
+    <slot />
+  </div>
+</div>
+
+<script define:vars={{ tabsId }}>
+  const setupTabs = () => {
+    const root = document.querySelector(`[data-tabs-id="${tabsId}"]`);
+    if (!root) return;
+    const buttons = [...root.querySelectorAll('[role="tab"]')];
+    const panels = [...root.querySelectorAll(':scope > .pt-4 > div')];
+    panels.forEach((panel, index) => {
+      panel.style.display = index === 0 ? "" : "none";
+    });
+    buttons.forEach((button, index) => {
+      button.addEventListener("click", () => {
+        buttons.forEach((btn, i) => {
+          const active = i === index;
+          btn.setAttribute("aria-selected", active ? "true" : "false");
+          btn.classList.toggle("border-brand", active);
+          btn.classList.toggle("text-brand", active);
+          btn.classList.toggle("border-transparent", !active);
+          btn.classList.toggle("text-gray-400", !active);
+        });
+        panels.forEach((panel, i) => {
+          panel.style.display = i === index ? "" : "none";
+        });
+      });
+    });
+  };
+  setupTabs();
+  document.addEventListener("astro:after-swap", setupTabs);
+</script>

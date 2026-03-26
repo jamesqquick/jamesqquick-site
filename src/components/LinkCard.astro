@@ -14,6 +14,8 @@ export interface Props {
   description?: string;
   btnText?: string;
   tag?: string;
+  openInNewTab?: boolean;
+  dateLabelPrefix?: string;
   image: {
     src: string;
     width: number;
@@ -22,7 +24,7 @@ export interface Props {
 };
 }
 
-const { slug, date, title, btnText = "Read", tag, image, description } = Astro.props;
+const { slug, date, title, btnText = "Read", tag, image, description, openInNewTab = false, dateLabelPrefix = "" } = Astro.props;
 const tagToLogo = {
   javascript,
   vscode,
@@ -35,7 +37,7 @@ const tagToLogo = {
 
 <div class="overflow-hidden">
   <div class="flex items-center justify-center w-full object-cover mb-4">
-    <a href={slug} class="grow hover:underline">
+    <a href={slug} class="grow hover:underline" target={openInNewTab ? "_blank" : undefined} rel={openInNewTab ? "noopener noreferrer" : undefined}>
       <Image
         height={image.height}
         width={image.width}
@@ -46,8 +48,8 @@ const tagToLogo = {
     </a>
   </div>
 
-  <p class="mb-1">{getFormattedDate(date)}</p>
-  <a href={slug} class="grow hover:underline">
+  <p class="mb-1">{dateLabelPrefix}{getFormattedDate(date)}</p>
+  <a href={slug} class="grow hover:underline" target={openInNewTab ? "_blank" : undefined} rel={openInNewTab ? "noopener noreferrer" : undefined}>
     <h3
       class="text-white font-bold hover:text-brand text-2xl transition-colors mb-2"
     >
