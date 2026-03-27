@@ -15,6 +15,7 @@ This checklist maps the approved style guide into concrete implementation work f
 - [ ] Default to dark-first values for current site continuity
 - [ ] Add `[data-theme="light"]` overrides
 - [ ] Add category tokens (`--color-speaking`, `--color-ai`, `--color-learning`)
+- [ ] Confirm subtle default shadow scale for cards and buttons (avoid heavy shadows)
 
 ### 2) `src/styles/global.css`
 - [ ] Import `tokens.css` at top
@@ -38,6 +39,7 @@ This checklist maps the approved style guide into concrete implementation work f
 ### 5) `src/components/Section.astro`
 - [ ] Normalize section spacing tokens (`64/96/128` responsive rhythm)
 - [ ] Replace direct background classes with semantic variants where possible
+- [ ] Ensure `tone` and `paddingY` are preferred over `isLight`, `hasYPadding`, and manual `py/pt/pb`
 
 ### 6) `src/components/Link.astro`
 - [ ] Consolidate link styles around accent + underline behavior
@@ -57,6 +59,7 @@ This checklist maps the approved style guide into concrete implementation work f
 ### 9) `src/components/Footer.astro`
 - [ ] Align card surface, radius, and shadow tokens
 - [ ] Standardize link styles and spacing rhythm
+- [ ] Reduce excessive elevation (prefer subtle shadows)
 
 ### 10) `src/layouts/BaseLayout.astro`
 - [ ] Apply semantic body classes (`bg`, `text`)
@@ -71,6 +74,7 @@ This checklist maps the approved style guide into concrete implementation work f
 ### 12) `src/components/FeaturedSplitSection.astro`, `src/components/LinkCard.astro`, `src/components/TalkCard.astro`
 - [ ] Convert card variants to shared radius/shadow rules
 - [ ] Add category chip styling for speaking/ai/learning where relevant
+- [ ] Keep shadows subtle and consistent across card surfaces
 
 ### 13) `src/pages/courses.astro` and top-level landing pages
 - [ ] Validate section rhythm, card grid behavior, and CTA hierarchy

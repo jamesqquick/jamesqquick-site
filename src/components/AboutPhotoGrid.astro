@@ -1,0 +1,144 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import Section from "./Section.astro";
+import PopupModal from "./PopupModal.astro";
+
+export interface PhotoItem {
+  src: ImageMetadata;
+  alt: string;
+}
+
+export interface Props {
+  title?: string;
+  kicker?: string;
+  description?: string;
+  items: PhotoItem[];
+}
+
+const {
+  title = "Photo highlights",
+  kicker = "Gallery",
+  description = "A few moments from talks, events, and community meetups.",
+  items,
+} = Astro.props as Props;
+---
+
+<Section classStr="pt-0 md:pt-4 lg:pt-8">
+  <div class="mb-8 md:mb-10 max-w-3xl">
+    <p class="about-grid-kicker uppercase tracking-[0.18em] text-xs mb-3">{kicker}</p>
+    <h2 class="about-grid-title text-3xl md:text-4xl font-bold mb-3">{title}</h2>
+    <p class="about-grid-description text-lg">{description}</p>
+  </div>
+</Section>
+
+<section
+  class="about-photo-grid-fullbleed pb-10 sm:pb-12 lg:pb-24"
+  aria-label="About photo gallery"
+>
+  <div
+    class="grid w-full grid-cols-1 gap-0 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-3"
+    data-gallery-grid
+  >
+    {
+      items.slice(0, 6).map((item, idx) => (
+        <button
+          type="button"
+          class="block overflow-hidden text-left"
+          data-gallery-open
+          data-index={idx}
+          aria-label={`Open image: ${item.alt}`}
+        >
+          <Image
+            src={item.src}
+            alt={item.alt}
+            format="webp"
+            quality={80}
+            widths={[480, 768, 1024]}
+            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+            class="h-80 w-full object-cover transition-transform duration-300 hover:scale-105 focus-visible:scale-105 outline-none"
+            loading="lazy"
+          />
+        </button>
+      ))
+    }
+  </div>
+
+  <PopupModal
+    modalId="about-gallery"
+    ariaLabel="Image viewer"
+    closeAriaLabel="Close image viewer"
+    maxWidthClass="max-w-7xl"
+  >
+    <img
+      data-gallery-modal-image
+      src=""
+      alt=""
+      class="mx-auto max-h-[90vh] w-auto max-w-full rounded-xl border border-border bg-bgDark object-contain shadow-2xl shadow-black/60"
+    />
+  </PopupModal>
+</section>
+
+<style>
+  .about-grid-kicker {
+    color: var(--color-accent);
+    font-family: var(--font-display);
+    font-weight: 600;
+  }
+
+  .about-grid-title {
+    color: var(--color-text);
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+
+  .about-grid-description {
+    color: var(--color-text-muted);
+    max-width: 48rem;
+  }
+
+  /* Full-bleed image grid on large screens only. */
+  .about-photo-grid-fullbleed {
+    width: 100%;
+  }
+
+  @media (min-width: 1024px) {
+    .about-photo-grid-fullbleed {
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
+    }
+  }
+
+  /* Keep tiles perfectly symmetrical by using fixed heights. */
+  [data-gallery-grid] img {
+    height: 20rem;
+  }
+
+  @media (min-width: 768px) {
+    [data-gallery-grid] img {
+      height: 20rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    [data-gallery-grid] img {
+      height: 24rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-gallery-grid] img {
+      transition-duration: 0.01ms !important;
+      transform: none !important;
+    }
+  }
+</style>
+
+<script>
+  import { initImageGalleryModal } from "../utils/modal";
+
+  document.querySelectorAll("[data-gallery-grid]").forEach((grid) => {
+    initImageGalleryModal(grid, "about-gallery");
+  });
+</script>

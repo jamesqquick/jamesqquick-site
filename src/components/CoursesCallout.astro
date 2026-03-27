@@ -1,6 +1,5 @@
 ---
 import Section from "@components/Section.astro";
-import FeaturedSplitSection from "@components/FeaturedSplitSection.astro";
 import { getSortedCourses } from "src/utils/contentCollections";
 import SectionHeader from "@components/SectionHeader.astro";
 import {Image} from "astro:assets";
@@ -15,33 +14,47 @@ const description = `Looking to take your web development skills to the next lev
 const courses = (await getSortedCourses()).slice(0, 4);
 const featuredCourse = courses.splice(0, 1)[0];
 ---
-<Section classStr="pt-20 md:pt-40" hasYPadding={false}>
-  <SectionHeader title={title} subtitle={subtitle} description={description} variant="secondary"/>
-</Section>
-<FeaturedSplitSection classStr="pb-20" hasYPadding={false}  image={featuredCourse.data.coverImage} title={featuredCourse.data.title} description={featuredCourse.data.description} href={featuredCourse.data.link} date={featuredCourse.data.pubDate} />
-<Section hasYPadding={false} classStr="pb-20 md:pb-40">
-<SectionHeader title="Other courses"/>
-<div class="flex flex-col lg:flex-row justify-center gap-10">
-    {
-      courses.map((course) => (
-        <div class="flex gap-x-8 lg:gap-x-2 items-center lg:justify-between">
-          <Image
-            height={256}
-            width={256}
-            format="webp"
-            src={course.data.coverImage}
-            alt={course.data.title}
-            class=" rounded-lg h-16 w-16 object-cover border border-white"
-          />
-          <a
-            href={course.data.link}
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <h4 class=" w-52">{course.data.title}</h4>
+<Section paddingY="spacious">
+  <SectionHeader title={title} subtitle={subtitle} description={description} variant="secondary" />
+
+  {
+    featuredCourse && (
+      <div class="mt-12 md:mt-14">
+        <div class="bg-surface border border-border rounded-2xl p-6 md:p-8 shadow-sm">
+          <p class="text-accent uppercase tracking-[0.12em] text-sm mb-3">Featured</p>
+          <a href={`/courses/${featuredCourse.id}`}>
+            <h3 class="text-2xl md:text-3xl font-bold mb-3">{featuredCourse.data.title}</h3>
           </a>
+          <p class="text-textMuted">{featuredCourse.data.description}</p>
         </div>
-      ))
-    }
+      </div>
+    )
+  }
+
+  <div class="mt-12 md:mt-14">
+    <SectionHeader title="Other courses" />
+    <div class="flex flex-col lg:flex-row justify-center gap-10">
+      {
+        courses.map((course) => (
+          <div class="flex gap-x-8 lg:gap-x-2 items-center lg:justify-between">
+            <Image
+              height={256}
+              width={256}
+              format="webp"
+              src={course.data.coverImage}
+              alt={course.data.title}
+              class="rounded-lg h-16 w-16 object-cover border border-border"
+            />
+            <a
+              href={course.data.link}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <h4 class="w-52">{course.data.title}</h4>
+            </a>
+          </div>
+        ))
+      }
+    </div>
   </div>
 </Section>

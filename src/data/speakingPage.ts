@@ -1,13 +1,15 @@
 import type { ImageMetadata } from "astro";
-import galleryStageCloseup from "../images/speaking/gallery-stage-closeup.png";
-import galleryAuditoriumBw from "../images/speaking/gallery-auditorium-bw.png";
-import galleryStagePinkShirt from "../images/speaking/gallery-stage-pink-shirt.png";
-import galleryStageWidePinkShirt from "../images/speaking/gallery-stage-wide-pink-shirt.png";
-import galleryThatCampStage from "../images/speaking/gallery-that-camp-stage.png";
-import galleryThatProductionWide from "../images/speaking/gallery-that-production-wide.png";
-import speakingHeroImage from "../images/speaking/speaking.jpg";
-import speakingAtoImage from "../images/speaking/ato.png";
-import speakingShiftImage from "../images/speaking/shift.png";
+import speakingHeroShiftStage from "../images/speaking/info-bip-shift-23/speaking-hero-stage-1.png";
+import speakingHeroWisconsinPortrait from "../images/speaking/that-conf-wisconsin-23/speaking-image-hero.jpg";
+import speakingHeroRenderAtl from "../images/speaking/render-23/speaking-hero-renderatl.png";
+import speakingHeroAllThingsOpen from "../images/speaking/all-things-open-23/speaking-stage.jpg";
+import speakingHeroAuditoriumBw from "../images/speaking/gallery-auditorium-bw.png";
+import speakingGalleryStuck from "../images/speaking/that-conference-tx-23/speaking-gallery-stuck.png";
+import speakingGalleryWisconsinAlt from "../images/speaking/that-conf-wisconsin-23/speaking-image-04.jpg";
+import speakingGalleryStageWalk from "../images/speaking/info-bip-shift-23/speaking-gallery-stage-walk.png";
+import speakingGalleryStageCenter from "../images/speaking/info-bip-shift-23/speaking-gallery-stage-center.png";
+import speakingGalleryWisconsinStage from "../images/speaking/that-conf-wisconsin-23/speaking-image-05.jpg";
+import speakingGalleryWisconsinAudience from "../images/speaking/that-conf-wisconsin-23/speaking-image-02.jpg";
 
 export interface SpeakingCtaLink {
   label: string;
@@ -34,22 +36,34 @@ export const speakingHero = {
   title: "I teach and inspire developers",
   images: [
     {
-      src: speakingHeroImage,
-      alt: "James Q Quick speaking at All Things Open on stage.",
-      event: "All Things Open",
-      location: "Raleigh, NC",
-    },
-    {
-      src: galleryStagePinkShirt,
-      alt: "James Q Quick presenting on stage in a pink shirt.",
+      src: speakingHeroShiftStage,
+      alt: "James Q Quick speaking on stage with dramatic spotlights and audience in the background.",
       event: "InfoBip Shift",
       location: "Zadar, Croatia",
     },
     {
-      src: galleryThatCampStage,
-      alt: "James speaking at THAT Conference on a camp-themed stage.",
-      event: "THAT Conference 2023",
-      location: "Austin, TX",
+      src: speakingHeroWisconsinPortrait,
+      alt: "James Q Quick speaking on stage in front of a conference audience.",
+      event: "THAT Conference",
+      location: "Wisconsin Dells, WI",
+    },
+    {
+      src: speakingHeroRenderAtl,
+      alt: "James Q Quick presenting on stage at Render ATL.",
+      event: "Render ATL",
+      location: "Atlanta, GA",
+    },
+    {
+      src: speakingHeroAllThingsOpen,
+      alt: "James Q Quick speaking on stage at All Things Open.",
+      event: "All Things Open",
+      location: "Raleigh, NC",
+    },
+    {
+      src: speakingHeroAuditoriumBw,
+      alt: "Black and white photo of James Q Quick speaking from the stage in a large auditorium.",
+      event: "Conference Keynote",
+      location: "Live Event",
     },
   ] as SpeakingHeroImage[],
   primaryCta: {
@@ -160,33 +174,33 @@ export const speakingAbout = {
 
 export const speakingGallery: SpeakingGalleryItem[] = [
   {
-    src: galleryStageCloseup,
-    alt: "James Q Quick speaking on stage in front of a colorful presentation screen.",
+    src: speakingGalleryStuck,
+    alt: "James Q Quick speaking on stage with a 'Feeling Stuck?!' slide projected behind him.",
     href: "/talks",
   },
   {
-    src: galleryAuditoriumBw,
-    alt: "Black and white auditorium view of James Q Quick presenting on stage.",
+    src: speakingGalleryWisconsinAlt,
+    alt: "James Q Quick presenting on stage at THAT Conference.",
     href: "/talks",
   },
   {
-    src: galleryStagePinkShirt,
-    alt: "James Q Quick giving a talk on a large stage while wearing a pink shirt.",
+    src: speakingGalleryStageWalk,
+    alt: "James Q Quick walking across the stage while speaking at InfoBip Shift.",
     href: "/talks",
   },
   {
-    src: galleryStageWidePinkShirt,
-    alt: "Wide stage shot of James Q Quick presenting with bright lights behind him.",
+    src: speakingGalleryStageCenter,
+    alt: "James Q Quick speaking center stage at InfoBip Shift.",
     href: "/talks",
   },
   {
-    src: galleryThatCampStage,
-    alt: "James Q Quick speaking at THAT Conference on a camp-themed stage.",
+    src: speakingGalleryWisconsinStage,
+    alt: "James Q Quick speaking on stage at THAT Conference.",
     href: "/talks",
   },
   {
-    src: galleryThatProductionWide,
-    alt: "Production view of James Q Quick speaking at THAT Conference in front of a large audience.",
+    src: speakingGalleryWisconsinAudience,
+    alt: "James Q Quick speaking on stage with the audience visible in the foreground.",
     href: "/talks",
   },
 ];

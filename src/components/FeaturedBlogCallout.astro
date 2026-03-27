@@ -12,7 +12,7 @@ export interface Props {
 const { post } = Astro.props as Props;
 ---
 
-<SplitSection isLight={true} hasYPadding={true}>
+<SplitSection tone="elevated" paddingY="default">
     <a href={`/blog/${post.id}`} slot="left">
       <Image
         height={540}

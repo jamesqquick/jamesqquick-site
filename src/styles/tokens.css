@@ -11,6 +11,9 @@
   --color-bg: #0b1020;
   --color-surface: #111830;
   --color-surface-hover: #17203a;
+  --color-section-base: #0b1020;
+  --color-section-elevated: #1a2342;
+  --color-section-light-bg: #363c68;
 
   --color-border: #25314d;
   --color-border-light: rgba(203, 213, 225, 0.18);
@@ -32,6 +35,21 @@
   --font-mono: "IBM Plex Mono", "SF Mono", "Fira Code", "Consolas", monospace;
 
   --spacing-unit: 4px;
+  --spacing-section-y-sm: 4rem;
+  --spacing-section-y-md: 8rem;
+  --spacing-section-y-lg: 12rem;
+  --spacing-section-y-half-sm: 3rem;
+  --spacing-section-y-half-md: 6rem;
+  --spacing-section-y-half-lg: 8rem;
+  --spacing-section-y-compact-sm: 3rem;
+  --spacing-section-y-compact-md: 5rem;
+  --spacing-section-y-compact-lg: 7rem;
+  --spacing-section-y-spacious-sm: 5rem;
+  --spacing-section-y-spacious-md: 10rem;
+  --spacing-section-y-spacious-lg: 14rem;
+  --spacing-section-y-xl-sm: 6rem;
+  --spacing-section-y-xl-md: 12rem;
+  --spacing-section-y-xl-lg: 16rem;
 
   --radius-input: 10px;
   --radius-button: 12px;
@@ -76,6 +94,9 @@
   --color-bg: #f6f8fb;
   --color-surface: #ffffff;
   --color-surface-hover: #f2f5fa;
+  --color-section-base: #f6f8fb;
+  --color-section-elevated: #e8eef7;
+  --color-section-light-bg: #eef2f8;
 
   --color-border: #d6dce8;
   --color-border-light: rgba(17, 24, 39, 0.1);

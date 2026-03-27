@@ -1,6 +1,8 @@
 ---
+import CarouselNavButton from "../CarouselNavButton.astro";
 import Section from "../Section.astro";
 import { Icon } from "astro-icon/components";
+import PopupModal from "../PopupModal.astro";
 
 interface Talk {
   title: string;
@@ -19,19 +21,19 @@ export interface Props {
 
 const { eyebrow, heading, subtext, talks } = Astro.props as Props;
 const count = talks.length;
-const first = talks[0];
 ---
 
 <Section
   id="favorite-talks"
-  hasYPadding={false}
+  tone="base"
+  paddingY="xl"
   hasMaxWidth={false}
-  classStr="scroll-mt-24 pt-14 pb-20 md:pb-28 bg-[#1a1d2e]"
+  classStr="scroll-mt-24"
 >
   <div class="max-w-6xl mx-auto px-8">
     <div class="text-center mb-10 md:mb-12">
-      <h2 class="text-3xl md:text-5xl font-bold mb-4 text-white">{heading}</h2>
-      <p class="text-white/65 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+      <h2 class="text-3xl md:text-5xl font-bold mb-4 text-text">{heading}</h2>
+      <p class="text-textMuted text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
         {subtext}
       </p>
     </div>
@@ -51,13 +53,13 @@ const first = talks[0];
       count > 0 && (
         <div class="group relative isolate pr-7 pl-2 pt-1 sm:pr-10 sm:pl-3 sm:pt-0 md:pr-12">
           <!-- Embla first so nav buttons (after) sit on top for clicks -->
-          <div class="embla talks-embla relative z-0 mx-auto w-full max-w-5xl">
+          <div class="embla talks-embla relative z-0 mx-auto w-full max-w-6xl">
             <div class="embla__viewport overflow-hidden">
               <div class="embla__container flex touch-pan-y -ml-3 md:-ml-4">
                 {talks.map((talk, idx) => (
                   <div
                     class:list={[
-                      "embla__slide talks-embla-slide relative min-w-0 shrink-0 grow-0 basis-full pl-3 sm:basis-[76%] sm:pl-4 md:basis-[72%] lg:basis-[68%]",
+                      "embla__slide talks-embla-slide relative min-w-0 shrink-0 grow-0 basis-full pl-3 sm:basis-[82%] sm:pl-4 md:basis-[78%] lg:basis-[74%]",
                       idx === 0 ? "is-talk-selected" : "",
                     ]}
                     id={`latest-talk-slide-${idx}`}
@@ -69,7 +71,7 @@ const first = talks[0];
                     data-title={talk.title}
                     data-year={String(talk.year)}
                   >
-                    <div class="talks-slide-card relative aspect-video overflow-hidden rounded-3xl border border-white/15 shadow-lg shadow-black/40">
+                    <div class="talks-slide-card relative aspect-video overflow-hidden rounded-2xl border border-border">
                       <img
                         data-talk-thumb
                         src={`https://img.youtube.com/vi/${talk.youtubeId}/hqdefault.jpg`}
@@ -81,12 +83,12 @@ const first = talks[0];
                       <button
                         type="button"
                         data-slide-play
-                        class="absolute inset-0 z-10 flex items-center justify-center bg-black/25 hover:bg-black/35 transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-inset rounded-3xl"
+                        class="absolute inset-0 z-10 flex items-center justify-center bg-bgDark/35 hover:bg-bgDark/55 transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-inset rounded-2xl"
                         aria-label={`Play video: ${talk.title}`}
                       >
-                        <span class="flex h-16 w-16 md:h-[4.5rem] md:w-[4.5rem] items-center justify-center rounded-full bg-black/55 backdrop-blur-sm border border-white/20 shadow-lg">
+                        <span class="flex h-16 w-16 md:h-[4.5rem] md:w-[4.5rem] items-center justify-center rounded-full bg-bgDark/60 backdrop-blur-sm border border-border">
                           <svg
-                            class="ml-1 h-7 w-7 md:h-8 md:w-8 text-white"
+                            class="ml-1 h-7 w-7 md:h-8 md:w-8 text-text"
                             viewBox="0 0 24 24"
                             fill="currentColor"
                             aria-hidden="true"
@@ -101,24 +103,16 @@ const first = talks[0];
               </div>
             </div>
           </div>
-          <button
-            type="button"
-            class="talks-carousel-nav-prev pointer-events-auto absolute left-0 top-1/2 z-[60] flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-white/15 bg-bgDark/50 text-white/70 backdrop-blur-sm transition-all hover:border-brand/40 hover:bg-bgDark/70 hover:text-brand focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand sm:left-0 opacity-60 group-hover:opacity-90"
-            aria-label="Previous talk video"
-          >
-            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M15 18l-6-6 6-6" />
-            </svg>
-          </button>
-          <button
-            type="button"
-            class="talks-carousel-nav-next pointer-events-auto absolute right-1 top-1/2 z-[60] flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-white/15 bg-bgDark/50 text-white/70 backdrop-blur-sm transition-all hover:border-brand/40 hover:bg-bgDark/70 hover:text-brand focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand sm:right-2 md:right-3 opacity-60 group-hover:opacity-90"
-            aria-label="Next talk video"
-          >
-            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M9 18l6-6-6-6" />
-            </svg>
-          </button>
+          <CarouselNavButton
+            direction="prev"
+            ariaLabel="Previous talk video"
+            class="left-0 z-[60]"
+          />
+          <CarouselNavButton
+            direction="next"
+            ariaLabel="Next talk video"
+            class="right-1 z-[60] sm:right-2 md:right-3"
+          />
         </div>
       )
     }
@@ -137,7 +131,7 @@ const first = talks[0];
                 data-timeline-tick
                 data-index={idx}
                 class:list={[
-                  "flex flex-col items-center justify-end min-h-[2.75rem] min-w-[2rem] sm:min-w-[2.25rem] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/80 rounded-sm",
+                  "flex flex-col items-center justify-end min-h-[2.75rem] min-w-[2rem] sm:min-w-[2.25rem] focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm",
                 ]}
                 aria-label={`Show talk from ${talk.month} ${talk.year}: ${talk.title}`}
                 aria-selected={idx === 0 ? "true" : "false"}
@@ -146,58 +140,34 @@ const first = talks[0];
                   data-tick-bar
                   class:list={[
                     "w-px rounded-full transition-all duration-500 ease-out",
-                    idx === 0 ? "h-9 md:h-10 bg-white" : "h-3 md:h-4 bg-white/30",
+                    idx === 0 ? "h-9 md:h-10 bg-text" : "h-3 md:h-4 bg-textMuted",
                   ]}
                 />
               </button>
             ))}
           </div>
-          <p
-            data-active-year
-            class="text-sm tabular-nums tracking-wide font-medium text-white transition-opacity duration-300 min-h-[1.25rem]"
-            aria-live="polite"
-          >
-            {first ? `${first.month} ${first.year}` : ""}
-          </p>
         </div>
       )
     }
   </div>
 
-  <div
-    data-video-modal
-    class="fixed inset-0 z-[120] hidden items-center justify-center bg-black/85 p-4 sm:p-6"
-    role="dialog"
-    aria-modal="true"
-    aria-label="Video player"
+  <PopupModal
+    modalId="speaking-video"
+    ariaLabel="Video player"
+    closeAriaLabel="Close video"
+    maxWidthClass="max-w-6xl"
   >
-    <button
-      type="button"
-      data-video-modal-backdrop
-      class="absolute inset-0 cursor-default"
-      aria-label="Close video"
-    ></button>
-    <div class="relative z-10 w-full max-w-6xl">
-      <button
-        type="button"
-        data-video-modal-close
-        class="absolute -top-11 right-0 flex h-9 w-9 items-center justify-center rounded-full border border-white/30 text-white/90 transition-colors hover:text-brand hover:border-brand/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
-        aria-label="Close video"
-      >
-        <Icon name="mdi:close" class="h-5 w-5" aria-hidden="true" />
-      </button>
-      <div class="relative h-0 w-full overflow-hidden rounded-2xl pb-[56.25%] border border-white/15 bg-black shadow-2xl shadow-black/50">
-        <iframe
-          data-video-modal-iframe
-          title="Talk video"
-          src=""
-          class="absolute inset-0 h-full w-full"
-          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe>
-      </div>
+    <div class="relative h-0 w-full overflow-hidden rounded-2xl pb-[56.25%] border border-border bg-bgDark shadow-2xl shadow-black/50">
+      <iframe
+        data-video-modal-iframe
+        title="Talk video"
+        src=""
+        class="absolute inset-0 h-full w-full"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
     </div>
-  </div>
+  </PopupModal>
 </Section>
 
 <style>
@@ -213,17 +183,23 @@ const first = talks[0];
   }
 
   .talks-slide-card {
+    border-radius: 1.25rem;
+    overflow: hidden;
     transition:
       opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
       transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
+  .talks-slide-card [data-talk-thumb],
+  .talks-slide-card [data-slide-play] {
+    border-radius: 1.25rem;
+  }
   .talks-embla-slide:not(.is-talk-selected) .talks-slide-card {
-    opacity: 0.48;
-    transform: scale(0.89, 0.86);
+    opacity: 0.35;
+    transform: scale(0.78, 0.75);
   }
   .talks-embla-slide.is-talk-selected .talks-slide-card {
     opacity: 1;
-    transform: scale(1);
+    transform: scale(1.08, 1.06);
   }
   .talks-embla-slide.is-talk-selected {
     z-index: 1;
@@ -237,14 +213,15 @@ const first = talks[0];
 
 <script>
   import EmblaCarousel from "embla-carousel";
+  import { createModalController } from "../../utils/modal";
 
-  const carousel = document.querySelector("[data-talk-carousel]");
+  const carousel = document.querySelector<HTMLElement>("[data-talk-carousel]");
   const rawTalks = carousel?.getAttribute("data-talks");
   const talks = rawTalks ? JSON.parse(rawTalks) : [];
   if (!carousel || !talks.length) {
     /* no-op */
   } else {
-    const emblaRoot = carousel.querySelector(".embla");
+      const emblaRoot = carousel.querySelector<HTMLElement>(".embla");
     if (!emblaRoot) {
       /* no-op */
     } else {
@@ -256,14 +233,13 @@ const first = talks[0];
         slides: ".embla__slide",
       });
 
-      const activeYearEl = carousel.querySelector("[data-active-year]");
-      const tickButtons = Array.from(carousel.querySelectorAll("[data-timeline-tick]"));
-      const prevBtn = carousel.querySelector(".talks-carousel-nav-prev");
-      const nextBtn = carousel.querySelector(".talks-carousel-nav-next");
-      const modal = document.querySelector("[data-video-modal]");
-      const modalIframe = modal?.querySelector("[data-video-modal-iframe]");
-      const modalCloseBtn = modal?.querySelector("[data-video-modal-close]");
-      const modalBackdrop = modal?.querySelector("[data-video-modal-backdrop]");
+      const tickButtons = Array.from(carousel.querySelectorAll<HTMLElement>("[data-timeline-tick]"));
+      const prevBtn = carousel.querySelector<HTMLElement>(".carousel-nav-prev");
+      const nextBtn = carousel.querySelector<HTMLElement>(".carousel-nav-next");
+      const modal = document.querySelector<HTMLElement>('[data-modal-id="speaking-video"]');
+      const modalIframe = modal?.querySelector<HTMLIFrameElement>("[data-video-modal-iframe]");
+      const modalCloseBtn = modal?.querySelector<HTMLElement>("[data-modal-close]");
+      const modalContent = modal?.querySelector<HTMLElement>("[data-modal-content]");
       const modalFocusTarget = carousel;
 
       const slideNodes = () => embla.slideNodes();
@@ -275,28 +251,30 @@ const first = talks[0];
         });
       };
 
-      const closeModal = () => {
-        if (!modal || !modalIframe) return;
-        modal.classList.add("hidden");
-        modal.classList.remove("flex");
-        modalIframe.src = "";
-        if (modalFocusTarget instanceof HTMLElement) modalFocusTarget.focus();
-      };
+      const modalCtrl =
+        modal && modalIframe && modalContent
+          ? createModalController({
+              modal,
+              content: modalContent,
+              closeButton: modalCloseBtn,
+              moveToBodyOnOpen: true,
+              onClose: () => {
+                modalIframe.src = "";
+              },
+            })
+          : null;
 
-      const openModal = (youtubeId, title) => {
-        if (!modal || !modalIframe) return;
+      const openModal = (youtubeId: string, title: string) => {
+        if (!modalIframe || !modalCtrl) return;
         modalIframe.title = title || "Talk video";
         modalIframe.src = `https://www.youtube.com/embed/${youtubeId}?autoplay=1`;
-        modal.classList.remove("hidden");
-        modal.classList.add("flex");
+        modalCtrl.open(modalFocusTarget);
       };
 
       const syncTicksAndMeta = () => {
         const i = embla.selectedScrollSnap();
         const cur = talks[i];
         if (!cur) return;
-
-        if (activeYearEl) activeYearEl.textContent = `${cur.month} ${cur.year}`;
 
         const activeSlide = slideNodes()[i];
         carousel.setAttribute("aria-activedescendant", activeSlide?.id || "");
@@ -341,7 +319,7 @@ const first = talks[0];
         e.stopPropagation();
         const slide = playBtn.closest(".embla__slide");
         if (!slide) return;
-        const i = slideNodes().indexOf(slide);
+        const i = slideNodes().indexOf(slide as HTMLElement);
         if (i !== embla.selectedScrollSnap()) {
           embla.scrollTo(i);
         }
@@ -368,7 +346,7 @@ const first = talks[0];
         });
       });
 
-      carousel.addEventListener("keydown", (e) => {
+      carousel.addEventListener("keydown", (e: KeyboardEvent) => {
         if (e.key === "ArrowLeft") {
           e.preventDefault();
           embla.scrollPrev();
@@ -378,11 +356,6 @@ const first = talks[0];
         }
       });
 
-      modalCloseBtn?.addEventListener("click", closeModal);
-      modalBackdrop?.addEventListener("click", closeModal);
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") closeModal();
-      });
     }
   }
 </script>

@@ -2,7 +2,7 @@
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
 import "../styles/global.css";
-import { ViewTransitions } from "astro:transitions";
+import ClientRouter from "astro/components/ClientRouter.astro";
 
 export interface Props {
   title: string;
@@ -50,13 +50,63 @@ const { title, description, image = "/images/selfie-lg.jpeg" } = Astro.props;
 <!-- Canonical Link -->
 <link rel="canonical" href={Astro.url} />
 <script is:inline>
-  const storedTheme = localStorage.getItem("theme");
-  if (storedTheme === "light" || storedTheme === "dark") {
-    document.documentElement.setAttribute("data-theme", storedTheme);
-  }
+  (function () {
+    function resolveTheme() {
+      var stored = localStorage.getItem("theme");
+      return stored === "light" || stored === "dark" ? stored : "dark";
+    }
+
+    function applyToDocument(doc) {
+      var theme = resolveTheme();
+      doc.documentElement.setAttribute("data-theme", theme);
+      if (doc.body) doc.body.setAttribute("data-theme", theme);
+    }
+
+    function applyStoredTheme() {
+      applyToDocument(document);
+    }
+
+    function toggleTheme() {
+      var cur = document.documentElement.getAttribute("data-theme") || "dark";
+      var next = cur === "light" ? "dark" : "light";
+      document.documentElement.setAttribute("data-theme", next);
+      if (document.body) document.body.setAttribute("data-theme", next);
+      localStorage.setItem("theme", next);
+    }
+
+    applyStoredTheme();
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", applyStoredTheme);
+    } else {
+      applyStoredTheme();
+    }
+
+    document.addEventListener("astro:before-swap", function (event) {
+      var theme = resolveTheme();
+      event.newDocument.documentElement.setAttribute("data-theme", theme);
+      var nb = event.newDocument.body;
+      if (nb) nb.setAttribute("data-theme", theme);
+    });
+
+    document.addEventListener("astro:after-swap", applyStoredTheme);
+    document.addEventListener("astro:page-load", applyStoredTheme);
+
+    document.addEventListener(
+      "click",
+      function (e) {
+        var t = e.target;
+        if (!t || !t.closest) return;
+        if (t.closest("#themeToggleDesktop") || t.closest("#themeToggleMobile")) {
+          e.preventDefault();
+          toggleTheme();
+        }
+      },
+      true
+    );
+  })();
 </script>
 
-<ViewTransitions />
+<ClientRouter />
 
 <script
   defer

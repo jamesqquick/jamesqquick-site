@@ -1,7 +1,12 @@
 ---
 export interface Props {
+  /** @deprecated Use `tone` instead. */
   isLight?: boolean;
+  tone?: "base" | "elevated";
+  /** Prefer this over passing `py-*` classes in `classStr`. */
+  paddingY?: "none" | "half" | "compact" | "default" | "spacious" | "xl";
   classStr?: string;
+  /** @deprecated Use `paddingY` instead. */
   hasYPadding?: boolean;
   hasMaxWidth?: boolean;
   id?: string;
@@ -9,17 +14,27 @@ export interface Props {
 
 const {
   isLight = false,
+  tone,
+  paddingY,
   classStr,
   hasYPadding = true,
   hasMaxWidth = true,
   id,
 } = Astro.props as Props;
+
+const resolvedTone: "base" | "elevated" = tone ?? (isLight ? "elevated" : "base");
+const resolvedPaddingY: "none" | "half" | "compact" | "default" | "spacious" | "xl" =
+  paddingY ?? (hasYPadding ? "default" : "none");
+const sanitizedClassStr = (classStr ?? "")
+  .split(/\s+/)
+  .filter((token) => token && !token.startsWith("bg-"))
+  .join(" ");
 ---
 
 <section
   id={id}
-  class={`section-base ${hasYPadding ? "section-padding" : ""} ${isLight ? "section-light" : ""} ${
-    classStr ? classStr : ""
+  class={`section-base section-padding-${resolvedPaddingY} section-tone-${resolvedTone} ${
+    sanitizedClassStr || ""
   }`}
 >
   <div class={`${hasMaxWidth ? "section-container" : ""} mx-auto`}>
@@ -33,13 +48,44 @@ const {
     padding-right: 2rem;
   }
 
-  .section-padding {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
+  .section-padding-none {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
   }
 
-  .section-light {
-    background: var(--legacy-bg-light);
+  .section-padding-default {
+    padding-top: var(--spacing-section-y-sm);
+    padding-bottom: var(--spacing-section-y-sm);
+  }
+
+  .section-padding-half {
+    padding-top: var(--spacing-section-y-half-sm);
+    padding-bottom: var(--spacing-section-y-half-sm);
+  }
+
+  .section-padding-compact {
+    padding-top: var(--spacing-section-y-compact-sm);
+    padding-bottom: var(--spacing-section-y-compact-sm);
+  }
+
+  .section-padding-spacious {
+    padding-top: var(--spacing-section-y-spacious-sm);
+    padding-bottom: var(--spacing-section-y-spacious-sm);
+  }
+
+  .section-padding-xl {
+    padding-top: var(--spacing-section-y-xl-sm);
+    padding-bottom: var(--spacing-section-y-xl-sm);
+  }
+
+  .section-tone-base {
+    background: var(--color-section-base);
+    color: var(--color-text);
+  }
+
+  .section-tone-elevated {
+    background: var(--color-section-elevated);
+    color: var(--color-text);
   }
 
   .section-container {
@@ -47,16 +93,49 @@ const {
   }
 
   @media (min-width: 768px) {
-    .section-padding {
-      padding-top: 6rem;
-      padding-bottom: 6rem;
+    .section-padding-default {
+      padding-top: var(--spacing-section-y-md);
+      padding-bottom: var(--spacing-section-y-md);
+    }
+    .section-padding-half {
+      padding-top: var(--spacing-section-y-half-md);
+      padding-bottom: var(--spacing-section-y-half-md);
+    }
+    .section-padding-compact {
+      padding-top: var(--spacing-section-y-compact-md);
+      padding-bottom: var(--spacing-section-y-compact-md);
+    }
+    .section-padding-spacious {
+      padding-top: var(--spacing-section-y-spacious-md);
+      padding-bottom: var(--spacing-section-y-spacious-md);
+    }
+    .section-padding-xl {
+      padding-top: var(--spacing-section-y-xl-md);
+      padding-bottom: var(--spacing-section-y-xl-md);
     }
   }
 
   @media (min-width: 1024px) {
-    .section-padding {
-      padding-top: 8rem;
-      padding-bottom: 8rem;
+    .section-padding-default {
+      padding-top: var(--spacing-section-y-lg);
+      padding-bottom: var(--spacing-section-y-lg);
+    }
+    .section-padding-half {
+      padding-top: var(--spacing-section-y-half-lg);
+      padding-bottom: var(--spacing-section-y-half-lg);
+    }
+    .section-padding-compact {
+      padding-top: var(--spacing-section-y-compact-lg);
+      padding-bottom: var(--spacing-section-y-compact-lg);
+    }
+    .section-padding-spacious {
+      padding-top: var(--spacing-section-y-spacious-lg);
+      padding-bottom: var(--spacing-section-y-spacious-lg);
+    }
+    .section-padding-xl {
+      padding-top: var(--spacing-section-y-xl-lg);
+      padding-bottom: var(--spacing-section-y-xl-lg);
     }
   }
+
 </style>

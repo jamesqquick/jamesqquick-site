@@ -1,0 +1,49 @@
+---
+export interface Props {
+  direction: "prev" | "next";
+  ariaLabel: string;
+  /** `sm` matches the speaking hero deck; `md` is default for Embla carousels */
+  size?: "sm" | "md";
+  /** Positioning overrides (e.g. left-2 z-40) */
+  class?: string;
+}
+
+const {
+  direction,
+  ariaLabel,
+  size = "md",
+  class: className = "",
+} = Astro.props as Props;
+
+const sizeClass = size === "sm" ? "h-9 w-9" : "h-10 w-10";
+
+const iconPath =
+  direction === "prev" ? "M15 18l-6-6 6-6" : "M9 18l6-6-6-6";
+
+const navClass =
+  direction === "prev" ? "carousel-nav-prev" : "carousel-nav-next";
+---
+
+<button
+  type="button"
+  class:list={[
+    navClass,
+    "pointer-events-auto absolute top-1/2 flex -translate-y-1/2 items-center justify-center rounded-full border border-accent/70 bg-accent text-bgDark shadow-lg shadow-black/35 transition-all hover:scale-105 hover:bg-accentHover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent",
+    sizeClass,
+    className,
+  ]}
+  aria-label={ariaLabel}
+>
+  <svg
+    class="h-4 w-4"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    aria-hidden="true"
+  >
+    <path d={iconPath} />
+  </svg>
+</button>

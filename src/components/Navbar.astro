@@ -37,7 +37,7 @@ import Section from "./Section.astro";
     </button>
     <div
       id="mobileMenu"
-      class="fixed md:flex items-center justify-center md:relative inset-0 bg-bg md:bg-transparent hidden py-5 overflow-auto z-10"
+      class="fixed md:hidden items-center justify-center md:relative inset-0 bg-bg md:bg-transparent hidden py-5 overflow-auto z-10"
     >
       <div
         class="flex flex-col md:flex-row gap-10 md:gap-5 font-light text-center md:text-left text-2xl md:text-xl relative pt-10"
@@ -101,31 +101,21 @@ import Section from "./Section.astro";
 </style>
 
 <script>
-  const hamburger = document.getElementById("hamburger") as HTMLButtonElement | null;
-  const close = document.getElementById("close") as HTMLButtonElement | null;
-  const mobileMenu = document.getElementById("mobileMenu") as HTMLDivElement | null;
-  const themeToggleDesktop = document.getElementById(
-    "themeToggleDesktop"
-  ) as HTMLButtonElement | null;
-  const themeToggleMobile = document.getElementById("themeToggleMobile") as HTMLButtonElement | null;
+  document.addEventListener("click", (e) => {
+    const target = e.target;
+    if (!(target instanceof Element)) return;
 
-  const toggleTheme = () => {
-    const current = document.documentElement.getAttribute("data-theme");
-    const next = current === "light" ? "dark" : "light";
-    document.documentElement.setAttribute("data-theme", next);
-    localStorage.setItem("theme", next);
-  };
+    if (target.closest("#hamburger")) {
+      const mobileMenu = document.getElementById("mobileMenu");
+      mobileMenu?.classList.remove("hidden");
+      document.body.dataset.menuOpen = "true";
+      return;
+    }
 
-  hamburger?.addEventListener("click", () => {
-    mobileMenu?.classList.remove("hidden");
-    document.body.dataset.menuOpen = "true";
+    if (target.closest("#close")) {
+      const mobileMenu = document.getElementById("mobileMenu");
+      mobileMenu?.classList.add("hidden");
+      delete document.body.dataset.menuOpen;
+    }
   });
-
-  close?.addEventListener("click", () => {
-    mobileMenu?.classList.add("hidden");
-    delete document.body.dataset.menuOpen;
-  });
-
-  themeToggleDesktop?.addEventListener("click", toggleTheme);
-  themeToggleMobile?.addEventListener("click", toggleTheme);
 </script>

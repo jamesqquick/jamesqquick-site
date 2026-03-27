@@ -25,19 +25,21 @@ const formattedPosts = posts.map((post) => ({
   <HeroSection
     title="Blog"
     hasFullHeight={false}
+    size="large"
+    classStr="py-10 md:py-12 lg:py-14"
     subtitle="Articles for web developers!"
     description="I write about modern web development, developer experience, careers, and more!"
     h1AriaLabel="Blog | James Q Quick"
   />
   <!-- <FeaturedSplitSection
-    isLight={true}
+    tone="elevated"
     image={featuredPost.data.coverImage}
     title={featuredPost.data.title}
     description={featuredPost.data.description}
     href={featuredPost.data.link}
     date={featuredPost.data.pubDate}
   /> -->
-  <Section isLight={false} classStr="mt-8">
+  <Section tone="base" classStr="mt-8">
     <LinkCardList items={formattedPosts} />
   </Section>
 </BaseLayout>

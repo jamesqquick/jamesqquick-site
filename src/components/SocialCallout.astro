@@ -3,13 +3,13 @@ import Section from "./Section.astro";
 import SocialFollow from "./SocialFollow.astro";
 ---
 
-<Section isLight={true}>
+<Section tone="elevated" paddingY="half">
   <div class="flex flex-col md:flex-row justify-center gap-x-4 items-center">
     <div class="text-center mb-6 md:mb-0">
-      <p class="text-xl mb-1">@jamesqquick</p>
-      <p class="text-xl opacity-60">250k+ followers</p>
+      <p class="text-xl mb-1 text-text">@jamesqquick</p>
+      <p class="text-xl text-textMuted">250k+ followers</p>
     </div>
-    <div class="hidden md:block h-12 w-[1px] bg-white opacity-40"></div>
+    <div class="hidden md:block h-12 w-[1px] bg-border"></div>
     <SocialFollow />
   </div>
 </Section>

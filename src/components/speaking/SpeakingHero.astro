@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import type { ImageMetadata } from "astro";
+import CarouselNavButton from "../CarouselNavButton.astro";
 import Section from "../Section.astro";
 
 export interface Props {
@@ -35,26 +36,26 @@ function stackFor(index: number, selected: number) {
 }
 ---
 
-<Section hasYPadding={false} classStr="pt-16 md:pt-24 pb-16 md:pb-20">
-  <div class="grid gap-10 items-center lg:grid-cols-2">
+<Section hasYPadding={false} classStr="speaking-hero-section pt-16 md:pt-24 pb-16 md:pb-20">
+  <div class="speaking-hero-shell grid gap-10 items-center lg:grid-cols-2">
     <div>
-      <p class="uppercase tracking-[0.2em] text-brand text-xs mb-5">{eyebrow}</p>
+      <p class="uppercase tracking-[0.2em] text-accent text-xs mb-5">{eyebrow}</p>
       <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6 max-w-xl">{title}</h1>
       {
         description ? (
-          <p class="text-lg opacity-80 max-w-xl">{description}</p>
+          <p class="text-lg text-textMuted max-w-xl">{description}</p>
         ) : null
       }
       <div class="mt-8 flex flex-wrap items-center gap-6">
         <a
           href={primaryCta.href}
-          class="inline-block rounded-full border border-white/30 px-6 py-3 font-semibold transition-colors hover:border-brand hover:text-brand"
+          class="inline-block rounded-full border border-border px-6 py-3 font-semibold transition-colors hover:border-accent hover:text-accent"
         >
           {primaryCta.label}
         </a>
         <a
           href={secondaryCta.href}
-          class="underline underline-offset-4 transition-colors hover:text-brand"
+          class="underline underline-offset-4 transition-colors hover:text-accent"
           {...(secondaryIsExternal
             ? { target: "_blank", rel: "noopener noreferrer" }
             : {})}
@@ -93,7 +94,7 @@ function stackFor(index: number, selected: number) {
                   data-event={img.event}
                   data-location={img.location}
                 >
-                  <div class="hero-deck-card-inner h-full w-full overflow-hidden rounded-3xl border border-white/10 bg-bgLight shadow-xl shadow-black/30">
+                  <div class="hero-deck-card-inner h-full w-full overflow-hidden rounded-[var(--radius-hero)] border border-border bg-surface shadow-xl shadow-black/30">
                     <Image
                       class="h-full w-full object-cover"
                       src={img.src}
@@ -111,24 +112,18 @@ function stackFor(index: number, selected: number) {
           </div>
           </div>
           <!-- Position nav relative to the front viewport, not the padded wrapper -->
-          <button
-            type="button"
-            class="carousel-nav-prev pointer-events-auto absolute left-2 top-1/2 z-40 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-white/15 bg-bgDark/50 text-white/70 backdrop-blur-sm transition-all hover:border-brand/40 hover:bg-bgDark/70 hover:text-brand focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand opacity-60 group-hover:opacity-90"
-            aria-label="Previous speaking photo"
-          >
-            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M15 18l-6-6 6-6" />
-            </svg>
-          </button>
-          <button
-            type="button"
-            class="carousel-nav-next pointer-events-auto absolute right-2 top-1/2 z-40 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-white/15 bg-bgDark/50 text-white/70 backdrop-blur-sm transition-all hover:border-brand/40 hover:bg-bgDark/70 hover:text-brand focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand opacity-60 group-hover:opacity-90"
-            aria-label="Next speaking photo"
-          >
-            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M9 18l6-6-6-6" />
-            </svg>
-          </button>
+          <CarouselNavButton
+            direction="prev"
+            size="sm"
+            ariaLabel="Previous speaking photo"
+            class="left-2 z-40"
+          />
+          <CarouselNavButton
+            direction="next"
+            size="sm"
+            ariaLabel="Next speaking photo"
+            class="right-2 z-40"
+          />
         </div>
       </div>
 
@@ -137,20 +132,20 @@ function stackFor(index: number, selected: number) {
           <div class="hero-carousel-meta inline-grid w-full max-w-full grid-cols-[2.75rem_minmax(0,1fr)] gap-x-3 text-left md:max-w-[19rem] sm:gap-x-4 lg:max-w-[20rem]">
             <div class="flex flex-shrink-0 flex-col items-center pt-1" aria-hidden="true">
               <span
-                class="hero-pin-dot h-3 w-3 flex-shrink-0 rounded-full bg-brand shadow-[0_0_14px_3px_rgba(10,250,148,0.45)] ring-2 ring-brand/30"
+                class="hero-pin-dot h-3 w-3 flex-shrink-0 rounded-full bg-accent shadow-[0_0_14px_3px_rgba(43,241,181,0.45)] ring-2 ring-accent/30"
               />
-              <span class="mt-0.5 h-[22px] w-px flex-shrink-0 bg-gradient-to-b from-brand via-brand/70 to-brand/15 sm:h-6" />
+              <span class="mt-0.5 h-[22px] w-px flex-shrink-0 bg-gradient-to-b from-accent via-accent/70 to-accent/15 sm:h-6" />
             </div>
             <div class="flex min-h-[5rem] min-w-0 flex-col justify-start sm:min-h-[5.25rem]">
               <p
                 data-carousel-event
-                class="text-[0.9375rem] font-medium uppercase leading-snug tracking-[0.08em] text-white sm:text-lg sm:tracking-[0.06em]"
+                class="text-[0.9375rem] font-medium uppercase leading-snug tracking-[0.08em] text-text sm:text-lg sm:tracking-[0.06em]"
               >
                 {first?.event ?? ""}
               </p>
               <p
                 data-carousel-location
-                class="mt-1 min-h-[1.25em] text-sm leading-snug text-white/55 sm:text-[0.9375rem]"
+                class="mt-1 min-h-[1.25em] text-sm leading-snug text-textMuted sm:text-[0.9375rem]"
               >
                 {first?.location ?? ""}
               </p>
@@ -163,6 +158,56 @@ function stackFor(index: number, selected: number) {
 </Section>
 
 <style>
+  :global(.speaking-hero-section) {
+    position: relative;
+    z-index: 0;
+  }
+
+  :global(.speaking-hero-section .section-container) {
+    position: relative;
+    z-index: 1;
+  }
+
+  :global(.speaking-hero-section)::before {
+    content: "";
+    position: absolute;
+    top: -7rem;
+    bottom: -2rem;
+    left: 50%;
+    width: 100vw;
+    transform: translateX(-50%);
+    background:
+      radial-gradient(780px 360px at 12% 18%, var(--color-accent-subtle), transparent 72%),
+      radial-gradient(620px 280px at 34% 8%, color-mix(in srgb, var(--color-accent) 14%, transparent), transparent 78%),
+      radial-gradient(900px 360px at 82% 26%, color-mix(in srgb, var(--color-info) 12%, transparent), transparent 82%);
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  :global(.speaking-hero-section)::after {
+    content: "";
+    position: absolute;
+    top: -4rem;
+    right: -2rem;
+    bottom: -2rem;
+    width: min(44vw, 520px);
+    background-image:
+      linear-gradient(to right, color-mix(in srgb, var(--color-border) 64%, transparent) 1px, transparent 1px),
+      linear-gradient(to bottom, color-mix(in srgb, var(--color-border) 64%, transparent) 1px, transparent 1px);
+    background-size: 30px 30px;
+    opacity: 0.44;
+    mask-image: radial-gradient(92% 92% at 74% 50%, black 0%, transparent 100%);
+    -webkit-mask-image: radial-gradient(92% 92% at 74% 50%, black 0%, transparent 100%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  @media (max-width: 1023px) {
+    :global(.speaking-hero-section)::after {
+      display: none;
+    }
+  }
+
   .hero-deck-card {
     transform-origin: center center;
     transition:
