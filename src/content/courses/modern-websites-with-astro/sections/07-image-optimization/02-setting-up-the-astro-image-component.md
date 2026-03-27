@@ -8,7 +8,7 @@ lessonOrder: 2
 published: true
 duration: ""
 summary: ""
-videoId: ""
+videoKey: "setting-up-the-astro-image-component.mp4"
 transcript: ""
 resources: []
 ---

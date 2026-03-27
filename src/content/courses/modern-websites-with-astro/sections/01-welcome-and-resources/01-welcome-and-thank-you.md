@@ -8,7 +8,7 @@ lessonOrder: 1
 published: true
 duration: ""
 summary: ""
-videoId: ""
+videoKey: "welcome-and-thank-you.mp4"
 transcript: ""
 resources: []
 ---

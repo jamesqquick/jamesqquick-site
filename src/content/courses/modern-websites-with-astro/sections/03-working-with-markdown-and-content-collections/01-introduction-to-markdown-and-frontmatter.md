@@ -8,7 +8,7 @@ lessonOrder: 1
 published: true
 duration: ""
 summary: ""
-videoId: ""
+videoKey: "introduction-to-markdown-and-frontmatter.mp4"
 transcript: ""
 resources: []
 ---

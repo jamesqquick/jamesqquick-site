@@ -8,7 +8,7 @@ lessonOrder: 3
 published: true
 duration: ""
 summary: ""
-videoId: ""
+videoKey: "configuring-content-collections-with-zod.mp4"
 transcript: ""
 resources: []
 ---

@@ -8,7 +8,7 @@ lessonOrder: 4
 published: true
 duration: ""
 summary: ""
-videoId: ""
+videoKey: "querying-and-displaying-list-of-blog-posts.mp4"
 transcript: ""
 resources: []
 ---

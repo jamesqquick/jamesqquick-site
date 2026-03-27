@@ -8,7 +8,7 @@ lessonOrder: 9
 published: true
 duration: ""
 summary: ""
-videoId: ""
+videoKey: "overview-of-astro-integrations.mp4"
 transcript: ""
 resources: []
 ---

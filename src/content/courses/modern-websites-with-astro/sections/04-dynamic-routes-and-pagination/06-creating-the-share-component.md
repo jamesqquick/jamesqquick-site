@@ -8,7 +8,7 @@ lessonOrder: 6
 published: true
 duration: ""
 summary: ""
-videoId: ""
+videoKey: "creating-the-share-component.mp4"
 transcript: ""
 resources: []
 ---

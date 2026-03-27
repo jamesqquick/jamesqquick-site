@@ -8,7 +8,7 @@ lessonOrder: 3
 published: true
 duration: ""
 summary: ""
-videoId: ""
+videoKey: "deploying-to-vercel.mp4"
 transcript: ""
 resources: []
 ---

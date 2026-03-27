@@ -1,0 +1,68 @@
+---
+import { AwsClient } from "aws4fetch";
+
+export interface Props {
+  /** Object key in the bucket, e.g. `lessons/intro-video.mp4` */
+  videoKey: string;
+}
+
+const { videoKey } = Astro.props;
+
+const accessKeyId = import.meta.env.R2_ACCESS_KEY_ID;
+const secretAccessKey = import.meta.env.R2_SECRET_ACCESS_KEY;
+const accountId = import.meta.env.R2_ACCOUNT_ID;
+const bucketName = import.meta.env.R2_BUCKET_NAME;
+
+const hasR2Config = Boolean(
+  accessKeyId &&
+    secretAccessKey &&
+    accountId &&
+    bucketName
+);
+
+let signedVideoUrl: string | null = null;
+if (hasR2Config) {
+  const r2 = new AwsClient({
+    accessKeyId,
+    secretAccessKey,
+    service: "s3",
+    region: "auto",
+  });
+
+  const bucketUrl = `https://${accountId}.r2.cloudflarestorage.com/${bucketName}/${videoKey}`;
+
+  const url = new URL(bucketUrl);
+  url.searchParams.set("X-Amz-Expires", "3600");
+
+  const signedRequest = await r2.sign(new Request(url), {
+    aws: { signQuery: true },
+  });
+
+  signedVideoUrl = signedRequest.url;
+}
+---
+
+<div class="video-container">
+  {signedVideoUrl ? (
+    <video controls width="100%" playsinline preload="metadata">
+      <source src={signedVideoUrl} type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  ) : (
+    <p class="p-4 text-sm text-textMuted font-sans m-0">
+      Video playback requires R2 credentials (<code class="text-xs">R2_ACCESS_KEY_ID</code>,{" "}
+      <code class="text-xs">R2_SECRET_ACCESS_KEY</code>, <code class="text-xs">R2_ACCOUNT_ID</code>,{" "}
+      <code class="text-xs">R2_BUCKET_NAME</code>).
+    </p>
+  )}
+</div>
+
+<style>
+  .video-container {
+    max-width: 800px;
+    margin: auto;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  }
+</style>

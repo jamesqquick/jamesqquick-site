@@ -8,7 +8,7 @@ lessonOrder: 2
 published: true
 duration: ""
 summary: ""
-videoId: ""
+videoKey: "astro-4-0.mp4"
 transcript: ""
 resources: []
 ---

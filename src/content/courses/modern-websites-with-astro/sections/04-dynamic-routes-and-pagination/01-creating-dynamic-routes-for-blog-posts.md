@@ -8,7 +8,7 @@ lessonOrder: 1
 published: true
 duration: ""
 summary: ""
-videoId: ""
+videoKey: "creating-dynamic-routes-for-blog-posts.mp4"
 transcript: ""
 resources: []
 ---

@@ -8,7 +8,7 @@ lessonOrder: 3
 published: true
 duration: ""
 summary: ""
-videoId: ""
+videoKey: "creating-your-first-astro-project.mp4"
 transcript: ""
 resources: []
 ---

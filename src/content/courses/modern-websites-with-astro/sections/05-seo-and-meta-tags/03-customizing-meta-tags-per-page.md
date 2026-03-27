@@ -8,7 +8,7 @@ lessonOrder: 3
 published: true
 duration: ""
 summary: ""
-videoId: ""
+videoKey: "customizing-meta-tags-per-page.mp4"
 transcript: ""
 resources: []
 ---

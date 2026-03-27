@@ -65,6 +65,8 @@ const coursesCollection = defineCollection({
         duration: z.string().optional(),
         summary: z.string().optional(),
         videoId: z.string().optional(),
+        /** R2 object key (e.g. `intro-to-astro.mp4`) for signed playback via SecureVideo */
+        videoKey: z.string().optional(),
         videoUrl: z.string().optional(),
         transcript: z.string().optional(),
         resources: z.array(z.string()).default([]),

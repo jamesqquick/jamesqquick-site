@@ -8,7 +8,7 @@ lessonOrder: 13
 published: true
 duration: ""
 summary: ""
-videoId: ""
+videoKey: "updating-the-shared-layout.mp4"
 transcript: ""
 resources: []
 ---

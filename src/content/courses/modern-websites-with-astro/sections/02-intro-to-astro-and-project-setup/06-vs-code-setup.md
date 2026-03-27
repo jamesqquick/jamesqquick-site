@@ -8,7 +8,7 @@ lessonOrder: 6
 published: true
 duration: ""
 summary: ""
-videoId: ""
+videoKey: "vs-code-setup.mp4"
 transcript: ""
 resources: []
 ---

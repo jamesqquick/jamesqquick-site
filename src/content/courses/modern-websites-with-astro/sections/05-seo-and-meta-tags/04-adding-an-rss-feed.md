@@ -8,7 +8,7 @@ lessonOrder: 4
 published: true
 duration: ""
 summary: ""
-videoId: ""
+videoKey: "adding-an-rss-feed.mp4"
 transcript: ""
 resources: []
 ---

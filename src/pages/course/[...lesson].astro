@@ -4,6 +4,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Section from "../../components/Section.astro";
 import Sidebar from "../../components/course-content/Sidebar.astro";
 import VideoEmbed from "../../components/course-content/VideoEmbed.astro";
+import SecureVideo from "../../components/course-content/SecureVideo.astro";
 import Callout from "../../components/mdx/Callout.astro";
 import Tabs from "../../components/mdx/Tabs.astro";
 import Tab from "../../components/mdx/Tab.astro";
@@ -23,7 +24,7 @@ import {
   lessonUrl,
 } from "src/utils/contentCollections";
 
-export const prerender = true;
+export const prerender = false;
 
 export async function getStaticPaths() {
   const courses = await getInternalCourses();
@@ -59,7 +60,10 @@ if (!course || !lesson) return Astro.redirect("/courses");
 const currentIndex = lessons.findIndex((l) => l.id === lesson.id);
 const prevLesson = currentIndex > 0 ? lessons[currentIndex - 1] : null;
 const nextLesson = currentIndex < lessons.length - 1 ? lessons[currentIndex + 1] : null;
-const lessonVideoUrl = lesson.data.videoUrl ?? (lesson.data.videoId ? `https://www.youtube.com/watch?v=${lesson.data.videoId}` : undefined);
+const videoId = lesson.data.videoId?.trim();
+const lessonVideoUrl =
+  lesson.data.videoUrl?.trim() ||
+  (videoId ? `https://www.youtube.com/watch?v=${videoId}` : undefined);
 const { Content } = await render(lesson);
 const mdxComponents = { Callout, Tabs, Tab, Steps, FileTree, Quiz, StackBlitz };
 const normalizedLessonId = getNormalizedLessonId(lesson);
@@ -130,11 +134,18 @@ const courseLessonIds = lessons.map((entry) => getNormalizedLessonId(entry));
             <span>Mark as Complete</span>
           </button>
         </div>
-        {lessonVideoUrl && (
-          <VideoEmbed
-            url={lessonVideoUrl}
-            title={`${lesson.data.title} — Video`}
-          />
+        {lesson.data.videoKey ? (
+          <div class="not-prose mb-8">
+            <SecureVideo videoKey={lesson.data.videoKey} />
+            <p class="mt-2 text-xs text-textMuted font-sans">Prefer reading? The written lesson is below.</p>
+          </div>
+        ) : (
+          lessonVideoUrl && (
+            <VideoEmbed
+              url={lessonVideoUrl}
+              title={`${lesson.data.title} — Video`}
+            />
+          )
         )}
           <Content components={mdxComponents} />
         <div class="mt-8 rounded-xl border border-border p-4 not-prose">

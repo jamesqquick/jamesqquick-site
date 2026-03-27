@@ -8,7 +8,7 @@ lessonOrder: 2
 published: true
 duration: ""
 summary: ""
-videoId: ""
+videoKey: "introduction-to-content-collections.mp4"
 transcript: ""
 resources: []
 ---

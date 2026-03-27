@@ -8,7 +8,7 @@ lessonOrder: 1
 published: true
 duration: ""
 summary: ""
-videoId: ""
+videoKey: "svelte-integration.mp4"
 transcript: ""
 resources: []
 ---

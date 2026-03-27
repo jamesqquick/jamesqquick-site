@@ -8,7 +8,7 @@ lessonOrder: 8
 published: true
 duration: ""
 summary: ""
-videoId: ""
+videoKey: "working-with-css.mp4"
 transcript: ""
 resources: []
 ---

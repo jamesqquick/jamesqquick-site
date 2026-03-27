@@ -8,7 +8,7 @@ lessonOrder: 6
 published: true
 duration: ""
 summary: ""
-videoId: ""
+videoKey: "creating-dynamic-routes-for-category-pages.mp4"
 transcript: ""
 resources: []
 ---

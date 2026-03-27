@@ -8,7 +8,6 @@ lessonOrder: 3
 published: true
 duration: ""
 summary: ""
-videoId: ""
 transcript: ""
 resources: []
 ---

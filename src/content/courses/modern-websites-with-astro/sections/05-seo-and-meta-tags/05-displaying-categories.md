@@ -8,7 +8,7 @@ lessonOrder: 5
 published: true
 duration: ""
 summary: ""
-videoId: ""
+videoKey: "displaying-categories.mp4"
 transcript: ""
 resources: []
 ---

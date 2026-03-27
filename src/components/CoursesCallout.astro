@@ -5,6 +5,8 @@ import { getCourseHostType, getCourseUrl, getInternalCourses } from "src/utils/c
 import SectionHeader from "@components/SectionHeader.astro";
 import { Image } from "astro:assets";
 
+/** Public files under `public/` — use `<img>` so we do not depend on the Astro image pipeline for static URLs. */
+
 export const prerender = true;
 
 const title = "Courses";
@@ -51,11 +53,14 @@ const featuredCourse = courses.splice(0, 1)[0];
           <div class="flex gap-x-8 lg:gap-x-2 items-center lg:justify-between">
             {typeof course.data.coverImage === "string" &&
             course.data.coverImage.startsWith("/") ? (
-              <Image
-                inferSize
+              <img
                 src={course.data.coverImage}
                 alt={course.data.title}
+                width={256}
+                height={256}
                 class="rounded-lg h-16 w-16 object-cover border border-border"
+                loading="lazy"
+                decoding="async"
               />
             ) : (
               <Image

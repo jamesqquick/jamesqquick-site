@@ -8,7 +8,7 @@ lessonOrder: 1
 published: true
 duration: ""
 summary: ""
-videoId: ""
+videoKey: "setting-up-a-github-repository.mp4"
 transcript: ""
 resources: []
 ---

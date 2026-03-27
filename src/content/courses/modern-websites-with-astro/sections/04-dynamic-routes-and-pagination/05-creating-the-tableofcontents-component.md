@@ -8,7 +8,7 @@ lessonOrder: 5
 published: true
 duration: ""
 summary: ""
-videoId: ""
+videoKey: "creating-the-tableofcontents-component.mp4"
 transcript: ""
 resources: []
 ---

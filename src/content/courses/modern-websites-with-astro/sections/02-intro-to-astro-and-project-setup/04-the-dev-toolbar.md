@@ -8,7 +8,7 @@ lessonOrder: 4
 published: true
 duration: ""
 summary: ""
-videoId: ""
+videoKey: "the-dev-toolbar.mp4"
 transcript: ""
 resources: []
 ---

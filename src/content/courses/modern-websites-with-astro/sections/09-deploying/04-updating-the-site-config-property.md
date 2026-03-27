@@ -8,7 +8,7 @@ lessonOrder: 4
 published: true
 duration: ""
 summary: ""
-videoId: ""
+videoKey: "updating-the-site-config-property.mp4"
 transcript: ""
 resources: []
 ---

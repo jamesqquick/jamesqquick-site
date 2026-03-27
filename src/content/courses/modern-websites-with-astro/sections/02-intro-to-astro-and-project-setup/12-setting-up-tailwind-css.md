@@ -8,7 +8,7 @@ lessonOrder: 12
 published: true
 duration: ""
 summary: ""
-videoId: ""
+videoKey: "setting-up-tailwind-css.mp4"
 transcript: ""
 resources: []
 ---

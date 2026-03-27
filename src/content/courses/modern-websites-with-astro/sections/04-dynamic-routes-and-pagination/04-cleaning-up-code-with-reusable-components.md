@@ -8,7 +8,7 @@ lessonOrder: 4
 published: true
 duration: ""
 summary: ""
-videoId: ""
+videoKey: "cleaning-up-code-with-reusable-components.mp4"
 transcript: ""
 resources: []
 ---

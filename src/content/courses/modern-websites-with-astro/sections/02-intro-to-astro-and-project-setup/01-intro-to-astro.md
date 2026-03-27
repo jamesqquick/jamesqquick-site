@@ -8,7 +8,7 @@ lessonOrder: 1
 published: true
 duration: ""
 summary: ""
-videoId: ""
+videoKey: "intro-to-astro.mp4"
 transcript: ""
 resources: []
 ---

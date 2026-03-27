@@ -8,7 +8,7 @@ lessonOrder: 1
 published: true
 duration: ""
 summary: ""
-videoId: ""
+videoKey: "displaying-a-featured-post.mp4"
 transcript: ""
 resources: []
 ---

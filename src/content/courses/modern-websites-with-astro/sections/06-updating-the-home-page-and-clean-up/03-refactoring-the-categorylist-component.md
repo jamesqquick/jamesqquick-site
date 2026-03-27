@@ -8,7 +8,7 @@ lessonOrder: 3
 published: true
 duration: ""
 summary: ""
-videoId: ""
+videoKey: "refactoring-the-categorylist-component.mp4"
 transcript: ""
 resources: []
 ---

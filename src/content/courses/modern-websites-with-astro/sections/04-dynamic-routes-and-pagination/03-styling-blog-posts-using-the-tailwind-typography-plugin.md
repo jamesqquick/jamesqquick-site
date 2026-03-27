@@ -8,7 +8,7 @@ lessonOrder: 3
 published: true
 duration: ""
 summary: ""
-videoId: ""
+videoKey: "styling-blog-posts-using-the-tailwind-typography-plugin.mp4"
 transcript: ""
 resources: []
 ---

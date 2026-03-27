@@ -8,7 +8,7 @@ lessonOrder: 2
 published: true
 duration: ""
 summary: ""
-videoId: ""
+videoKey: "adding-meta-tags.mp4"
 transcript: ""
 resources: []
 ---

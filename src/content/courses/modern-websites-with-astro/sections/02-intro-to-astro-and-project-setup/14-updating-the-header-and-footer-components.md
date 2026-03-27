@@ -8,7 +8,7 @@ lessonOrder: 14
 published: true
 duration: ""
 summary: ""
-videoId: ""
+videoKey: "updating-the-header-and-footer-components.mp4"
 transcript: ""
 resources: []
 ---

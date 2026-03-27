@@ -8,7 +8,7 @@ lessonOrder: 8
 published: true
 duration: ""
 summary: ""
-videoId: ""
+videoKey: "creating-the-dynamic-route-for-paginated-blog-posts.mp4"
 transcript: ""
 resources: []
 ---

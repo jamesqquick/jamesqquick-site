@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
 import Link from "./Link.astro";
 import SplitSection from "./SplitSection.astro";
 
@@ -52,9 +53,21 @@ const coverIsPublicUrl = typeof image === "string" && image.startsWith("/");
   >
     {
       coverIsPublicUrl ? (
-        <Image inferSize src={image} class="featured-image" alt={title} />
+        <img
+          src={image as string}
+          alt={title}
+          class="featured-image h-auto w-full"
+          loading="eager"
+          decoding="async"
+        />
       ) : (
-        <Image height={540} width={960} src={image} class="featured-image" alt={title} />
+        <Image
+          height={540}
+          width={960}
+          src={image as ImageMetadata}
+          class="featured-image"
+          alt={title}
+        />
       )
     }
   </a>

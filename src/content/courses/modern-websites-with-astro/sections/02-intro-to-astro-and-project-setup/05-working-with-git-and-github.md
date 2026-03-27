@@ -8,7 +8,7 @@ lessonOrder: 5
 published: true
 duration: ""
 summary: ""
-videoId: ""
+videoKey: "working-with-git-and-github.mp4"
 transcript: ""
 resources: []
 ---

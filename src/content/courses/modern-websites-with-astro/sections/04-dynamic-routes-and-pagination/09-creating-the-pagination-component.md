@@ -8,7 +8,7 @@ lessonOrder: 9
 published: true
 duration: ""
 summary: ""
-videoId: ""
+videoKey: "creating-the-pagination-component.mp4"
 transcript: ""
 resources: []
 ---

@@ -8,7 +8,7 @@ lessonOrder: 11
 published: true
 duration: ""
 summary: ""
-videoId: ""
+videoKey: "tailwind-config-file-type.mp4"
 transcript: ""
 resources: []
 ---
