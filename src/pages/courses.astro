@@ -1,6 +1,5 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import CoursesCallout from "../components/CoursesCallout.astro";
 import HeroSection from "@components/HeroSection.astro";
 import Section from "@components/Section.astro";
 import FeaturedSplitSection from "@components/FeaturedSplitSection.astro";
@@ -30,20 +29,23 @@ const formattedCourses = courses.map((course) => ({
 ---
 
 <BaseLayout title="Courses | James Q Quick">
-    <HeroSection title={title} subtitle={subtitle} description={description} hasFullHeight={false}/>
-    {featuredCourse && (
+  <HeroSection title={title} subtitle={subtitle} description={description} hasFullHeight={false} />
+  {
+    featuredCourse && (
       <FeaturedSplitSection
-        isLight={true}
+        tone="elevated"
         image={featuredCourse.data.coverImage!}
         title={featuredCourse.data.title}
         description={featuredCourse.data.description!}
         href={getCourseUrl(featuredCourse)}
         date={(featuredCourse.data.updatedDate ?? featuredCourse.data.pubDate)!}
+        showCta={false}
         openInNewTab={getCourseHostType(featuredCourse) === "external"}
       />
-    )}
-    <Section hasYPadding={true}>
-        <SectionHeader title="More courses"/>
-        <LinkCardList items={formattedCourses} includeDescription={true} dateLabelPrefix="Last updated on " />
-    </Section>
+    )
+  }
+  <Section paddingY="default">
+    <SectionHeader title="More courses" />
+    <LinkCardList items={formattedCourses} includeDescription={true} dateLabelPrefix="Last updated on " />
+  </Section>
 </BaseLayout>

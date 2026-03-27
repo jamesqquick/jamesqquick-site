@@ -7,19 +7,111 @@ export interface Props {
   showUnderline?: boolean;
 }
 const { href, text, classStr = "", isFancy = true, showUnderline = true } = Astro.props;
+
+/** Absolute http(s) or protocol-relative URLs open in a new tab; same-site paths stay in-tab. */
+const isExternal =
+  /^https?:\/\//i.test(href) || href.startsWith("//");
 ---
 
 <a
-  class={`group transition-all duration-300 ease-in-out relative cursor-pointer ${classStr} ${
-    isFancy ? "hover:text-bg" : "hover:text-brand"
-  } z-20`}
+  class:list={[
+    "link-base group cursor-pointer z-20",
+    isFancy ? "link-fancy" : "link-simple",
+    classStr,
+  ]}
   href={href}
-  rel="noopener noreferrer"
-  target="_blank"
+  {...(isExternal
+    ? { target: "_blank", rel: "noopener noreferrer" }
+    : {})}
 >
-  {text}{
-    isFancy && (
-      <span class={`absolute left-0 right-0 group-hover:-left-1 group-hover:-right-1 bottom-1  bg-white group-hover:bg-brand -z-10 group-hover:h-full group-hover:transition-all rounded-sm ${showUnderline ? "h-[1px]" : "h-0"}`} />
+  {
+    isFancy ? (
+      <>
+        <span class="link-fancy-text">{text}</span>
+        <span
+          class:list={["link-fancy-bg", !showUnderline && "link-fancy-bg--no-underline"]}
+          aria-hidden="true"
+        />
+      </>
+    ) : (
+      text
     )
   }
 </a>
+
+<style>
+  .link-base {
+    transition:
+      color var(--duration-fast) var(--ease-out),
+      box-shadow var(--duration-fast) var(--ease-out);
+  }
+
+  .link-base:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .link-simple {
+    color: inherit;
+  }
+
+  .link-simple:hover {
+    color: var(--color-accent);
+  }
+
+  /* Fancy: inline-block gives a real box so the hover fill doesn’t clip glyphs; padding leaves room for the rounded fill. */
+  .link-fancy {
+    position: relative;
+    display: inline-block;
+    overflow: visible;
+    max-width: 100%;
+    padding-inline: 0.35em;
+    padding-block: 0.2em;
+    color: var(--color-text);
+    line-height: 1.45;
+    vertical-align: baseline;
+  }
+
+  .link-fancy-text {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Beat utility `text-*` on the anchor (e.g. `text-text` from classStr). */
+  .link-base.link-fancy:hover,
+  .link-base.link-fancy:hover .link-fancy-text {
+    color: var(--color-bg);
+  }
+
+  .link-fancy-bg {
+    position: absolute;
+    z-index: 0;
+    left: 0;
+    right: 0;
+    bottom: 0.12em;
+    height: 1px;
+    border-radius: var(--radius-button);
+    background: var(--color-text);
+    pointer-events: none;
+    transition:
+      left var(--duration-normal) var(--ease-out),
+      right var(--duration-normal) var(--ease-out),
+      bottom var(--duration-normal) var(--ease-out),
+      height var(--duration-normal) var(--ease-out),
+      background-color var(--duration-normal) var(--ease-out);
+  }
+
+  .link-fancy-bg--no-underline {
+    height: 0;
+    bottom: 0;
+  }
+
+  .link-fancy:hover .link-fancy-bg {
+    left: -0.125rem;
+    right: -0.125rem;
+    bottom: 0;
+    height: 100%;
+    background: var(--color-accent);
+  }
+</style>

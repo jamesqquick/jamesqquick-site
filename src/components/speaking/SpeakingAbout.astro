@@ -1,0 +1,38 @@
+---
+import Section from "../Section.astro";
+import Link from "../Link.astro";
+
+export interface Props {
+  eyebrow: string;
+  heading: string;
+  description: string;
+  imageSrc: string;
+  imageAlt: string;
+  readMoreCta: { label: string; href: string };
+}
+
+const {
+  eyebrow,
+  heading,
+  description,
+  imageSrc,
+  imageAlt,
+  readMoreCta,
+} = Astro.props as Props;
+---
+
+<Section tone="elevated" paddingY="xl">
+  <div class="grid gap-10 lg:grid-cols-2 items-center">
+    <div>
+      <p class="uppercase tracking-[0.2em] text-brand text-xs mb-3">{eyebrow}</p>
+      <h2 class="text-3xl md:text-5xl font-bold mb-5 max-w-xl text-text">{heading}</h2>
+      <p class="text-lg text-textMuted max-w-2xl leading-relaxed">{description}</p>
+      <div class="mt-7">
+        <Link href={readMoreCta.href} text={readMoreCta.label} classStr="font-semibold text-text" />
+      </div>
+    </div>
+    <div class="overflow-hidden rounded-[var(--radius-hero)]">
+      <img src={imageSrc} alt={imageAlt} class="w-full h-[360px] md:h-[420px] object-cover" loading="lazy" />
+    </div>
+  </div>
+</Section>

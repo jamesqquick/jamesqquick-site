@@ -1,4 +1,5 @@
 ---
+import { XATA_API_KEY } from "astro:env/server";
 import { XataClient } from "src/xata";
 import BaseHead from "../components/BaseHead.astro";
 import SocialFollow, { IconSize } from "../components/SocialFollow.astro";
@@ -6,8 +7,11 @@ import SocialFollow, { IconSize } from "../components/SocialFollow.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../config";
 import Logo from "../images/logo.astro";
 
+if (!XATA_API_KEY) {
+  throw new Error("XATA_API_KEY is not configured");
+}
 const xata = new XataClient({
-  apiKey: import.meta.env.XATA_API_KEY,
+  apiKey: XATA_API_KEY,
   branch: import.meta.env.XATA_BRANCH,
 });
 let settings = await xata.db.settings
@@ -54,7 +58,7 @@ const { title, description, image, includeLogo = false } = Astro.props;
         <div></div>
         <slot />
         <footer
-          class="h-16 flex gap-x-8 items-center text-white pb-8 justify-between w-full px-10"
+          class="h-16 flex gap-x-8 items-center text-text pb-8 justify-between w-full px-10"
         >
           <div class="w-[400px]">
             <span class="flex w-min flex-col items-center gap-y-1">

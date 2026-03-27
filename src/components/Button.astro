@@ -15,7 +15,7 @@ export interface Props {
 export enum ButtonType {
   PRIMARY = "primary",
   SECONDARY = "secondary",
-    TERTIARY = "tertiary",
+  TERTIARY = "tertiary",
 }
 const {
   text,
@@ -30,15 +30,14 @@ const {
   hasOutline = true,
 } = Astro.props;
 
-const colorClasses = {
-  primary: "bg-brand border-brand text-bg text-bg hover:text-bg ",
-  secondary:
-    "text-white  border-white hover:text-brand hover:border-brand ",
-    tertiary: "text-white border-white border-transparent hover:text-brand",
+const variantClasses = {
+  primary: "button--primary",
+  secondary: "button--secondary",
+  tertiary: "button--tertiary",
 };
-const classes = `text-center text-lg lg:text-xl rounded-full px-8 py-2 border inline-block transition flex gap-x-4 items-center justify-center ${
+const classes = `button-base ${variantClasses[type]} ${hasOutline ? "button--outline" : ""} ${
   classStr || ""
-} ${colorClasses[type]}`;
+}`;
 ---
 
 {
@@ -49,6 +48,90 @@ const classes = `text-center text-lg lg:text-xl rounded-full px-8 py-2 border in
     </button>
   )
 }
+
+<style>
+  .button-base {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: var(--radius-button);
+    padding: 0.75rem 1.25rem;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.25rem;
+    text-align: center;
+    transition:
+      color var(--duration-fast) var(--ease-out),
+      background-color var(--duration-fast) var(--ease-out),
+      border-color var(--duration-fast) var(--ease-out),
+      box-shadow var(--duration-normal) var(--ease-out),
+      transform var(--duration-normal) var(--ease-out);
+  }
+
+  .button-base:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .button-base:active {
+    transform: translateY(0);
+  }
+
+  .button-base:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+    box-shadow: var(--shadow-focus);
+  }
+
+  .button--primary {
+    background: var(--color-accent);
+    border-color: transparent;
+    color: var(--color-text-on-accent);
+  }
+
+  .button--primary:hover {
+    background: var(--color-accent-hover);
+    color: var(--color-text-on-accent);
+  }
+
+  .button--secondary {
+    background: transparent;
+    border-color: var(--color-border);
+    color: var(--color-text);
+  }
+
+  .button--secondary:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    background: var(--color-accent-subtle);
+  }
+
+  .button--tertiary {
+    background: transparent;
+    border-color: transparent;
+    color: var(--color-text);
+  }
+
+  .button--tertiary:hover {
+    color: var(--color-accent);
+  }
+
+  .button--outline {
+    border-width: 1px;
+  }
+
+  @media (min-width: 1024px) {
+    .button-base {
+      font-size: 1.125rem;
+      line-height: 1.75rem;
+      padding: 0.875rem 1.5rem;
+    }
+  }
+</style>
 {
   isLink && download && (
     <a href={href} class={classes} download>

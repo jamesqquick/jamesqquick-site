@@ -4,34 +4,49 @@ import SpeakerForm from "./speaking/SpeakerForm.svelte";
 import selfie from "../images/selfie-lg.jpeg";
 import { Image } from "astro:assets";
 import Link from "./Link.astro";
+
+export interface Props {
+  kitLinks?: { label: string; href: string }[];
+}
+
+const { kitLinks = [] } = Astro.props as Props;
 ---
 
-<Section
-  hasYPadding={false}
-  hasMaxWidth={false}
-  classStr="pb-20"
->
-  <div class="grid lg:grid-cols-2 grid-cols-1 gap-10">
-    <div>
-      <p class="opacity-80 mb-10">
+<Section tone="elevated" paddingY="xl" hasMaxWidth={false}>
+  <div class="grid grid-cols-1 gap-8 max-w-6xl mx-auto lg:grid-cols-2">
+    <div class="speaker-card border border-border bg-surface text-text shadow-sm p-8">
+      <p class="text-brand uppercase tracking-[0.2em] text-xs mb-3">Let's work together</p>
+      <h2 class="text-4xl font-bold mb-4">Bring me to your event</h2>
+      <p class="text-textMuted mb-8">
         Please first read through my <Link
           text="Speaker Rider"
           isFancy={true}
           href="/speaking/rider"
-          classStr="font-bold"
+          classStr="font-bold text-text hover:text-accent"
         />first to make sure it's a good fit. Then, fill out the speaker form to
         initiate the process and let's make it happen.
       </p>
 
       <h2
-        class="mb-2 block text-brand text-2xl text-light tracking-widest uppercase font-bold"
+        class="mb-2 block text-brand text-xl tracking-widest uppercase font-bold"
       >
-        You might need
+        You might also need
       </h2>
+      {
+        kitLinks.length > 0 && (
+          <ul class="mb-8 flex flex-col gap-3">
+            {kitLinks.map((item) => (
+              <li>
+                <Link href={item.href} text={item.label} isFancy={false} classStr="underline underline-offset-4 text-text hover:text-accent" />
+              </li>
+            ))}
+          </ul>
+        )
+      }
       <div class="mb-10">
         <p class="text-lg underline underline-offset-4 mb-4">Speaker Bio</p>
-        <p>
-            James is a developer, keynote speaker, and teacher whose work has impacted thousands of developers across the world. James has over 10 years of Software Development and Developer Advocacy experience, and is currently serving as Head of Developer Experience at BigCommerce. In his spare time, he enjoys traveling and playing co-ed soccer with his wife, chasing around their toddler, and solving a Rubik's cube in under a minute.
+        <p class="text-text">
+            James is a developer, keynote speaker, and teacher whose work has impacted thousands of developers across the world. James has over 10 years of Software Development and Developer Advocacy experience. In his spare time, he enjoys traveling and playing co-ed soccer with his wife, playing with their two kids, and solving a Rubik's cube in under a minute.
         </p>
       </div>
       <Image
@@ -40,12 +55,22 @@ import Link from "./Link.astro";
         width={426}
         height={284}
         format="webp"
-        class="mb-4 rounded-lg"
+        class="mb-4 rounded-lg w-full max-w-md"
       />
-      <a href="/images/selfie-square.jpeg" class="underline underline-offset-4"
+      <a href="/images/selfie-square.jpeg" class="underline underline-offset-4 text-text hover:text-accent"
         >Download headshot</a
       >
     </div>
-    <SpeakerForm client:load />
+    <div class="speaker-card border border-border bg-surface text-text shadow-sm p-8">
+      <p class="text-brand uppercase tracking-[0.2em] text-xs mb-3">Request details</p>
+      <h3 class="text-3xl font-bold mb-6">Tell me about your event</h3>
+      <SpeakerForm client:load />
+    </div>
   </div>
 </Section>
+
+<style>
+  .speaker-card {
+    border-radius: var(--radius-hero);
+  }
+</style>

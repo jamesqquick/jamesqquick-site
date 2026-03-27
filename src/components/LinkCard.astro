@@ -35,7 +35,7 @@ const tagToLogo = {
 };
 ---
 
-<div class="overflow-hidden">
+<div class="card-shell overflow-hidden" data-interactive>
   <div class="flex items-center justify-center w-full object-cover mb-4">
     <a href={slug} class="grow hover:underline" target={openInNewTab ? "_blank" : undefined} rel={openInNewTab ? "noopener noreferrer" : undefined}>
       <Image
@@ -43,21 +43,22 @@ const tagToLogo = {
         width={image.width}
         src={image}
         alt={title}
-        class="rounded-2xl aspect-video object-cover"
+        class="card-image aspect-video object-cover"
       />
     </a>
   </div>
 
-  <p class="mb-1">{dateLabelPrefix}{getFormattedDate(date)}</p>
+  {tag && <span class="card-chip mb-2 inline-flex">{tag}</span>}
+  <p class="mb-1 card-date">{dateLabelPrefix}{getFormattedDate(date)}</p>
   <a href={slug} class="grow hover:underline" target={openInNewTab ? "_blank" : undefined} rel={openInNewTab ? "noopener noreferrer" : undefined}>
     <h3
-      class="text-white font-bold hover:text-brand text-2xl transition-colors mb-2"
+      class="card-title font-bold text-2xl transition-colors mb-2"
     >
       {title}
     </h3>
   </a>
   {description && (
-    <p class="text-gray-400">{description}</p>
+    <p class="card-description">{description}</p>
   )}
 </div>
 <!-- {
@@ -70,3 +71,53 @@ const tagToLogo = {
         )
       } -->
 <!-- </div> -->
+
+<style>
+  .card-shell {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+    padding: 1rem;
+    transition:
+      transform var(--duration-normal) var(--ease-out),
+      box-shadow var(--duration-normal) var(--ease-out),
+      border-color var(--duration-fast) var(--ease-out);
+  }
+
+  .card-shell:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-accent);
+  }
+
+  .card-image {
+    border-radius: calc(var(--radius-card) - 4px);
+  }
+
+  .card-chip {
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-weight: 600;
+    border-radius: var(--radius-full);
+    color: var(--color-text);
+    background: var(--color-ai-subtle);
+    border: 1px solid rgba(53, 207, 255, 0.35);
+    padding: 0.25rem 0.625rem;
+  }
+
+  .card-date,
+  .card-description {
+    color: var(--color-text-muted);
+  }
+
+  .card-title {
+    color: var(--color-text);
+    font-family: var(--font-display);
+    line-height: 1.2;
+  }
+
+  .card-title:hover {
+    color: var(--color-accent);
+  }
+</style>

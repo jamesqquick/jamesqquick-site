@@ -1,0 +1,93 @@
+---
+import { Icon } from "astro-icon/components";
+
+export interface Props {
+  modalId: string;
+  ariaLabel: string;
+  closeAriaLabel?: string;
+  maxWidthClass?: string;
+  contentClass?: string;
+}
+
+const {
+  modalId,
+  ariaLabel,
+  closeAriaLabel = "Close popup",
+  maxWidthClass = "max-w-6xl",
+  contentClass = "",
+} = Astro.props as Props;
+---
+
+<div
+  data-modal-id={modalId}
+  data-modal-state="closed"
+  class="fixed inset-0 !z-[2147483647] hidden items-center justify-center bg-black/65 backdrop-blur-sm p-4 sm:p-6"
+  role="dialog"
+  aria-modal="true"
+  aria-label={ariaLabel}
+>
+  <button
+    type="button"
+    data-modal-backdrop
+    class="absolute inset-0 cursor-default"
+    aria-label={closeAriaLabel}
+  ></button>
+  <div
+    data-modal-content
+    class:list={["relative !z-[2147483647] w-full pointer-events-none", maxWidthClass]}
+  >
+    <button
+      type="button"
+      data-modal-close
+      class="pointer-events-auto absolute -top-11 right-0 flex h-9 w-9 items-center justify-center rounded-full border border-border text-text transition-colors hover:text-accent hover:border-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+      aria-label={closeAriaLabel}
+    >
+      <Icon name="mdi:close" class="h-5 w-5" aria-hidden="true" />
+    </button>
+    <div class:list={["pointer-events-auto", contentClass]}>
+      <slot />
+    </div>
+  </div>
+</div>
+
+<style>
+  [data-modal-id] {
+    opacity: 0;
+    transition: opacity 220ms ease;
+  }
+
+  [data-modal-backdrop] {
+    opacity: 0;
+    transition: opacity 220ms ease;
+  }
+
+  [data-modal-content] {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+    transition:
+      opacity 220ms ease,
+      transform 220ms ease;
+  }
+
+  [data-modal-id][data-modal-state="open"] {
+    opacity: 1;
+  }
+
+  [data-modal-id][data-modal-state="open"] [data-modal-backdrop] {
+    opacity: 1;
+  }
+
+  [data-modal-id][data-modal-state="open"] [data-modal-content] {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-modal-id],
+    [data-modal-backdrop],
+    [data-modal-content] {
+      transition-duration: 1ms !important;
+      transition-delay: 0ms !important;
+    }
+  }
+</style>

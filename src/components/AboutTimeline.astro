@@ -1,0 +1,339 @@
+---
+import Section from "./Section.astro";
+
+export interface TimelineItem {
+  date: string;
+  title: string;
+  company?: string;
+  tag?: string;
+  description?: string;
+}
+
+export interface Props {
+  title?: string;
+  kicker?: string;
+  intro?: string;
+  items: TimelineItem[];
+}
+
+const {
+  title = "Career timeline",
+  kicker = "Timeline",
+  intro = "A quick look at the roles that shaped my journey in software, advocacy, and developer education.",
+  items,
+} = Astro.props as Props;
+---
+
+<Section classStr="pt-0 md:pt-2 lg:pt-4">
+  <div class="timeline-shell">
+    <div class="timeline-header mb-8 md:mb-10">
+      <p class="timeline-kicker uppercase tracking-[0.18em] text-xs mb-3">{kicker}</p>
+      <h2 class="timeline-title text-3xl md:text-4xl font-bold mb-3">{title}</h2>
+      <p class="timeline-intro text-lg">{intro}</p>
+    </div>
+
+    <ol class="timeline-list" aria-label="Career timeline" data-timeline-list>
+      {
+        items.map((item, idx) => (
+          <li
+            class={`timeline-item timeline-reveal ${idx % 2 === 0 ? "timeline-item-left" : "timeline-item-right"}`}
+            data-timeline-item
+            style={`--timeline-reveal-delay: ${Math.min(idx * 70, 280)}ms;`}
+          >
+            <div class="timeline-marker" aria-hidden="true"></div>
+            <div class="timeline-content" data-interactive>
+              <div class="timeline-top-row">
+                <p class="timeline-date">{item.date}</p>
+                {item.company ? <p class="timeline-company">{item.company}</p> : null}
+              </div>
+              <h3 class="timeline-role">{item.title}</h3>
+              {item.description ? <p class="timeline-description">{item.description}</p> : null}
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</Section>
+
+<style>
+  .timeline-shell {
+    position: relative;
+  }
+
+  .timeline-kicker {
+    color: var(--color-accent);
+    font-family: var(--font-display);
+    font-weight: 600;
+  }
+
+  .timeline-title {
+    color: var(--color-text);
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+
+  .timeline-intro {
+    color: var(--color-text-muted);
+    max-width: 48rem;
+  }
+
+  .timeline-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+  }
+
+  .timeline-list::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--color-accent) 75%, transparent),
+      color-mix(in srgb, var(--color-info) 35%, transparent),
+      color-mix(in srgb, var(--color-border) 70%, transparent)
+    );
+  }
+
+  .timeline-item {
+    position: relative;
+    padding-left: 1.25rem;
+    padding-bottom: 2.4rem;
+  }
+
+  .timeline-item:last-child {
+    padding-bottom: 0;
+  }
+
+  .timeline-marker {
+    position: absolute;
+    left: -0.34rem;
+    top: 0.25rem;
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 9999px;
+    border: 2px solid var(--color-accent);
+    background: var(--color-bg);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-accent) 16%, transparent);
+    transition:
+      box-shadow var(--duration-normal) var(--ease-out),
+      transform var(--duration-normal) var(--ease-out),
+      border-color var(--duration-fast) var(--ease-out);
+    z-index: 2;
+  }
+
+  .timeline-content {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    background: color-mix(in srgb, var(--color-surface) 94%, transparent);
+    box-shadow: var(--shadow-sm);
+    padding: 1rem 1rem 0.95rem;
+    transition:
+      transform var(--duration-fast) var(--ease-out),
+      box-shadow var(--duration-normal) var(--ease-out),
+      border-color var(--duration-fast) var(--ease-out);
+  }
+
+  .timeline-content:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card);
+    border-color: color-mix(in srgb, var(--color-accent) 55%, var(--color-border));
+  }
+
+  .timeline-item.is-active .timeline-marker {
+    border-color: color-mix(in srgb, var(--color-accent) 90%, white 10%);
+    background: color-mix(in srgb, var(--color-accent) 30%, var(--color-bg));
+    box-shadow:
+      0 0 0 8px color-mix(in srgb, var(--color-accent) 28%, transparent),
+      0 0 34px color-mix(in srgb, var(--color-accent) 62%, transparent),
+      0 0 52px color-mix(in srgb, var(--color-accent) 36%, transparent);
+    transform: scale(1.24);
+    animation: timeline-pulse 2s var(--ease-emphasized) infinite;
+  }
+
+  .timeline-item.is-active .timeline-content {
+    border-color: color-mix(in srgb, var(--color-accent) 62%, var(--color-border));
+    box-shadow:
+      var(--shadow-card),
+      0 0 0 1px color-mix(in srgb, var(--color-accent) 34%, transparent);
+  }
+
+  .timeline-reveal {
+    opacity: 0;
+    transform: translateY(24px) scale(0.985);
+    transition:
+      opacity 520ms var(--ease-out) var(--timeline-reveal-delay, 0ms),
+      transform 560ms var(--ease-out) var(--timeline-reveal-delay, 0ms);
+  }
+
+  .timeline-item-left.timeline-reveal {
+    transform: translateX(-18px) translateY(20px) scale(0.985);
+  }
+
+  .timeline-item-right.timeline-reveal {
+    transform: translateX(18px) translateY(20px) scale(0.985);
+  }
+
+  .timeline-reveal.is-visible {
+    opacity: 1;
+    transform: translateX(0) translateY(0) scale(1);
+  }
+
+  @keyframes timeline-pulse {
+    0%,
+    100% {
+      box-shadow:
+        0 0 0 7px color-mix(in srgb, var(--color-accent) 28%, transparent),
+        0 0 28px color-mix(in srgb, var(--color-accent) 58%, transparent),
+        0 0 44px color-mix(in srgb, var(--color-accent) 34%, transparent);
+    }
+    50% {
+      box-shadow:
+        0 0 0 11px color-mix(in srgb, var(--color-accent) 22%, transparent),
+        0 0 42px color-mix(in srgb, var(--color-accent) 70%, transparent),
+        0 0 60px color-mix(in srgb, var(--color-accent) 42%, transparent);
+    }
+  }
+
+  .timeline-top-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 0.45rem;
+    flex-wrap: wrap;
+  }
+
+  .timeline-date {
+    color: color-mix(in srgb, var(--color-accent) 90%, white 10%);
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    margin: 0;
+    border: 1px solid color-mix(in srgb, var(--color-accent) 45%, transparent);
+    border-radius: 9999px;
+    background: color-mix(in srgb, var(--color-accent) 12%, transparent);
+    padding: 0.3rem 0.65rem;
+    display: inline-flex;
+    width: fit-content;
+  }
+
+  .timeline-role {
+    color: var(--color-text);
+    font-size: 1.35rem;
+    line-height: 1.2;
+    font-family: var(--font-display);
+    margin: 0 0 0.2rem;
+  }
+
+  .timeline-company {
+    color: var(--color-text-muted);
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  .timeline-description {
+    color: var(--color-text-subtle);
+    margin: 0;
+    max-width: 44rem;
+  }
+
+  @media (min-width: 768px) {
+    .timeline-list::before {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .timeline-item {
+      width: calc(50% - 1.25rem);
+      padding-left: 0;
+      padding-bottom: 3rem;
+    }
+
+    .timeline-item-left {
+      margin-right: auto;
+    }
+
+    .timeline-item-right {
+      margin-left: auto;
+    }
+
+    .timeline-item-left .timeline-marker {
+      left: auto;
+      right: -1.66rem;
+    }
+
+    .timeline-item-right .timeline-marker {
+      left: -1.66rem;
+    }
+
+    .timeline-role {
+      font-size: 1.6rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .timeline-reveal,
+    .timeline-reveal.is-visible,
+    .timeline-content,
+    .timeline-marker {
+      transition-duration: 0.01ms !important;
+      transform: none !important;
+      opacity: 1 !important;
+      animation: none !important;
+    }
+  }
+</style>
+
+<script>
+  const roots = document.querySelectorAll("[data-timeline-list]");
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  roots.forEach((root) => {
+    const items = root.querySelectorAll("[data-timeline-item]");
+    if (items.length === 0) return;
+
+    if (reducedMotion) {
+      items.forEach((item, idx) => {
+        item.classList.add("is-visible");
+        if (idx === 0) item.classList.add("is-active");
+      });
+      return;
+    }
+
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15, rootMargin: "0px 0px -24% 0px" }
+    );
+
+    const activeObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          items.forEach((node) => node.classList.remove("is-active"));
+          entry.target.classList.add("is-active");
+        });
+      },
+      // Activate only when an item enters a narrow center band.
+      { threshold: 0, rootMargin: "-49% 0px -49% 0px" }
+    );
+
+    items.forEach((item) => {
+      revealObserver.observe(item);
+      activeObserver.observe(item);
+    });
+  });
+
+</script>

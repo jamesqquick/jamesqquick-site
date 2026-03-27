@@ -1,0 +1,66 @@
+---
+import { Image } from "astro:assets";
+import PopupModal from "../PopupModal.astro";
+import type { ImageMetadata } from "astro";
+
+export interface GalleryItem {
+  src: ImageMetadata;
+  alt: string;
+  href: string;
+}
+
+export interface Props {
+  items: GalleryItem[];
+}
+
+const { items } = Astro.props as Props;
+---
+
+<section class="pt-0 pb-0 md:pt-0 md:pb-0 bg-surface">
+  <div class="grid w-full grid-cols-1 gap-0 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-3" data-gallery-grid>
+    {
+      items.map((item, idx) => (
+        <button
+          type="button"
+          class="block overflow-hidden text-left"
+          data-gallery-open
+          data-index={idx}
+          aria-label={`Open image: ${item.alt}`}
+        >
+          <Image
+            src={item.src}
+            alt={item.alt}
+            format="webp"
+            quality={80}
+            widths={[480, 768, 1024]}
+            sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+            class="h-80 w-full object-cover md:h-80 lg:h-96 transition-transform duration-300 hover:scale-105"
+            loading="lazy"
+          />
+        </button>
+      ))
+    }
+  </div>
+
+  <PopupModal
+    modalId="speaking-gallery"
+    ariaLabel="Image viewer"
+    closeAriaLabel="Close image viewer"
+    maxWidthClass="max-w-7xl"
+  >
+    <img
+      data-gallery-modal-image
+      src=""
+      alt=""
+      class="mx-auto max-h-[90vh] w-auto max-w-full rounded-xl border border-border bg-bgDark object-contain shadow-2xl shadow-black/60"
+    />
+  </PopupModal>
+</section>
+
+<script>
+  import { initImageGalleryModal } from "../../utils/modal";
+
+  document.querySelectorAll("[data-gallery-grid]").forEach((grid) => {
+    initImageGalleryModal(grid, "speaking-gallery");
+  });
+</script>

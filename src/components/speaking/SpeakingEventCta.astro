@@ -1,0 +1,46 @@
+---
+import Section from "../Section.astro";
+
+export interface Props {
+  heading: string;
+  body: string;
+  primaryCta: { label: string; href: string };
+}
+
+const { heading, body, primaryCta } = Astro.props as Props;
+---
+
+<Section paddingY="xl" classStr="speaking-event-cta">
+  <div class="max-w-3xl text-center mx-auto">
+    <h2 class="text-3xl md:text-5xl font-bold mb-5">{heading}</h2>
+    <p class="text-lg speaking-event-copy mb-8">{body}</p>
+    <a
+      href={primaryCta.href}
+      class="inline-block rounded-full border px-6 py-3 font-semibold transition-colors speaking-event-button"
+    >
+      {primaryCta.label}
+    </a>
+  </div>
+</Section>
+
+<style>
+  .speaking-event-cta {
+    background: var(--color-speaking-subtle);
+    color: var(--color-text);
+  }
+
+  .speaking-event-copy {
+    color: var(--color-text-muted);
+  }
+
+  .speaking-event-button {
+    border-color: var(--color-border);
+    color: var(--color-text);
+  }
+
+  .speaking-event-button:hover {
+    border-color: var(--color-speaking);
+    background: var(--color-speaking);
+    color: var(--color-bg);
+  }
+</style>

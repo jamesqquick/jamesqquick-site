@@ -1,50 +1,153 @@
 ---
-import Section from "./Section.astro";
 import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import Link from "./Link.astro";
 import SplitSection from "./SplitSection.astro";
 
 export interface Props {
-  image: any;
-    title: string;
-    description: string;
-    href:string
-    date: Date
-    openInNewTab?: boolean;
-    isLight?: boolean;
-    hasYPadding?: boolean;
-    classStr?: string;
+  image: ImageMetadata;
+  title: string;
+  description: string;
+  href: string;
+  date: Date;
+  /** When true, shows the fancy “Read blog” link (e.g. blog featured). Courses omit this. */
+  showCta?: boolean;
+  /** Open image + title links in a new tab (e.g. external course URLs). */
+  openInNewTab?: boolean;
+  tone?: "base" | "elevated";
+  paddingY?: "none" | "half" | "compact" | "default" | "spacious" | "xl";
+  classStr?: string;
 }
 
-const { image, title, description, href, date, openInNewTab = false, isLight, hasYPadding = true, classStr } = Astro.props as Props;
+const {
+  image,
+  title,
+  description,
+  href,
+  date,
+  showCta = true,
+  openInNewTab = false,
+  tone,
+  paddingY = "default",
+  classStr,
+} = Astro.props as Props;
 
+const externalRel = openInNewTab ? "noopener noreferrer" : undefined;
 ---
 
-<SplitSection isLight={isLight} hasYPadding={hasYPadding} classStr={classStr}>
-    <a href={href} slot="left" target={openInNewTab ? "_blank" : undefined} rel={openInNewTab ? "noopener noreferrer" : undefined}>
-      <Image
-        height={540}
-        width={960}
-        src={image}
-        class="rounded-2xl"
-        alt={title}
-      />
+<SplitSection
+  tone={tone}
+  paddingY={paddingY}
+  classStr={classStr}
+  contentClassStr="featured-shell"
+>
+  <a
+    href={href}
+    slot="left"
+    target={openInNewTab ? "_blank" : undefined}
+    rel={externalRel}
+  >
+    <Image
+      height={540}
+      width={960}
+      src={image}
+      class="featured-image"
+      alt={title}
+    />
+  </a>
+  <div slot="right" class="featured-content" data-interactive>
+    <p class="featured-kicker text-lg uppercase">Featured</p>
+    <a
+      href={href}
+      class="featured-title-link"
+      target={openInNewTab ? "_blank" : undefined}
+      rel={externalRel}
+    >
+      <h2 class="featured-title text-3xl font-bold mb-1">{title}</h2>
     </a>
-    <div slot="right">
-      <p class="text-lg uppercase text-brand">Featured</p>
-      <a href={href} target={openInNewTab ? "_blank" : undefined} rel={openInNewTab ? "noopener noreferrer" : undefined}>
-        <h2 class="text-3xl font-bold mb-1">{title}</h2>
-      </a>
-      <p class="text-lg opacity-80 mb-4">
-        {description}
+    <p class="featured-description text-lg mb-4">
+      {description}
+    </p>
+    <div
+      class:list={[
+        "flex items-center gap-4",
+        showCta ? "justify-between" : "justify-end",
+      ]}
+    >
+      {
+        showCta ? (
+          <Link isFancy={true} href={href} text="Read blog" />
+        ) : null
+      }
+      <p class="featured-date text-lg">
+        {date.toLocaleDateString("en-us", {
+          year: "numeric",
+          month: "short",
+          day: "numeric",
+        })}
       </p>
-      <div class="flex justify-start">
-        <p class="text-lg opacity-80">
-          Last updated on {date.toLocaleDateString("en-us", {
-            year: "numeric",
-            month: "short",
-            day: "numeric",
-          })}
-        </p>
-      </div>
     </div>
+  </div>
 </SplitSection>
+
+<style>
+  .featured-shell {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-hero);
+    overflow: hidden;
+    padding: 1rem;
+    background: color-mix(in srgb, var(--color-surface) 86%, transparent);
+  }
+
+  @media (min-width: 768px) {
+    .featured-shell {
+      padding: 1.5rem;
+    }
+  }
+
+  .featured-image {
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+  }
+
+  .featured-content {
+    background: var(--color-surface);
+    border-radius: var(--radius-hero);
+    box-shadow: var(--shadow-card);
+    overflow: hidden;
+    padding: 1.5rem;
+    transition:
+      transform var(--duration-normal) var(--ease-out),
+      box-shadow var(--duration-normal) var(--ease-out),
+      border-color var(--duration-fast) var(--ease-out);
+  }
+
+  .featured-content:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-accent);
+  }
+
+  .featured-kicker {
+    color: var(--color-accent);
+    font-family: var(--font-sans);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+
+  .featured-title {
+    font-family: var(--font-display);
+    color: var(--color-text);
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+  }
+
+  .featured-title-link:hover .featured-title {
+    color: var(--color-accent);
+  }
+
+  .featured-description,
+  .featured-date {
+    color: var(--color-text-muted);
+  }
+</style>

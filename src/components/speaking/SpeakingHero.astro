@@ -1,0 +1,361 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import CarouselNavButton from "../CarouselNavButton.astro";
+import Section from "../Section.astro";
+
+export interface Props {
+  eyebrow: string;
+  title: string;
+  description?: string;
+  images: { src: ImageMetadata; alt: string; event: string; location: string }[];
+  primaryCta: { label: string; href: string };
+  secondaryCta: { label: string; href: string };
+}
+
+const {
+  eyebrow,
+  title,
+  description,
+  images,
+  primaryCta,
+  secondaryCta,
+} = Astro.props as Props;
+
+const secondaryIsExternal = /^https?:\/\//i.test(secondaryCta.href);
+const first = images[0];
+const n = images.length;
+
+function stackFor(index: number, selected: number) {
+  if (n === 0) return "hidden";
+  const rel = (index - selected + n) % n;
+  if (rel === 0) return "0";
+  if (rel === 1) return "1";
+  if (rel === 2) return "2";
+  return "hidden";
+}
+---
+
+<Section hasYPadding={false} classStr="speaking-hero-section pt-16 md:pt-24 pb-16 md:pb-20">
+  <div class="speaking-hero-shell grid gap-10 items-center lg:grid-cols-2">
+    <div>
+      <p class="uppercase tracking-[0.2em] text-accent text-xs mb-5">{eyebrow}</p>
+      <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6 max-w-xl">{title}</h1>
+      {
+        description ? (
+          <p class="text-lg text-textMuted max-w-xl">{description}</p>
+        ) : null
+      }
+      <div class="mt-8 flex flex-wrap items-center gap-6">
+        <a
+          href={primaryCta.href}
+          class="inline-block rounded-full border border-border px-6 py-3 font-semibold transition-colors hover:border-accent hover:text-accent"
+        >
+          {primaryCta.label}
+        </a>
+        <a
+          href={secondaryCta.href}
+          class="underline underline-offset-4 transition-colors hover:text-accent"
+          {...(secondaryIsExternal
+            ? { target: "_blank", rel: "noopener noreferrer" }
+            : {})}
+        >
+          {secondaryCta.label}
+        </a>
+      </div>
+    </div>
+
+    <div
+      class="group speaking-hero-carousel mx-auto w-full max-w-none md:max-w-[400px] lg:max-w-[460px]"
+      data-hero-carousel
+      tabindex="0"
+      role="region"
+      aria-roledescription="carousel"
+      aria-label="Speaking photos"
+    >
+      <div class="relative pr-6 pt-1 sm:pr-8 sm:pt-0 md:pr-10">
+        <div class="relative">
+          <div
+            class="hero-deck-viewport relative mx-auto aspect-[3/4] w-full overflow-visible"
+            aria-hidden="false"
+          >
+          <div class="hero-deck-stack pointer-events-none absolute inset-0">
+            {
+              images.map((img, idx) => (
+                <div
+                  class="hero-deck-card absolute left-0 top-0 h-full w-full will-change-transform"
+                  id={`speaking-hero-slide-${idx}`}
+                  data-hero-card
+                  data-index={idx}
+                  data-stack={stackFor(idx, 0)}
+                  role="group"
+                  aria-roledescription="slide"
+                  aria-label={`${idx + 1} of ${images.length}: ${img.alt}`}
+                  data-event={img.event}
+                  data-location={img.location}
+                >
+                  <div class="hero-deck-card-inner h-full w-full overflow-hidden rounded-[var(--radius-hero)] border border-border bg-surface shadow-xl shadow-black/30">
+                    <Image
+                      class="h-full w-full object-cover"
+                      src={img.src}
+                      alt={img.alt}
+                      format="webp"
+                      quality={82}
+                      widths={[360, 480, 720, 960]}
+                      sizes="(min-width: 1024px) 460px, (min-width: 768px) 400px, 100vw"
+                      loading={idx === 0 ? "eager" : "lazy"}
+                    />
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+          </div>
+          <!-- Position nav relative to the front viewport, not the padded wrapper -->
+          <CarouselNavButton
+            direction="prev"
+            size="sm"
+            ariaLabel="Previous speaking photo"
+            class="left-2 z-40"
+          />
+          <CarouselNavButton
+            direction="next"
+            size="sm"
+            ariaLabel="Next speaking photo"
+            class="right-2 z-40"
+          />
+        </div>
+      </div>
+
+      <div class="mt-7 w-full" aria-live="polite">
+        <div class="mx-auto flex w-full justify-center md:max-w-[92%] lg:max-w-[88%]">
+          <div class="hero-carousel-meta inline-grid w-full max-w-full grid-cols-[2.75rem_minmax(0,1fr)] gap-x-3 text-left md:max-w-[19rem] sm:gap-x-4 lg:max-w-[20rem]">
+            <div class="flex flex-shrink-0 flex-col items-center pt-1" aria-hidden="true">
+              <span
+                class="hero-pin-dot h-3 w-3 flex-shrink-0 rounded-full bg-accent shadow-[0_0_14px_3px_rgba(43,241,181,0.45)] ring-2 ring-accent/30"
+              />
+              <span class="mt-0.5 h-[22px] w-px flex-shrink-0 bg-gradient-to-b from-accent via-accent/70 to-accent/15 sm:h-6" />
+            </div>
+            <div class="flex min-h-[5rem] min-w-0 flex-col justify-start sm:min-h-[5.25rem]">
+              <p
+                data-carousel-event
+                class="text-[0.9375rem] font-medium uppercase leading-snug tracking-[0.08em] text-text sm:text-lg sm:tracking-[0.06em]"
+              >
+                {first?.event ?? ""}
+              </p>
+              <p
+                data-carousel-location
+                class="mt-1 min-h-[1.25em] text-sm leading-snug text-textMuted sm:text-[0.9375rem]"
+              >
+                {first?.location ?? ""}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Section>
+
+<style>
+  :global(.speaking-hero-section) {
+    position: relative;
+    z-index: 0;
+  }
+
+  :global(.speaking-hero-section .section-container) {
+    position: relative;
+    z-index: 1;
+  }
+
+  :global(.speaking-hero-section)::before {
+    content: "";
+    position: absolute;
+    top: -7rem;
+    bottom: -2rem;
+    left: 50%;
+    width: 100vw;
+    transform: translateX(-50%);
+    background:
+      radial-gradient(780px 360px at 12% 18%, var(--color-accent-subtle), transparent 72%),
+      radial-gradient(620px 280px at 34% 8%, color-mix(in srgb, var(--color-accent) 14%, transparent), transparent 78%),
+      radial-gradient(900px 360px at 82% 26%, color-mix(in srgb, var(--color-info) 12%, transparent), transparent 82%);
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  :global(.speaking-hero-section)::after {
+    content: "";
+    position: absolute;
+    top: -4rem;
+    right: -2rem;
+    bottom: -2rem;
+    width: min(44vw, 520px);
+    background-image:
+      linear-gradient(to right, color-mix(in srgb, var(--color-border) 64%, transparent) 1px, transparent 1px),
+      linear-gradient(to bottom, color-mix(in srgb, var(--color-border) 64%, transparent) 1px, transparent 1px);
+    background-size: 30px 30px;
+    opacity: 0.44;
+    mask-image: radial-gradient(92% 92% at 74% 50%, black 0%, transparent 100%);
+    -webkit-mask-image: radial-gradient(92% 92% at 74% 50%, black 0%, transparent 100%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  @media (max-width: 1023px) {
+    :global(.speaking-hero-section)::after {
+      display: none;
+    }
+  }
+
+  .hero-deck-card {
+    transform-origin: center center;
+    transition:
+      transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+      opacity 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+      filter 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .hero-deck-card[data-stack="0"] {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 1;
+    filter: brightness(1);
+    z-index: 30;
+    pointer-events: auto;
+  }
+
+  .hero-deck-card[data-stack="1"] {
+    transform: translate3d(1.35rem, 0, 0) scale(0.93);
+    opacity: 0.82;
+    filter: brightness(0.52);
+    z-index: 20;
+  }
+
+  .hero-deck-card[data-stack="2"] {
+    transform: translate3d(2.65rem, 0, 0) scale(0.86);
+    opacity: 0.68;
+    filter: brightness(0.42);
+    z-index: 10;
+  }
+
+  .hero-deck-card[data-stack="hidden"] {
+    transform: translate3d(3.6rem, 0, 0) scale(0.8);
+    opacity: 0;
+    filter: brightness(0.35);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  @media (min-width: 640px) {
+    .hero-deck-card[data-stack="1"] {
+      transform: translate3d(1.65rem, 0, 0) scale(0.935);
+    }
+    .hero-deck-card[data-stack="2"] {
+      transform: translate3d(3.15rem, 0, 0) scale(0.87);
+    }
+    .hero-deck-card[data-stack="hidden"] {
+      transform: translate3d(4.25rem, 0, 0) scale(0.82);
+    }
+  }
+
+  @media (min-width: 768px) {
+    .hero-deck-card[data-stack="1"] {
+      transform: translate3d(1.85rem, 0, 0) scale(0.94);
+    }
+    .hero-deck-card[data-stack="2"] {
+      transform: translate3d(3.55rem, 0, 0) scale(0.88);
+    }
+    .hero-deck-card[data-stack="hidden"] {
+      transform: translate3d(4.85rem, 0, 0) scale(0.83);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .hero-deck-card[data-stack="1"] {
+      transform: translate3d(2.05rem, 0, 0) scale(0.945);
+    }
+    .hero-deck-card[data-stack="2"] {
+      transform: translate3d(3.95rem, 0, 0) scale(0.89);
+    }
+    .hero-deck-card[data-stack="hidden"] {
+      transform: translate3d(5.35rem, 0, 0) scale(0.84);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-deck-card {
+      transition-duration: 0.01ms;
+    }
+  }
+</style>
+
+<script>
+  const roots = document.querySelectorAll("[data-hero-carousel]");
+
+  roots.forEach((root) => {
+    const cards = root.querySelectorAll<HTMLElement>("[data-hero-card]");
+    const count = cards.length;
+    if (count === 0) return;
+
+    const eventEl = root.querySelector("[data-carousel-event]");
+    const locationEl = root.querySelector("[data-carousel-location]");
+    const prevBtn = root.querySelector(".carousel-nav-prev");
+    const nextBtn = root.querySelector(".carousel-nav-next");
+
+    let selected = 0;
+
+    const stackKey = (index: number, sel: number) => {
+      const rel = (index - sel + count) % count;
+      if (rel === 0) return "0";
+      if (rel === 1) return "1";
+      if (rel === 2) return "2";
+      return "hidden";
+    };
+
+    const syncMeta = () => {
+      const card = cards[selected];
+      if (!card) return;
+      const { event: ev, location: loc } = card.dataset;
+      if (eventEl) eventEl.textContent = ev ?? "";
+      if (locationEl) locationEl.textContent = loc ?? "";
+      root.setAttribute("aria-activedescendant", card.id || "");
+    };
+
+    const applyStack = () => {
+      cards.forEach((card, j) => {
+        card.setAttribute("data-stack", stackKey(j, selected));
+      });
+      syncMeta();
+    };
+
+    applyStack();
+
+    const go = (delta: number) => {
+      selected = (selected + delta + count) % count;
+      applyStack();
+    };
+
+    prevBtn?.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      go(-1);
+    });
+    nextBtn?.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      go(1);
+    });
+
+    root.addEventListener("keydown", (e) => {
+      if (!(e instanceof KeyboardEvent)) return;
+      if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        go(-1);
+      }
+      if (e.key === "ArrowRight") {
+        e.preventDefault();
+        go(1);
+      }
+    });
+  });
+</script>

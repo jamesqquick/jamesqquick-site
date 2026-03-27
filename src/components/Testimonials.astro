@@ -1,23 +1,171 @@
 ---
 import { getCollection } from "astro:content";
+import CarouselNavButton from "./CarouselNavButton.astro";
 import Section from "./Section.astro";
 import Testimonial from "./speaking/Testimonial.astro";
 
 const testimonials = await getCollection("testimonial");
+const count = testimonials.length;
 ---
 
 <Section
-  title="testimonials"
-  subtitle="What people are saying"
-  hasYPadding={false}
+  tone="base"
+  paddingY="xl"
   hasMaxWidth={false}
-  classStr="lg:max-w-8xl mx-auto"
 >
-  <div class="grid grid-cols-1 gap-4 gap-y-10 items-baseline">
-    {
-      testimonials.map((testimonial) => (
-        <Testimonial testimonial={testimonial} />
-      ))
-    }
+  <div class="mx-auto mb-10 max-w-6xl px-8 text-center">
+    <p class="mb-3 text-xs uppercase tracking-[0.2em] text-brand">testimonials</p>
+    <h2 class="text-3xl font-bold md:text-5xl">What people have to say</h2>
+  </div>
+
+  <div
+    class="group relative w-full"
+    data-testimonial-carousel
+    tabindex="0"
+    role="region"
+    aria-roledescription="carousel"
+    aria-label="Testimonials. Use arrow keys or previous and next buttons to browse."
+  >
+    <div class="embla relative z-0 mx-auto w-full max-w-6xl px-3 sm:px-6 md:px-8">
+      <div class="embla__viewport overflow-hidden">
+        <div class="embla__container flex touch-pan-y -ml-3 md:-ml-4">
+          {
+            testimonials.map((testimonial, idx) => (
+              <div
+                class:list={[
+                  "embla__slide testimonial-slide min-w-0 shrink-0 grow-0 basis-[84%] pl-3 sm:basis-[72%] sm:pl-4 md:basis-[64%] lg:basis-[60%]",
+                  idx === 0 ? "is-selected" : "",
+                ]}
+                id={`testimonial-slide-${idx}`}
+                role="group"
+                aria-roledescription="slide"
+                aria-label={`${idx + 1} of ${count}`}
+              >
+                <Testimonial testimonial={testimonial} isShort={true} />
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+
+    <CarouselNavButton
+      direction="prev"
+      ariaLabel="Previous testimonial"
+      class="left-1 z-50 md:left-3"
+    />
+    <CarouselNavButton
+      direction="next"
+      ariaLabel="Next testimonial"
+      class="right-1 z-50 md:right-3"
+    />
   </div>
 </Section>
+
+<style>
+  .embla__slide {
+    pointer-events: none;
+  }
+
+  .embla__slide > * {
+    pointer-events: auto;
+  }
+
+  .embla__viewport {
+    padding-block: 1.6rem;
+    margin-block: -1.6rem;
+  }
+
+  .testimonial-slide {
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease;
+  }
+
+  .testimonial-slide:not(.is-selected) {
+    opacity: 0.7;
+    transform: scale(0.93, 0.86);
+  }
+
+  .testimonial-slide.is-selected {
+    opacity: 1;
+    transform: scale(1, 1.08);
+  }
+</style>
+
+<script>
+  import EmblaCarousel from "embla-carousel";
+
+  const roots = document.querySelectorAll("[data-testimonial-carousel]");
+
+  roots.forEach((root) => {
+    const emblaEl = root.querySelector<HTMLElement>(".embla");
+    if (!emblaEl) return;
+
+    const slideCount = emblaEl.querySelectorAll(".embla__slide").length;
+    if (slideCount === 0) return;
+
+    const embla = EmblaCarousel(emblaEl as HTMLElement, {
+      loop: slideCount > 1,
+      align: "center",
+      slidesToScroll: 1,
+      container: ".embla__container",
+      slides: ".embla__slide",
+    });
+
+    const prevBtn = root.querySelector(".carousel-nav-prev");
+    const nextBtn = root.querySelector(".carousel-nav-next");
+    const lastSnapIndex = Math.max(0, embla.scrollSnapList().length - 1);
+
+    const scrollPrevWrapped = () => {
+      if (embla.canScrollPrev()) {
+        embla.scrollPrev();
+      } else {
+        embla.scrollTo(lastSnapIndex);
+      }
+    };
+
+    const scrollNextWrapped = () => {
+      if (embla.canScrollNext()) {
+        embla.scrollNext();
+      } else {
+        embla.scrollTo(0);
+      }
+    };
+
+    const syncSelected = () => {
+      const i = embla.selectedScrollSnap();
+      embla.slideNodes().forEach((slide, idx) => {
+        slide.classList.toggle("is-selected", idx === i);
+      });
+      const selected = embla.slideNodes()[i];
+      root.setAttribute("aria-activedescendant", selected?.id || "");
+    };
+
+    embla.on("select", syncSelected);
+    syncSelected();
+
+    prevBtn?.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      scrollPrevWrapped();
+    });
+
+    nextBtn?.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      scrollNextWrapped();
+    });
+
+    root.addEventListener("keydown", (e) => {
+      if (!(e instanceof KeyboardEvent)) return;
+      if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        scrollPrevWrapped();
+      } else if (e.key === "ArrowRight") {
+        e.preventDefault();
+        scrollNextWrapped();
+      }
+    });
+  });
+</script>
