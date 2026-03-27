@@ -42,11 +42,11 @@ const { Content } = await render(course);
 
 <BaseLayout title={`${course.data.title} | Course`} description={course.data.description}>
   <main>
-    <div class="border-b border-gray-800 lg:hidden px-6 py-3">
+    <div class="border-b border-border lg:hidden px-6 py-3">
       <button
         id="open-sidebar-btn"
         aria-label="Open course navigation"
-        class="inline-flex items-center gap-2 text-sm text-gray-200"
+        class="inline-flex items-center gap-2 text-sm text-textMuted font-sans"
       >
         <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2">
           <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -59,8 +59,8 @@ const { Content } = await render(course);
 
     <div id="sidebar-drawer" class="fixed inset-0 z-50 hidden lg:hidden">
       <div id="sidebar-overlay" class="absolute inset-0 bg-black/40"></div>
-      <aside class="absolute left-0 top-0 h-full w-80 max-w-[85vw] overflow-y-auto border-r border-gray-800 bg-[#121212] p-5">
-        <button id="close-sidebar-btn" aria-label="Close navigation" class="mb-4 text-sm text-gray-300">
+      <aside class="absolute left-0 top-0 h-full w-80 max-w-[85vw] overflow-y-auto border-r border-border bg-surface p-5">
+        <button id="close-sidebar-btn" aria-label="Close navigation" class="mb-4 text-sm text-textMuted font-sans">
           Close
         </button>
         <Sidebar
@@ -75,7 +75,7 @@ const { Content } = await render(course);
 
     <Section>
       <div class="grid gap-8 lg:grid-cols-[280px,1fr]">
-        <aside class="hidden lg:block lg:sticky lg:top-0 lg:h-screen lg:overflow-y-auto border-r border-gray-800 pr-4">
+        <aside class="hidden lg:block lg:sticky lg:top-0 lg:h-screen lg:overflow-y-auto border-r border-border pr-4">
           <Sidebar
             course={course}
             sections={sections}
@@ -84,17 +84,17 @@ const { Content } = await render(course);
             completedLessons={[]}
           />
         </aside>
-        <article class="prose prose-invert font-['Satoshi'] prose-xl max-w-none prose-h2:text-brand prose-img:rounded-lg prose-p:text-white">
+        <article class="ds-prose">
           <p><a href="/courses">Courses</a> / {course.data.title}</p>
           <h1>{course.data.title}</h1>
           {course.data.description && <p>{course.data.description}</p>}
           <p id="course-progress-text">0 of {lessons.length} lessons completed</p>
-          <div class="w-full bg-gray-800 rounded-full h-3 mb-6">
-            <div id="course-progress-bar" class="bg-brand h-3 rounded-full" style="width:0%"></div>
+          <div class="w-full bg-surface-hover rounded-full h-3 mb-6">
+            <div id="course-progress-bar" class="bg-accent h-3 rounded-full" style="width:0%"></div>
           </div>
           {firstLesson && (
             <p>
-              <a id="course-cta" href={lessonUrl(firstLesson.id)}>Start Course</a>
+              <a id="course-cta" href={lessonUrl(firstLesson)}>Start Course</a>
             </p>
           )}
           <Content />
@@ -105,7 +105,7 @@ const { Content } = await render(course);
               <ol>
                 {section.lessons.map((lesson) => (
                   <li>
-                    <a href={lessonUrl(lesson.id)}>{lesson.data.title}</a>
+                    <a href={lessonUrl(lesson)}>{lesson.data.title}</a>
                   </li>
                 ))}
               </ol>
@@ -117,7 +117,7 @@ const { Content } = await render(course);
   </main>
 </BaseLayout>
 
-<script define:vars={{ courseSlug, lessonIds: lessons.map((l) => getNormalizedLessonId(l.id)), firstLessonId: firstLesson ? getNormalizedLessonId(firstLesson.id) : null }}>
+<script define:vars={{ courseSlug, lessonIds: lessons.map((l) => getNormalizedLessonId(l)), firstLessonId: firstLesson ? getNormalizedLessonId(firstLesson) : null }}>
   const progress = JSON.parse(localStorage.getItem("progress") || "{}");
   const completedCount = lessonIds.filter((id) => Boolean(progress[id])).length;
   const total = lessonIds.length;

@@ -43,6 +43,11 @@ const { title, description, image } = Astro.props;
   </body>
 </html>
 
+<script>
+  import { initCourseLessonUi } from "../scripts/course-lesson-ui";
+  initCourseLessonUi();
+</script>
+
 <style>
   .app-shell {
     background: var(--color-bg);

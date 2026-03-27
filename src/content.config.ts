@@ -29,13 +29,24 @@ const talksCollection = defineCollection({
     }),
 });
 
+/**
+ * Use file path as entry id, not `data.slug`. Lesson frontmatter often sets `slug` for
+ * URLs; the default glob loader would use that as the id, collapsing many lessons into
+ * one and breaking `getCourseSlug()` / per-section grouping.
+ */
 const coursesCollection = defineCollection({
-  schema: ({ image }) =>
+  loader: glob({
+    pattern: "**/*.{md,mdx}",
+    base: "./src/content/courses",
+    generateId: ({ entry }) => entry.replace(/\.mdx?$/i, "").replace(/\\/g, "/"),
+  }),
+  schema: () =>
     z
       .object({
         slug: z.string().optional(),
         title: z.string(),
-        coverImage: image().optional(),
+        /** Site-root path under `public/` (e.g. `/images/courses/.../cover.jpg`) for `astro:assets` */
+        coverImage: z.string().optional(),
         pubDate: z.date().optional(),
         updatedDate: z.date().optional(),
         description: z.string().optional(),

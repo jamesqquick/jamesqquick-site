@@ -7,6 +7,15 @@ import vscode from "../images/blog/logos/vscode.png";
 import nodejs from "../images/blog/logos/nodejs.png";
 import chatgpt from "../images/blog/logos/chatgpt.png";
 import { Image } from "astro:assets";
+
+/** ESM metadata from `image()` collections, or site-root URL in `public/` */
+type ImageLike = {
+  src: string;
+  width: number;
+  height: number;
+  format?: string;
+};
+
 export interface Props {
   slug: string;
   title: string;
@@ -16,15 +25,13 @@ export interface Props {
   tag?: string;
   openInNewTab?: boolean;
   dateLabelPrefix?: string;
-  image: {
-    src: string;
-    width: number;
-    height: number;
-    format: "avif" | "png" | "webp" | "jpeg" | "jpg" | "svg" | "tiff" | "gif";
-};
+  image: ImageLike | string;
 }
 
-const { slug, date, title, btnText = "Read", tag, image, description, openInNewTab = false, dateLabelPrefix = "" } = Astro.props;
+const { slug, date, title, btnText = "Read", tag, image, description, openInNewTab = false, dateLabelPrefix = "" } =
+  Astro.props;
+
+const isPublicUrl = typeof image === "string" && image.startsWith("/");
 const tagToLogo = {
   javascript,
   vscode,
@@ -38,13 +45,19 @@ const tagToLogo = {
 <div class="card-shell overflow-hidden" data-interactive>
   <div class="flex items-center justify-center w-full object-cover mb-4">
     <a href={slug} class="grow hover:underline" target={openInNewTab ? "_blank" : undefined} rel={openInNewTab ? "noopener noreferrer" : undefined}>
-      <Image
-        height={image.height}
-        width={image.width}
-        src={image}
-        alt={title}
-        class="card-image aspect-video object-cover"
-      />
+      {
+        isPublicUrl ? (
+          <Image inferSize src={image} alt={title} class="card-image aspect-video object-cover" />
+        ) : (
+          <Image
+            height={(image as ImageLike).height}
+            width={(image as ImageLike).width}
+            src={image as ImageLike}
+            alt={title}
+            class="card-image aspect-video object-cover"
+          />
+        )
+      }
     </a>
   </div>
 

@@ -36,11 +36,13 @@ p {
 /* Markdown / MDX: default typography matches light surfaces; invert only when data-theme is dark */
 .ds-prose {
   @apply prose prose-xl max-w-none dark:prose-invert;
+  @apply font-sans;
   @apply prose-headings:font-display prose-headings:text-text;
   @apply prose-h2:text-accent prose-h3:text-text prose-h4:text-text;
   @apply prose-p:text-textMuted prose-li:text-textMuted;
   @apply prose-strong:text-text;
   @apply prose-a:text-accent;
+  @apply prose-code:font-mono prose-pre:font-mono;
   @apply prose-img:rounded-lg;
 }
 

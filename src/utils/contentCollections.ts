@@ -9,12 +9,34 @@ export type CourseSection = {
 };
 
 const getCourseSlugFromEntryId = (id: string): string => id.split("/")[0];
-const isCourseMetaEntry = (id: string): boolean =>
-  /^([^/]+)\/index(\.mdx?|)$/.test(id);
+
+/**
+ * Course root entries: either legacy path ids (`course-slug/index.mdx`) or — with the
+ * glob loader — `data.slug` becomes the entry id (e.g. `modern-websites-with-astro`).
+ * Lessons also use slug-as-id but include `moduleSlug` / `lessonOrder`.
+ */
+const isCourseMetaEntry = (entry: CollectionEntry<"courses">): boolean => {
+  const id = entry.id;
+  const data = entry.data;
+  if (/^([^/]+)\/index(\.mdx?|)$/.test(id)) return true;
+  if (!id.includes("/")) {
+    const isLesson =
+      data.moduleSlug != null || data.lessonOrder != null;
+    if (isLesson) return false;
+    return (
+      data.description != null ||
+      data.externalUrl != null ||
+      data.pubDate != null
+    );
+  }
+  return false;
+};
+
 const isSectionEntry = (id: string): boolean =>
   /^([^/]+)\/sections\/([^/]+)\/index(\.mdx?|)$/.test(id);
-const isLessonEntry = (id: string): boolean =>
-  !isCourseMetaEntry(id) && !isSectionEntry(id);
+
+const isLessonEntry = (entry: CollectionEntry<"courses">): boolean =>
+  !isCourseMetaEntry(entry) && !isSectionEntry(entry.id);
 
 export const getCourseSlug = (id: string): string => id.split("/")[0];
 
@@ -27,21 +49,40 @@ export const getSectionSlug = (lessonId: string): string => {
   return parts[1] ?? "";
 };
 
+/** Last path segment of a course entry id (filename without extension). */
 export const getLessonSlug = (lessonId: string): string =>
   (lessonId.split("/").pop() ?? lessonId).replace(/\.mdx?$/i, "");
 
-export const getNormalizedLessonId = (lessonId: string): string => {
-  const parts = lessonId.split("/");
-  const courseSlug = parts[0];
-  const sectionSlug = getSectionSlug(lessonId);
-  const lessonSlug = getLessonSlug(lessonId);
-  return `${courseSlug}/sections/${sectionSlug}/${lessonSlug}`;
+/**
+ * URL segment for a lesson: optional `slug` from frontmatter, else filename stem from id.
+ * Entry ids are path-based (see courses glob `generateId`).
+ */
+export const getLessonUrlSegment = (
+  entry: CollectionEntry<"courses">
+): string => {
+  if (isLessonEntry(entry) && entry.data.slug) {
+    return entry.data.slug;
+  }
+  return getLessonSlug(entry.id);
 };
 
-export const lessonUrl = (lessonId: string): string => {
-  const courseSlug = getCourseSlug(lessonId);
-  const sectionSlug = getSectionSlug(lessonId);
-  const lessonSlug = getLessonSlug(lessonId);
+export const getNormalizedLessonId = (
+  entry: CollectionEntry<"courses">
+): string => {
+  if (!isLessonEntry(entry)) return entry.id;
+  const courseSlug = getCourseSlug(entry.id);
+  const sectionSlug = getSectionSlug(entry.id);
+  const segment = getLessonUrlSegment(entry);
+  return `${courseSlug}/sections/${sectionSlug}/${segment}`;
+};
+
+export const lessonUrl = (entry: CollectionEntry<"courses">): string => {
+  if (!isLessonEntry(entry)) {
+    return `/course/${getCourseSlug(entry.id)}`;
+  }
+  const courseSlug = getCourseSlug(entry.id);
+  const sectionSlug = getSectionSlug(entry.id);
+  const lessonSlug = getLessonUrlSegment(entry);
   return `/course/${courseSlug}/${sectionSlug}/${lessonSlug}`;
 };
 
@@ -58,7 +99,7 @@ export const getSortedCourses = async (): Promise<
   CollectionEntry<"courses">[]
 > => {
   return (await getCollection("courses"))
-    .filter((entry) => isCourseMetaEntry(entry.id))
+    .filter((entry) => isCourseMetaEntry(entry))
     .sort(
     (a, b) =>
       new Date(b.data.pubDate ?? 0).valueOf() - new Date(a.data.pubDate ?? 0).valueOf()
@@ -127,7 +168,7 @@ export const getSectionsByCourseSlug = async (
 
   const lessons = (await getCollection("courses")).filter(
     (lesson) =>
-      !isCourseMetaEntry(lesson.id) &&
+      !isCourseMetaEntry(lesson) &&
       !isSectionEntry(lesson.id) &&
       getCourseSlugFromEntryId(lesson.id) === courseSlug &&
       lesson.data.published
@@ -158,7 +199,7 @@ export const getLessonsBySection = async (
   return lessons
     .filter(
       (lesson) =>
-        !isCourseMetaEntry(lesson.id) &&
+        !isCourseMetaEntry(lesson) &&
         !isSectionEntry(lesson.id) &&
         getCourseSlugFromEntryId(lesson.id) === courseSlug &&
         getSectionSlug(lesson.id) === sectionSlug &&
@@ -174,7 +215,7 @@ export const getLessonsByCourseSlug = async (
   return lessons
     .filter(
       (lesson) =>
-        !isCourseMetaEntry(lesson.id) &&
+        !isCourseMetaEntry(lesson) &&
         !isSectionEntry(lesson.id) &&
         getCourseSlugFromEntryId(lesson.id) === courseSlug && lesson.data.published
     )
@@ -193,10 +234,10 @@ export const getLessonByRoute = async (
 ): Promise<CollectionEntry<"courses"> | undefined> => {
   const lessons = await getCollection("courses");
   return lessons.find((lesson) => {
-    if (!isLessonEntry(lesson.id)) return false;
+    if (!isLessonEntry(lesson)) return false;
     if (getCourseSlugFromEntryId(lesson.id) !== courseSlug) return false;
     if (getSectionSlug(lesson.id) !== sectionSlug) return false;
-    return getLessonSlug(lesson.id) === lessonSlug;
+    return getLessonUrlSegment(lesson) === lessonSlug;
   });
 };
 
