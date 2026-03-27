@@ -12,15 +12,49 @@ export interface Props {
 const { slug, date, title, conferenceName, conferenceLink } = Astro.props;
 ---
 
-<div class="overflow-hidden border rounded-lg p-4">
+<div class="talk-card-shell overflow-hidden p-4" data-interactive>
   <div class="flex justify-between mb-3">
-    <p>{getFormattedDate(date)}</p>
-    <a href={conferenceLink}><p>{conferenceName}</p></a>
+    <p class="talk-card-date">{getFormattedDate(date)}</p>
+    <a href={conferenceLink} class="talk-card-conference"><p>{conferenceName}</p></a>
   </div>
   <a href={slug} class="grow hover:underline mb-1 block">
-    <h3 class="font-bold text-brand text-2xl transition-colors mb-1">
+    <h3 class="talk-card-title font-bold text-2xl transition-colors mb-1">
       {title}
     </h3>
   </a>
   <!-- <p class="line-clamp-3">{description}</p> -->
 </div>
+
+<style>
+  .talk-card-shell {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+    transition:
+      transform var(--duration-normal) var(--ease-out),
+      box-shadow var(--duration-normal) var(--ease-out),
+      border-color var(--duration-fast) var(--ease-out);
+  }
+
+  .talk-card-shell:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-speaking);
+  }
+
+  .talk-card-date,
+  .talk-card-conference {
+    color: var(--color-text-muted);
+  }
+
+  .talk-card-conference:hover {
+    color: var(--color-speaking);
+  }
+
+  .talk-card-title {
+    color: var(--color-speaking);
+    font-family: var(--font-display);
+    line-height: 1.2;
+  }
+</style>

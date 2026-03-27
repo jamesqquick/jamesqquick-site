@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import CarouselNavButton from "./CarouselNavButton.astro";
 import Section from "./Section.astro";
 import Testimonial from "./speaking/Testimonial.astro";
 
@@ -8,9 +9,9 @@ const count = testimonials.length;
 ---
 
 <Section
-  hasYPadding={false}
+  tone="base"
+  paddingY="xl"
   hasMaxWidth={false}
-  classStr="py-16 md:py-20"
 >
   <div class="mx-auto mb-10 max-w-6xl px-8 text-center">
     <p class="mb-3 text-xs uppercase tracking-[0.2em] text-brand">testimonials</p>
@@ -25,14 +26,14 @@ const count = testimonials.length;
     aria-roledescription="carousel"
     aria-label="Testimonials. Use arrow keys or previous and next buttons to browse."
   >
-    <div class="embla relative z-0 mx-auto w-full max-w-5xl px-3 sm:px-6 md:px-8">
+    <div class="embla relative z-0 mx-auto w-full max-w-6xl px-3 sm:px-6 md:px-8">
       <div class="embla__viewport overflow-hidden">
         <div class="embla__container flex touch-pan-y -ml-3 md:-ml-4">
           {
             testimonials.map((testimonial, idx) => (
               <div
                 class:list={[
-                  "embla__slide testimonial-slide min-w-0 shrink-0 grow-0 basis-[82%] pl-3 sm:basis-[68%] sm:pl-4 md:basis-[62%] lg:basis-[58%]",
+                  "embla__slide testimonial-slide min-w-0 shrink-0 grow-0 basis-[84%] pl-3 sm:basis-[72%] sm:pl-4 md:basis-[64%] lg:basis-[60%]",
                   idx === 0 ? "is-selected" : "",
                 ]}
                 id={`testimonial-slide-${idx}`}
@@ -48,24 +49,16 @@ const count = testimonials.length;
       </div>
     </div>
 
-    <button
-      type="button"
-      class="testimonial-carousel-nav-prev pointer-events-auto absolute left-1 top-1/2 z-50 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-white/15 bg-bgDark/50 text-white/70 backdrop-blur-sm transition-all hover:border-brand/40 hover:bg-bgDark/70 hover:text-brand focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand md:left-3 opacity-60 group-hover:opacity-90"
-      aria-label="Previous testimonial"
-    >
-      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M15 18l-6-6 6-6" />
-      </svg>
-    </button>
-    <button
-      type="button"
-      class="testimonial-carousel-nav-next pointer-events-auto absolute right-1 top-1/2 z-50 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-white/15 bg-bgDark/50 text-white/70 backdrop-blur-sm transition-all hover:border-brand/40 hover:bg-bgDark/70 hover:text-brand focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand md:right-3 opacity-60 group-hover:opacity-90"
-      aria-label="Next testimonial"
-    >
-      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M9 18l6-6-6-6" />
-      </svg>
-    </button>
+    <CarouselNavButton
+      direction="prev"
+      ariaLabel="Previous testimonial"
+      class="left-1 z-50 md:left-3"
+    />
+    <CarouselNavButton
+      direction="next"
+      ariaLabel="Next testimonial"
+      class="right-1 z-50 md:right-3"
+    />
   </div>
 </Section>
 
@@ -78,16 +71,25 @@ const count = testimonials.length;
     pointer-events: auto;
   }
 
+  .embla__viewport {
+    padding-block: 1.6rem;
+    margin-block: -1.6rem;
+  }
+
   .testimonial-slide {
-    transition: opacity 0.3s ease;
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease;
   }
 
   .testimonial-slide:not(.is-selected) {
-    opacity: 0.72;
+    opacity: 0.7;
+    transform: scale(0.93, 0.86);
   }
 
   .testimonial-slide.is-selected {
     opacity: 1;
+    transform: scale(1, 1.08);
   }
 </style>
 
@@ -97,13 +99,13 @@ const count = testimonials.length;
   const roots = document.querySelectorAll("[data-testimonial-carousel]");
 
   roots.forEach((root) => {
-    const emblaEl = root.querySelector(".embla");
+    const emblaEl = root.querySelector<HTMLElement>(".embla");
     if (!emblaEl) return;
 
     const slideCount = emblaEl.querySelectorAll(".embla__slide").length;
     if (slideCount === 0) return;
 
-    const embla = EmblaCarousel(emblaEl, {
+    const embla = EmblaCarousel(emblaEl as HTMLElement, {
       loop: slideCount > 1,
       align: "center",
       slidesToScroll: 1,
@@ -111,8 +113,8 @@ const count = testimonials.length;
       slides: ".embla__slide",
     });
 
-    const prevBtn = root.querySelector(".testimonial-carousel-nav-prev");
-    const nextBtn = root.querySelector(".testimonial-carousel-nav-next");
+    const prevBtn = root.querySelector(".carousel-nav-prev");
+    const nextBtn = root.querySelector(".carousel-nav-next");
     const lastSnapIndex = Math.max(0, embla.scrollSnapList().length - 1);
 
     const scrollPrevWrapped = () => {

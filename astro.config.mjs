@@ -59,6 +59,7 @@ export default defineConfig({
           "arrow-left",
           "arrow-right",
           "menu",
+          "theme-light-dark",
           "account",
           "laptop",
           "star-outline",

@@ -61,7 +61,7 @@
       />
 
       <button
-        class="text-xl rounded-full px-4 py-4 sm:py-2 bg-white text-bg hover:bg-brand hover:border-brand hover:scale-105 transition-all inline-block sm:absolute right-4 top-[50%] -translate-y-[50%] mt-6 sm:mt-0"
+        class="text-xl rounded-full px-4 py-4 sm:py-2 bg-accent text-bgDark hover:bg-accentHover hover:text-bgDark hover:scale-105 transition-all inline-block sm:absolute right-4 top-[50%] -translate-y-[50%] mt-6 sm:mt-0"
       >
         Sign Me Up!
       </button>
@@ -71,7 +71,7 @@
 {#if successMsg}
   <h2 class={`text-2xl font-bold  text-brand mb-2 text-center`}>Subscribed!</h2>
 
-  <p class={`text-xl  md:text-2xl text-white mb-4 text-center`}>
+  <p class={`text-xl  md:text-2xl text-text mb-4 text-center`}>
     You just made an amazing decision. 👏
   </p>
 {/if}

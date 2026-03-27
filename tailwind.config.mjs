@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: ["selector", '[data-theme="dark"]'],
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     extend: {
@@ -11,12 +12,19 @@ module.exports = {
         twitter: "#49a1eb",
         linkedin: "#3077b0",
         discord: "#f865f2",
-        brand: "#0AFA94",
-        // Primary page background — dark navy (speaking / site mockup)
-        bg: "#1A1E33",
-        bgDark: "#10121D",
-        bgLight: "#363C68",
-        bgLightBrand: "#C8FEE7",
+        /* Semantic token-based colors */
+        accent: "var(--color-accent)",
+        accentHover: "var(--color-accent-hover)",
+        text: "var(--color-text)",
+        textMuted: "var(--color-text-muted)",
+        bg: "var(--legacy-bg)",
+        bgDark: "var(--legacy-bg-dark)",
+        bgLight: "var(--legacy-bg-light)",
+        bgLightBrand: "var(--legacy-bg-light-brand)",
+        surface: "var(--color-surface)",
+        border: "var(--color-border)",
+        /* Legacy alias to avoid breaking existing classes */
+        brand: "var(--legacy-brand)",
       },
       backgroundImage: {
         interviewing: "url('/images/overlays/interviewing.png')",
@@ -26,7 +34,41 @@ module.exports = {
       },
     },
     fontFamily: {
-      sans: ["Satoshi", "ui-sans-serif", "sans-serif"],
+      sans: [
+        "Inter",
+        "-apple-system",
+        "BlinkMacSystemFont",
+        '"Segoe UI"',
+        "Roboto",
+        "sans-serif",
+      ],
+      display: [
+        '"Space Grotesk"',
+        "Inter",
+        "-apple-system",
+        "BlinkMacSystemFont",
+        '"Segoe UI"',
+        "Roboto",
+        "sans-serif",
+      ],
+      mono: ['"IBM Plex Mono"', '"SF Mono"', '"Fira Code"', "Consolas", "monospace"],
+    },
+    borderRadius: {
+      none: "0",
+      sm: "10px",
+      DEFAULT: "12px",
+      md: "12px",
+      lg: "16px",
+      xl: "20px",
+      full: "9999px",
+    },
+    boxShadow: {
+      sm: "var(--shadow-sm)",
+      DEFAULT: "var(--shadow-card)",
+      md: "var(--shadow-card)",
+      lg: "var(--shadow-lg)",
+      focus: "var(--shadow-focus)",
+      none: "none",
     },
   },
   safelist: [

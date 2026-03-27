@@ -5,36 +5,46 @@ import NewsletterSection from "./NewsletterSection.astro";
 import Section from "./Section.astro";
 ---
 <Section hasYPadding={false}>
-    <footer class="py-10">
-        <div class="bg-bgLight md:rounded-2xl py-10 px-4 md:px-10 mb-10">
-            <Logo classStr="fill-white h-16 w-16 mb-10" />
-            <NewsletterSection />
-            
-        </div>
-        
-        
-        
-        <div class="flex flex-col justify-center sm:flex-row gap-y-2">
-            <span>
-                Built with{" "}
-                <Link href="https://astro.build/" text="Astro" classStr="font-bold pb-1" />
-                <span class="mx-2 sm:inline hidden">|</span>
-            </span>
-            <span>
-                Styling with{" "}
-                <Link
-                href="https://tailwindcss.com/"
-                text="Tailwind CSS"
-                classStr="font-bold pb-1"
-                />
-                <span class="mx-2 sm:inline hidden">|</span>
-            </span>
-            <span>
-                Hosted on{" "}
-                <Link href="https://netlify.com/" text="Netlify" classStr="font-bold pb-1"  />
-            </span>
-        </div>
-        
-    </footer>
-    
+  <footer class="footer-shell py-10">
+    <div class="footer-surface py-10 px-4 md:px-10 mb-10">
+      <Logo classStr="fill-current h-16 w-16 mb-10" />
+      <NewsletterSection />
+    </div>
+
+    <div class="flex flex-col justify-center sm:flex-row gap-y-2">
+      <span>
+        Built with{" "}
+        <Link href="https://astro.build/" text="Astro" classStr="font-bold pb-1" isFancy={false} />
+        <span class="mx-2 sm:inline hidden">|</span>
+      </span>
+      <span>
+        Styling with{" "}
+        <Link
+          href="https://tailwindcss.com/"
+          text="Tailwind CSS"
+          classStr="font-bold pb-1"
+          isFancy={false}
+        />
+        <span class="mx-2 sm:inline hidden">|</span>
+      </span>
+      <span>
+        Hosted on{" "}
+        <Link href="https://netlify.com/" text="Netlify" classStr="font-bold pb-1" isFancy={false} />
+      </span>
+    </div>
+  </footer>
 </Section>
+
+<style>
+  .footer-shell {
+    color: var(--color-text-muted);
+  }
+
+  .footer-surface {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+    color: var(--color-text);
+  }
+</style>

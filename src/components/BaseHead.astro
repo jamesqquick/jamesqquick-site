@@ -2,9 +2,7 @@
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
 import "../styles/global.css";
-import { AstroFont } from "astro-font";
-import { ClientRouter } from "astro:transitions";
-import { join } from "node:path";
+import ClientRouter from "astro/components/ClientRouter.astro";
 
 export interface Props {
   title: string;
@@ -18,7 +16,13 @@ const { title, description, image = "/images/selfie-lg.jpeg" } = Astro.props;
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-<meta name="theme-color" content="#0AFA94" />
+<meta name="theme-color" content="#2BF1B5" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+  rel="stylesheet"
+/>
 
 <meta name="generator" content={Astro.generator} />
 
@@ -45,40 +49,63 @@ const { title, description, image = "/images/selfie-lg.jpeg" } = Astro.props;
 
 <!-- Canonical Link -->
 <link rel="canonical" href={Astro.url} />
+<script is:inline>
+  (function () {
+    function resolveTheme() {
+      var stored = localStorage.getItem("theme");
+      return stored === "light" || stored === "dark" ? stored : "dark";
+    }
 
-<AstroFont
-  config={[
-    {
-      name: "Satoshi",
-      src: [
-        {
-          style: "normal",
-          weight: "400",
-          path: join(process.cwd(), "public", "fonts", "Satoshi-Regular.ttf"),
-        },
-        {
-          style: "medium",
-          weight: "500",
-          path: join(process.cwd(), "public", "fonts", "Satoshi-Medium.ttf"),
-        },
-        {
-          style: "light",
-          weight: "300",
-          path: join(process.cwd(), "public", "fonts", "Satoshi-Light.ttf"),
-        },
-        {
-          style: "bold",
-          weight: "700",
-          path: join(process.cwd(), "public", "fonts", "Satoshi-Bold.ttf"),
-        },
-      ],
-      preload: false,
-      display: "swap",
-      selector: "body",
-      fallback: "sans-serif",
-    },
-  ]}
-/>
+    function applyToDocument(doc) {
+      var theme = resolveTheme();
+      doc.documentElement.setAttribute("data-theme", theme);
+      if (doc.body) doc.body.setAttribute("data-theme", theme);
+    }
+
+    function applyStoredTheme() {
+      applyToDocument(document);
+    }
+
+    function toggleTheme() {
+      var cur = document.documentElement.getAttribute("data-theme") || "dark";
+      var next = cur === "light" ? "dark" : "light";
+      document.documentElement.setAttribute("data-theme", next);
+      if (document.body) document.body.setAttribute("data-theme", next);
+      localStorage.setItem("theme", next);
+    }
+
+    applyStoredTheme();
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", applyStoredTheme);
+    } else {
+      applyStoredTheme();
+    }
+
+    document.addEventListener("astro:before-swap", function (event) {
+      var theme = resolveTheme();
+      event.newDocument.documentElement.setAttribute("data-theme", theme);
+      var nb = event.newDocument.body;
+      if (nb) nb.setAttribute("data-theme", theme);
+    });
+
+    document.addEventListener("astro:after-swap", applyStoredTheme);
+    document.addEventListener("astro:page-load", applyStoredTheme);
+
+    document.addEventListener(
+      "click",
+      function (e) {
+        var t = e.target;
+        if (!t || !t.closest) return;
+        if (t.closest("#themeToggleDesktop") || t.closest("#themeToggleMobile")) {
+          e.preventDefault();
+          toggleTheme();
+        }
+      },
+      true
+    );
+  })();
+</script>
+
 <ClientRouter />
 
 <script

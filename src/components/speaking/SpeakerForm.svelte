@@ -37,7 +37,7 @@
 <form on:submit|preventDefault={handleSubmit} transition:fade>
   <input name="utf8" type="hidden" value="✓" />
   <div class="mb-10">
-    <label for="eventName" class="text-lg font-light block mb-2"
+    <label for="eventName" class="text-lg font-light text-text block mb-2"
       >*Organization or event name</label
     >
     <input
@@ -46,11 +46,11 @@
       id="eventName"
       bind:value={eventName}
       required={true}
-      class="border-2 py-4 px-2 bg-transparent grow w-full rounded-lg"
+      class="border py-4 px-3 bg-surface-hover text-text grow w-full rounded-lg border-border placeholder:text-text-subtle focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent"
     />
   </div>
   <div class="mb-10">
-    <label for="fullName" class="text-lg font-light block mb-2"
+    <label for="fullName" class="text-lg font-light text-text block mb-2"
       >*Full Name</label
     >
     <input
@@ -59,22 +59,22 @@
       name="fullName"
       bind:value={fullName}
       required={true}
-      class="border-2 py-4 px-2 bg-transparent grow w-full rounded-lg"
+      class="border py-4 px-3 bg-surface-hover text-text grow w-full rounded-lg border-border placeholder:text-text-subtle focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent"
     />
   </div>
   <div class="mb-10">
-    <label for="email" class="text-lg font-light block mb-2">*Email</label>
+    <label for="email" class="text-lg font-light text-text block mb-2">*Email</label>
     <input
       type="email"
       id="email"
       name="email"
       bind:value={email}
       required={true}
-      class="border-2 py-4 px-2 bg-transparent grow w-full rounded-lg"
+      class="border py-4 px-3 bg-surface-hover text-text grow w-full rounded-lg border-border placeholder:text-text-subtle focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent"
     />
   </div>
   <div class="mb-4">
-    <label for="detials" class="text-lg font-light block mb-2"
+    <label for="detials" class="text-lg font-light text-text block mb-2"
       >*Anything else you think I should know like dates, location, etc.</label
     >
     <textarea
@@ -83,16 +83,16 @@
       required={true}
       bind:value={details}
       rows="10"
-      class="border-2 py-4 px-2 bg-transparent grow w-full rounded-lg"
+      class="border py-4 px-3 bg-surface-hover text-text grow w-full rounded-lg border-border placeholder:text-text-subtle focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent"
     ></textarea>
   </div>
 
   <button
-    class={"text-2xl rounded-lg mb-6 px-10 py-4 border text-white hover:text-brand hover:border-brand inline-block transition-all duration-300 ease-in-out"}
+    class={"text-lg rounded-lg mb-6 px-8 py-3 border border-accent/70 bg-accent text-bgDark hover:bg-accent/90 inline-block transition-all duration-300 ease-in-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"}
   >
     Send Request
   </button>
-  <p class="text-2xl text-center" transition:fade>
+  <p class="text-lg text-center text-textMuted" transition:fade>
     {#if successMsg}
       {successMsg}
     {:else if errorMsg}

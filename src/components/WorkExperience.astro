@@ -1,8 +1,14 @@
 ---
-import Microsoft from "../images/Microsoft.png";
-import fedex from "../images/fedex.png";
-import PlanetScale from "../images/PlanetScale.png";
-import Auth0 from "../images/Auth0.png";
+import fedexLight from "../images/company-logos/fedex.png";
+import fedexDark from "../images/company-logos/fedex-dark.png";
+import microsoftLight from "../images/company-logos/microsoft.png";
+import microsoftDark from "../images/company-logos/microsoft-dark.png";
+import auth0Light from "../images/company-logos/auth0.png";
+import auth0Dark from "../images/company-logos/auth0-dark.png";
+import commerceWhite from "../images/company-logos/commerce-white.png";
+import commerceBlack from "../images/company-logos/commerce-black.png";
+import planetscaleLight from "../images/company-logos/planetscale.png";
+import planetscaleDark from "../images/company-logos/planetscale-dark.png";
 import Section from "./Section.astro";
 import SectionHeader from "./SectionHeader.astro";
 
@@ -10,14 +16,133 @@ const title = "Work Experience";
 const subtitle = "I've worked at some amazing companies";
 ---
 
-<Section isLight={true} classStr="py-40">
+<Section tone="elevated" paddingY="half">
   <SectionHeader title={title} subtitle={subtitle} variant="secondary"/>
   <div
-    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 items-end place-items-center gap-y-16 max-x-xl mx-auto"
+    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 items-end place-items-center gap-y-16 gap-x-8 max-x-xl mx-auto"
   >
-    <img class="h-10" src={fedex.src} alt="FedEx logo" />
-    <img class="h-10" src={Microsoft.src} alt="Microsoft logo" />
-    <img class="h-10" src={Auth0.src} alt="Auth0 logo" />
-    <img class="h-10" src={PlanetScale.src} alt="PlanetScale logo" />
+    <div class="relative flex h-10 w-full max-w-[9rem] items-end justify-center">
+      <img
+        class="work-exp-fedex work-exp-fedex--dark-theme h-10 w-auto max-w-full object-contain object-bottom"
+        src={fedexLight.src}
+        alt="FedEx logo"
+      />
+      <img
+        class="work-exp-fedex work-exp-fedex--light-theme h-10 w-auto max-w-full object-contain object-bottom"
+        src={fedexDark.src}
+        alt="FedEx logo"
+      />
+    </div>
+    <div class="relative flex h-10 w-full max-w-[9rem] items-end justify-center">
+      <img
+        class="work-exp-microsoft work-exp-microsoft--dark-theme h-10 w-auto max-w-full object-contain object-bottom"
+        src={microsoftLight.src}
+        alt="Microsoft logo"
+      />
+      <img
+        class="work-exp-microsoft work-exp-microsoft--light-theme h-10 w-auto max-w-full object-contain object-bottom"
+        src={microsoftDark.src}
+        alt="Microsoft logo"
+      />
+    </div>
+    <div class="relative flex h-10 w-full max-w-[9rem] items-end justify-center">
+      <img
+        class="work-exp-auth0 work-exp-auth0--dark-theme h-10 w-auto max-w-full object-contain object-bottom"
+        src={auth0Light.src}
+        alt="Auth0 logo"
+      />
+      <img
+        class="work-exp-auth0 work-exp-auth0--light-theme h-10 w-auto max-w-full object-contain object-bottom"
+        src={auth0Dark.src}
+        alt="Auth0 logo"
+      />
+    </div>
+    <div class="relative flex h-10 w-full max-w-[9rem] items-end justify-center">
+      <img
+        class="work-exp-planetscale work-exp-planetscale--dark-theme h-10 w-auto max-w-full object-contain object-bottom"
+        src={planetscaleLight.src}
+        alt="PlanetScale logo"
+      />
+      <img
+        class="work-exp-planetscale work-exp-planetscale--light-theme h-10 w-auto max-w-full object-contain object-bottom"
+        src={planetscaleDark.src}
+        alt="PlanetScale logo"
+      />
+    </div>
+    <div class="relative flex h-10 w-full max-w-[11rem] items-end justify-center">
+      <img
+        class="work-exp-commerce work-exp-commerce--dark h-10 w-auto max-w-full object-contain object-bottom"
+        src={commerceWhite.src}
+        alt="Commerce logo"
+      />
+      <img
+        class="work-exp-commerce work-exp-commerce--light h-10 w-auto max-w-full object-contain object-bottom"
+        src={commerceBlack.src}
+        alt="Commerce logo"
+      />
+    </div>
   </div>
 </Section>
+
+<style is:global>
+  /* microsoft.png = light artwork for dark UI; microsoft-dark.png for light UI */
+  .work-exp-microsoft--light-theme {
+    display: none;
+  }
+  .work-exp-microsoft--dark-theme {
+    display: block;
+  }
+  [data-theme="light"] .work-exp-microsoft--dark-theme {
+    display: none;
+  }
+  [data-theme="light"] .work-exp-microsoft--light-theme {
+    display: block;
+  }
+
+  /* Default matches site: dark theme — white logo on dark surface */
+  .work-exp-commerce--light {
+    display: none;
+  }
+  .work-exp-commerce--dark {
+    display: block;
+  }
+
+  [data-theme="light"] .work-exp-commerce--dark {
+    display: none;
+  }
+  [data-theme="light"] .work-exp-commerce--light {
+    display: block;
+  }
+
+  /* auth0.png = light artwork for dark UI; auth0-dark.png = dark artwork for light UI */
+  .work-exp-auth0--light-theme {
+    display: none;
+  }
+  .work-exp-auth0--dark-theme {
+    display: block;
+  }
+  [data-theme="light"] .work-exp-auth0--dark-theme {
+    display: none;
+  }
+  [data-theme="light"] .work-exp-auth0--light-theme {
+    display: block;
+  }
+
+  /* fedex.png / planetscale.png = light artwork for dark UI; *-dark.png for light UI */
+  .work-exp-fedex--light-theme,
+  .work-exp-planetscale--light-theme {
+    display: none;
+  }
+  .work-exp-fedex--dark-theme,
+  .work-exp-planetscale--dark-theme {
+    display: block;
+  }
+  [data-theme="light"] .work-exp-fedex--dark-theme,
+  [data-theme="light"] .work-exp-planetscale--dark-theme {
+    display: none;
+  }
+  [data-theme="light"] .work-exp-fedex--light-theme,
+  [data-theme="light"] .work-exp-planetscale--light-theme {
+    display: block;
+  }
+</style>

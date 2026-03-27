@@ -1,7 +1,8 @@
 ---
 import Section from "./Section.astro";
-import Rectangle from "./Rectangle.astro";
 import H1 from "./H1.astro";
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
 
 export interface Props {
   title: string;
@@ -9,6 +10,11 @@ export interface Props {
   description?: string;
   hasFullHeight?: boolean;
   h1AriaLabel?: string;
+  size?: "default" | "large";
+  classStr?: string;
+  image?: ImageMetadata;
+  imageAlt?: string;
+  imageVariant?: "default" | "editorial";
 }
 
 const {
@@ -16,28 +22,209 @@ const {
   subtitle,
   description,
   hasFullHeight = true,
-  h1AriaLabel = "James Q Quick - developer, speaker, and teacher."
+  h1AriaLabel = "James Q Quick - developer, speaker, and teacher.",
+  size = "default",
+  classStr = "",
+  image,
+  imageAlt = "",
+  imageVariant = "default",
 } = Astro.props as Props;
 
 ---
 
 <Section hasYPadding={false} >
   <div
-    class={`py-20 flex items-center ${
-      hasFullHeight ? "lg:h-[calc(100vh-240px)] lg:py-0" : "md:py-40"
-    } `}
+    class={`hero-shell py-20 flex items-center ${
+      hasFullHeight ? "lg:h-[calc(100vh-240px)] lg:py-0" : "md:py-32 lg:py-40"
+    } ${classStr}`}
   >
-  
-    <div class="max-w-xl">
-      <div class="mb-2 ">
-        <p class="text-2xl md:text-3xl text-brand">{title}</p>
+    <div class={`${image ? "lg:w-3/5" : ""} ${size === "large" ? "max-w-2xl" : "max-w-xl"}`}>
+      <div class="mb-2">
+        <p class={`hero-kicker ${size === "large" ? "text-3xl lg:text-4xl" : "text-2xl md:text-3xl"}`}>{title}</p>
         <H1
           text={subtitle}
           ariaLabel={h1AriaLabel}
+          classStr={size === "large" ? "hero-title-large" : ""}
         />
       </div>
-      {description && <p class="opacity-80 text-lg">{description}</p>}
+      {description && (
+        <p class={`hero-description ${size === "large" ? "text-xl lg:text-2xl" : "text-lg"}`}>{description}</p>
+      )}
     </div>
-    <Rectangle size="medium" border="lightBrand" classStr="hidden md:block absolute -right-10 top-[200px] " />
-    <Rectangle size="medium" border="brand" classStr="hidden md:block absolute right-10 top-[280px]"  />
+    {
+      image && imageAlt && (
+        <div class={`hero-image-wrap lg:w-2/5 mt-10 lg:mt-0 ${imageVariant === "editorial" ? "hero-image-wrap-editorial" : ""}`}>
+          <div class={`hero-image-frame ${imageVariant === "editorial" ? "hero-image-frame-editorial" : ""}`}>
+            <Image
+              src={image}
+              alt={imageAlt}
+              class={`hero-image ${imageVariant === "editorial" ? "hero-image-editorial" : ""}`}
+              format="webp"
+              quality={85}
+              widths={[360, 512, 640, 768]}
+              sizes="(min-width: 1024px) 30vw, 80vw"
+              loading="eager"
+            />
+          </div>
+        </div>
+      )
+    }
 </div>
+
+<style>
+  .hero-shell {
+    position: relative;
+    z-index: 0;
+  }
+
+  .hero-shell > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-shell::before {
+    content: "";
+    position: absolute;
+    top: -7rem;
+    bottom: 0;
+    left: 50%;
+    width: 100vw;
+    transform: translateX(-50%);
+    background:
+      radial-gradient(780px 360px at 12% 18%, var(--color-accent-subtle), transparent 72%),
+      radial-gradient(620px 280px at 34% 8%, color-mix(in srgb, var(--color-accent) 14%, transparent), transparent 78%),
+      radial-gradient(900px 360px at 82% 26%, color-mix(in srgb, var(--color-info) 12%, transparent), transparent 82%);
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .hero-shell::after {
+    content: "";
+    position: absolute;
+    top: -4rem;
+    right: -2rem;
+    bottom: -2rem;
+    width: min(44vw, 520px);
+    background-image:
+      linear-gradient(to right, color-mix(in srgb, var(--color-border) 64%, transparent) 1px, transparent 1px),
+      linear-gradient(to bottom, color-mix(in srgb, var(--color-border) 64%, transparent) 1px, transparent 1px);
+    background-size: 30px 30px;
+    opacity: 0.44;
+    mask-image: radial-gradient(92% 92% at 74% 50%, black 0%, transparent 100%);
+    -webkit-mask-image: radial-gradient(92% 92% at 74% 50%, black 0%, transparent 100%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  @media (max-width: 1023px) {
+    .hero-shell::after {
+      display: none;
+    }
+  }
+
+  .hero-kicker {
+    color: var(--color-accent);
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  .hero-description {
+    color: var(--color-text-muted);
+    max-width: 42rem;
+    line-height: 1.56;
+  }
+
+  .hero-image-wrap {
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+
+  .hero-image {
+    width: 100%;
+    max-width: 22rem;
+    border-radius: var(--radius-hero);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-lg);
+    object-fit: cover;
+  }
+
+  .hero-image-frame {
+    position: relative;
+    border-radius: var(--radius-hero);
+    overflow: hidden;
+  }
+
+  .hero-image-wrap-editorial::before {
+    content: "";
+    position: absolute;
+    width: min(26rem, 92%);
+    aspect-ratio: 3 / 4;
+    border-radius: calc(var(--radius-hero) + 16px);
+    background:
+      radial-gradient(55% 55% at 25% 25%, color-mix(in srgb, var(--color-accent) 28%, transparent), transparent 100%),
+      radial-gradient(65% 65% at 72% 82%, color-mix(in srgb, var(--color-speaking) 30%, transparent), transparent 100%);
+    filter: blur(20px);
+    opacity: 0.7;
+    transform: translateY(12px);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .hero-image-wrap-editorial::after {
+    content: "";
+    position: absolute;
+    top: -0.75rem;
+    right: clamp(-0.75rem, -1vw, -0.5rem);
+    width: 5rem;
+    height: 5rem;
+    border-top: 2px solid color-mix(in srgb, var(--color-accent) 80%, transparent);
+    border-right: 2px solid color-mix(in srgb, var(--color-accent) 80%, transparent);
+    border-top-right-radius: 0.8rem;
+    opacity: 0.8;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .hero-image-editorial {
+    position: relative;
+    z-index: 1;
+    box-shadow:
+      var(--shadow-lg),
+      0 0 0 1px color-mix(in srgb, var(--color-border) 85%, transparent),
+      0 24px 60px color-mix(in srgb, black 45%, transparent);
+    transition:
+      transform var(--duration-normal) var(--ease-out),
+      box-shadow var(--duration-normal) var(--ease-out),
+      filter var(--duration-normal) var(--ease-out);
+    filter: saturate(1.07) contrast(1.03);
+  }
+
+  .hero-image-wrap-editorial:hover .hero-image-editorial {
+    transform: translateY(-2px) scale(1.005);
+    box-shadow:
+      var(--shadow-lg),
+      0 0 0 1px color-mix(in srgb, var(--color-accent) 35%, transparent),
+      0 30px 72px color-mix(in srgb, black 52%, transparent);
+  }
+
+  .hero-image-frame-editorial::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background:
+      linear-gradient(155deg, color-mix(in srgb, var(--color-accent) 14%, transparent), transparent 45%),
+      linear-gradient(340deg, color-mix(in srgb, var(--color-speaking) 10%, transparent), transparent 50%),
+      radial-gradient(120% 60% at 50% 100%, color-mix(in srgb, black 22%, transparent), transparent 60%);
+    pointer-events: none;
+  }
+
+  @media (min-width: 1024px) {
+    .hero-shell :global(.hero-title-large) {
+      font-size: 4.25rem;
+      line-height: 1.05;
+    }
+  }
+</style>

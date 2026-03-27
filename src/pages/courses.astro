@@ -27,10 +27,18 @@ const formattedCourses = courses.map((course) => ({
 ---
 
 <BaseLayout title="Courses | James Q Quick">
-    <HeroSection title={title} subtitle={subtitle} description={description} hasFullHeight={false}/>
-    <FeaturedSplitSection isLight={true} image={featuredCourse.data.coverImage} title={featuredCourse.data.title} description={featuredCourse.data.description} href={featuredCourse.data.link} date={featuredCourse.data.pubDate} />
-    <Section hasYPadding={true}>
-        <SectionHeader title="More courses"/>
-        <LinkCardList items={formattedCourses} includeDescription={true} />
-    </Section>
+  <HeroSection title={title} subtitle={subtitle} description={description} hasFullHeight={false} />
+  <FeaturedSplitSection
+    tone="elevated"
+    image={featuredCourse.data.coverImage}
+    title={featuredCourse.data.title}
+    description={featuredCourse.data.description}
+    href={featuredCourse.data.link}
+    date={featuredCourse.data.pubDate}
+    showCta={false}
+  />
+  <Section paddingY="default">
+    <SectionHeader title="More courses" />
+    <LinkCardList items={formattedCourses} includeDescription={true} />
+  </Section>
 </BaseLayout>

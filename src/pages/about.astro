@@ -1,11 +1,56 @@
 ---
 import HeroSection from "@components/HeroSection.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Section from "@components/Section.astro";
-import SectionHeader from "@components/SectionHeader.astro";
+import AboutTimeline from "@components/AboutTimeline.astro";
+import AboutPhotoGrid from "@components/AboutPhotoGrid.astro";
+import { speakingGallery } from "../data/speakingPage";
+import aboutHeroPortrait from "../images/about/about-hero-portrait.png";
 const title = "About Me";
 const subtitle = "Developer. Speaker. Teacher.";
 const description = "James is a developer, keynote speaker, and teacher whose work has impacted thousands of developers across the world. James has over 10 years of Software Development and Developer Advocacy experience. In his spare time, he enjoys traveling and playing co-ed soccer with his wife, playing with their two kids, and solving a Rubik's cube in under a minute.";
+const timelineItems = [
+  {
+    date: "June 2013",
+    title: "Technical Evangelist",
+    company: "Microsoft",
+    tag: "Advocacy",
+  },
+  {
+    date: "October 2016",
+    title: "Software Engineer",
+    company: "FedEx",
+    tag: "Engineering",
+  },
+  {
+    date: "January 2020",
+    title: "Sr. Developer Advocate",
+    company: "Auth0",
+    tag: "Developer Relations",
+  },
+  {
+    date: "October 2021",
+    title: "Staff Developer Advocate",
+    company: "PlanetScale",
+    tag: "Community",
+  },
+  {
+    date: "July 2022",
+    title: "Full-time Content Creator and Consultant",
+    tag: "Creator",
+  },
+  {
+    date: "October 2024",
+    title: "Developer Experience, Manager",
+    company: "Commerce",
+    tag: "Leadership",
+  },
+  {
+    date: "March 2026",
+    title: "Developer Educator",
+    company: "Cloudflare",
+    tag: "Education",
+  },
+];
 export const prerender = true;
 ---
 
@@ -15,6 +60,25 @@ export const prerender = true;
 >
 
 
-<HeroSection title={title} subtitle={subtitle} hasFullHeight={false} description={description}/>
+<HeroSection
+  title={title}
+  subtitle={subtitle}
+  hasFullHeight={false}
+  description={description}
+  image={aboutHeroPortrait}
+  imageAlt="James Q Quick speaking on stage"
+  imageVariant="editorial"
+/>
+<AboutTimeline
+  kicker="The roles that shaped me"
+  intro="I’ve been lucky to work with teams at amazing companies, and I've turned those experiences into practical guidance for developers. Each role added a new perspective, and it all builds toward speaking, teaching, and community impact."
+  items={timelineItems}
+/>
+<AboutPhotoGrid
+  kicker="Speaking highlights"
+  title="Speaking on stage, building community"
+  description="Through keynotes and workshops around the world, I’ve helped thousands of developers learn practical skills, ship with confidence, and connect with others. It’s the impact that keeps me going—and I love doing it alongside the teams and communities that shaped my journey."
+  items={speakingGallery.slice(0, 6)}
+/>
     
 </BaseLayout>
