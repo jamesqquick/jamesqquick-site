@@ -15,4 +15,6 @@ resources: []
 
 # Upgrading from Astro 3.0 to 4.0 (optional)
 
-Lesson scaffold only.
+Upgrade docs:
+
+- [https://docs.astro.build/en/guides/upgrade-to/v4/](https://docs.astro.build/en/guides/upgrade-to/v4/)

@@ -15,4 +15,9 @@ resources: []
 
 # CHALLENGE: Implement Category Pagination
 
-Lesson scaffold only.
+You have already added pagination for the general listing of blog posts, but what about pagination based on category? If you have many posts for a given category, you likely do not want to load all of that data at once.
+
+Implement category pagination just like you did for general blog posts by either:
+
+- Updating `Pagination.astro`, or
+- Creating a dedicated `CategoryPagination.astro` component.
