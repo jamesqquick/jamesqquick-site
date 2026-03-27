@@ -3,6 +3,8 @@
   --color-accent: #2bf1b5;
   --color-accent-hover: #17d79b;
   --color-accent-subtle: rgba(43, 241, 181, 0.18);
+  /* Light foreground on filled accent (matches primary “slate” text tone) */
+  --color-text-on-accent: #f8fafc;
 
   --color-text: #f8fafc;
   --color-text-muted: #c2cbd8;
@@ -86,6 +88,7 @@
   --color-accent: #16b883;
   --color-accent-hover: #10956a;
   --color-accent-subtle: rgba(22, 184, 131, 0.14);
+  --color-text-on-accent: #f8fafc;
 
   --color-text: #111827;
   --color-text-muted: #4b5563;

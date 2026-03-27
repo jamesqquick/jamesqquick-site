@@ -11,13 +11,24 @@ export interface Props {
   description: string;
   href: string;
   date: Date;
+  /** When true, shows the fancy “Read blog” link (e.g. blog featured). Courses omit this. */
+  showCta?: boolean;
   tone?: "base" | "elevated";
   paddingY?: "none" | "half" | "compact" | "default" | "spacious" | "xl";
   classStr?: string;
 }
 
-const { image, title, description, href, date, tone, paddingY = "default", classStr } =
-  Astro.props as Props;
+const {
+  image,
+  title,
+  description,
+  href,
+  date,
+  showCta = true,
+  tone,
+  paddingY = "default",
+  classStr,
+} = Astro.props as Props;
 
 ---
 
@@ -44,9 +55,17 @@ const { image, title, description, href, date, tone, paddingY = "default", class
       <p class="featured-description text-lg mb-4">
         {description}
       </p>
-      <div class="flex justify-between items-center gap-4">
-        <Link isFancy={true}  href={href}
-          text="Read blog"/>
+      <div
+        class:list={[
+          "flex items-center gap-4",
+          showCta ? "justify-between" : "justify-end",
+        ]}
+      >
+        {
+          showCta ? (
+            <Link isFancy={true} href={href} text="Read blog" />
+          ) : null
+        }
         <p class="featured-date text-lg">
           {date.toLocaleDateString("en-us", {
             year: "numeric",

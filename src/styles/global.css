@@ -33,6 +33,17 @@ p {
   color: var(--color-text-muted);
 }
 
+/* Markdown / MDX: default typography matches light surfaces; invert only when data-theme is dark */
+.ds-prose {
+  @apply prose prose-xl max-w-none dark:prose-invert;
+  @apply prose-headings:font-display prose-headings:text-text;
+  @apply prose-h2:text-accent prose-h3:text-text prose-h4:text-text;
+  @apply prose-p:text-textMuted prose-li:text-textMuted;
+  @apply prose-strong:text-text;
+  @apply prose-a:text-accent;
+  @apply prose-img:rounded-lg;
+}
+
 h1 {
   font-family: var(--font-display);
 }
