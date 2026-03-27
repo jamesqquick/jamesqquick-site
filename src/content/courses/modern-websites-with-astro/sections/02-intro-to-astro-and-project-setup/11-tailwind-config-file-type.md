@@ -15,4 +15,7 @@ resources: []
 
 # Tailwind Config File Type
 
-Lesson scaffold only.
+After adding the Tailwind integration, the Tailwind config file may have a different file extension depending on the Astro version used when the project was created.
+
+- Astro 3.0 typically generates `tailwind.config.cjs`
+- Astro 4.0 typically generates `tailwind.config.mjs`
