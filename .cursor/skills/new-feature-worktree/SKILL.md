@@ -2,11 +2,11 @@
 name: new-feature-worktree
 description: >-
   Implements a new feature in a dedicated git worktree on a feature/ branch,
-  validates (tests, lint, build as appropriate), runs Prisma generate before
-  commit, pushes and opens a PR, then opens the worktree folder in a new
-  Cursor instance when possible. Use when the user wants a worktree-based
-  feature workflow, or mentions implementing a feature in a separate worktree
-  with a pull request.
+  validates (tests, lint, build as appropriate), runs project-specific codegen
+  (e.g. Prisma generate) only when the repo uses it, pushes and opens a PR,
+  then opens the worktree folder in a new Cursor instance when possible. Use
+  when the user wants a worktree-based feature workflow, or mentions
+  implementing a feature in a separate worktree with a pull request.
 ---
 
 # New feature (worktree workflow)
@@ -124,17 +124,19 @@ Run what the repo provides, for example:
 
 Skip commands that do not exist; do not invent scripts.
 
-## 8) Prisma generate before commit
+## 8) Codegen before commit (only if the repo uses it)
 
-From the worktree:
+**Skip this step entirely** unless the project actually uses the tool (check for `prisma/schema.prisma`, `schema.prisma` at the repo root, or a `prisma` dependency in `package.json`).
+
+**Prisma** (when applicable): from the worktree:
 
 ```bash
 npx prisma generate
 ```
 
-If the project Prisma config requires a database URL for the CLI, set the env var the project documents, then run generate again.
+If the Prisma CLI needs a database URL, set the env var the project documents, then run generate again. If generate fails, report the error; do not claim success. Include any generated tracked files in the commit.
 
-If generate fails: report the error; do not claim success. Include any generated tracked files in the commit.
+**Other codegen** (when applicable): run whatever the repo documents (for example `npm run codegen`, `graphql-codegen`, `buf generate`). Skip if none exist.
 
 ## 9) Review
 
@@ -143,7 +145,7 @@ git status
 git diff --stat
 ```
 
-Summarize: files changed, what was implemented, validation run, Prisma result.
+Summarize: files changed, what was implemented, validation run, and codegen result (or “skipped — not used in this repo”).
 
 ## 10) Commit
 
@@ -178,7 +180,7 @@ Body template:
 
 ## Validation
 - [Commands run]
-- `npx prisma generate` (and env if used)
+- [Codegen if any, e.g. `npx prisma generate` — or “N/A”]
 
 ## Notes
 - [Follow-ups, risks, or issues]
@@ -227,7 +229,7 @@ Include:
 | Worktree path | `WORKTREE_PATH` |
 | Summary | Short |
 | Validation | Commands run |
-| Prisma generate | OK or error |
+| Codegen | Skipped, OK, or error (e.g. Prisma) |
 | Commit | Hash if committed |
 | PR | URL or not created + reason |
 | Cursor | Opened worktree in new instance (command used) or manual instructions |
