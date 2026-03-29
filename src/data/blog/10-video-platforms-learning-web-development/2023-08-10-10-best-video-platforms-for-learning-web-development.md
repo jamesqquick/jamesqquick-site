@@ -62,7 +62,7 @@ His courses truly take you from beginner to advanced with any topic he teaches. 
 
 Another one of my favorite premium course platforms is [Level Up Tutorials](https://www.leveluptutorials.com/) from [Scott Tolinski](https://twitter.com/stolinski). He releases a new course on a different topic each month, so there is always fresh content to dive into.
 
-> All of Level Up Tutorials content is now **free** since being acquired by [Sentry](https://sentry.io/)!
+> All of Level Up Tutorials content is now **free** following their acquisition.
 
 I've taken his courses on React, Gatsby, GraphQL, TypeScript, and more. The production quality is top-notch!
 

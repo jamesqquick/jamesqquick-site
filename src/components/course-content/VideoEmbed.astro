@@ -1,0 +1,65 @@
+---
+export interface Props {
+  url: string;
+  title?: string;
+}
+
+const { url, title = "Lesson video" } = Astro.props as Props;
+
+const trimmed = url.trim();
+
+const extractYouTubeId = (input: string): string | null => {
+  const shortMatch = input.match(/youtu\.be\/([a-zA-Z0-9_-]{11})/);
+  if (shortMatch?.[1]) return shortMatch[1];
+
+  const standardOrEmbedMatch = input.match(
+    /youtube\.com\/(?:watch\?.*v=|embed\/)([a-zA-Z0-9_-]{11})/
+  );
+  if (standardOrEmbedMatch?.[1]) return standardOrEmbedMatch[1];
+
+  return null;
+};
+
+const youtubeId = trimmed ? extractYouTubeId(trimmed) : null;
+const embedUrl = youtubeId
+  ? `https://www.youtube-nocookie.com/embed/${youtubeId}?rel=0&modestbranding=1`
+  : null;
+
+/** Public file URLs (e.g. Cloudflare R2 HTTPS): use native <video> when not YouTube embed. */
+const isDirectVideoUrl =
+  Boolean(trimmed) && !youtubeId && /^https?:\/\//i.test(trimmed);
+---
+
+{embedUrl && (
+  <div class="not-prose mb-8">
+    <div
+      class="relative w-full overflow-hidden rounded-xl border border-border bg-black"
+      style="padding-bottom: 56.25%;"
+    >
+      <iframe
+        src={embedUrl}
+        title={title}
+        class="absolute inset-0 h-full w-full"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+        loading="lazy"
+      />
+    </div>
+  </div>
+)}
+
+{isDirectVideoUrl && (
+  <div class="not-prose mb-8">
+    <div class="relative w-full overflow-hidden rounded-xl border border-border bg-black">
+      <video
+        class="aspect-video w-full"
+        controls
+        playsinline
+        preload="metadata"
+      >
+        <source src={trimmed} />
+        {title}
+      </video>
+    </div>
+  </div>
+)}

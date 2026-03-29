@@ -1,21 +1,22 @@
 ---
-import Section from "./Section.astro";
 import { Image } from "astro:assets";
 import type { ImageMetadata } from "astro";
 import Link from "./Link.astro";
 import SplitSection from "./SplitSection.astro";
 
+type ImageLike = { src: string; width: number; height: number; format?: string };
+
 export interface Props {
-  image: ImageMetadata;
+  /** Processed image from collections or site-root URL under `public/` */
+  image: ImageLike | string;
   title: string;
   description: string;
   href: string;
   date: Date;
   /** When true, shows the fancy “Read blog” link (e.g. blog featured). Courses omit this. */
   showCta?: boolean;
-  tone?: "base" | "elevated";
-  paddingY?: "none" | "half" | "compact" | "default" | "spacious" | "xl";
-  classStr?: string;
+  /** Open image + title links in a new tab (e.g. external course URLs). */
+  openInNewTab?: boolean;
 }
 
 const {
@@ -25,56 +26,73 @@ const {
   href,
   date,
   showCta = true,
-  tone,
-  paddingY = "default",
-  classStr,
+  openInNewTab = false,
 } = Astro.props as Props;
 
+const externalRel = openInNewTab ? "noopener noreferrer" : undefined;
+const coverIsPublicUrl = typeof image === "string" && image.startsWith("/");
 ---
 
-<SplitSection
-  tone={tone}
-  paddingY={paddingY}
-  classStr={classStr}
-  contentClassStr="featured-shell"
->
-    <a href={href} slot="left">
-      <Image
-        height={540}
-        width={960}
-        src={image}
-        class="featured-image"
-        alt={title}
-      />
+<SplitSection contentClassStr="featured-shell">
+  <a
+    href={href}
+    slot="left"
+    target={openInNewTab ? "_blank" : undefined}
+    rel={externalRel}
+  >
+    {
+      coverIsPublicUrl ? (
+        <img
+          src={image as string}
+          alt={title}
+          class="featured-image h-auto w-full"
+          loading="eager"
+          decoding="async"
+        />
+      ) : (
+        <Image
+          height={540}
+          width={960}
+          src={image as ImageMetadata}
+          class="featured-image"
+          alt={title}
+        />
+      )
+    }
+  </a>
+  <div slot="right" class="featured-content" data-interactive>
+    <p class="featured-kicker text-lg uppercase">Featured</p>
+    <a
+      href={href}
+      class="featured-title-link"
+      target={openInNewTab ? "_blank" : undefined}
+      rel={externalRel}
+    >
+      <h2 class="featured-title text-3xl font-bold mb-1">{title}</h2>
     </a>
-    <div slot="right" class="featured-content" data-interactive>
-      <p class="featured-kicker text-lg uppercase">Featured</p>
-      <a href={href} class="featured-title-link">
-        <h2 class="featured-title text-3xl font-bold mb-1">{title}</h2>
-      </a>
-      <p class="featured-description text-lg mb-4">
-        {description}
+    <p class="featured-description text-lg mb-4">
+      {description}
+    </p>
+    <div
+      class:list={[
+        "flex items-center gap-4",
+        showCta ? "justify-between" : "justify-end",
+      ]}
+    >
+      {
+        showCta ? (
+          <Link isFancy={true} href={href} text="Read blog" />
+        ) : null
+      }
+      <p class="featured-date text-lg">
+        {date.toLocaleDateString("en-us", {
+          year: "numeric",
+          month: "short",
+          day: "numeric",
+        })}
       </p>
-      <div
-        class:list={[
-          "flex items-center gap-4",
-          showCta ? "justify-between" : "justify-end",
-        ]}
-      >
-        {
-          showCta ? (
-            <Link isFancy={true} href={href} text="Read blog" />
-          ) : null
-        }
-        <p class="featured-date text-lg">
-          {date.toLocaleDateString("en-us", {
-            year: "numeric",
-            month: "short",
-            day: "numeric",
-          })}
-        </p>
-      </div>
     </div>
+  </div>
 </SplitSection>
 
 <style>

@@ -34,7 +34,7 @@ const { title, description, image } = Astro.props;
         <Navbar />
       </header>
       <div class="mx-auto grow w-full">
-        <main transition:animate="slide">
+        <main transition:animate="fade">
           <slot />
         </main>
       </div>
@@ -42,6 +42,11 @@ const { title, description, image } = Astro.props;
     </div>
   </body>
 </html>
+
+<script>
+  import { initCourseLessonUi } from "../scripts/course-lesson-ui";
+  initCourseLessonUi();
+</script>
 
 <style>
   .app-shell {

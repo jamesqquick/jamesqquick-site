@@ -1,0 +1,220 @@
+---
+import { render } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Section from "../../components/Section.astro";
+import Sidebar from "../../components/course-content/Sidebar.astro";
+import VideoEmbed from "../../components/course-content/VideoEmbed.astro";
+import SecureVideo from "../../components/course-content/SecureVideo.astro";
+import Callout from "../../components/mdx/Callout.astro";
+import Tabs from "../../components/mdx/Tabs.astro";
+import Tab from "../../components/mdx/Tab.astro";
+import Steps from "../../components/mdx/Steps.astro";
+import FileTree from "../../components/mdx/FileTree.astro";
+import Quiz from "../../components/mdx/Quiz.astro";
+import StackBlitz from "../../components/mdx/StackBlitz.astro";
+import H1 from "../../components/H1.astro";
+import {
+  getCourseBySlug,
+  getCourseSlug,
+  getInternalCourses,
+  getLessonUrlSegment,
+  getLessonsByCourseSlug,
+  getNormalizedLessonId,
+  getSectionsByCourseSlug,
+  getSectionSlug,
+  lessonUrl,
+} from "src/utils/contentCollections";
+
+export const prerender = false;
+
+export async function getStaticPaths() {
+  const courses = await getInternalCourses();
+  const perCourseLessons = await Promise.all(
+    courses.map((course) =>
+      getLessonsByCourseSlug(course.data.slug ?? course.id.split("/")[0])
+    )
+  );
+  const lessons = perCourseLessons.flat();
+
+  return lessons.map((lesson) => ({
+    params: {
+      lesson: `${getCourseSlug(lesson.id)}/${getSectionSlug(lesson.id)}/${getLessonUrlSegment(lesson)}`,
+    },
+  }));
+}
+
+const lessonParam = Astro.params.lesson;
+const parts = lessonParam?.split("/") ?? [];
+if (parts.length !== 3) return Astro.redirect("/courses");
+const [courseSlug, sectionSlug, lessonSlug] = parts;
+
+const course = await getCourseBySlug(courseSlug);
+const lessons = await getLessonsByCourseSlug(courseSlug);
+const sections = await getSectionsByCourseSlug(courseSlug);
+const lesson = lessons.find(
+  (entry) =>
+    getSectionSlug(entry.id) === sectionSlug &&
+    getLessonUrlSegment(entry) === lessonSlug
+);
+if (!course || !lesson) return Astro.redirect("/courses");
+
+const currentIndex = lessons.findIndex((l) => l.id === lesson.id);
+const prevLesson = currentIndex > 0 ? lessons[currentIndex - 1] : null;
+const nextLesson = currentIndex < lessons.length - 1 ? lessons[currentIndex + 1] : null;
+const videoId = lesson.data.videoId?.trim();
+const lessonVideoUrl =
+  lesson.data.videoUrl?.trim() ||
+  (videoId ? `https://www.youtube.com/watch?v=${videoId}` : undefined);
+const { Content } = await render(lesson);
+const mdxComponents = { Callout, Tabs, Tab, Steps, FileTree, Quiz, StackBlitz };
+const normalizedLessonId = getNormalizedLessonId(lesson);
+const courseLessonIds = lessons.map((entry) => getNormalizedLessonId(entry));
+const hasVideo = Boolean(lesson.data.videoKey || lessonVideoUrl);
+---
+
+<BaseLayout title={`${lesson.data.title} | ${course.data.title}`} description={lesson.data.summary ?? course.data.description}>
+  <main>
+    <div class="border-b border-border lg:hidden px-6 py-3">
+      <button
+        id="open-sidebar-btn"
+        aria-label="Open course navigation"
+        class="inline-flex items-center gap-2 text-sm text-textMuted font-sans"
+      >
+        <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+        Course Menu
+      </button>
+    </div>
+
+    <div id="sidebar-drawer" class="fixed inset-0 z-50 hidden lg:hidden">
+      <div id="sidebar-overlay" class="absolute inset-0 bg-black/40"></div>
+      <aside class="absolute left-0 top-0 h-full w-80 max-w-[85vw] overflow-y-auto border-r border-border bg-surface p-5">
+        <button id="close-sidebar-btn" aria-label="Close navigation" class="mb-4 text-sm text-textMuted font-sans">
+          Close
+        </button>
+        <Sidebar
+          course={course}
+          sections={sections}
+          lessons={lessons}
+          currentLessonId={getNormalizedLessonId(lesson)}
+          completedLessons={[]}
+        />
+      </aside>
+    </div>
+
+    <Section classStr="pt-8 lg:pt-12">
+      <div class="grid gap-8 lg:grid-cols-[280px,1fr]">
+        <aside class="hidden lg:block lg:sticky lg:top-0 lg:h-screen lg:overflow-y-auto border-r border-border pr-4">
+          <Sidebar
+            course={course}
+            sections={sections}
+            lessons={lessons}
+            currentLessonId={getNormalizedLessonId(lesson)}
+            completedLessons={[]}
+          />
+        </aside>
+        <article class="ds-prose prose-pre:rounded-xl prose-pre:border prose-pre:border-border">
+        <div class="mb-6 flex flex-wrap items-center justify-between gap-3 not-prose">
+          <p class="m-0">
+            <a href="/courses">Courses</a> / <a href={`/course/${courseSlug}`}>{course.data.title}</a> / {lesson.data.title}
+          </p>
+          <button
+            id="mark-complete-btn"
+            type="button"
+            class="inline-flex items-center gap-1.5 border border-border rounded-md px-2.5 py-1.5 text-xs font-sans text-text no-underline transition-colors hover:border-accent"
+            data-lesson-id={normalizedLessonId}
+            data-course-slug={courseSlug}
+            data-course-title={course.data.title}
+            data-course-lesson-ids={JSON.stringify(courseLessonIds)}
+          >
+            <svg viewBox="0 0 24 24" class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span>Mark as Complete</span>
+          </button>
+        </div>
+        {hasVideo && (
+          <div class="not-prose mb-6">
+            <H1 text={lesson.data.title} />
+          </div>
+        )}
+        {lesson.data.videoKey ? (
+          <div class="not-prose mb-8">
+            <SecureVideo videoKey={lesson.data.videoKey} />
+          </div>
+        ) : (
+          lessonVideoUrl && (
+            <VideoEmbed
+              url={lessonVideoUrl}
+              title={`${lesson.data.title} — Video`}
+            />
+          )
+        )}
+          <div class={hasVideo ? "[&>h1:first-of-type]:hidden" : ""}>
+            <Content components={mdxComponents} />
+          </div>
+        <div class="mt-8 rounded-xl border border-border p-4 not-prose">
+          <div class="flex items-center justify-between text-sm text-textMuted font-sans">
+            <p>Lesson {currentIndex + 1} of {lessons.length}</p>
+            <p>{Math.round(((currentIndex + 1) / lessons.length) * 100)}%</p>
+          </div>
+          <div class="w-full rounded-full h-2 mt-1.5 bg-surface-hover border border-border">
+            <div class="bg-accent h-2 rounded-full" style={`width:${Math.round(((currentIndex + 1) / lessons.length) * 100)}%`}></div>
+            </div>
+        </div>
+        <div class="mt-4 rounded-xl border border-border p-4 not-prose">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-4">
+            {prevLesson ? (
+              <a
+                href={lessonUrl(prevLesson)}
+                class="flex items-center gap-3 rounded-xl border border-border px-4 py-3 font-sans no-underline hover:no-underline transition-colors hover:border-accent"
+              >
+                <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-border text-sm text-text">
+                  ←
+                </span>
+                <span class="min-w-0">
+                  <span class="block text-xs uppercase tracking-wider text-textMuted">Previous</span>
+                  <span class="block truncate text-sm text-text">{prevLesson.data.title}</span>
+                </span>
+              </a>
+            ) : (
+              <span />
+            )}
+              {nextLesson ? (
+              <a
+                id="next-lesson-link"
+                href={lessonUrl(nextLesson)}
+                class="flex items-center justify-between gap-3 rounded-xl border border-border px-4 py-3 font-sans no-underline hover:no-underline transition-colors hover:border-accent"
+              >
+                <span class="min-w-0 text-right">
+                  <span class="block text-xs uppercase tracking-wider text-textMuted">Next</span>
+                  <span class="block truncate text-sm text-text">{nextLesson.data.title}</span>
+                </span>
+                <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-border text-sm text-text">
+                  →
+                </span>
+              </a>
+              ) : (
+              <a
+                href={`/course/${courseSlug}/complete`}
+                class="flex items-center justify-between gap-3 rounded-xl border border-border px-4 py-3 font-sans no-underline hover:no-underline transition-colors hover:border-accent"
+              >
+                <span class="min-w-0 text-right">
+                  <span class="block text-xs uppercase tracking-wider text-textMuted">Finish</span>
+                  <span class="block truncate text-sm text-text">Complete Course</span>
+                </span>
+                <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-border text-sm text-text">
+                  →
+                </span>
+              </a>
+              )}
+            </div>
+          </div>
+        </article>
+      </div>
+    </Section>
+  </main>
+</BaseLayout>

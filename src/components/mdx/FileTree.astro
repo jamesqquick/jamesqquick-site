@@ -1,0 +1,26 @@
+---
+export interface Props {
+  files: string[];
+}
+
+const { files = [] } = Astro.props as Props;
+
+const getDepth = (path: string) => {
+  const slashCount = (path.match(/\//g) ?? []).length;
+  return path.endsWith("/") ? Math.max(0, slashCount - 1) : slashCount;
+};
+---
+
+<div class="not-prose my-6 rounded-xl border border-gray-700 bg-surface p-4 font-mono text-sm leading-relaxed">
+  {files.map((path) => {
+    const isDir = path.endsWith("/");
+    const name = path.replace(/\/$/, "").split("/").pop() ?? path;
+    const depth = getDepth(path);
+    return (
+      <div style={`padding-left: ${depth * 1.25}rem`}>
+        {isDir ? "📁 " : "📄 "}
+        <span class={isDir ? "font-medium text-brand-light" : "text-gray-300"}>{name}</span>
+      </div>
+    );
+  })}
+</div>

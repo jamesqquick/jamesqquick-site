@@ -1,0 +1,70 @@
+---
+import { getNormalizedLessonId, getSectionSlug, lessonUrl } from "src/utils/contentCollections";
+
+export interface Props {
+  course: any;
+  sections: {
+    slug: string;
+    title: string;
+  }[];
+  lessons: any[];
+  currentLessonId: string;
+  completedLessons?: string[];
+}
+
+const { course, sections, lessons, currentLessonId, completedLessons = [] } = Astro.props as Props;
+const courseSlug = course.data.slug ?? course.id.split("/")[0];
+const completedSet = new Set(completedLessons);
+---
+
+<nav aria-label="Course navigation" class="font-sans text-text">
+  <a href={`/course/${courseSlug}`} class="text-sm font-semibold text-accent hover:underline">
+    {course.data.title}
+  </a>
+
+  <div class="mt-6 space-y-6">
+    {sections.map((section) => {
+      const sectionLessons = lessons.filter(
+        (lesson) => getSectionSlug(lesson.id) === section.slug
+      );
+      return (
+        <section>
+          <h3 class="mb-2 text-xs font-semibold uppercase tracking-wider text-textMuted font-sans">
+            {section.title}
+          </h3>
+          <ul class="space-y-1">
+            {sectionLessons.map((lesson) => {
+              const normalizedLessonId = getNormalizedLessonId(lesson);
+              const isCurrent = normalizedLessonId === currentLessonId;
+              const isCompleted = completedSet.has(normalizedLessonId);
+              return (
+                <li>
+                  <a
+                    href={lessonUrl(lesson)}
+                    aria-current={isCurrent ? "page" : undefined}
+                    class:list={[
+                      "flex items-center gap-2 border-l-2 px-3 py-2 text-sm rounded-r-md transition-colors font-sans",
+                      isCurrent
+                        ? "border-accent bg-accent/10 text-accent font-medium"
+                        : "border-transparent text-textMuted hover:bg-surface-hover hover:text-text",
+                    ]}
+                  >
+                    <span
+                      class:list={[
+                        "lesson-check h-4 w-4 shrink-0 rounded-full border",
+                        isCompleted ? "bg-green-500 border-green-500" : "border-border",
+                      ]}
+                      data-lesson-id={normalizedLessonId}
+                      set:html={isCompleted ? '<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>' : ""}
+                    />
+                    <span class="truncate">{lesson.data.title}</span>
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+      );
+    })}
+  </div>
+</nav>

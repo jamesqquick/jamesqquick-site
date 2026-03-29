@@ -7,6 +7,15 @@ import vscode from "../images/blog/logos/vscode.png";
 import nodejs from "../images/blog/logos/nodejs.png";
 import chatgpt from "../images/blog/logos/chatgpt.png";
 import { Image } from "astro:assets";
+
+/** ESM metadata from `image()` collections, or site-root URL in `public/` */
+type ImageLike = {
+  src: string;
+  width: number;
+  height: number;
+  format?: string;
+};
+
 export interface Props {
   slug: string;
   title: string;
@@ -14,15 +23,15 @@ export interface Props {
   description?: string;
   btnText?: string;
   tag?: string;
-  image: {
-    src: string;
-    width: number;
-    height: number;
-    format: "avif" | "png" | "webp" | "jpeg" | "jpg" | "svg" | "tiff" | "gif";
-};
+  openInNewTab?: boolean;
+  dateLabelPrefix?: string;
+  image: ImageLike | string;
 }
 
-const { slug, date, title, btnText = "Read", tag, image, description } = Astro.props;
+const { slug, date, title, btnText = "Read", tag, image, description, openInNewTab = false, dateLabelPrefix = "" } =
+  Astro.props;
+
+const isPublicUrl = typeof image === "string" && image.startsWith("/");
 const tagToLogo = {
   javascript,
   vscode,
@@ -35,20 +44,26 @@ const tagToLogo = {
 
 <div class="card-shell overflow-hidden" data-interactive>
   <div class="flex items-center justify-center w-full object-cover mb-4">
-    <a href={slug} class="grow hover:underline">
-      <Image
-        height={image.height}
-        width={image.width}
-        src={image}
-        alt={title}
-        class="card-image aspect-video object-cover"
-      />
+    <a href={slug} class="grow hover:underline" target={openInNewTab ? "_blank" : undefined} rel={openInNewTab ? "noopener noreferrer" : undefined}>
+      {
+        isPublicUrl ? (
+          <Image inferSize src={image} alt={title} class="card-image aspect-video object-cover" />
+        ) : (
+          <Image
+            height={(image as ImageLike).height}
+            width={(image as ImageLike).width}
+            src={image as ImageLike}
+            alt={title}
+            class="card-image aspect-video object-cover"
+          />
+        )
+      }
     </a>
   </div>
 
   {tag && <span class="card-chip mb-2 inline-flex">{tag}</span>}
-  <p class="mb-1 card-date">{getFormattedDate(date)}</p>
-  <a href={slug} class="grow hover:underline">
+  <p class="mb-1 card-date">{dateLabelPrefix}{getFormattedDate(date)}</p>
+  <a href={slug} class="grow hover:underline" target={openInNewTab ? "_blank" : undefined} rel={openInNewTab ? "noopener noreferrer" : undefined}>
     <h3
       class="card-title font-bold text-2xl transition-colors mb-2"
     >

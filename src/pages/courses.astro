@@ -1,10 +1,9 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import CoursesCallout from "../components/CoursesCallout.astro";
 import HeroSection from "@components/HeroSection.astro";
 import Section from "@components/Section.astro";
 import FeaturedSplitSection from "@components/FeaturedSplitSection.astro";
-import { getSortedCourses } from "src/utils/contentCollections";
+import { getCourseCatalog, getCourseHostType, getCourseUrl } from "src/utils/contentCollections";
 import SectionHeader from "@components/SectionHeader.astro";
 import LinkCardList from "@components/LinkCardList.astro";
 
@@ -14,31 +13,40 @@ const title = "Courses";
 const subtitle = `Learn to build for the modern web`;
 const description = `Looking to take your web development skills to the next level? Check out my collection of courses, offering something for everyone whether you're a seasoned developer or just getting started.`;
 
-const courses = (await getSortedCourses());
+const courses = (await getCourseCatalog()).filter(
+  (course) => course.data.coverImage && course.data.description && (course.data.updatedDate ?? course.data.pubDate)
+);
 const featuredCourse = courses.splice(0, 1)[0];
 const formattedCourses = courses.map((course) => ({
   ...course.data,
-  image: course.data.coverImage,
-  date: course.data.pubDate,
+  image: course.data.coverImage!,
+  date: (course.data.updatedDate ?? course.data.pubDate)!,
   id: course.id,
-  link: `/courses/${course.id}`,
+  link: getCourseUrl(course),
+  openInNewTab: getCourseHostType(course) === "external",
 }));
 
 ---
 
 <BaseLayout title="Courses | James Q Quick">
   <HeroSection title={title} subtitle={subtitle} description={description} hasFullHeight={false} />
-  <FeaturedSplitSection
-    tone="elevated"
-    image={featuredCourse.data.coverImage}
-    title={featuredCourse.data.title}
-    description={featuredCourse.data.description}
-    href={featuredCourse.data.link}
-    date={featuredCourse.data.pubDate}
-    showCta={false}
-  />
+  {
+    featuredCourse && (
+      <Section tone="elevated" paddingY="default">
+        <FeaturedSplitSection
+          image={featuredCourse.data.coverImage!}
+          title={featuredCourse.data.title}
+          description={featuredCourse.data.description!}
+          href={getCourseUrl(featuredCourse)}
+          date={(featuredCourse.data.updatedDate ?? featuredCourse.data.pubDate)!}
+          showCta={false}
+          openInNewTab={getCourseHostType(featuredCourse) === "external"}
+        />
+      </Section>
+    )
+  }
   <Section paddingY="default">
     <SectionHeader title="More courses" />
-    <LinkCardList items={formattedCourses} includeDescription={true} />
+    <LinkCardList items={formattedCourses} includeDescription={true} dateLabelPrefix="Last updated on " />
   </Section>
 </BaseLayout>
