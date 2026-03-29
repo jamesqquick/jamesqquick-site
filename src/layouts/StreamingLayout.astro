@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import { XATA_API_KEY } from "astro:env/server";
 import { XataClient } from "src/xata";
 import BaseHead from "../components/BaseHead.astro";
@@ -69,9 +70,36 @@ const { title, description, image, includeLogo = false } = Astro.props;
           </div>
           <p class="text-2xl font-bold">{settings?.title}</p>
           <p class="flex items-center justify-end gap-x-4 w-[400px]">
-            <img class="h-10" src={settings?.sponsor1?.logo?.url} />
-            <img class="h-10" src={settings?.sponsor2?.logo?.url} />
-            <img class="h-6" src={settings?.sponsor3?.logo?.url} />
+            {settings?.sponsor1?.logo?.url && (
+              <Image
+                class="h-10 w-auto max-h-10 object-contain"
+                src={settings.sponsor1.logo.url}
+                alt={`Stream sponsor 1${settings?.title ? ` — ${settings.title}` : ""}`}
+                inferSize
+                loading="eager"
+                sizes="160px"
+              />
+            )}
+            {settings?.sponsor2?.logo?.url && (
+              <Image
+                class="h-10 w-auto max-h-10 object-contain"
+                src={settings.sponsor2.logo.url}
+                alt={`Stream sponsor 2${settings?.title ? ` — ${settings.title}` : ""}`}
+                inferSize
+                loading="eager"
+                sizes="160px"
+              />
+            )}
+            {settings?.sponsor3?.logo?.url && (
+              <Image
+                class="h-6 w-auto max-h-6 object-contain"
+                src={settings.sponsor3.logo.url}
+                alt={`Stream sponsor 3${settings?.title ? ` — ${settings.title}` : ""}`}
+                inferSize
+                loading="eager"
+                sizes="120px"
+              />
+            )}
           </p>
         </footer>
       </div>

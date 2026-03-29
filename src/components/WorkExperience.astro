@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import fedexLight from "../images/company-logos/fedex.png";
 import fedexDark from "../images/company-logos/fedex-dark.png";
 import microsoftLight from "../images/company-logos/microsoft.png";
@@ -22,63 +23,93 @@ const subtitle = "I've worked at some amazing companies";
     class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 items-end place-items-center gap-y-16 gap-x-8 max-x-xl mx-auto"
   >
     <div class="relative flex h-10 w-full max-w-[9rem] items-end justify-center">
-      <img
+      <Image
         class="work-exp-fedex work-exp-fedex--dark-theme h-10 w-auto max-w-full object-contain object-bottom"
-        src={fedexLight.src}
+        src={fedexLight}
         alt="FedEx logo"
+        width={fedexLight.width}
+        height={fedexLight.height}
+        sizes="9rem"
       />
-      <img
+      <Image
         class="work-exp-fedex work-exp-fedex--light-theme h-10 w-auto max-w-full object-contain object-bottom"
-        src={fedexDark.src}
+        src={fedexDark}
         alt="FedEx logo"
+        width={fedexDark.width}
+        height={fedexDark.height}
+        sizes="9rem"
       />
     </div>
     <div class="relative flex h-10 w-full max-w-[9rem] items-end justify-center">
-      <img
+      <Image
         class="work-exp-microsoft work-exp-microsoft--dark-theme h-10 w-auto max-w-full object-contain object-bottom"
-        src={microsoftLight.src}
+        src={microsoftLight}
         alt="Microsoft logo"
+        width={microsoftLight.width}
+        height={microsoftLight.height}
+        sizes="9rem"
       />
-      <img
+      <Image
         class="work-exp-microsoft work-exp-microsoft--light-theme h-10 w-auto max-w-full object-contain object-bottom"
-        src={microsoftDark.src}
+        src={microsoftDark}
         alt="Microsoft logo"
+        width={microsoftDark.width}
+        height={microsoftDark.height}
+        sizes="9rem"
       />
     </div>
     <div class="relative flex h-10 w-full max-w-[9rem] items-end justify-center">
-      <img
+      <Image
         class="work-exp-auth0 work-exp-auth0--dark-theme h-10 w-auto max-w-full object-contain object-bottom"
-        src={auth0Light.src}
+        src={auth0Light}
         alt="Auth0 logo"
+        width={auth0Light.width}
+        height={auth0Light.height}
+        sizes="9rem"
       />
-      <img
+      <Image
         class="work-exp-auth0 work-exp-auth0--light-theme h-10 w-auto max-w-full object-contain object-bottom"
-        src={auth0Dark.src}
+        src={auth0Dark}
         alt="Auth0 logo"
+        width={auth0Dark.width}
+        height={auth0Dark.height}
+        sizes="9rem"
       />
     </div>
     <div class="relative flex h-10 w-full max-w-[9rem] items-end justify-center">
-      <img
+      <Image
         class="work-exp-planetscale work-exp-planetscale--dark-theme h-10 w-auto max-w-full object-contain object-bottom"
-        src={planetscaleLight.src}
+        src={planetscaleLight}
         alt="PlanetScale logo"
+        width={planetscaleLight.width}
+        height={planetscaleLight.height}
+        sizes="9rem"
       />
-      <img
+      <Image
         class="work-exp-planetscale work-exp-planetscale--light-theme h-10 w-auto max-w-full object-contain object-bottom"
-        src={planetscaleDark.src}
+        src={planetscaleDark}
         alt="PlanetScale logo"
+        width={planetscaleDark.width}
+        height={planetscaleDark.height}
+        sizes="9rem"
       />
     </div>
     <div class="relative flex h-10 w-full max-w-[11rem] items-end justify-center">
-      <img
+      <Image
         class="work-exp-commerce work-exp-commerce--dark h-10 w-auto max-w-full object-contain object-bottom"
-        src={commerceWhite.src}
+        src={commerceWhite}
         alt="Commerce logo"
+        width={commerceWhite.width}
+        height={commerceWhite.height}
+        sizes="11rem"
       />
-      <img
+      <Image
         class="work-exp-commerce work-exp-commerce--light h-10 w-auto max-w-full object-contain object-bottom"
-        src={commerceBlack.src}
+        src={commerceBlack}
         alt="Commerce logo"
+        width={commerceBlack.width}
+        height={commerceBlack.height}
+        sizes="11rem"
       />
     </div>
   </div>

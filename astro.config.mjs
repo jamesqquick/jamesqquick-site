@@ -12,6 +12,10 @@ export default defineConfig({
   image: {
     layout: "constrained",
     responsiveStyles: true,
+    remotePatterns: [
+      { protocol: "https", hostname: "i.ytimg.com" },
+      { protocol: "https", hostname: "**.storage.xata.sh" },
+    ],
   },
   env: {
     schema: {
