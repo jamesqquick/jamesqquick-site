@@ -9,6 +9,10 @@ import icon from "astro-icon";
 // https://astro.build/config
 export default defineConfig({
   site: "https://jamesqquick.com/",
+  image: {
+    layout: "constrained",
+    responsiveStyles: true,
+  },
   env: {
     schema: {
       // Secret server variables used in endpoints/components.
