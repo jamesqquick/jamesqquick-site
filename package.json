@@ -27,8 +27,6 @@
     "@iconify-json/mdi": "^1.1.67",
     "@iconify-json/teenyicons": "^1.1.9",
     "@sendgrid/mail": "^8.1.0",
-    "@sentry/astro": "^8.20.0",
-    "@spotlightjs/astro": "^2.1.1",
     "@xata.io/client": "^0.29.1",
     "astro-cloudinary": "^1.0.0-beta.2",
     "astro-embed": "^0.6.1",
