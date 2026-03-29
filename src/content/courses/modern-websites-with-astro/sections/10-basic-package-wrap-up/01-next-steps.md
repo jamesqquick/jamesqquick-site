@@ -14,4 +14,3 @@ resources: []
 ---
 
 # Next Steps
-Lesson scaffold only.

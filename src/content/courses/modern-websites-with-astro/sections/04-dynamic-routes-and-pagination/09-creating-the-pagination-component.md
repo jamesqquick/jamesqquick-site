@@ -14,4 +14,3 @@ resources: []
 ---
 
 # Creating the Pagination Component
-Lesson scaffold only.

@@ -14,4 +14,3 @@ resources: []
 ---
 
 # Welcome and Thank You
-Lesson scaffold only.

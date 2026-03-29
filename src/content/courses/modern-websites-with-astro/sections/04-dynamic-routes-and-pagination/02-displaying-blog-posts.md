@@ -14,4 +14,3 @@ resources: []
 ---
 
 # Displaying Blog Posts
-Lesson scaffold only.

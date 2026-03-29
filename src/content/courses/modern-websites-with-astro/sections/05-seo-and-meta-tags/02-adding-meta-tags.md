@@ -14,4 +14,3 @@ resources: []
 ---
 
 # Adding Meta Tags
-Lesson scaffold only.

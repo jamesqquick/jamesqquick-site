@@ -14,4 +14,3 @@ resources: []
 ---
 
 # Intro To Astro
-Lesson scaffold only.

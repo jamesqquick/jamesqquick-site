@@ -14,4 +14,3 @@ resources: []
 ---
 
 # Updating the Site Config Property
-Lesson scaffold only.

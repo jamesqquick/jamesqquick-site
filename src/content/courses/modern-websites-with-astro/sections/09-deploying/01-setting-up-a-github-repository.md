@@ -14,4 +14,3 @@ resources: []
 ---
 
 # Setting Up a Github Repository
-Lesson scaffold only.

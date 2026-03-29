@@ -14,4 +14,3 @@ resources: []
 ---
 
 # Deploying to Vercel
-Lesson scaffold only.

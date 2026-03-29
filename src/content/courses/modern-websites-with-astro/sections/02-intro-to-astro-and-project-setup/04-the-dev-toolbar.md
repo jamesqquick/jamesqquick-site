@@ -14,4 +14,3 @@ resources: []
 ---
 
 # The Dev Toolbar
-Lesson scaffold only.

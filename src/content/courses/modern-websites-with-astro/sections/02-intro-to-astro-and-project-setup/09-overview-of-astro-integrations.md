@@ -14,4 +14,3 @@ resources: []
 ---
 
 # Overview of Astro Integrations
-Lesson scaffold only.

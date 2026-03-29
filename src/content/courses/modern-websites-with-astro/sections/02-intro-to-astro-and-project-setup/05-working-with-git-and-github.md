@@ -14,4 +14,3 @@ resources: []
 ---
 
 # Working with Git and Github
-Lesson scaffold only.

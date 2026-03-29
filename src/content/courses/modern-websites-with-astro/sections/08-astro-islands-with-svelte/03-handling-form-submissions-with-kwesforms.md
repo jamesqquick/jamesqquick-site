@@ -14,4 +14,3 @@ resources: []
 ---
 
 # Handling Form Submissions with KwesForms
-Lesson scaffold only.

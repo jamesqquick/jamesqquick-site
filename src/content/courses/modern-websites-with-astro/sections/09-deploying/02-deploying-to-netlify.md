@@ -14,4 +14,3 @@ resources: []
 ---
 
 # Deploying to Netlify
-Lesson scaffold only.

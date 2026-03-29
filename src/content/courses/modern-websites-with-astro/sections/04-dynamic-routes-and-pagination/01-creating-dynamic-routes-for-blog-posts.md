@@ -14,4 +14,3 @@ resources: []
 ---
 
 # Creating Dynamic Routes for Blog Posts
-Lesson scaffold only.

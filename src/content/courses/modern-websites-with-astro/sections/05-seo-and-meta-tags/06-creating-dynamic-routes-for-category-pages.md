@@ -14,4 +14,3 @@ resources: []
 ---
 
 # Creating Dynamic Routes for Category Pages
-Lesson scaffold only.

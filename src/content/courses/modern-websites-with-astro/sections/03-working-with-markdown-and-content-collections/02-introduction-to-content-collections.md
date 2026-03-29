@@ -14,4 +14,3 @@ resources: []
 ---
 
 # Introduction to Content Collections
-Lesson scaffold only.

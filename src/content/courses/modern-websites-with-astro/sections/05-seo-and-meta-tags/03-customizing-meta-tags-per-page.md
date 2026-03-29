@@ -14,4 +14,3 @@ resources: []
 ---
 
 # Customizing Meta Tags Per Page
-Lesson scaffold only.

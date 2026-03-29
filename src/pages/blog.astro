@@ -31,14 +31,15 @@ const formattedPosts = posts.map((post) => ({
     description="I write about modern web development, developer experience, careers, and more!"
     h1AriaLabel="Blog | James Q Quick"
   />
-  <!-- <FeaturedSplitSection
-    tone="elevated"
+  <!-- <Section tone="elevated" paddingY="default">
+    <FeaturedSplitSection
     image={featuredPost.data.coverImage}
     title={featuredPost.data.title}
     description={featuredPost.data.description}
     href={featuredPost.data.link}
     date={featuredPost.data.pubDate}
-  /> -->
+  />
+  </Section> -->
   <Section tone="base" classStr="mt-8">
     <LinkCardList items={formattedPosts} />
   </Section>

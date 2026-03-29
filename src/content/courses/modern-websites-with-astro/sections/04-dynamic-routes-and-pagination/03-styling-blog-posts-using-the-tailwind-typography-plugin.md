@@ -14,4 +14,3 @@ resources: []
 ---
 
 # Styling Blog Posts Using The Tailwind Typography Plugin
-Lesson scaffold only.

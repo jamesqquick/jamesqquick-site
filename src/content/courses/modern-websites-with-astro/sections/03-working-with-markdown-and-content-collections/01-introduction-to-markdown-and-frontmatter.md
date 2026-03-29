@@ -14,4 +14,3 @@ resources: []
 ---
 
 # Introduction to Markdown and Frontmatter
-Lesson scaffold only.

@@ -14,4 +14,3 @@ resources: []
 ---
 
 # Creating the Share Component
-Lesson scaffold only.

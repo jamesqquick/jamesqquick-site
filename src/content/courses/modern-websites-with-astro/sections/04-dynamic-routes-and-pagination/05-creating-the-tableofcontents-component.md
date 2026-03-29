@@ -14,4 +14,3 @@ resources: []
 ---
 
 # Creating the TableOfContents Component
-Lesson scaffold only.

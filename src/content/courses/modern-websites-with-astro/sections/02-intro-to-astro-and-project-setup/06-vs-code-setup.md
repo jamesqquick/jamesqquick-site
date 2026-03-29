@@ -14,4 +14,3 @@ resources: []
 ---
 
 # VS Code Setup
-Lesson scaffold only.

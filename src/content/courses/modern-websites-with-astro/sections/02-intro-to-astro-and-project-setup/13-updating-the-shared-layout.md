@@ -14,4 +14,3 @@ resources: []
 ---
 
 # Updating the Shared Layout
-Lesson scaffold only.

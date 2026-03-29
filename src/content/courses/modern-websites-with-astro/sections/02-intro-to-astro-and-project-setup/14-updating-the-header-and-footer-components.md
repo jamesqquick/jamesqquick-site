@@ -14,4 +14,3 @@ resources: []
 ---
 
 # Updating the Header and Footer Components
-Lesson scaffold only.

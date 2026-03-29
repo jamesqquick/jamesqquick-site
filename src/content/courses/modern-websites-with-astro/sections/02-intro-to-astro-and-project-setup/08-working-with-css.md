@@ -14,4 +14,3 @@ resources: []
 ---
 
 # Working With CSS
-Lesson scaffold only.

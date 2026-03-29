@@ -14,4 +14,3 @@ resources: []
 ---
 
 # Displaying a Featured Post
-Lesson scaffold only.

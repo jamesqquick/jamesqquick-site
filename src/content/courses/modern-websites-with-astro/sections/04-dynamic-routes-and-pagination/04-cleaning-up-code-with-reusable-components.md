@@ -14,4 +14,3 @@ resources: []
 ---
 
 # Cleaning Up Code With Reusable Components
-Lesson scaffold only.

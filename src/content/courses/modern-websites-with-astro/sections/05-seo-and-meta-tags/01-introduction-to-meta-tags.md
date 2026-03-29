@@ -14,4 +14,3 @@ resources: []
 ---
 
 # Introduction to Meta Tags
-Lesson scaffold only.

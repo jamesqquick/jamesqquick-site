@@ -12,6 +12,7 @@ import Steps from "../../components/mdx/Steps.astro";
 import FileTree from "../../components/mdx/FileTree.astro";
 import Quiz from "../../components/mdx/Quiz.astro";
 import StackBlitz from "../../components/mdx/StackBlitz.astro";
+import H1 from "../../components/H1.astro";
 import {
   getCourseBySlug,
   getCourseSlug,
@@ -68,6 +69,7 @@ const { Content } = await render(lesson);
 const mdxComponents = { Callout, Tabs, Tab, Steps, FileTree, Quiz, StackBlitz };
 const normalizedLessonId = getNormalizedLessonId(lesson);
 const courseLessonIds = lessons.map((entry) => getNormalizedLessonId(entry));
+const hasVideo = Boolean(lesson.data.videoKey || lessonVideoUrl);
 ---
 
 <BaseLayout title={`${lesson.data.title} | ${course.data.title}`} description={lesson.data.summary ?? course.data.description}>
@@ -134,10 +136,14 @@ const courseLessonIds = lessons.map((entry) => getNormalizedLessonId(entry));
             <span>Mark as Complete</span>
           </button>
         </div>
+        {hasVideo && (
+          <div class="not-prose mb-6">
+            <H1 text={lesson.data.title} />
+          </div>
+        )}
         {lesson.data.videoKey ? (
           <div class="not-prose mb-8">
             <SecureVideo videoKey={lesson.data.videoKey} />
-            <p class="mt-2 text-xs text-textMuted font-sans">Prefer reading? The written lesson is below.</p>
           </div>
         ) : (
           lessonVideoUrl && (
@@ -147,7 +153,9 @@ const courseLessonIds = lessons.map((entry) => getNormalizedLessonId(entry));
             />
           )
         )}
-          <Content components={mdxComponents} />
+          <div class={hasVideo ? "[&>h1:first-of-type]:hidden" : ""}>
+            <Content components={mdxComponents} />
+          </div>
         <div class="mt-8 rounded-xl border border-border p-4 not-prose">
           <div class="flex items-center justify-between text-sm text-textMuted font-sans">
             <p>Lesson {currentIndex + 1} of {lessons.length}</p>

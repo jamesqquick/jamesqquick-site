@@ -14,4 +14,3 @@ resources: []
 ---
 
 # Creating the PostList Component
-Lesson scaffold only.

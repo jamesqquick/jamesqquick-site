@@ -14,4 +14,3 @@ resources: []
 ---
 
 # Adding Svelte (and Client Directives)
-Lesson scaffold only.

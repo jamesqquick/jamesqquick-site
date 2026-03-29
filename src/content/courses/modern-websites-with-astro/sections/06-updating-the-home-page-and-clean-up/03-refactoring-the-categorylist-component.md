@@ -14,4 +14,3 @@ resources: []
 ---
 
 # Refactoring the CategoryList Component
-Lesson scaffold only.

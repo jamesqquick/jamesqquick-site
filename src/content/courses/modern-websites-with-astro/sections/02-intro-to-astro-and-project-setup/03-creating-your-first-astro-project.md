@@ -14,4 +14,3 @@ resources: []
 ---
 
 # Creating Your First Astro Project
-Lesson scaffold only.

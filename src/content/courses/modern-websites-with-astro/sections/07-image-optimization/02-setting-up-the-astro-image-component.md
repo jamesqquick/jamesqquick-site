@@ -14,4 +14,3 @@ resources: []
 ---
 
 # Setting Up The Astro Image Component
-Lesson scaffold only.

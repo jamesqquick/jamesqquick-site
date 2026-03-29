@@ -14,4 +14,3 @@ resources: []
 ---
 
 # Creating The Dynamic Route for Paginated Blog Posts
-Lesson scaffold only.

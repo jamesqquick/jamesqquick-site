@@ -14,4 +14,3 @@ resources: []
 ---
 
 # Querying and Displaying List of Blog Posts
-Lesson scaffold only.

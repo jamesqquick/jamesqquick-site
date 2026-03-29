@@ -17,9 +17,6 @@ export interface Props {
   showCta?: boolean;
   /** Open image + title links in a new tab (e.g. external course URLs). */
   openInNewTab?: boolean;
-  tone?: "base" | "elevated";
-  paddingY?: "none" | "half" | "compact" | "default" | "spacious" | "xl";
-  classStr?: string;
 }
 
 const {
@@ -30,21 +27,13 @@ const {
   date,
   showCta = true,
   openInNewTab = false,
-  tone,
-  paddingY = "default",
-  classStr,
 } = Astro.props as Props;
 
 const externalRel = openInNewTab ? "noopener noreferrer" : undefined;
 const coverIsPublicUrl = typeof image === "string" && image.startsWith("/");
 ---
 
-<SplitSection
-  tone={tone}
-  paddingY={paddingY}
-  classStr={classStr}
-  contentClassStr="featured-shell"
->
+<SplitSection contentClassStr="featured-shell">
   <a
     href={href}
     slot="left"

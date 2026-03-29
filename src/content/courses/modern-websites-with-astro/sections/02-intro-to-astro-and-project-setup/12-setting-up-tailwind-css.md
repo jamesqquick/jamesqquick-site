@@ -14,4 +14,3 @@ resources: []
 ---
 
 # Setting Up Tailwind CSS
-Lesson scaffold only.

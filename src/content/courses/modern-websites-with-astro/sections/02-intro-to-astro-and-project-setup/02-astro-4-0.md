@@ -14,4 +14,3 @@ resources: []
 ---
 
 # Astro 4.0
-Lesson scaffold only.

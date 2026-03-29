@@ -14,4 +14,3 @@ resources: []
 ---
 
 # Adding an RSS Feed
-Lesson scaffold only.

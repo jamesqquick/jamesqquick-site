@@ -14,4 +14,3 @@ resources: []
 ---
 
 # Displaying Categories
-Lesson scaffold only.

@@ -32,16 +32,17 @@ const formattedCourses = courses.map((course) => ({
   <HeroSection title={title} subtitle={subtitle} description={description} hasFullHeight={false} />
   {
     featuredCourse && (
-      <FeaturedSplitSection
-        tone="elevated"
-        image={featuredCourse.data.coverImage!}
-        title={featuredCourse.data.title}
-        description={featuredCourse.data.description!}
-        href={getCourseUrl(featuredCourse)}
-        date={(featuredCourse.data.updatedDate ?? featuredCourse.data.pubDate)!}
-        showCta={false}
-        openInNewTab={getCourseHostType(featuredCourse) === "external"}
-      />
+      <Section tone="elevated" paddingY="default">
+        <FeaturedSplitSection
+          image={featuredCourse.data.coverImage!}
+          title={featuredCourse.data.title}
+          description={featuredCourse.data.description!}
+          href={getCourseUrl(featuredCourse)}
+          date={(featuredCourse.data.updatedDate ?? featuredCourse.data.pubDate)!}
+          showCta={false}
+          openInNewTab={getCourseHostType(featuredCourse) === "external"}
+        />
+      </Section>
     )
   }
   <Section paddingY="default">

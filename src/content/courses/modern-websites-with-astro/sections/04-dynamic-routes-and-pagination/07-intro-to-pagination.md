@@ -14,4 +14,3 @@ resources: []
 ---
 
 # Intro to Pagination
-Lesson scaffold only.

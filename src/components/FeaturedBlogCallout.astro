@@ -12,7 +12,8 @@ export interface Props {
 const { post } = Astro.props as Props;
 ---
 
-<SplitSection tone="elevated" paddingY="default">
+<Section tone="elevated" paddingY="default">
+  <SplitSection>
     <a href={`/blog/${post.id}`} slot="left">
       <Image
         height={540}
@@ -44,4 +45,5 @@ const { post } = Astro.props as Props;
         </p>
       </div>
     </div>
-</SplitSection>
+  </SplitSection>
+</Section>

@@ -14,4 +14,3 @@ resources: []
 ---
 
 # Displaying Recent Posts
-Lesson scaffold only.

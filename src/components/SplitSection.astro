@@ -1,23 +1,24 @@
 ---
-import Section from "./Section.astro";
-
+/** Two-column grid layout only. Compose with `Section` when you need tone or vertical padding. */
 export interface Props {
-  tone?: "base" | "elevated";
-  paddingY?: "none" | "half" | "compact" | "default" | "spacious" | "xl";
   classStr?: string;
   contentClassStr?: string;
 }
 
-const { tone, paddingY, classStr, contentClassStr } = Astro.props as Props;
+const { classStr, contentClassStr } = Astro.props as Props;
 ---
 
-<Section tone={tone} paddingY={paddingY} classStr={classStr}>
-  <div class={`grid grid-cols-1 md:grid-cols-2 gap-8 items-center ${contentClassStr || ""}`}>
-    <div>
-        <slot name="left" />
-    </div>
-    <div>
-      <slot name="right" />
-    </div>
+<div
+  class:list={[
+    "grid grid-cols-1 md:grid-cols-2 gap-8 items-center",
+    contentClassStr,
+    classStr,
+  ]}
+>
+  <div>
+    <slot name="left" />
   </div>
-</Section>
+  <div>
+    <slot name="right" />
+  </div>
+</div>

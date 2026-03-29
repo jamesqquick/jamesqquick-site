@@ -14,4 +14,3 @@ resources: []
 ---
 
 # Configuring Content Collections with Zod
-Lesson scaffold only.
