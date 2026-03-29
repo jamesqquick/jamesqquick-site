@@ -5,7 +5,7 @@ title: Feeling Stuck In Your Career... Now What?
 pubDate: 2023-10-17
 featured: true
 conferenceLocation: Raleigh, NC
-conferenceLogo: /images/talks/ato.png
+conferenceLogo: ./all-things-open-2023-logo.png
 slidesLink: https://drive.google.com/file/d/18Cprw5KZstYChHhQFNcFvyeogdyBDCKS/view?usp=sharing
 ---
 

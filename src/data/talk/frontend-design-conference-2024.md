@@ -4,7 +4,7 @@ conferenceLink: https://frontenddesignconference.com/
 title: Astro - A Love Story
 pubDate: 2024-04-25
 conferenceLocation: St Petersburg, FL
-conferenceLogo: /images/talks/ato.png
+conferenceLogo: ./frontend-design-conference-2024-logo.png
 slidesLink: https://drive.google.com/file/d/1OHLav9ClkqdTIoWH5OBHI1sNlTwfNutX/view?usp=sharing
 coverImage: ./images/frontend-design-conference-2024.jpg
 ---

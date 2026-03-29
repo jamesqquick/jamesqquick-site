@@ -4,7 +4,7 @@ conferenceLink: https://2022.allthingsopen.org/
 title: How Content Creation Took My Career To The Next Level
 pubDate: 2022-11-01
 conferenceLocation: Raleigh, NC
-conferenceLogo: /images/talks/ato.png
+conferenceLogo: ./all-things-open-2022-logo.png
 youTubeVideoId: BRgVeUSYxXo
 featured: true
 ---

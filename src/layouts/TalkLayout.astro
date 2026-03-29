@@ -1,4 +1,5 @@
 ---
+import type { ImageMetadata } from "astro";
 import HLineText from "@components/HLineText.astro";
 import SpeakerFormCallout from "@components/SpeakerFormCallout.astro";
 import ArticleHeader from "../components/ArticleHeader.astro";
@@ -11,7 +12,7 @@ export interface Props {
     conferenceName: string;
     conferenceLocation: string;
     conferenceLink: string;
-    conferenceLogo: string;
+    conferenceLogo: ImageMetadata;
     youTubeVideoId?: string | undefined;
     slidesLink?: string | undefined;
     coverImage?: {

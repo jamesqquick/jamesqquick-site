@@ -3,7 +3,7 @@ conferenceName: Render ATL
 conferenceLocation: Atlanta, GA
 conferenceLink: https://www.renderatl.com/
 coverImage: ./images/render-2024.jpeg
-conferenceLogo: /images/talks/render.png
+conferenceLogo: ./render-atl-2024-logo.png
 title: Maximizing Your Potential in Tech Interviews, The Three Cs to Success
 pubDate: 2024-06-14
 slidesLink: https://drive.google.com/file/d/1lS7BygjFNY0cIZdtCaDX06Mo6SjNSToy/view?usp=sharing

@@ -4,12 +4,13 @@ import { glob } from "astro/loaders";
 
 const testimonialsCollection = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/data/testimonial" }),
-  schema: z.object({
-    title: z.string(),
-    name: z.string(),
-    image: z.string(),
-    shortQuote: z.string(),
-  }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      name: z.string(),
+      image: image(),
+      shortQuote: z.string(),
+    }),
 });
 
 const talksCollection = defineCollection({
@@ -20,7 +21,7 @@ const talksCollection = defineCollection({
       conferenceLocation: z.string(),
       conferenceLink: z.string(),
       coverImage: image().optional(),
-      conferenceLogo: z.string(),
+      conferenceLogo: image(),
       youTubeVideoId: z.string().optional(),
       title: z.string(),
       pubDate: z.date(),

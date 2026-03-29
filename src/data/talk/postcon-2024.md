@@ -4,7 +4,7 @@ conferenceLink: https://www.postman.com/postcon/
 title: Postman's Journey to VS Code
 pubDate: 2024-05-01
 conferenceLocation: San Francisco
-conferenceLogo: /images/talks/postman.png
+conferenceLogo: ./postcon-2024-logo.png
 featured: false
 slidesLink: https://drive.google.com/file/d/1JMGqAUXL_Qn_Kem3DMLFPpDVYE1CHt_Z/view?usp=sharing
 coverImage: ./images/postcon-2024.jpg

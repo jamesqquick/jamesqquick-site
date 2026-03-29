@@ -4,7 +4,7 @@ conferenceLink: https://www.dotjs.io/
 title: Dante's Inferno of Fullstack Web Development
 pubDate: 2024-06-27
 conferenceLocation: Paris
-conferenceLogo: /images/talks/dotjs.png
+conferenceLogo: ./dotjs-2024-logo.png
 slidesLink: https://drive.google.com/file/d/1TS2bpaRiIqVA8_OZ3tQG0qkc7x0So3co/view?usp=sharing
 youTubeVideoId: ajbxNZc6uTc
 ---

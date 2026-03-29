@@ -4,7 +4,7 @@ conferenceLink: https://that.us/
 title: Feeling Stuck In Your Career... What Next?
 pubDate: 2023-01-08
 conferenceLocation: Austin, TX
-conferenceLogo: /images/talks/that.png
+conferenceLogo: ./that-conference-austin-2023-logo.png
 youTubeVideoId: DajdLKD0OmQ
 ---
 
