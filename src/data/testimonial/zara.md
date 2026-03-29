@@ -1,7 +1,7 @@
 ---
 name: Zara
 title: Brand Designer
-image: /images/testimonials/zara.jpeg
+image: ./zara.jpeg
 type: Testimonial
 shortQuote: He is a true expert in his field.
 ---

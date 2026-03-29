@@ -22,10 +22,12 @@ const { Content } = await render(testimonial);
   <div class="flex flex-row items-center gap-4">
     <Image
       src={image}
-      width={260}
-      height={260}
-      class="rounded-full h-16 w-16"
-      format={"webp"}
+      width={64}
+      height={64}
+      layout="fixed"
+      sizes="64px"
+      class="rounded-full h-16 w-16 object-cover"
+      format="webp"
       alt={`headshot of ${name}`}
     />
     <div>

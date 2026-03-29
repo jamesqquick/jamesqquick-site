@@ -4,7 +4,7 @@ conferenceLink: https://www.renderatl.com/
 title: The State of Serverless in Modern Web Development
 pubDate: 2022-06-01
 conferenceLocation: Atlanta, GA
-conferenceLogo: /images/talks/render.png
+conferenceLogo: ./render-atl-2022-logo.png
 youTubeVideoId: f5LZMuujLrM
 featured: true
 ---

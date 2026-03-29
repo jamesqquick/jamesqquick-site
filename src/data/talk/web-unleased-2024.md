@@ -4,7 +4,7 @@ conferenceLink: https://fitc.ca/event/webu24_inperson/
 title: Advanced Performance In Next.js With Server Components
 pubDate: 2024-10-10
 conferenceLocation: Toronto
-conferenceLogo: /images/talks/fitc.png
+conferenceLogo: ./web-unleased-2024-logo.png
 slidesLink: https://drive.google.com/file/d/1Uy_lILMW5yAW3zYEs84QahKVbMmkUFNB/view?usp=sharing
 ---
 

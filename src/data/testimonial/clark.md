@@ -1,7 +1,7 @@
 ---
 name: Clark Sell
 title: Founder of That Conference
-image: /images/testimonials/clark.jpeg
+image: ./clark.jpeg
 type: Testimonial
 shortQuote: His message comes from a place of vulnerability and experience, that will stay with everyone for a long time to come. James truly has a gift for inspiring and connecting with people.
 ---
