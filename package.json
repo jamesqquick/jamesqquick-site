@@ -22,7 +22,7 @@
     "typescript": "^5.9.3"
   },
   "dependencies": {
-    "@astrojs/netlify": "^7.0.4",
+    "@astrojs/cloudflare": "^13.1.5",
     "@astrojs/svelte": "^8.0.3",
     "@iconify-json/mdi": "^1.1.67",
     "@iconify-json/teenyicons": "^1.1.9",
