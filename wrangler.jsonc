@@ -11,7 +11,7 @@
   "r2_buckets": [
     {
       "binding": "COURSE_BUCKET",
-      "bucket_name": "astro-course-r2-bucket",
+      "bucket_name": "james-q-quick-site-r2-bucket",
       "remote": true
     }
   ],
