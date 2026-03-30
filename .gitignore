@@ -1,11 +1,8 @@
 node_modules
 .env*
+.dev.vars
 .cache
-
-# Local Netlify folder
-.netlify
-lambda
+.wrangler
 dist
-
 .astro
 worktrees/
