@@ -24,42 +24,36 @@ const companies = [
     light: cloudflareLight,
     dark: cloudflareDark,
     classPrefix: "work-exp-cloudflare",
-    maxWidth: "9rem",
   },
   {
     name: "FedEx",
     light: fedexLight,
     dark: fedexDark,
     classPrefix: "work-exp-fedex",
-    maxWidth: "9rem",
   },
   {
     name: "Microsoft",
     light: microsoftLight,
     dark: microsoftDark,
     classPrefix: "work-exp-microsoft",
-    maxWidth: "9rem",
   },
   {
     name: "Auth0",
     light: auth0Light,
     dark: auth0Dark,
     classPrefix: "work-exp-auth0",
-    maxWidth: "9rem",
   },
   {
     name: "PlanetScale",
     light: planetscaleLight,
     dark: planetscaleDark,
     classPrefix: "work-exp-planetscale",
-    maxWidth: "9rem",
   },
   {
     name: "Commerce",
     light: commerceWhite,
     dark: commerceBlack,
     classPrefix: "work-exp-commerce",
-    maxWidth: "11rem",
   },
 ];
 ---
@@ -70,25 +64,20 @@ const companies = [
     <div class="ticker-track">
       {/* Render logos twice for seamless looping */}
       {[...companies, ...companies].map((company) => (
-        <div
-          class="ticker-item"
-          style={`max-width: ${company.maxWidth}; min-width: ${company.maxWidth};`}
-        >
+        <div class="ticker-item">
           <Image
-            class={`${company.classPrefix} ${company.classPrefix}--dark-theme h-10 w-auto max-w-full object-contain object-bottom`}
+            class={`${company.classPrefix} ${company.classPrefix}--dark-theme h-10 w-auto object-contain`}
             src={company.light}
             alt={`${company.name} logo`}
             width={company.light.width}
             height={company.light.height}
-            sizes={company.maxWidth}
           />
           <Image
-            class={`${company.classPrefix} ${company.classPrefix}--light-theme h-10 w-auto max-w-full object-contain object-bottom`}
+            class={`${company.classPrefix} ${company.classPrefix}--light-theme h-10 w-auto object-contain`}
             src={company.dark}
             alt={`${company.name} logo`}
             width={company.dark.width}
             height={company.dark.height}
-            sizes={company.maxWidth}
           />
         </div>
       ))}
