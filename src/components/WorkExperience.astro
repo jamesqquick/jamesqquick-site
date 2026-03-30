@@ -10,170 +10,184 @@ import commerceWhite from "../images/company-logos/commerce-white.png";
 import commerceBlack from "../images/company-logos/commerce-black.png";
 import planetscaleLight from "../images/company-logos/planetscale.png";
 import planetscaleDark from "../images/company-logos/planetscale-dark.png";
+import cloudflareLight from "../images/company-logos/cloudflare.png";
+import cloudflareDark from "../images/company-logos/cloudflare-dark.png";
 import Section from "./Section.astro";
 import SectionHeader from "./SectionHeader.astro";
 
 const title = "Work Experience";
 const subtitle = "I've worked at some amazing companies";
+
+const companies = [
+  {
+    name: "Cloudflare",
+    light: cloudflareLight,
+    dark: cloudflareDark,
+    classPrefix: "work-exp-cloudflare",
+    maxWidth: "9rem",
+  },
+  {
+    name: "FedEx",
+    light: fedexLight,
+    dark: fedexDark,
+    classPrefix: "work-exp-fedex",
+    maxWidth: "9rem",
+  },
+  {
+    name: "Microsoft",
+    light: microsoftLight,
+    dark: microsoftDark,
+    classPrefix: "work-exp-microsoft",
+    maxWidth: "9rem",
+  },
+  {
+    name: "Auth0",
+    light: auth0Light,
+    dark: auth0Dark,
+    classPrefix: "work-exp-auth0",
+    maxWidth: "9rem",
+  },
+  {
+    name: "PlanetScale",
+    light: planetscaleLight,
+    dark: planetscaleDark,
+    classPrefix: "work-exp-planetscale",
+    maxWidth: "9rem",
+  },
+  {
+    name: "Commerce",
+    light: commerceWhite,
+    dark: commerceBlack,
+    classPrefix: "work-exp-commerce",
+    maxWidth: "11rem",
+  },
+];
 ---
 
 <Section tone="elevated" paddingY="half">
-  <SectionHeader title={title} subtitle={subtitle} variant="secondary"/>
-  <div
-    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 items-end place-items-center gap-y-16 gap-x-8 max-x-xl mx-auto"
-  >
-    <div class="relative flex h-10 w-full max-w-[9rem] items-end justify-center">
-      <Image
-        class="work-exp-fedex work-exp-fedex--dark-theme h-10 w-auto max-w-full object-contain object-bottom"
-        src={fedexLight}
-        alt="FedEx logo"
-        width={fedexLight.width}
-        height={fedexLight.height}
-        sizes="9rem"
-      />
-      <Image
-        class="work-exp-fedex work-exp-fedex--light-theme h-10 w-auto max-w-full object-contain object-bottom"
-        src={fedexDark}
-        alt="FedEx logo"
-        width={fedexDark.width}
-        height={fedexDark.height}
-        sizes="9rem"
-      />
-    </div>
-    <div class="relative flex h-10 w-full max-w-[9rem] items-end justify-center">
-      <Image
-        class="work-exp-microsoft work-exp-microsoft--dark-theme h-10 w-auto max-w-full object-contain object-bottom"
-        src={microsoftLight}
-        alt="Microsoft logo"
-        width={microsoftLight.width}
-        height={microsoftLight.height}
-        sizes="9rem"
-      />
-      <Image
-        class="work-exp-microsoft work-exp-microsoft--light-theme h-10 w-auto max-w-full object-contain object-bottom"
-        src={microsoftDark}
-        alt="Microsoft logo"
-        width={microsoftDark.width}
-        height={microsoftDark.height}
-        sizes="9rem"
-      />
-    </div>
-    <div class="relative flex h-10 w-full max-w-[9rem] items-end justify-center">
-      <Image
-        class="work-exp-auth0 work-exp-auth0--dark-theme h-10 w-auto max-w-full object-contain object-bottom"
-        src={auth0Light}
-        alt="Auth0 logo"
-        width={auth0Light.width}
-        height={auth0Light.height}
-        sizes="9rem"
-      />
-      <Image
-        class="work-exp-auth0 work-exp-auth0--light-theme h-10 w-auto max-w-full object-contain object-bottom"
-        src={auth0Dark}
-        alt="Auth0 logo"
-        width={auth0Dark.width}
-        height={auth0Dark.height}
-        sizes="9rem"
-      />
-    </div>
-    <div class="relative flex h-10 w-full max-w-[9rem] items-end justify-center">
-      <Image
-        class="work-exp-planetscale work-exp-planetscale--dark-theme h-10 w-auto max-w-full object-contain object-bottom"
-        src={planetscaleLight}
-        alt="PlanetScale logo"
-        width={planetscaleLight.width}
-        height={planetscaleLight.height}
-        sizes="9rem"
-      />
-      <Image
-        class="work-exp-planetscale work-exp-planetscale--light-theme h-10 w-auto max-w-full object-contain object-bottom"
-        src={planetscaleDark}
-        alt="PlanetScale logo"
-        width={planetscaleDark.width}
-        height={planetscaleDark.height}
-        sizes="9rem"
-      />
-    </div>
-    <div class="relative flex h-10 w-full max-w-[11rem] items-end justify-center">
-      <Image
-        class="work-exp-commerce work-exp-commerce--dark h-10 w-auto max-w-full object-contain object-bottom"
-        src={commerceWhite}
-        alt="Commerce logo"
-        width={commerceWhite.width}
-        height={commerceWhite.height}
-        sizes="11rem"
-      />
-      <Image
-        class="work-exp-commerce work-exp-commerce--light h-10 w-auto max-w-full object-contain object-bottom"
-        src={commerceBlack}
-        alt="Commerce logo"
-        width={commerceBlack.width}
-        height={commerceBlack.height}
-        sizes="11rem"
-      />
+  <SectionHeader title={title} subtitle={subtitle} variant="secondary" />
+  <div class="ticker-wrapper">
+    <div class="ticker-track">
+      {/* Render logos twice for seamless looping */}
+      {[...companies, ...companies].map((company) => (
+        <div
+          class="ticker-item"
+          style={`max-width: ${company.maxWidth}; min-width: ${company.maxWidth};`}
+        >
+          <Image
+            class={`${company.classPrefix} ${company.classPrefix}--dark-theme h-10 w-auto max-w-full object-contain object-bottom`}
+            src={company.light}
+            alt={`${company.name} logo`}
+            width={company.light.width}
+            height={company.light.height}
+            sizes={company.maxWidth}
+          />
+          <Image
+            class={`${company.classPrefix} ${company.classPrefix}--light-theme h-10 w-auto max-w-full object-contain object-bottom`}
+            src={company.dark}
+            alt={`${company.name} logo`}
+            width={company.dark.width}
+            height={company.dark.height}
+            sizes={company.maxWidth}
+          />
+        </div>
+      ))}
     </div>
   </div>
 </Section>
 
 <style is:global>
-  /* microsoft.png = light artwork for dark UI; microsoft-dark.png for light UI */
-  .work-exp-microsoft--light-theme {
-    display: none;
-  }
-  .work-exp-microsoft--dark-theme {
-    display: block;
-  }
-  [data-theme="light"] .work-exp-microsoft--dark-theme {
-    display: none;
-  }
-  [data-theme="light"] .work-exp-microsoft--light-theme {
-    display: block;
-  }
-
-  /* Default matches site: dark theme — white logo on dark surface */
-  .work-exp-commerce--light {
-    display: none;
-  }
-  .work-exp-commerce--dark {
-    display: block;
+  /* ---- Ticker layout ---- */
+  .ticker-wrapper {
+    overflow: hidden;
+    width: 100%;
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 10%,
+      black 90%,
+      transparent
+    );
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 10%,
+      black 90%,
+      transparent
+    );
   }
 
-  [data-theme="light"] .work-exp-commerce--dark {
-    display: none;
-  }
-  [data-theme="light"] .work-exp-commerce--light {
-    display: block;
-  }
-
-  /* auth0.png = light artwork for dark UI; auth0-dark.png = dark artwork for light UI */
-  .work-exp-auth0--light-theme {
-    display: none;
-  }
-  .work-exp-auth0--dark-theme {
-    display: block;
-  }
-  [data-theme="light"] .work-exp-auth0--dark-theme {
-    display: none;
-  }
-  [data-theme="light"] .work-exp-auth0--light-theme {
-    display: block;
+  .ticker-track {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    width: max-content;
+    animation: ticker-scroll 25s linear infinite;
   }
 
-  /* fedex.png / planetscale.png = light artwork for dark UI; *-dark.png for light UI */
+  .ticker-item {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.5rem;
+  }
+
+  @keyframes ticker-scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  /* Pause on hover for accessibility */
+  .ticker-wrapper:hover .ticker-track {
+    animation-play-state: paused;
+  }
+
+  /* Respect reduced motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    .ticker-track {
+      animation-play-state: paused;
+    }
+  }
+
+  /* ---- Dark / light logo toggling ---- */
+  .work-exp-cloudflare--light-theme,
+  .work-exp-microsoft--light-theme,
+  .work-exp-auth0--light-theme,
   .work-exp-fedex--light-theme,
-  .work-exp-planetscale--light-theme {
+  .work-exp-planetscale--light-theme,
+  .work-exp-commerce--light-theme {
     display: none;
   }
+
+  .work-exp-cloudflare--dark-theme,
+  .work-exp-microsoft--dark-theme,
+  .work-exp-auth0--dark-theme,
   .work-exp-fedex--dark-theme,
-  .work-exp-planetscale--dark-theme {
+  .work-exp-planetscale--dark-theme,
+  .work-exp-commerce--dark-theme {
     display: block;
   }
+
+  [data-theme="light"] .work-exp-cloudflare--dark-theme,
+  [data-theme="light"] .work-exp-microsoft--dark-theme,
+  [data-theme="light"] .work-exp-auth0--dark-theme,
   [data-theme="light"] .work-exp-fedex--dark-theme,
-  [data-theme="light"] .work-exp-planetscale--dark-theme {
+  [data-theme="light"] .work-exp-planetscale--dark-theme,
+  [data-theme="light"] .work-exp-commerce--dark-theme {
     display: none;
   }
+
+  [data-theme="light"] .work-exp-cloudflare--light-theme,
+  [data-theme="light"] .work-exp-microsoft--light-theme,
+  [data-theme="light"] .work-exp-auth0--light-theme,
   [data-theme="light"] .work-exp-fedex--light-theme,
-  [data-theme="light"] .work-exp-planetscale--light-theme {
+  [data-theme="light"] .work-exp-planetscale--light-theme,
+  [data-theme="light"] .work-exp-commerce--light-theme {
     display: block;
   }
 </style>
