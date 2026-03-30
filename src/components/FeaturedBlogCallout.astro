@@ -1,49 +1,22 @@
 ---
-import { CollectionEntry } from "astro:content";
+import type { CollectionEntry } from "astro:content";
 import Section from "./Section.astro";
-import { Image } from "astro:assets";
-import Link from "./Link.astro";
-import SplitSection from "./SplitSection.astro";
+import FeaturedSplitSection from "./FeaturedSplitSection.astro";
 
 export interface Props {
   post: CollectionEntry<"blog">;
 }
 
 const { post } = Astro.props as Props;
+const href = `/blog/${post.id}`;
 ---
 
 <Section tone="elevated" paddingY="default">
-  <SplitSection>
-    <a href={`/blog/${post.id}`} slot="left">
-      <Image
-        height={540}
-        width={960}
-        src={post.data.coverImage}
-        class="rounded-2xl"
-        alt={post.data.title}
-      />
-    </a>
-    <div slot="right">
-      <p class="text-lg uppercase text-brand">Featured</p>
-      <a href={`/blog/${post.id}`}>
-        <h2 class="text-3xl font-bold mb-1">{post.data.title}</h2>
-      </a>
-      <p class="text-lg opacity-80 mb-4">
-        {post.data.description}
-      </p>
-      <div class="flex justify-between">
-        <Link isFancy={true}  href={`/blog/${post.id}`}
-          text="Read blog"/>
-        <p class="text-lg opacity-80">
-          {
-            post.data.pubDate.toLocaleDateString("en-us", {
-              year: "numeric",
-              month: "short",
-              day: "numeric",
-            })
-          }
-        </p>
-      </div>
-    </div>
-  </SplitSection>
+  <FeaturedSplitSection
+    image={post.data.coverImage}
+    title={post.data.title}
+    description={post.data.description}
+    href={href}
+    date={post.data.pubDate}
+  />
 </Section>

@@ -39,7 +39,7 @@ const formattedCourses = courses.map((course) => ({
           description={featuredCourse.data.description!}
           href={getCourseUrl(featuredCourse)}
           date={(featuredCourse.data.updatedDate ?? featuredCourse.data.pubDate)!}
-          showCta={false}
+          ctaText="View course"
           openInNewTab={getCourseHostType(featuredCourse) === "external"}
         />
       </Section>

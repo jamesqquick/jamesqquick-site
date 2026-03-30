@@ -13,8 +13,10 @@ export interface Props {
   description: string;
   href: string;
   date: Date;
-  /** When true, shows the fancy “Read blog” link (e.g. blog featured). Courses omit this. */
+  /** When true, shows the fancy CTA link (default label is blog-oriented). */
   showCta?: boolean;
+  /** Label for the fancy CTA; defaults to “Read blog” for blog featured surfaces. */
+  ctaText?: string;
   /** Open image + title links in a new tab (e.g. external course URLs). */
   openInNewTab?: boolean;
 }
@@ -26,6 +28,7 @@ const {
   href,
   date,
   showCta = true,
+  ctaText = "Read blog",
   openInNewTab = false,
 } = Astro.props as Props;
 
@@ -81,7 +84,7 @@ const coverIsPublicUrl = typeof image === "string" && image.startsWith("/");
     >
       {
         showCta ? (
-          <Link isFancy={true} href={href} text="Read blog" />
+          <Link isFancy={true} href={href} text={ctaText} />
         ) : null
       }
       <p class="featured-date text-lg">
