@@ -1,31 +1,7 @@
 ---
-import {
-  CLOUDINARY_API_KEY,
-  CLOUDINARY_API_SECRET,
-} from "astro:env/server";
 import BaseLayout from "src/layouts/BaseLayout.astro";
-import { CldImage } from "astro-cloudinary";
-import { v2 as cloudinary } from "cloudinary";
 import Section from "@components/Section.astro";
 import PageHeader from "@components/PageHeader.astro";
-
-cloudinary.config({
-  cloud_name: import.meta.env.PUBLIC_CLOUDINARY_CLOUD_NAME,
-  api_key: CLOUDINARY_API_KEY,
-  api_secret: CLOUDINARY_API_SECRET,
-});
-
-if (!CLOUDINARY_API_KEY || !CLOUDINARY_API_SECRET) {
-  throw new Error("Cloudinary API credentials are not configured");
-}
-
-const { resources } = await cloudinary.search
-  .expression(`folder=jqq-selfies/*`)
-  .sort_by("public_id", "desc")
-  .fields("tags")
-  .fields("width")
-  .fields("height")
-  .execute();
 ---
 
 <BaseLayout title="Selfies | James Q Quick">
@@ -35,21 +11,8 @@ const { resources } = await cloudinary.search
       subtitle={"Selfies with developers I've met around the world!"}
     />
 
-    <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6">
-      {
-        resources.map((resource) => (
-          <div class="max-w-full overflow-hidden">
-            <CldImage
-              src={resource.public_id}
-              width={resource.width}
-              height={resource.height}
-              alt="James selfie"
-              class="rounded-md cursor-pointer hover:scale-110 max-w-full transition-transform duration-200"
-              sizes="400px"
-            />
-          </div>
-        ))
-      }
-    </div>
+    <p class="text-center text-lg text-gray-400">
+      Selfies coming back soon! This page is being updated.
+    </p>
   </Section>
 </BaseLayout>
