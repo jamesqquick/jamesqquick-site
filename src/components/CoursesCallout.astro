@@ -36,7 +36,7 @@ const featuredCourse = courses.splice(0, 1)[0];
           description={featuredCourse.data.description!}
           href={getCourseUrl(featuredCourse)}
           date={(featuredCourse.data.updatedDate ?? featuredCourse.data.pubDate)!}
-          showCta={false}
+          ctaText="View course"
           openInNewTab={getCourseHostType(featuredCourse) === "external"}
         />
       </div>
