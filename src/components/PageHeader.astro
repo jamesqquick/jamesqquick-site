@@ -1,68 +1,12 @@
-    ---
+---
+import CenteredSectionHeading from "./CenteredSectionHeading.astro";
+
 export interface Props {
   title?: string;
   subtitle?: string;
   description?: string;
 }
-const { title, subtitle, description } = Astro.props;
+const props = Astro.props;
 ---
 
-<div class="pb-20 text-center mx-auto">
-  <h1 class="page-header-heading mb-2">
-    <span
-      class="page-header-title block tracking-widest uppercase"
-    >
-      {title}
-    </span>
-    {
-      subtitle && (
-        <span class="page-header-subtitle block mb-2">
-          {subtitle}
-        </span>
-      )
-    }
-  </h1>
-  {description && <p class="page-header-description">{description}</p>}
-</div>
-
-<style>
-  .page-header-heading {
-    font-family: var(--font-display);
-    color: var(--color-text);
-  }
-
-  .page-header-title {
-    color: var(--color-accent);
-    font-size: 1.25rem;
-    line-height: 1.75rem;
-    letter-spacing: 0.04em;
-    font-weight: 500;
-  }
-
-  .page-header-subtitle {
-    font-size: 2.25rem;
-    line-height: 1.15;
-    letter-spacing: -0.02em;
-    font-weight: 700;
-    color: var(--color-text);
-  }
-
-  .page-header-description {
-    font-family: var(--font-sans);
-    font-size: 1.125rem;
-    line-height: 1.56;
-    color: var(--color-text-muted);
-    max-width: 48rem;
-    margin: 0 auto;
-  }
-
-  @media (min-width: 768px) {
-    .page-header-subtitle {
-      font-size: 3rem;
-    }
-
-    .page-header-description {
-      font-size: 1.25rem;
-    }
-  }
-</style>
+<CenteredSectionHeading {...props} />

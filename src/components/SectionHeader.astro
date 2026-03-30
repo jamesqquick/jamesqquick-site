@@ -1,40 +1,23 @@
 ---
-import H2 from './H2.astro';
-
+import CenteredSectionHeading from "./CenteredSectionHeading.astro";
+import H2 from "./H2.astro";
 
 interface Props {
-    title: string;
-    subtitle?: string;
-    description?: string;
-    variant?: "primary" | "secondary";
+  title: string;
+  subtitle?: string;
+  description?: string;
+  variant?: "primary" | "secondary";
 }
 const { title, variant = "primary", subtitle, description } = Astro.props as Props;
 ---
-{variant === "primary" &&(
-  
-    <div class="flex items-center gap-x-10 mb-20">
-  <H2 text={title} classStr="shrink-0" />
-  <div class="h-[0.5px] w-full grow-2 bg-border opacity-50"/>
-  <slot name="cta" />
-</div>
-    )}
+{variant === "primary" && (
+  <div class="flex items-center gap-x-10 mb-20">
+    <H2 text={title} classStr="shrink-0" />
+    <div class="h-[0.5px] w-full grow-2 bg-border opacity-50" />
+    <slot name="cta" />
+  </div>
+)}
 
 {variant === "secondary" && (
-    <div class="pb-20 text-center mx-auto">
-  <h1 class="text-4xl mb-2">
-    <span
-      class="block text-accent text-2xl tracking-widest uppercase font-light"
-    >
-      {title}
-    </span>
-    {
-      subtitle && (
-        <span class="block mb-2 text-4xl leading-[50px] font-bold text-text">
-          {subtitle}
-        </span>
-      )
-    }
-  </h1>
-  {description && <p class="text-xl text-textMuted">{description}</p>}
-</div>
+  <CenteredSectionHeading title={title} subtitle={subtitle} description={description} />
 )}
