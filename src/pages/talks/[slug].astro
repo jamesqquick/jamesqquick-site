@@ -1,16 +1,13 @@
 ---
-import { CollectionEntry, getCollection, render } from "astro:content";
+import { CollectionEntry, render } from "astro:content";
 import { Icon } from "astro-icon/components";
 import TalkLayout from "../../layouts/TalkLayout.astro";
+import { getEntryStaticPaths } from "src/utils/contentPaths";
 
 export const prerender = true;
 
 export async function getStaticPaths() {
-  const talkEntries = await getCollection("talk");
-  return talkEntries.map((entry) => ({
-    params: { slug: entry.id },
-    props: { entry },
-  }));
+  return getEntryStaticPaths("talk");
 }
 
 export interface Props {
