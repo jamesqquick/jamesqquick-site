@@ -3,13 +3,17 @@
 // all pages through the use of the <BaseHead /> component.
 import "../styles/global.css";
 import ClientRouter from "astro/components/ClientRouter.astro";
+import { getImage } from "astro:assets";
+import defaultOgSource from "../images/selfie.png";
 
 export interface Props {
   title: string;
   description: string;
   image?: string;
 }
-const { title, description, image = "/images/selfie-lg.jpeg" } = Astro.props;
+const { title, description, image: imageProp } = Astro.props;
+const defaultOg = await getImage({ src: defaultOgSource });
+const image = imageProp ?? defaultOg.src;
 ---
 
 <!-- Global Metadata -->
