@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import type { ImageMetadata } from "astro";
-import Link from "./Link.astro";
+import Button, { ButtonType } from "./Button.astro";
 import SplitSection from "./SplitSection.astro";
 
 type ImageLike = { src: string; width: number; height: number; format?: string };
@@ -84,7 +84,7 @@ const coverIsPublicUrl = typeof image === "string" && image.startsWith("/");
     >
       {
         showCta ? (
-          <Link isFancy={true} href={href} text={ctaText} />
+          <Button isLink={true} href={href} text={ctaText} type={ButtonType.PRIMARY} newTab={openInNewTab} />
         ) : null
       }
       <p class="featured-date text-lg">

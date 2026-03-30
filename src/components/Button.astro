@@ -64,6 +64,7 @@ const classes = `button-base ${variantClasses[type]} ${hasOutline ? "button--out
     font-size: 1rem;
     line-height: 1.25rem;
     text-align: center;
+    text-decoration: none;
     transition:
       color var(--duration-fast) var(--ease-out),
       background-color var(--duration-fast) var(--ease-out),
@@ -87,37 +88,49 @@ const classes = `button-base ${variantClasses[type]} ${hasOutline ? "button--out
     box-shadow: var(--shadow-focus);
   }
 
-  .button--primary {
+  .button--primary,
+  :where(.prose, .ds-prose) :is(a).button--primary {
     background: var(--color-accent);
     border-color: transparent;
     color: var(--color-text-on-accent);
+    text-decoration: none;
   }
 
-  .button--primary:hover {
+  .button--primary:hover,
+  :where(.prose, .ds-prose) :is(a).button--primary:hover {
     background: var(--color-accent-hover);
     color: var(--color-text-on-accent);
+    text-decoration: none;
   }
 
-  .button--secondary {
+  .button--secondary,
+  :where(.prose, .ds-prose) :is(a).button--secondary {
     background: transparent;
     border-color: var(--color-border);
     color: var(--color-text);
+    text-decoration: none;
   }
 
-  .button--secondary:hover {
+  .button--secondary:hover,
+  :where(.prose, .ds-prose) :is(a).button--secondary:hover {
     border-color: var(--color-accent);
     color: var(--color-accent);
     background: var(--color-accent-subtle);
+    text-decoration: none;
   }
 
-  .button--tertiary {
+  .button--tertiary,
+  :where(.prose, .ds-prose) :is(a).button--tertiary {
     background: transparent;
     border-color: transparent;
     color: var(--color-text);
+    text-decoration: none;
   }
 
-  .button--tertiary:hover {
+  .button--tertiary:hover,
+  :where(.prose, .ds-prose) :is(a).button--tertiary:hover {
     color: var(--color-accent);
+    text-decoration: none;
   }
 
   .button--outline {
