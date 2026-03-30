@@ -20,7 +20,7 @@ export default defineConfig({
     schema: {
       // Secret server variables used in endpoints/components.
       // Marked optional to keep local builds from failing when env vars are absent.
-      SENDGRID_API_KEY: envField.string({
+      RESEND_API_KEY: envField.string({
         context: "server",
         access: "secret",
         optional: true,
