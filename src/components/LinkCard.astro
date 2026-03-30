@@ -47,7 +47,7 @@ const tagToLogo = {
     <a href={slug} class="grow hover:underline" target={openInNewTab ? "_blank" : undefined} rel={openInNewTab ? "noopener noreferrer" : undefined}>
       {
         isPublicUrl ? (
-          <Image inferSize src={image} alt={title} class="card-image aspect-video object-cover" />
+          <img src={image as string} alt={title} class="card-image aspect-video object-cover" loading="lazy" decoding="async" />
         ) : (
           <Image
             height={(image as ImageLike).height}

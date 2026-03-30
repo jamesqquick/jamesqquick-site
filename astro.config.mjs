@@ -2,7 +2,7 @@ import { defineConfig, envField } from "astro/config";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
-import netlify from "@astrojs/netlify";
+import cloudflare from "@astrojs/cloudflare";
 import svelte from "@astrojs/svelte";
 import icon from "astro-icon";
 
@@ -20,28 +20,7 @@ export default defineConfig({
     schema: {
       // Secret server variables used in endpoints/components.
       // Marked optional to keep local builds from failing when env vars are absent.
-      SENDGRID_API_KEY: envField.string({
-        context: "server",
-        access: "secret",
-        optional: true,
-      }),
-
-      R2_ACCESS_KEY_ID: envField.string({
-        context: "server",
-        access: "secret",
-        optional: true,
-      }),
-      R2_SECRET_ACCESS_KEY: envField.string({
-        context: "server",
-        access: "secret",
-        optional: true,
-      }),
-      R2_ACCOUNT_ID: envField.string({
-        context: "server",
-        access: "secret",
-        optional: true,
-      }),
-      R2_BUCKET_NAME: envField.string({
+      RESEND_API_KEY: envField.string({
         context: "server",
         access: "secret",
         optional: true,
@@ -74,7 +53,7 @@ export default defineConfig({
     }),
   ],
   output: "server",
-  adapter: netlify(),
+  adapter: cloudflare(),
   experimental: {
     contentIntellisense: true,
   },

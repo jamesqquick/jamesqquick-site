@@ -1,0 +1,21 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "jamesqquick-site",
+  "compatibility_date": "2026-03-17",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "binding": "ASSETS",
+    "directory": "./dist",
+    "not_found_handling": "404-page"
+  },
+  "r2_buckets": [
+    {
+      "binding": "COURSE_BUCKET",
+      "bucket_name": "james-q-quick-site-r2-bucket",
+      "remote": true
+    }
+  ],
+  "observability": {
+    "enabled": true
+  }
+}

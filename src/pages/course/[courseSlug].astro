@@ -3,6 +3,7 @@ import { render } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Section from "../../components/Section.astro";
 import Sidebar from "../../components/course-content/Sidebar.astro";
+import Button, { ButtonType } from "../../components/Button.astro";
 import {
   getCourseBySlug,
   getNormalizedLessonId,
@@ -93,24 +94,24 @@ const { Content } = await render(course);
             <div id="course-progress-bar" class="bg-accent h-3 rounded-full" style="width:0%"></div>
           </div>
           {firstLesson && (
-            <p>
-              <a id="course-cta" href={lessonUrl(firstLesson)}>Start Course</a>
-            </p>
+            <Button
+              id="course-cta"
+              isLink={true}
+              href={lessonUrl(firstLesson)}
+              text="Start Course"
+              type={ButtonType.PRIMARY}
+            />
           )}
           <Content />
-          <h2>Course Outline</h2>
-          {sectionsWithLessons.map((section) => (
-            <>
-              <h3>{section.title}</h3>
-              <ol>
-                {section.lessons.map((lesson) => (
-                  <li>
-                    <a href={lessonUrl(lesson)}>{lesson.data.title}</a>
-                  </li>
-                ))}
-              </ol>
-            </>
-          ))}
+          {firstLesson && (
+            <Button
+              id="course-cta-bottom"
+              isLink={true}
+              href={lessonUrl(firstLesson)}
+              text="Start Course"
+              type={ButtonType.PRIMARY}
+            />
+          )}
         </article>
       </div>
     </Section>
@@ -128,21 +129,24 @@ const { Content } = await render(course);
   const bar = document.getElementById("course-progress-bar");
   if (bar) bar.style.width = `${percent}%`;
 
-  const cta = document.getElementById("course-cta");
-  if (cta && total > 0) {
-    const nextIncomplete = lessonIds.find((id) => !progress[id]) ?? firstLessonId;
-    if (nextIncomplete) {
-      const parts = nextIncomplete.split("/");
-      const sectionIndex = parts.indexOf("sections");
-      const sectionSlug = sectionIndex >= 0 ? parts[sectionIndex + 1] : parts[1];
-      const lessonSlug = parts[parts.length - 1];
-      cta.setAttribute("href", `/course/${courseSlug}/${sectionSlug}/${lessonSlug}`);
-      cta.textContent =
-        completedCount === 0
-          ? "Start Course"
-          : completedCount === total
-            ? "Review Course"
-            : "Continue Course";
+  const ctaIds = ["course-cta", "course-cta-bottom"];
+  for (const ctaId of ctaIds) {
+    const cta = document.getElementById(ctaId);
+    if (cta && total > 0) {
+      const nextIncomplete = lessonIds.find((id) => !progress[id]) ?? firstLessonId;
+      if (nextIncomplete) {
+        const parts = nextIncomplete.split("/");
+        const sectionIndex = parts.indexOf("sections");
+        const sectionSlug = sectionIndex >= 0 ? parts[sectionIndex + 1] : parts[1];
+        const lessonSlug = parts[parts.length - 1];
+        cta.setAttribute("href", `/course/${courseSlug}/${sectionSlug}/${lessonSlug}`);
+        cta.textContent =
+          completedCount === 0
+            ? "Start Course"
+            : completedCount === total
+              ? "Review Course"
+              : "Continue Course";
+      }
     }
   }
 
