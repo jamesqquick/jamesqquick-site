@@ -17,11 +17,13 @@ module.exports = {
         accentHover: "var(--color-accent-hover)",
         text: "var(--color-text)",
         textMuted: "var(--color-text-muted)",
+        "text-subtle": "var(--color-text-subtle)",
         bg: "var(--legacy-bg)",
         bgDark: "var(--legacy-bg-dark)",
         bgLight: "var(--legacy-bg-light)",
         bgLightBrand: "var(--legacy-bg-light-brand)",
         surface: "var(--color-surface)",
+        "surface-hover": "var(--color-surface-hover)",
         border: "var(--color-border)",
         /* Legacy alias to avoid breaking existing classes */
         brand: "var(--legacy-brand)",
