@@ -25,6 +25,11 @@ export default defineConfig({
         access: "secret",
         optional: true,
       }),
+      RESEND_AUDIENCE_ID: envField.string({
+        context: "server",
+        access: "secret",
+        optional: true,
+      }),
     },
   },
   integrations: [
