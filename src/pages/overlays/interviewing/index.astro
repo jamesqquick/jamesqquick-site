@@ -1,18 +1,6 @@
 ---
-import { XATA_API_KEY } from "astro:env/server";
 import StreamingLayout from "../../../layouts/StreamingLayout.astro";
-import { XataClient } from "../../../xata";
 import VideoFrame, { VideoFrameSize } from "../VideoFrame.astro";
-
-if (!XATA_API_KEY) {
-  throw new Error("XATA_API_KEY is not configured");
-}
-const xata = new XataClient({
-  apiKey: XATA_API_KEY,
-  branch: import.meta.env.XATA_BRANCH,
-});
-let settings = await xata.db.settings.getFirst();
-const { guestName, guestTitle } = settings;
 ---
 
 <StreamingLayout title="JQQ Streams">
@@ -23,10 +11,6 @@ const { guestName, guestTitle } = settings;
       header="James Q Quick"
       subheader="Developer. Speaker. Teacher."
     />
-    <VideoFrame
-      size={VideoFrameSize.VXL}
-      header={guestName}
-      subheader={guestTitle}
-    />
+    <VideoFrame size={VideoFrameSize.VXL} />
   </div>
 </StreamingLayout>
