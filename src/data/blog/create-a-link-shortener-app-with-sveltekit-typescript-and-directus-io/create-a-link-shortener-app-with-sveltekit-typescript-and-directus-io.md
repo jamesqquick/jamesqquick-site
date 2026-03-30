@@ -34,8 +34,7 @@ In this case, instead of deploying our own instance of Directus, let’s use the
 
 After that, create a new project. Give it a name and choose the `Community Cloud` option, which is the free version. Then, choose an empty project to start completely from scratch.
 
-/images/
-![Create new project in Directus](/images/posts/create-a-link-shortener-app-with-sveltekit-typescript-and-directus-io/1.png)
+![Create new project in Directus](./images/1.png)
 
 After you’ve created your project and it’s been deployed, click to open it. **Note that the admin credentials for the dashboard were sent to the email address that was used to sign up**. Use those credentials to sign in.
 
@@ -45,7 +44,7 @@ For this link shortener app, we're going to need to store the short slug and the
 
 From the dashboard, you create a collection to store your short links.
 
-![Create new collection for short links](/images/posts/create-a-link-shortener-app-with-sveltekit-typescript-and-directus-io/2.png)
+![Create new collection for short links](./images/2.png)
 
 Name the collection `short_link` and set the primary key to be `auto incremented`.
 
@@ -60,11 +59,11 @@ Next up, you’ll need to create the other data fields.
 - **utm_medium** - input -> String
 - **utm_campaign** - input -> String
 
-![Data model overview for short link](/images/posts/create-a-link-shortener-app-with-sveltekit-typescript-and-directus-io/3.png)
+![Data model overview for short link](./images/3.png)
 
 Next up, create a few records in the short link collection. I added a short link (`/podcast`) for my [Compressed.fm podcast](https://compressed.fm/) as an example.
 
-![Create a new demo short link item](/images/posts/create-a-link-shortener-app-with-sveltekit-typescript-and-directus-io/4.png)
+![Create a new demo short link item](./images/4.png)
 
 ## Building the API in Sveltekit
 
@@ -83,7 +82,7 @@ With the project created, you’ll need two environment variables.
 
 To get you your API token, go to the user directory, click on our admin user, and scroll down to the token section. Click to create a static token and copy it.
 
-![Create admin tokn in Directus](/images/posts/create-a-link-shortener-app-with-sveltekit-typescript-and-directus-io/5.png)
+![Create admin tokn in Directus](./images/5.png)
 
 Next, install the `dotenv` package by running `npm install dotenv`. This package will take care of grabbing environment variables out of a `.env` file and making them accessible in the code. Then, create the `.env` file in the source of your repo and add your two environment variables.
 

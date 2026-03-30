@@ -26,7 +26,7 @@ My big piece of advice to you is to follow your passion. If something gets your 
 
 I believe that thumbnails have made the largest impact in me growing my YouTube channel. All of my "viral" videos (weird to call them that) have had edgier/more opinionated thumbnails. Here's an example from my most popular video ever [I Don't Need Postman Anymore](https://youtu.be/AbCTlemwZ1k).
 
-![](/images/100k-subscribers-on-youtube-5-things-i-learned/1.png)
+![](./images/1.png)
 
 A couple of things to note about this thumbnail. First, it shows that I'm done using a tool that tons of people use every day. That's bound to get some attention. Second, to reinforce that, I used the "x" emoji. I've used that emoji in several other thumbnails sense, and they always get good responses.
 
@@ -61,4 +61,4 @@ Creaing YouTube videos has been one of the most rewarding experiences of my life
 
 If you're interested in starting a YouTube channel yourself, make sure to check out my [YouTube for Developer eBook](https://youtubefordevelopers.com/)!
 
-![](/images/100k-subscribers-on-youtube-5-things-i-learned/2.png)
+![](./images/2.png)

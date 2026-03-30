@@ -15,7 +15,7 @@ JavaScript arrays have some powerful built-in methods that simplify working with
 
 This post is part of a series focused on learning JavaScript array methods. You can find the starter code in [this repository](https://bit.ly/jqq-array-practice).
 
-![](/images/posts/javascript-array-filter-explained-in-5-minutes/1.png)
+![](./images/1.png)
 
 In that repository, there is a `worksheet.js` file with some sample Star Wars data. So, clone the repository, open up the `worksheet.js` file, and scroll down to the Filter section. Alternatively, you can copy the sample data into a JavaScript file without cloning if you choose.
 

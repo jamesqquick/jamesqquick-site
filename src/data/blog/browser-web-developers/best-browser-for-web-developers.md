@@ -19,11 +19,11 @@ Polypane offers several features that make it stand out from other browsers. Her
 
 ### Multiple Viewports
 
-![](/images/posts/browser-web-developers/1.png)One of the most significant benefits of Polypane is its ability to view multiple viewports of your site side by side. This feature enables web developers to see how their website looks on various devices and screen sizes, allowing them to make the necessary adjustments to ensure that their website is responsive and accessible.
+![](./images/1.png)One of the most significant benefits of Polypane is its ability to view multiple viewports of your site side by side. This feature enables web developers to see how their website looks on various devices and screen sizes, allowing them to make the necessary adjustments to ensure that their website is responsive and accessible.
 
 ### Inspect Element
 
-![](/images/posts/browser-web-developers/2.png)
+![](./images/2.png)
 
 Polypane's inspect element feature offers similar information to what you would find in other developer tools like Chrome, but there’s one particular feature that is incredibly useful. It allows you to inspect an element and view the details across different viewports. This is perfect for confirming that your responsive site is appropriately updating css properties like font size, padding, etc. across the viewports.
 
@@ -33,13 +33,13 @@ Polypane's screenshot feature is a significant time-saver for web developers. Wi
 
 ### Debug Tools
 
-![](/images/posts/browser-web-developers/3.png)
+![](./images/3.png)
 
 Polypane's debug tools offer several handy features, including contrast checker, Aria attributes, and ruler. These tools allow developers to improve their website's accessibility, increase productivity, and enhance the overall user experience.
 
 ### Meta Information
 
-![](/images/posts/browser-web-developers/4.png)
+![](./images/4.png)
 
 One of the standout features of Polypane is its display of meta information, including title, description, logo, and more. It enables developers to check whether their website is mobile-friendly and offers helpful SEO previews for social media sharing. This feature is ideal for web developers who want to ensure that their site's metadata is accurate and up-to-date.
 

@@ -25,7 +25,7 @@ Ever wondered how to create and publish NPM packages that millions of JavaScript
 
 First, you'll need to sign up for a FREE account on [NPM](https://www.npmjs.com/).
 
-![](/images/posts/how-to-create-and-publish-npm-packages/1.png)
+![](./images/1.png)
 
 Then, create a directory on your file system (name it whatever you want) and open it inside of your favorite text editor. I recommend [VS Code](https://code.visualstudio.com/)!
 
@@ -74,7 +74,7 @@ Now, to publish, run `npm publish` in your terminal.
 
 To confirm that it worked, visit your packages page (click your profile image to find this link) on NPM and check that your new package has been uploaded!
 
-![](/images/posts/how-to-create-and-publish-npm-packages/2.png)
+![](./images/2.png)
 
 ## Test it Out
 

@@ -49,7 +49,7 @@ You'll need to add images to your project inside of the public directory. I grab
 
 With images in place, run your project with `npm run dev` and open your browser to `localhost:3000`. Then, open the network tab in your developer tools (filter by Img requests) and reload the page.
 
-![](/images/posts/next-js-10-image-component-a-first-look/1.jpeg)
+![](./images/1.jpeg)
 
 ## Performance Improvements
 
@@ -111,11 +111,11 @@ export default function Home() {
 
 Refresh your page and now look at the network tab again.
 
-![](/images/posts/next-js-10-image-component-a-first-look/2.jpeg)
+![](./images/2.jpeg)
 
 Notice first that only 2 of the images are being requested. Since I couldn't see the third one on the visible screen, it didn't get loaded. However, if I scroll down a bit, you'll see the new request come through.
 
-![](/images/posts/next-js-10-image-component-a-first-look/3.gif)
+![](./images/3.gif)
 
 How cool is that? The Image component is smart enough to only request the image if it's going to be visible to the user!
 
@@ -129,7 +129,7 @@ Remember how big the original images were without the Image component. Well, now
 
 This is because Next.js will create multiple versions of these images that are optimal for different screen sizes. If I make my screen even smaller, you'll see the image sizes get smaller as well.
 
-![](/images/posts/next-js-10-image-component-a-first-look/4.png)
+![](./images/4.png)
 
 ## Wrap Up
 

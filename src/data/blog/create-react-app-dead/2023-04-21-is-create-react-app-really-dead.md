@@ -11,7 +11,7 @@ tags:
 
 We've all heard it before: Create React App is dead. But maybe that's not true according to [this new study from Netlify](https://www.example.com). In this blog post, we'll take a closer look at these findings and discuss the current state of Create React App.
 
-![Graph from Netlify article showing Create React App makes up 40% of projects deployed on Netlify](/images/posts/create-react-app-dead/1.jpeg)
+![Graph from Netlify article showing Create React App makes up 40% of projects deployed on Netlify](./images/1.jpeg)
 
 ## A Brief Overview of React and Create React App
 

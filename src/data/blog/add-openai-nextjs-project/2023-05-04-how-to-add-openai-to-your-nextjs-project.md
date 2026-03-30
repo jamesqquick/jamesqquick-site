@@ -138,7 +138,7 @@ This should now return a JSON object with two properties, `topText` and `bottomT
 
 Here's an example of how I used this in my personal meme generator 🤣
 
-![Meme with text "JavaScript bugs or is it just me?"](/images/posts/add-openai-nextjs-project/1.jpg)
+![Meme with text "JavaScript bugs or is it just me?"](./images/1.jpg)
 
 ## Conclusion
 

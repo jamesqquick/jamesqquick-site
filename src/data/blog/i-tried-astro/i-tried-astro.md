@@ -11,7 +11,7 @@ tags:
 
 I tried Astro after hearing all the hype, and I freaking love it!
 
-![Astro framework home page](/images/posts/i-tried-astro/1.jpg)
+![Astro framework home page](./images/1.jpg)
 
 > This is an abridged version of the original video. [Watch the full tutorial on YouTube](https://youtu.be/wND4lSml31A).
 
@@ -31,7 +31,7 @@ Do you like writing in Markdown but find the struggle of setting up syntax highl
 
 I'm really excited about the possibilities that Astro offers for making website development easier. One of the things I love is the fact that you can add integrations with just a few clicks. No more fiddling around with config files or spending time on boilerplate code!
 
-![Astro integrations home page](/images/posts/i-tried-astro/3.jpg)
+![Astro integrations home page](./images/3.jpg)
 
 ## 4. Bring Your Own Framework (React, Svelte, Vue, etc.)
 
@@ -39,7 +39,7 @@ Next up is the no javascript feature! This allows you to use other frameworks in
 
 This is really cool because you can use the components you're already familiar with, without having to load javascript by default. You can just add a tag for client load to tell when and if to load the javascript associated with it. So if you want a button where you want the functionality you want to maintain pieces of state, you can just add a tag for client load and the javascript will only load when you need it.
 
-![Astro using React component](/images/posts/i-tried-astro/4.jpg)
+![Astro using React component](./images/4.jpg)
 This is really cool because it saves you from loading unnecessary javascript, which can make your app run faster.
 
 ## 5. Islands Architecture
