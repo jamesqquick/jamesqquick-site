@@ -26,6 +26,9 @@ function enclosureMime(coverFormat, optimizedSrc) {
   return map[coverFormat] ?? "image/jpeg";
 }
 
+/** Build-time feed so `getImage()` resolves like prerendered blog pages (`_astro/…`), not SSR `@fs` paths. */
+export const prerender = true;
+
 export const GET = async () => {
   const blogs = await getSortedBlogPosts();
   const site = import.meta.env.SITE;
