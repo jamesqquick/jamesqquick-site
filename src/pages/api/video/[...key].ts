@@ -1,12 +1,13 @@
 import type { APIContext } from "astro";
+import { env } from "cloudflare:workers";
 
-export async function GET({ params, locals }: APIContext) {
+export async function GET({ params }: APIContext) {
   const key = params.key;
   if (!key) {
     return new Response("Missing video key", { status: 400 });
   }
 
-  const bucket = locals.runtime.env.COURSE_BUCKET;
+  const bucket = env.COURSE_BUCKET;
   if (!bucket) {
     return new Response("R2 bucket not configured", { status: 503 });
   }
