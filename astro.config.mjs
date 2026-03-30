@@ -25,27 +25,6 @@ export default defineConfig({
         access: "secret",
         optional: true,
       }),
-
-      R2_ACCESS_KEY_ID: envField.string({
-        context: "server",
-        access: "secret",
-        optional: true,
-      }),
-      R2_SECRET_ACCESS_KEY: envField.string({
-        context: "server",
-        access: "secret",
-        optional: true,
-      }),
-      R2_ACCOUNT_ID: envField.string({
-        context: "server",
-        access: "secret",
-        optional: true,
-      }),
-      R2_BUCKET_NAME: envField.string({
-        context: "server",
-        access: "secret",
-        optional: true,
-      }),
     },
   },
   integrations: [
