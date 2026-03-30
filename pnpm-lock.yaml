@@ -14,6 +14,15 @@ importers:
       '@astrojs/svelte':
         specifier: ^8.0.3
         version: 8.0.3(@types/node@24.12.0)(astro@6.0.8(@netlify/blobs@10.7.4)(@types/node@24.12.0)(aws4fetch@1.0.20)(jiti@2.6.1)(rollup@4.60.0)(typescript@5.9.3)(yaml@2.8.3))(jiti@2.6.1)(svelte@5.0.0-next.264)(typescript@5.9.3)(yaml@2.8.3)
+      '@fontsource-variable/inter':
+        specifier: ^5.2.8
+        version: 5.2.8
+      '@fontsource-variable/space-grotesk':
+        specifier: ^5.2.10
+        version: 5.2.10
+      '@fontsource/ibm-plex-mono':
+        specifier: ^5.2.7
+        version: 5.2.7
       '@iconify-json/mdi':
         specifier: ^1.1.67
         version: 1.2.1
@@ -26,9 +35,6 @@ importers:
       astro-embed:
         specifier: ^0.6.1
         version: 0.6.2(astro@6.0.8(@netlify/blobs@10.7.4)(@types/node@24.12.0)(aws4fetch@1.0.20)(jiti@2.6.1)(rollup@4.60.0)(typescript@5.9.3)(yaml@2.8.3))
-      astro-font:
-        specifier: ^0.1.81
-        version: 0.1.81
       astro-icon:
         specifier: ^1.1.0
         version: 1.1.1
@@ -619,6 +625,15 @@ packages:
 
   '@fastify/busboy@3.2.0':
     resolution: {integrity: sha512-m9FVDXU3GT2ITSe0UaMA5rU3QkfC/UXtCU8y0gSN/GugTqtVldOBWIB5V6V3sbmenVZUIpU6f+mPEO2+m5iTaA==}
+
+  '@fontsource-variable/inter@5.2.8':
+    resolution: {integrity: sha512-kOfP2D+ykbcX/P3IFnokOhVRNoTozo5/JxhAIVYLpea/UBmCQ/YWPBfWIDuBImXX/15KH+eKh4xpEUyS2sQQGQ==}
+
+  '@fontsource-variable/space-grotesk@5.2.10':
+    resolution: {integrity: sha512-yJQO/o35/hAP3CFnpdFTwQku2yzJOae2HIpBmqkOVoxhhXJaQP3g+b6Jrz7u+eI7A5ZdCIf88uMWpBJdFiGr5w==}
+
+  '@fontsource/ibm-plex-mono@5.2.7':
+    resolution: {integrity: sha512-MKAb8qV+CaiMQn2B0dIi1OV3565NYzp3WN5b4oT6LTkk+F0jR6j0ZN+5BKJiIhffDC3rtBULsYZE65+0018z9w==}
 
   '@humanwhocodes/momoa@2.0.4':
     resolution: {integrity: sha512-RE815I4arJFtt+FVeU1Tgp9/Xvecacji8w/V6XtXsWWH/wz/eNkNbhb+ny/+PlVZjV0rxQpRSQKNKE3lcktHEA==}
@@ -1629,9 +1644,6 @@ packages:
     resolution: {integrity: sha512-Ep7zU2H+fqIT6Y70BcbAX8hchFy6K1Hjz5HIyYQQ0ehxPE01qEWmcus1Xu9voTzim8EYhpd9OBEwmRP53EaX+Q==}
     peerDependencies:
       astro: ^2.0.0 || ^3.0.0-beta || ^4.0.0-beta
-
-  astro-font@0.1.81:
-    resolution: {integrity: sha512-rbrv/+ZSYdgyjBlhkAqfCjMxqqo6iEwnSo/rAdDt/POILsF0ChxMFhefIIzKEukrRGtVjEj1lrLRYk+AdV9scQ==}
 
   astro-icon@1.1.1:
     resolution: {integrity: sha512-HKBesWk2Faw/0+klLX+epQVqdTfSzZz/9+5vxXUjTJaN/HnpDf608gRPgHh7ZtwBPNJMEFoU5GLegxoDcT56OQ==}
@@ -5883,6 +5895,12 @@ snapshots:
 
   '@fastify/busboy@3.2.0': {}
 
+  '@fontsource-variable/inter@5.2.8': {}
+
+  '@fontsource-variable/space-grotesk@5.2.10': {}
+
+  '@fontsource/ibm-plex-mono@5.2.7': {}
+
   '@humanwhocodes/momoa@2.0.4': {}
 
   '@iarna/toml@2.2.5': {}
@@ -7175,8 +7193,6 @@ snapshots:
       '@astro-community/astro-embed-vimeo': 0.3.10(astro@6.0.8(@netlify/blobs@10.7.4)(@types/node@24.12.0)(aws4fetch@1.0.20)(jiti@2.6.1)(rollup@4.60.0)(typescript@5.9.3)(yaml@2.8.3))
       '@astro-community/astro-embed-youtube': 0.5.5(astro@6.0.8(@netlify/blobs@10.7.4)(@types/node@24.12.0)(aws4fetch@1.0.20)(jiti@2.6.1)(rollup@4.60.0)(typescript@5.9.3)(yaml@2.8.3))
       astro: 6.0.8(@netlify/blobs@10.7.4)(@types/node@24.12.0)(aws4fetch@1.0.20)(jiti@2.6.1)(rollup@4.60.0)(typescript@5.9.3)(yaml@2.8.3)
-
-  astro-font@0.1.81: {}
 
   astro-icon@1.1.1:
     dependencies:

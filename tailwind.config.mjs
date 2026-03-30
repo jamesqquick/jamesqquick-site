@@ -35,6 +35,7 @@ module.exports = {
     },
     fontFamily: {
       sans: [
+        '"Inter Variable"',
         "Inter",
         "-apple-system",
         "BlinkMacSystemFont",
@@ -43,6 +44,7 @@ module.exports = {
         "sans-serif",
       ],
       display: [
+        '"Space Grotesk Variable"',
         '"Space Grotesk"',
         "Inter",
         "-apple-system",
