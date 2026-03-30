@@ -1,30 +1,9 @@
 ---
-import { Image } from "astro:assets";
-import { XATA_API_KEY } from "astro:env/server";
-import { XataClient } from "src/xata";
 import BaseHead from "../components/BaseHead.astro";
 import SocialFollow, { IconSize } from "../components/SocialFollow.astro";
 
 import { SITE_DESCRIPTION, SITE_TITLE } from "../config";
 import Logo from "../images/logo.astro";
-
-if (!XATA_API_KEY) {
-  throw new Error("XATA_API_KEY is not configured");
-}
-const xata = new XataClient({
-  apiKey: XATA_API_KEY,
-  branch: import.meta.env.XATA_BRANCH,
-});
-let settings = await xata.db.settings
-  .select([
-    "title",
-    "sponsor1.*",
-    "sponsor2.*",
-    "sponsor3.*",
-    "guestName",
-    "guestTitle",
-  ])
-  .getFirst();
 
 export interface Props {
   title?: string;
@@ -68,39 +47,8 @@ const { title, description, image, includeLogo = false } = Astro.props;
               />
             </span>
           </div>
-          <p class="text-2xl font-bold">{settings?.title}</p>
-          <p class="flex items-center justify-end gap-x-4 w-[400px]">
-            {settings?.sponsor1?.logo?.url && (
-              <Image
-                class="h-10 w-auto max-h-10 object-contain"
-                src={settings.sponsor1.logo.url}
-                alt={`Stream sponsor 1${settings?.title ? ` — ${settings.title}` : ""}`}
-                inferSize
-                loading="eager"
-                sizes="160px"
-              />
-            )}
-            {settings?.sponsor2?.logo?.url && (
-              <Image
-                class="h-10 w-auto max-h-10 object-contain"
-                src={settings.sponsor2.logo.url}
-                alt={`Stream sponsor 2${settings?.title ? ` — ${settings.title}` : ""}`}
-                inferSize
-                loading="eager"
-                sizes="160px"
-              />
-            )}
-            {settings?.sponsor3?.logo?.url && (
-              <Image
-                class="h-6 w-auto max-h-6 object-contain"
-                src={settings.sponsor3.logo.url}
-                alt={`Stream sponsor 3${settings?.title ? ` — ${settings.title}` : ""}`}
-                inferSize
-                loading="eager"
-                sizes="120px"
-              />
-            )}
-          </p>
+          <p class="text-2xl font-bold"></p>
+          <p class="flex items-center justify-end gap-x-4 w-[400px]"></p>
         </footer>
       </div>
     </main>

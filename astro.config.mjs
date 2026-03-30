@@ -14,7 +14,6 @@ export default defineConfig({
     responsiveStyles: true,
     remotePatterns: [
       { protocol: "https", hostname: "i.ytimg.com" },
-      { protocol: "https", hostname: "**.storage.xata.sh" },
     ],
   },
   env: {
@@ -26,16 +25,7 @@ export default defineConfig({
         access: "secret",
         optional: true,
       }),
-      XATA_API_KEY: envField.string({
-        context: "server",
-        access: "secret",
-        optional: true,
-      }),
-      SUPER_SECRET_KEY: envField.string({
-        context: "server",
-        access: "secret",
-        optional: true,
-      }),
+
       SENDGRID_API_KEY: envField.string({
         context: "server",
         access: "secret",

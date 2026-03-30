@@ -1,23 +1,6 @@
 ---
-import { XATA_API_KEY } from "astro:env/server";
-import { XataClient } from "src/xata";
 import StreamingLayout from "../../../layouts/StreamingLayout.astro";
 import VideoFrame, { VideoFrameSize } from "../VideoFrame.astro";
-
-if (!XATA_API_KEY) {
-  throw new Error("XATA_API_KEY is not configured");
-}
-const xata = new XataClient({
-  apiKey: XATA_API_KEY,
-  branch: import.meta.env.XATA_BRANCH,
-});
-let settings = await xata.db.settings.getFirst();
-
-interface Props {
-  header: string;
-}
-
-const { header } = Astro.props;
 ---
 
 <StreamingLayout title="JQQ Streams">
