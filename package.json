@@ -37,7 +37,6 @@
     "cloudinary": "^2.4.0",
     "embla-carousel": "^8.6.0",
     "fast-xml-parser": "^4.2.5",
-    "html-entities": "^2.3.3",
     "i": "^0.3.7",
     "markdown-it": "^14.1.0",
     "npm": "^10.8.2",

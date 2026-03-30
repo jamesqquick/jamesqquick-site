@@ -20,12 +20,6 @@ export default defineConfig({
     schema: {
       // Secret server variables used in endpoints/components.
       // Marked optional to keep local builds from failing when env vars are absent.
-      YOUTUBE_API_KEY: envField.string({
-        context: "server",
-        access: "secret",
-        optional: true,
-      }),
-
       SENDGRID_API_KEY: envField.string({
         context: "server",
         access: "secret",
