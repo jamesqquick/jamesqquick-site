@@ -25,16 +25,7 @@ export default defineConfig({
         access: "secret",
         optional: true,
       }),
-      CLOUDINARY_API_KEY: envField.string({
-        context: "server",
-        access: "secret",
-        optional: true,
-      }),
-      CLOUDINARY_API_SECRET: envField.string({
-        context: "server",
-        access: "secret",
-        optional: true,
-      }),
+
       R2_ACCESS_KEY_ID: envField.string({
         context: "server",
         access: "secret",
