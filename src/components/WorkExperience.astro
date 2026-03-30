@@ -54,6 +54,7 @@ const companies = [
     light: commerceWhite,
     dark: commerceBlack,
     classPrefix: "work-exp-commerce",
+    heightClass: "h-20",
   },
 ];
 ---
@@ -66,14 +67,14 @@ const companies = [
       {[...companies, ...companies].map((company) => (
         <div class="ticker-item">
           <Image
-            class={`${company.classPrefix} ${company.classPrefix}--dark-theme h-10 w-auto object-contain`}
+            class={`${company.classPrefix} ${company.classPrefix}--dark-theme ${company.heightClass ?? "h-10"} w-auto object-contain`}
             src={company.light}
             alt={`${company.name} logo`}
             width={company.light.width}
             height={company.light.height}
           />
           <Image
-            class={`${company.classPrefix} ${company.classPrefix}--light-theme h-10 w-auto object-contain`}
+            class={`${company.classPrefix} ${company.classPrefix}--light-theme ${company.heightClass ?? "h-10"} w-auto object-contain`}
             src={company.dark}
             alt={`${company.name} logo`}
             width={company.dark.width}
