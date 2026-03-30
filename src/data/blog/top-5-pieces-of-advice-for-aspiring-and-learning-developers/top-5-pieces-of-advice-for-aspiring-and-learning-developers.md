@@ -15,7 +15,7 @@ During all of those engagements, there’s one question I’ve been asked over a
 
 > “What advice would you give someone looking to become a developer?”
 
-![](/images/posts/top-5-pieces-of-advice-for-aspiring-and-learning-developers/1.png)
+![](./images/1.png)
 
 There are lots of variations to that question, but they are all pretty much the same. Here are my top five pieces of advice!
 
@@ -45,7 +45,7 @@ One of the other big benefits of building out a few sample projects is that you 
 
 > Building a Harry Potter Quiz app for Android helped me get a job at Microsoft!
 
-![](/images/posts/top-5-pieces-of-advice-for-aspiring-and-learning-developers/2.png)
+![](./images/2.png)
 
 During my senior year of college, I interviewed with Microsoft, one of the top tech companies in the world. **In 90% of my interviews, I talked about the Harry Potter Quiz app I made for Android**. They loved that I was passionate and capable enough to learn on my own to build a working application. **These are the kinds of conversations that set you apart from other candidates**.
 
@@ -79,7 +79,7 @@ Whatever it is, search for resources you can use to help improve those areas. Ho
 
 ### Sometimes You Have to Spend Money 💵
 
-![](/images/posts/top-5-pieces-of-advice-for-aspiring-and-learning-developers/3.png)
+![](./images/3.png)
 
 Historically, I’m a pretty cheap person, so financially investing in myself is tough. I’m always looking for the cheapest option, but I’ve learned in most cases you get what you pay for. **Sometimes, you just have to spend the money on the resources you need**. Here are a few things I’ve spent money on.
 
@@ -138,7 +138,7 @@ You can also use the content as a resource for yourself. By documenting the thin
 
 ### Create Content to Learn Content
 
-![](/images/posts/top-5-pieces-of-advice-for-aspiring-and-learning-developers/4.png)
+![](./images/4.png)
 
 I use creating content as a way to force myself to learn new things. For instance, I’m currently learning more about Next.js. Well, if I give myself a deadline for creating a video in the next two weeks, I’ve now given myself a reason to learn. By forcing myself to create videos on different topics, I learn more and more.
 
@@ -156,7 +156,7 @@ You need people that you can **teach something to** (benefits of teaching above 
 
 > I built a Discord for the community around my motto, **Learn Build Teach**. [Join the Discord](https://discord.gg/vM2bagU).
 
-![](/images/posts/top-5-pieces-of-advice-for-aspiring-and-learning-developers/5.png)
+![](./images/5.png)
 
 Honestly, you just need something to feel like you’re a part of something.
 

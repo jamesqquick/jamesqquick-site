@@ -33,40 +33,40 @@ For each example, there is a set of starter files and finished files. Open the f
 
 1\. Responsive 3 Column Grid
 
-![](/images/posts/10-examples-with-css-grid/1.png)
+![](./images/1.png)
 
 2\. Centered Content
 
-![](/images/posts/10-examples-with-css-grid/2.png)
+![](./images/2.png)
 
 3\. Reordered Content
 
-![](/images/posts/10-examples-with-css-grid/3.png)
+![](./images/3.png)
 
 4\. Responsive Navbar
 
-![](/images/posts/10-examples-with-css-grid/4.png)
+![](./images/4.png)
 
 5\. Asymetric Dashboard
 
-![](/images/posts/10-examples-with-css-grid/5.png)
+![](./images/5.png)
 
 6\. Responsive Card Gallery
 
-![](/images/posts/10-examples-with-css-grid/6.png)
+![](./images/6.png)
 
 7\. Asymetric Gallery Layout
 
-![](/images/posts/10-examples-with-css-grid/7.png)
+![](./images/7.png)
 
 8\. Responsive 2 Column with Footer
 
-![](/images/posts/10-examples-with-css-grid/8.png)
+![](./images/8.png)
 
 9\. Responsive 2 Column Grid with Footer (Grid Areas)
 
-![](/images/posts/10-examples-with-css-grid/9.png)
+![](./images/9.png)
 
 10\. Checkerboard Layout
 
-![](/images/posts/10-examples-with-css-grid/10.png)
+![](./images/10.png)

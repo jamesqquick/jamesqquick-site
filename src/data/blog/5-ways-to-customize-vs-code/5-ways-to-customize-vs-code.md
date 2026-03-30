@@ -11,7 +11,7 @@ tags:
 
 The beauty of Visual Studio Code is how easy it is to customize. I've spent tons of time learning how to optimize VS Code for me, so I wanted to share how you can do it too!
 
-![](/images/posts/5-ways-to-customize-vs-code/1.png)
+![](./images/1.png)
 
 Let's look at 5 different ways you can customize your VS Code.
 
@@ -23,47 +23,47 @@ Themes are probably the first and easiest way to customize your VS Code to look 
 
 You can update your theme by installing it as an extension and then selecting it in the command palette. Search for "theme".
 
-![](/images/posts/5-ways-to-customize-vs-code/2.png)
+![](./images/2.png)
 
 Then, select the theme you want to use.
 
-![](/images/posts/5-ways-to-customize-vs-code/3.png)
+![](./images/3.png)
 
 As you can see, I personally use the [Cobalt 2 theme](https://marketplace.visualstudio.com/items?itemName=wesbos.theme-cobalt2) from Wes Bos!
 
-![](/images/posts/5-ways-to-customize-vs-code/4.png)
+![](./images/4.png)
 
 My second favorite is probably [Shades of Purple](https://marketplace.visualstudio.com/items?itemName=ahmadawais.shades-of-purple) from Ahmad Awais.
 
-![](/images/posts/5-ways-to-customize-vs-code/5.png)
+![](./images/5.png)
 
 Lastly, [Night Owl](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl) from Sarah Drasner is amazing as well!
 
-![](/images/posts/5-ways-to-customize-vs-code/6.png)
+![](./images/6.png)
 
 ## [](#2-font)2\. Font
 
 Your font is the second thing that can really make your VS Code stand out. You can change it inside of your settings.
 
-![](/images/posts/5-ways-to-customize-vs-code/7.jpeg)
+![](./images/7.jpeg)
 
 I am currently using the [Cascadia Code](https://github.com/microsoft/cascadia-code) font from Microsoft which is free!
 
-![](/images/posts/5-ways-to-customize-vs-code/8.jpeg)
+![](./images/8.jpeg)
 
 Previously, I used [Fira Code](https://github.com/tonsky/FiraCode) which is also free!
 
-![](/images/posts/5-ways-to-customize-vs-code/9.jpeg)
+![](./images/9.jpeg)
 
 ### [](#font-ligatures)Font Ligatures
 
 If you look closely at those screenshots, you might notice there are some characters that seem a bit different. If I zoom in a bit and highlight the arrows, you'll be able to see them now.
 
-![](/images/posts/5-ways-to-customize-vs-code/10.jpeg)
+![](./images/10.jpeg)
 
 I love Font Ligatures so I turned them on as soon as I found out how to do it. You can turn them on in your settings as well.
 
-![](/images/posts/5-ways-to-customize-vs-code/11.jpeg)
+![](./images/11.jpeg)
 
 ## [](#3-extensions)3\. Extensions
 
@@ -92,11 +92,11 @@ I've shown you a few different settings that you can customize, but there are to
 
 My zoom level starts out at 2.
 
-![](/images/posts/5-ways-to-customize-vs-code/12.jpeg)
+![](./images/12.jpeg)
 
 As soon as I update that setting, VS Code immediately displays the changes.
 
-![](/images/posts/5-ways-to-customize-vs-code/13.jpeg)
+![](./images/13.jpeg)
 
 Honestly, I would recommend scrolling through the settings that are available and trying them out. In the meantime, here are a few extra fun ones.
 
@@ -115,17 +115,17 @@ First off, I love shortcuts! I try to learn as many shortcuts as I can to save m
 
 VS Code gives you full customization over your shortcuts. You can override any keyboard shortcuts that you want to.
 
-![](/images/posts/5-ways-to-customize-vs-code/14.jpeg)
+![](./images/14.jpeg)
 
 The real power with these shortcuts comes with the "when" property. You have the ability to customize "when" a shortcut should be used. For example, if you only want a shortcut to be used when you are working in the terminal, you can use that as a condition.
 
-![](/images/posts/5-ways-to-customize-vs-code/15.jpeg)
+![](./images/15.jpeg)
 
 The use of the "when" is extremely powerful and you can find more info on how it works in the [full documentation](https://code.visualstudio.com/docs/getstarted/keybindings).
 
 If you prefer shortcuts from other editors, you can also download keymap extensions which will allow you to import shortcuts from editors like Atom, Sublime, etc.
 
-![](/images/posts/5-ways-to-customize-vs-code/16.jpeg)
+![](./images/16.jpeg)
 
 ## [](#wrap-up)Wrap Up
 

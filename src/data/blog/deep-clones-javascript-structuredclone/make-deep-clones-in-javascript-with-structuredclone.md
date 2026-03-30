@@ -25,7 +25,7 @@ const person1 = { name: "James", age: 32 };
 
 If we make a direct assignment to create a copy of the object, like `person2 = person1`, it results in both variables pointing to the same object in memory. You can see this in this screenshot where updating `person2` also updates `person1` since they are both pointing to the same object.
 
-![](/images/posts/deep-clones-javascript-structuredclone/1.jpeg) In contrast, using the spread operator to spread out the properties of `person1` into a new object for `person2` will create a copy. However, as the spread operator only goes one level deep, any nested objects within the person object will still result in a shallow copy where the nested object is still being shared.
+![](./images/1.jpeg) In contrast, using the spread operator to spread out the properties of `person1` into a new object for `person2` will create a copy. However, as the spread operator only goes one level deep, any nested objects within the person object will still result in a shallow copy where the nested object is still being shared.
 
 ```javascript
 const person2 = { ...person1 };
@@ -33,7 +33,7 @@ const person2 = { ...person1 };
 
 Here’s a quick example where it fails to make a deep copy. Notice that `person1` has a nested `spouse` property that is an object and is effected when updated from `person2`
 
-![](/images/posts/deep-clones-javascript-structuredclone/1.jpeg)
+![](./images/1.jpeg)
 
 ## The Json Stringify Hack
 

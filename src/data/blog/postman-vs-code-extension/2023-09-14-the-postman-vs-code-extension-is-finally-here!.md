@@ -15,7 +15,7 @@ A few years ago, I created my most popular YouTube video of all time about movin
 
 ## Overview
 
-![Postman listing in VS Code markplace](/images/posts/postman-vs-code-extension/1.jpg)
+![Postman listing in VS Code markplace](./images/1.jpg)
 
 In short, the Postman extension has high feature-parity with the existing desktop application. The really neat thing is that I believe they are able to re-use a lot of the existing desktop code for the extension.
 

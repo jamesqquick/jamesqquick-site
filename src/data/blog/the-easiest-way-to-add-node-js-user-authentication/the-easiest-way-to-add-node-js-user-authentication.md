@@ -41,8 +41,9 @@ app.listen(port, () => {
 
 You can then run the server with `node app.js` or, if you have nodemon installed, `nodemon app.js`. You should see a log stating the server is running.
 
-/images/posts/my-first-week-at-auth0/cover.jpg
-![](/images/posts/the-easiest-way-to-add-node-js-user-authentication/1.png)
+![](../my-first-week-at-auth0/cover.jpg)
+
+![](./images/1.png)
 
 ## [](#setup-environment-variables)Setup Environment Variables
 
@@ -70,7 +71,7 @@ If you are going to use Auth0, you'll need to [sign up for a FREE account](http:
 
 Next, you'll need to create an application and choose `Regular Web App`.
 
-![](/images/posts/the-easiest-way-to-add-node-js-user-authentication/2.png)
+![](./images/2.png)
 
 With your application created, you'll need to update two settings, the callback URL and logout URL. We will be leveraging the OpenID Connect protocol for handling authentication which requires the user to be redirected to the authorization and then back to our application. Because of this, we need to tell Auth0 where the user should be redirected back to.
 
@@ -79,13 +80,13 @@ With your application created, you'll need to update two settings, the callback 
 - Callback URL - [http://localhost:3000/callback](http://localhost:3000/callback)
 - Logout URL - [http://localhost:3000](http://localhost:3000)
 
-![](/images/posts/the-easiest-way-to-add-node-js-user-authentication/3.png)
+![](./images/3.png)
 
 Be sure to scroll down and hit save.
 
 Lastly, we need to grab two properties from our Auth0 application, the Domain and the Client ID.
 
-![](/images/posts/the-easiest-way-to-add-node-js-user-authentication/4.png)
+![](./images/4.png)
 
 ### [](#update-environment-variables-appropriately)Update Environment Variables Appropriately
 
@@ -150,7 +151,7 @@ app.get('/profile', (req, res) => {
 
 Restart your server and make sure you are logged in. Then, navigate to `localhost:3000/profile`.
 
-![](/images/posts/the-easiest-way-to-add-node-js-user-authentication/5.png)
+![](./images/5.png)
 
 ## [](#protecting-routes)Protecting Routes
 

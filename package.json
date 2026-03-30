@@ -7,7 +7,9 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "migrate-blog-images": "node scripts/migrate-blog-post-images.mjs",
+    "ensure-blog-inline-images": "node scripts/ensure-blog-inline-images.mjs"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.8",
