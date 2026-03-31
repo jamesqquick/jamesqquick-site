@@ -1,0 +1,21 @@
+---
+import Skeleton from "./Skeleton.astro";
+---
+
+<div class="card-skeleton-shell overflow-hidden" aria-hidden="true">
+  <Skeleton class="h-48 w-full mb-4" rounded="lg" />
+  <Skeleton class="h-3 w-20 mb-2" rounded="full" />
+  <Skeleton class="h-3 w-32 mb-3" rounded="full" />
+  <Skeleton class="h-6 w-3/4 mb-2" rounded="md" />
+  <Skeleton class="h-4 w-full mb-1" rounded="md" />
+  <Skeleton class="h-4 w-5/6" rounded="md" />
+</div>
+
+<style>
+  .card-skeleton-shell {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    padding: 1rem;
+  }
+</style>
