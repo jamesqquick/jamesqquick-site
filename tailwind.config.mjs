@@ -80,5 +80,5 @@ module.exports = {
     "h-[0.5px]",
     "h-[2px]",
   ],
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [require("@tailwindcss/typography"), require("@tailwindcss/container-queries")],
 };
