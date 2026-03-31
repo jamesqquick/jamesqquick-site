@@ -56,6 +56,10 @@ const coverIsPublicUrl = typeof image === "string" && image.startsWith("/");
         <Image
           height={540}
           width={960}
+          widths={[480, 768, 960]}
+          sizes="(min-width: 1024px) 50vw, 100vw"
+          format="webp"
+          quality={80}
           src={image as ImageMetadata}
           class="featured-image"
           alt={title}

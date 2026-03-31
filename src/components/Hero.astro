@@ -47,11 +47,12 @@ const {
             image && imageAlt && (
                 <Image
                 src={image}
-                height={image.height}
-                width={image.width}
+                widths={[400, 600, 700]}
+                sizes="(min-width: 1024px) 700px, (min-width: 768px) 600px, 100vw"
                 class="max-w-full md:w-[600px] lg:w-[700px]  -mt-24 lg:mt-0"
                 alt={imageAlt}
                 format="webp"
+                quality={80}
                 loading="eager"
                 priority
                 />

@@ -55,27 +55,16 @@ const featuredCourse = courses.splice(0, 1)[0];
       {
         courses.map((course) => (
           <div class="flex gap-x-8 lg:gap-x-2 items-center lg:justify-between">
-            {typeof course.data.coverImage === "string" &&
-            course.data.coverImage.startsWith("/") ? (
-              <img
-                src={course.data.coverImage}
-                alt={course.data.title}
-                width={256}
-                height={256}
-                class="rounded-lg h-16 w-16 object-cover border border-border"
-                loading="lazy"
-                decoding="async"
-              />
-            ) : (
-              <Image
-                height={256}
-                width={256}
-                format="webp"
-                src={course.data.coverImage!}
-                alt={course.data.title}
-                class="rounded-lg h-16 w-16 object-cover border border-border"
-              />
-            )}
+            <Image
+              height={128}
+              width={128}
+              format="webp"
+              quality={80}
+              src={course.data.coverImage!}
+              alt={course.data.title}
+              class="rounded-lg h-16 w-16 object-cover border border-border"
+              loading="lazy"
+            />
             <a
               href={getCourseUrl(course)}
               rel="noopener noreferrer"
