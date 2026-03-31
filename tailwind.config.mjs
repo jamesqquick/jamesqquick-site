@@ -64,6 +64,14 @@ module.exports = {
         md: "var(--shadow-card)",
         lg: "var(--shadow-lg)",
         focus: "var(--shadow-focus)",
+        /* Decomposed: depth-only shadows (no ring) */
+        "sm-only": "var(--shadow-sm-depth)",
+        "card-only": "var(--shadow-card-depth)",
+        "lg-only": "var(--shadow-lg-depth)",
+        /* Decomposed: ring-only (no depth shadow) */
+        "ring-sm": "var(--ring-sm)",
+        "ring-card": "var(--ring-card)",
+        "ring-lg": "var(--ring-lg)",
         none: "none",
       },
     },
