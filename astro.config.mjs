@@ -39,7 +39,6 @@ export default defineConfig({
     svelte(),
     icon({
       include: {
-        // Include only three `mdi` icons in the bundle
         mdi: [
           "close",
           "account-plus",
@@ -53,6 +52,13 @@ export default defineConfig({
           "download",
           "chart-bar",
           "monitor",
+        ],
+        teenyicons: [
+          "youtube-outline",
+          "twitter-outline",
+          "tiktok-outline",
+          "discord-outline",
+          "twitch-outline",
         ],
       },
     }),

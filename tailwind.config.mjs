@@ -77,17 +77,8 @@ module.exports = {
   },
   safelist: [
     "text-youtube",
-    "text-instagram",
-    "text-facebook",
-    "text-twitch",
-    "text-twitter",
-    "text-linkedin",
     "h-[0.5px]",
-    "h-[1px]",
     "h-[2px]",
-    "h-[4px]",
-    "transition-all",
-    "bottom-8",
   ],
   plugins: [require("@tailwindcss/typography")],
 };
