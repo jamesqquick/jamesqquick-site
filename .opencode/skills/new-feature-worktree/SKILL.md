@@ -2,8 +2,7 @@
 name: new-feature-worktree
 description: >-
   Implements a new feature in a dedicated git worktree on a feature/ branch,
-  validates (tests, lint, build as appropriate), pushes and opens a PR,
-  then opens the worktree folder in a new OpenCode instance when possible. Use
+  validates (tests, lint, build as appropriate), pushes and opens a PR. Use
   when the user wants a worktree-based feature workflow, or mentions
   implementing a feature in a separate worktree with a pull request.
 ---
@@ -184,19 +183,7 @@ gh pr create --base "$BASE_BRANCH" --head "$FEATURE_BRANCH" \
 
 If `gh` is missing or auth fails: state that the PR was not created; give the push URL or compare link if useful.
 
-## 12) Open worktree in a new OpenCode instance
-
-After the PR exists (or push succeeds), open `WORKTREE_PATH` in a new OpenCode window.
-
-```bash
-opencode "$WORKTREE_PATH"
-```
-
-Otherwise, provide manual steps: navigate to `WORKTREE_PATH` and run `opencode`.
-
-This step is best-effort: report whether the command ran and exited 0.
-
-## 13) Final reply format
+## 12) Final reply format
 
 Include:
 
@@ -209,7 +196,6 @@ Include:
 | Validation | Commands run |
 | Commit | Hash if committed |
 | PR | URL or not created + reason |
-| OpenCode | Opened worktree in new instance (command used) or manual instructions |
 
 ## Project stack
 
