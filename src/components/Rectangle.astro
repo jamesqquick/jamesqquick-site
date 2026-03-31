@@ -2,12 +2,12 @@
 
 interface Props {
   size?: "small" | "medium" | "large";
-  border?: 'brand' | 'lightBrand';
+  border?: 'accent' | 'accentSubtle';
   classStr?: string;
-  fill?: 'brand' | 'lightBrand';
+  fill?: 'accent' | 'accentSubtle';
 }
 
-const { size = "medium", border = "brand", classStr, fill } = Astro.props;
+const { size = "medium", border = "accent", classStr, fill } = Astro.props;
 
 const sizeClasses = {
   small: "w-24 h-24",
@@ -15,13 +15,13 @@ const sizeClasses = {
   large: "w-40 h-40"
 };
 const borderClasses = {
-  brand: "border border-brand",
-  lightBrand: "border border-bgLightBrand",
+  accent: "border border-accent",
+  accentSubtle: "border border-accent-subtle",
 };
 
 const fillClasses = {
-  brand: "bg-brand",
-  lightBrand: "bg-bgLightBrand",
+  accent: "bg-accent",
+  accentSubtle: "bg-accent-subtle",
 };
 ---
 <div class={`border ${borderClasses[border]} rounded-3xl opacity-50  ${sizeClasses[size]} ${fill && fillClasses[fill] } ${classStr}`} />

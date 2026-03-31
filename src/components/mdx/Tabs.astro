@@ -17,7 +17,7 @@ const tabsId = `tabs-${Math.random().toString(36).slice(2, 10)}`;
         class:list={[
           "px-4 py-2 text-sm border-b-2",
           index === 0
-            ? "border-brand text-brand"
+            ? "border-accent text-accent"
             : "border-transparent text-gray-400 hover:text-gray-200",
         ]}
       >
@@ -44,8 +44,8 @@ const tabsId = `tabs-${Math.random().toString(36).slice(2, 10)}`;
         buttons.forEach((btn, i) => {
           const active = i === index;
           btn.setAttribute("aria-selected", active ? "true" : "false");
-          btn.classList.toggle("border-brand", active);
-          btn.classList.toggle("text-brand", active);
+          btn.classList.toggle("border-accent", active);
+          btn.classList.toggle("text-accent", active);
           btn.classList.toggle("border-transparent", !active);
           btn.classList.toggle("text-gray-400", !active);
         });

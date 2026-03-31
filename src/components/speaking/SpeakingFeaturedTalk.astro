@@ -83,10 +83,10 @@ const count = talks.length;
                       <button
                         type="button"
                         data-slide-play
-                        class="absolute inset-0 z-10 flex items-center justify-center bg-bgDark/35 hover:bg-bgDark/55 transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-inset rounded-2xl"
+                        class="absolute inset-0 z-10 flex items-center justify-center bg-bg/35 hover:bg-bg/55 transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-inset rounded-2xl"
                         aria-label={`Play video: ${talk.title}`}
                       >
-                        <span class="flex h-16 w-16 md:h-[4.5rem] md:w-[4.5rem] items-center justify-center rounded-full bg-bgDark/60 backdrop-blur-sm border border-border">
+                        <span class="flex h-16 w-16 md:h-[4.5rem] md:w-[4.5rem] items-center justify-center rounded-full bg-bg/60 backdrop-blur-sm border border-border">
                           <svg
                             class="ml-1 h-7 w-7 md:h-8 md:w-8 text-text"
                             viewBox="0 0 24 24"
@@ -157,7 +157,7 @@ const count = talks.length;
     closeAriaLabel="Close video"
     maxWidthClass="max-w-6xl"
   >
-    <div class="relative h-0 w-full overflow-hidden rounded-2xl pb-[56.25%] border border-border bg-bgDark shadow-2xl shadow-black/50">
+    <div class="relative h-0 w-full overflow-hidden rounded-2xl pb-[56.25%] border border-border bg-bg shadow-2xl shadow-black/50">
       <iframe
         data-video-modal-iframe
         title="Talk video"

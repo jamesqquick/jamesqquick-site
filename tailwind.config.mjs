@@ -15,18 +15,15 @@ module.exports = {
         /* Semantic token-based colors */
         accent: "var(--color-accent)",
         accentHover: "var(--color-accent-hover)",
+        "accent-subtle": "var(--color-accent-subtle)",
         text: "var(--color-text)",
         textMuted: "var(--color-text-muted)",
         "text-subtle": "var(--color-text-subtle)",
-        bg: "var(--legacy-bg)",
-        bgDark: "var(--legacy-bg-dark)",
-        bgLight: "var(--legacy-bg-light)",
-        bgLightBrand: "var(--legacy-bg-light-brand)",
+        bg: "var(--color-bg)",
         surface: "var(--color-surface)",
         "surface-hover": "var(--color-surface-hover)",
+        "section-elevated": "var(--color-section-elevated)",
         border: "var(--color-border)",
-        /* Legacy alias to avoid breaking existing classes */
-        brand: "var(--legacy-brand)",
       },
       backgroundImage: {
         interviewing: "url('/images/overlays/interviewing.png')",

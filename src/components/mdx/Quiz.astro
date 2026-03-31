@@ -21,7 +21,7 @@ const quizId = `quiz-${Math.random().toString(36).slice(2, 8)}`;
         {question.answers.map((answer, aIndex) => (
           <button
             type="button"
-            class="quiz-answer w-full rounded-lg border border-gray-700 px-4 py-2.5 text-left text-sm hover:border-brand"
+            class="quiz-answer w-full rounded-lg border border-gray-700 px-4 py-2.5 text-left text-sm hover:border-accent"
             data-question={qIndex}
             data-answer={aIndex}
             data-correct={aIndex === question.correct ? "true" : "false"}
@@ -60,7 +60,7 @@ const quizId = `quiz-${Math.random().toString(36).slice(2, 8)}`;
 
         questionEl.querySelectorAll<HTMLButtonElement>(".quiz-answer").forEach((answerButton) => {
           answerButton.disabled = true;
-          answerButton.classList.remove("hover:border-brand");
+          answerButton.classList.remove("hover:border-accent");
         });
 
         const feedback = questionEl.querySelector<HTMLElement>(".quiz-feedback");

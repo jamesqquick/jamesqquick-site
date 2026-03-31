@@ -31,7 +31,7 @@
 
 {#if success}
   <div>
-    <h2 class="text-2xl font-bold text-brand mb-2 text-center">Subscribed!</h2>
+    <h2 class="text-2xl font-bold text-accent mb-2 text-center">Subscribed!</h2>
     <p class="text-xl md:text-2xl text-text mb-4 text-center">
       You just made an amazing decision.
     </p>

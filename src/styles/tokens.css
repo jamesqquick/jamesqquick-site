@@ -76,12 +76,6 @@
   --container-lg: 1120px;
   --container-xl: 1280px;
 
-  /* Legacy aliases for incremental migration */
-  --legacy-brand: var(--color-accent);
-  --legacy-bg: var(--color-bg);
-  --legacy-bg-dark: #10121d;
-  --legacy-bg-light: #363c68;
-  --legacy-bg-light-brand: #c8fee7;
 }
 
 [data-theme="light"] {
