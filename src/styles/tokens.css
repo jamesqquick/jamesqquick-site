@@ -105,4 +105,10 @@
   --color-ai-subtle: rgba(2, 132, 199, 0.10);
   --color-learning: #059669;
   --color-learning-subtle: rgba(5, 150, 105, 0.10);
+
+  /* State/feedback colors — darker-shifted for light backgrounds */
+  --color-success: #059669;
+  --color-warning: #d97706;
+  --color-error: #dc2626;
+  --color-info: #2563eb;
 }
