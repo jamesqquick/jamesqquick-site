@@ -103,4 +103,12 @@
 
   --color-border: #d6dce8;
   --color-border-light: rgba(17, 24, 39, 0.1);
+
+  /* Category colors — deeper/muted for light backgrounds */
+  --color-speaking: #d6336c;
+  --color-speaking-subtle: rgba(214, 51, 108, 0.12);
+  --color-ai: #0284c7;
+  --color-ai-subtle: rgba(2, 132, 199, 0.10);
+  --color-learning: #059669;
+  --color-learning-subtle: rgba(5, 150, 105, 0.10);
 }
