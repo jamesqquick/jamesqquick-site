@@ -6,12 +6,6 @@ module.exports = {
     extend: {
       colors: {
         youtube: "#eb3223",
-        instagram: "#eb3223",
-        facebook: "#4968ad",
-        twitch: "#644398",
-        twitter: "#49a1eb",
-        linkedin: "#3077b0",
-        discord: "#f865f2",
         /* Semantic token-based colors */
         accent: "var(--color-accent)",
         accentHover: "var(--color-accent-hover)",
