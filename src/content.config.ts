@@ -41,13 +41,13 @@ const coursesCollection = defineCollection({
     base: "./src/content/courses",
     generateId: ({ entry }) => entry.replace(/\.mdx?$/i, "").replace(/\\/g, "/"),
   }),
-  schema: () =>
+  schema: ({ image }) =>
     z
       .object({
         slug: z.string().optional(),
         title: z.string(),
-        /** Site-root path under `public/` (e.g. `/images/courses/.../cover.jpg`) for `astro:assets` */
-        coverImage: z.string().optional(),
+        /** Processed image via astro:assets image pipeline */
+        coverImage: image().optional(),
         pubDate: z.date().optional(),
         updatedDate: z.date().optional(),
         description: z.string().optional(),
