@@ -26,7 +26,8 @@ export interface Props {
 const { items, includeDescription, dateLabelPrefix } = Astro.props;
 ---
 
-<div class="grid gap-5 md:gap-6 grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 mb-16">
+<div class="@container">
+<div class="grid gap-5 @md:gap-6 grid-cols-1 @2xl:grid-cols-2 @5xl:grid-cols-3 mb-16">
   {
     items.map((item) => (
       <LinkCard
@@ -41,4 +42,5 @@ const { items, includeDescription, dateLabelPrefix } = Astro.props;
       />
     ))
   }
+</div>
 </div>

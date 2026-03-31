@@ -17,6 +17,7 @@
     "@astrojs/sitemap": "^3.7.1",
     "@astrojs/tailwind": "^6.0.2",
     "@cloudflare/workers-types": "^4.20260329.1",
+    "@tailwindcss/container-queries": "^0.1.1",
     "@tailwindcss/typography": "^0.5.10",
     "astro": "^6.0.8",
     "prettier-plugin-astro": "^0.14.1",
