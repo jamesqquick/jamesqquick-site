@@ -85,10 +85,10 @@
 }
 
 [data-theme="light"] {
-  --color-accent: #16b883;
-  --color-accent-hover: #10956a;
-  --color-accent-subtle: rgba(22, 184, 131, 0.14);
-  --color-text-on-accent: #f8fafc;
+  --color-accent: #129b6f;
+  --color-accent-hover: #0f8860;
+  --color-accent-subtle: rgba(18, 155, 111, 0.14);
+  --color-text-on-accent: #ffffff;
 
   --color-text: #111827;
   --color-text-muted: #4b5563;
