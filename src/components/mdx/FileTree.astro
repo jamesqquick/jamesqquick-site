@@ -19,7 +19,7 @@ const getDepth = (path: string) => {
     return (
       <div style={`padding-left: ${depth * 1.25}rem`}>
         {isDir ? "📁 " : "📄 "}
-        <span class={isDir ? "font-medium text-brand-light" : "text-gray-300"}>{name}</span>
+        <span class={isDir ? "font-medium text-accent" : "text-gray-300"}>{name}</span>
       </div>
     );
   })}

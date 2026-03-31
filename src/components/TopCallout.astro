@@ -8,13 +8,13 @@ export interface Props {
 const { text, link, linkText } = Astro.props;
 ---
 
-<div class="bg-bgLight px-8 justify-center hidden md:flex">
+<div class="bg-section-elevated px-8 justify-center hidden md:flex">
   <div class="flex justify-between py-4 max-w-6xl items-center gap-x-4">
     <p class="font-bold">{text}</p>
     <div class="flex justify-center min-w-[200px]">
       <a
         href={link}
-        class="bg-brand rounded-md px-4 py-2 text-bgLight font-bold hover:scale-105 transition-transform hover:text-bgDark text-center"
+        class="bg-accent rounded-md px-4 py-2 text-[var(--color-text-on-accent)] font-bold hover:scale-105 transition-transform text-center"
         >{linkText}</a
       >
     </div>

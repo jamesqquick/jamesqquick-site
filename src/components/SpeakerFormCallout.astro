@@ -15,7 +15,7 @@ const { kitLinks = [] } = Astro.props as Props;
 <Section tone="elevated" paddingY="xl" hasMaxWidth={false}>
   <div class="grid grid-cols-1 gap-8 max-w-6xl mx-auto lg:grid-cols-2">
     <div class="speaker-card border border-border bg-surface text-text shadow-sm p-8">
-      <p class="text-brand uppercase tracking-[0.2em] text-xs mb-3">Let's work together</p>
+      <p class="text-accent uppercase tracking-[0.2em] text-xs mb-3">Let's work together</p>
       <h2 class="text-4xl font-bold mb-4">Bring me to your event</h2>
       <p class="text-textMuted mb-8">
         Please first read through my <Link
@@ -28,7 +28,7 @@ const { kitLinks = [] } = Astro.props as Props;
       </p>
 
       <h2
-        class="mb-2 block text-brand text-xl tracking-widest uppercase font-bold"
+        class="mb-2 block text-accent text-xl tracking-widest uppercase font-bold"
       >
         You might also need
       </h2>
@@ -62,7 +62,7 @@ const { kitLinks = [] } = Astro.props as Props;
       >
     </div>
     <div class="speaker-card border border-border bg-surface text-text shadow-sm p-8">
-      <p class="text-brand uppercase tracking-[0.2em] text-xs mb-3">Request details</p>
+      <p class="text-accent uppercase tracking-[0.2em] text-xs mb-3">Request details</p>
       <h3 class="text-3xl font-bold mb-6">Tell me about your event</h3>
       <SpeakerForm client:load />
     </div>
