@@ -56,6 +56,16 @@ h1 {
   font-family: var(--font-display);
 }
 
+/* Kicker / eyebrow — monospace accent for developer brand identity */
+.ds-kicker {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.6875rem;
+  line-height: 1rem;
+  font-weight: 400;
+}
+
 :focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 2px;
