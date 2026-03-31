@@ -1,11 +1,5 @@
 ---
-import { actions, isInputError } from "astro:actions";
-
-const result = Astro.getActionResult(actions.newsletter.subscribe);
-const success = result && !result.error;
-const inputErrors = isInputError(result?.error) ? result.error.fields : {};
-const serverError =
-  result?.error && !isInputError(result.error) ? result.error.message : null;
+import NewsletterForm from "./NewsletterForm.svelte";
 ---
 
 <div>
@@ -15,41 +9,5 @@ const serverError =
     general Web Development announcements.
   </p>
 
-  {
-    success ? (
-      <div>
-        <h2 class="text-2xl font-bold text-brand mb-2 text-center">
-          Subscribed!
-        </h2>
-        <p class="text-xl md:text-2xl text-text mb-4 text-center">
-          You just made an amazing decision.
-        </p>
-      </div>
-    ) : (
-      <form method="POST" action={actions.newsletter.subscribe}>
-        <div class="h-6">
-          {inputErrors.email && (
-            <p class="text-red-400">{inputErrors.email.join(", ")}</p>
-          )}
-          {serverError && <p class="text-red-400">{serverError}</p>}
-        </div>
-        <label for="email" class="sr-only" aria-label="Email">
-          Email Address
-        </label>
-        <div class="flex flex-col md:flex-row gap-4 md:gap-10 relative">
-          <input
-            type="email"
-            id="email"
-            name="email"
-            required
-            placeholder="dev@developer.com"
-            class="border-2 py-6 px-6 bg-transparent grow rounded-full"
-          />
-          <button class="text-xl rounded-full px-4 py-4 sm:py-2 bg-accent text-bgDark hover:bg-accentHover hover:text-bgDark hover:scale-105 transition-all inline-block sm:absolute right-4 top-[50%] -translate-y-[50%] mt-6 sm:mt-0">
-            Sign Me Up!
-          </button>
-        </div>
-      </form>
-    )
-  }
+  <NewsletterForm client:visible />
 </div>
