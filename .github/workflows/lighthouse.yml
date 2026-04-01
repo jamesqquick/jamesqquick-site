@@ -23,6 +23,17 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Patch wrangler config for local-only build
+        run: |
+          node -e "
+            const fs = require('fs');
+            const raw = fs.readFileSync('wrangler.jsonc', 'utf8');
+            const cleaned = raw.replace(/\/\/.*/g, '');
+            const cfg = JSON.parse(cleaned);
+            if (cfg.r2_buckets) cfg.r2_buckets.forEach(b => delete b.remote);
+            fs.writeFileSync('wrangler.jsonc', JSON.stringify(cfg, null, 2));
+          "
+
       - name: Build site
         run: pnpm run build
 
