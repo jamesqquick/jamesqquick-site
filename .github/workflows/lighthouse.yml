@@ -28,7 +28,7 @@ jobs:
 
       - name: Start wrangler dev server
         run: |
-          npx wrangler dev --port 8787 &
+          npx wrangler dev --local --port 8787 &
           sleep 10
 
       - name: Run Lighthouse CI
