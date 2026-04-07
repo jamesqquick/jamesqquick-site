@@ -56,7 +56,7 @@
       />
       <button
         disabled={loading}
-        class="text-xl rounded-full px-4 py-4 sm:py-2 bg-accent text-bgDark hover:bg-accentHover hover:text-bgDark hover:scale-105 transition-all inline-block sm:absolute right-4 top-[50%] -translate-y-[50%] mt-6 sm:mt-0"
+        class="text-xl rounded-full px-4 py-4 sm:py-2 bg-accent text-[var(--color-text-on-accent)] hover:bg-accentHover hover:scale-105 transition-all inline-block sm:absolute right-4 top-[50%] -translate-y-[50%] mt-6 sm:mt-0"
       >
         {loading ? "Subscribing..." : "Sign Me Up!"}
       </button>
