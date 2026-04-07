@@ -61,8 +61,8 @@ h1 {
   font-family: var(--font-mono);
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  font-size: 0.8125rem;
-  line-height: 1.25rem;
+  font-size: 0.9375rem;
+  line-height: 1.375rem;
   font-weight: 400;
 }
 
