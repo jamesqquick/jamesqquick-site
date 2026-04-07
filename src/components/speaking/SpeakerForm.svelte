@@ -88,7 +88,7 @@
   </div>
 
   <button
-    class={"text-lg rounded-lg mb-6 px-8 py-3 border border-accent/70 bg-accent text-bgDark hover:bg-accent/90 inline-block transition-all duration-300 ease-in-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"}
+    class={"text-lg rounded-lg mb-6 px-8 py-3 border border-accent/70 bg-accent text-[var(--color-text-on-accent)] hover:bg-accent/90 inline-block transition-all duration-300 ease-in-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"}
   >
     Send Request
   </button>
