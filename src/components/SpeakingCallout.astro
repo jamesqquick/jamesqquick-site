@@ -1,10 +1,10 @@
 ---
-import { getCollection } from "astro:content";
 import speaking from "../images/speaking/speaking.jpg";
 import Button, { ButtonType } from "./Button.astro";
 import Testimonial from "./speaking/Testimonial.astro";
+import { getTestimonials } from "../utils/contentCollections";
 
-const testimonials = await getCollection("testimonial");
+const testimonials = await getTestimonials();
 ---
 
 <section class="bg-section-elevated px-2">

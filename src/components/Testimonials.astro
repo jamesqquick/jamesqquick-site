@@ -1,10 +1,10 @@
 ---
-import { getCollection } from "astro:content";
 import CarouselNavButton from "./CarouselNavButton.astro";
 import Section from "./Section.astro";
 import Testimonial from "./speaking/Testimonial.astro";
+import { getTestimonials } from "../utils/contentCollections";
 
-const testimonials = await getCollection("testimonial");
+const testimonials = await getTestimonials();
 const count = testimonials.length;
 ---
 
