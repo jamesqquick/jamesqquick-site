@@ -241,6 +241,12 @@ export const getLessonByRoute = async (
   });
 };
 
+export const getTestimonials = async (): Promise<
+  CollectionEntry<"testimonial">[]
+> => {
+  return getCollection("testimonial");
+};
+
 export const getSortedTalks = async (): Promise<CollectionEntry<"talk">[]> => {
   return (await getCollection("talk")).sort(
     (a, b) =>
