@@ -18,7 +18,8 @@ export default defineConfig({
   },
   env: {
     schema: {
-      // Secret server variables used in endpoints/components.
+      // Resend is only used for audience/contact management (newsletter subscriptions).
+      // Transactional email sending uses the Cloudflare Email Service binding instead.
       // Marked optional to keep local builds from failing when env vars are absent.
       RESEND_API_KEY: envField.string({
         context: "server",
