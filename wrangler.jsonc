@@ -8,6 +8,11 @@
     "directory": "./dist",
     "not_found_handling": "404-page"
   },
+  "send_email": [
+    {
+      "name": "EMAIL"
+    }
+  ],
   "r2_buckets": [
     {
       "binding": "COURSE_BUCKET",
