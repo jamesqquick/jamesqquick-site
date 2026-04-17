@@ -64,11 +64,6 @@ export default defineConfig({
       },
     }),
   ],
-  vite: {
-    ssr: {
-      external: ["resend", "sanitize-html", "markdown-it"],
-    },
-  },
   output: "server",
   adapter: cloudflare(),
   experimental: {
