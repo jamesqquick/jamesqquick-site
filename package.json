@@ -19,7 +19,7 @@
     "@cloudflare/workers-types": "^4.20260329.1",
     "@tailwindcss/container-queries": "^0.1.1",
     "@tailwindcss/typography": "^0.5.10",
-    "astro": "^6.0.8",
+    "astro": "^6.1.6",
     "prettier-plugin-astro": "^0.14.1",
     "typescript": "^5.9.3",
     "wrangler": "^4.78.0"
