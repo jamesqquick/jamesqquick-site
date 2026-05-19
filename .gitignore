@@ -7,3 +7,4 @@ package-lock.json
 dist
 .astro
 worktrees/
+src/data/blog/**/.DS_Store
