@@ -207,9 +207,8 @@ function CoverTemplate({
           width={LOGO_W}
           height={LOGO_H}
           viewBox="0 0 337 57"
-          style={{ fill: ACCENT }}
         >
-          <path d={LOGO_PATH} />
+          <path d={LOGO_PATH} fill={ACCENT} />
         </svg>
 
         <span
