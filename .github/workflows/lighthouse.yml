@@ -1,8 +1,7 @@
 name: Lighthouse CI
 
 on:
-  pull_request:
-    branches: [main]
+  workflow_dispatch: # Trigger manually only; automatic PR runs disabled
 
 jobs:
   lighthouse:
