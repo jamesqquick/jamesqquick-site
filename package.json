@@ -24,7 +24,7 @@
     "@tailwindcss/container-queries": "^0.1.1",
     "@tailwindcss/typography": "^0.5.10",
     "@types/react": "^19.2.14",
-    "astro": "^6.1.7",
+    "astro": "^6.1.10",
     "gray-matter": "^4.0.3",
     "prettier-plugin-astro": "^0.14.1",
     "react": "^19.2.6",
