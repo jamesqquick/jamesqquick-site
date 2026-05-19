@@ -1,7 +1,7 @@
 ---
 title: 10 Amazing VS Code Themes You Have Probably Never Heard Of
 slug: 10-amazing-vs-code-themes-youve-probably-never-heard-of
-coverImage: ./cover.jpg
+coverImage: ./cover.png
 pubDate: 2023-02-16
 description: Here are 10 less popular VS Code themes to check out
 youTubeVideoId: 7l2NQp6pbnA

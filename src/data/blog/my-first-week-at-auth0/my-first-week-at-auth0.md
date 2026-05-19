@@ -1,7 +1,7 @@
 ---
 title: My First Week at Auth0
 slug: my-first-week-at-auth0
-coverImage: ./cover.jpg
+coverImage: ./cover.png
 pubDate: 2020-01-15
 description: I had an amazing first week at Auth0. Here's what I learned!
 tags:

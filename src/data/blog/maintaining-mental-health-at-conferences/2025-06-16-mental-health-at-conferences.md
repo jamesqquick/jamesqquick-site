@@ -4,7 +4,7 @@ pubDate: 2025-06-16T20:20:15.940Z
 fmContentType: blog
 slug: maintaining-mental-health-at-conferences
 description: 5 tips for maintaining your mental health at a developer conference
-coverImage: ./cover.jpg
+coverImage: ./cover.png
 tags:
   - career
 ---

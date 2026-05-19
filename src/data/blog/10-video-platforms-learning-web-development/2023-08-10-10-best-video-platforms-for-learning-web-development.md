@@ -1,7 +1,7 @@
 ---
 title: 10 Best Video Platforms for Learning Web Development
 slug: 10-video-platforms-learning-web-development
-coverImage: "./cover.jpg"
+coverImage: ./cover.png
 pubDate: 2023-08-10T13:46:50.144Z
 description: Here are my favorite video platforms for learning web development through video content.
 youTubeVideoId: dQ7lWuyII8o

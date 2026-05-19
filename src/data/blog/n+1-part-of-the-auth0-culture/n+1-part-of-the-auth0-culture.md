@@ -1,7 +1,7 @@
 ---
 title: N+1>N It's Part of the Auth0 Culture
 slug: n+1-part-of-the-auth0-culture
-coverImage: ./cover.jpg
+coverImage: ./cover.png
 pubDate: 2020-02-06
 description: Learn how Auth0 embraces one of its core tenants, N+1>N.
 tags:

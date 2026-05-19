@@ -1,7 +1,7 @@
 ---
 title: 100k Subscribers On YouTube - 5 Things I Learned
 slug: 100k-subscribers-on-youtube-5-things-i-learned
-coverImage: ./cover.jpg
+coverImage: ./cover.png
 pubDate: 2021-09-10
 description: 100k Subscribers On YouTube - 5 Things I Learned
 tags:

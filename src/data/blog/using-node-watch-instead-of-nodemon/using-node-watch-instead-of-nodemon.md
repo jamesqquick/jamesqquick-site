@@ -1,7 +1,7 @@
 ---
 title: Using Node Watch Instead of Nodemon
 slug: using-node-watch-instead-of-nodemon
-coverImage: ./cover.jpg
+coverImage: ./cover.png
 pubDate: 2023-02-17
 description: You can use the watch command in Node instead of using nodemon.
 youTubeVideoId: QPSnFzj9eUw

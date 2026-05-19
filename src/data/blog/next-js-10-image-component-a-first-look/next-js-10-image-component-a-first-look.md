@@ -1,7 +1,7 @@
 ---
 title: Next.js 10 Image Component - A First Look
 slug: next-js-10-image-component-a-first-look
-coverImage: ./cover.jpg
+coverImage: ./cover.png
 pubDate: 2020-12-16
 description: Let's take a first look at the Next.js 10 Image Component.
 youTubeVideoId: PsDz3kpp354
