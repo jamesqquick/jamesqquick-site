@@ -7,6 +7,7 @@ description: >-
   outlines. Then I realized Cloudflare's Images binding does background removal
   in a single line. Here's how I built a replacement.
 tags:
+  - ai
   - cloudflare
   - javascript
   - typescript
