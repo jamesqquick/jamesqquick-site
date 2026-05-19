@@ -26,7 +26,7 @@ const formattedPosts = posts.map((post) => ({
     title="Blog"
     hasFullHeight={false}
     size="large"
-    classStr="py-10 md:py-12 lg:py-14"
+    classStr="pt-10 pb-4 md:pt-12 md:pb-6 lg:pt-14 lg:pb-8"
     subtitle="Articles for web developers!"
     description="I write about modern web development, developer experience, careers, and more!"
     h1AriaLabel="Blog | James Q Quick"
@@ -40,7 +40,7 @@ const formattedPosts = posts.map((post) => ({
     date={featuredPost.data.pubDate}
   />
   </Section> -->
-  <Section tone="base" classStr="mt-8">
+  <Section tone="base" paddingY="compact">
     <LinkCardList items={formattedPosts} />
   </Section>
 </BaseLayout>
