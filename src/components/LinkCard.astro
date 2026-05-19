@@ -1,20 +1,5 @@
 ---
 import { getFormattedDate } from "../utils/dates";
-import javascript from "../images/blog/logos/javascript.png";
-import react from "../images/blog/logos/react.png";
-import sveltekit from "../images/blog/logos/sveltekit.png";
-import vscode from "../images/blog/logos/vscode.png";
-import nodejs from "../images/blog/logos/nodejs.png";
-import chatgpt from "../images/blog/logos/chatgpt.png";
-import { Image } from "astro:assets";
-
-/** ESM metadata from `image()` collections, or site-root URL in `public/` */
-type ImageLike = {
-  src: string;
-  width: number;
-  height: number;
-  format?: string;
-};
 
 export interface Props {
   slug: string;
@@ -25,67 +10,28 @@ export interface Props {
   tag?: string;
   openInNewTab?: boolean;
   dateLabelPrefix?: string;
-  image: ImageLike | string;
 }
 
-const { slug, date, title, btnText = "Read", tag, image, description, openInNewTab = false, dateLabelPrefix = "" } =
+const { slug, date, title, tag, description, openInNewTab = false, dateLabelPrefix = "" } =
   Astro.props;
-
-const isPublicUrl = typeof image === "string" && image.startsWith("/");
-const tagToLogo = {
-  javascript,
-  vscode,
-  sveltekit,
-  react,
-  nodejs,
-  chatgpt,
-};
 ---
 
-<div class="card-shell overflow-hidden" data-interactive>
-  <div class="flex items-center justify-center w-full object-cover mb-4">
-    <a href={slug} class="grow hover:underline" target={openInNewTab ? "_blank" : undefined} rel={openInNewTab ? "noopener noreferrer" : undefined}>
-      {
-        isPublicUrl ? (
-          <img src={image as string} alt={title} class="card-image aspect-video object-cover" loading="lazy" decoding="async" />
-        ) : (
-          <Image
-            height={(image as ImageLike).height}
-            width={(image as ImageLike).width}
-            format="webp"
-            quality={80}
-            src={image as ImageLike}
-            alt={title}
-            class="card-image aspect-video object-cover"
-          />
-        )
-      }
-    </a>
-  </div>
-
+<a
+  href={slug}
+  class="card-shell block overflow-hidden"
+  data-interactive
+  target={openInNewTab ? "_blank" : undefined}
+  rel={openInNewTab ? "noopener noreferrer" : undefined}
+>
   {tag && <span class="card-chip mb-2 inline-flex">{tag}</span>}
   <p class="mb-1 card-date">{dateLabelPrefix}{getFormattedDate(date)}</p>
-  <a href={slug} class="grow hover:underline" target={openInNewTab ? "_blank" : undefined} rel={openInNewTab ? "noopener noreferrer" : undefined}>
-    <h3
-      class="card-title font-bold text-2xl transition-colors mb-2"
-    >
-      {title}
-    </h3>
-  </a>
+  <h3 class="card-title font-bold text-2xl mb-2">
+    {title}
+  </h3>
   {description && (
     <p class="card-description">{description}</p>
   )}
-</div>
-<!-- {
-        tag && tagToLogo[tag] && (
-          <Image
-            src={tagToLogo[tag]}
-            alt={`Cover`}
-            class="invisible md:visible w-8 lg:w-16 "
-          />
-        )
-      } -->
-<!-- </div> -->
+</a>
 
 <style>
   .card-shell {
@@ -98,16 +44,13 @@ const tagToLogo = {
       transform var(--duration-normal) var(--ease-out),
       box-shadow var(--duration-normal) var(--ease-out),
       border-color var(--duration-fast) var(--ease-out);
+    text-decoration: none;
   }
 
   .card-shell:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow-lg);
     border-color: var(--color-accent);
-  }
-
-  .card-image {
-    border-radius: calc(var(--radius-card) - 4px);
   }
 
   .card-chip {
@@ -130,9 +73,5 @@ const tagToLogo = {
     color: var(--color-text);
     font-family: var(--font-display);
     line-height: 1.2;
-  }
-
-  .card-title:hover {
-    color: var(--color-accent);
   }
 </style>
