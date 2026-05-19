@@ -16,20 +16,22 @@ const { slug, date, title, tag, description, openInNewTab = false, dateLabelPref
   Astro.props;
 ---
 
-<div class="card-shell overflow-hidden" data-interactive>
+<a
+  href={slug}
+  class="card-shell block overflow-hidden"
+  data-interactive
+  target={openInNewTab ? "_blank" : undefined}
+  rel={openInNewTab ? "noopener noreferrer" : undefined}
+>
   {tag && <span class="card-chip mb-2 inline-flex">{tag}</span>}
   <p class="mb-1 card-date">{dateLabelPrefix}{getFormattedDate(date)}</p>
-  <a href={slug} class="grow hover:underline" target={openInNewTab ? "_blank" : undefined} rel={openInNewTab ? "noopener noreferrer" : undefined}>
-    <h3
-      class="card-title font-bold text-2xl transition-colors mb-2"
-    >
-      {title}
-    </h3>
-  </a>
+  <h3 class="card-title font-bold text-2xl mb-2">
+    {title}
+  </h3>
   {description && (
     <p class="card-description">{description}</p>
   )}
-</div>
+</a>
 
 <style>
   .card-shell {
@@ -42,6 +44,7 @@ const { slug, date, title, tag, description, openInNewTab = false, dateLabelPref
       transform var(--duration-normal) var(--ease-out),
       box-shadow var(--duration-normal) var(--ease-out),
       border-color var(--duration-fast) var(--ease-out);
+    text-decoration: none;
   }
 
   .card-shell:hover {
@@ -70,9 +73,5 @@ const { slug, date, title, tag, description, openInNewTab = false, dateLabelPref
     color: var(--color-text);
     font-family: var(--font-display);
     line-height: 1.2;
-  }
-
-  .card-title:hover {
-    color: var(--color-accent);
   }
 </style>
