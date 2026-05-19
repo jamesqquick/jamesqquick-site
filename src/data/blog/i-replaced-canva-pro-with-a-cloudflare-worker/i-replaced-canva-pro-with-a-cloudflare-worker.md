@@ -198,6 +198,8 @@ for (let i = 0; i < w * h; i++) {
 
 The result is a perfectly circular stroke that follows every curve uniformly at any thickness.
 
+![Distance transform result — clean circular stroke](./images/distance-transform-result.png)
+
 ### Blur and intensity as post-processing
 
 Once the hard ring is painted, blur and intensity are straightforward:
