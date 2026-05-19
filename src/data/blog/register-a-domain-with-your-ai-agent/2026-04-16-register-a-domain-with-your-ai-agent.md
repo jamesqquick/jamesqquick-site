@@ -6,8 +6,8 @@ description: >-
   Use the Cloudflare Registrar API and MCP server to search, check, and register
   domains directly from your AI coding agent without leaving your editor.
 tags:
-  - cloudflare
   - ai
+  - cloudflare
   - tools
 coverImage: ./cover.png
 ---
