@@ -1,7 +1,7 @@
 ---
 title: I Replaced a Canva Pro Feature with a Cloudflare Worker
 slug: i-replaced-canva-pro-with-a-cloudflare-worker
-coverImage: ./cover.jpg
+coverImage: ./cover.png
 pubDate: 2026-05-19
 description: I was paying for Canva Pro just to remove backgrounds and add portrait outlines. Then I realized Cloudflare's Images binding does background removal in a single line. Here's how I built a replacement.
 tags:
