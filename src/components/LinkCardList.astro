@@ -6,14 +6,7 @@ export interface Props {
     id: string;
     title: string;
     date: Date;
-    image:
-      | string
-      | {
-          src: string;
-          width: number;
-          height: number;
-          format?: string;
-        };
+    image?: string | { src: string; width: number; height: number; format?: string };
     description?: string;
     tags?: string[];
     link: string;
@@ -36,7 +29,6 @@ const { items, includeDescription, dateLabelPrefix } = Astro.props;
         slug={item.link}
         openInNewTab={item.openInNewTab}
         tag={item?.tags ? item.tags[0] : undefined}
-        image={item.image}
         description={includeDescription ? item.description : undefined}
         dateLabelPrefix={dateLabelPrefix}
       />
