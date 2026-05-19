@@ -10,17 +10,17 @@ tags:
   - typescript
 ---
 
-Every week I make YouTube thumbnails. Every week I opened Canva, paid for the Pro plan, removed a background, and added a colored outline around myself. It worked fine — until I realized I work at Cloudflare and the thing I was paying for is a single line of config.
+Every week I make YouTube thumbnails. Each time I open Canva, upload a selfie, remove the background, and add a colored outline around myself. It was tedious though. Seemed like something I could automate. Not to mention, I've been paying for Canva pro for this feature. I've wanted to do replace this for a while, but just hadn't gotten around to it.
 
-This is the story of building a portrait outline tool on Cloudflare Workers: what it does, how the pieces fit together, and the things that went wrong along the way.
+Well, today I decided to do it. Here's how I build a portrait outline tool on Cloudflare Workers: what it does, how the pieces fit together, and the things that went wrong along the way.
 
 **[Try the live demo →](https://outline-tool.examples.workers.dev)**
 
 ## What the tool does
 
-Upload a portrait photo. The background disappears. You get four sliders — size, blur amount, color, and intensity — to draw a customizable outline around the subject. Download the result as a transparent PNG.
+The app takes a portrait image you upload and removes the background. Then, you get four sliders: size, blur amount, color, and intensity. Then, you can download the result as a transparent PNG.
 
-It's the same workflow as Canva's shadow/outline feature. The difference is you own it, it runs on infrastructure you're already paying for, and the background removal is powered by an AI model (BiRefNet) running through Workers AI.
+This is the same workflow as Canva's shadow/outline feature. The difference is I own it, and it runs on infrastructure I'm already using.
 
 ## Project setup
 
@@ -44,11 +44,11 @@ The whole project is one Worker with two bindings:
 ```
 
 - **`IMAGES`** — the Cloudflare Images binding, used for background removal
-- **`ASSETS`** — serves `public/index.html` as the frontend from the same Worker
+- **`ASSETS`** — serves static front assets (HTML and JS) as the frontend
 
 No separate frontend deployment. No Express server. Three files: `wrangler.jsonc`, `src/index.ts`, and `public/index.html`.
 
-Scaffold it with:
+Run the following command to scaffold this yourself:
 
 ```bash
 npm create cloudflare@latest -- outline-tool
@@ -56,7 +56,7 @@ cd outline-tool
 npm install --save-dev @cloudflare/workers-types typescript
 ```
 
-One important note before you start developing: **the Images binding requires remote mode**. Running `wrangler dev` without `--remote` gives you a local stub that silently does nothing. Add it to your dev script:
+One important note before you start developing: **the Images binding requires remote mode to work locally**. Running `wrangler dev` without `--remote` gives you a local stub that silently does nothing. Add `--remote` it to your dev script:
 
 ```json
 {
@@ -67,11 +67,11 @@ One important note before you start developing: **the Images binding requires re
 }
 ```
 
-I spent more time than I'd like to admit debugging why background removal wasn't working before I found this.
-
 ## Removing the background: one call to the Images binding
 
-This is the entire server side of the tool. The Cloudflare Images binding has a `segment: "foreground"` transform that replaces the background with transparent pixels. Under the hood it runs BiRefNet via Workers AI — you don't configure it, you don't pay per-call beyond standard Workers usage, and you don't touch a Python server.
+The Cloudflare Images binding has a `segment: "foreground"` transform that replaces the background with transparent pixels. Under the hood it runs BiRefNet via Workers AI. You don't configure it, you don't pay per-call beyond standard Workers usage, and you don't touch a Python server.
+
+Here's the root handler that forwards the incoming request to the `handleSegment` function.
 
 ```typescript
 // src/index.ts
@@ -95,7 +95,7 @@ export default {
 } satisfies ExportedHandler<Env>;
 ```
 
-The `/segment` handler accepts a multipart image upload, validates it, and runs the transform:
+The `handleSegment` handler accepts a multipart image upload, validates it, and runs the transform:
 
 ```typescript
 async function handleSegment(request: Request, env: Env): Promise<Response> {
@@ -144,19 +144,19 @@ Note that `.output()` returns a `Promise<ImageTransformationResult>` — you hav
 
 ## The frontend: drawing the outline on a canvas
 
-Workers Assets serves `public/index.html` directly from the same Worker — no CDN config, no separate deploy. The frontend POSTs to `/segment`, gets a transparent PNG back, decodes it into an `ImageBitmap`, and draws the outline on a `<canvas>`.
+Workers Assets serves `public/index.html` directly from the same Worker. The frontend POSTs to `/segment`, gets a transparent PNG back, decodes it into an `ImageBitmap`, and draws the outline on a `<canvas>`.
 
 ### Why the first approach looked bad
 
-My first attempt at the outline used a box dilation: for every transparent pixel, check a square neighborhood of radius `thickness` and paint it the outline color. It was about 20 lines of code and it ran fast.
+My (Claude's) first attempt at the outline used a box dilation: for every transparent pixel, check a square neighborhood of radius `thickness` and paint it the outline color. Whatever that means…
 
-It also looked terrible. On curved edges — a face, a shoulder, hair — a square kernel leaves gaps in diagonal areas. The outline doesn't follow the shape, it approximates it with right-angle artifacts.
+Regardless, it looked terrible. On curved edges (a face, a shoulder, hair) a square kernel leaves gaps in diagonal areas. The outline didn't follow the shape, and it looked poor.
+
+![Box dilation result — square artifacts on curved edges](./images/box-dilation-result.png)
 
 ### The fix: Euclidean distance transform
 
-The correct approach is a Euclidean distance transform. For every transparent pixel, compute the exact circular distance to the nearest foreground pixel. If that distance is less than or equal to `size`, paint it.
-
-This is O(w×h) using the Meijster algorithm — two passes, no neighborhood loops:
+My (Claude's) second approach was to use a Euclidean distance transform. For every transparent pixel, compute the exact circular distance to the nearest foreground pixel. If that distance is less than or equal to `size`, paint it.
 
 ```javascript
 // Build a binary foreground mask
@@ -220,15 +220,11 @@ ctx.globalAlpha = 1;
 ctx.drawImage(bitmap, 0, 0);
 ```
 
-Blur is applied *after* the hard ring is built, so `blur: 0` is a genuinely crisp edge. This is what Canva's "Blur amount" control does — it's independent of stroke size.
-
-### The shadow offset bug
-
-An earlier version used `shadowBlur` on an HTML canvas to generate the halo, then composited it into a solid color with `destination-in`. It produced a decent-looking stroke — except the stroke was offset from the subject by about 50px.
-
-The bug: the image was drawn at `(-pad, -pad)` with `shadowOffsetX/Y = pad` to shift the shadow into view. When the stroke layer was drawn at `(-pad, -pad)` on the output canvas to compensate, the offsets didn't cancel cleanly. The fix: draw the image at `(pad, pad)` with no shadow offsets, then crop back with `drawImage(offB, -pad, -pad)`. Consistent coordinate system, no offset math.
+Blur is applied *after* the hard ring is built, so `blur: 0` is a genuinely crisp edge. This is what Canva's "Blur amount" control does.
 
 ## Deploying
+
+Deploying is simple.
 
 ```bash
 npx wrangler deploy
@@ -240,11 +236,9 @@ Before deploying, make sure Image Transformations is enabled on your Cloudflare 
 
 ## What I took away from this
 
-- **The Images binding does more than resize.** `segment: "foreground"` is one of several transforms most developers don't know exist. There's also watermark compositing, automatic format conversion, and quality optimization. Worth reading the docs end to end.
-- **Workers Assets is underrated.** Serving a static frontend from the same Worker with no extra config means one deploy command, no CORS setup, no separate Cloudflare Pages project.
-- **`--remote` matters for AI-powered bindings.** Any binding that calls Workers AI under the hood won't work in local dev without `--remote`. The local stub doesn't error — it just does nothing, which is harder to debug.
+Pretty quick and easy and now I can remove that Canva subscription!
 
-The full source is on [GitHub](https://github.com/jamesqquick/outline-tool). The live demo is at [outline-tool.examples.workers.dev](https://outline-tool.examples.workers.dev) — try it with a headshot.
+The live demo is at [outline-tool.examples.workers.dev](https://outline-tool.examples.workers.dev). Try it with a headshot.
 
 ---
 
@@ -252,5 +246,4 @@ The full source is on [GitHub](https://github.com/jamesqquick/outline-tool). The
 
 - [Cloudflare Images binding docs](https://developers.cloudflare.com/images/optimization/transformations/bindings/)
 - [Images features — `segment` parameter](https://developers.cloudflare.com/images/optimization/features/#segment)
-- [Workers Assets docs](https://developers.cloudflare.com/workers/static-assets/)
-- [Source code on GitHub](https://github.com/jamesqquick/outline-tool)
+- [Source code](https://github.com/jamesqquick/outline-tool)
