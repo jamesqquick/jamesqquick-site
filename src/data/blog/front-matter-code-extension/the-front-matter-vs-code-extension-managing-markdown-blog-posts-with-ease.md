@@ -1,7 +1,7 @@
 ---
 title: The Front Matter VS Code Extension for Embedded Markdown
 slug: front-matter-code-extension
-coverImage: ./cover.jpeg
+coverImage: ./cover.png
 pubDate: 2023-03-12T20:46:19.807Z
 description: VS Code extension to manage your embedded markdown
 youTubeVideoId: kLKgLoGOs1E

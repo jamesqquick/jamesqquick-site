@@ -1,7 +1,7 @@
 ---
 title: TypeScript and Databases - Keep Your Types In Sync With Xata
 slug: typescript-databases-types-sync-xata
-coverImage: ./cover.jpeg
+coverImage: ./cover.png
 pubDate: 2023-03-29T15:20:06.873Z
 description: Learn how Xata's codegen keeps types in sync with your database.
 youTubeVideoId: -j5nf_PNpE8
