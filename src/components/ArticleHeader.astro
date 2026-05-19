@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 import { getFormattedDate } from "../utils/dates";
 import YouTube from "./YouTube.astro";
 import H1 from "./H1.astro";
@@ -15,7 +14,7 @@ export interface Props {
   date: Date;
 }
 
-const { youTubeVideoId, coverImage, title, date } = Astro.props;
+const { youTubeVideoId, title, date } = Astro.props;
 ---
 
 <div class="mb-8">
@@ -24,15 +23,4 @@ const { youTubeVideoId, coverImage, title, date } = Astro.props;
     <H1 text={title} />
   </div>
   {youTubeVideoId && <YouTube id={youTubeVideoId} />}
-  {
-    coverImage && !youTubeVideoId && (
-      <Image
-        src={coverImage}
-        alt={title}
-        width={1920 * (2 / 3)}
-        height={1080 * (2 / 3)}
-        class="rounded-lg"
-      />
-    )
-  }
 </div>

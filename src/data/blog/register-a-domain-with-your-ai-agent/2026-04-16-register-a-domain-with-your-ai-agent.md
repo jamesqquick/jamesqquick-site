@@ -1,13 +1,15 @@
 ---
 title: Register a Domain With Your AI Agent
 slug: register-a-domain-with-your-ai-agent
-coverImage: ./cover.jpg
 pubDate: 2026-04-16T12:00:00.000Z
-description: Use the Cloudflare Registrar API and MCP server to search, check, and register domains directly from your AI coding agent without leaving your editor.
+description: >-
+  Use the Cloudflare Registrar API and MCP server to search, check, and register
+  domains directly from your AI coding agent without leaving your editor.
 tags:
-  - cloudflare
   - ai
+  - cloudflare
   - tools
+coverImage: ./cover.png
 ---
 
 You're mid-build, your agent just scaffolded a project, and you think of the perfect domain name. Normally that means opening a browser, navigating to a registrar, filling out forms, and killing your flow.

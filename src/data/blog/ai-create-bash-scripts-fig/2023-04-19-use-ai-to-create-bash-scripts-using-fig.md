@@ -1,7 +1,7 @@
 ---
 title: Use AI To Create Bash Scripts Using Fig
 slug: ai-create-bash-scripts-fig
-coverImage: ./cover.jpg
+coverImage: ./cover.png
 pubDate: 2023-04-19T21:11:12.070Z
 description: Use AI to create useful scripts through Fig.io
 youTubeVideoId: zuZfm1aKmWw

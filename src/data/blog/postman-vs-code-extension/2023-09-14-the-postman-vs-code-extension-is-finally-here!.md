@@ -1,7 +1,7 @@
 ---
 title: The Postman VS Code Extension Is Finally Here!
 slug: postman-vs-code-extension
-coverImage: ./cover.jpg
+coverImage: ./cover.png
 pubDate: 2023-09-14T22:56:03.149Z
 description: Postman has officially launched a VS Code extension.
 youTubeVideoId: lsPYIYr4zRA

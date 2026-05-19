@@ -2,12 +2,14 @@
 title: Why You Can't Pass Functions From Server to Client Components
 pubDate: 2024-10-25T15:49:21.902Z
 slug: why-you-cant-pass-functions-from-server-to-client-components
-coverImage: ./cover.jpg
 fmContentType: blog
-description: JavaScript functions can't be serialized so they can't be passed from a Server Component to a Client Component in React.
+description: >-
+  JavaScript functions can't be serialized so they can't be passed from a Server
+  Component to a Client Component in React.
 tags:
   - nextjs
   - react
+coverImage: ./cover.png
 ---
 
 Up until the last couple of years in React, the typical way to interact with a back-end was by making a `fetch` request to an API endpoint. There are a few downsides to this:

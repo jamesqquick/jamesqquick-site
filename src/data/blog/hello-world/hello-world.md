@@ -1,7 +1,7 @@
 ---
 title: Hello World
 slug: hello-world
-coverImage: ./cover.jpg
+coverImage: ./cover.png
 pubDate: 2019-08-18
 description: As a developer, there's no other way to start something new than with "Hello World". Although I've blogged a ton in the past, this is the first post on my personal site.
 tags:
