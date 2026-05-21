@@ -1,0 +1,30 @@
+---
+import Section from "./Section.astro";
+import Button, { ButtonType } from "./Button.astro";
+---
+
+<Section tone="elevated" paddingY="spacious">
+  <div class="max-w-3xl mx-auto text-center">
+    <p class="ds-kicker text-accent mb-3">Let's work together</p>
+    <h2 class="text-3xl md:text-5xl font-bold mb-6">
+      Planning a tech event?
+    </h2>
+    <p class="text-base md:text-lg text-textMuted leading-relaxed mb-8">
+      Let's talk about your audience, goals, and the session format that will make the biggest impact. I bring energy, preparation, and talks that attendees remember.
+    </p>
+    <div class="flex flex-wrap justify-center gap-4">
+      <Button
+        text="Invite me to speak"
+        href="/speaking#speakerForm"
+        isLink
+        type={ButtonType.PRIMARY}
+      />
+      <Button
+        text="View my speaking page"
+        href="/speaking"
+        isLink
+        type={ButtonType.SECONDARY}
+      />
+    </div>
+  </div>
+</Section>

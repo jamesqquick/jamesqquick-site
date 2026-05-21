@@ -1,0 +1,31 @@
+---
+import Section from "./Section.astro";
+
+const conferences = [
+  "Render ATL",
+  "THAT Conference",
+  "All Things Open",
+  "InfoBip Shift",
+  "KCDC",
+  "MagnoliaJS",
+  "DevFest Memphis",
+  "ServerlessDays",
+];
+---
+
+<Section tone="elevated" paddingY="half">
+  <div class="max-w-6xl mx-auto">
+    <p class="text-center text-sm uppercase tracking-widest text-textMuted mb-6">
+      Conferences I've spoken at
+    </p>
+    <div class="flex flex-wrap justify-center items-center gap-x-8 gap-y-4">
+      {
+        conferences.map((name) => (
+          <span class="text-lg md:text-xl font-semibold text-textMuted opacity-60 hover:opacity-100 hover:text-accent transition-all duration-200">
+            {name}
+          </span>
+        ))
+      }
+    </div>
+  </div>
+</Section>

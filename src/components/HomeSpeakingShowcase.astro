@@ -1,0 +1,69 @@
+---
+import { Image } from "astro:assets";
+import Section from "./Section.astro";
+import Button, { ButtonType } from "./Button.astro";
+import speakingHeroImage from "../images/speaking/info-bip-shift-23/speaking-hero-stage-1.png";
+---
+
+<Section paddingY="spacious" id="speaking">
+  <div class="grid gap-12 items-center lg:grid-cols-2 max-w-6xl mx-auto">
+    <div>
+      <p class="ds-kicker text-accent mb-5">International Speaker</p>
+      <h2 class="text-3xl md:text-5xl font-bold leading-tight mb-6">
+        From Croatia to Atlanta — I keynote conferences around the world.
+      </h2>
+      <p class="text-base md:text-lg text-textMuted leading-relaxed mb-4">
+        I speak on AI for developers, developer experience, and career growth at conferences internationally. Whether it's a 500-person keynote or an intimate workshop, I bring energy, practical insights, and real stories from the trenches.
+      </p>
+      <div class="flex flex-wrap items-center gap-3 text-sm text-textMuted mb-8">
+        <span class="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1">
+          <span class="h-2 w-2 rounded-full bg-accent"></span>
+          50+ conference talks
+        </span>
+        <span class="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1">
+          <span class="h-2 w-2 rounded-full bg-accent"></span>
+          4+ countries
+        </span>
+        <span class="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1">
+          <span class="h-2 w-2 rounded-full bg-accent"></span>
+          Keynote speaker
+        </span>
+      </div>
+      <div class="flex flex-wrap gap-4">
+        <Button
+          text="Invite me to speak"
+          href="/speaking#speakerForm"
+          isLink
+          type={ButtonType.PRIMARY}
+        />
+        <Button
+          text="See my talks"
+          href="/speaking"
+          isLink
+          type={ButtonType.SECONDARY}
+        />
+      </div>
+    </div>
+    <div class="relative">
+      <div class="overflow-hidden rounded-xl border border-border shadow-xl shadow-black/20">
+        <Image
+          src={speakingHeroImage}
+          alt="James Q Quick speaking on stage with dramatic spotlights and audience in the background"
+          format="webp"
+          quality={82}
+          widths={[400, 600, 800]}
+          sizes="(min-width: 1024px) 50vw, 100vw"
+          class="w-full h-auto"
+          loading="lazy"
+        />
+      </div>
+      <div class="mt-4 flex items-center gap-3">
+        <span class="h-3 w-3 rounded-full bg-accent shadow-[0_0_10px_2px_rgba(43,241,181,0.4)]"></span>
+        <div>
+          <p class="text-sm font-medium uppercase tracking-wider text-text">InfoBip Shift</p>
+          <p class="text-xs text-textMuted">Zadar, Croatia</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</Section>
