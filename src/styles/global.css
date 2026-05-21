@@ -55,6 +55,7 @@ p {
 /* Fancy hover fill for prose links — mirrors Link.astro .link-fancy */
 .ds-prose a {
   position: relative;
+  isolation: isolate;
   display: inline-block;
   padding-inline: 0.35em;
   padding-block: 0.2em;
@@ -65,7 +66,7 @@ p {
 .ds-prose a::after {
   content: "";
   position: absolute;
-  z-index: 0;
+  z-index: -1;
   left: 0;
   right: 0;
   bottom: 0.12em;
@@ -82,7 +83,7 @@ p {
 }
 
 .ds-prose a:hover {
-  color: var(--color-bg) !important;
+  color: var(--color-bg);
   z-index: 1;
 }
 
