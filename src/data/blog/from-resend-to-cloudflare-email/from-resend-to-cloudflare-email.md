@@ -12,7 +12,7 @@ tags:
 coverImage: ./cover.png
 ---
 
-I joined Cloudflare recently, and I've been actively trying to migrate my products to get real hands-on experience, provide feedback, and consolidate my tech stack. One of the latest additions is using Cloudflare Email for transactional emails.
+I joined Cloudflare recently, and I've been actively trying to migrate my products to get real hands-on experience, provide feedback, and consolidate my tech stack. One of the latest additions is using [Cloudflare Email](https://developers.cloudflare.com/email-service/) for transactional emails.
 
 Previously, I was using Resend on my personal site for sending transactional emails when someone fills out my speaking inquiry form. Here's how I migrated this to using Cloudflare Email.
 
