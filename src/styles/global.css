@@ -47,9 +47,51 @@ p {
   @apply prose-h2:text-accent prose-h3:text-text prose-h4:text-text;
   @apply prose-p:text-textMuted prose-li:text-textMuted;
   @apply prose-strong:text-text;
-  @apply prose-a:text-accent;
+  @apply prose-a:text-text prose-a:no-underline;
   @apply prose-code:font-mono prose-pre:font-mono;
   @apply prose-img:rounded-lg;
+}
+
+/* Fancy hover fill for prose links — mirrors Link.astro .link-fancy */
+.ds-prose a {
+  position: relative;
+  display: inline-block;
+  padding-inline: 0.35em;
+  padding-block: 0.2em;
+  line-height: 1.45;
+  color: var(--color-text);
+}
+
+.ds-prose a::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  left: 0;
+  right: 0;
+  bottom: 0.12em;
+  height: 1px;
+  border-radius: var(--radius-button);
+  background: var(--color-text);
+  pointer-events: none;
+  transition:
+    left var(--duration-normal) var(--ease-out),
+    right var(--duration-normal) var(--ease-out),
+    bottom var(--duration-normal) var(--ease-out),
+    height var(--duration-normal) var(--ease-out),
+    background-color var(--duration-normal) var(--ease-out);
+}
+
+.ds-prose a:hover {
+  color: var(--color-bg);
+  z-index: 1;
+}
+
+.ds-prose a:hover::after {
+  left: -0.125rem;
+  right: -0.125rem;
+  bottom: 0;
+  height: 100%;
+  background: var(--color-accent);
 }
 
 h1 {
