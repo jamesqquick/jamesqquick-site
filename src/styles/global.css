@@ -82,7 +82,7 @@ p {
 }
 
 .ds-prose a:hover {
-  color: var(--color-bg);
+  color: var(--color-bg) !important;
   z-index: 1;
 }
 
