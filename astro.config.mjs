@@ -52,6 +52,9 @@ export default defineConfig({
           "download",
           "chart-bar",
           "monitor",
+          "robot-outline",
+          "code-braces",
+          "trending-up",
         ],
         teenyicons: [
           "youtube-outline",
