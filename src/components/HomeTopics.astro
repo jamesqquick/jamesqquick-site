@@ -1,0 +1,58 @@
+---
+import Section from "./Section.astro";
+import { Icon } from "astro-icon/components";
+
+const topics = [
+  {
+    title: "AI for Developers",
+    description:
+      "Practical AI workflows, agents, and shipping with AI tools. Not just demoing them. How AI changes what developers build and how they build it.",
+    icon: "mdi:robot-outline",
+  },
+  {
+    title: "Developer Experience",
+    description:
+      "What makes developers productive, happy, and effective. From tooling and DX strategy to building products developers love, drawn from years focusing on DX at Auth0, PlanetScale, and Cloudflare.",
+    icon: "mdi:code-braces",
+  },
+  {
+    title: "Career Growth",
+    description:
+      "Navigating career transitions, building your brand, and finding your voice. From Microsoft to startups to full-time creator and back. I talk openly about all of it.",
+    icon: "mdi:trending-up",
+  },
+];
+---
+
+<Section tone="base" paddingY="spacious">
+  <div class="max-w-6xl mx-auto">
+    <div class="mx-auto mb-12 max-w-3xl text-center">
+      <p class="ds-kicker text-accent mb-3">What I talk about</p>
+      <h2 class="text-3xl font-bold md:text-5xl mb-4">
+        Helping builders build.
+      </h2>
+      <p class="text-base leading-relaxed text-textMuted md:text-lg">
+        Every talk is built to give your audience something they can use the next day: a new AI workflow, a DX strategy, or the confidence to take the next step in their career.
+      </p>
+    </div>
+    <div class="grid gap-8 md:grid-cols-3">
+      {
+        topics.map((topic) => (
+          <div class="bg-surface rounded-xl p-6 md:p-8 border border-border">
+            <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-full border border-border bg-bg">
+              <Icon
+                name={topic.icon}
+                class="h-7 w-7 text-accent"
+                aria-hidden="true"
+              />
+            </div>
+            <h3 class="mb-3 text-xl font-bold text-text">{topic.title}</h3>
+            <p class="text-sm leading-relaxed text-textMuted md:text-base">
+              {topic.description}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</Section>
