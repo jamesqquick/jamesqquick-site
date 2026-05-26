@@ -13,13 +13,11 @@ tags:
 coverImage: ./cover.png
 ---
 
-Feature flags used to mean picking a vendor, signing up, installing an SDK, and wiring up another integration. If you're already building on Cloudflare Workers, Flagship removes all of that. It's a native feature flag service built directly into the Workers runtime — and it just hit public beta.
-
-I've been using it in my [Quick Cuts](https://quickcuts.app) app for a few weeks now. Here's what the setup looks like and why I like it.
+I've been wanting to try Cloudflare Flagship since it was announced, and now that it's in public beta I finally have a good excuse. I added it to [Quick Cuts](https://quickcuts.app) last week and the setup was surprisingly fast. If you're already building on Workers, you don't need a third-party feature flag service for this.
 
 ## What Is Flagship?
 
-Flagship is Cloudflare's feature flag service. You define flags in the Cloudflare dashboard, and then evaluate them directly inside your Workers through a native binding. No outbound HTTP calls to a third-party API, no separate SDK to install and keep up to date, no extra vendor to manage.
+Flagship is Cloudflare's feature flag service. You define flags in the Cloudflare dashboard and evaluate them inside your Workers through a native binding. No outbound HTTP calls to a third-party API, no extra SDK to install, no separate vendor to manage.
 
 Flags support:
 
@@ -28,7 +26,7 @@ Flags support:
 - Percentage-based rollouts with consistent hashing
 - Audit history in the dashboard
 
-It's also [OpenFeature](https://openfeature.dev/) compatible — OpenFeature is a CNCF open standard that defines a vendor-agnostic API for feature flag evaluation, so you can swap providers without rewriting your flag calls. This means you can use the `@cloudflare/flagship` SDK from Node.js or the browser if you need to evaluate flags outside of Workers.
+It's also [OpenFeature](https://openfeature.dev/) compatible. OpenFeature is a CNCF open standard that defines a vendor-agnostic API for feature flag evaluation, so you can swap providers without rewriting your flag calls. That means you can use the `@cloudflare/flagship` SDK from Node.js or the browser if you need to evaluate flags outside of Workers.
 
 ## Setting It Up
 
@@ -44,7 +42,7 @@ Configuration lives in `wrangler.jsonc`. Add a `flagship` binding:
 ]
 ```
 
-That's it for config. The `app_id` maps to a Flagship app you create in the Cloudflare dashboard — that's where you define your flags and targeting rules. `"remote": true` means flag definitions are managed in the dashboard rather than in your codebase.
+The `app_id` maps to a Flagship app you create in the Cloudflare dashboard, where you define your flags and targeting rules. `"remote": true` means flag definitions are managed in the dashboard rather than in your codebase.
 
 Add the type to your `Env` interface:
 
@@ -64,9 +62,7 @@ The basic API is one function call:
 const isEnabled = await env.FLAGS.getBooleanValue("my-flag", false);
 ```
 
-Pass the flag key and a default value. It returns `true` or `false`. Gate whatever you want behind it.
-
-Flagship also supports typed methods for other value types:
+Pass the flag key and a default value. It returns `true` or `false`. Flagship also supports typed methods for other value types:
 
 ```ts
 await env.FLAGS.getStringValue("theme", "default");
@@ -74,7 +70,7 @@ await env.FLAGS.getNumberValue("max-uploads", 5);
 await env.FLAGS.getObjectValue("config", {});
 ```
 
-And if you need the full evaluation result — including the variant, reason, and any error info — use the `Details` variants:
+And if you need the full evaluation result, including the variant, reason, and any error info, use the `Details` variants:
 
 ```ts
 const result = await env.FLAGS.getBooleanDetails("my-flag", false);
@@ -83,7 +79,7 @@ const result = await env.FLAGS.getBooleanDetails("my-flag", false);
 
 ## User Targeting
 
-The third parameter to `getBooleanValue` is an evaluation context — a plain object of key-value pairs that Flagship uses to match against targeting rules you configure in the dashboard. Passing `userId` and `email` lets you write rules like "enable this flag only for users with this ID" or "roll out to 10% of users, consistently hashed by userId." The rules themselves live in the dashboard — your code just provides the attributes to evaluate against.
+The third parameter to `getBooleanValue` is an evaluation context. It's a plain object of key-value pairs that Flagship matches against targeting rules you configure in the dashboard. Passing `userId` and `email` lets you write rules like "enable this flag only for users with this ID" or "roll out to 10% of users, consistently hashed by userId." The rules live in the dashboard. Your code just provides the attributes to evaluate against.
 
 ```ts
 const isEnabled = await env.FLAGS.getBooleanValue(
@@ -93,11 +89,11 @@ const isEnabled = await env.FLAGS.getBooleanValue(
 );
 ```
 
-You can then set targeting rules in the dashboard — enable the flag for specific user IDs, match on email patterns, roll out to a percentage of users — all without changing your code or redeploying.
+You can enable the flag for specific user IDs, match on email patterns, or roll out to a percentage of users, all without changing your code or redeploying.
 
 ## How I'm Using It in Quick Cuts
 
-In [Quick Cuts](https://quickcuts.app) — a video review and collaboration app built on Cloudflare Workers — I have a single flag called `transcript-generation` that controls access to AI-powered transcript generation for videos. The feature is still in early access, so I want to enable it per user rather than roll it out to everyone at once.
+[Quick Cuts](https://quickcuts.app) is a video review and collaboration app I built on Cloudflare Workers. I have a single flag called `transcript-generation` that controls access to AI-powered transcript generation for videos. The feature is still in early access, so I want to enable it per user rather than roll it out to everyone at once.
 
 The helper function wrapping the flag evaluation:
 
@@ -122,16 +118,14 @@ export async function isTranscriptGenerationEnabled(
 }
 ```
 
-A few things worth noting:
+A few things I like about this pattern:
 
-- **Graceful degradation** — any Flagship evaluation error returns `false`. The feature goes off, not the whole app.
-- **Single source of truth** — one function, one flag. Four different call sites (the page render, two upload actions, a transcript API action) all go through the same helper.
-- **What the flag gates** — the UI checkbox on upload forms, the API action that queues transcript generation, the page-level transcript panel, and the background workflow that runs the actual AI job. One boolean controls all of it.
-
-To enable transcript generation for a user, I flip the flag in the Cloudflare dashboard. No redeploy, no config change, takes five seconds.
+- If Flagship throws for any reason, the catch block returns `false` and the feature goes off cleanly. The app keeps running.
+- Four call sites (the page render, two upload actions, a transcript API action) all go through the same helper. One place to change if the flag name ever changes.
+- That one boolean gates the UI checkbox, the API action that queues transcript generation, the page-level transcript panel, and the background workflow. To enable transcript generation for a user, I flip the flag in the dashboard. No redeploy.
 
 ## Wrap Up
 
-Flagship is in public beta now, so the API may still evolve — but the core binding is stable and worth trying if you're already on Workers. One thing to keep in mind: targeting rules live entirely in the dashboard, so document them somewhere your team can find them, since your repo won't have that context. And wrap your flag evaluation calls in a try/catch — if Flagship is unavailable for any reason, you want a clean fallback to the default, not an unhandled error taking down a request.
+Flagship is in public beta, so the API may still evolve, but the core binding is stable. One thing to keep in mind: targeting rules live entirely in the dashboard, so document them somewhere your team can find them. Your repo won't have that context. Also wrap your flag evaluation calls in a try/catch. If Flagship is unavailable, you want a clean fallback to the default, not an unhandled error.
 
-If you're on Workers and want to try it, the [get started guide](https://developers.cloudflare.com/flagship/get-started/) walks through creating your first flag in the dashboard and evaluating it from a Worker.
+If you want to try it, the [get started guide](https://developers.cloudflare.com/flagship/get-started/) walks through creating your first flag and evaluating it from a Worker.
