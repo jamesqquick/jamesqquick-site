@@ -3,7 +3,7 @@ title: "Cloudflare Flagship: Feature Flags Built Into Workers"
 slug: cloudflare-flagship-feature-flags-workers
 pubDate: 2026-05-26T00:00:00.000Z
 description: >-
-  Cloudflare Flagship is now in public beta — native feature flags for Workers
+  Cloudflare Flagship is now in public beta offering native feature flags for Workers
   with no SDK or third-party service required. Here's what the setup looks like
   and how I'm using it in a real app.
 tags:
@@ -13,7 +13,7 @@ tags:
 coverImage: ./cover.png
 ---
 
-I've been wanting to try Cloudflare Flagship since it was announced, and now that it's in public beta I finally have a good excuse. I added it to [Quick Cuts](https://quickcuts.app) last week and the setup was surprisingly fast. If you're already building on Workers, you don't need a third-party feature flag service for this.
+I've been wanting to try Cloudflare Flagship since it was announced, and now that it's in public beta I finally have a good excuse. I added it to [Quick Cuts](https://quickcuts.app) recently and the setup was surprisingly fast. What's nice is that if you're already building on Workers, you don't need a third-party feature flag service for this.
 
 ## What Is Flagship?
 
@@ -42,7 +42,7 @@ Configuration lives in `wrangler.jsonc`. Add a `flagship` binding:
 ]
 ```
 
-The `app_id` maps to a Flagship app you create in the Cloudflare dashboard, where you define your flags and targeting rules. `"remote": true` means flag definitions are managed in the dashboard rather than in your codebase.
+The `app_id` maps to a Flagship app you create in the Cloudflare dashboard, where you define your flags and targeting rules. `"remote": true` means flag definitions are managed in the dashboard rather than in your codebase. You may or may not want this while running locally.
 
 Add the type to your `Env` interface:
 
@@ -122,10 +122,12 @@ A few things I like about this pattern:
 
 - If Flagship throws for any reason, the catch block returns `false` and the feature goes off cleanly. The app keeps running.
 - Four call sites (the page render, two upload actions, a transcript API action) all go through the same helper. One place to change if the flag name ever changes.
-- That one boolean gates the UI checkbox, the API action that queues transcript generation, the page-level transcript panel, and the background workflow. To enable transcript generation for a user, I flip the flag in the dashboard. No redeploy.
+- That one boolean gates the UI checkbox, the API action that queues transcript generation, the page-level transcript panel, and the background workflow. 
+
+To enable transcript generation for a user, I flip the flag in the dashboard. No redeploy.
 
 ## Wrap Up
 
-Flagship is in public beta, so the API may still evolve, but the core binding is stable. One thing to keep in mind: targeting rules live entirely in the dashboard, so document them somewhere your team can find them. Your repo won't have that context. Also wrap your flag evaluation calls in a try/catch. If Flagship is unavailable, you want a clean fallback to the default, not an unhandled error.
+Flagship is in public beta, so the API may still evolve, but the core binding is stable. One thing to keep in mind: targeting rules live entirely in the dashboard, so document them somewhere your team can find them if they don't all have access to the dashboard. Your repo won't have that context. Also wrap your flag evaluation calls in a try/catch. If Flagship is unavailable, you want a clean fallback to the default, not an unhandled error.
 
 If you want to try it, the [get started guide](https://developers.cloudflare.com/flagship/get-started/) walks through creating your first flag and evaluating it from a Worker.
