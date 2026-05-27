@@ -4,7 +4,7 @@ slug: feature-flag-workflow-ai-transcription-flagship
 pubDate: 2026-05-27T00:00:00.000Z
 description: >-
   A walkthrough of how I'd ship an AI transcription feature in Quick Cuts using
-  Cloudflare Flagship's JSON object flags — from dashboard setup to gradual
+  Cloudflare Flagship's JSON object flags. From dashboard setup to gradual
   rollout, without a single extra deploy.
 tags:
   - cloudflare
