@@ -61,7 +61,7 @@ export default defineConfig({
           "twitter-outline",
           "tiktok-outline",
           "discord-outline",
-          "twitch-outline",
+          "github-outline",
         ],
       },
     }),

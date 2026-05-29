@@ -7,9 +7,9 @@ export interface Props {
 }
 
 export enum IconSize {
-  Small = "h-6",
-  Medium = "h-8",
-  Large = "h-10",
+  Small = "h-8",
+  Medium = "h-10",
+  Large = "h-12",
 }
 
 const { includeHandle, size = IconSize.Large } = Astro.props;
@@ -48,8 +48,8 @@ const { includeHandle, size = IconSize.Large } = Astro.props;
   > -->
   <a
     class="hover:-translate-y-1 transition-transform cursor-pointer"
-    href="https://www.twitch.tv/jamesqquick"
+    href="https://github.com/jamesqquick"
   >
-    <Icon name="teenyicons:twitch-outline" class={size} /></a
+    <Icon name="teenyicons:github-outline" class={size} /></a
   >
 </div>
