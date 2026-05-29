@@ -1,15 +1,21 @@
 ---
 import Section from "./Section.astro";
-import SocialFollow from "./SocialFollow.astro";
+import SocialFollow, { IconSize } from "./SocialFollow.astro";
 ---
 
 <Section tone="elevated" paddingY="half">
-  <div class="flex flex-col md:flex-row justify-center gap-x-4 items-center">
-    <div class="text-center mb-6 md:mb-0">
-      <p class="text-xl mb-1 text-text">@jamesqquick</p>
-      <p class="text-xl text-textMuted">250k+ followers</p>
+  <div class="flex flex-col items-center text-center gap-7">
+    <div>
+      <p class="ds-kicker text-accent mb-1">@jamesqquick</p>
+      <p
+        class="font-display font-bold tracking-[-0.02em] leading-[0.92] text-text text-[clamp(2.75rem,9vw,4.75rem)]"
+      >
+        250K+
+      </p>
+      <p class="font-mono uppercase tracking-[0.12em] text-[0.8125rem] text-textMuted mt-1.5">
+        followers
+      </p>
     </div>
-    <div class="hidden md:block h-12 w-[1px] bg-border"></div>
-    <SocialFollow />
+    <SocialFollow size={IconSize.Small} />
   </div>
 </Section>

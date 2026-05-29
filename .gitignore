@@ -8,3 +8,4 @@ dist
 .astro
 worktrees/
 src/data/blog/**/.DS_Store
+.impeccable/live/sessions/
