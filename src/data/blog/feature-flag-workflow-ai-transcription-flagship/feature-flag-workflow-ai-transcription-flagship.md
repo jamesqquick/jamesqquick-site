@@ -38,13 +38,17 @@ Then, I could change any of those values in the dashboard without touching code.
 
 ## Step 1: Create the Flag (Leave It Disabled)
 
-I'd start by creating the flag in the [Cloudflare dashboard](https://dash.cloudflare.com) before writing any code. Key: `ai-transcription`. I'd define two JSON object variations, but **leave the flag disabled for now**.
+I'd start by creating the flag in the [Cloudflare dashboard](https://dash.cloudflare.com) before writing any code. Key: `ai-transcription`. I'd leave the **Enable flag** toggle off for now.
 
-**`disabled` (default):**
+![Creating the ai-transcription flag in the Cloudflare dashboard with the Enable flag toggle off](./images/create-flag.png)
+
+Then I'd define two JSON object variations: `noTranscription` (the default) and `hasTranscription`.
+
+**`noTranscription` (default):**
 
 ```json
 {
-  "enabled": false,
+  "active": false,
   "model": null,
   "maxFileSizeMb": 0,
   "supportedLanguages": [],
@@ -52,11 +56,11 @@ I'd start by creating the flag in the [Cloudflare dashboard](https://dash.cloudf
 }
 ```
 
-**`enabled`:**
+**`hasTranscription`:**
 
 ```json
 {
-  "enabled": true,
+  "active": true,
   "model": "whisper-large",
   "maxFileSizeMb": 500,
   "supportedLanguages": ["en", "es", "fr"],
@@ -64,28 +68,26 @@ I'd start by creating the flag in the [Cloudflare dashboard](https://dash.cloudf
 }
 ```
 
-With the flag disabled, it always returns the default variation regardless of any targeting rules. That's exactly what I'd want while the code isn't written yet.
+![The two JSON variations, noTranscription set as the default, with no targeting rules yet](./images/flag-variations.png)
+
+With the flag disabled, it always returns the `noTranscription` default variation regardless of any targeting rules. That's exactly what I'd want while the code isn't written yet.
 
 ## Step 2: Write the Code
 
-This would be the only code change for the entire rollout. I'd define a TypeScript interface that matches the flag's JSON shape:
+This would be the only code change for the entire rollout. I'd define a TypeScript interface that matches the flag's JSON shape, then evaluate the flag on clip upload. `getObjectValue` takes three arguments: the flag key, a default value to fall back to if evaluation fails, and a context object containing the user attributes that targeting rules will match against.
 
 ```typescript
 interface TranscriptionConfig {
-  enabled: boolean;
+  active: boolean;
   model: string | null;
   maxFileSizeMb: number;
   supportedLanguages: string[];
   showUiHints: boolean;
 }
-```
 
-Then evaluate the flag on clip upload. `getObjectValue` takes three arguments: the flag key, a default value to fall back to if evaluation fails, and a context object containing the user attributes that targeting rules will match against.
-
-```typescript
 const transcription = await env.FLAGS.getObjectValue<TranscriptionConfig>(
   "ai-transcription",
-  { enabled: false, model: null, maxFileSizeMb: 0, supportedLanguages: [], showUiHints: false },
+  { active: false, model: null, maxFileSizeMb: 0, supportedLanguages: [], showUiHints: false },
   {
     userId: session.userId,
     plan: session.plan,
@@ -94,13 +96,17 @@ const transcription = await env.FLAGS.getObjectValue<TranscriptionConfig>(
 );
 ```
 
+![The TranscriptionConfig interface and the getObjectValue evaluation call](./images/write-the-code.png)
+
 Then, I could gate the actual transcript generation on the server:
 
 ```typescript
-if (transcription.enabled && clip.fileSizeMb <= transcription.maxFileSizeMb) {
+if (transcription.active && clip.fileSizeMb <= transcription.maxFileSizeMb) {
   await queueTranscriptionJob(clip.id, transcription.model);
 }
 ```
+
+![The server-side gate checking transcription.active and the file size limit](./images/gate-code.png)
 
 And in the UI layer to show UI hints:
 
@@ -110,15 +116,17 @@ if (transcription.showUiHints) {
 }
 ```
 
-Because the flag is still disabled in the dashboard, every user — including internal ones — would get the default value with `enabled: false`. Neither `if` condition would trigger. The feature would be live in production but completely inert.
+Because the flag is still disabled in the dashboard, every user — including internal ones — would get the default value with `active: false`. Neither `if` condition would trigger. The feature would be live in production but completely inert.
 
 Worth noting: `getObjectValue` never throws. If the flag isn't found, the binding is unreachable, or there's a type mismatch, it returns the default value you passed in. Your app degrades gracefully no matter what.
 
 ## Step 3: Enable for Internal Users First
 
-With the code deployed and confirmed safe, I'd go back to the dashboard and enable the flag — but scope it tightly. I'd add a targeting rule that matches internal team members only: `email` contains `@quickcuts.app`.
+With the code deployed and confirmed safe, I'd go back to the dashboard and enable the flag — but scope it tightly. I'd add a targeting rule that matches internal team members only: `email` contains `@quickcuts.app`, serving the `hasTranscription` variation.
 
-At this point, only users with a `@quickcuts.app` email would get the `enabled` variation. Everyone else would still get `disabled`. This would be the first time any real user sees the feature running, so I could validate transcript quality, check UI edge cases, and watch queue behavior without any risk to external users.
+![A targeting rule serving hasTranscription when email contains @quickcuts.app, default noTranscription](./images/target-by-email.png)
+
+At this point, only users with a `@quickcuts.app` email would get the `hasTranscription` variation. Everyone else falls through to the flag's default variation, `noTranscription` — so the feature stays off for them. (Flagship returns the default variation whenever no targeting rule matches, and for every user while the flag is disabled.) This would be the first time any real user sees the feature running, so I could validate transcript quality, check UI edge cases, and watch queue behavior without any risk to external users.
 
 If something looked wrong, I'd just disable the flag again. No deploy required.
 
@@ -126,19 +134,27 @@ If something looked wrong, I'd just disable the flag again. No deploy required.
 
 Once internal testing looked good, I'd expand the rollout in stages — all from the dashboard, no code changes.
 
-| Stage  | Who sees it               | What to watch                       |
-| ------ | ------------------------- | ----------------------------------- |
+| Stage  | Who sees it                 | What to watch                      |
+| ------ | --------------------------- | ---------------------------------- |
 | Week 2 | Pro + Enterprise beta users | Error rates, file size edge cases  |
-| Week 3 | 20% of all users          | Broader load, language quality      |
-| Week 4 | 100%                      | Full rollout                        |
+| Week 3 | 20% of all users            | Broader load, language quality     |
+| Week 4 | 100%                        | Full rollout                       |
 
-When switching to percentage rollouts, Flagship uses consistent hashing on `userId` so the same user always lands in the same bucket — they wouldn't randomly flip between seeing the feature and not.
+Instead of a hard rule, I'd switch the "when no rules match" behavior to a percentage split and dial it up over time.
 
-I could also tune the `enabled` variation itself mid-rollout without touching code:
+![When no rules match, serve a percentage split — noTranscription 50% and hasTranscription 50%](./images/rollout-percentages.png)
+
+When switching to percentage rollouts, Flagship uses consistent hashing on `userId` so the same user always lands in the same bucket — they wouldn't randomly flip between seeing the feature and not. Bump that split until `hasTranscription` is serving 100%.
+
+![The percentage split moved to hasTranscription 100%](./images/rollout-100-percent.png)
+
+I could also tune the `hasTranscription` variation itself mid-rollout without touching code:
 
 - If French transcripts came back garbled → remove `"fr"` from `supportedLanguages`
 - If large files started hammering the queue → drop `maxFileSizeMb` from `500` to `200`
-- If something went seriously wrong → disable the flag; everyone would immediately fall back to the `disabled` default
+- If something went seriously wrong → disable the flag; everyone would immediately fall back to the `noTranscription` default
+
+![Editing the hasTranscription variation's JSON object from the dashboard](./images/tune-flag-object.png)
 
 That last one is the real value of keeping both code paths live. Rollback would be instant.
 
@@ -147,7 +163,7 @@ That last one is the real value of keeping both code paths live. Rollback would 
 Once at 100% and stable, one final code pass to:
 
 - Remove the `getObjectValue` call and the `TranscriptionConfig` interface
-- Delete the `disabled` code path
+- Delete the inactive (transcription-off) code path
 - Archive the `ai-transcription` flag in the dashboard
 
 That would be the second and final deploy for this feature.
@@ -156,12 +172,12 @@ That would be the second and final deploy for this feature.
 
 Shipping a feature this way would mean the developer doesn't have to be in the loop for every decision about who sees it.
 
-| Who            | Does what                                    | Requires deploy? |
-| -------------- | -------------------------------------------- | ---------------- |
-| Developer      | Writes both code paths, adds flag evaluation | Yes (once)       |
-| Product / ops  | Creates flag, sets rules, controls rollout   | No               |
-| Product / ops  | Expands, adjusts, or kills the rollout       | No               |
-| Developer      | Cleans up dead code after full rollout       | Yes (once)       |
+| Who           | Does what                                    | Requires deploy? |
+| ------------- | -------------------------------------------- | ---------------- |
+| Developer     | Writes both code paths, adds flag evaluation | Yes (once)       |
+| Product / ops | Creates flag, sets rules, controls rollout   | No               |
+| Product / ops | Expands, adjusts, or kills the rollout       | No               |
+| Developer     | Cleans up dead code after full rollout       | Yes (once)       |
 
 Product can expand the rollout on a Saturday. On-call can kill it at 2am without waking anyone up. The developer touches code exactly twice — once to add the feature, once to remove the scaffolding after it's fully live. Everything in between is owned by the dashboard.
 
