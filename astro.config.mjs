@@ -61,7 +61,7 @@ export default defineConfig({
           "twitter-outline",
           "tiktok-outline",
           "discord-outline",
-          "twitch-outline",
+          "github-outline",
         ],
       },
     }),
@@ -70,5 +70,31 @@ export default defineConfig({
   adapter: cloudflare(),
   experimental: {
     contentIntellisense: true,
+  },
+  vite: {
+    // Workaround for withastro/astro#16248: in dev the Cloudflare (workerd) SSR
+    // environment discovers these entry modules at request time, triggering a
+    // "program reload" cascade that crashes the runner with "module is not
+    // defined". Pre-bundling them up front eliminates the runtime discovery.
+    ssr: {
+      optimizeDeps: {
+        include: [
+          "@astrojs/cloudflare/entrypoints/server",
+          "astro/actions/runtime/entrypoints/server.js",
+          "astro-icon/components",
+          // Pre-bundle @iconify/utils so esbuild converts its transitive CJS dep
+          // `debug` (top-level `module.exports = require(...)`), which otherwise
+          // breaks in the workerd runtime. Requires @iconify/utils to be a direct
+          // (resolvable) dependency.
+          "@iconify/utils",
+          "svelte",
+          // Also discovered at request time (actions / newsletter path); including
+          // them up front avoids a cold-start re-optimization + chunk race.
+          "resend",
+          "astro/zod",
+          "astro/env/runtime",
+        ],
+      },
+    },
   },
 });

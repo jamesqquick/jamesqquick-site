@@ -20,6 +20,7 @@
     "@cloudflare/workers-types": "^4.20260329.1",
     "@fontsource/inter": "^5.2.8",
     "@fontsource/space-grotesk": "^5.2.10",
+    "@iconify/utils": "2.1.33",
     "@resvg/resvg-js": "^2.6.2",
     "@tailwindcss/container-queries": "^0.1.1",
     "@tailwindcss/typography": "^0.5.10",
@@ -50,5 +51,10 @@
     "svelte": "^5.55.1",
     "tailwindcss": "^3.4.7"
   },
-  "packageManager": "pnpm@9.12.0+sha512.4abf725084d7bcbafbd728bfc7bee61f2f791f977fd87542b3579dcb23504d170d46337945e4c66485cd12d588a0c0e570ed9c477e7ccdd8507cf05f3f92eaca"
+  "packageManager": "pnpm@9.12.0+sha512.4abf725084d7bcbafbd728bfc7bee61f2f791f977fd87542b3579dcb23504d170d46337945e4c66485cd12d588a0c0e570ed9c477e7ccdd8507cf05f3f92eaca",
+  "pnpm": {
+    "patchedDependencies": {
+      "@astrojs/cloudflare@13.1.10": "patches/@astrojs__cloudflare@13.1.10.patch"
+    }
+  }
 }

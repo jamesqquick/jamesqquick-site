@@ -7,17 +7,17 @@ export interface Props {
 }
 
 export enum IconSize {
-  Small = "h-6",
-  Medium = "h-8",
-  Large = "h-10",
+  Small = "h-10 w-10",
+  Medium = "h-12 w-12",
+  Large = "h-16 w-16",
 }
 
 const { includeHandle, size = IconSize.Large } = Astro.props;
 ---
 
 <div
-  class={`flex flex-row md:items-center gap-4 ${
-    size === IconSize.Large ? "gap-8" : "gap-4"
+  class={`flex flex-row md:items-center ${
+    size === IconSize.Small ? "gap-6" : "gap-8"
   }`}
 >
   {includeHandle && <p class="text-lg">@jamesqquick</p>}
@@ -48,8 +48,8 @@ const { includeHandle, size = IconSize.Large } = Astro.props;
   > -->
   <a
     class="hover:-translate-y-1 transition-transform cursor-pointer"
-    href="https://www.twitch.tv/jamesqquick"
+    href="https://github.com/jamesqquick"
   >
-    <Icon name="teenyicons:twitch-outline" class={size} /></a
+    <Icon name="teenyicons:github-outline" class={`${size} p-0.5`} /></a
   >
 </div>

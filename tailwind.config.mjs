@@ -80,6 +80,13 @@ module.exports = {
     "text-youtube",
     "h-[0.5px]",
     "h-[2px]",
+    "h-10",
+    "w-10",
+    "h-12",
+    "w-12",
+    "h-16",
+    "w-16",
+    "p-0.5",
   ],
   plugins: [require("@tailwindcss/typography"), require("@tailwindcss/container-queries")],
 };
