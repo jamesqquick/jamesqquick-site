@@ -86,6 +86,7 @@ module.exports = {
     "w-12",
     "h-16",
     "w-16",
+    "p-0.5",
   ],
   plugins: [require("@tailwindcss/typography"), require("@tailwindcss/container-queries")],
 };
