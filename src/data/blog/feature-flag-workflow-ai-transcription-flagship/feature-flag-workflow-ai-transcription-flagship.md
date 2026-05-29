@@ -96,8 +96,6 @@ const transcription = await env.FLAGS.getObjectValue<TranscriptionConfig>(
 );
 ```
 
-![The TranscriptionConfig interface and the getObjectValue evaluation call](./images/write-the-code.png)
-
 Then, I could gate the actual transcript generation on the server:
 
 ```typescript
@@ -105,8 +103,6 @@ if (transcription.active && clip.fileSizeMb <= transcription.maxFileSizeMb) {
   await queueTranscriptionJob(clip.id, transcription.model);
 }
 ```
-
-![The server-side gate checking transcription.active and the file size limit](./images/gate-code.png)
 
 And in the UI layer to show UI hints:
 
@@ -116,7 +112,7 @@ if (transcription.showUiHints) {
 }
 ```
 
-Because the flag is still disabled in the dashboard, every user — including internal ones — would get the default value with `active: false`. Neither `if` condition would trigger. The feature would be live in production but completely inert.
+Because the flag is still disabled in the dashboard, every user, including internal ones, would get the default value with `active: false`. Neither `if` condition would trigger. The feature would be live in production but completely inert.
 
 Worth noting: `getObjectValue` never throws. If the flag isn't found, the binding is unreachable, or there's a type mismatch, it returns the default value you passed in. Your app degrades gracefully no matter what.
 
@@ -126,25 +122,23 @@ With the code deployed and confirmed safe, I'd go back to the dashboard and enab
 
 ![A targeting rule serving hasTranscription when email contains @quickcuts.app, default noTranscription](./images/target-by-email.png)
 
-At this point, only users with a `@quickcuts.app` email would get the `hasTranscription` variation. Everyone else falls through to the flag's default variation, `noTranscription` — so the feature stays off for them. (Flagship returns the default variation whenever no targeting rule matches, and for every user while the flag is disabled.) This would be the first time any real user sees the feature running, so I could validate transcript quality, check UI edge cases, and watch queue behavior without any risk to external users.
+At this point, only users with a `@quickcuts.app` email would get the `hasTranscription` variation. Everyone else falls through to the flag's default variation, `noTranscription` so the feature stays off for them. Flagship returns the default variation whenever no targeting rule matches, and for every user while the flag is disabled. This would be the first time any real user sees the feature running, so I could validate transcript quality, check UI edge cases, and watch queue behavior without any risk to external users.
 
 If something looked wrong, I'd just disable the flag again. No deploy required.
 
 ## Step 4: Gradually Roll Out to Everyone
 
-Once internal testing looked good, I'd expand the rollout in stages — all from the dashboard, no code changes.
+Once internal testing looked good, I'd expand the rollout in stages all from the dashboard with no code changes.
 
-| Stage  | Who sees it                 | What to watch                      |
-| ------ | --------------------------- | ---------------------------------- |
-| Week 2 | Pro + Enterprise beta users | Error rates, file size edge cases  |
-| Week 3 | 20% of all users            | Broader load, language quality     |
-| Week 4 | 100%                        | Full rollout                       |
+- Week 2 - Pro + Enterprise beta users 
+- Week 3 - 20% of all users            
+- Week 4 - 100%                        
 
 Instead of a hard rule, I'd switch the "when no rules match" behavior to a percentage split and dial it up over time.
 
 ![When no rules match, serve a percentage split — noTranscription 50% and hasTranscription 50%](./images/rollout-percentages.png)
 
-When switching to percentage rollouts, Flagship uses consistent hashing on `userId` so the same user always lands in the same bucket — they wouldn't randomly flip between seeing the feature and not. Bump that split until `hasTranscription` is serving 100%.
+When switching to percentage rollouts, Flagship uses consistent hashing on `userId` so the same user always lands in the same bucket. They wouldn't randomly flip between seeing the feature and not. Bump that split until `hasTranscription` is serving 100%.
 
 ![The percentage split moved to hasTranscription 100%](./images/rollout-100-percent.png)
 
@@ -170,15 +164,6 @@ That would be the second and final deploy for this feature.
 
 ## The Practical Outcome
 
-Shipping a feature this way would mean the developer doesn't have to be in the loop for every decision about who sees it.
+Shipping a feature this way would mean the developer doesn't have to be in the loop for every decision about who sees it. Product can expand the rollout on a Saturday. On-call can kill it at 2am without waking anyone up. The developer touches code exactly twice: once to add the feature and once to remove the scaffolding after it's fully live. Everything in between is owned by the dashboard.
 
-| Who           | Does what                                    | Requires deploy? |
-| ------------- | -------------------------------------------- | ---------------- |
-| Developer     | Writes both code paths, adds flag evaluation | Yes (once)       |
-| Product / ops | Creates flag, sets rules, controls rollout   | No               |
-| Product / ops | Expands, adjusts, or kills the rollout       | No               |
-| Developer     | Cleans up dead code after full rollout       | Yes (once)       |
-
-Product can expand the rollout on a Saturday. On-call can kill it at 2am without waking anyone up. The developer touches code exactly twice — once to add the feature, once to remove the scaffolding after it's fully live. Everything in between is owned by the dashboard.
-
-If you want to dig into the specifics, the [Cloudflare Flagship docs](https://developers.cloudflare.com/flagship/) and the [binding API reference](https://developers.cloudflare.com/flagship/binding/) are worth a read.
+If you want to dig into the specifics, check out the [Cloudflare Flagship docs](https://developers.cloudflare.com/flagship/).
