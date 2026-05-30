@@ -25,7 +25,7 @@ The most important conversion right now is the **speaking CTA**: turning an inte
 ## Anti-references
 
 - **Not a boring, text-only default blog.** The Bear-blog / bare-Astro-starter look is the failure state. It should feel alive and designed, not like an unstyled feed of posts.
-- **Not negative, smug, or disrespectful in tone.** Admire how creators like Theo grew via content, but explicitly reject the negatively-opinionated, disrespectful posture. Respect for the audience is non-negotiable.
+- **Not negative, smug, or disrespectful in tone.**  Respect for the audience is non-negotiable.
 - **Not loud, neon-overloaded, or gimmicky.** The bright accent is a tool, not the whole room.
 - **Not sterile corporate / generic SaaS template.** Identity should be unmistakably James, not a stock theme.
 
