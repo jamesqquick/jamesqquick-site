@@ -45,7 +45,7 @@
     "astro-embed": "^0.6.1",
     "astro-icon": "^1.1.0",
     "embla-carousel": "^8.6.0",
-    "markdown-it": "^14.1.0",
+    "markdown-it": "^14.2.0",
     "resend": "^6.10.0",
     "sanitize-html": "^2.10.0",
     "svelte": "^5.55.7",
