@@ -12,16 +12,16 @@ tags:
   - javascript
 ---
 
-I've been building a lot of AI-powered features lately, and the same question keeps coming up: how does an AI agent actually *work*? Not in a hand-wavy "it uses LLMs" way — but mechanically, what's happening under the hood?
+Like most people, I'm building every day with AI, but have you ever wondered what exactly happens when you send a prompt to ChatGPT, Claude Code, OpenCode, etc? How does it make decisions? How does it know when it's done?
 
-The answer is simpler than most people expect. Every agent, no matter how sophisticated, runs on the same core pattern. Once you see it, you'll understand why so much of the "agentic AI" hype isn't magic — it's just a while loop.
+In this article, let's take a specific look at the "agent loop" and how it works. We'll do this by progressively building a simple code demo to represent the loop. Note, the code snippets are for demo purposes only and may not be fully functioning in isolation.
 
 ## Start With a Basic LLM Call
 
-Before there's an agent, there's a single call. You send a message, the model sends back a response.
+The easiest place to start is with a single call to an LLM. You send a message, the model sends back a response.
 
 ```typescript
-const response = await llm.call({
+const response = await callLLM({
   messages: [{ role: "user", content: "What's the weather in Austin?" }],
 });
 
@@ -29,11 +29,19 @@ console.log(response.text);
 // "I'm not sure, I don't have access to real-time data."
 ```
 
-This works fine for answering general questions. But the model can't actually *do* anything — it can only respond based on what it already knows. That's the ceiling for a plain chat model.
+This works fine for answering general questions, but the model can't actually do anything. It can only respond based on what it already knows.
 
 ## Give the Model Tools
 
-You can define tools and pass them along with your request. A tool is just a structured description of something the model can ask you to execute on its behalf.
+LLMS become much more useful when they have things that they can do. For example:
+
+- do fresh research
+- call external APIs
+- create files
+
+In the agentic world, most of these actions are defined as "tools". These can be functions that you define yourself or they can be defined remotely and accessed via an MCP server. Regardless, the LLM needs to know the list of tools it has access to so it knows what actions it can take.
+
+In this demo, we'll stick with locally defined tools for simplicity and avoid the complexity of talking to an MCP server. This doesn't change the core concept of the LLM needing to receive a list of tools. So, in this snippet, we'll pass the tools array to the LLM.
 
 ```typescript
 const tools = [
@@ -46,7 +54,7 @@ const tools = [
   },
 ];
 
-const response = await llm.call({
+const response = await callLLM({
   messages: [{ role: "user", content: "What's the weather in Austin?" }],
   tools,
 });
@@ -55,46 +63,90 @@ console.log(response.tool_calls);
 // [{ name: "get_weather", input: { location: "Austin" } }]
 ```
 
-Here's the important thing to understand: **the model doesn't call `get_weather` itself.** It just says "I want to use this tool with these inputs." Your code is responsible for actually running it. The model is making a request, not taking an action.
+Now, based on the question about the weather in Austin, the LLM can look at the list of tools and decide that it would make sense to call the `get_weather` tool since the user is asking about weather.
+
+Here's the important thing to understand, though. The model doesn't actually call `get_weather` itself. It just says that based on the inputs it received, it wants to call the specific tool.
+
+Therefore, there's a gap between deciding a tool should be used and actually running the tool. Additional code is needed for actually running it.
 
 ## Handle the Tool Call
 
-Now you need to check whether the model requested a tool, run it, and send the result back so the model can continue.
+Now we need to check whether the model requested a tool, and if so, run it. We can do this by inspecting the response from the LLM. If the response includes a `stop_reason` of `"tool_use"`, for example, we call the tool to get the result.
 
 ```typescript
+//...
+// call LLM
+//...
+
 if (response.stop_reason === "tool_use") {
   const { name, input, id } = response.tool_calls[0];
-
-  // You run the actual function
   const result = await runTool(name, input);
-
-  // Send the result back to the model
-  const followUp = await llm.call({
-    messages: [
-      { role: "user", content: "What's the weather in Austin?" },
-      { role: "assistant", content: response.content },
-      { role: "user", content: toolResult(id, result) },
-    ],
-    tools,
-  });
-
-  console.log(followUp.text);
-  // "The weather in Austin is 72°F and sunny."
 }
 ```
 
-This works — but only for a single tool call. What if the model calls two tools in sequence? What if the second response also triggers a tool? You'd need to handle that too. And that's exactly what the loop is for.
+This works, but we're not actually doing anything with the result. It needs to be passed back to the LLM in a loop until the LLM decides it's done. This is where the loop comes in.
 
-## Write the Loop
+## Adding the Loop
 
-Instead of hard-coding one round-trip, you loop until the model signals it's done.
+Each iteration of the loop should pass the latest result back into a new call to the LLM. The loop would continue until the LLM decides that its work is done.
+
+We'll initialize an array of messages before the loop so that we can add to it as we iterate through the loop. This messages array is what gives the agent memory through the course of the loop.
+
+Then, inside the loop, we move the call to the LLM and pass both the tools and messages array. Lastly, we add the result into the messages array with `role` of `"assistant"`.
 
 ```typescript
-async function runAgent(userMessage: string) {
+const tools = [
+  {
+    name: "get_weather",
+    description: "Get current weather for a city",
+    parameters: {
+      location: { type: "string" },
+    },
+  },
+];
+
+const messages = [{ role: "user", content: "What's the weather in Austin?" }];
+
+while (true) {
+  const response = await callLLM({
+    messages,
+    tools,
+  });
+
+  // Add the model's response to the conversation history
+  messages.push({ role: "assistant", content: response.content });
+}
+```
+
+Finally, we can check the response itself to do two things. First, we'll handle tool calls similar to what we did above. This time, though, we also add the tool call results back to the messages array.
+
+Second, we check for a condition to break out of our loop. We can base this on a `stop_reason` of `"end_turn"`.
+
+```typescript
+//in the loop after pushing the LLM response into the messages array
+
+// If the model is done, return the final text
+if (response.stop_reason === "end_turn") {
+  return response.text;
+}
+
+//Check on tool calls and add the results
+if (response.stop_reason === "tool_use") {
+  const { name, input, id } = response.tool_calls[0];
+  const result = await runTool(name, input);
+
+  messages.push({ role: "user", content: result });
+}
+```
+
+If we put it all together into a function called `runAgentLoop`, it might look like this.
+
+```typescript
+async function runAgentLoop(userMessage: string) {
   const messages = [{ role: "user", content: userMessage }];
 
   while (true) {
-    const response = await llm.call({ messages, tools });
+    const response = await callLLM({ messages, tools });
 
     // Add the model's response to the conversation history
     messages.push({ role: "assistant", content: response.content });
@@ -104,25 +156,21 @@ async function runAgent(userMessage: string) {
       return response.text;
     }
 
-    // Run all requested tools and collect results
-    const results = await Promise.all(
-      response.tool_calls.map(async ({ name, input, id }) => {
-        const result = await runTool(name, input);
-        return toolResult(id, result);
-      })
-    );
+    if (response.stop_reason === "tool_use") {
+      const { name, input, id } = response.tool_calls[0];
+      const result = await runTool(name, input);
 
-    // Feed results back into the conversation
-    messages.push({ role: "user", content: results });
+      messages.push({ role: "user", content: result });
+    }
   }
 }
 ```
 
-That's the agent loop. The model runs, you execute whatever it asks for, feed the results back in, and keep going until it returns `"end_turn"`. The conversation history grows with each round — that's what lets the model reason across multiple steps and remember what it's already done.
+That's the agent loop. The model runs, you execute whatever it asks for, feed the results back in, and keep going until it returns `"end_turn"`. The conversation history grows with each round. That's what lets the model reason across multiple steps and remember what it's already done.
 
 ## What Makes Something an "Agent"
 
-A single LLM call answers questions. The loop is what makes something an agent — it can plan, act, observe what happened, and decide what to do next.
+A single LLM call answers questions. The loop is what makes something an agent. It can plan, act, observe what happened, and decide what to do next.
 
 Give it tools like a search API, a database query function, or a browser, and it can complete multi-step tasks on its own. The loop doesn't care how many steps it takes. The model decides when it's done.
 
