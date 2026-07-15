@@ -311,10 +311,10 @@ Build and deploy from the build output. Flue generates its own `wrangler.json` w
 
 ```bash
 npx flue build
-npx wrangler deploy --config dist/content-agent/wrangler.json
+npx wrangler deploy --config dist/content_agent/wrangler.json
 ```
 
-The `content-agent` in the path comes from the `name` field in your `wrangler.jsonc`.
+The `content_agent` in the path comes from the `name` field in your `wrangler.jsonc` — Flue converts hyphens to underscores in the output directory name.
 
 ## What I'd add next
 
