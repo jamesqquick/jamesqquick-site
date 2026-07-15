@@ -15,16 +15,6 @@ Since it was announced initially, I've wanted to get hands-on with [Flue](https:
 
 This post walks through how I built it, explains those core concepts along the way, and how to deploy to Cloudflare.
 
-## How Flue thinks about agents
-
-Before writing any code, it's worth understanding the four pieces Flue is built around.
-
-A **workflow** is a finite operation that takes input, does work, and returns a result. Every workflow wraps an **agent**: the model configuration. When the workflow runs, it creates a **session**, a conversation thread with the model where the actual work happens.
-
-Within a session, you use **skills** to give the agent focused task instructions. A skill is a markdown file that tells the agent what to do for one kind of request; what to produce, how to format the output, what rules to follow. You import skills at build time and register them on the agent. The session calls a skill by name, the model follows its instructions, and you get back typed, validated output.
-
-Every agent you build will use some combination of these parts; workflow, agent, session, and skill.
-
 ## Setting up the project
 
 Start by creating a directory and installing dependencies.
@@ -87,7 +77,56 @@ The `ai` binding gives your worker access to [Workers AI](https://www.cloudflare
 
 The `migrations` block is how Cloudflare tracks Durable Object classes. `FlueRegistry` is internal to Flue, and `FlueGenerateWorkflow` maps to `workflows/generate.ts` (naming convention: `Flue` + PascalCase filename + `Workflow`). Every time you add a new workflow in the future, you append a new tagged entry here.
 
-## Defining how the agent thinks
+## Your first workflow
+
+Create `.flue/workflows/generate.ts`. The simplest possible Flue workflow looks like this:
+
+```typescript
+import { defineAgent, defineWorkflow } from "@flue/runtime";
+
+export default defineWorkflow({
+  agent: defineAgent(() => ({
+    model: "cloudflare/@cf/moonshotai/kimi-k2.6",
+  })),
+  async run({ harness }) {
+    const session = await harness.session();
+    const response = await session.prompt("Say hello");
+    return { message: response.text };
+  },
+});
+```
+
+`defineWorkflow` is the container for the agent and its logic. `defineAgent` configures the model. `harness.session()` opens a conversation thread with the model, and `session.prompt()` sends a message and gets text back. That's a working agent.
+
+The filename matters here. `generate.ts` maps to `POST /workflows/generate` and the Durable Object class `FlueGenerateWorkflow` — which is why you added both to `wrangler.jsonc` earlier.
+
+## Accepting typed input and output
+
+Right now the workflow ignores any input and always says hello. To make it useful, add `input` and `output` schemas. This is where [Valibot](https://valibot.dev) comes in — both schemas are Valibot objects that Flue uses to validate what callers send and what the workflow returns.
+
+```typescript
+import { defineAgent, defineWorkflow } from "@flue/runtime";
+import * as v from "valibot";
+
+export default defineWorkflow({
+  agent: defineAgent(() => ({
+    model: "cloudflare/@cf/moonshotai/kimi-k2.6",
+  })),
+  input: v.object({ topic: v.string() }),
+  output: v.object({ tutorial: v.string() }),
+  async run({ harness, input }) {
+    const session = await harness.session();
+    const response = await session.prompt(
+      `Write a developer tutorial about: ${input.topic}`
+    );
+    return { tutorial: response.text };
+  },
+});
+```
+
+Now callers pass `{ topic: "..." }` and get back `{ tutorial: "..." }`. The agent still has no real identity or structure though — it'll write something, but it won't be consistent. That's next.
+
+## Giving the agent an identity
 
 Before giving the agent a specific task, you define its identity. Its values and operating principles that apply across every session it runs. In Flue, this goes in the `instructions` field on `defineAgent`. In your local workflow, you'd think of this as your `AGENTS.md` file.
 
@@ -101,9 +140,22 @@ Write for developers who know the language but not this specific topic.
 Explain why, not just what. Every code block deserves a sentence of context.
 ```
 
-This lives in a `defineAgent` call, which you'll see in a moment. Notice it says nothing about tutorial structure or output format. Those belong in the skill, not the identity.
+Notice it says nothing about tutorial structure or output format. Those belong in the skill, not the identity. Add it to `defineAgent`:
 
-## Writing the skill
+```typescript
+agent: defineAgent(() => ({
+  model: "cloudflare/@cf/moonshotai/kimi-k2.6",
+  instructions: `You are content-agent, an AI that writes practical developer tutorials.
+Never invent information you are not confident about.
+Never write partial code snippets — every code block must be complete.
+Write for developers who know the language but not this specific topic.
+Explain why, not just what. Every code block deserves a sentence of context.`,
+})),
+```
+
+## Creating a skill
+
+The agent has an identity, but the inline prompt is still doing all the heavy lifting for structure and format. Skills solve this. A skill is a markdown file that gives the agent focused instructions for one specific task — what to produce, how to structure it, what format to return results in. They're reusable, separate from the agent's identity, and their output gets validated automatically.
 
 A skill is a markdown file with frontmatter that Flue validates against the [Agent Skills spec](https://agentskills.io/specification). Create `.flue/skills/writer/SKILL.md`:
 
@@ -143,49 +195,25 @@ Return a JSON object with exactly these two fields:
 
 Two things to pay attention to: the `name` in frontmatter must exactly match the directory name (`writer`), and the output format section must match the Valibot schema you'll write in the workflow. Flue validates the model's response against that schema and retries if they don't match.
 
-## Building the workflow
+## Connecting the skill to the workflow
 
-Create `.flue/workflows/generate.ts`. Start by importing `defineAgent` and `defineWorkflow` for defining our agent and workflow. Then, import `valibot` for defining our validation. Then, import the writer skill. The `with { type: "skill" }` import attribute tells the Flue CLI to bundle the markdown file as a skill reference at build time not as a raw string.
-
-Then, add a scaffolded call to `defineWorkflow` that you will fill in shortly.
+Import the skill using the `with { type: "skill" }` attribute — this tells the Flue CLI to bundle the markdown file as a skill reference at build time, not as a raw string:
 
 ```typescript
-import { defineAgent, defineWorkflow } from "@flue/runtime";
-import * as v from "valibot";
 import writerSkill from "../skills/writer/SKILL.md" with { type: "skill" };
-
-export default defineWorkflow({
-  agent: defineAgent(() => ({
-    // agent config goes here
-  })),
-  input: v.object({ topic: v.string() }),
-  output: v.object({ title: v.string(), tutorial: v.string() }),
-
-  async run({ harness, input }) {
-    // run logic goes here
-  },
-});
 ```
 
-`defineWorkflow` takes three things: an agent, an `input` schema that validates what callers send, and an `output` schema that validates what `run` returns. Both schemas use [Valibot](https://valibot.dev). **The output schema here matches the shape defined in the skill's output format section.**
-
-Now fill in the agent. `defineAgent` takes a model identifier, the instructions you defined earlier, and the skills to make available:
+Add it to `defineAgent`'s `skills` array:
 
 ```typescript
 agent: defineAgent(() => ({
   model: "cloudflare/@cf/moonshotai/kimi-k2.6",
-  instructions: `You are content-agent, an AI that writes practical developer tutorials.
-Never invent information you are not confident about.
-Never write partial code snippets — every code block must be complete.
-Write for developers who know the language but not this specific topic.
-Explain why, not just what. Every code block deserves a sentence of context.`,
+  instructions: `...`,
   skills: [writerSkill],
 })),
 ```
 
-The model `cloudflare/@cf/moonshotai/kimi-k2.6` runs on [Workers AI](https://developers.cloudflare.com/workers-ai/models/) with no API key required — you can swap it for any other model in the catalog. The `skills` array is what makes the skill available to call by name inside the session.
-
-Now fill in the `run` function. This is where the workflow actually does its work to create a session, call the skill, and return the result:
+Then swap `session.prompt()` for `session.skill()`. Update the `output` schema to match the skill's output format — `title` and `tutorial`:
 
 ```typescript
 async run({ harness, input }) {
@@ -201,18 +229,13 @@ async run({ harness, input }) {
 },
 ```
 
-`harness.session()` creates a conversation thread backed by the Durable Object's SQLite. `session.skill("writer", ...)` sends the skill's instructions and your args to the model. The `result` schema validates the response. If the model returns something that doesn't match, Flue retries automatically. Whatever `run` returns gets stored in the run record and sent back to the caller.
+`session.skill("writer", ...)` sends the skill's instructions and your args to the model. The `result` schema validates the response. If the model returns something that doesn't match, Flue retries automatically. Whatever `run` returns gets stored in the run record and sent back to the caller.
 
-Finally, add the `route` and `runs` exports. `route` exposes the HTTP endpoint for triggering the workflow, and `runs` exposes the endpoint for inspecting a run's status and result. Without these exports, Flue keeps these endpoints private by default.
+## Exposing the workflow over HTTP
 
-Keep in mind that HTTP is just one way to trigger a workflow. Flue also supports triggering via `invoke()` from application code, channels like Slack or GitHub, or the CLI during local development.
+`route` and `runs` exports control HTTP access. `route` exposes the endpoint for triggering the workflow, and `runs` exposes the endpoint for inspecting a run's status and result. Without these exports, Flue keeps these endpoints private by default. HTTP is just one way to trigger a workflow — Flue also supports triggering via `invoke()` from application code, channels like Slack or GitHub, or the CLI during local development.
 
 ```typescript
-import {
-  type WorkflowRouteHandler,
-  type WorkflowRunsHandler,
-} from "@flue/runtime";
-
 export const route: WorkflowRouteHandler = async (_c, next) => next();
 export const runs: WorkflowRunsHandler = async (_c, next) => next();
 ```
@@ -261,7 +284,7 @@ Explain why, not just what. Every code block deserves a sentence of context.`,
 
 ## Wiring up the app
 
-Now, let's add an `app.ts` file for our server. This is optional, but we're creating it here to explicitly expose the two HTTP endpoints we need: one for triggering the workflow (`POST /workflows/generate`) and one for inspecting a run's status and result (`GET /runs/:runId`). Flue's HTTP layer is built on [Hono](https://hono.dev), so `app.ts` is a standard Hono app with `flue()` mounted at the root:
+Flue uses [Hono](https://hono.dev) as its HTTP server. This is optional, but we're creating it here to explicitly expose the two HTTP endpoints we need: one for triggering the workflow (`POST /workflows/generate`) and one for inspecting a run's status and result (`GET /runs/:runId`). `app.ts` is a standard Hono app with `flue()` mounted at the root:
 
 ```typescript
 import { flue } from "@flue/runtime/routing";
@@ -314,7 +337,7 @@ npx flue build
 npx wrangler deploy --config dist/content_agent/wrangler.json
 ```
 
-The `content_agent` in the path comes from the `name` field in your `wrangler.jsonc` — Flue converts hyphens to underscores in the output directory name.
+The `content_agent` in the path comes from the `name` field in your `wrangler.jsonc`. Note that Flue converts hyphens to underscores in the output directory name.
 
 ## What I'd add next
 
