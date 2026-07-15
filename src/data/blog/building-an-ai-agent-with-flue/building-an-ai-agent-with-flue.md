@@ -194,7 +194,9 @@ async run({ harness, input }) {
 
 `harness.session()` creates a conversation thread backed by the Durable Object's SQLite. `session.skill("writer", ...)` sends the skill's instructions and your args to the model. The `result` schema validates the response. If the model returns something that doesn't match, Flue retries automatically. Whatever `run` returns gets stored in the run record and sent back to the caller.
 
-Finally, add the `route` and `runs` exports. `route` exposes the HTTP endpoint for triggering the workflow, and `runs` exposes the endpoint for inspecting a run's status and result. Without these exports, Flue keeps these endpoints private by default. HTTP is just one way to trigger a workflow — Flue also supports triggering via `invoke()` from application code, channels like Slack or GitHub, or the CLI during local development.
+Finally, add the `route` and `runs` exports. `route` exposes the HTTP endpoint for triggering the workflow, and `runs` exposes the endpoint for inspecting a run's status and result. Without these exports, Flue keeps these endpoints private by default.
+
+Keep in mind that HTTP is just one way to trigger a workflow. Flue also supports triggering via `invoke()` from application code, channels like Slack or GitHub, or the CLI during local development.
 
 The final file looks like this.
 
@@ -267,11 +269,13 @@ export default app;
 
 ## Running it
 
-Start the dev server:
+Start the dev server by calling `flue dev`. The target is picked up automatically from `flue.config.ts` — no need to pass `--target cloudflare`.
 
 ```bash
-npx flue dev --target cloudflare
+npx flue dev
 ```
+
+The first time you run this, Wrangler will prompt you to log in to your Cloudflare account. This is needed to access Workers AI locally. Follow the prompt to authenticate, then the dev server will start.
 
 Send it a topic. The `?wait=result` parameter holds the connection open and returns the result directly:
 
@@ -288,7 +292,7 @@ This takes 30–90 seconds and returns a JSON object with `result.title` and `re
 Build and deploy from the build output. Flue generates its own `wrangler.json` with merged bindings:
 
 ```bash
-npx flue build --target cloudflare
+npx flue build
 npx wrangler deploy --config dist/content-agent/wrangler.json
 ```
 
