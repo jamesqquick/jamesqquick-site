@@ -252,7 +252,7 @@ Explain why, not just what. Every code block deserves a sentence of context.`,
 
 ## Wiring up the app
 
-Flue uses [Hono](https://hono.dev) as its HTTP server. Create `.flue/app.ts` and mount Flue's routing layer inside of the root route definition. Because the workflow exports `route` and `runs`, the `/workflows/generate` and `/runs/:runId` endpoints are handled automatically:
+`app.ts` is optional in Flue — if you skip it, Flue generates a default app automatically. We're creating it here to explicitly expose the two HTTP endpoints we need: one for triggering the workflow (`POST /workflows/generate`) and one for inspecting a run's status and result (`GET /runs/:runId`). Flue's HTTP layer is built on [Hono](https://hono.dev), so `app.ts` is a standard Hono app with `flue()` mounted at the root:
 
 ```typescript
 import { flue } from "@flue/runtime/routing";
