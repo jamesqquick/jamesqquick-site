@@ -285,7 +285,18 @@ curl -X POST "http://localhost:3583/workflows/generate?wait=result" \
   -d '{"topic": "How to use Cloudflare KV to cache API responses in a Worker"}'
 ```
 
-This takes 30–90 seconds and returns a JSON object with `result.title` and `result.tutorial`. Read the output. If the tutorials feel generic, edit `SKILL.md` and retest. That's the whole iteration loop.
+This takes 30–90 seconds and returns a JSON object with `result.title` and `result.tutorial`. The `tutorial` field is a JSON-encoded string, so if you paste it directly into a markdown file it'll look like a mess. If you have [`jq`](https://jqlang.org) installed, you can pipe the output directly to a clean markdown file:
+
+```bash
+curl -X POST "http://localhost:3583/workflows/generate?wait=result" \
+  -H "Content-Type: application/json" \
+  -d '{"topic": "How to use Cloudflare KV to cache API responses in a Worker"}' \
+  | jq -r '.result.tutorial' > tutorial.md
+```
+
+`jq` is a command-line JSON tool — the `-r` flag outputs the raw string without JSON encoding. Install it with `brew install jq` if you don't have it.
+
+Read the output. If the tutorials feel generic, edit `SKILL.md` and retest. That's the whole iteration loop.
 
 ## Deploying
 
