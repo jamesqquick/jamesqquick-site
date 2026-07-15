@@ -37,7 +37,7 @@ npx flue init --target cloudflare
 mkdir -p .flue/workflows .flue/skills/writer
 ```
 
-`agents` is Cloudflare's Agents SDK. Flue uses this to leverage Cloudflare Durable Object which is what lets workflows run for minutes without timing out. Normal Workers time out after 30 seconds. Durable Objects can run for hours.
+`agents` is Cloudflare's Agents SDK. Flue uses this to leverage [Cloudflare Durable Objects](https://developers.cloudflare.com/durable-objects/) which is what lets workflows run for minutes without timing out. Durable Objects are globally unique, durable, stateful, have attached SQlite storage, and can handle websockets. Normal Workers time out after 30 seconds. Durable Objects can run for hours.
 
 Your structure should look like this:
 
@@ -196,6 +196,8 @@ async run({ harness, input }) {
 
 Finally, add the `route` and `runs` exports. `route` exposes the HTTP endpoint for triggering the workflow, and `runs` exposes the endpoint for inspecting a run's status and result. Without these exports, Flue keeps these endpoints private by default.
 
+The final file looks like this.
+
 ```typescript
 import {
   type WorkflowRouteHandler,
@@ -250,7 +252,7 @@ Explain why, not just what. Every code block deserves a sentence of context.`,
 
 ## Wiring up the app
 
-Open `.flue/app.ts` and mount Flue's routing layer. Because the workflow exports `route` and `runs`, the `/workflows/generate` and `/runs/:runId` endpoints are handled automatically:
+Flue uses [Hono](https://hono.dev) as its HTTP server. Create `.flue/app.ts` and mount Flue's routing layer inside of the root route definition. Because the workflow exports `route` and `runs`, the `/workflows/generate` and `/runs/:runId` endpoints are handled automatically:
 
 ```typescript
 import { flue } from "@flue/runtime/routing";
