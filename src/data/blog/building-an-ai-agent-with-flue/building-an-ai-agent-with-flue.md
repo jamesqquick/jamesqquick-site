@@ -194,7 +194,7 @@ async run({ harness, input }) {
 
 `harness.session()` creates a conversation thread backed by the Durable Object's SQLite. `session.skill("writer", ...)` sends the skill's instructions and your args to the model. The `result` schema validates the response. If the model returns something that doesn't match, Flue retries automatically. Whatever `run` returns gets stored in the run record and sent back to the caller.
 
-Finally, add the `route` and `runs` exports. `route` exposes the HTTP endpoint for triggering the workflow, and `runs` exposes the endpoint for inspecting a run's status and result. Without these exports, Flue keeps these endpoints private by default.
+Finally, add the `route` and `runs` exports. `route` exposes the HTTP endpoint for triggering the workflow, and `runs` exposes the endpoint for inspecting a run's status and result. Without these exports, Flue keeps these endpoints private by default. HTTP is just one way to trigger a workflow — Flue also supports triggering via `invoke()` from application code, channels like Slack or GitHub, or the CLI during local development.
 
 The final file looks like this.
 
@@ -252,7 +252,7 @@ Explain why, not just what. Every code block deserves a sentence of context.`,
 
 ## Wiring up the app
 
-`app.ts` is optional in Flue — if you skip it, Flue generates a default app automatically. We're creating it here to explicitly expose the two HTTP endpoints we need: one for triggering the workflow (`POST /workflows/generate`) and one for inspecting a run's status and result (`GET /runs/:runId`). Flue's HTTP layer is built on [Hono](https://hono.dev), so `app.ts` is a standard Hono app with `flue()` mounted at the root:
+Now, let's add an `app.ts` file for our server. This is optional, but we're creating it here to explicitly expose the two HTTP endpoints we need: one for triggering the workflow (`POST /workflows/generate`) and one for inspecting a run's status and result (`GET /runs/:runId`). Flue's HTTP layer is built on [Hono](https://hono.dev), so `app.ts` is a standard Hono app with `flue()` mounted at the root:
 
 ```typescript
 import { flue } from "@flue/runtime/routing";
