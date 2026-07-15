@@ -136,19 +136,7 @@ Two things to pay attention to: the `name` in frontmatter must exactly match the
 
 ## Building the workflow
 
-Create `.flue/workflows/generate.ts`. The first thing to add are the `route` and `runs` exports. `route` exposes the HTTP endpoint for triggering the workflow, and `runs` exposes the endpoint for inspecting a run's status and result. Without these exports, neither endpoint exists — Flue keeps them private by default.
-
-```typescript
-import {
-  type WorkflowRouteHandler,
-  type WorkflowRunsHandler,
-} from "@flue/runtime";
-
-export const route: WorkflowRouteHandler = async (_c, next) => next();
-export const runs: WorkflowRunsHandler = async (_c, next) => next();
-```
-
-Next, import the skill and set up the workflow skeleton. The `with { type: "skill" }` import attribute tells the Flue CLI to bundle the markdown file as a skill reference at build time — not as a raw string.
+Create `.flue/workflows/generate.ts`. Start with the imports and a skeleton `defineWorkflow`. The `with { type: "skill" }` import attribute tells the Flue CLI to bundle the markdown file as a skill reference at build time — not as a raw string.
 
 ```typescript
 import { defineAgent, defineWorkflow } from "@flue/runtime";
@@ -186,7 +174,7 @@ Explain why, not just what. Every code block deserves a sentence of context.`,
 
 The model `cloudflare/@cf/moonshotai/kimi-k2.6` runs on Workers AI with no API key required. The `skills` array is what makes the skill available to call by name inside the session.
 
-Finally, the `run` function. This is where the workflow actually does its work — create a session, call the skill, return the result:
+Now fill in the `run` function. This is where the workflow actually does its work — create a session, call the skill, return the result:
 
 ```typescript
 async run({ harness, input }) {
@@ -203,6 +191,18 @@ async run({ harness, input }) {
 ```
 
 `harness.session()` creates a conversation thread backed by the Durable Object's SQLite. `session.skill("writer", ...)` sends the skill's instructions and your args to the model. The `result` schema validates the response — if the model returns something that doesn't match, Flue retries automatically. Whatever `run` returns gets stored in the run record and sent back to the caller.
+
+Finally, add the `route` and `runs` exports. `route` exposes the HTTP endpoint for triggering the workflow, and `runs` exposes the endpoint for inspecting a run's status and result. Without these exports, neither endpoint exists — Flue keeps them private by default.
+
+```typescript
+import {
+  type WorkflowRouteHandler,
+  type WorkflowRunsHandler,
+} from "@flue/runtime";
+
+export const route: WorkflowRouteHandler = async (_c, next) => next();
+export const runs: WorkflowRunsHandler = async (_c, next) => next();
+```
 
 ## Wiring up the app
 
