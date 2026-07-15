@@ -37,6 +37,16 @@ npx flue init --target cloudflare
 mkdir -p .flue/workflows .flue/skills/writer
 ```
 
+`flue init` generates a `flue.config.ts` at the project root that sets the build target:
+
+```typescript
+import { defineConfig } from "@flue/cli/config";
+
+export default defineConfig({
+  target: "cloudflare",
+});
+```
+
 `agents` is Cloudflare's Agents SDK. Flue uses this to leverage [Cloudflare Durable Objects](https://developers.cloudflare.com/durable-objects/) which is what lets workflows run for minutes without timing out. Durable Objects are globally unique, durable, stateful, have attached SQlite storage, and can handle websockets. Normal Workers time out after 30 seconds. Durable Objects can run for hours.
 
 Your structure should look like this:
@@ -44,7 +54,6 @@ Your structure should look like this:
 ```
 content-agent/
   .flue/
-    app.ts
     skills/
       writer/
     workflows/
@@ -136,7 +145,7 @@ Two things to pay attention to: the `name` in frontmatter must exactly match the
 
 ## Building the workflow
 
-Create `.flue/workflows/generate.ts`. Start by importing `defineAgent` and `defineWorkflow` for defining our agent and workflow. Then, import `validbot` for defining our validatoin. Then, import the writer skill. The `with { type: "skill" }` import attribute tells the Flue CLI to bundle the markdown file as a skill reference at build time not as a raw string.
+Create `.flue/workflows/generate.ts`. Start by importing `defineAgent` and `defineWorkflow` for defining our agent and workflow. Then, import `valibot` for defining our validation. Then, import the writer skill. The `with { type: "skill" }` import attribute tells the Flue CLI to bundle the markdown file as a skill reference at build time not as a raw string.
 
 Then, add a scaffolded call to `defineWorkflow` that you will fill in shortly.
 
@@ -158,7 +167,7 @@ export default defineWorkflow({
 });
 ```
 
-`defineWorkflow` takes three things: an agent, an `input` schema that validates what callers send, and an `output` schema that validates what `run` returns. Both schemas use Valibot. **The output schema here matches the shape defined in the skill's output format section.**
+`defineWorkflow` takes three things: an agent, an `input` schema that validates what callers send, and an `output` schema that validates what `run` returns. Both schemas use [Valibot](https://valibot.dev). **The output schema here matches the shape defined in the skill's output format section.**
 
 Now fill in the agent. `defineAgent` takes a model identifier, the instructions you defined earlier, and the skills to make available:
 
@@ -174,7 +183,7 @@ Explain why, not just what. Every code block deserves a sentence of context.`,
 })),
 ```
 
-The model `cloudflare/@cf/moonshotai/kimi-k2.6` runs on Workers AI with no API key required. The `skills` array is what makes the skill available to call by name inside the session.
+The model `cloudflare/@cf/moonshotai/kimi-k2.6` runs on [Workers AI](https://developers.cloudflare.com/workers-ai/models/) with no API key required — you can swap it for any other model in the catalog. The `skills` array is what makes the skill available to call by name inside the session.
 
 Now fill in the `run` function. This is where the workflow actually does its work to create a session, call the skill, and return the result:
 
@@ -197,8 +206,6 @@ async run({ harness, input }) {
 Finally, add the `route` and `runs` exports. `route` exposes the HTTP endpoint for triggering the workflow, and `runs` exposes the endpoint for inspecting a run's status and result. Without these exports, Flue keeps these endpoints private by default.
 
 Keep in mind that HTTP is just one way to trigger a workflow. Flue also supports triggering via `invoke()` from application code, channels like Slack or GitHub, or the CLI during local development.
-
-The final file looks like this.
 
 ```typescript
 import {
@@ -285,7 +292,9 @@ curl -X POST "http://localhost:3583/workflows/generate?wait=result" \
   -d '{"topic": "How to use Cloudflare KV to cache API responses in a Worker"}'
 ```
 
-This takes 30–90 seconds and returns a JSON object with `result.title` and `result.tutorial`. The `tutorial` field is a JSON-encoded string, so if you paste it directly into a markdown file it'll look like a mess. If you have [`jq`](https://jqlang.org) installed, you can pipe the output directly to a clean markdown file:
+This takes 30–90 seconds and returns a JSON object with `result.title` and `result.tutorial`. The `tutorial` field is a JSON-encoded string, so if you paste it directly into a markdown file it'll look like a mess.
+
+To help with this, you can use `jq` as a command-line JSON tool to output a raw string without JSON encoding and pipe it to a markdown file for visibility. Install it with `brew install jq` if you don't have it. Then, use this updated command.
 
 ```bash
 curl -X POST "http://localhost:3583/workflows/generate?wait=result" \
@@ -293,8 +302,6 @@ curl -X POST "http://localhost:3583/workflows/generate?wait=result" \
   -d '{"topic": "How to use Cloudflare KV to cache API responses in a Worker"}' \
   | jq -r '.result.tutorial' > tutorial.md
 ```
-
-`jq` is a command-line JSON tool — the `-r` flag outputs the raw string without JSON encoding. Install it with `brew install jq` if you don't have it.
 
 Read the output. If the tutorials feel generic, edit `SKILL.md` and retest. That's the whole iteration loop.
 
@@ -306,6 +313,8 @@ Build and deploy from the build output. Flue generates its own `wrangler.json` w
 npx flue build
 npx wrangler deploy --config dist/content-agent/wrangler.json
 ```
+
+The `content-agent` in the path comes from the `name` field in your `wrangler.jsonc`.
 
 ## What I'd add next
 
