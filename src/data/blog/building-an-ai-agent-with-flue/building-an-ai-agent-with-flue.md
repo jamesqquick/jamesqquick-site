@@ -1,5 +1,5 @@
 ---
-title: "Building an AI Agent with Flue"
+title: "Building an AI Content Generation Agent with Flue"
 coverImage: ./cover.png
 pubDate: 2026-07-15T00:00:00.000Z
 description: >-
