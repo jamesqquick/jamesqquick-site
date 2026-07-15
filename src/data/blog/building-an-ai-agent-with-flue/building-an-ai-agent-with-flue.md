@@ -136,7 +136,9 @@ Two things to pay attention to: the `name` in frontmatter must exactly match the
 
 ## Building the workflow
 
-Create `.flue/workflows/generate.ts`. Start with the imports and a skeleton `defineWorkflow`. The `with { type: "skill" }` import attribute tells the Flue CLI to bundle the markdown file as a skill reference at build time — not as a raw string.
+Create `.flue/workflows/generate.ts`. Start by importing `defineAgent` and `defineWorkflow` for defining our agent and workflow. Then, import `validbot` for defining our validatoin. Then, import the writer skill. The `with { type: "skill" }` import attribute tells the Flue CLI to bundle the markdown file as a skill reference at build time not as a raw string.
+
+Then, add a scaffolded call to `defineWorkflow` that you will fill in shortly.
 
 ```typescript
 import { defineAgent, defineWorkflow } from "@flue/runtime";
@@ -156,7 +158,7 @@ export default defineWorkflow({
 });
 ```
 
-`defineWorkflow` takes three things: an agent, an `input` schema that validates what callers send, and an `output` schema that validates what `run` returns. Both schemas use Valibot — the output schema here matches the shape defined in the skill's output format section.
+`defineWorkflow` takes three things: an agent, an `input` schema that validates what callers send, and an `output` schema that validates what `run` returns. Both schemas use Valibot. **The output schema here matches the shape defined in the skill's output format section.**
 
 Now fill in the agent. `defineAgent` takes a model identifier, the instructions you defined earlier, and the skills to make available:
 
@@ -174,7 +176,7 @@ Explain why, not just what. Every code block deserves a sentence of context.`,
 
 The model `cloudflare/@cf/moonshotai/kimi-k2.6` runs on Workers AI with no API key required. The `skills` array is what makes the skill available to call by name inside the session.
 
-Now fill in the `run` function. This is where the workflow actually does its work — create a session, call the skill, return the result:
+Now fill in the `run` function. This is where the workflow actually does its work to create a session, call the skill, and return the result:
 
 ```typescript
 async run({ harness, input }) {
@@ -190,9 +192,9 @@ async run({ harness, input }) {
 },
 ```
 
-`harness.session()` creates a conversation thread backed by the Durable Object's SQLite. `session.skill("writer", ...)` sends the skill's instructions and your args to the model. The `result` schema validates the response — if the model returns something that doesn't match, Flue retries automatically. Whatever `run` returns gets stored in the run record and sent back to the caller.
+`harness.session()` creates a conversation thread backed by the Durable Object's SQLite. `session.skill("writer", ...)` sends the skill's instructions and your args to the model. The `result` schema validates the response. If the model returns something that doesn't match, Flue retries automatically. Whatever `run` returns gets stored in the run record and sent back to the caller.
 
-Finally, add the `route` and `runs` exports. `route` exposes the HTTP endpoint for triggering the workflow, and `runs` exposes the endpoint for inspecting a run's status and result. Without these exports, neither endpoint exists — Flue keeps them private by default.
+Finally, add the `route` and `runs` exports. `route` exposes the HTTP endpoint for triggering the workflow, and `runs` exposes the endpoint for inspecting a run's status and result. Without these exports, Flue keeps these endpoints private by default.
 
 ```typescript
 import {
@@ -202,6 +204,48 @@ import {
 
 export const route: WorkflowRouteHandler = async (_c, next) => next();
 export const runs: WorkflowRunsHandler = async (_c, next) => next();
+```
+
+Here's the complete `generate.ts`:
+
+```typescript
+import {
+  defineAgent,
+  defineWorkflow,
+  type WorkflowRouteHandler,
+  type WorkflowRunsHandler,
+} from "@flue/runtime";
+import * as v from "valibot";
+import writerSkill from "../skills/writer/SKILL.md" with { type: "skill" };
+
+export const route: WorkflowRouteHandler = async (_c, next) => next();
+export const runs: WorkflowRunsHandler = async (_c, next) => next();
+
+export default defineWorkflow({
+  agent: defineAgent(() => ({
+    model: "cloudflare/@cf/moonshotai/kimi-k2.6",
+    instructions: `You are content-agent, an AI that writes practical developer tutorials.
+Never invent information you are not confident about.
+Never write partial code snippets — every code block must be complete.
+Write for developers who know the language but not this specific topic.
+Explain why, not just what. Every code block deserves a sentence of context.`,
+    skills: [writerSkill],
+  })),
+  input: v.object({ topic: v.string() }),
+  output: v.object({ title: v.string(), tutorial: v.string() }),
+
+  async run({ harness, input }) {
+    const session = await harness.session();
+
+    const { data } = await session.skill("writer", {
+      args: { topic: input.topic },
+      result: v.object({ title: v.string(), tutorial: v.string() }),
+    });
+
+    if (!data) throw new Error("Writer returned no output");
+    return data;
+  },
+});
 ```
 
 ## Wiring up the app
