@@ -136,7 +136,7 @@ Two things to pay attention to: the `name` in frontmatter must exactly match the
 
 ## Building the workflow
 
-Create `.flue/workflows/generate.ts`. The first thing to add are the `route` and `runs` exports. These control HTTP access to the workflow — `route` gates the invocation endpoint, and `runs` gates the run history. Exporting both and passing through makes the workflow publicly accessible.
+Create `.flue/workflows/generate.ts`. The first thing to add are the `route` and `runs` exports. `route` exposes the HTTP endpoint for triggering the workflow, and `runs` exposes the endpoint for inspecting a run's status and result. Without these exports, neither endpoint exists — Flue keeps them private by default.
 
 ```typescript
 import {
