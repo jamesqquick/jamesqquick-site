@@ -13,7 +13,7 @@ tags:
 
 Since it was announced initially, I've wanted to get hands-on with [Flue](https://flueframework.com), a TypeScript framework for building AI agents. I finally took the time and built something with it: an agent that takes a technical topic and writes a complete developer tutorial. It's a good project because it's simple enough to follow in one sitting but real enough to explore the core concepts of Flue.
 
-This post walks through how I built it, explains those core concepts along the way, and how to deploy to Cloudflare.
+This post walks through how to build it, explains those core concepts along the way, and how to deploy to Cloudflare.
 
 ## Setting up the project
 
@@ -25,6 +25,12 @@ npm install @flue/runtime valibot 'agents@^0.14.2'
 npm install --save-dev @flue/cli wrangler
 npx flue init --target cloudflare
 mkdir -p .flue/workflows .flue/skills/writer
+```
+
+In your `package.json` file, make sure it has `"type": "module"` set." You can also run the command:
+
+```bash
+npm pkg set type=module
 ```
 
 `flue init` generates a `flue.config.ts` at the project root that sets the build target:
@@ -98,11 +104,11 @@ export default defineWorkflow({
 
 `defineWorkflow` is the container for the agent and its logic. `defineAgent` configures the model. `harness.session()` opens a conversation thread with the model, and `session.prompt()` sends a message and gets text back. That's a working agent.
 
-The filename matters here. `generate.ts` maps to `POST /workflows/generate` and the Durable Object class `FlueGenerateWorkflow` — which is why you added both to `wrangler.jsonc` earlier.
+The filename matters here. `generate.ts` maps to `POST /workflows/generate` and the Durable Object class `FlueGenerateWorkflow` which is why you added both to `wrangler.jsonc` earlier.
 
 ## Accepting typed input and output
 
-Right now the workflow ignores any input and always says hello. To make it useful, add `input` and `output` schemas. This is where [Valibot](https://valibot.dev) comes in — both schemas are Valibot objects that Flue uses to validate what callers send and what the workflow returns.
+Right now the workflow ignores any input and always says hello. To make it useful, add `input` and `output` schemas. This is where [Valibot](https://valibot.dev) comes in. Both schemas are Valibot objects that Flue uses to validate what callers send and what the workflow returns. Let's update the input and output to be more specific to our agent that will generate written tutorials.
 
 ```typescript
 import { defineAgent, defineWorkflow } from "@flue/runtime";
@@ -124,7 +130,7 @@ export default defineWorkflow({
 });
 ```
 
-Now callers pass `{ topic: "..." }` and get back `{ tutorial: "..." }`. The agent still has no real identity or structure though — it'll write something, but it won't be consistent. That's next.
+Now callers pass `{ topic: "..." }` and get back `{ tutorial: "..." }`. The agent still has no real identity or structure though. It'll write something, but it won't be consistent. That's next.
 
 ## Giving the agent an identity
 
@@ -155,7 +161,7 @@ Explain why, not just what. Every code block deserves a sentence of context.`,
 
 ## Creating a skill
 
-The agent has an identity, but the inline prompt is still doing all the heavy lifting for structure and format. Skills solve this. A skill is a markdown file that gives the agent focused instructions for one specific task — what to produce, how to structure it, what format to return results in. They're reusable, separate from the agent's identity, and their output gets validated automatically.
+The agent has an identity, but the inline prompt is still doing all the heavy lifting for structure and format. Skills solve this. A skill is a markdown file that gives the agent focused instructions for one specific task: what to produce, how to structure it, what format to return results in. They're reusable, separate from the agent's identity, and their output gets validated automatically.
 
 A skill is a markdown file with frontmatter that Flue validates against the [Agent Skills spec](https://agentskills.io/specification). Create `.flue/skills/writer/SKILL.md`:
 
@@ -197,7 +203,7 @@ Two things to pay attention to: the `name` in frontmatter must exactly match the
 
 ## Connecting the skill to the workflow
 
-Import the skill using the `with { type: "skill" }` attribute — this tells the Flue CLI to bundle the markdown file as a skill reference at build time, not as a raw string:
+Import the skill using the `with { type: "skill" }` attribute. This tells the Flue CLI to bundle the markdown file as a skill reference at build time, not as a raw string:
 
 ```typescript
 import writerSkill from "../skills/writer/SKILL.md" with { type: "skill" };
@@ -213,7 +219,7 @@ agent: defineAgent(() => ({
 })),
 ```
 
-Then swap `session.prompt()` for `session.skill()`. Update the `output` schema to match the skill's output format — `title` and `tutorial`:
+Then swap `session.prompt()` for `session.skill()`. Update the `output` schema to match the skill's output format including `title` and `tutorial`:
 
 ```typescript
 async run({ harness, input }) {
@@ -233,7 +239,9 @@ async run({ harness, input }) {
 
 ## Exposing the workflow over HTTP
 
-`route` and `runs` exports control HTTP access. `route` exposes the endpoint for triggering the workflow, and `runs` exposes the endpoint for inspecting a run's status and result. Without these exports, Flue keeps these endpoints private by default. HTTP is just one way to trigger a workflow — Flue also supports triggering via `invoke()` from application code, channels like Slack or GitHub, or the CLI during local development.
+`route` and `runs` exports control HTTP access. `route` exposes the endpoint for triggering the workflow, and `runs` exposes the endpoint for inspecting a run's status and result. Without these exports, Flue keeps these endpoints private by default. HTTP is just one way to trigger a workflow. Flue also supports triggering via `invoke()` from application code, channels like Slack or GitHub, or the CLI during local development.
+
+Here's the export for `route` and `runs`
 
 ```typescript
 export const route: WorkflowRouteHandler = async (_c, next) => next();
@@ -284,7 +292,7 @@ Explain why, not just what. Every code block deserves a sentence of context.`,
 
 ## Wiring up the app
 
-Flue uses [Hono](https://hono.dev) as its HTTP server. This is optional, but we're creating it here to explicitly expose the two HTTP endpoints we need: one for triggering the workflow (`POST /workflows/generate`) and one for inspecting a run's status and result (`GET /runs/:runId`). `app.ts` is a standard Hono app with `flue()` mounted at the root:
+Flue uses [Hono](https://hono.dev) as its HTTP server. This is optional, but we're creating it here to explicitly expose the two HTTP endpoints we just exported: one for triggering the workflow (`POST /workflows/generate`) and one for inspecting a run's status and result (`GET /runs/:runId`). `app.ts` is a standard Hono app with `flue()` mounted at the root:
 
 ```typescript
 import { flue } from "@flue/runtime/routing";
@@ -299,13 +307,13 @@ export default app;
 
 ## Running it
 
-Start the dev server by calling `flue dev`. The target is picked up automatically from `flue.config.ts` — no need to pass `--target cloudflare`.
+Start the dev server by calling `flue dev`. The target of `cloudflare` is picked up automatically from `flue.config.ts`.
 
 ```bash
 npx flue dev
 ```
 
-The first time you run this, Wrangler will prompt you to log in to your Cloudflare account. This is needed to access Workers AI locally. Follow the prompt to authenticate, then the dev server will start.
+The first time you run this, Wrangler will prompt you to log in to your Cloudflare account or to choose an account if you have multiple already configured. This is needed to access Workers AI locally. Follow the prompt to authenticate, then the dev server will start.
 
 Send it a topic. The `?wait=result` parameter holds the connection open and returns the result directly:
 
