@@ -1,0 +1,19 @@
+src/layouts/BlogPostLayout.astro
+  s_52f0a3021e59a3::t_d5ca26aee39f2f 6,28,42
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "6baa15dd7a84507d4b693c8eb30c38122650e82d",
+  "prompts": {},
+  "sessions": {
+    "s_52f0a3021e59a3": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_08f072036ffeJkrdUVCKC13Nir",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "James Quick <jquick@cloudflare.com>"
+    }
+  }
+}
