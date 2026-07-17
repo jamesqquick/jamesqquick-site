@@ -1,0 +1,113 @@
+---
+export interface Props {
+  /** Absolute URL of the current blog post, injected into the prompt. */
+  url: string;
+}
+
+const { url } = Astro.props as Props;
+
+const prompt = `Read this article first: ${url}
+
+Use it as your starting point, but you're not limited to it. You can bring in other tools, ideas, and knowledge it doesn't mention.
+
+Don't summarize it back to me. Once you've read it, ask me one question: what brought me here, whether I'm just curious about the topic or working on something specific. Then take me deeper based on my answer, one step at a time, covering whatever is most useful: trade-offs, examples, code, or how it applies to me.
+
+For anything version- or recency-sensitive, check current sources rather than relying on the article or your training data. Briefly flag when you've gone beyond the article or pulled in fresh info, so I know where things come from.
+
+Let me steer. Start now.`;
+---
+
+<div class="copy-prompt not-prose my-8">
+  <button
+    type="button"
+    class="copy-prompt-btn group inline-flex items-center gap-2.5 rounded-[var(--radius-button)] border border-border bg-surface px-4 py-2.5 text-sm font-medium text-text shadow-sm transition-colors hover:bg-surface-hover"
+    aria-label="Copy a prompt to explore this article with your AI agent"
+  >
+    <!-- copy icon (default state) -->
+    <svg
+      class="copy-prompt-icon-copy h-4 w-4 text-accent transition-transform group-hover:scale-110"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+    </svg>
+    <!-- check icon (copied state, hidden by default) -->
+    <svg
+      class="copy-prompt-icon-check hidden h-4 w-4 text-accent"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M20 6 9 17l-5-5"></path>
+    </svg>
+    <span class="copy-prompt-label">Copy prompt</span>
+  </button>
+  <p class="mt-2 text-xs text-text-subtle">
+    Paste into your AI agent for a guided, hands-on walkthrough of this article.
+  </p>
+  <script type="text/plain" class="copy-prompt-text" set:text={prompt} />
+</div>
+
+<script>
+  function initCopyPromptButtons() {
+    const shells = document.querySelectorAll<HTMLElement>(".copy-prompt");
+
+    shells.forEach((shell) => {
+      const button = shell.querySelector<HTMLButtonElement>(".copy-prompt-btn");
+      const promptEl = shell.querySelector<HTMLElement>(".copy-prompt-text");
+      const label = shell.querySelector<HTMLElement>(".copy-prompt-label");
+      const copyIcon = shell.querySelector<SVGElement>(".copy-prompt-icon-copy");
+      const checkIcon = shell.querySelector<SVGElement>(".copy-prompt-icon-check");
+
+      if (!button || !promptEl || !label || !copyIcon || !checkIcon) return;
+
+      const defaultLabel = label.textContent ?? "Copy prompt";
+      let resetTimer: ReturnType<typeof setTimeout> | undefined;
+
+      button.addEventListener("click", async () => {
+        const text = promptEl.textContent ?? "";
+
+        try {
+          if (navigator.clipboard?.writeText) {
+            await navigator.clipboard.writeText(text);
+          } else {
+            const textarea = document.createElement("textarea");
+            textarea.value = text;
+            textarea.style.position = "fixed";
+            textarea.style.opacity = "0";
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand("copy");
+            document.body.removeChild(textarea);
+          }
+
+          copyIcon.classList.add("hidden");
+          checkIcon.classList.remove("hidden");
+          label.textContent = "Copied!";
+        } catch {
+          label.textContent = "Press Ctrl+C to copy";
+        }
+
+        clearTimeout(resetTimer);
+        resetTimer = setTimeout(() => {
+          copyIcon.classList.remove("hidden");
+          checkIcon.classList.add("hidden");
+          label.textContent = defaultLabel;
+        }, 2000);
+      });
+    });
+  }
+
+  initCopyPromptButtons();
+  document.addEventListener("astro:page-load", initCopyPromptButtons);
+</script>
