@@ -3,6 +3,7 @@ import { getImage } from "astro:assets";
 import ArticleHeader from "../components/ArticleHeader.astro";
 import BaseLayout from "./BaseLayout.astro";
 import Section from "@components/Section.astro";
+import CopyPromptButton from "@components/CopyPromptButton.astro";
 
 export interface Props {
   frontmatter: {
@@ -24,6 +25,7 @@ const {
 } = Astro.props as Props;
 
 const { src: imageURL } = await getImage({ src: coverImage });
+const postUrl = new URL(Astro.url.pathname, Astro.site).href;
 ---
 
 <BaseLayout title={title} description={description} image={imageURL}>
@@ -37,6 +39,7 @@ const { src: imageURL } = await getImage({ src: coverImage });
         date={pubDate}
         youTubeVideoId={youTubeVideoId}
         />
+        <CopyPromptButton url={postUrl} />
         <slot />
     </article>
 </Section>
