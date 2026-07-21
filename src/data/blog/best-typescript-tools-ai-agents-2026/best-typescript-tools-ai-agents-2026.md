@@ -10,7 +10,7 @@ tags:
   - ai
   - typescript
   - agents
-coverImage: ./cover.webp
+coverImage: ./cover.png
 ---
 
 Getting started building your own agents can be pretty daunting. The ecosystem moves incredibly fast, and there are now dozens of options that all claim to be the solution. Many of them solve different problems at different layers of the stack which makes it hard to compare them directly.
