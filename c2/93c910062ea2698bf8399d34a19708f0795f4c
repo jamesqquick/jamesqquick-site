@@ -1,0 +1,19 @@
+src/data/blog/best-typescript-tools-ai-agents-2026/best-typescript-tools-ai-agents-2026.md
+  s_47ea5a94b07f2e::t_b3a26c4b21f2ab 1-493
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "c293c910062ea2698bf8399d34a19708f0795f4c",
+  "prompts": {},
+  "sessions": {
+    "s_47ea5a94b07f2e": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_07e068ea0ffeOsScoinkbs3oHq",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "James Quick <jquick@cloudflare.com>"
+    }
+  }
+}
