@@ -2,10 +2,7 @@
 title: The Best TypeScript Tools for Building AI Agents (2026)
 slug: best-typescript-tools-ai-agents-2026
 pubDate: 2026-07-21
-description: >-
-  A breakdown of the top TypeScript tools for building AI agents, from
-  lightweight AI SDKs to durable runtimes, with tradeoffs and code examples
-  for each.
+description: A breakdown of the top TypeScript tools for building AI agents, from lightweight AI SDKs to durable runtimes, with tradeoffs and code examples for each.
 tags:
   - ai
   - typescript

@@ -1,8 +1,6 @@
 ---
 name: gen-covers
-description: >-
-  Generate a cover image for a blog post using the project's built-in cover
-  generator. Use when adding a new blog post or regenerating an existing cover.
+description: Generate a cover image for a blog post using the project's built-in cover generator. Use when adding a new blog post or regenerating an existing cover.
 ---
 
 # gen-covers
