@@ -1,0 +1,19 @@
+src/data/blog/build-mcp-server-cloudflare-workers/build-mcp-server-cloudflare-workers.md
+  s_b881e1e2d62b56::t_abcb8a5a9da072 1-369
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "925ec1b1f79a660248bfeefd46b8fdd2a08b1f31",
+  "prompts": {},
+  "sessions": {
+    "s_b881e1e2d62b56": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_079a52e0effeu8kRXoXXw3lgy7",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "James Quick <jquick@cloudflare.com>"
+    }
+  }
+}
