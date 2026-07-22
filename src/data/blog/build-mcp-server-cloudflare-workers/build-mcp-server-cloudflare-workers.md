@@ -12,9 +12,11 @@ tags:
   - mcp
 ---
 
-Every app I've built recently has included an MCP server. Honestly, there's almost no app I use that wouldn't benefit from one. I will always prefer to have an agent do work for me instead of manually doing it myself.
+Honestly, there's almost no app I use that wouldn't benefit from one. I will always prefer to have an agent do work for me instead of manually doing it myself.
 
-Since I've joined Cloudflare, I've been building entirely on the platform. Turns out, adding an MCP server to an app using Cloudflare and the [Agents SDK](https://developers.cloudflare.com/agents/) is super easy. Let's see how! This post walks through building one from scratch, using the same core structure I used for [DropCast](https://github.com/jamesqquick/demos/tree/main/podcast-summary-service), a podcast generator that exposes a single `generate_podcast` tool to any MCP client.
+Since I've joined Cloudflare, I've been building entirely on the platform. Turns out, adding an MCP server to an app using Cloudflare and the [Agents SDK](https://developers.cloudflare.com/agents/) is super easy. Let's see how!
+
+This post walks through building one from scratch, using the same core structure I used for [DropCast](https://github.com/jamesqquick/demos/tree/main/podcast-summary-service), a podcast generator that exposes a single `generate_podcast` tool to any MCP client.
 
 ## What an MCP Server Actually Does
 
@@ -25,6 +27,34 @@ MCP (Model Context Protocol) is an open standard for connecting AI clients to ex
 - **MCP Host** — the AI assistant or application that wraps the client
 
 Your job as the server author is to define tools. A tool has a name, a description the model reads to decide when to call it, an input schema, and a handler function. The MCP protocol handles everything else like discovery, invocation, and results.
+
+## How It Works on Cloudflare
+
+On Cloudflare, an MCP server has two primary pieces: a [Worker](https://developers.cloudflare.com/workers/) and an `McpAgent` instance. The Worker is the entry point. The `McpAgent` is where and how you define your actual MCP server; it's tools, descriptions, etc.
+
+The Worker acts as a traditional server allowing you to trigger a handler based on the route of an incoming request. In this case, it checks for the incoming URL of `/mcp` and forwards the traffic to the MCP agent. It looks like this.
+
+```typescript
+if (url.pathname === "/mcp") {
+  return MyMCP.serve("/mcp").fetch(request, env, ctx);
+}
+```
+
+`MyMCP` extends [`McpAgent`](https://developers.cloudflare.com/agents/), which is backed by a [Durable Object](https://developers.cloudflare.com/durable-objects/). A Durable Object is a single globally consistent instance with its own memory and optional SQL storage. Unlike a regular Worker which can spin up as many concurrent instances as needed, a Durable Object is guaranteed to be one instance. That makes it the right primitive for stateful sessions: each MCP client connection gets its own Durable Object, isolated from every other session.
+
+The `init()` handler runs when a client connects. You register tools there and access your Worker [bindings](https://developers.cloudflare.com/workers/runtime-apis/bindings/) (`this.env.AI`, `this.env.DB`, etc.) the same way you would in any other Worker — but each binding needs to be declared in `wrangler.jsonc` first. The template includes the Durable Object binding out of the box; anything else, like [Workers AI](https://developers.cloudflare.com/workers-ai/configuration/bindings/), you add yourself.
+
+```typescript
+export class MyMCP extends McpAgent<Env> {
+  server = new McpServer({ name: "my-tools", version: "1.0.0" });
+
+  async init() {
+    // register tools here
+  }
+}
+```
+
+With that in mind, the Cloudflare template scaffolds all of this for you. You start with a working server, then swap in your own tools.
 
 ## Scaffold the Project
 
@@ -47,28 +77,11 @@ src/
 wrangler.jsonc
 ```
 
-## The McpAgent Pattern
-
-`McpAgent` from the Agents SDK is the core abstraction. Each MCP client session gets its own instance backed by a Durable Object, so you can store per-session state if you need it.
-
-```typescript
-import { McpAgent } from "agents/mcp";
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-
-export class MyMCP extends McpAgent<Env> {
-  server = new McpServer({ name: "my-tools", version: "1.0.0" });
-
-  async init() {
-    // register tools here
-  }
-}
-```
-
-`init()` runs when a client connects. That's where you register tools.
+With that in place, let's see how to build your own tool.
 
 ## Define Your First Tool
 
-We'll build a `summarize_urls` tool that fetches a list of URLs and summarizes them using Workers AI. Let's build it up piece by piece.
+We'll build a `summarize_urls` tool that fetches a list of URLs and summarizes them using [Workers AI](https://www.cloudflare.com/products/workers-ai/). Let's build it up piece by piece.
 
 ### Step 1: Register the tool
 
@@ -88,7 +101,7 @@ async init() {
 
 ### Step 2: Add the input schema
 
-The `inputSchema` field defines what arguments the tool accepts. Use Zod to describe each parameter:
+The `inputSchema` field defines what arguments the tool accepts. In this case, we'll accept two parameters; an array of url strings, and an enum for the tone of the content we want generated. Use Zod to describe each parameter:
 
 ```typescript
 this.server.registerTool(
@@ -107,13 +120,14 @@ this.server.registerTool(
 
 ### Step 3: Add a description
 
-The `description` field is what the model reads to decide when and how to call this tool. Be specific:
+The `description` field is what the model reads to decide when and how to call this tool.
 
 ```typescript
 this.server.registerTool(
   "summarize_urls",
   {
-    description: "Fetch and summarize the content of 1 to 3 URLs using AI. Returns a combined summary.",
+    description:
+      "Fetch and summarize the content of 1 to 3 URLs using AI. Returns a combined summary.",
     inputSchema: {
       urls: z.array(z.string().url()).min(1).max(3),
       tone: z.enum(["concise", "detailed"]).optional(),
@@ -127,7 +141,21 @@ this.server.registerTool(
 
 ### Step 4: Implement the handler
 
-Now fill in the actual logic. Fetch the URLs, build a prompt, call Workers AI, and return the result:
+To trigger AI to build the summary, we'll use [Workers AI](https://developers.cloudflare.com/workers-ai/). To have acecss to this, we need to add the binding to `wrangler.jsonc` first:
+
+```jsonc
+{
+  "ai": {
+    "binding": "AI",
+  },
+}
+```
+
+Now `this.env.AI` is available inside your agent. We'll use a fairly naive approache to fetching url content but, overall, the tool will execute these steps:
+
+- fetch the URLs
+- build a prompt
+- and run the model
 
 ```typescript
 async ({ urls, tone }) => {
@@ -157,10 +185,8 @@ async ({ urls, tone }) => {
       { type: "text", text: result.response ?? "No summary generated." },
     ],
   };
-}
+};
 ```
-
-`this.env.AI` is the Workers AI binding, available on every `McpAgent` instance just like any other Worker binding. No extra setup needed beyond declaring it in `wrangler.jsonc`.
 
 ### The full tool
 
@@ -178,7 +204,8 @@ export class MyMCP extends McpAgent<Env> {
     this.server.registerTool(
       "summarize_urls",
       {
-        description: "Fetch and summarize the content of 1 to 3 URLs using AI. Returns a combined summary.",
+        description:
+          "Fetch and summarize the content of 1 to 3 URLs using AI. Returns a combined summary.",
         inputSchema: {
           urls: z
             .array(z.string().url())
@@ -224,46 +251,6 @@ export class MyMCP extends McpAgent<Env> {
 }
 ```
 
-## Wire Up the Entry Point
-
-The entry point is a standard Workers fetch handler that routes `/mcp` requests to the agent. Add this below your `MyMCP` class in `src/index.ts`:
-
-```typescript
-export default {
-  fetch(request: Request, env: Env, ctx: ExecutionContext) {
-    const url = new URL(request.url);
-
-    if (url.pathname === "/mcp") {
-      return MyMCP.serve("/mcp").fetch(request, env, ctx);
-    }
-
-    return new Response("Not found", { status: 404 });
-  },
-};
-```
-
-The named export (`export class MyMCP`) is required so the Workers runtime can instantiate the Durable Object. The fetch handler owns the routing.
-
-You also need to declare the AI and Durable Object bindings in `wrangler.jsonc`:
-
-```jsonc
-{
-  "name": "my-mcp-server",
-  "main": "src/index.ts",
-  "compatibility_date": "2025-03-10",
-  "compatibility_flags": ["nodejs_compat"],
-  "ai": {
-    "binding": "AI"
-  },
-  "durable_objects": {
-    "bindings": [{ "name": "MCP_OBJECT", "class_name": "MyMCP" }]
-  },
-  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["MyMCP"] }]
-}
-```
-
-The `new_sqlite_classes` migration gives each agent instance its own built-in SQL storage.
-
 ## Test Locally
 
 Start the dev server:
@@ -280,17 +267,21 @@ npx @modelcontextprotocol/inspector@latest
 
 Open it at `http://localhost:5173`, enter your server URL (`http://localhost:8787/mcp`), and click Connect. You'll see your tools listed and can call them directly from the browser to verify everything works before deploying.
 
-## Deploy and Connect to Claude
+## Deploy
 
-Deploy with one command:
+Now, you can deploy:
 
 ```bash
 npx wrangler deploy
 ```
 
-Your server is now live at `https://my-mcp-server.your-account.workers.dev/mcp`.
+Now that you'll be prompted to sign in if you aren't already.
 
-To connect it to Claude Desktop, update `claude_desktop_config.json`:
+Your server will now be live at `https://my-mcp-server.[your-account].workers.dev/mcp`.
+
+## Connect to Claude Desktop
+
+Update `claude_desktop_config.json` to point at your deployed server:
 
 ```json
 {
@@ -299,7 +290,7 @@ To connect it to Claude Desktop, update `claude_desktop_config.json`:
       "command": "npx",
       "args": [
         "mcp-remote",
-        "https://my-mcp-server.your-account.workers.dev/mcp"
+        "https://my-mcp-server.[your-account].workers.dev/mcp"
       ]
     }
   }
@@ -332,13 +323,14 @@ export default {
 } satisfies ExportedHandler<Env>;
 ```
 
-Set the secret through Wrangler. Never hardcode it:
+Deploy the updated handler, then set the secret.
 
 ```bash
+npx wrangler deploy
 wrangler secret put MCP_TOKEN
 ```
 
-Pick any string as the value. Then update your Claude Desktop config to pass it as a header:
+Pick any string as the value. `wrangler secret put` creates a new version of the Worker and deploys it immediately, so no additional deploy is needed after setting the secret. Then update your Claude Desktop config to pass it as a header:
 
 ```json
 {
@@ -347,7 +339,7 @@ Pick any string as the value. Then update your Claude Desktop config to pass it 
       "command": "npx",
       "args": [
         "mcp-remote",
-        "https://my-mcp-server.your-account.workers.dev/mcp",
+        "https://my-mcp-server.[your-account].workers.dev/mcp",
         "--header",
         "Authorization: Bearer your-token-here"
       ]
@@ -356,14 +348,10 @@ Pick any string as the value. Then update your Claude Desktop config to pass it 
 }
 ```
 
-This is one shared secret, not per-user auth. It's a good starting point. You can add OAuth later once you know what your access model actually needs to be. Cloudflare has a [workers-oauth-provider](https://github.com/cloudflare/workers-oauth-provider) library built for exactly that.
-
----
+This is one shared secret, not per-user auth. It's a good starting point. You can add something more sophisticated later.
 
 **Key takeaways:**
 
-- Tools are typed async functions. MCP handles how clients discover and invoke them.
-- `McpAgent` gives each client session its own Durable Object, useful when you need state across tool calls in a session.
-- A Bearer token gets you from open to private without building an OAuth flow.
+MCP servers are incredibly helpful in an AI world, and thankfully, they're incredibly easy to setup when using Cloudflare.
 
 If you want to see this pattern in a real project, the full [DropCast source](https://github.com/jamesqquick/demos/tree/main/podcast-summary-service) is a good reference. It adds Cloudflare Workflows for long-running generation, R2 for audio storage, and D1-based user auth on top of the same `McpAgent` foundation.
