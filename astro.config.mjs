@@ -81,6 +81,9 @@ export default defineConfig({
         include: [
           "@astrojs/cloudflare/entrypoints/server",
           "astro/actions/runtime/entrypoints/server.js",
+          // Required as of astro >= 6.4.6, which splits the actions entrypoint;
+          // without it the workerd dep optimizer races and the build fails.
+          "astro/actions/runtime/entrypoints/route.js",
           "astro-icon/components",
           // Pre-bundle @iconify/utils so esbuild converts its transitive CJS dep
           // `debug` (top-level `module.exports = require(...)`), which otherwise
