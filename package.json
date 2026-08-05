@@ -13,7 +13,8 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
-    "@astrojs/mdx": "^5.0.6",
+    "@astrojs/markdown-satteri": "^0.3.5",
+    "@astrojs/mdx": "^7.0.5",
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.3",
     "@cloudflare/workers-types": "^4.20260702.1",
@@ -24,7 +25,7 @@
     "@tailwindcss/container-queries": "^0.1.1",
     "@tailwindcss/typography": "^0.5.20",
     "@types/react": "^19.2.18",
-    "astro": "^6.4.8",
+    "astro": "^7.1.6",
     "autoprefixer": "^10.5.4",
     "gray-matter": "^4.0.3",
     "postcss": "^8.5.25",
@@ -36,14 +37,14 @@
     "wrangler": "^4.119.0"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "13.1.10",
-    "@astrojs/svelte": "^8.1.2",
+    "@astrojs/cloudflare": "^14.1.7",
+    "@astrojs/svelte": "^9.0.1",
     "@fontsource-variable/inter": "^5.3.0",
     "@fontsource-variable/space-grotesk": "^5.3.0",
     "@fontsource/ibm-plex-mono": "^5.3.0",
     "@iconify-json/mdi": "^1.2.3",
     "@iconify-json/teenyicons": "^1.2.2",
-    "astro-embed": "^0.6.2",
+    "astro-embed": "^0.13.1",
     "astro-icon": "^1.1.5",
     "embla-carousel": "^8.6.0",
     "markdown-it": "^14.3.0",
@@ -54,9 +55,6 @@
   },
   "packageManager": "pnpm@9.12.0+sha512.4abf725084d7bcbafbd728bfc7bee61f2f791f977fd87542b3579dcb23504d170d46337945e4c66485cd12d588a0c0e570ed9c477e7ccdd8507cf05f3f92eaca",
   "pnpm": {
-    "patchedDependencies": {
-      "@astrojs/cloudflare@13.1.10": "patches/@astrojs__cloudflare@13.1.10.patch"
-    },
     "overrides": {
       "undici": "^7.29.0",
       "esbuild": "^0.28.1"

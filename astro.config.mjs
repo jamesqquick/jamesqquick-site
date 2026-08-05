@@ -8,6 +8,10 @@ import icon from "astro-icon";
 // https://astro.build/config
 export default defineConfig({
   site: "https://jamesqquick.com/",
+  // Astro 7 changed the default to 'jsx', which additionally strips whitespace
+  // between inline elements (`<span>a</span> <em>b</em>` -> `ab`). Pin to the
+  // pre-7 behavior so this upgrade carries no visual change; revisit separately.
+  compressHTML: true,
   image: {
     layout: "constrained",
     responsiveStyles: true,
