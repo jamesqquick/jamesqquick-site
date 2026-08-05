@@ -12,49 +12,53 @@
     "gen-covers": "tsx --tsconfig scripts/tsconfig.json scripts/gen-covers.ts"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.8",
-    "@astrojs/mdx": "^5.0.2",
-    "@astrojs/rss": "^4.0.17",
-    "@astrojs/sitemap": "^3.7.1",
+    "@astrojs/check": "^0.9.10",
+    "@astrojs/mdx": "^5.0.6",
+    "@astrojs/rss": "^4.0.19",
+    "@astrojs/sitemap": "^3.7.3",
     "@astrojs/tailwind": "^6.0.2",
-    "@cloudflare/workers-types": "^4.20260329.1",
-    "@fontsource/inter": "^5.2.8",
-    "@fontsource/space-grotesk": "^5.2.10",
+    "@cloudflare/workers-types": "^4.20260702.1",
+    "@fontsource/inter": "^5.3.0",
+    "@fontsource/space-grotesk": "^5.3.0",
     "@iconify/utils": "2.1.33",
     "@resvg/resvg-js": "^2.6.2",
     "@tailwindcss/container-queries": "^0.1.1",
-    "@tailwindcss/typography": "^0.5.10",
-    "@types/react": "^19.2.14",
-    "astro": "^6.1.10",
+    "@tailwindcss/typography": "^0.5.20",
+    "@types/react": "^19.2.18",
+    "astro": "^6.4.8",
     "gray-matter": "^4.0.3",
     "prettier-plugin-astro": "^0.14.1",
-    "react": "^19.2.6",
+    "react": "^19.2.8",
     "satori": "^0.26.0",
-    "tsx": "^4.22.3",
+    "tsx": "^4.23.8",
     "typescript": "^5.9.3",
-    "wrangler": "^4.78.0"
+    "wrangler": "^4.119.0"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^13.1.10",
-    "@astrojs/svelte": "^8.0.3",
-    "@fontsource-variable/inter": "^5.2.8",
-    "@fontsource-variable/space-grotesk": "^5.2.10",
-    "@fontsource/ibm-plex-mono": "^5.2.7",
-    "@iconify-json/mdi": "^1.1.67",
-    "@iconify-json/teenyicons": "^1.1.9",
-    "astro-embed": "^0.6.1",
-    "astro-icon": "^1.1.0",
+    "@astrojs/cloudflare": "13.1.10",
+    "@astrojs/svelte": "^8.1.2",
+    "@fontsource-variable/inter": "^5.3.0",
+    "@fontsource-variable/space-grotesk": "^5.3.0",
+    "@fontsource/ibm-plex-mono": "^5.3.0",
+    "@iconify-json/mdi": "^1.2.3",
+    "@iconify-json/teenyicons": "^1.2.2",
+    "astro-embed": "^0.6.2",
+    "astro-icon": "^1.1.5",
     "embla-carousel": "^8.6.0",
-    "markdown-it": "^14.1.0",
-    "resend": "^6.10.0",
-    "sanitize-html": "^2.10.0",
-    "svelte": "^5.55.7",
-    "tailwindcss": "^3.4.7"
+    "markdown-it": "^14.3.0",
+    "resend": "^6.18.1",
+    "sanitize-html": "^2.17.6",
+    "svelte": "^5.56.8",
+    "tailwindcss": "^3.4.19"
   },
   "packageManager": "pnpm@9.12.0+sha512.4abf725084d7bcbafbd728bfc7bee61f2f791f977fd87542b3579dcb23504d170d46337945e4c66485cd12d588a0c0e570ed9c477e7ccdd8507cf05f3f92eaca",
   "pnpm": {
     "patchedDependencies": {
       "@astrojs/cloudflare@13.1.10": "patches/@astrojs__cloudflare@13.1.10.patch"
+    },
+    "overrides": {
+      "undici": "^7.29.0",
+      "esbuild": "^0.28.1"
     }
   }
 }
