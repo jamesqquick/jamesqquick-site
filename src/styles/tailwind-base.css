@@ -1,0 +1,9 @@
+/*
+ * Tailwind entry point. Previously injected by the @astrojs/tailwind
+ * integration (as @astrojs/tailwind/base.css) which has no Astro 7 support.
+ * Kept as a separate stylesheet, imported ahead of global.css, so that
+ * preflight/utilities keep the same cascade position they had before.
+ */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
