@@ -59,7 +59,7 @@ Lastly, there’s an option that I hadn’t thought about until recently. That o
 
 ## What this looks like in practice
 
-Everything so far has been vendor-agnostic, and the reasoning holds regardless of where you run. But it's worth looking at one concrete implementation. `@cloudflare/computer` went into early preview recently and does exactly this.
+Everything so far has been vendor-agnostic, and the reasoning holds regardless of where you run. But it's worth looking at one concrete implementation. [`@cloudflare/computer`](https://github.com/cloudflare/computer) went into early preview recently and does exactly this.
 
 It includes environment options similar to what we talked about above:
 
