@@ -114,7 +114,7 @@ await client.messages.send({
 });
 ```
 
-Although, Im using sms messages, Send.dm supports SMS, WhatsApp and RCS and automatically handles routing, formatting, fallbacks, and complient. The `channel` array allows me to determine which methods I need to support. My code stays the same regardless of which channel actually delivers.
+Although, Im using sms messages, [sent.dm](https://sent.dm/) supports SMS, WhatsApp and RCS and automatically handles routing, formatting, fallbacks, and compliant. The `channel` array allows me to determine which methods I need to support. My code stays the same regardless of which channel actually delivers.
 
 **Key takeaways:**
 
