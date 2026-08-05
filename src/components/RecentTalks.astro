@@ -12,7 +12,7 @@ const talks = await getFeaturedTalks();
     {
       talks.map((talk) => (
         <div class="flex lg:flex-row flex-col gap-4 items-start :items-center">
-          <div class="rounded-full border h-20 w-20 border-border border-opacity-50 flex items-center justify-center">
+          <div class="rounded-full border h-20 w-20 border-border flex items-center justify-center">
             <Image
               class="rounded-full w-14 h-14 object-contain"
               src={talk.data.conferenceLogo}

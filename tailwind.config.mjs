@@ -8,10 +8,10 @@ module.exports = {
         youtube: "#eb3223",
         /* Semantic token-based colors */
         accent: "var(--color-accent)",
-        accentHover: "var(--color-accent-hover)",
+        "accent-hover": "var(--color-accent-hover)",
         "accent-subtle": "var(--color-accent-subtle)",
         text: "var(--color-text)",
-        textMuted: "var(--color-text-muted)",
+        "text-muted": "var(--color-text-muted)",
         "text-subtle": "var(--color-text-subtle)",
         bg: "var(--color-bg)",
         surface: "var(--color-surface)",
