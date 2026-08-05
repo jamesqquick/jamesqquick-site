@@ -1,6 +1,5 @@
 ---
 title: Optimizing Compute Costs for AI Agents
-slug: optimizing-compute-costs-ai-agents
 pubDate: 2026-08-05T00:00:00.000Z
 description: >-
   Agents spend most of their wall-clock time waiting on model inference.
