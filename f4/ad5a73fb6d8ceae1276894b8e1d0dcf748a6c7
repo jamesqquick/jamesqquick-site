@@ -1,0 +1,19 @@
+src/data/blog/a-beginners-guide-to-webmcp-with-react/index.md
+  s_27cb5b7b049f7b::t_877632f4f5ba73 1-612
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "f4ad5a73fb6d8ceae1276894b8e1d0dcf748a6c7",
+  "prompts": {},
+  "sessions": {
+    "s_27cb5b7b049f7b": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_fefa2752bffezxSXzSW7X79CrY",
+        "model": "gpt-5.6-luna"
+      },
+      "human_author": "James Quick <jquick@cloudflare.com>"
+    }
+  }
+}
