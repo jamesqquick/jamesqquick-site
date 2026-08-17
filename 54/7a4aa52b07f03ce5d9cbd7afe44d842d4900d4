@@ -1,0 +1,19 @@
+src/data/blog/choosing-right-environment-flue-agent/index.md
+  s_c5159f42525b96::t_acd2f3b2594184 1-264
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "547a4aa52b07f03ce5d9cbd7afe44d842d4900d4",
+  "prompts": {},
+  "sessions": {
+    "s_c5159f42525b96": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_ff00e6e0effeHJxvokcEToBFNL",
+        "model": "gpt-5.6-luna"
+      },
+      "human_author": "James Quick <jquick@cloudflare.com>"
+    }
+  }
+}
