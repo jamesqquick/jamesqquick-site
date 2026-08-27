@@ -214,8 +214,6 @@ These skills have different jobs:
 - The unslop skill answers, "Which habits make this sound machine-written?"
 - The agent prompt answers, "What should be written now?"
 
-Mounting `SKILL.md` gives the agent the instructions from the skill. It doesn't automatically run the deterministic scanners included in the `unslop` repository. Running those scanners would be a separate tool or publishing check.
-
 ## Give the agent current information
 
 The agent now has a better writing brief, a personal voice, and guidance for avoiding common AI patterns. It still has one problem, though. The model may be working from outdated information. To address this, we'll add a new tool.
