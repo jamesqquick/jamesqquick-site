@@ -34,8 +34,6 @@ cd blog-writer
 pnpm install
 ```
 
-If installation reports unavailable transitive Flue dependency versions, that is an upstream package publishing issue rather than an application configuration problem. Use a currently published working Flue release when one is available.
-
 Next, you'll need to add an API key for the model provider you want to use. In this example, we're going to use OpenAI.
 
 Add the model key to the `.env` file:
