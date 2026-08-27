@@ -1,0 +1,19 @@
+src/data/blog/building-an-ai-powered-blog-writer-with-flue/index.md
+  s_389141b9693bbd::t_444cc0519f37d0 141,143,176,178,241,243-245,247,249,455
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "4af10fa19c6dec477cac68720210e8c4c65b08d2",
+  "prompts": {},
+  "sessions": {
+    "s_389141b9693bbd": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_fbb023b34ffeqsDBlAw4h3hIEJ",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "James Quick <jquick@cloudflare.com>"
+    }
+  }
+}
