@@ -134,27 +134,13 @@ Write like a developer explaining something they built.
 To give your agent access to the skill, import it and mount it with `useSkill()` inside the agent function.
 
 ```typescript
-"use agent";
-
 import { useModel, useSkill } from "@flue/runtime";
 import personalVoice from "../../skills/personal-voice/SKILL.md";
 
 export function BlogWriter() {
-  useModel("openai/gpt-4.1");
+  // ...
   useSkill(personalVoice);
-
-  return `
-Write a complete Markdown blog post for developers.
-
-The post should:
-- Start with a concrete problem or personal observation.
-- Explain why the topic matters before explaining how it works.
-- Use descriptive headings.
-- Include useful commands and focused code examples.
-- Explain important tradeoffs and limitations.
-- End with a short, honest conclusion.
-- Return only the post in Markdown.
-`.trim();
+  // ...
 }
 ```
 
@@ -184,27 +170,12 @@ The URL uses a commit SHA so the skill contents don't change unexpectedly when t
 Import and mount the unslop skill:
 
 ```typescript
-import { useModel, useSkill } from "@flue/runtime";
-import personalVoice from "../../skills/personal-voice/SKILL.md";
 import unslop from "../../skills/unslop/SKILL.md";
 
 export function BlogWriter() {
-  useModel("openai/gpt-4.1");
-  useSkill(personalVoice);
+  // ...
   useSkill(unslop);
-
-  return `
-Write a complete Markdown blog post for developers.
-
-The post should:
-- Start with a concrete problem or personal observation.
-- Explain why the topic matters before explaining how it works.
-- Use descriptive headings.
-- Include useful commands and focused code examples.
-- Explain important tradeoffs and limitations.
-- End with a short, honest conclusion.
-- Return only the post in Markdown.
-`.trim();
+  // ...
 }
 ```
 
@@ -264,19 +235,18 @@ Mount the tool in the agent:
 
 ```typescript
 import { useModel, useSkill, useTool } from "@flue/runtime";
-import personalVoice from "../../skills/personal-voice/SKILL.md";
-import unslop from "../../skills/unslop/SKILL.md";
 import { webSearchTool } from "../tools/web-search";
 
 export function BlogWriter() {
-  useModel("openai/gpt-4.1");
-  useSkill(personalVoice);
-  useSkill(unslop);
+  // ...
   useTool(webSearchTool);
+  // ...
+}
+```
 
-  return `
-Write a complete Markdown blog post for developers.
+Then add the research rules to the existing prompt:
 
+```text
 Before writing, you MUST call search_web exactly once and wait for the result.
 Before writing, activate both the personal-voice and unslop skills.
 Prefer information from https://flueframework.com/docs/ when it is relevant.
@@ -286,8 +256,6 @@ Do not invent package names, APIs, URLs, or commands. If a claim cannot be
 verified, leave it out. Include source links for factual claims.
 
 Follow the personal voice and unslop guidance. Return only the finished Markdown post.
-  `.trim();
-}
 ```
 
 Run the agent and watch for the `search_web` tool call:
@@ -484,7 +452,7 @@ pnpm exec flue run \
   --message "Write a blog post about building an AI-powered content generator with Flue."
 ```
 
-For a machine-readable result envelope, add `--json`:
+To return JSON, add `--json`:
 
 ```bash
 pnpm exec flue run \
@@ -492,8 +460,6 @@ pnpm exec flue run \
   --message "Write a blog post about building an AI-powered content generator with Flue." \
   --json
 ```
-
-Flue handles the local conversation, tool activity, response lifecycle, and waiting for the final answer. Because this tutorial uses `flue run`, it doesn't need an HTTP server, `@flue/sdk`, a workflow, or a custom polling endpoint.
 
 ## What to build next
 
