@@ -166,8 +166,6 @@ pnpm exec flue run \
   --message "Write a blog post about building AI agents with Flue."
 ```
 
-The prompt says what to produce. The skill says how the writing should sound. Keeping those concerns separate means the same voice guidance can be reused by another content agent later.
-
 ## Add the unslop skill
 
 The personal voice skill makes the output sound more specific, but it doesn't address every recognizable AI-writing pattern. The [`unslop`](https://github.com/theclaymethod/unslop) project provides a separate skill for that problem. I've had good personal success with this skill recently.
