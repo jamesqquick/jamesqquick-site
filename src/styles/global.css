@@ -45,7 +45,7 @@ p {
   @apply font-sans;
   @apply prose-headings:font-display prose-headings:text-text;
   @apply prose-h2:text-accent prose-h3:text-text prose-h4:text-text;
-  @apply prose-p:text-textMuted prose-li:text-textMuted;
+  @apply prose-p:text-text-muted prose-li:text-text-muted;
   @apply prose-strong:text-text;
   @apply prose-a:text-text prose-a:no-underline;
   @apply prose-code:font-mono prose-pre:font-mono;

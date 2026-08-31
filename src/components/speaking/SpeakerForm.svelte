@@ -92,7 +92,7 @@
   >
     Send Request
   </button>
-  <p class="text-lg text-center text-textMuted" transition:fade>
+  <p class="text-lg text-center text-text-muted" transition:fade>
     {#if successMsg}
       {successMsg}
     {:else if errorMsg}
