@@ -22,7 +22,6 @@ Here are the agents we'll walk through:
 - **Data-reshaping assistant** - Takes a pasted CSV of video analytics, filters and reorders the data, then returns the updated data.
 - **Markdown formatter** - Takes a rough draft, seeds it into an in-memory file, and runs a linter-like pass with **`sed`** and **`awk`** to normalize heading levels and spacing.
 - **Code snippet verifier** - Takes the TypeScript snippets from a draft post, actually runs **`npm install`** and **`tsc`**/**`node`** against them to confirm they compile and execute correctly.
-- **Screenshot generator** - Clones your actual project repo, runs the dev server, and captures real output and screenshots to embed in a tutorial.
 
 ## What are sandboxes?
 
