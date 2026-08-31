@@ -13,8 +13,6 @@ coverImage: ./cover.png
 ---
 
 <!-- Meta: Learn WebMCP with React by building browser tools, enabling Chrome support, connecting Chrome DevTools MCP, and preparing a bakery order inquiry. -->
-# A Beginner's Guide to WebMCP with React
-
 I think the days of directly interacting with websites and apps are slowly fading away. MCP servers already enable AI agents to do lots of work for you. Now, with WebMCP, agents can continue to do more by interacting directly with your site in the browser.
 
 Instead of making an agent guess which button to click or which field to fill in, your website can expose clear, structured tools that the agent can discover and call. In this tutorial, you’ll learn how to build a basic tool using WebMCP. Then, I’ll show you an example I added to my personal [bakery site](https://bytheboysbakery.com/).
