@@ -11,7 +11,7 @@ tags:
 coverImage: ./cover.png
 ---
 
-As a content creator, anything I can do to make the process more efficient is a huge win. I've been looking to build agents to help me in different phases of content creation. In this post, I'll show you how to build a simple blog post generator using [Flue](https://flueframework.com/), an open TypeScript framework for building AI agents. Flue gives us a structured way to combine a model, instructions, skills, and tools, then run the agent locally or deploy it later.
+As a content creator, anything I can do to make the process more efficient is a huge win. I've been looking to build agents to help me in different phases of content creation. In this post, I'll show you how to build a simple blog post generator using [Flue](https://flueframework.com/), an open TypeScript framework for building AI agents. Flue gives us a structured way to combine a model, instructions, skills, and tools with a React like syntax.
 
 You'll see how to:
 
