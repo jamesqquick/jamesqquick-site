@@ -11,7 +11,7 @@ tags:
 coverImage: ./cover.png
 ---
 
-As a content creator, anything I can do to make the process more efficient is a huge win. I've been looking to build agents to help me in different phases of content creation. In this post, I'll talk about how to build a simple blog post generator agent using the Flue Framework.
+As a content creator, anything I can do to make the process more efficient is a huge win. I've been looking to build agents to help me in different phases of content creation. In this post, I'll show you how to build a simple blog post generator using [Flue](https://flueframework.com/), an open TypeScript framework for building AI agents. Flue gives us a structured way to combine a model, instructions, skills, and tools with a React like syntax.
 
 You'll see how to:
 
@@ -24,7 +24,7 @@ You'll see how to:
 
 Flue includes a CLI that can scaffold a project for us. After it's created, we can run and test the agent directly from the command line.
 
-You'll need Node.js 22.19 or newer, pnpm, an OpenAI API key, and a Tavily API key for the completed version.
+You'll need Node.js 22.19 or newer, pnpm, an OpenAI API key, and a [Tavily](https://www.tavily.com/) API key for the completed version. Tavily is a web search API built for AI agents. We'll use it later to give the writer current sources before it starts drafting.
 
 Run the following command to scaffold a fresh project named `blog-writer` and install its dependencies.
 
@@ -154,7 +154,9 @@ pnpm exec flue run \
 
 ## Add the unslop skill
 
-The personal voice skill makes the output sound more specific, but it doesn't address every recognizable AI-writing pattern. The [`unslop`](https://github.com/theclaymethod/unslop) project provides a separate skill for that problem. I've had good personal success with this skill recently.
+The personal voice skill makes the output sound more specific, but it doesn't address every recognizable AI-writing pattern. The [`unslop`](https://github.com/theclaymethod/unslop) project provides a separate skill for that problem. I've had good personal success with this skill recently. 
+
+On a separate note, my friend (and now former co-worker 😥), Craig Dennis, created a Flue agent to spot the patterns that make a website look AI-generated. Watch the video [Slop Doctor video](https://www.youtube.com/watch?v=gO6eRAhzjss) to see how it works.
 
 Create a local directory for the skill and copy it from GitHub:
 
@@ -189,7 +191,7 @@ These skills have different jobs:
 
 The agent now has a better writing brief, a personal voice, and guidance for avoiding common AI patterns. It still has one problem, though. The model may be working from outdated information. To address this, we'll add a new tool.
 
-We'll build a research tool in three small steps using [Tavily](https://www.tavily.com/):
+We'll build a research tool in three small steps using Tavily:
 
 - Register the tool
 - Connect it to the API
