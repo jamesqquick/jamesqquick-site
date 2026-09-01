@@ -154,7 +154,9 @@ pnpm exec flue run \
 
 ## Add the unslop skill
 
-The personal voice skill makes the output sound more specific, but it doesn't address every recognizable AI-writing pattern. The [`unslop`](https://github.com/theclaymethod/unslop) project provides a separate skill for that problem. I've had good personal success with this skill recently. The same idea applies beyond writing. The [Slop Doctor video](https://www.youtube.com/watch?v=gO6eRAhzjss) uses a Flue agent to spot the patterns that make a website look AI-generated.
+The personal voice skill makes the output sound more specific, but it doesn't address every recognizable AI-writing pattern. The [`unslop`](https://github.com/theclaymethod/unslop) project provides a separate skill for that problem. I've had good personal success with this skill recently. 
+
+On a separate note, my friend (and now former co-worker 😥), Craig Dennis, created a Flue agent to spot the patterns that make a website look AI-generated. Watch the video [Slop Doctor video](https://www.youtube.com/watch?v=gO6eRAhzjss) to see how it works.
 
 Create a local directory for the skill and copy it from GitHub:
 
