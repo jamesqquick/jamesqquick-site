@@ -134,9 +134,22 @@ const response = await fetch("/api/jobs", {
   body: JSON.stringify({ prompt }),
 });
 
-const { jobId } = (await response.json()) as {
-  jobId: string;
-};
+if (!response.ok) {
+  throw new Error(`Failed to start workflow: ${response.status}`);
+}
+
+const body: unknown = await response.json();
+
+if (
+  !body ||
+  typeof body !== "object" ||
+  !("jobId" in body) ||
+  typeof body.jobId !== "string"
+) {
+  throw new Error("Invalid job response");
+}
+
+const { jobId } = body;
 const protocol = location.protocol === "https:" ? "wss" : "ws";
 
 const socket = new WebSocket(
@@ -330,7 +343,7 @@ const research = await step.do("research", async () => {
 });
 ```
 
-Add a final step that publishes `complete` when the Workflow finishes. Publish `failed` or `cancelled` when the Workflow ends unsuccessfully so a disconnected browser does not wait for another update that will never arrive.
+Add a final step that publishes `complete` when the Workflow finishes. Publish `failed` from a catch handler when a step fails. Treat `cancelled` as a Workflow status that the client observes separately, because a terminated Workflow may not run cleanup code. A reconnected browser should not wait for another progress update that will never arrive.
 
 ```typescript
 await step.do("complete", async () => {
@@ -370,7 +383,7 @@ socket.addEventListener("message", (event) => {
 });
 ```
 
-In a real application, keep this type in a shared module so the Worker and browser use the same stage values.
+In a real application, keep this type in a shared module so the Worker and browser use the same stage values. Validate the parsed message at runtime before rendering it; the type assertion only affects TypeScript and does not validate data from the network.
 
 ## Wrap up
 
