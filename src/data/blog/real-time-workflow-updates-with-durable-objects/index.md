@@ -45,7 +45,7 @@ This article assumes you have basic understanding of Workflows and Durable Objec
 
 ## The gap in real-time updates
 
-TODO: create graphic for architecture
+![Real-time workflow architecture](./workflow-realtime-architecture.png)
 
 For the purposes of this article, a Workflow is triggered by an HTTP call from the app running in the browser. In the blog generation example, this happens when the user clicks “Generate Blog Post”. This HTTP request does not stay open for the entirety of the workflow. Instead, the Worker starts a Workflow and responds with an instance ID.
 
