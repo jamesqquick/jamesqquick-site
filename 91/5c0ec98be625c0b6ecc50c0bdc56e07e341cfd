@@ -1,0 +1,165 @@
+src/content/courses/astro-in-practice-weekender/cover.svg
+  s_8e1e8490d3f402::t_328c648b469418 1-17
+src/content/courses/astro-in-practice-weekender/index.mdx
+  s_8e1e8490d3f402::t_fd569736110df0 1-44
+src/content/courses/astro-in-practice-weekender/sections/01-understand-the-app/01-tour-the-weekender.md
+  s_b7fc3738bfca8d::t_8a401fb16e329f 1-87
+src/content/courses/astro-in-practice-weekender/sections/01-understand-the-app/02-map-the-architecture.md
+  s_b7fc3738bfca8d::t_02615585f247f8 1-133
+src/content/courses/astro-in-practice-weekender/sections/01-understand-the-app/03-understand-astro-rendering.md
+  s_b7fc3738bfca8d::t_2e5bff3376962f 1-144
+src/content/courses/astro-in-practice-weekender/sections/01-understand-the-app/index.mdx
+  s_8e1e8490d3f402::t_2e32e39df4f890 1-5
+src/content/courses/astro-in-practice-weekender/sections/02-create-the-astro-foundation/01-scaffold-the-project.md
+  s_ab0c32180f7712::t_22e620b3e1c05f 1-162
+src/content/courses/astro-in-practice-weekender/sections/02-create-the-astro-foundation/02-tour-project-structure.md
+  s_b1b3ed94901a01::t_cf216e2dd94f96 1-144
+src/content/courses/astro-in-practice-weekender/sections/02-create-the-astro-foundation/03-add-react-and-tailwind.md
+  s_b1b3ed94901a01::t_ca0e350dd4a3b9 1-160
+src/content/courses/astro-in-practice-weekender/sections/02-create-the-astro-foundation/04-create-design-tokens.md
+  s_b1b3ed94901a01::t_4733656fc742b6 1-183
+src/content/courses/astro-in-practice-weekender/sections/02-create-the-astro-foundation/05-build-base-layout.md
+  s_fb5dc35a954d86::t_9b959ed895c9ff 1-146
+src/content/courses/astro-in-practice-weekender/sections/02-create-the-astro-foundation/index.mdx
+  s_8e1e8490d3f402::t_37bd24d1ce2a8b 1-5
+src/content/courses/astro-in-practice-weekender/sections/03-build-the-static-experience/01-build-editorial-hero.md
+  s_6ae674b5685a0d::t_46b918ef34f7ce 1-143
+src/content/courses/astro-in-practice-weekender/sections/03-build-the-static-experience/05-conditional-styles-class-list.md
+  s_4dfeeb5e04e838::t_078122b1376c08 1-115
+src/content/courses/astro-in-practice-weekender/sections/03-build-the-static-experience/06-responsive-accessible-states.md
+  s_4dfeeb5e04e838::t_245b637f8eef67 1-140
+src/content/courses/astro-in-practice-weekender/sections/03-build-the-static-experience/index.mdx
+  s_8e1e8490d3f402::t_ecbbdc29287de6 1-5
+src/content/courses/astro-in-practice-weekender/sections/04-model-content/01-create-content-config.md
+  s_a2790a3f8b63b9::t_f13ffb8d7dd999 1-101
+src/content/courses/astro-in-practice-weekender/sections/04-model-content/02-model-events-zod.md
+  s_a2790a3f8b63b9::t_46d2ef716c7ac2 1-134
+src/content/courses/astro-in-practice-weekender/sections/04-model-content/03-model-venues-and-references.md
+  s_a2790a3f8b63b9::t_a419311de47cf9 1-122
+src/content/courses/astro-in-practice-weekender/sections/04-model-content/05-domain-types-and-formatting.md
+  s_a2790a3f8b63b9::t_88f6a021ffefb7 1-137
+src/content/courses/astro-in-practice-weekender/sections/04-model-content/index.mdx
+  s_8e1e8490d3f402::t_f635b8f1c2e774 1-5
+src/content/courses/astro-in-practice-weekender/sections/05-generate-the-static-site/index.mdx
+  s_8e1e8490d3f402::t_69e4a8d312c5ab 1-5
+src/content/courses/astro-in-practice-weekender/sections/06-add-event-filtering/02-create-serializable-event-summaries.md
+  s_fb5dc35a954d86::t_17c3f8ce0857aa 1-244
+src/content/courses/astro-in-practice-weekender/sections/06-add-event-filtering/03-write-filtering-functions.md
+  s_a2790a3f8b63b9::t_a9bdadcea4a4c8 1-197
+src/content/courses/astro-in-practice-weekender/sections/06-add-event-filtering/04-build-event-explorer.md
+  s_a2790a3f8b63b9::t_05481221ae579e 1-242
+src/content/courses/astro-in-practice-weekender/sections/06-add-event-filtering/05-sync-filters-with-url.md
+  s_a2790a3f8b63b9::t_ffac27dcb9f12f 1-237
+src/content/courses/astro-in-practice-weekender/sections/06-add-event-filtering/06-empty-states-and-filter-tests.md
+  s_51aa1af0c0ef5b::t_3ee3814ea9f9f1 1-261
+src/content/courses/astro-in-practice-weekender/sections/06-add-event-filtering/index.mdx
+  s_8e1e8490d3f402::t_7ef06441831c68 1-5
+src/content/courses/astro-in-practice-weekender/sections/07-build-the-saved-plan/01-design-storage-format.md
+  s_51aa1af0c0ef5b::t_3722591f117929 1-144
+src/content/courses/astro-in-practice-weekender/sections/07-build-the-saved-plan/02-create-use-saved-events-hook.md
+  s_51aa1af0c0ef5b::t_430906b65f34de 1-147
+src/content/courses/astro-in-practice-weekender/sections/07-build-the-saved-plan/03-save-event-button.md
+  s_51aa1af0c0ef5b::t_fbee5120430948 1-163
+src/content/courses/astro-in-practice-weekender/sections/07-build-the-saved-plan/04-sync-saved-count.md
+  s_51aa1af0c0ef5b::t_8078db63d49727 1-107
+src/content/courses/astro-in-practice-weekender/sections/07-build-the-saved-plan/07-harden-and-test-storage.md
+  s_8cf746fdd0fcb6::t_7d6623203c1175 1-276
+src/content/courses/astro-in-practice-weekender/sections/07-build-the-saved-plan/index.mdx
+  s_8e1e8490d3f402::t_1b58365f0b91ee 1-5
+src/content/courses/astro-in-practice-weekender/sections/08-production-metadata/02-rss-feed.md
+  s_51aa1af0c0ef5b::t_b39fcf73739545 1-99
+src/content/courses/astro-in-practice-weekender/sections/08-production-metadata/index.mdx
+  s_8e1e8490d3f402::t_e61b3827d3fabc 1-5
+src/content/courses/astro-in-practice-weekender/sections/09-validate-and-ship/03-playwright-accessibility.md
+  s_a2790a3f8b63b9::t_809ebdd2de512d 1-510
+src/content/courses/astro-in-practice-weekender/sections/09-validate-and-ship/index.mdx
+  s_8e1e8490d3f402::t_58b88990fb4da4 1-5
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "915c0ec98be625c0b6ecc50c0bdc56e07e341cfd",
+  "prompts": {},
+  "sessions": {
+    "s_4dfeeb5e04e838": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_fa2a8e8c6ffeSsoiI6nPl4hAM7",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "James Quick <jquick@cloudflare.com>"
+    },
+    "s_51aa1af0c0ef5b": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_fa161c385ffeTvL2CoLD66igyn",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "James Quick <jquick@cloudflare.com>"
+    },
+    "s_6ae674b5685a0d": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_fa1c461f5ffe4NT6rAMrWJjF6t",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "James Quick <jquick@cloudflare.com>"
+    },
+    "s_8cf746fdd0fcb6": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_f9769d07fffeT0QwuGHL5FxzjW",
+        "model": "gpt-5.6-luna"
+      },
+      "human_author": "James Quick <jquick@cloudflare.com>"
+    },
+    "s_8e1e8490d3f402": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_fa26ee56fffeWIgkrqDGOYweJU",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "James Quick <jquick@cloudflare.com>"
+    },
+    "s_a2790a3f8b63b9": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_fa19311a6ffednT7uVe4xmuFbw",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "James Quick <jquick@cloudflare.com>"
+    },
+    "s_ab0c32180f7712": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_f971700d5ffeJM4VrXjshwL8F7",
+        "model": "gpt-5.6-luna"
+      },
+      "human_author": "James Quick <jquick@cloudflare.com>"
+    },
+    "s_b1b3ed94901a01": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_fa1c09e14ffezNXJPRmXFVg22P",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "James Quick <jquick@cloudflare.com>"
+    },
+    "s_b7fc3738bfca8d": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_fa1c460f0ffeXErnMow01z78jS",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "James Quick <jquick@cloudflare.com>"
+    },
+    "s_fb5dc35a954d86": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_faf74c11affeCpY5c3130w569u",
+        "model": "gpt-5.6-luna"
+      },
+      "human_author": "James Quick <jquick@cloudflare.com>"
+    }
+  }
+}
