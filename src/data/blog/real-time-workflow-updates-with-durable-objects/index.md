@@ -15,15 +15,11 @@ Maybe I’m a nerd, but Cloudflare Workflows is one of my favorite products. The
 
 It’s not the most exciting technology in many ways, but it’s an essential part of every app I build. A couple of examples:
 
-TODO: create simple graphic for visualization
-
 A receipt tracking app that:
 
 - uploads an image
 - runs OCR to parse data
 - saves the data to the database
-
-TODO: create simple graphic for visualization
 
 A photo booth app:
 
@@ -38,8 +34,6 @@ In this article, I’ll show you how to use Cloudflare’s Durable Objects to pr
 - researching
 - writing
 - reviewing
-
-TODO: create simple graphic for visualization
 
 This article assumes you have basic understanding of Workflows and Durable Objects. If not, please check the docs.
 
