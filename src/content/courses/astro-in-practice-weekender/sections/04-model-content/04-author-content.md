@@ -107,7 +107,7 @@ Outside food is welcome. Local food trucks and a free water station will be set 
 
 The local image path is relative to the Markdown file. Astro's `image()` helper resolves it into image metadata. `imageAlt` remains authored content because a filename cannot describe the poster.
 
-For the remaining entries, use the same image path and describe the shared artwork as temporary. Learners can replace each image and alt value later without changing the content schema, query helpers, or components.
+For the remaining entries, use the same image path and describe the shared artwork as temporary. You can replace each image and alt value later without changing the content schema, query helpers, or components.
 
 ## Add the remaining event entries
 
