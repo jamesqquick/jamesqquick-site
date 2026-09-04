@@ -4,5 +4,6 @@
 declare module "cloudflare:workers" {
   interface CloudflareEnv {
     COURSE_BUCKET: R2Bucket;
+    EMAIL: SendEmail;
   }
 }
