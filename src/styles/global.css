@@ -53,7 +53,7 @@ p {
 }
 
 /* Fancy hover fill for prose links — mirrors Link.astro .link-fancy */
-.ds-prose a {
+.ds-prose a:not(.button-base):not(.no-underline) {
   position: relative;
   isolation: isolate;
   display: inline-block;
@@ -63,7 +63,7 @@ p {
   color: var(--color-text);
 }
 
-.ds-prose a::after {
+.ds-prose a:not(.button-base):not(.no-underline)::after {
   content: "";
   position: absolute;
   z-index: -1;
@@ -82,12 +82,12 @@ p {
     background-color var(--duration-normal) var(--ease-out);
 }
 
-.ds-prose a:hover {
+.ds-prose a:not(.button-base):not(.no-underline):hover {
   color: var(--color-bg);
   z-index: 1;
 }
 
-.ds-prose a:hover::after {
+.ds-prose a:not(.button-base):not(.no-underline):hover::after {
   left: -0.125rem;
   right: -0.125rem;
   bottom: 0;
