@@ -1,0 +1,19 @@
+src/content/courses/astro-in-practice-weekender/sections/02-create-the-astro-foundation/05-add-header-and-footer.md
+  s_3a4f0e1a81ca50::t_792fc9d7e67b34 4,7,9-10,19,21,23,30,35-38,41,43-83,88,90,92,97-98,100,103,110-111,118,120,122,125-130,133,135-150,152,154-160,162-185,187,189
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "0242d92a05c5360b9de3966f34adc14539dbdb9c",
+  "prompts": {},
+  "sessions": {
+    "s_3a4f0e1a81ca50": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_f7947d287ffedwoisgCoB4H0V8",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "James Quick <jquick@cloudflare.com>"
+    }
+  }
+}
