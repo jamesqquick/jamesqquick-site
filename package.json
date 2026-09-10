@@ -25,7 +25,7 @@
     "@tailwindcss/container-queries": "^0.1.1",
     "@tailwindcss/typography": "^0.5.20",
     "@types/react": "^19.2.18",
-    "astro": "^7.1.6",
+    "astro": "^7.2.8",
     "autoprefixer": "^10.5.4",
     "gray-matter": "^4.0.3",
     "postcss": "^8.5.25",
