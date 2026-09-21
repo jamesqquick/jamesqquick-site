@@ -1,0 +1,19 @@
+src/data/blog/safely-run-agent-generated-code-cloudflare-sandboxes/index.md
+  s_1c366b608ef41d::t_c53380f9297fb7 1-649
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "97de249281c8052fbbf6d628e4e225eeac9d30ca",
+  "prompts": {},
+  "sessions": {
+    "s_1c366b608ef41d": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_f3ab20530ffeucJNbuGBBD1IRL",
+        "model": "gpt-5.6-luna"
+      },
+      "human_author": "James Quick <jquick@cloudflare.com>"
+    }
+  }
+}
