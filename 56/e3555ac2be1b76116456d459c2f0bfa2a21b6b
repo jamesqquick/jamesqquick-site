@@ -1,0 +1,19 @@
+src/data/blog/automate-landing-page-review-cloudflare-browser-run/index.md
+  s_4c0fbefc77b262::t_dbc6570ea7f0a8 110,114,118,123-124,127-128
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "56e3555ac2be1b76116456d459c2f0bfa2a21b6b",
+  "prompts": {},
+  "sessions": {
+    "s_4c0fbefc77b262": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_f554df977ffeioQamMxV92Ofi1",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "James Quick <jquick@cloudflare.com>"
+    }
+  }
+}
