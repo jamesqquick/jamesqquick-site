@@ -107,25 +107,25 @@ The final `wrangler.jsonc` should look similar to this. Keep the scaffold's exis
   "compatibility_flags": ["nodejs_compat"],
   "assets": {
     "binding": "ASSETS",
-    "directory": "./dist"
+    "directory": "./dist",
   },
   "browser": {
     "binding": "BROWSER",
-    "remote": true
+    "remote": true,
   },
   "ai": {
     "binding": "AI",
-    "remote": true
+    "remote": true,
   },
   "kv_namespaces": [
     {
       "binding": "QUICKGLANCE_ANALYSES",
-      "id": "<YOUR_KV_NAMESPACE_ID>"
-    }
+      "id": "<YOUR_KV_NAMESPACE_ID>",
+    },
   ],
   "observability": {
-    "enabled": true
-  }
+    "enabled": true,
+  },
 }
 ```
 
