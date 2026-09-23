@@ -1,5 +1,5 @@
 ---
-title: Automate Landing Page Review with Cloudflare Browser Run
+title: AI Automated Landing Page Reviews
 slug: automate-landing-page-review-cloudflare-browser-run
 pubDate: 2026-09-22T00:00:00.000Z
 description: Build an Astro API that captures a landing page with Browser Run, grades its message with Workers AI, and caches the result in KV.
