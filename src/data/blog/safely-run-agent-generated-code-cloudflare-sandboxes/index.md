@@ -1,6 +1,6 @@
 ---
 title: Safely Run Agent-Generated Code with Cloudflare Sandboxes
-pubDate: 2026-09-21T00:00:00.000Z
+pubDate: 2026-10-07T00:00:00.000Z
 description: >-
   Learn how to run agent-generated JavaScript safely with Cloudflare Containers,
   Durable Objects, phase-specific egress policies, and protected GitHub credentials.
