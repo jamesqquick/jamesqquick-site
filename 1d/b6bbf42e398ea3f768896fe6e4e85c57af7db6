@@ -1,0 +1,19 @@
+tests/fixtures/blog-archive-original.json
+  s_0518c5a23c6ee0::t_f6c1eea2dd475f 110-114,623,661
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "1db6bbf42e398ea3f768896fe6e4e85c57af7db6",
+  "prompts": {},
+  "sessions": {
+    "s_0518c5a23c6ee0": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_ee81ab411ffe1Fl5LBMBT6IEr6",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "James Quick <jquick@cloudflare.com>"
+    }
+  }
+}
