@@ -1,47 +1,47 @@
 ---
-import { getImage } from "astro:assets";
 import ArticleHeader from "../components/ArticleHeader.astro";
 import BaseLayout from "./BaseLayout.astro";
 import Section from "@components/Section.astro";
 import CopyPromptButton from "@components/CopyPromptButton.astro";
+import BlogContent from "../components/BlogContent.astro";
+import {
+  getBlogPostDate,
+  getBlogPostPath,
+  getBlogSlug,
+  resolveBlogImageUrl,
+  type BlogEntry,
+} from "../utils/emdash-blog";
 
 export interface Props {
-  frontmatter: {
-    title: string;
-    description: string;
-    pubDate: Date;
-    coverImage: {
-      src: string;
-      width: number;
-      height: number;
-      format: "png" | "jpg" | "jpeg" | "tiff" | "webp" | "gif" | "svg" | "avif";
-    };
-    youTubeVideoId?: string;
-  };
+  post: BlogEntry;
+  isPreview?: boolean;
 }
 
-const {
-  frontmatter: { title, description, pubDate, youTubeVideoId, coverImage },
-} = Astro.props as Props;
-
-const { src: imageURL } = await getImage({ src: coverImage });
-const postUrl = new URL(Astro.url.pathname, Astro.site).href;
+const { post, isPreview = false } = Astro.props as Props;
+const { title, excerpt, featured_image, youtube_video_id } = post.data;
+const postUrl = new URL(getBlogPostPath(getBlogSlug(post)), Astro.site).href;
+const imageUrl = resolveBlogImageUrl(
+  featured_image,
+  Astro.locals.emdash?.getPublicMediaUrl
+);
 ---
 
-<BaseLayout title={title} description={description} image={imageURL}>
-  <main >
-    <Section>
-
-        <article class="ds-prose">
-        <ArticleHeader
-        coverImage={coverImage}
+<BaseLayout
+  title={title}
+  description={excerpt}
+  image={imageUrl}
+  canonicalUrl={postUrl}
+  noIndex={isPreview}
+>
+  <Section>
+    <article class="ds-prose">
+      <ArticleHeader
         title={title}
-        date={pubDate}
-        youTubeVideoId={youTubeVideoId}
-        />
-        <CopyPromptButton url={postUrl} />
-        <slot />
+        date={getBlogPostDate(post)}
+        youTubeVideoId={youtube_video_id}
+      />
+      <CopyPromptButton url={postUrl} />
+      <BlogContent><slot /></BlogContent>
     </article>
-</Section>
-  </main>
+  </Section>
 </BaseLayout>

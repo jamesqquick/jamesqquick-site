@@ -1,17 +1,43 @@
 ---
-import { render } from "astro:content";
+import { PortableText } from "emdash/ui";
+import Section from "@components/Section.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import BlogCode from "@components/BlogCode.astro";
+import BlogBlock from "@components/BlogBlock.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
 import BlogPostLayout from "../../layouts/BlogPostLayout.astro";
-import { getEntryStaticPaths } from "src/utils/contentPaths";
+import { getBlogPostBySlug } from "../../utils/emdash-blog";
 
-export const prerender = true;
+export const prerender = false;
 
-export async function getStaticPaths() {
-  return getEntryStaticPaths("blog");
-}
-const { entry } = Astro.props;
-const { Content } = await render(entry);
+const slug = Astro.params.slug;
+const { entry, isPreview } = slug
+  ? await getBlogPostBySlug(slug)
+  : { entry: null, isPreview: false };
+
+if (!entry) Astro.response.status = 404;
 ---
 
-<BlogPostLayout frontmatter={entry.data}>
-  <Content />
-</BlogPostLayout>
+{
+  entry ? (
+    <BlogPostLayout post={entry} isPreview={isPreview}>
+      <PortableText
+        value={entry.data.content ?? []}
+        components={{
+          block: BlogBlock,
+          type: { code: BlogCode },
+        }}
+      />
+    </BlogPostLayout>
+  ) : (
+    <BaseLayout title="404 | James Q Quick">
+      <Section>
+        <SectionHeader
+          title="404"
+          subtitle="The page you are looking for does not exist"
+          variant="secondary"
+        />
+      </Section>
+    </BaseLayout>
+  )
+}

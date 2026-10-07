@@ -1,0 +1,661 @@
+{
+  "sources": [
+    {
+      "file": "why-you-cant-pass-functions-from-server-client-components/2024-10-25-why-you-cant-pass-functions-from-server-to-client-components.md",
+      "slug": "why-you-cant-pass-functions-from-server-to-client-components",
+      "title": "Why You Can't Pass Functions From Server to Client Components",
+      "date": "2024-10-25T15:49:21.902Z"
+    },
+    {
+      "file": "why-and-how-to-get-started-live-streaming/why-and-how-to-get-started-live-streaming.md",
+      "slug": "why-and-how-to-get-started-live-streaming",
+      "title": "Why and How to Get Started Live Streaming",
+      "date": "2021-07-14T00:00:00.000Z"
+    },
+    {
+      "file": "vscode-git-extensions-2020/vscode-git-extensions-2020.md",
+      "slug": "vscode-git-extensions-2020",
+      "title": "Top Visual Studio Code Git Extensions in 2020",
+      "date": "2020-04-14T00:00:00.000Z"
+    },
+    {
+      "file": "vs-code-react-setup-5-tips/vs-code-react-setup-5-tips.md",
+      "slug": "vs-code-react-setup-5-tips",
+      "title": "VS Code React Setup - 5 Tips",
+      "date": "2020-05-19T00:00:00.000Z"
+    },
+    {
+      "file": "visual-studio-code-browser-preview-extension/visual-studio-code-browser-preview-extension.md",
+      "slug": "visual-studio-code-browser-preview-extension",
+      "title": "Visual Studio Code Browser Preview Extension",
+      "date": "2020-04-28T00:00:00.000Z"
+    },
+    {
+      "file": "using-node-watch-instead-of-nodemon/using-node-watch-instead-of-nodemon.md",
+      "slug": "using-node-watch-instead-of-nodemon",
+      "title": "Using Node Watch Instead of Nodemon",
+      "date": "2023-02-17T00:00:00.000Z"
+    },
+    {
+      "file": "understanding-the-ai-agent-loop/understanding-the-ai-agent-loop.md",
+      "slug": "understanding-the-ai-agent-loop",
+      "title": "Understanding the AI Agent Loop",
+      "date": "2026-06-30T00:00:00.000Z"
+    },
+    {
+      "file": "typescript-databases-types-sync-xata/typescript-and-databases---keep-your-types-in-sync-with-xata.md",
+      "slug": "typescript-databases-types-sync-xata",
+      "title": "TypeScript and Databases - Keep Your Types In Sync With Xata",
+      "date": "2023-03-29T15:20:06.873Z"
+    },
+    {
+      "file": "twilio-node-text-message/twilio-node-text-message.md",
+      "slug": "twilio-node-text-message",
+      "title": "Twilio and Node - Send Your First Text Message",
+      "date": "2020-02-11T00:00:00.000Z"
+    },
+    {
+      "file": "trigger-ai-agent-from-your-phone/index.md",
+      "title": "Here's How I Trigger My AI Agent From My Phone",
+      "date": "2026-07-21T00:00:00.000Z"
+    },
+    {
+      "file": "top-5-struggles-of-a-developer-advocate/top-5-struggles-of-a-developer-advocate.md",
+      "slug": "top-5-struggles-of-a-developer-advocate",
+      "title": "Top 5 Struggles of a Developer Advocate",
+      "date": "2022-05-17T00:00:00.000Z"
+    },
+    {
+      "file": "top-5-pieces-of-advice-for-aspiring-and-learning-developers/top-5-pieces-of-advice-for-aspiring-and-learning-developers.md",
+      "slug": "top-5-pieces-of-advice-for-aspiring-and-learning-developers",
+      "title": "Top 5 Pieces of Advice for Aspiring and Learning Developers",
+      "date": "2020-09-22T00:00:00.000Z"
+    },
+    {
+      "file": "tips-handling-tracking-errors-javascript/2023-04-21-tips-for-handling-and-tracking-errors-in-javascript.md",
+      "slug": "tips-handling-tracking-errors-javascript",
+      "title": "Tips For Handling and Tracking Errors in JavaScript",
+      "date": "2023-04-21T18:57:48.746Z"
+    },
+    {
+      "file": "the-easiest-way-to-add-node-js-user-authentication/the-easiest-way-to-add-node-js-user-authentication.md",
+      "slug": "the-easiest-way-to-add-node-js-user-authentication",
+      "title": "The Easiest Way to Add Node.js User Authentication",
+      "date": "2020-10-28T00:00:00.000Z"
+    },
+    {
+      "file": "supercharge-your-git-workflow-with-the-gitlens-vs-code-extension/supercharge-your-git-workflow-with-the-gitlens-vs-code-extension.md",
+      "slug": "supercharge-your-git-workflow-with-the-gitlens-vs-code-extension",
+      "title": "Supercharge Your Git Workflow with the GitLens VS Code Extension",
+      "date": "2020-09-01T00:00:00.000Z"
+    },
+    {
+      "file": "setup-a-custom-domain-with-netlify/setup-a-custom-domain-with-netlify.md",
+      "slug": "setup-a-custom-domain-with-netlify",
+      "title": "Setup a Custom Domain with Netlify",
+      "date": "2022-07-14T00:00:00.000Z"
+    },
+    {
+      "file": "settings-sync-in-visual-studio-code/settings-sync-in-visual-studio-code.md",
+      "slug": "settings-sync-in-visual-studio-code",
+      "title": "Settings Sync is Built Into Visual Studio Code Now",
+      "date": "2020-09-15T00:00:00.000Z"
+    },
+    {
+      "file": "settings-sync-extension-for-visual-studio-code/settings-sync-extension-for-visual-studio-code.md",
+      "slug": "settings-sync-extension-for-visual-studio-code",
+      "title": "Settings Sync Extension for Visual Studio Code",
+      "date": "2020-01-28T00:00:00.000Z"
+    },
+    {
+      "file": "register-a-domain-with-your-ai-agent/2026-04-16-register-a-domain-with-your-ai-agent.md",
+      "slug": "register-a-domain-with-your-ai-agent",
+      "title": "Register a Domain With Your AI Agent",
+      "date": "2026-04-16T12:00:00.000Z"
+    },
+    {
+      "file": "react-router-in-five-minutes/react-router-in-five-minutes.md",
+      "slug": "react-router-in-five-minutes",
+      "title": "React Router in 5 Minutes",
+      "date": "2020-06-09T00:00:00.000Z"
+    },
+    {
+      "file": "postman-vs-code-extension/2023-09-14-the-postman-vs-code-extension-is-finally-here!.md",
+      "slug": "postman-vs-code-extension",
+      "title": "The Postman VS Code Extension Is Finally Here!",
+      "date": "2023-09-14T22:56:03.149Z"
+    },
+    {
+      "file": "parse-json-request-body-in-express/parse-json-request-body-in-express.md",
+      "slug": "parse-json-request-body-in-express",
+      "title": "Parse JSON Request Body in Express",
+      "date": "2020-08-29T00:00:00.000Z"
+    },
+    {
+      "file": "optimizing-compute-costs-ai-agents/index.md",
+      "title": "Optimizing Compute Costs for AI Agents",
+      "date": "2026-08-05T00:00:00.000Z"
+    },
+    {
+      "file": "open-anchor-link-in-new-tab/open-anchor-link-in-new-tab.md",
+      "slug": "open-anchor-link-in-new-tab",
+      "title": "Open Anchor Link in New Tab",
+      "date": "2020-04-24T00:00:00.000Z"
+    },
+    {
+      "file": "node-and-express-for-beginners/node-and-express-for-beginners.md",
+      "slug": "node-and-express-for-beginners",
+      "title": "Node and Express for Beginners",
+      "date": "2019-10-12T00:00:00.000Z"
+    },
+    {
+      "file": "next-js-10-image-component-a-first-look/next-js-10-image-component-a-first-look.md",
+      "slug": "next-js-10-image-component-a-first-look",
+      "title": "Next.js 10 Image Component - A First Look",
+      "date": "2020-12-16T00:00:00.000Z"
+    },
+    {
+      "file": "new-vs-code-extension-for-testing-apis/new-vs-code-extension-for-testing-apis.md",
+      "slug": "new-vs-code-extension-for-testing-apis",
+      "title": "BRAND NEW VS Code Extension for Testing APIs",
+      "date": "2022-08-01T00:00:00.000Z"
+    },
+    {
+      "file": "n+1-part-of-the-auth0-culture/n+1-part-of-the-auth0-culture.md",
+      "slug": "n+1-part-of-the-auth0-culture",
+      "title": "N+1>N It's Part of the Auth0 Culture",
+      "date": "2020-02-06T00:00:00.000Z"
+    },
+    {
+      "file": "my-terminal-has-super-powers/my-terminal-has-super-powers.md",
+      "slug": "my-terminal-has-super-powers",
+      "title": "My Terminal Has SUPER Powers!",
+      "date": "2022-01-25T00:00:00.000Z"
+    },
+    {
+      "file": "my-first-week-at-auth0/my-first-week-at-auth0.md",
+      "slug": "my-first-week-at-auth0",
+      "title": "My First Week at Auth0",
+      "date": "2020-01-15T00:00:00.000Z"
+    },
+    {
+      "file": "must-have-sveltekit-extension-for-vs-code-sveltekit-snippets/must-have-sveltekit-extension-for-vs-code-sveltekit-snippets.md",
+      "slug": "must-have-sveltekit-extension-for-vs-code-sveltekit-snippets",
+      "title": "Must Have SvelteKit Extension for VS Code - SvelteKit Snippets",
+      "date": "2022-01-06T00:00:00.000Z"
+    },
+    {
+      "file": "multiple-datasets-with-gatsby-source-filesystem/multiple-datasets-with-gatsby-source-filesystem.md",
+      "slug": "multiple-datasets-with-gatsby-source-filesystem",
+      "title": "Querying Multiple Datasets with Gatsby Source Filesystem",
+      "date": "2020-01-24T00:00:00.000Z"
+    },
+    {
+      "file": "maintaining-mental-health-at-conferences/2025-06-16-mental-health-at-conferences.md",
+      "slug": "maintaining-mental-health-at-conferences",
+      "title": "Maintaining Your Mental Health at Conferences",
+      "date": "2025-06-16T20:20:15.940Z"
+    },
+    {
+      "file": "javascript-trends-2023/javascript-trends-2023.md",
+      "slug": "javascript-trends-2023",
+      "title": "JavaScript Trends in 2023",
+      "date": "2023-02-15T00:00:00.000Z"
+    },
+    {
+      "file": "javascript-callbacks-explained-in-5-minutes/javascript-callbacks-explained-in-5-minutes.md",
+      "slug": "javascript-callbacks-explained-in-5-minutes",
+      "title": "JavaScript Callbacks Explained in 5 Minutes",
+      "date": "2022-08-09T00:00:00.000Z"
+    },
+    {
+      "file": "javascript-array-filter-explained-in-5-minutes/javascript-array-filter-explained-in-5-minutes.md",
+      "slug": "javascript-array-filter-explained-in-5-minutes",
+      "title": "JavaScript Array Filter Method Practice in 5 Minutes",
+      "date": "2021-01-04T00:00:00.000Z"
+    },
+    {
+      "file": "intro-to-jamstack-what-i-learned/intro-to-jamstack-what-i-learned.md",
+      "slug": "intro-to-jamstack-what-i-learned",
+      "title": "Introduction to the JAMstack Course - What I Learned",
+      "date": "2020-04-20T00:00:00.000Z"
+    },
+    {
+      "file": "i-tried-astro/i-tried-astro.md",
+      "slug": "i-tried-astro",
+      "title": "I Tried Astro - 5 Reasons Why I Love It!",
+      "date": "2022-09-08T00:00:00.000Z"
+    },
+    {
+      "file": "i-replaced-canva-pro-with-a-cloudflare-worker/i-replaced-canva-pro-with-a-cloudflare-worker.md",
+      "slug": "i-replaced-canva-pro-with-a-cloudflare-worker",
+      "title": "I Replaced a Canva Pro Feature with a Cloudflare Worker",
+      "date": "2026-05-19T00:00:00.000Z"
+    },
+    {
+      "file": "i-got-corrected-on-my-second-day/i-got-corrected-on-my-second-day.md",
+      "slug": "i-got-corrected-on-my-second-day",
+      "title": "I Got Corrected on My Second Day, and I Loved It",
+      "date": "2020-01-21T00:00:00.000Z"
+    },
+    {
+      "file": "i-created-my-first-google-chrome-extension/i-created-my-first-google-chrome-extension.md",
+      "slug": "i-created-my-first-google-chrome-extension",
+      "title": "I Created My First Google Chrome Extension",
+      "date": "2020-08-11T00:00:00.000Z"
+    },
+    {
+      "file": "i-created-a-developer-rap-video-here-s-what-i-learned/i-created-a-developer-rap-video-here-s-what-i-learned.md",
+      "slug": "i-created-a-developer-rap-video-here-s-what-i-learned",
+      "title": "I Created a Developer Rap Video - Here's What I Learned",
+      "date": "2021-07-23T00:00:00.000Z"
+    },
+    {
+      "file": "how-to-test-npm-packages-locally/how-to-test-npm-packages-locally.md",
+      "slug": "how-to-test-npm-packages-locally",
+      "title": "How To Test NPM Packages Locally",
+      "date": "2020-06-23T00:00:00.000Z"
+    },
+    {
+      "file": "how-to-redirect-netlify-functions-to-a-simpler-path/how-to-redirect-netlify-functions-to-a-simpler-path.md",
+      "slug": "how-to-redirect-netlify-functions-to-a-simpler-path",
+      "title": "How To Redirect Netlify Functions To  a Simpler Path",
+      "date": "2020-08-06T00:00:00.000Z"
+    },
+    {
+      "file": "how-to-create-and-publish-npm-packages/how-to-create-and-publish-npm-packages.md",
+      "slug": "how-to-create-and-publish-npm-packages",
+      "title": "How To Create and Publish NPM Packages",
+      "date": "2020-06-23T00:00:00.000Z"
+    },
+    {
+      "file": "how-i-prepare-for-conference-talks/how-i-prepare-for-conference-talks.md",
+      "slug": "how-i-prepare-for-conference-talks",
+      "title": "How I Prepare for Conference Talks",
+      "date": "2019-08-26T00:00:00.000Z"
+    },
+    {
+      "file": "hello-world/hello-world.md",
+      "slug": "hello-world",
+      "title": "Hello World",
+      "date": "2019-08-18T00:00:00.000Z"
+    },
+    {
+      "file": "goals-for-2022/goals-for-2022.md",
+      "slug": "goals-for-2022",
+      "title": "Goals for 2022",
+      "date": "2022-01-07T00:00:00.000Z"
+    },
+    {
+      "file": "front-matter-code-extension/the-front-matter-vs-code-extension-managing-markdown-blog-posts-with-ease.md",
+      "slug": "front-matter-code-extension",
+      "title": "The Front Matter VS Code Extension for Embedded Markdown",
+      "date": "2023-03-12T20:46:19.807Z"
+    },
+    {
+      "file": "from-resend-to-cloudflare-email/from-resend-to-cloudflare-email.md",
+      "slug": "from-resend-to-cloudflare-email",
+      "title": "From Resend to Cloudflare Email",
+      "date": "2026-05-21T12:00:00.000Z"
+    },
+    {
+      "file": "feature-flag-workflow-ai-transcription-flagship/feature-flag-workflow-ai-transcription-flagship.md",
+      "slug": "feature-flag-workflow-ai-transcription-flagship",
+      "title": "Feature Flag Workflow: AI Transcription with Cloudflare Flagship",
+      "date": "2026-05-27T00:00:00.000Z"
+    },
+    {
+      "file": "favorite-vs-code-font-2022/favorite-vs-code-font-2022.md",
+      "slug": "favorite-vs-code-font-2022",
+      "title": "My Favorite FREE VS Code Font in 2022",
+      "date": "2022-08-02T00:00:00.000Z"
+    },
+    {
+      "file": "deep-clones-javascript-structuredclone/make-deep-clones-in-javascript-with-structuredclone.md",
+      "slug": "deep-clones-javascript-structuredclone",
+      "title": "Make Deep Clones in JavaScript With structuredClone",
+      "date": "2023-03-06T19:31:32.361Z"
+    },
+    {
+      "file": "cs-degree-vs-programming-bootcamp-vs-self-taught/cs-degree-vs-programming-bootcamp-vs-self-taught.md",
+      "slug": "cs-degree-vs-programming-bootcamp-vs-self-taught",
+      "title": "CS Degree vs Programming Bootcamp vs Self-taught",
+      "date": "2020-04-09T00:00:00.000Z"
+    },
+    {
+      "file": "create-react-app-dead/2023-04-21-is-create-react-app-really-dead.md",
+      "slug": "create-react-app-dead",
+      "title": "Is Create React App Really Dead?",
+      "date": "2023-04-21T19:16:51.265Z"
+    },
+    {
+      "file": "create-a-link-shortener-app-with-sveltekit-typescript-and-directus-io/create-a-link-shortener-app-with-sveltekit-typescript-and-directus-io.md",
+      "slug": "create-a-link-shortener-app-with-sveltekit-typescript-and-directus-io",
+      "title": "Create a Link Shortener App with SvelteKit, TypeScript, and Directus.io",
+      "date": "2022-08-24T00:00:00.000Z"
+    },
+    {
+      "file": "convert-number-from-decimal-to-hexadecimal/convert-number-from-decimal-to-hexadecimal.md",
+      "slug": "convert-number-from-decimal-to-hexadecimal",
+      "title": "Convert Number from Decimal to Hexadecimal in JavaScript (and visa versa)",
+      "date": "2020-06-18T00:00:00.000Z"
+    },
+    {
+      "file": "configure-proxy-in-react/configure-proxy-in-react.md",
+      "slug": "configure-proxy-in-react",
+      "title": "Configure a Proxy in React",
+      "date": "2020-02-26T00:00:00.000Z"
+    },
+    {
+      "file": "cloudinary-image-upload-with-nodejs/cloudinary-image-upload-with-nodejs.md",
+      "slug": "cloudinary-image-upload-with-nodejs",
+      "title": "Cloudinary Image Upload with Nodejs",
+      "date": "2020-06-16T00:00:00.000Z"
+    },
+    {
+      "file": "cloudflare-flagship-feature-flags-workers/cloudflare-flagship-feature-flags-workers.md",
+      "slug": "cloudflare-flagship-feature-flags-workers",
+      "title": "Cloudflare Flagship: Feature Flags Built Into Workers",
+      "date": "2026-05-26T00:00:00.000Z"
+    },
+    {
+      "file": "choosing-right-environment-flue-agent/index.md",
+      "title": "Choosing the Right Environment for Your Flue Agent",
+      "date": "2026-08-13T00:00:00.000Z"
+    },
+    {
+      "file": "building-an-ai-powered-blog-writer-with-flue/index.md",
+      "title": "How to Create an AI-Powered Blog Writer with Flue",
+      "date": "2026-08-27T00:00:00.000Z"
+    },
+    {
+      "file": "building-an-ai-agent-with-flue/index.md",
+      "title": "Building an AI Content Generation Agent with Flue",
+      "date": "2026-07-15T00:00:00.000Z"
+    },
+    {
+      "file": "build-mcp-server-cloudflare-workers/build-mcp-server-cloudflare-workers.md",
+      "slug": "build-mcp-server-cloudflare-workers",
+      "title": "Build an MCP Server on Cloudflare Workers",
+      "date": "2026-07-21T00:00:00.000Z"
+    },
+    {
+      "file": "build-a-pokedex-with-vanilla-javascript-part-2/build-a-pokedex-with-vanilla-javascript-part-2.md",
+      "slug": "build-a-pokedex-with-vanilla-javascript-part-2",
+      "title": "Build a Pokedex with Vanilla JavaScript - Part 2",
+      "date": "2019-10-01T00:00:00.000Z"
+    },
+    {
+      "file": "build-a-pokedex-with-vanilla-javascript/build-a-pokedex-with-vanilla-javascript.md",
+      "slug": "build-a-pokedex-with-vanilla-javascript",
+      "title": "Build a Pokedex with Vanilla JavaScript",
+      "date": "2019-09-03T00:00:00.000Z"
+    },
+    {
+      "file": "build-a-javascript-search-bar/build-a-javascript-search-bar.md",
+      "slug": "build-a-javascript-search-bar",
+      "title": "Build a JavaScript Search Bar",
+      "date": "2020-02-04T00:00:00.000Z"
+    },
+    {
+      "file": "build-a-javascript-memory-match-game/build-a-javascript-memory-match-game.md",
+      "slug": "build-a-javascript-memory-match-game",
+      "title": "Build a JavaScript Memory Match Game",
+      "date": "2022-08-25T00:00:00.000Z"
+    },
+    {
+      "file": "browser-web-developers/best-browser-for-web-developers.md",
+      "slug": "browser-web-developers",
+      "title": "Best Browser For Web Developers?",
+      "date": "2023-03-12T20:25:26.922Z"
+    },
+    {
+      "file": "best-typescript-tools-ai-agents-2026/best-typescript-tools-ai-agents-2026.md",
+      "slug": "best-typescript-tools-ai-agents-2026",
+      "title": "The Best TypeScript Tools for Building AI Agents (2026)",
+      "date": "2026-07-21T00:00:00.000Z"
+    },
+    {
+      "file": "automate-landing-page-review-cloudflare-browser-run/index.md",
+      "slug": "automate-landing-page-review-cloudflare-browser-run",
+      "title": "AI Automated Landing Page Reviews",
+      "date": "2026-09-22T00:00:00.000Z"
+    },
+    {
+      "file": "authentication-experience-from-a-developer-frank-calise/authentication-experience-from-a-developer-frank-calise.md",
+      "slug": "authentication-experience-from-a-developer-frank-calise",
+      "title": "Authentication Experience From a Developer - Frank Calise",
+      "date": "2020-01-24T00:00:00.000Z"
+    },
+    {
+      "file": "authenticated-jamstack-app-with-next-js-airtable-auth0-and-tailwind-css/authenticated-jamstack-app-with-next-js-airtable-auth0-and-tailwind-css.md",
+      "slug": "authenticated-jamstack-app-with-next-js-airtable-auth0-and-tailwind-css",
+      "title": "Build an Authenticated JAMstack App with Next.js, Airtable, Auth0, and Tailwind CSS",
+      "date": "2020-10-05T00:00:00.000Z"
+    },
+    {
+      "file": "appwrite-developer-tools-product-hunt-2022/appwrite-best-developer-tools-on-product-hunt-in-2022.md",
+      "slug": "appwrite-developer-tools-product-hunt-2022",
+      "title": "Appwrite Best Developer Tools on Product Hunt in 2022",
+      "date": "2023-03-06T19:54:34.055Z"
+    },
+    {
+      "file": "announcing-advent-of-javascript-a-free-series-of-javascript-challenges/announcing-advent-of-javascript-a-free-series-of-javascript-challenges.md",
+      "slug": "announcing-advent-of-javascript-a-free-series-of-javascript-challenges",
+      "title": "Announcing Advent of JavaScript - A FREE Series of JavaScript Challenges",
+      "date": "2021-12-08T00:00:00.000Z"
+    },
+    {
+      "file": "ai-create-bash-scripts-fig/2023-04-19-use-ai-to-create-bash-scripts-using-fig.md",
+      "slug": "ai-create-bash-scripts-fig",
+      "title": "Use AI To Create Bash Scripts Using Fig",
+      "date": "2023-04-19T21:11:12.070Z"
+    },
+    {
+      "file": "add-vs-code-to-your-path/add-vs-code-to-your-path.md",
+      "slug": "add-vs-code-to-your-path",
+      "title": "Add VS Code To Your Path",
+      "date": "2020-01-28T00:00:00.000Z"
+    },
+    {
+      "file": "add-openai-nextjs-project/2023-05-04-how-to-add-openai-to-your-nextjs-project.md",
+      "slug": "add-openai-nextjs-project",
+      "title": "How to Add OpenAI To Your Nextjs Project",
+      "date": "2023-05-04T15:06:49.228Z"
+    },
+    {
+      "file": "a-beginners-guide-to-webmcp-with-react/index.md",
+      "title": "A Beginner's Guide to WebMCP with React",
+      "date": "2026-08-17T00:00:00.000Z"
+    },
+    {
+      "file": "5-ways-to-customize-vs-code/5-ways-to-customize-vs-code.md",
+      "slug": "5-ways-to-customize-vs-code",
+      "title": "5 Ways to Customize VS Code",
+      "date": "2020-10-21T00:00:00.000Z"
+    },
+    {
+      "file": "5-ways-chatgpt-javascript-projects/5-ways-i've-used-chatgpt-in-my-javascript-projects.md",
+      "slug": "5-ways-chatgpt-javascript-projects",
+      "title": "How I Used ChatGPT In My JavaScript Projects",
+      "date": "2023-03-29T16:07:57.150Z"
+    },
+    {
+      "file": "5-utility-apps-mac/2023-06-20-5-utility-apps-i-use-every-day-(for-mac).md",
+      "slug": "5-utility-apps-mac",
+      "title": "5 Utility Apps I Use Every Day (For Mac)",
+      "date": "2023-06-20T15:05:40.317Z"
+    },
+    {
+      "file": "5-tips-for-crushing-developer-interviews/5-tips-for-crushing-developer-interviews.md",
+      "slug": "5-tips-for-crushing-developer-interviews",
+      "title": "5 Tips for Crushing Developer Interviews",
+      "date": "2021-03-09T00:00:00.000Z"
+    },
+    {
+      "file": "5-things-i-ve-learned-from-creating-youtube-videos/5-things-i-ve-learned-from-creating-youtube-videos.md",
+      "slug": "5-things-i-ve-learned-from-creating-youtube-videos",
+      "title": "5 Things I've Learned From Creating YouTube Videos",
+      "date": "2020-11-10T00:00:00.000Z"
+    },
+    {
+      "file": "5-reasons-developers-regret-jobs/2023-05-04-5-reasons-developers-regret-their-jobs.md",
+      "slug": "5-reasons-developers-regret-jobs",
+      "title": "5 Reasons Developers Regret Their Jobs",
+      "date": "2023-05-04T20:54:16.600Z"
+    },
+    {
+      "file": "3-regrets-computer-science-degree/2023-04-04-3-regrets-from-my-computer-science-degree.md",
+      "slug": "3-regrets-computer-science-degree",
+      "title": "3 Regrets From My Computer Science Degree",
+      "date": "2023-04-04T18:48:27.344Z"
+    },
+    {
+      "file": "15-common-beginner-javascript-mistakes/15-common-beginner-javascript-mistakes.md",
+      "slug": "15-common-beginner-javascript-mistakes",
+      "title": "15 Common Beginner JavaScript Mistakes",
+      "date": "2022-07-19T00:00:00.000Z"
+    },
+    {
+      "file": "100k-subscribers-on-youtube-5-things-i-learned/100k-subscribers-on-youtube-5-things-i-learned.md",
+      "slug": "100k-subscribers-on-youtube-5-things-i-learned",
+      "title": "100k Subscribers On YouTube - 5 Things I Learned",
+      "date": "2021-09-10T00:00:00.000Z"
+    },
+    {
+      "file": "10-video-platforms-learning-web-development/2023-08-10-10-best-video-platforms-for-learning-web-development.md",
+      "slug": "10-video-platforms-learning-web-development",
+      "title": "10 Best Video Platforms for Learning Web Development",
+      "date": "2023-08-10T13:46:50.144Z"
+    },
+    {
+      "file": "10-examples-with-css-grid/10-examples-with-css-grid.md",
+      "slug": "10-examples-with-css-grid",
+      "title": "10 Examples with CSS Grid",
+      "date": "2020-03-17T00:00:00.000Z"
+    },
+    {
+      "file": "10-amazing-vs-code-themes-youve-probably-never-heard-of/10-amazing-vs-code-themes-youve-probably-never-heard-of.md",
+      "slug": "10-amazing-vs-code-themes-youve-probably-never-heard-of",
+      "title": "10 Amazing VS Code Themes You Have Probably Never Heard Of",
+      "date": "2023-02-16T00:00:00.000Z"
+    }
+  ],
+  "routes": [
+    "10-amazing-vs-code-themes-youve-probably-never-heard-of",
+    "10-examples-with-css-grid",
+    "10-video-platforms-learning-web-development",
+    "100k-subscribers-on-youtube-5-things-i-learned",
+    "15-common-beginner-javascript-mistakes",
+    "3-regrets-computer-science-degree",
+    "5-reasons-developers-regret-jobs",
+    "5-things-i-ve-learned-from-creating-youtube-videos",
+    "5-tips-for-crushing-developer-interviews",
+    "5-utility-apps-mac",
+    "5-ways-chatgpt-javascript-projects",
+    "5-ways-to-customize-vs-code",
+    "a-beginners-guide-to-webmcp-with-react",
+    "add-openai-nextjs-project",
+    "add-vs-code-to-your-path",
+    "ai-create-bash-scripts-fig",
+    "announcing-advent-of-javascript-a-free-series-of-javascript-challenges",
+    "appwrite-developer-tools-product-hunt-2022",
+    "authenticated-jamstack-app-with-next-js-airtable-auth0-and-tailwind-css",
+    "authentication-experience-from-a-developer-frank-calise",
+    "automate-landing-page-review-cloudflare-browser-run",
+    "best-typescript-tools-ai-agents-2026",
+    "browser-web-developers",
+    "build-a-javascript-memory-match-game",
+    "build-a-javascript-search-bar",
+    "build-a-pokedex-with-vanilla-javascript",
+    "build-a-pokedex-with-vanilla-javascript-part-2",
+    "build-mcp-server-cloudflare-workers",
+    "building-an-ai-agent-with-flue",
+    "building-an-ai-powered-blog-writer-with-flue",
+    "choosing-right-environment-flue-agent",
+    "cloudflare-flagship-feature-flags-workers",
+    "cloudinary-image-upload-with-nodejs",
+    "configure-proxy-in-react",
+    "convert-number-from-decimal-to-hexadecimal",
+    "create-a-link-shortener-app-with-sveltekit-typescript-and-directus-io",
+    "create-react-app-dead",
+    "cs-degree-vs-programming-bootcamp-vs-self-taught",
+    "deep-clones-javascript-structuredclone",
+    "favorite-vs-code-font-2022",
+    "feature-flag-workflow-ai-transcription-flagship",
+    "from-resend-to-cloudflare-email",
+    "front-matter-code-extension",
+    "goals-for-2022",
+    "hello-world",
+    "how-i-prepare-for-conference-talks",
+    "how-to-create-and-publish-npm-packages",
+    "how-to-redirect-netlify-functions-to-a-simpler-path",
+    "how-to-test-npm-packages-locally",
+    "i-created-a-developer-rap-video-here-s-what-i-learned",
+    "i-created-my-first-google-chrome-extension",
+    "i-got-corrected-on-my-second-day",
+    "i-replaced-canva-pro-with-a-cloudflare-worker",
+    "i-tried-astro",
+    "intro-to-jamstack-what-i-learned",
+    "javascript-array-filter-explained-in-5-minutes",
+    "javascript-callbacks-explained-in-5-minutes",
+    "javascript-trends-2023",
+    "maintaining-mental-health-at-conferences",
+    "multiple-datasets-with-gatsby-source-filesystem",
+    "must-have-sveltekit-extension-for-vs-code-sveltekit-snippets",
+    "my-first-week-at-auth0",
+    "my-terminal-has-super-powers",
+    "n+1-part-of-the-auth0-culture",
+    "new-vs-code-extension-for-testing-apis",
+    "next-js-10-image-component-a-first-look",
+    "node-and-express-for-beginners",
+    "open-anchor-link-in-new-tab",
+    "optimizing-compute-costs-ai-agents",
+    "parse-json-request-body-in-express",
+    "postman-vs-code-extension",
+    "react-router-in-five-minutes",
+    "register-a-domain-with-your-ai-agent",
+    "settings-sync-extension-for-visual-studio-code",
+    "settings-sync-in-visual-studio-code",
+    "setup-a-custom-domain-with-netlify",
+    "supercharge-your-git-workflow-with-the-gitlens-vs-code-extension",
+    "the-easiest-way-to-add-node-js-user-authentication",
+    "tips-handling-tracking-errors-javascript",
+    "top-5-pieces-of-advice-for-aspiring-and-learning-developers",
+    "top-5-struggles-of-a-developer-advocate",
+    "trigger-ai-agent-from-your-phone",
+    "twilio-node-text-message",
+    "typescript-databases-types-sync-xata",
+    "understanding-the-ai-agent-loop",
+    "using-node-watch-instead-of-nodemon",
+    "visual-studio-code-browser-preview-extension",
+    "vs-code-react-setup-5-tips",
+    "vscode-git-extensions-2020",
+    "why-and-how-to-get-started-live-streaming",
+    "why-you-cant-pass-functions-from-server-to-client-components"
+  ],
+  "tags": [
+    "agents",
+    "ai",
+    "astro",
+    "browser-run",
+    "career",
+    "chatgpt",
+    "cloudflare",
+    "cloudflare-workers",
+    "css",
+    "email",
+    "flue",
+    "javascript",
+    "mcp",
+    "misc",
+    "nextjs",
+    "nodejs",
+    "react",
+    "sveltekit",
+    "tools",
+    "typescript",
+    "vscode",
+    "webmcp"
+  ]
+}

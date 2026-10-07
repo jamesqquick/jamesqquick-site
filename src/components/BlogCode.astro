@@ -1,0 +1,39 @@
+---
+import { Code } from "astro:components";
+import type { PortableTextCodeBlock } from "emdash";
+import { getBlogCodeLanguage } from "../utils/blog-code";
+
+export interface Props {
+  node: PortableTextCodeBlock;
+}
+
+const { node } = Astro.props;
+const lang = getBlogCodeLanguage(node.language);
+---
+
+<div class="emdash-code">
+  {node.filename && <div class="emdash-code-filename">{node.filename}</div>}
+  <Code code={node.code} lang={lang} />
+</div>
+
+<style>
+  .emdash-code {
+    margin: 1.5rem 0;
+  }
+  .emdash-code-filename {
+    font-size: 0.75rem;
+    font-family: monospace;
+    background: #2d2d2d;
+    color: #ccc;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem 0.5rem 0 0;
+  }
+  .emdash-code :global(pre) {
+    margin: 0;
+    padding: 1rem;
+    border-radius: 0.5rem;
+  }
+  .emdash-code-filename + :global(pre) {
+    border-radius: 0 0 0.5rem 0.5rem;
+  }
+</style>

@@ -2,12 +2,17 @@ import { defineConfig, envField } from "astro/config";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import cloudflare from "@astrojs/cloudflare";
+import react from "@astrojs/react";
+import emdash from "emdash/astro";
+import { d1, r2 } from "@emdash-cms/cloudflare";
 import svelte from "@astrojs/svelte";
 import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://jamesqquick.com/",
+  server: { port: 4355 },
+  trailingSlash: "never",
   // Astro 7 changed the default to 'jsx', which additionally strips whitespace
   // between inline elements (`<span>a</span> <em>b</em>` -> `ab`). Pin to the
   // pre-7 behavior so this upgrade carries no visual change; revisit separately.
@@ -15,9 +20,7 @@ export default defineConfig({
   image: {
     layout: "constrained",
     responsiveStyles: true,
-    remotePatterns: [
-      { protocol: "https", hostname: "i.ytimg.com" },
-    ],
+    remotePatterns: [{ protocol: "https", hostname: "i.ytimg.com" }],
   },
   env: {
     schema: {
@@ -38,8 +41,16 @@ export default defineConfig({
   },
   integrations: [
     mdx(),
-    sitemap({}),
+    sitemap({
+      customSitemaps: ["https://jamesqquick.com/sitemap-blog.xml"],
+      filter: (page) => !new URL(page).pathname.startsWith("/_emdash/"),
+    }),
     svelte(),
+    react(),
+    emdash({
+      database: d1({ binding: "DB" }),
+      storage: r2({ binding: "MEDIA" }),
+    }),
     icon({
       include: {
         mdi: [
@@ -70,7 +81,7 @@ export default defineConfig({
     }),
   ],
   output: "server",
-  adapter: cloudflare(),
+  adapter: cloudflare({ remoteBindings: false }),
   experimental: {
     contentIntellisense: true,
   },

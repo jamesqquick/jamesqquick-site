@@ -1,0 +1,65 @@
+{
+  "$schema": "https://emdashcms.com/seed.schema.json",
+  "version": "1",
+  "defaultLocale": "en",
+  "settings": {
+    "title": "James Q Quick",
+    "timezone": "UTC",
+    "postsPerPage": 50
+  },
+  "collections": [
+    {
+      "slug": "blog",
+      "label": "Blog posts",
+      "labelSingular": "Blog post",
+      "titleField": "title",
+      "urlPattern": "/blog/{slug}",
+      "supports": ["drafts", "revisions", "preview", "scheduling", "search", "seo"],
+      "fields": [
+        {
+          "slug": "title",
+          "label": "Title",
+          "type": "string",
+          "required": true,
+          "searchable": true
+        },
+        {
+          "slug": "excerpt",
+          "label": "Description",
+          "type": "text",
+          "required": true
+        },
+        {
+          "slug": "content",
+          "label": "Article",
+          "type": "portableText",
+          "searchable": true
+        },
+        {
+          "slug": "featured_image",
+          "label": "Cover image",
+          "type": "image"
+        },
+        {
+          "slug": "youtube_video_id",
+          "label": "YouTube video ID",
+          "type": "string"
+        },
+        {
+          "slug": "tags",
+          "label": "Tags",
+          "type": "multiSelect",
+          "defaultValue": [],
+          "validation": {
+            "options": [
+              "agents", "ai", "astro", "browser-run", "career", "chatgpt",
+              "cloudflare", "cloudflare-workers", "css", "email", "flue",
+              "javascript", "mcp", "misc", "nextjs", "nodejs", "react",
+              "sveltekit", "tools", "typescript", "vscode", "webmcp"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

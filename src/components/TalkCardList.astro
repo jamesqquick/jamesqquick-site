@@ -14,7 +14,7 @@ const { talks } = Astro.props;
     talks.map((talk) => (
       <TalkCard
         title={talk.data.title}
-        date={talk.data.date}
+        date={talk.data.pubDate}
         slug={`/talks/${talk.id}`}
         conferenceName={talk.data.conferenceName}
         conferenceLink={talk.data.conferenceLink}

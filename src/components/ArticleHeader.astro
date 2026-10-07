@@ -1,15 +1,11 @@
 ---
+import type { ImageMetadata } from "astro";
 import { getFormattedDate } from "../utils/dates";
 import YouTube from "./YouTube.astro";
 import H1 from "./H1.astro";
 export interface Props {
   youTubeVideoId?: string;
-  coverImage?: {
-    src: string;
-    width: number;
-    height: number;
-    format: "png" | "jpg" | "jpeg" | "tiff" | "webp" | "gif" | "svg" | "avif";
-  };
+  coverImage?: ImageMetadata;
   title: string;
   date: Date;
 }

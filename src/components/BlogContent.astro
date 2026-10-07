@@ -1,0 +1,23 @@
+---
+import { Code } from "astro:components";
+import { splitBlogCodeBlocks } from "../utils/blog-code";
+import { addBlogHeadingIds } from "../utils/blog-headings";
+
+const content = addBlogHeadingIds(await Astro.slots.render("default"));
+const segments = splitBlogCodeBlocks(content);
+---
+
+{
+  segments.map((segment) =>
+    "html" in segment ? (
+      <Fragment set:html={segment.html} />
+    ) : (
+      <Code
+        {...segment.attributes}
+        code={segment.code}
+        lang={segment.lang}
+        transformers={segment.transformers}
+      />
+    )
+  )
+}
