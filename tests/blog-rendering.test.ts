@@ -220,11 +220,11 @@ test("fallback highlighting preserves both element attributes and matches origin
   }
 });
 
-test("all 91 archive posts retain their original Astro heading anchors", async (context) => {
+test("all 92 archive posts retain their original Astro heading anchors", async (context) => {
   const posts = await readBlogArchive(
     fileURLToPath(new URL("../", import.meta.url))
   );
-  assert.equal(posts.length, 91);
+  assert.equal(posts.length, 92);
   const renderer = await sourceRenderer;
   let count = 0;
   for (const post of posts) {
@@ -237,5 +237,5 @@ test("all 91 archive posts retain their original Astro heading anchors", async (
     );
     count += expected.length;
   }
-  context.diagnostic(`Compared ${count} heading anchors across all 91 posts.`);
+  context.diagnostic(`Compared ${count} heading anchors across all 92 posts.`);
 });

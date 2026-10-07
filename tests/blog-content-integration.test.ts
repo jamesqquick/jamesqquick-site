@@ -575,11 +575,11 @@ test("approved editor linebreak comparisons accept only inherited strong/link de
   );
 });
 
-test("all 91 archive posts retain source HTML semantics after conversion to RSS", async (context) => {
+test("all 92 archive posts retain source HTML semantics after conversion to RSS", async (context) => {
   const posts = await readBlogArchive(
     fileURLToPath(new URL("../", import.meta.url))
   );
-  assert.equal(posts.length, 91);
+  assert.equal(posts.length, 92);
   for (const post of posts) {
     const base = new URL(`blog/${post.slug}/`, SITE);
     const blocks = markdownToBlogPortableText(post.markdown, resolveImage);
@@ -590,15 +590,15 @@ test("all 91 archive posts retain source HTML semantics after conversion to RSS"
     );
   }
   context.diagnostic(
-    "Compared ordered headings, paragraphs, marked text, links, literal code, images, tables, and lists for 91 posts."
+    "Compared ordered headings, paragraphs, marked text, links, literal code, images, tables, and lists for 92 posts."
   );
 });
 
-test("installed EmDash 1.0.1 admin roundtrip retains source HTML semantics for all 91 archive posts", async (context) => {
+test("installed EmDash 1.0.1 admin roundtrip retains source HTML semantics for all 92 archive posts", async (context) => {
   const posts = await readBlogArchive(
     fileURLToPath(new URL("../", import.meta.url))
   );
-  assert.equal(posts.length, 91);
+  assert.equal(posts.length, 92);
   for (const post of posts) {
     const base = new URL(`blog/${post.slug}/`, SITE);
     const blocks = markdownToBlogPortableText(post.markdown, resolveImage);
@@ -610,7 +610,7 @@ test("installed EmDash 1.0.1 admin roundtrip retains source HTML semantics for a
     );
   }
   context.diagnostic(
-    "Compared source HTML semantics after the actual installed EmDash 1.0.1 admin roundtrip for all 91 posts."
+    "Compared source HTML semantics after the actual installed EmDash 1.0.1 admin roundtrip for all 92 posts."
   );
 });
 

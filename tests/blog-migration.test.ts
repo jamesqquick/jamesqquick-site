@@ -363,9 +363,9 @@ test("duplicate archive slugs identify both source files", async (context) => {
   });
 });
 
-test("the current archive contains 91 deterministic posts with valid local covers", async () => {
+test("the current archive contains 92 deterministic posts with valid local covers", async () => {
   const posts = await readBlogArchive(projectRoot);
-  assert.equal(posts.length, 91);
+  assert.equal(posts.length, 92);
   assert.deepEqual(
     posts.map((post) => post.filePath),
     posts.map((post) => post.filePath).sort()
@@ -387,9 +387,9 @@ test("the current archive contains 91 deterministic posts with valid local cover
   }
 });
 
-test("all 91 archive posts match the captured original routes, metadata, and tags", async () => {
+test("all 92 archive posts match the captured original routes, metadata, and tags", async () => {
   const posts = await readBlogArchive(projectRoot);
-  assert.equal(posts.length, 91);
+  assert.equal(posts.length, 92);
   assert.deepEqual(
     posts.map((post) => post.slug).sort(),
     [...originalArchive.routes].sort()
@@ -1208,7 +1208,7 @@ test("all current articles convert with exact code, image and table counts, vali
     imageTokens += expectedImages.length;
     tables += expectedTables;
   }
-  assert.equal(posts.length, 91);
+  assert.equal(posts.length, 92);
   context.diagnostic(
     JSON.stringify({
       posts: posts.length,

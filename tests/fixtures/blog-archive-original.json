@@ -108,6 +108,11 @@
       "date": "2020-01-28T00:00:00.000Z"
     },
     {
+      "file": "safely-run-agent-generated-code-cloudflare-sandboxes/index.md",
+      "title": "Safely Run Agent-Generated Code with Cloudflare Sandboxes",
+      "date": "2026-10-07T00:00:00.000Z"
+    },
+    {
       "file": "register-a-domain-with-your-ai-agent/2026-04-16-register-a-domain-with-your-ai-agent.md",
       "slug": "register-a-domain-with-your-ai-agent",
       "title": "Register a Domain With Your AI Agent",
@@ -615,6 +620,7 @@
     "postman-vs-code-extension",
     "react-router-in-five-minutes",
     "register-a-domain-with-your-ai-agent",
+    "safely-run-agent-generated-code-cloudflare-sandboxes",
     "settings-sync-extension-for-visual-studio-code",
     "settings-sync-in-visual-studio-code",
     "setup-a-custom-domain-with-netlify",
@@ -652,6 +658,7 @@
     "nextjs",
     "nodejs",
     "react",
+    "security",
     "sveltekit",
     "tools",
     "typescript",
