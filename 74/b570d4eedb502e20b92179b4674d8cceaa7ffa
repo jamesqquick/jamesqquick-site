@@ -1,0 +1,21 @@
+package.json
+  s_f960f7ff64662d::t_15eccb6387a923 49,59
+pnpm-lock.yaml
+  s_f960f7ff64662d::t_3ae01c3be063da 25-26,55-56,744-773,803-804,809-810,818-819,824-825,846-847,849-850,861-862,1296-1313,1399-1401,2651-2653,2855-2856,3473,4607-4609,5975-6047,6079,6083-6090,6094-6095,6099,6134,6166,6172,6178,6194,6200,6238,6243,6276,6278,6646-6673,6760-6761,8147-8148,8338,8345-8349,8352,8367-8368,10686-10687
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "74b570d4eedb502e20b92179b4674d8cceaa7ffa",
+  "prompts": {},
+  "sessions": {
+    "s_f960f7ff64662d": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_eeea689e7ffekWUv5kyJX213I5",
+        "model": "gpt-6-luna"
+      },
+      "human_author": "James Quick <jquick@cloudflare.com>"
+    }
+  }
+}
