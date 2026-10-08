@@ -31,7 +31,7 @@ function loadAdminEditor(): AdminEditor {
   const version = JSON.parse(
     readFileSync(join(dirname(entry), "../package.json"), "utf8")
   ).version;
-  assert.equal(version, "1.0.1");
+  assert.equal(version, "1.2.0");
   const source = readFileSync(entry, "utf8");
   const between = (start: string, end: string): string => {
     const from = source.indexOf(start);
@@ -46,6 +46,7 @@ function loadAdminEditor(): AdminEditor {
     between(`//#region ${path}\n`, "\n//#endregion");
   const core = admin("@tiptap/core");
   const dockerfile = admin("highlight.js/lib/languages/dockerfile");
+  const { FileHtml, FileCss, FileJs, Eye } = admin("@phosphor-icons/react");
   const dependencies = {
     ...core,
     ...admin("@tiptap/pm/state"),
@@ -55,9 +56,16 @@ function loadAdminEditor(): AdminEditor {
     ...admin("@tiptap/pm/transform"),
     ...admin("@tiptap/pm/model"),
     ...admin("@emdash-cms/admin/portable-text-table"),
+    ...admin("@emdash-cms/admin/html-block"),
     ...admin("lowlight"),
+    React$1: admin("react"),
+    FileHtml,
+    FileCss,
+    FileJs,
+    Eye,
     Node: core.Node,
     Node$1: core.Node,
+    Node$2: core.Node,
     Mark: core.Mark,
     mergeAttributes$1: core.mergeAttributes,
     StarterKit: admin("@tiptap/starter-kit").StarterKit,
@@ -84,6 +92,7 @@ function loadAdminEditor(): AdminEditor {
       section("src/components/editor/CodeBlockNode.tsx"),
       section("src/components/editor/CodeMarkExtension.ts"),
       section("src/components/editor/TableExtensions.ts"),
+      section("src/components/editor/EmbedBlockShell.tsx"),
       section("src/components/editor/HtmlBlockNode.tsx"),
       section("src/components/editor/ImageNode.tsx"),
       section("src/components/editor/ordered-list.ts"),
@@ -94,7 +103,8 @@ function loadAdminEditor(): AdminEditor {
         extensions: [
           PortableTextIdentityExtension,
           PortableTextSpanIdentity,
-          StarterKit.configure({
+          PortableTextStarterKit.configure({
+            document: false,
             heading: { levels: [1, 2, 3, 4, 5, 6] },
             codeBlock: false,
             code: false,
@@ -102,6 +112,7 @@ function loadAdminEditor(): AdminEditor {
             link: { openOnClick: false, enableClickSelection: true },
             underline: {}
           }),
+          TopBlockDocument,
           EmDashOrderedList,
           CodeMarkExtension,
           CodeBlockExtension,
@@ -594,7 +605,7 @@ test("all 92 archive posts retain source HTML semantics after conversion to RSS"
   );
 });
 
-test("installed EmDash 1.0.1 admin roundtrip retains source HTML semantics for all 92 archive posts", async (context) => {
+test("installed EmDash 1.2.0 admin roundtrip retains source HTML semantics for all 92 archive posts", async (context) => {
   const posts = await readBlogArchive(
     fileURLToPath(new URL("../", import.meta.url))
   );
@@ -610,11 +621,11 @@ test("installed EmDash 1.0.1 admin roundtrip retains source HTML semantics for a
     );
   }
   context.diagnostic(
-    "Compared source HTML semantics after the actual installed EmDash 1.0.1 admin roundtrip for all 92 posts."
+    "Compared source HTML semantics after the actual installed EmDash 1.2.0 admin roundtrip for all 92 posts."
   );
 });
 
-test("installed EmDash 1.0.1 admin schema preserves native titles, images, and breaks", () => {
+test("installed EmDash 1.2.0 admin schema preserves native titles, images, and breaks", () => {
   const blocks = markdownToBlogPortableText(
     '## Heading\n\n[**`Docs`**](../docs "Docs tooltip").\n\n![alt](./image.gif "Image tooltip")\n\n---\n',
     resolveImage
