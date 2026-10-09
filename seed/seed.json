@@ -54,7 +54,7 @@
             "options": [
               "agents", "ai", "astro", "browser-run", "career", "chatgpt",
               "cloudflare", "cloudflare-workers", "css", "email", "flue",
-              "javascript", "mcp", "misc", "nextjs", "nodejs", "react",
+              "javascript", "mcp", "misc", "nextjs", "nodejs", "react", "security",
               "sveltekit", "tools", "typescript", "vscode", "webmcp"
             ]
           }
