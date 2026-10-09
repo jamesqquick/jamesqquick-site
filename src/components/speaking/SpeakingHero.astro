@@ -43,7 +43,7 @@ function stackFor(index: number, selected: number) {
       <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6 max-w-xl">{title}</h1>
       {
         description ? (
-          <p class="text-lg text-textMuted max-w-xl">{description}</p>
+          <p class="text-lg text-text-muted max-w-xl">{description}</p>
         ) : null
       }
       <div class="mt-8 flex flex-wrap items-center gap-6">
@@ -130,11 +130,11 @@ function stackFor(index: number, selected: number) {
       <div class="mt-7 w-full" aria-live="polite">
         <div class="mx-auto flex w-full justify-center md:max-w-[92%] lg:max-w-[88%]">
           <div class="hero-carousel-meta inline-grid w-full max-w-full grid-cols-[2.75rem_minmax(0,1fr)] gap-x-3 text-left md:max-w-[19rem] sm:gap-x-4 lg:max-w-[20rem]">
-            <div class="flex flex-shrink-0 flex-col items-center pt-1" aria-hidden="true">
+            <div class="flex shrink-0 flex-col items-center pt-1" aria-hidden="true">
               <span
-                class="hero-pin-dot h-3 w-3 flex-shrink-0 rounded-full bg-accent shadow-[0_0_14px_3px_rgba(43,241,181,0.45)] ring-2 ring-accent/30"
+                class="hero-pin-dot h-3 w-3 shrink-0 rounded-full bg-accent shadow-[0_0_14px_3px_rgba(43,241,181,0.45)] ring-2 ring-accent/30"
               />
-              <span class="mt-0.5 h-[22px] w-px flex-shrink-0 bg-gradient-to-b from-accent via-accent/70 to-accent/15 sm:h-6" />
+              <span class="mt-0.5 h-[22px] w-px shrink-0 bg-gradient-to-b from-accent via-accent/70 to-accent/15 sm:h-6" />
             </div>
             <div class="flex min-h-[5rem] min-w-0 flex-col justify-start sm:min-h-[5.25rem]">
               <p
@@ -145,7 +145,7 @@ function stackFor(index: number, selected: number) {
               </p>
               <p
                 data-carousel-location
-                class="mt-1 min-h-[1.25em] text-sm leading-snug text-textMuted sm:text-[0.9375rem]"
+                class="mt-1 min-h-[1.25em] text-sm leading-snug text-text-muted sm:text-[0.9375rem]"
               >
                 {first?.location ?? ""}
               </p>
