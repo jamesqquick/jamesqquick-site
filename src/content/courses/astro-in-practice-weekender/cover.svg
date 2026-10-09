@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title description">
+  <title id="title">Astro in Practice: The Weekender</title>
+  <desc id="description">Editorial course cover in cobalt blue, warm cream, yellow, and tomato red.</desc>
+  <rect width="1600" height="900" fill="#2048bd" />
+  <rect x="54" y="54" width="1492" height="792" fill="#f7f0d9" stroke="#171d2b" stroke-width="12" />
+  <rect x="96" y="96" width="1408" height="132" fill="#f0ca3e" stroke="#171d2b" stroke-width="8" />
+  <text x="132" y="188" fill="#171d2b" font-family="Arial Narrow, Impact, sans-serif" font-size="72" font-weight="900" letter-spacing="7">ASTRO IN PRACTICE</text>
+  <rect x="1190" y="94" width="224" height="224" fill="#b9230c" stroke="#171d2b" stroke-width="8" transform="rotate(7 1302 206)" />
+  <circle cx="1302" cy="206" r="55" fill="#f7f0d9" stroke="#171d2b" stroke-width="8" />
+  <path d="M1302 143l15 43h46l-37 27 14 44-38-27-38 27 15-44-38-27h46z" fill="#f0ca3e" stroke="#171d2b" stroke-width="5" stroke-linejoin="round" />
+  <text x="96" y="584" fill="#171d2b" font-family="Arial Narrow, Impact, sans-serif" font-size="174" font-weight="900" letter-spacing="-5">THE WEEKENDER</text>
+  <line x1="100" y1="654" x2="1500" y2="654" stroke="#171d2b" stroke-width="12" />
+  <rect x="100" y="706" width="916" height="92" fill="#2048bd" stroke="#171d2b" stroke-width="8" />
+  <text x="132" y="769" fill="#f7f0d9" font-family="Arial, sans-serif" font-size="38" font-weight="800" letter-spacing="3">BUILD A LOCAL EVENTS GUIDE</text>
+  <rect x="1062" y="706" width="438" height="92" fill="#f0ca3e" stroke="#171d2b" stroke-width="8" />
+  <text x="1101" y="769" fill="#171d2b" font-family="Arial, sans-serif" font-size="36" font-weight="900" letter-spacing="2">ASTRO 7 + REACT</text>
+</svg>
