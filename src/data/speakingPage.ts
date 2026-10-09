@@ -17,7 +17,7 @@ export interface SpeakingCtaLink {
 }
 
 export interface SpeakingHeroImage {
-  src: string;
+  src: ImageMetadata;
   alt: string;
   /** Conference or event name shown under the hero carousel */
   event: string;

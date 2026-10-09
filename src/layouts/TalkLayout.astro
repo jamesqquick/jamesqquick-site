@@ -15,12 +15,7 @@ export interface Props {
     conferenceLogo: ImageMetadata;
     youTubeVideoId?: string | undefined;
     slidesLink?: string | undefined;
-    coverImage?: {
-      src: string;
-      width: number;
-      height: number;
-      format: "png" | "jpg" | "jpeg" | "tiff" | "webp" | "gif" | "svg" | "avif";
-    };
+    coverImage?: ImageMetadata;
   };
 }
 

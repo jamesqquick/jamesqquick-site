@@ -1,0 +1,15 @@
+---
+import type { ComponentProps } from "astro/types";
+import { emdashComponents } from "emdash/ui";
+import { getBlogHeadingText } from "../utils/blog-headings";
+
+const Block = emdashComponents.block;
+export type Props = ComponentProps<typeof Block>;
+
+const { node } = Astro.props;
+const text = /^h[1-6]$/.test(node.style)
+  ? getBlogHeadingText(node.children)
+  : undefined;
+---
+
+<Block {...Astro.props} data-blog-heading-text={text}><slot /></Block>

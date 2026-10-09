@@ -11,8 +11,16 @@ export interface Props {
   title: string;
   description: string;
   image?: string;
+  canonicalUrl?: string;
+  noIndex?: boolean;
 }
-const { title, description, image: imageProp } = Astro.props;
+const {
+  title,
+  description,
+  image: imageProp,
+  canonicalUrl = Astro.url.href,
+  noIndex = false,
+} = Astro.props;
 const defaultOg = await getImage({ src: defaultOgSource });
 const image = imageProp ?? defaultOg.src;
 ---
@@ -28,10 +36,11 @@ const image = imageProp ?? defaultOg.src;
 <title>{title}</title>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
+{noIndex && <meta name="robots" content="noindex, nofollow" />}
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
-<meta property="og:url" content={Astro.url} />
+<meta property="og:url" content={canonicalUrl} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={new URL(image, Astro.url)} />
@@ -39,14 +48,14 @@ const image = imageProp ?? defaultOg.src;
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={Astro.url} />
+<meta property="twitter:url" content={canonicalUrl} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
 <meta property="twitter:image:alt" content={description} />
 
 <!-- Canonical Link -->
-<link rel="canonical" href={Astro.url} />
+<link rel="canonical" href={canonicalUrl} />
 <script is:inline>
   (function () {
     function resolveTheme() {
@@ -94,7 +103,10 @@ const image = imageProp ?? defaultOg.src;
       function (e) {
         var t = e.target;
         if (!t || !t.closest) return;
-        if (t.closest("#themeToggleDesktop") || t.closest("#themeToggleMobile")) {
+        if (
+          t.closest("#themeToggleDesktop") ||
+          t.closest("#themeToggleMobile")
+        ) {
           e.preventDefault();
           toggleTheme();
         }
@@ -109,5 +121,4 @@ const image = imageProp ?? defaultOg.src;
 <script
   defer
   data-domain="jamesqquick.com"
-  src="https://plausible.io/js/script.js"
-></script>
+  src="https://plausible.io/js/script.js"></script>

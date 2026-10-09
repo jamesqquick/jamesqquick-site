@@ -1,26 +1,94 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "jamesqquick-site",
-  "compatibility_date": "2026-03-17",
+  "main": "./src/worker.ts",
+  "compatibility_date": "2026-09-30",
   "compatibility_flags": ["nodejs_compat"],
+  "dev": {
+    "port": 4355,
+  },
   "assets": {
     "binding": "ASSETS",
-    "directory": "./dist",
-    "not_found_handling": "404-page"
+    "directory": "./dist/client",
+    "not_found_handling": "404-page",
   },
   "send_email": [
     {
-      "name": "EMAIL"
-    }
+      "name": "EMAIL",
+    },
   ],
   "r2_buckets": [
     {
       "binding": "COURSE_BUCKET",
       "bucket_name": "james-q-quick-site-r2-bucket",
-      "remote": true
-    }
+      "remote": true,
+    },
+    {
+      "binding": "MEDIA",
+      "bucket_name": "jamesqquick-site-emdash-media",
+    },
   ],
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "jamesqquick-site-emdash",
+    },
+  ],
+  "triggers": {
+    "crons": ["* * * * *"],
+  },
+  "vars": {
+    "EMDASH_SITE_URL": "https://jamesqquick.com",
+  },
+  "env": {
+    "development": {
+      "name": "jamesqquick-site-development",
+      "send_email": [{ "name": "EMAIL" }],
+      "r2_buckets": [
+        {
+          "binding": "COURSE_BUCKET",
+          "bucket_name": "james-q-quick-site-r2-bucket-development",
+        },
+        {
+          "binding": "MEDIA",
+          "bucket_name": "jamesqquick-site-emdash-development-media",
+        },
+      ],
+      "d1_databases": [
+        {
+          "binding": "DB",
+          "database_name": "jamesqquick-site-emdash-development",
+        },
+      ],
+      "vars": {
+        "EMDASH_SITE_URL": "http://localhost:4355",
+      },
+    },
+    "preview": {
+      "name": "jamesqquick-site-emdash-preview",
+      "send_email": [{ "name": "EMAIL" }],
+      "d1_databases": [
+        {
+          "binding": "DB",
+          "database_name": "jamesqquick-site-emdash-preview",
+        },
+      ],
+      "r2_buckets": [
+        {
+          "binding": "COURSE_BUCKET",
+          "bucket_name": "james-q-quick-site-r2-bucket",
+        },
+        {
+          "binding": "MEDIA",
+          "bucket_name": "jamesqquick-site-emdash-preview-media",
+        },
+      ],
+      "vars": {
+        "EMDASH_SITE_URL": "http://localhost:4355",
+      },
+    },
+  },
   "observability": {
-    "enabled": true
-  }
+    "enabled": true,
+  },
 }

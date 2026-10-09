@@ -7,5 +7,10 @@ package-lock.json
 dist
 .astro
 worktrees/
+.worktrees/
+tmp/
+.emdash/migrations.json
+emdash-env.d.ts
+worker-configuration.d.ts
 src/data/blog/**/.DS_Store
 .impeccable/live/sessions/

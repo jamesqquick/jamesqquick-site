@@ -2,16 +2,16 @@
 import { getSortedBlogPosts } from "../utils/contentCollections";
 import LinkCardList from "./LinkCardList.astro";
 import Section from "../components/Section.astro";
-const posts = await getSortedBlogPosts();
-
-const title = "Blog";
-const description =
-  "Explore my blog for easy-to-follow web development guides and career tips.";
-const subtitle = "Web development articles";
+const posts = (await getSortedBlogPosts()).slice(0, 2).map((post) => ({
+  ...post.data,
+  id: post.id,
+  date: post.data.pubDate,
+  link: `/blog/${post.id}`,
+}));
 ---
 
-<Section title={title} subtitle={subtitle} description={description}>
+<Section>
   <div>
-    <LinkCardList items={posts.slice(0, 2)} />
+    <LinkCardList items={posts} />
   </div>
 </Section>

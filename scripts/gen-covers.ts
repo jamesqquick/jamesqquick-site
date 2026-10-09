@@ -2,7 +2,7 @@ import { readFileSync, writeFileSync } from "fs";
 import { join, dirname } from "path";
 import { glob } from "fs/promises";
 import matter from "gray-matter";
-import { renderCover } from "./ogTemplate.tsx";
+import { renderCover } from "./ogTemplate";
 
 const args = process.argv.slice(2);
 const FORCE = args.includes("--force");

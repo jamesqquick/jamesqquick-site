@@ -1,64 +1,54 @@
-# Astro Starter Kit: Blog
+# jamesqquick.com
 
-```
-npm init astro -- --template blog
-```
+James Quick's personal site, built with Astro 7 and Cloudflare Workers. EmDash serves the server-rendered blog. Astro content collections power the courses, talks, and testimonials.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/blog)
+## Requirements
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+- Node.js 22, as specified in `.nvmrc`
+- pnpm 9.12.0, as specified in `package.json`
 
+## Local development
 
-![blog](https://user-images.githubusercontent.com/4677417/186189140-4ef17aac-c3c9-4918-a8c2-ce86ba1bb394.png)
-
-Features:
-
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and OpenGraph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```
-├── public/
-├── src/
-│   ├── components/
-│   ├── layouts/
-│   └── pages/
-├── astro.config.mjs
-├── README.md
-├── package.json
-└── tsconfig.json
+```sh
+pnpm install
+pnpm exec wrangler types --include-runtime=false
+pnpm dev
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Astro starts at `http://localhost:4355`. Cloudflare bindings are configured in `wrangler.jsonc`.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+To test the built Worker with local bindings, run:
 
-Any static assets, like images, can be placed in the `public/` directory.
+```sh
+pnpm preview
+```
 
-## 🧞 Commands
+`pnpm preview` builds the `preview` environment and starts the Worker at `http://localhost:4355` using local bindings.
 
-All commands are run from the root of the project, from a terminal:
+## Checks
 
-| Command                | Action                                           |
-| :--------------------- | :----------------------------------------------- |
-| `npm install`          | Installs dependencies                            |
-| `npm run dev`          | Starts local dev server at `localhost:3000`      |
-| `npm run build`        | Build your production site to `./dist/`          |
-| `npm run preview`      | Preview your build locally, before deploying     |
-| `npm run astro ...`    | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro --help` | Get help using the Astro CLI                     |
+```sh
+pnpm exec wrangler types --include-runtime=false
+pnpm exec astro check
+pnpm exec tsc --project scripts/tsconfig.json
+pnpm exec tsx --test tests/blog-*.test.ts
+pnpm build
+```
 
-## 👀 Want to learn more?
+## Blog
 
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Published posts come from EmDash. The site serves the listing at `/blog`, post pages at `/blog/{slug}`, the RSS feed at `/rss.xml`, and the blog sitemap at `/sitemap-blog.xml`.
 
-## Credit
+`/robots.txt` advertises `/sitemap-index.xml`, the Astro index for the blog and static-page sitemaps. EmDash's `/sitemap.xml` remains its own blog sitemap endpoint.
 
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+`src/data/blog` is the source archive used by the import and cover-generation scripts. Preview blog pages read from EmDash, not that archive. To inspect an import without writing to the CMS, run:
+
+```sh
+pnpm exec tsx --tsconfig scripts/tsconfig.json scripts/import-blog.ts --dry-run
+```
+
+The cover generator also supports a no-write check:
+
+```sh
+pnpm gen-covers --dry-run
+```

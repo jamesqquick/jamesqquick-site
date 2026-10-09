@@ -8,19 +8,23 @@ export interface Props {
   title?: string;
   description?: string;
   image?: string;
+  canonicalUrl?: string;
+  noIndex?: boolean;
   bottomDivider?: boolean;
 }
 
-const { title, description, image } = Astro.props;
+const { title, description, image, canonicalUrl, noIndex } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en-us">
   <head>
     <BaseHead
       title={title || SITE_TITLE}
       description={description || SITE_DESCRIPTION}
       image={image}
+      canonicalUrl={canonicalUrl}
+      noIndex={noIndex}
     />
   </head>
   <body class="app-shell bg-bg text-text">

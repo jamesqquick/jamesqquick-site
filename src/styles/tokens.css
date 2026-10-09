@@ -1,4 +1,4 @@
-:root {
+.app-shell {
   /* Dark-first defaults to preserve current site baseline during migration */
   --color-accent: #0AFA94;
   --color-accent-hover: #04cd78;
@@ -89,7 +89,7 @@
 
 }
 
-[data-theme="light"] {
+.app-shell[data-theme="light"] {
   --color-accent: #0a7b4b;
   --color-accent-hover: #06753f;
   --color-accent-subtle: rgba(10, 123, 75, 0.14);
