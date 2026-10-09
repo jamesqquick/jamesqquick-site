@@ -1,0 +1,155 @@
+---
+import { Image } from "astro:assets";
+import microsoftLight from "../images/company-logos/microsoft.png";
+import microsoftDark from "../images/company-logos/microsoft-dark.png";
+import cloudflareLight from "../images/company-logos/cloudflare.png";
+import cloudflareDark from "../images/company-logos/cloudflare-dark.png";
+import Section from "./Section.astro";
+
+// NOTE: Sentry, Xata, and Netlify use the Microsoft logo as a placeholder
+// until real logo assets are added to src/images/company-logos/.
+// Replace the `light`/`dark` imports below once the assets exist:
+//   sentry.png / sentry-dark.png
+//   xata.png / xata-dark.png
+//   netlify.png / netlify-dark.png
+const companies = [
+  {
+    name: "Microsoft",
+    light: microsoftLight,
+    dark: microsoftDark,
+    classPrefix: "brand-microsoft",
+  },
+  {
+    name: "Sentry",
+    light: microsoftLight,
+    dark: microsoftDark,
+    classPrefix: "brand-sentry",
+  },
+  {
+    name: "Xata",
+    light: microsoftLight,
+    dark: microsoftDark,
+    classPrefix: "brand-xata",
+  },
+  {
+    name: "Cloudflare",
+    light: cloudflareLight,
+    dark: cloudflareDark,
+    classPrefix: "brand-cloudflare",
+  },
+  {
+    name: "Netlify",
+    light: microsoftLight,
+    dark: microsoftDark,
+    classPrefix: "brand-netlify",
+  },
+];
+---
+
+<Section tone="base" paddingY="half">
+  <div class="mx-auto max-w-3xl text-center">
+    <p class="ds-kicker text-accent mb-3">Trusted by developer-first companies</p>
+    <h2 class="text-3xl font-bold md:text-5xl mb-4">
+      Consulting &amp; content partnerships
+    </h2>
+    <p class="text-base leading-relaxed text-textMuted md:text-lg">
+      Beyond my full-time roles, I partner with developer-focused companies as a
+      consultant and content creator, building tutorials, demos, and videos that
+      help developers get the most out of their products. I've created content
+      for teams like Microsoft, Sentry, Xata, Cloudflare, and Netlify, much of it
+      on <a
+        href="https://www.youtube.com/c/jamesqquick"
+        class="text-accent underline-offset-4 hover:underline"
+        target="_blank"
+        rel="noopener noreferrer">my YouTube channel</a
+      >.
+    </p>
+  </div>
+
+  <div class="brand-grid">
+    {
+      companies.map((company) => (
+        <div class="brand-item">
+          <Image
+            class={`${company.classPrefix} ${company.classPrefix}--dark-theme h-10 w-auto object-contain`}
+            src={company.light}
+            alt={`${company.name} logo`}
+            width={company.light.width}
+            height={company.light.height}
+          />
+          <Image
+            class={`${company.classPrefix} ${company.classPrefix}--light-theme h-10 w-auto object-contain`}
+            src={company.dark}
+            alt={`${company.name} logo`}
+            width={company.dark.width}
+            height={company.dark.height}
+          />
+        </div>
+      ))
+    }
+  </div>
+</Section>
+
+<style is:global>
+  /* ---- Brand logo grid ---- */
+  .brand-grid {
+    margin-top: 3rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2.5rem 3rem;
+    align-items: center;
+    justify-items: center;
+  }
+
+  @media (min-width: 640px) {
+    .brand-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 768px) {
+    .brand-grid {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+  }
+
+  .brand-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.5rem;
+  }
+
+  /* ---- Dark / light logo toggling ---- */
+  .brand-microsoft--light-theme,
+  .brand-sentry--light-theme,
+  .brand-xata--light-theme,
+  .brand-cloudflare--light-theme,
+  .brand-netlify--light-theme {
+    display: none;
+  }
+
+  .brand-microsoft--dark-theme,
+  .brand-sentry--dark-theme,
+  .brand-xata--dark-theme,
+  .brand-cloudflare--dark-theme,
+  .brand-netlify--dark-theme {
+    display: block;
+  }
+
+  [data-theme="light"] .brand-microsoft--dark-theme,
+  [data-theme="light"] .brand-sentry--dark-theme,
+  [data-theme="light"] .brand-xata--dark-theme,
+  [data-theme="light"] .brand-cloudflare--dark-theme,
+  [data-theme="light"] .brand-netlify--dark-theme {
+    display: none;
+  }
+
+  [data-theme="light"] .brand-microsoft--light-theme,
+  [data-theme="light"] .brand-sentry--light-theme,
+  [data-theme="light"] .brand-xata--light-theme,
+  [data-theme="light"] .brand-cloudflare--light-theme,
+  [data-theme="light"] .brand-netlify--light-theme {
+    display: block;
+  }
+</style>
