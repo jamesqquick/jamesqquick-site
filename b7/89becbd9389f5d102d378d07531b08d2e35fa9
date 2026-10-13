@@ -1,0 +1,21 @@
+src/components/Pagination.astro
+  s_cc493a4fc3a16d::t_75ac945fc96a44 2,6-8,11,14-25,27-34
+tests/blog-pagination.test.ts
+  s_cc493a4fc3a16d::t_0576c0c67eeb27 1-80
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "b789becbd9389f5d102d378d07531b08d2e35fa9",
+  "prompts": {},
+  "sessions": {
+    "s_cc493a4fc3a16d": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_eca88cdbeffeURPLZYMP99Y68u",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "James Quick <jquick@cloudflare.com>"
+    }
+  }
+}
