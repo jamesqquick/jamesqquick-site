@@ -1,40 +1,34 @@
 ---
-import Button, { ButtonType } from "./Button.astro";
-import { Icon } from "astro-icon/components";
+import Button from "./Button.astro";
 
 export interface Props {
   currentPage: number;
-  lastPage: number;
-  next: string | undefined;
-  prev: string | undefined;
+  next?: string;
+  prev?: string;
+  ariaLabel?: string;
 }
 
-const { currentPage, lastPage, next, prev } = Astro.props;
+const { currentPage, next, prev, ariaLabel = "Pagination" } = Astro.props;
 ---
 
-<div class="flex justify-between sm:flex-row flex-col gap-2">
-  {
-    currentPage > 1 ? (
-      <Button
-        classStr={currentPage <= 1 ? "invisible" : ""}
-        isLink={true}
-        newTab={false}
-        href={prev}
-        hasOutline={false}
-        type={ButtonType.TERTIARY}
+{
+  (prev || next) && (
+    <nav
+      aria-label={ariaLabel}
+      class="grid grid-cols-2 items-center gap-3 sm:grid-cols-[1fr_auto_1fr]"
+    >
+      <div class="col-start-1 row-start-2 justify-self-start sm:row-start-1">
+        {prev && <Button text="Previous" isLink={true} href={prev} />}
+      </div>
+      <span
+        aria-current="page"
+        class="col-span-2 col-start-1 row-start-1 text-center text-text-muted sm:col-span-1 sm:col-start-2"
       >
-        <Icon name="mdi:arrow-left" class="w-6" /> Prev
-      </Button>
-    ) : (
-      <div />
-    )
-  }
-
-  {
-    currentPage < lastPage && (
-      <Button text="Next" isLink={true} newTab={false} href={next} >
-        <Icon name="mdi:arrow-right" class="w-6" />
-      </Button>
-    )
-  }
-</div>
+        Page {currentPage}
+      </span>
+      <div class="col-start-2 row-start-2 justify-self-end sm:col-start-3 sm:row-start-1">
+        {next && <Button text="Next" isLink={true} href={next} />}
+      </div>
+    </nav>
+  )
+}

@@ -4,6 +4,7 @@ import {
   type ContentEntry,
   type InferCollectionData,
 } from "emdash";
+import { BLOG_PAGE_SIZE } from "./blog-pagination";
 
 type BlogData = InferCollectionData<"blog">;
 
@@ -29,18 +30,32 @@ export class BlogEntryDataError extends Error {
   }
 }
 
-export async function getPublishedBlogPosts(limit = 50): Promise<BlogEntry[]> {
+export interface PublishedBlogPage {
+  entries: BlogEntry[];
+  hasMore: boolean;
+}
+
+export async function getPublishedBlogPage(
+  page: number
+): Promise<PublishedBlogPage> {
   const result = await getEmDashCollection("blog", {
     status: "published",
-    limit,
+    limit: BLOG_PAGE_SIZE,
+    offset: (page - 1) * BLOG_PAGE_SIZE,
     orderBy: { published_at: "desc" },
   });
 
   if (result.error) {
-    throw new BlogQueryError("list published entries", result.error);
+    throw new BlogQueryError(
+      `list published entries for page ${page}`,
+      result.error
+    );
   }
 
-  return result.entries;
+  return {
+    entries: result.entries,
+    hasMore: result.hasMore === true,
+  };
 }
 
 export async function getAllPublishedBlogPosts(): Promise<BlogEntry[]> {
