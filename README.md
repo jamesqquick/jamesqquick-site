@@ -35,9 +35,17 @@ pnpm exec tsx --test tests/blog-*.test.ts
 pnpm build
 ```
 
+After building, run the pagination tests against the compiled Worker and isolated local D1 databases:
+
+```sh
+BLOG_PAGINATION_WORKER_TESTS=1 pnpm exec tsx --test tests/blog-pagination-worker.test.ts
+```
+
 ## Blog
 
 Published posts come from EmDash. The site serves the listing at `/blog`, post pages at `/blog/{slug}`, the RSS feed at `/rss.xml`, and the blog sitemap at `/sitemap-blog.xml`.
+
+The blog listing shows 12 published posts per page, newest first. Previous and Next links above and below the cards lead to `/blog?page=2` and later pages. Page one uses `/blog`; invalid and out-of-range pages return HTTP 404.
 
 `/robots.txt` advertises `/sitemap-index.xml`, the Astro index for the blog and static-page sitemaps. EmDash's `/sitemap.xml` remains its own blog sitemap endpoint.
 

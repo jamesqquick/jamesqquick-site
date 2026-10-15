@@ -1,19 +1,72 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import LinkCardList from "../components/LinkCardList.astro";
+import Pagination from "../components/Pagination.astro";
 import Section from "../components/Section.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import Button from "../components/Button.astro";
 import HeroSection from "@components/HeroSection.astro";
 import {
+  BlogQueryError,
   getBlogPostDate,
   getBlogPostPath,
   getBlogSlug,
-  getPublishedBlogPosts,
+  getPublishedBlogPage,
+  type PublishedBlogPage,
 } from "../utils/emdash-blog";
+import { getBlogPagePath, parseBlogPage } from "../utils/blog-pagination";
 
 export const prerender = false;
 
-const posts = await getPublishedBlogPosts(50);
-const formattedPosts = posts.map((post) => {
+const requestedPage = parseBlogPage(Astro.url.searchParams);
+
+if (requestedPage !== null && Astro.url.searchParams.has("page")) {
+  if (
+    requestedPage === 1 ||
+    Astro.url.searchParams.get("page") !== String(requestedPage)
+  ) {
+    const url = new URL(Astro.url);
+    if (requestedPage === 1) url.searchParams.delete("page");
+    else url.searchParams.set("page", String(requestedPage));
+    return Astro.redirect(`${url.pathname}${url.search}`, 301);
+  }
+}
+
+const currentPage = requestedPage ?? 1;
+let result: PublishedBlogPage = { entries: [], hasMore: false };
+let loadFailed = false;
+
+if (requestedPage !== null) {
+  try {
+    result = await getPublishedBlogPage(requestedPage);
+  } catch (error) {
+    if (!(error instanceof BlogQueryError)) throw error;
+    console.error(error);
+    Astro.response.status = 500;
+    loadFailed = true;
+  }
+}
+
+const notFound =
+  !loadFailed &&
+  (requestedPage === null || (currentPage > 1 && result.entries.length === 0));
+
+if (notFound) Astro.response.status = 404;
+
+const title = loadFailed
+  ? "Blog unavailable | James Q Quick"
+  : notFound
+    ? "404 | James Q Quick"
+    : currentPage === 1
+      ? "Blog | James Q Quick"
+      : `Blog - Page ${currentPage} | James Q Quick`;
+const canonicalUrl = new URL(
+  getBlogPagePath(currentPage),
+  Astro.site ?? Astro.url
+).href;
+const prev = currentPage > 1 ? getBlogPagePath(currentPage - 1) : undefined;
+const next = result.hasMore ? getBlogPagePath(currentPage + 1) : undefined;
+const formattedPosts = result.entries.map((post) => {
   const slug = getBlogSlug(post);
   return {
     id: slug,
@@ -26,16 +79,66 @@ const formattedPosts = posts.map((post) => {
 });
 ---
 
-<BaseLayout title="Blog | James Q Quick">
-  <HeroSection
-    title="Blog"
-    hasFullHeight={false}
-    size="large"
-    classStr="pt-10 pb-4 md:pt-12 md:pb-6 lg:pt-14 lg:pb-8"
-    subtitle="Articles for web developers!"
-    description="I write about modern web development, developer experience, careers, and more!"
-    h1AriaLabel="Blog | James Q Quick"
-  />
+<BaseLayout
+  title={title}
+  canonicalUrl={notFound || loadFailed ? undefined : canonicalUrl}
+  noIndex={notFound || loadFailed}
+>
+  {
+    notFound || loadFailed ? (
+      <Section>
+        <SectionHeader
+          title={loadFailed ? "Blog unavailable" : "404"}
+          subtitle={
+            loadFailed
+              ? "Unable to load posts right now. Please try again."
+              : "The blog page you are looking for does not exist"
+          }
+          variant="secondary"
+        />
+        <Button
+          text={loadFailed ? "Try again" : "Back to blog"}
+          isLink={true}
+          href={loadFailed ? getBlogPagePath(currentPage) : "/blog"}
+        />
+      </Section>
+    ) : (
+      <>
+        <HeroSection
+          title="Blog"
+          hasFullHeight={false}
+          size="large"
+          classStr="pt-10 pb-4 md:pt-12 md:pb-6 lg:pt-14 lg:pb-8"
+          subtitle="Articles for web developers!"
+          description="I write about modern web development, developer experience, careers, and more!"
+          h1AriaLabel={title}
+        />
+        <Section tone="base" paddingY="compact">
+          {formattedPosts.length > 0 ? (
+            <>
+              <div class="mb-8">
+                <Pagination
+                  currentPage={currentPage}
+                  prev={prev}
+                  next={next}
+                  ariaLabel="Blog pagination, top"
+                />
+              </div>
+              <LinkCardList items={formattedPosts} />
+              <Pagination
+                currentPage={currentPage}
+                prev={prev}
+                next={next}
+                ariaLabel="Blog pagination, bottom"
+              />
+            </>
+          ) : (
+            <p class="text-text-muted">No posts published yet.</p>
+          )}
+        </Section>
+      </>
+    )
+  }
   <!-- <Section tone="elevated" paddingY="default">
     <FeaturedSplitSection
     image={featuredPost.data.coverImage}
@@ -45,7 +148,4 @@ const formattedPosts = posts.map((post) => {
     date={featuredPost.data.pubDate}
   />
   </Section> -->
-  <Section tone="base" paddingY="compact">
-    <LinkCardList items={formattedPosts} />
-  </Section>
 </BaseLayout>
