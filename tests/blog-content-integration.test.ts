@@ -31,7 +31,7 @@ function loadAdminEditor(): AdminEditor {
   const version = JSON.parse(
     readFileSync(join(dirname(entry), "../package.json"), "utf8")
   ).version;
-  assert.equal(version, "1.2.0");
+  assert.equal(version, "1.3.0");
   const source = readFileSync(entry, "utf8");
   const between = (start: string, end: string): string => {
     const from = source.indexOf(start);
@@ -605,7 +605,7 @@ test("all 92 archive posts retain source HTML semantics after conversion to RSS"
   );
 });
 
-test("installed EmDash 1.2.0 admin roundtrip retains source HTML semantics for all 92 archive posts", async (context) => {
+test("installed EmDash 1.3.0 admin roundtrip retains source HTML semantics for all 92 archive posts", async (context) => {
   const posts = await readBlogArchive(
     fileURLToPath(new URL("../", import.meta.url))
   );
@@ -621,11 +621,11 @@ test("installed EmDash 1.2.0 admin roundtrip retains source HTML semantics for a
     );
   }
   context.diagnostic(
-    "Compared source HTML semantics after the actual installed EmDash 1.2.0 admin roundtrip for all 92 posts."
+    "Compared source HTML semantics after the actual installed EmDash 1.3.0 admin roundtrip for all 92 posts."
   );
 });
 
-test("installed EmDash 1.2.0 admin schema preserves native titles, images, and breaks", () => {
+test("installed EmDash 1.3.0 admin schema preserves native titles, images, and breaks", () => {
   const blocks = markdownToBlogPortableText(
     '## Heading\n\n[**`Docs`**](../docs "Docs tooltip").\n\n![alt](./image.gif "Image tooltip")\n\n---\n',
     resolveImage
