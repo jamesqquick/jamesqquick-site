@@ -1,0 +1,21 @@
+package.json
+  s_6821d8cb9d6735::t_4b76d3396752af 49,59
+pnpm-lock.yaml
+  s_6821d8cb9d6735::t_55e415afd6c3b8 25-26,55-56,803-804,809-810,818-819,824-825,846-847,852-853,2855-2856,6079,6094,6096,6166,6178,6194,6200,6238,6247,8338,8345-8348,8350,8357
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "a14dc9d03089af554cd2d4efa418de6d8b33b99c",
+  "prompts": {},
+  "sessions": {
+    "s_6821d8cb9d6735": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_ebebca355ffeKbPClqI1rQoJeM",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "James Quick <jquick@cloudflare.com>"
+    }
+  }
+}
