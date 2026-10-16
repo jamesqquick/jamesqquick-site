@@ -1,0 +1,23 @@
+README.md
+  s_ccea9bc02ce134::t_13ca5e521e42b0 28-50,53-54,56
+astro.config.mjs
+  s_ccea9bc02ce134::t_9d673f5bd7b018 8,54-62
+tsconfig.json
+  s_ccea9bc02ce134::t_005bf47cd9fff9 9
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "26b6098d5587d56c3cfd885ece829a2669c8bade",
+  "prompts": {},
+  "sessions": {
+    "s_ccea9bc02ce134": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_ee3a44b48ffetbzZ1c4Sk2F8vE",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "James Quick <jquick@cloudflare.com>"
+    }
+  }
+}
