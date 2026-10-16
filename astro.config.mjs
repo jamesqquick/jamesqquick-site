@@ -5,6 +5,7 @@ import cloudflare from "@astrojs/cloudflare";
 import react from "@astrojs/react";
 import emdash from "emdash/astro";
 import { d1, r2 } from "@emdash-cms/cloudflare";
+import { cloudflareEmail } from "@emdash-cms/cloudflare/plugins";
 import svelte from "@astrojs/svelte";
 import icon from "astro-icon";
 
@@ -50,6 +51,15 @@ export default defineConfig({
     emdash({
       database: d1({ binding: "DB" }),
       storage: r2({ binding: "MEDIA" }),
+      plugins: [
+        cloudflareEmail({
+          binding: "EMAIL",
+          from: {
+            email: "login@jamesqquick.com",
+            name: "James Q Quick",
+          },
+        }),
+      ],
     }),
     icon({
       include: {
