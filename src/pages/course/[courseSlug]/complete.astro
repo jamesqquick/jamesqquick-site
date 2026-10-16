@@ -24,13 +24,13 @@ if (!course) {
     <Section classStr="pt-16 pb-24">
       <div class="max-w-2xl mx-auto text-center space-y-6">
         <h1 class="text-4xl font-bold font-display text-text">Course Complete</h1>
-        <p class="text-textMuted">Great work finishing {course.data.title}.</p>
+        <p class="text-text-muted">Great work finishing {course.data.title}.</p>
         <canvas id="fireworks" class="fixed inset-0 pointer-events-none"></canvas>
         <div class="border border-border rounded-xl p-6 bg-surface/80">
-          <p class="text-sm text-textMuted">Certificate</p>
+          <p class="text-sm text-text-muted">Certificate</p>
           <p id="cert-course" class="text-xl font-semibold font-display text-text mt-2">{course.data.title}</p>
-          <p id="cert-date" class="text-sm text-textMuted mt-2"></p>
-          <p id="cert-id" class="text-xs text-textMuted mt-3"></p>
+          <p id="cert-date" class="text-sm text-text-muted mt-2"></p>
+          <p id="cert-id" class="text-xs text-text-muted mt-3"></p>
         </div>
         <div class="flex gap-3 justify-center">
           <a href="/courses">Browse More Courses</a>
