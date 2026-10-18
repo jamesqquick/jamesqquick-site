@@ -1,0 +1,29 @@
+README.md
+  s_b396a1ef322d0f::t_04e7991aff2760 76-77
+astro.config.mjs
+  s_b396a1ef322d0f::t_68154438885b34 5,55-57,99-109
+src/pages/blog.astro
+  s_b396a1ef322d0f::t_6e41c8cabc5f2a 18,37,57-63
+src/pages/blog/[...slug].astro
+  s_b396a1ef322d0f::t_8f711cae10e64c 10,15,17,19-25
+src/pages/rss.xml.ts
+  s_b396a1ef322d0f::t_359d35f9d8f164 22,24-25
+src/utils/emdash-blog.ts
+  s_b396a1ef322d0f::t_f0e78be1952711 4,37-68,91,95,97,113,117,120,137-141,145
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "46d9dbd6fd75faa05b60e2fac071218564c900c0",
+  "prompts": {},
+  "sessions": {
+    "s_b396a1ef322d0f": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_eca6b9598ffeFnj0kOPPkHtM1N",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "James Quick <jquick@cloudflare.com>"
+    }
+  }
+}
