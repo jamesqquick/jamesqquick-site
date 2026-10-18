@@ -20,7 +20,6 @@ if (entry) {
   if (Astro.cache?.enabled) Astro.cache.set(cacheHint);
 } else {
   Astro.response.status = 404;
-  // A cached 404 would hide a post published later at this URL.
   skipSharedCache(Astro);
 }
 ---

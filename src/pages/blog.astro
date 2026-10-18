@@ -55,7 +55,6 @@ const notFound =
 if (notFound) Astro.response.status = 404;
 
 if (notFound || loadFailed) {
-  // Error pages must not outlive the problem or hide posts published later.
   skipSharedCache(Astro);
 } else if (Astro.cache?.enabled) {
   Astro.cache.set(result.cacheHint);

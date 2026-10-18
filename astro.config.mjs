@@ -52,8 +52,6 @@ export default defineConfig({
     emdash({
       database: d1({ binding: "DB" }),
       storage: r2({ binding: "MEDIA" }),
-      // Keep public HTML identical for every visitor so Workers Cache can share
-      // it. Signed-in editors get an Edit pill that opens a fresh `_edit` render.
       toolbar: "client",
       plugins: [
         cloudflareEmail({
@@ -96,9 +94,6 @@ export default defineConfig({
   ],
   output: "server",
   adapter: cloudflare({ remoteBindings: false }),
-  // Workers Cache serves blog responses without running the Worker. Blog pages
-  // tag responses with EmDash cache hints, and EmDash purges those tags when
-  // content is published, edited, scheduled, or deleted.
   cache: {
     provider: cacheCloudflare(),
   },
