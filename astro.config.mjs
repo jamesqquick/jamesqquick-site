@@ -2,6 +2,7 @@ import { defineConfig, envField } from "astro/config";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import cloudflare from "@astrojs/cloudflare";
+import { cacheCloudflare } from "@astrojs/cloudflare/cache";
 import react from "@astrojs/react";
 import emdash from "emdash/astro";
 import { d1, r2 } from "@emdash-cms/cloudflare";
@@ -51,6 +52,7 @@ export default defineConfig({
     emdash({
       database: d1({ binding: "DB" }),
       storage: r2({ binding: "MEDIA" }),
+      toolbar: "client",
       plugins: [
         cloudflareEmail({
           binding: "EMAIL",
@@ -92,6 +94,14 @@ export default defineConfig({
   ],
   output: "server",
   adapter: cloudflare({ remoteBindings: false }),
+  cache: {
+    provider: cacheCloudflare(),
+  },
+  routeRules: {
+    "/blog": { maxAge: 86400 },
+    "/blog/[...slug]": { maxAge: 86400 },
+    "/rss.xml": { maxAge: 86400 },
+  },
   experimental: {
     contentIntellisense: true,
   },

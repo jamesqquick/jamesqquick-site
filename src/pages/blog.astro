@@ -15,6 +15,7 @@ import {
   type PublishedBlogPage,
 } from "../utils/emdash-blog";
 import { getBlogPagePath, parseBlogPage } from "../utils/blog-pagination";
+import { skipSharedCache } from "../utils/route-cache";
 
 export const prerender = false;
 
@@ -33,7 +34,7 @@ if (requestedPage !== null && Astro.url.searchParams.has("page")) {
 }
 
 const currentPage = requestedPage ?? 1;
-let result: PublishedBlogPage = { entries: [], hasMore: false };
+let result: PublishedBlogPage = { entries: [], hasMore: false, cacheHint: {} };
 let loadFailed = false;
 
 if (requestedPage !== null) {
@@ -52,6 +53,12 @@ const notFound =
   (requestedPage === null || (currentPage > 1 && result.entries.length === 0));
 
 if (notFound) Astro.response.status = 404;
+
+if (notFound || loadFailed) {
+  skipSharedCache(Astro);
+} else if (Astro.cache?.enabled) {
+  Astro.cache.set(result.cacheHint);
+}
 
 const title = loadFailed
   ? "Blog unavailable | James Q Quick"
