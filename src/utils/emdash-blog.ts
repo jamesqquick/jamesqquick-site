@@ -1,6 +1,7 @@
 import {
   getEmDashCollection,
   getEmDashEntry,
+  type CacheHint,
   type ContentEntry,
   type InferCollectionData,
 } from "emdash";
@@ -33,6 +34,38 @@ export class BlogEntryDataError extends Error {
 export interface PublishedBlogPage {
   entries: BlogEntry[];
   hasMore: boolean;
+  cacheHint: CacheHint;
+}
+
+export interface PublishedBlogPosts {
+  entries: BlogEntry[];
+  cacheHint: CacheHint;
+}
+
+export interface BlogPostResult {
+  entry: BlogEntry | null;
+  isPreview: boolean;
+  cacheHint: CacheHint;
+}
+
+export function mergeCacheHints(hints: CacheHint[]): CacheHint {
+  const tags = new Set<string>();
+  let lastModified: Date | undefined;
+
+  for (const hint of hints) {
+    for (const tag of hint.tags ?? []) tags.add(tag);
+    if (
+      hint.lastModified &&
+      (!lastModified || hint.lastModified > lastModified)
+    ) {
+      lastModified = hint.lastModified;
+    }
+  }
+
+  return {
+    ...(tags.size > 0 ? { tags: [...tags] } : {}),
+    ...(lastModified ? { lastModified } : {}),
+  };
 }
 
 export async function getPublishedBlogPage(
@@ -55,11 +88,13 @@ export async function getPublishedBlogPage(
   return {
     entries: result.entries,
     hasMore: result.hasMore === true,
+    cacheHint: result.cacheHint,
   };
 }
 
-export async function getAllPublishedBlogPosts(): Promise<BlogEntry[]> {
+export async function getAllPublishedBlogPosts(): Promise<PublishedBlogPosts> {
   const entries: BlogEntry[] = [];
+  const cacheHints: CacheHint[] = [];
   let cursor: string | undefined;
 
   do {
@@ -75,15 +110,14 @@ export async function getAllPublishedBlogPosts(): Promise<BlogEntry[]> {
     }
 
     entries.push(...result.entries);
+    cacheHints.push(result.cacheHint);
     cursor = result.nextCursor;
   } while (cursor);
 
-  return entries;
+  return { entries, cacheHint: mergeCacheHints(cacheHints) };
 }
 
-export async function getBlogPostBySlug(
-  slug: string
-): Promise<{ entry: BlogEntry | null; isPreview: boolean }> {
+export async function getBlogPostBySlug(slug: string): Promise<BlogPostResult> {
   const candidates = [slug];
   try {
     const decodedSlug = decodeURIComponent(slug);
@@ -100,11 +134,15 @@ export async function getBlogPostBySlug(
     }
 
     if (result.entry) {
-      return { entry: result.entry, isPreview: result.isPreview };
+      return {
+        entry: result.entry,
+        isPreview: result.isPreview,
+        cacheHint: result.cacheHint,
+      };
     }
   }
 
-  return { entry: null, isPreview: false };
+  return { entry: null, isPreview: false, cacheHint: {} };
 }
 
 export function getBlogSlug(entry: BlogEntry): string {

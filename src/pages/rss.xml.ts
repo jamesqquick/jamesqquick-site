@@ -19,9 +19,10 @@ function enclosureMime(mimeType: string | undefined): string {
     : "image/jpeg";
 }
 
-export const GET: APIRoute = async ({ locals, url }) => {
+export const GET: APIRoute = async ({ cache, locals, url }) => {
   const site = import.meta.env.SITE ?? url.origin;
-  const blogs = await getAllPublishedBlogPosts();
+  const { entries: blogs, cacheHint } = await getAllPublishedBlogPosts();
+  if (cache?.enabled) cache.set(cacheHint);
   const items = blogs.map((post) => {
     const slug = getBlogSlug(post);
     const link = getBlogPostPath(slug);

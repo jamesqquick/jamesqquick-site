@@ -7,15 +7,22 @@ import BlogBlock from "@components/BlogBlock.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import BlogPostLayout from "../../layouts/BlogPostLayout.astro";
 import { getBlogPostBySlug } from "../../utils/emdash-blog";
+import { skipSharedCache } from "../../utils/route-cache";
 
 export const prerender = false;
 
 const slug = Astro.params.slug;
-const { entry, isPreview } = slug
+const { entry, isPreview, cacheHint } = slug
   ? await getBlogPostBySlug(slug)
-  : { entry: null, isPreview: false };
+  : { entry: null, isPreview: false, cacheHint: {} };
 
-if (!entry) Astro.response.status = 404;
+if (entry) {
+  if (Astro.cache?.enabled) Astro.cache.set(cacheHint);
+} else {
+  Astro.response.status = 404;
+  // A cached 404 would hide a post published later at this URL.
+  skipSharedCache(Astro);
+}
 ---
 
 {

@@ -73,6 +73,8 @@ Published posts come from EmDash. The site serves the listing at `/blog`, post p
 
 The blog listing shows 12 published posts per page, newest first. Previous and Next links above and below the cards lead to `/blog?page=2` and later pages. Page one uses `/blog`; invalid and out-of-range pages return HTTP 404.
 
+`/blog`, `/blog?page=N`, `/blog/{slug}`, and `/rss.xml` are cached in Workers Cache for up to one day. Each response carries EmDash cache tags, and EmDash purges those tags when a post is published, unpublished, edited, scheduled, or deleted. Blog 404s and load failures send `Cache-Control: no-store`. Every deploy starts with an empty cache because the Worker version is part of the cache key. Signed-in editors see the shared public page with an **Edit** pill; selecting it reloads the page with `?_edit` and the full EmDash toolbar.
+
 `/robots.txt` advertises `/sitemap-index.xml`, the Astro index for the blog and static-page sitemaps. EmDash's `/sitemap.xml` remains its own blog sitemap endpoint.
 
 `src/data/blog` is the source archive used by the import and cover-generation scripts. Preview blog pages read from EmDash, not that archive. To inspect an import without writing to the CMS, run:
