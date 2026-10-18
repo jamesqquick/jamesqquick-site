@@ -1,0 +1,282 @@
+---
+import Section from "./Section.astro";
+import Button, { ButtonType } from "./Button.astro";
+
+const projects = [
+  {
+    key: "quick-cuts",
+    name: "Quick Cuts",
+    description: "Collaborative video review for teams and clients.",
+    preview: "Client review / 3 comments / 2 approvals",
+    tags: ["Cloudflare", "Realtime", "Video"],
+    actionLabel: "Try it",
+    actionUrl: "https://quickcuts.app",
+    sourceUrl: "https://github.com/jamesqquick/quickcut",
+  },
+  {
+    key: "quicktab",
+    name: "QuickTab",
+    description: "A faster, window-level Command-Tab for macOS.",
+    preview: "Search windows... / Code / Browser",
+    tags: ["Swift", "macOS", "Privacy"],
+    actionLabel: "Download",
+    actionUrl: "https://github.com/jamesqquick/QuickTab/releases/latest/download/QuickTab.dmg",
+    sourceUrl: "https://github.com/jamesqquick/QuickTab",
+    download: true,
+  },
+  {
+    key: "quickshot",
+    name: "QuickShot",
+    description: "Turn code into polished, shareable screenshots.",
+    preview: "function render(code) / MCP",
+    tags: ["Astro", "Shiki", "MCP"],
+    actionLabel: "Try it",
+    actionUrl: "https://quickshot.examples.workers.dev",
+    sourceUrl: "https://github.com/jamesqquick/quickshot",
+  },
+  {
+    key: "dropcast",
+    name: "Dropcast",
+    description: "Turn a handful of links into a private podcast feed.",
+    preview: "Your morning rundown / 18:24",
+    tags: ["Workers AI", "Workflows", "R2"],
+    actionLabel: "Try it",
+    actionUrl: "https://dropcast.examples.workers.dev",
+  },
+  {
+    key: "quickspense",
+    name: "Quickspense",
+    description: "Scan receipts, review the AI extraction, and track expenses.",
+    preview: "March spending / 3 need review",
+    tags: ["Workers AI", "D1", "Workflows"],
+    actionLabel: "Try it",
+    actionUrl: "https://quickspense.com",
+    sourceUrl: "https://github.com/jamesqquick/quickspense",
+  },
+];
+---
+
+<Section tone="elevated" paddingY="spacious" id="projects">
+  <div class="projects-showcase" data-projects-showcase>
+    <div class="projects-heading">
+      <div>
+        <p class="ds-kicker text-accent mb-3">Projects</p>
+        <h2 class="mb-4 text-4xl font-bold md:text-6xl">I&apos;m a builder</h2>
+        <p class="max-w-2xl text-base leading-relaxed text-textMuted md:text-lg">
+          A few things I&apos;ve built to make my own workflow faster, clearer, or more fun.
+        </p>
+      </div>
+
+      <div class="projects-terminal" data-project-terminal aria-label="Project list">
+        <div class="terminal-line terminal-command">
+          <span class="terminal-prompt" aria-hidden="true">$</span>
+          <span data-terminal-command>ls projects/</span><span class="terminal-cursor" aria-hidden="true">|</span>
+        </div>
+        <div class="terminal-result" data-terminal-result>quickcut/</div>
+        <div class="terminal-result" data-terminal-result>quicktab/</div>
+        <div class="terminal-result" data-terminal-result>quickshot/</div>
+        <div class="terminal-result" data-terminal-result>dropcast/</div>
+        <div class="terminal-result" data-terminal-result>quickspense/</div>
+      </div>
+    </div>
+
+    <div class="projects-grid">
+      {
+        projects.map((project) => (
+          <article class="project-card">
+            <div
+              class:list={["project-screenshot", `project-screenshot--${project.key}`]}
+              role="img"
+              aria-label={`Placeholder screenshot of ${project.name}`}
+            >
+              <div class="screenshot-label">SCREENSHOT PLACEHOLDER</div>
+              <div class="screenshot-window">
+                <div class="screenshot-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+                <strong>{project.name}</strong>
+                <div class="screenshot-bars" aria-hidden="true"><i></i><i></i><i></i></div>
+                <small>{project.preview}</small>
+              </div>
+            </div>
+            <div class="project-card-copy">
+              <h3>{project.name}</h3>
+              <p>{project.description}</p>
+              <div class="project-tags">
+                {project.tags.map((tag) => <span>{tag}</span>)}
+              </div>
+              <div class="project-actions">
+                <Button
+                  href={project.actionUrl}
+                  isLink={true}
+                  newTab={!project.download}
+                  download={project.download}
+                  text={project.actionLabel}
+                  type={ButtonType.PRIMARY}
+                  classStr="project-primary-action"
+                >
+                  <span aria-hidden="true">-&gt;</span>
+                </Button>
+                {
+                  project.sourceUrl && (
+                    <a
+                      href={project.sourceUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`View ${project.name} on GitHub`}
+                    >GitHub</a>
+                  )
+                }
+              </div>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</Section>
+
+<script>
+  const initializeProjectTerminal = () => {
+    const showcase = document.querySelector<HTMLElement>("[data-projects-showcase]");
+    const terminal = showcase?.querySelector<HTMLElement>("[data-project-terminal]");
+
+    if (!showcase || !terminal || terminal.dataset.initialized === "true") return;
+
+    terminal.dataset.initialized = "true";
+    const command = terminal.querySelector<HTMLElement>("[data-terminal-command]");
+    const results = Array.from(terminal.querySelectorAll<HTMLElement>("[data-terminal-result]"));
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    const showEverything = () => {
+      results.forEach((result) => result.classList.add("is-visible"));
+    };
+
+    const animateTerminal = () => {
+      if (!command || terminal.dataset.animated === "true") return;
+      terminal.dataset.animated = "true";
+
+      if (reducedMotion.matches) {
+        showEverything();
+        return;
+      }
+
+      const fullCommand = "ls projects/";
+      command.textContent = "";
+      let index = 0;
+
+      const typeNextCharacter = () => {
+        command.textContent = fullCommand.slice(0, index + 1);
+        index += 1;
+
+        if (index < fullCommand.length) {
+          window.setTimeout(typeNextCharacter, 48);
+          return;
+        }
+
+        results.forEach((result, resultIndex) => {
+          window.setTimeout(() => result.classList.add("is-visible"), resultIndex * 110 + 180);
+        });
+      };
+
+      typeNextCharacter();
+    };
+
+    if (reducedMotion.matches || !("IntersectionObserver" in window)) {
+      animateTerminal();
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry?.isIntersecting) return;
+        animateTerminal();
+        observer.disconnect();
+      },
+      { threshold: 0.35 },
+    );
+
+    observer.observe(showcase);
+  };
+
+  document.addEventListener("astro:page-load", initializeProjectTerminal);
+  initializeProjectTerminal();
+</script>
+
+<style>
+  .projects-heading {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 20rem;
+    align-items: end;
+    gap: 3.5rem;
+    margin-bottom: 4.5rem;
+  }
+
+  .projects-terminal {
+    padding: 1.125rem 1.25rem;
+    border: 1px solid color-mix(in srgb, var(--color-accent) 36%, transparent);
+    border-radius: var(--radius-card);
+    background: var(--color-bg);
+    box-shadow: var(--shadow-card);
+    color: var(--color-text-subtle);
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    line-height: 1.8;
+  }
+
+  .terminal-line { white-space: nowrap; }
+  .terminal-prompt { margin-right: 0.4rem; color: var(--color-accent); }
+  .terminal-cursor { color: var(--color-accent); animation: terminal-cursor-blink 1s steps(2, start) infinite; }
+  .terminal-result { color: var(--color-text-subtle); opacity: 1; transform: translateY(0); }
+  .projects-terminal:not([data-animated="true"]) .terminal-result { transition: none; }
+  .projects-terminal[data-animated="true"] .terminal-result { opacity: 0; transform: translateY(0.25rem); transition: opacity var(--duration-normal) var(--ease-out), transform var(--duration-normal) var(--ease-out); }
+  .projects-terminal[data-animated="true"] .terminal-result.is-visible { opacity: 1; transform: translateY(0); }
+
+  .projects-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
+  .project-card { min-width: 0; padding: 0.625rem; border: 1px solid var(--color-border); border-radius: var(--radius-card); background: var(--color-surface); transition: transform var(--duration-normal) var(--ease-out), border-color var(--duration-normal) var(--ease-out), background-color var(--duration-normal) var(--ease-out); }
+  .project-card:hover, .project-card:focus-within { transform: translateY(-0.25rem); border-color: var(--color-accent); background: var(--color-surface-hover); }
+  .project-screenshot { position: relative; overflow: hidden; aspect-ratio: 16 / 10; padding: 0.875rem; border: 1px solid var(--color-border-light); border-radius: var(--radius-input); }
+  .project-screenshot::after { content: "PLACEHOLDER"; position: absolute; right: 0.625rem; bottom: 0.5rem; color: color-mix(in srgb, var(--color-text) 45%, transparent); font: 0.5625rem var(--font-mono); letter-spacing: 0.08em; }
+  .project-screenshot--quick-cuts { background: linear-gradient(145deg, var(--color-speaking-subtle), var(--color-section-base)); }
+  .project-screenshot--quicktab { background: linear-gradient(145deg, var(--color-section-light-bg), var(--color-section-base)); }
+  .project-screenshot--quickshot { background: linear-gradient(145deg, var(--color-ai-subtle), var(--color-section-base)); }
+  .project-screenshot--dropcast { background: linear-gradient(145deg, var(--color-speaking-subtle), var(--color-section-base)); }
+  .project-screenshot--quickspense { background: linear-gradient(145deg, var(--color-learning-subtle), var(--color-section-base)); }
+  .screenshot-label { color: var(--color-accent); font: 0.625rem var(--font-mono); letter-spacing: 0.08em; }
+  .screenshot-window { display: flex; flex-direction: column; gap: 0.625rem; margin-top: 1rem; padding: 0.75rem; border: 1px solid var(--color-border); border-radius: var(--radius-input); background: color-mix(in srgb, var(--color-bg) 78%, transparent); }
+  .screenshot-window strong { font-family: var(--font-display); }
+  .screenshot-window small { color: var(--color-text-muted); font: 0.625rem var(--font-mono); }
+  .screenshot-dots { display: flex; gap: 0.3rem; }
+  .screenshot-dots i { width: 0.4rem; height: 0.4rem; border-radius: var(--radius-full); background: var(--color-text-subtle); }
+  .screenshot-bars { display: grid; gap: 0.35rem; }
+  .screenshot-bars i { display: block; height: 0.35rem; border-radius: var(--radius-full); background: var(--color-border); }
+  .screenshot-bars i:first-child { width: 82%; background: var(--color-accent); }
+  .project-card-copy { padding: 1.125rem 0.5rem 0.5rem; }
+  .project-card-copy h3 { margin: 0 0 0.5rem; font-size: 1.45rem; }
+  .project-card-copy p { min-height: 3rem; margin: 0; color: var(--color-text-muted); font-size: 0.875rem; line-height: 1.55; }
+  .project-tags { display: flex; flex-wrap: wrap; gap: 0.375rem; margin-top: 1rem; }
+  .project-tags span { padding: 0.3rem 0.5rem; border: 1px solid var(--color-border); border-radius: var(--radius-full); color: var(--color-text-subtle); font: 0.625rem var(--font-mono); }
+  .project-actions { display: flex; align-items: center; gap: 1rem; margin-top: 1.25rem; padding-top: 0.875rem; border-top: 1px solid var(--color-border-light); }
+  .project-primary-action { font-size: 0.875rem; line-height: 1.25rem; padding: 0.625rem 0.875rem; }
+  .project-actions > a:not(.button-base) { display: inline-flex; align-items: center; min-height: 44px; padding: 0.625rem 0; color: var(--color-text-muted); font: 0.75rem var(--font-mono); }
+  .project-actions > a:not(.button-base):hover { color: var(--color-accent); }
+
+  @keyframes terminal-cursor-blink { 50% { opacity: 0; } }
+
+  @media (max-width: 1023px) {
+    .projects-heading { grid-template-columns: 1fr; gap: 2rem; margin-bottom: 3.5rem; }
+    .projects-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .project-card:last-child { grid-column: span 2; }
+  }
+
+  @media (max-width: 639px) {
+    .projects-heading { gap: 1.5rem; margin-bottom: 2.75rem; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .project-card:last-child { grid-column: auto; }
+    .project-card-copy p { min-height: auto; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .terminal-cursor { animation: none; }
+    .project-card { transition: none; }
+    .projects-terminal[data-animated="true"] .terminal-result { transition: none; }
+  }
+</style>
