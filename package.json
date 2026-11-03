@@ -37,7 +37,7 @@
     "prettier": "^3.9.9",
     "prettier-plugin-astro": "^0.14.1",
     "react": "^19.2.8",
-    "satori": "^0.26.0",
+    "satori": "^0.33.5",
     "tsx": "^4.23.8",
     "typescript": "^5.9.3",
     "wrangler": "^4.145.0"
