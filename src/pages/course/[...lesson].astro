@@ -78,7 +78,7 @@ const hasVideo = Boolean(lesson.data.videoKey || lessonVideoUrl);
       <button
         id="open-sidebar-btn"
         aria-label="Open course navigation"
-        class="inline-flex items-center gap-2 text-sm text-textMuted font-sans"
+        class="inline-flex items-center gap-2 text-sm text-text-muted font-sans"
       >
         <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2">
           <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -92,7 +92,7 @@ const hasVideo = Boolean(lesson.data.videoKey || lessonVideoUrl);
     <div id="sidebar-drawer" class="fixed inset-0 z-50 hidden lg:hidden">
       <div id="sidebar-overlay" class="absolute inset-0 bg-black/40"></div>
       <aside class="absolute left-0 top-0 h-full w-80 max-w-[85vw] overflow-y-auto border-r border-border bg-surface p-5">
-        <button id="close-sidebar-btn" aria-label="Close navigation" class="mb-4 text-sm text-textMuted font-sans">
+        <button id="close-sidebar-btn" aria-label="Close navigation" class="mb-4 text-sm text-text-muted font-sans">
           Close
         </button>
         <Sidebar
@@ -157,7 +157,7 @@ const hasVideo = Boolean(lesson.data.videoKey || lessonVideoUrl);
             <Content components={mdxComponents} />
           </div>
         <div class="mt-8 rounded-xl border border-border p-4 not-prose">
-          <div class="flex items-center justify-between text-sm text-textMuted font-sans">
+          <div class="flex items-center justify-between text-sm text-text-muted font-sans">
             <p>Lesson {currentIndex + 1} of {lessons.length}</p>
             <p>{Math.round(((currentIndex + 1) / lessons.length) * 100)}%</p>
           </div>
@@ -176,7 +176,7 @@ const hasVideo = Boolean(lesson.data.videoKey || lessonVideoUrl);
                   ←
                 </span>
                 <span class="min-w-0">
-                  <span class="block text-xs uppercase tracking-wider text-textMuted">Previous</span>
+                  <span class="block text-xs uppercase tracking-wider text-text-muted">Previous</span>
                   <span class="block truncate text-sm text-text">{prevLesson.data.title}</span>
                 </span>
               </a>
@@ -190,7 +190,7 @@ const hasVideo = Boolean(lesson.data.videoKey || lessonVideoUrl);
                 class="flex items-center justify-between gap-3 rounded-xl border border-border px-4 py-3 font-sans no-underline hover:no-underline transition-colors hover:border-accent"
               >
                 <span class="min-w-0 text-right">
-                  <span class="block text-xs uppercase tracking-wider text-textMuted">Next</span>
+                  <span class="block text-xs uppercase tracking-wider text-text-muted">Next</span>
                   <span class="block truncate text-sm text-text">{nextLesson.data.title}</span>
                 </span>
                 <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-border text-sm text-text">
@@ -203,7 +203,7 @@ const hasVideo = Boolean(lesson.data.videoKey || lessonVideoUrl);
                 class="flex items-center justify-between gap-3 rounded-xl border border-border px-4 py-3 font-sans no-underline hover:no-underline transition-colors hover:border-accent"
               >
                 <span class="min-w-0 text-right">
-                  <span class="block text-xs uppercase tracking-wider text-textMuted">Finish</span>
+                  <span class="block text-xs uppercase tracking-wider text-text-muted">Finish</span>
                   <span class="block truncate text-sm text-text">Complete Course</span>
                 </span>
                 <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-border text-sm text-text">
