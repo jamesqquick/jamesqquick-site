@@ -29,7 +29,7 @@
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.7",
     "@types/sanitize-html": "^2.16.2",
-    "astro": "^7.3.5",
+    "astro": "^7.4.7",
     "autoprefixer": "^10.5.4",
     "gray-matter": "^4.0.3",
     "kysely": "0.29.6",
